@@ -1,0 +1,16 @@
+{
+  "name": "openedge-abl-syntax",
+  "version": "1.0.0",
+  "description": "Textmate grammar for Progress OpenEdge ABL Language",
+  "main": "",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chriscamicas/openedge-abl-syntax.git"
+  },
+  "author": "Christophe Camicas",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/chriscamicas/openedge-abl-syntax/issues"
+  },
+  "homepage": "https://github.com/chriscamicas/openedge-abl-syntax#readme"
+}
