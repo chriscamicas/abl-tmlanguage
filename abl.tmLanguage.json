@@ -53,7 +53,7 @@
       "name": "constant.language.source.abl"
     },
     {
-      "match": "(?i)(\\b(or|and|not|is|eq|ge|ne|le|lt|gt)\\b|(<=|<>|>=|=|\\+| - |/|<|>|,|\\.))",
+      "match": "(?i)(\b(or|and|not|is|eq|ge|ne|le|lt|gt)\b|(<=|<>|>=|=|\\+| - |/|<|>|,|\\.))",
       "name": "keyword.operator.source.abl"
     },
     {
