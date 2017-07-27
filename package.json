@@ -12,5 +12,16 @@
   "bugs": {
     "url": "https://github.com/chriscamicas/openedge-abl-syntax/issues"
   },
-  "homepage": "https://github.com/chriscamicas/openedge-abl-syntax#readme"
+  "homepage": "https://github.com/chriscamicas/openedge-abl-syntax#readme",
+  "scripts": {
+    "build": "node index.js",
+    "test": "mocha 'spec/**/*.spec.js'",
+    "test:single": "mocha",
+    "test:debug": "mocha 'spec/**/*.spec.js' -- --inspect-brk=5858"
+  },
+  "devDependencies": {
+    "vscode-textmate": "^3.1.5",
+    "chai": "^4.1.0",
+    "mocha": "^3.4.2"
+  }
 }

@@ -1,19 +1,51 @@
 # OpenEdge ABL language definition
-Visual Studio Code extension: https://github.com/ZaphyrVonGenevese/vscode-abl
+This is a TextMate grammar for the Progress OpeneEdge ABL Language (formerly known as 4GL).
 
-This grammar is in its own repository because I plan on using it for Sublime Text syntax plugin in near future.
+It's used in the [OpenEdge ABL for Visual Studio Code](https://github.com/chriscamicas/vscode-abl) extension.
 
-## Things that do NOT work
-- Grammar scopes are not supported right now, but will be; see [Priorities](#priorities)
+# Contributing
+The main file is abl.tmLanguage.json so contributors should hand-modify this file.
 
-## Priorities
-- My first priority is fixing issues
-- My second priority is adding missing keywords, support for abbreviations and other
-- When those two points are done, I plan to completely rewrite the grammar to support scopes and other features of `TextMate` grammar
+## Tests
+Test are run from the root folder
+```
+npm install
+npm test
+```
 
-## What you should know about me
-- I do not use OOP aspects of ABL, so there may be some gaps
-- This is my first `TextMate` language grammar
-- This is my first opensource project
+If you noticed a syntax highlight issue in the VSCode extension, please try to create a failing test case first, and then modify the grammar accordingly.
 
-That being said, I am super enthusiasthic helping the OpenEdge community. Any suggestions, help, feedback, advice, and critic is appreciated.
+# Notes
+## VSCode extension
+You can test this grammar locally with the associated VSCode extension:
+```
+git clone git@github.com:chriscamicas/openedge-abl-syntax.git
+cd openedge-abl-syntax
+npm link
+cd ..
+git clone git@github.com:chriscamicas/vscode-abl.git
+cd vscode-abl
+npm link openedge-abl-syntax
+```
+You can now run and debug the extension from the vscode-abl directory (with the `Launch Extension` task).
+Every modification to the openedge-abl-syntax project should be reflected in the vscode-abl directory immediately.
+
+See [npm link](https://docs.npmjs.com/cli/link).
+
+## JSON vs plist
+This project uses the JSON format over the plist one, mainly because I find it much more readable.
+
+If you prefer the plist format, or the YAML one, there is an extension for VSCode that can convert them:
+[TextMate Languages](https://marketplace.visualstudio.com/items?itemName=Togusa09.tmlanguage).
+
+Note: I plan on using the YAML syntax (even more compact and readable) but it needs a build step as VSCode does not handle YAML natively.
+
+## Tokenize
+This project use the [vscode-textmate](https://www.npmjs.com/package/vscode-textmate) package to tokenize and test the grammar.
+
+## Keywords
+Part of this grammar is generated from a keyword list file.
+See [index.js].
+
+# License
+MIT
