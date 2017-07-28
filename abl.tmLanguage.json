@@ -209,6 +209,23 @@
               ]
             }
           }
+        },
+        {
+          "match": "(?i)\\b(stream)\\b([^\\.]*)",
+          "comment": "https://documentation.progress.com/output/ua/OpenEdge_latest/index.html#page/dvref%2Fdefine-stream-statement.html%23",
+          "name": "meta.define.stream.abl",
+          "captures": {
+            "1": {
+              "name": "keyword.other.abl"
+            },
+            "2": {
+              "patterns": [
+                {
+                  "include": "#parameter-name"
+                }
+              ]
+            }
+          }
         }
       ]
     },
