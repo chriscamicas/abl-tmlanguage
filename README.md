@@ -19,16 +19,16 @@ If you noticed a syntax highlight issue in the VSCode extension, please try to c
 ## VSCode extension
 You can test this grammar locally with the associated VSCode extension:
 ```
-git clone git@github.com:chriscamicas/abl.tmLanguage.git
-cd abl.tmLanguage
+git clone git@github.com:chriscamicas/abl-tmlanguage.git
+cd abl-tmlanguage
 npm link
 cd ..
 git clone git@github.com:chriscamicas/vscode-abl.git
 cd vscode-abl
-npm link abl.tmLanguage
+npm link abl-tmlanguage
 ```
 You can now run and debug the extension from the vscode-abl directory (with the `Launch Extension` task).
-Every modification to the abl.tmLanguage project should be reflected in the vscode-abl directory immediately.
+Every modification to the abl-tmlanguage project should be reflected in the vscode-abl directory immediately.
 
 See [npm link](https://docs.npmjs.com/cli/link).
 
