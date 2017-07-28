@@ -1,6 +1,6 @@
 {
   "name": "openedge-abl-syntax",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Textmate grammar for Progress OpenEdge ABL Language",
   "main": "",
   "repository": {
