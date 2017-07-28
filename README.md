@@ -1,5 +1,5 @@
 # OpenEdge ABL language definition
-This is a TextMate grammar for the Progress OpeneEdge ABL Language (formerly known as 4GL).
+This is a TextMate grammar for the Progress OpenEdge ABL Language (formerly known as 4GL).
 
 It's used in the [OpenEdge ABL for Visual Studio Code](https://github.com/chriscamicas/vscode-abl) extension.
 
@@ -7,7 +7,7 @@ It's used in the [OpenEdge ABL for Visual Studio Code](https://github.com/chrisc
 The main file is abl.tmLanguage.json so contributors should hand-modify this file.
 
 ## Tests
-Test are run from the root folder
+Tests are run from the root folder
 ```
 npm install
 npm test
@@ -19,16 +19,16 @@ If you noticed a syntax highlight issue in the VSCode extension, please try to c
 ## VSCode extension
 You can test this grammar locally with the associated VSCode extension:
 ```
-git clone git@github.com:chriscamicas/openedge-abl-syntax.git
-cd openedge-abl-syntax
+git clone git@github.com:chriscamicas/abl.tmLanguage.git
+cd abl.tmLanguage
 npm link
 cd ..
 git clone git@github.com:chriscamicas/vscode-abl.git
 cd vscode-abl
-npm link openedge-abl-syntax
+npm link abl.tmLanguage
 ```
 You can now run and debug the extension from the vscode-abl directory (with the `Launch Extension` task).
-Every modification to the openedge-abl-syntax project should be reflected in the vscode-abl directory immediately.
+Every modification to the abl.tmLanguage project should be reflected in the vscode-abl directory immediately.
 
 See [npm link](https://docs.npmjs.com/cli/link).
 

@@ -15,7 +15,7 @@
   "homepage": "https://github.com/chriscamicas/openedge-abl-syntax#readme",
   "scripts": {
     "build": "node index.js",
-    "test": "mocha 'spec/**/*.spec.js'",
+    "test": "mocha spec/**/*.spec.js",
     "test:single": "mocha",
     "test:debug": "mocha 'spec/**/*.spec.js' -- --inspect-brk=5858"
   },
