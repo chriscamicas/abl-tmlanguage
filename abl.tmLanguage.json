@@ -221,7 +221,7 @@
             "2": {
               "patterns": [
                 {
-                  "include": "#stream-name"
+                  "include": "#variable-name"
                 }
               ]
             }
@@ -266,16 +266,12 @@
       "name": "support.function.abl"
     },
     "variable-name": {
-      "match": "(?<=^|\\s)(\\w|-)+(?=\\s)",
+      "match": "(?<=^|\\s)(\\w|-)+(?=\\s*)",
       "name": "variable.other.abl"
     },
     "parameter-name": {
       "match": "(?<=^|\\s)(\\w|-)+(?=\\s)",
       "name": "variable.parameter.abl"
-    },
-    "stream-name": {
-      "match": "(?<=^|\\s)(\\w)+",
-      "name": "variable.stream.abl"
     },
     "include-file": {
       "begin": "({)\\s*",
