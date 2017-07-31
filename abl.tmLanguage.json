@@ -221,7 +221,7 @@
             "2": {
               "patterns": [
                 {
-                  "include": "#parameter-name"
+                  "include": "#stream-name"
                 }
               ]
             }
@@ -272,6 +272,10 @@
     "parameter-name": {
       "match": "(?<=^|\\s)(\\w|-)+(?=\\s)",
       "name": "variable.parameter.abl"
+    },
+    "stream-name": {
+      "match": "(?<=^|\\s)(\\w)+",
+      "name": "variable.stream.abl"
     },
     "include-file": {
       "begin": "({)\\s*",
