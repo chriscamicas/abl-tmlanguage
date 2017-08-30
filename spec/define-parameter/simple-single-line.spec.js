@@ -67,3 +67,23 @@ describe('', () => {
     ];
     shared.itShouldMatchExpectedScopes(grammar, statement, expectedTokens);
 })
+
+describe('', () => {
+    let statement = `define input-output parameter iban as character no-undo.`;
+    let expectedTokens = [
+        {"startIndex":0,"endIndex":6,"scopes":["source.abl","meta.define.abl","keyword.other.abl"]},
+        {"startIndex":6,"endIndex":7,"scopes":["source.abl","meta.define.abl"]},
+        {"startIndex":7,"endIndex":19,"scopes":["source.abl","meta.define.abl","meta.define.parameter.abl","keyword.other.abl"]},
+        {"startIndex":19,"endIndex":20,"scopes":["source.abl","meta.define.abl","meta.define.parameter.abl"]},
+        {"startIndex":20,"endIndex":29,"scopes":["source.abl","meta.define.abl","meta.define.parameter.abl","keyword.other.abl"]},
+        {"startIndex":29,"endIndex":30,"scopes":["source.abl","meta.define.abl","meta.define.parameter.abl"]},
+        {"startIndex":30,"endIndex":34,"scopes":["source.abl","meta.define.abl","meta.define.parameter.abl","variable.parameter.abl"]},
+        {"startIndex":34,"endIndex":35,"scopes":["source.abl","meta.define.abl","meta.define.parameter.abl"]},
+        {"startIndex":35,"endIndex":37,"scopes":["source.abl","meta.define.abl","meta.define.parameter.abl","keyword.other.abl"]},
+        {"startIndex":37,"endIndex":38,"scopes":["source.abl","meta.define.abl","meta.define.parameter.abl"]},
+        {"startIndex":38,"endIndex":47,"scopes":["source.abl","meta.define.abl","meta.define.parameter.abl","storage.type.abl"]},
+        {"startIndex":47,"endIndex":48,"scopes":["source.abl","meta.define.abl","meta.define.parameter.abl"]},
+        {"startIndex":48,"endIndex":55,"scopes":["source.abl","meta.define.abl","meta.define.parameter.abl","keyword.other.abl"]},
+        {"startIndex":55,"endIndex":56,"scopes":["source.abl","meta.define.abl","punctuation.terminator.abl"]}];
+    shared.itShouldMatchExpectedScopes(grammar, statement, expectedTokens);
+})

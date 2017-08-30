@@ -179,7 +179,7 @@
           }
         },
         {
-          "match": "(?i)\\b(input|output|intput-output|return)\\b([^\\.]*)",
+          "match": "(?i)(?<=^|\\s)(input|output|input-output|return)(?=\\s)([^\\.]*)",
           "comment": "https://documentation.progress.com/output/ua/OpenEdge_latest/index.html#page/dvref%2Fdefine-variable-statement.html%23",
           "name": "meta.define.parameter.abl",
           "captures": {
