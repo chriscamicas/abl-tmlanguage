@@ -147,7 +147,7 @@
       "name": "meta.define.abl",
       "patterns": [
         {
-          "match": "(?i)\\b(new|shared|var|vari|varia|variab|variabl|variable|private|protected|public|static|serializable|non-serializable)\\b([^\\.]*)",
+          "match": "(?i)\\b(new|shared|var|vari|varia|variab|variabl|variable|private|protected|public|static|serializable|non-serializable)\\b(.*)(?=\\.)",
           "comment": "https://documentation.progress.com/output/ua/OpenEdge_latest/index.html#page/dvref%2Fdefine-variable-statement.html%23",
           "name": "meta.define.variable.abl",
           "captures": {
@@ -226,6 +226,21 @@
               ]
             }
           }
+        },
+        {
+          "include": "#doublequotedstring"
+        },
+        {
+          "include": "#primitive-type"
+        },
+        {
+          "include": "#numeric"
+        },
+        {
+          "include": "#constant"
+        },
+        {
+          "include": "#keywords"
         }
       ]
     },
@@ -237,8 +252,8 @@
         }
       },
       "end": "\\.",
-      "endCaptures":{
-        "0":{
+      "endCaptures": {
+        "0": {
           "name": "punctuation.terminator.abl"
         }
       },
@@ -331,7 +346,17 @@
     },
     "doublequotedstring": {
       "begin": "\"",
+      "beginCaptures": {
+        "0": {
+          "name": "punctuation.definition.string.begin.abl"
+        }
+      },
       "end": "\"",
+      "endCaptures": {
+        "0": {
+          "name": "punctuation.definition.string.end.abl"
+        }
+      },
       "name": "string.double.complex.abl",
       "patterns": [
         {
@@ -341,6 +366,10 @@
         {
           "match": "~.",
           "name": "constant.character.escape.abl"
+        },
+        {
+          "match": "[^\"]*",
+          "name": ""
         }
       ]
     },
