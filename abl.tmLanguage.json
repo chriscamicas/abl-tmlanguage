@@ -29,7 +29,13 @@
       "include": "#operator"
     },
     {
-      "match": "(?i)(\\&(\\w|-)*)|({\\&(\\w|-)*})|(&analyze-suspend|&analyze-resume|&scoped-define|&global-define|&window-system|&text-height|&line-number|&batch-mode|&file-name|&undefine|&sequence|&message|defined|&elseif|&scoped|&global|&opsys|&endif|&else|&scop|&then|&glob|&if)",
+      "include": "#analyze-suspend-resume"
+    },
+    {
+      "include": "#global-scoped-define"
+    },
+    {
+      "match": "(?i)(\\&[\\w-]*)|({\\&[\\w-]*})|(&window-system|&text-height|&line-number|&batch-mode|&file-name|&undefine|&sequence|&message|defined|&elseif|&scoped|&global|&opsys|&endif|&else|&scop|&then|&glob|&if)",
       "name": "storage.type.function.abl"
     },
     {
@@ -276,6 +282,33 @@
         }
       ]
     },
+    "analyze-suspend-resume": {
+      "begin": "(?i)(\\&analyze-suspend|\\&analyze-resume)\\s*",
+      "end": "(?=(?://|/\\*))|$",
+      "name": "comment.preprocessor.analyze-suspend.abl"
+    },
+    "global-scoped-define": {
+      "begin": "(?i)(\\&scoped-define|\\&global-define)\\s*([\\.\\w\\\\\/-]*)\\s*",
+      "beginCaptures": {
+        "1": {
+          "name": "keyword.other.abl"
+        },
+        "2": {
+          "name": "entity.name.function.preprocessor.abl"
+        }
+      },
+      "end": "(?=(?://|/\\*))|$",
+      "name": "meta.preprocessor.define.abl",
+      "patterns": [
+        {
+          "include": "#singlequotedstring"
+        },
+        {
+          "include": "#doublequotedstring"
+        }
+      ],
+      "comment": "https://documentation.progress.com/output/ua/OpenEdge_latest/index.html#page/dvref%2F%257B-%257D-include-file-reference.html%23"
+    },
     "function-call": {
       "match": "(?<=\\.|:)(\\w|-)+",
       "name": "support.function.abl"
@@ -331,7 +364,17 @@
     },
     "singlequotedstring": {
       "begin": "'",
+      "beginCaptures": {
+        "0": {
+          "name": "punctuation.definition.string.begin.abl"
+        }
+      },
       "end": "'",
+      "endCaptures": {
+        "0": {
+          "name": "punctuation.definition.string.end.abl"
+        }
+      },
       "name": "string.single.complex.abl",
       "patterns": [
         {
