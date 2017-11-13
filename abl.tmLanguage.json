@@ -163,6 +163,9 @@
             "2": {
               "patterns": [
                 {
+                  "include": "#singlequotedstring"
+                },
+                {
                   "include": "#doublequotedstring"
                 },
                 {
@@ -194,6 +197,9 @@
             },
             "2": {
               "patterns": [
+                {
+                  "include": "#singlequotedstring"
+                },
                 {
                   "include": "#doublequotedstring"
                 },
@@ -232,6 +238,9 @@
               ]
             }
           }
+        },
+        {
+          "include": "#singlequotedstring"
         },
         {
           "include": "#doublequotedstring"
