@@ -18,7 +18,7 @@ describe('', () => {
         { "startIndex": 31, "endIndex": 35, "scopes": ["source.abl", "meta.define.abl", "meta.define.parameter.abl", "storage.type.abl"] },
         { "startIndex": 35, "endIndex": 36, "scopes": ["source.abl", "meta.define.abl", "meta.define.parameter.abl"] },
         { "startIndex": 36, "endIndex": 43, "scopes": ["source.abl", "meta.define.abl", "meta.define.parameter.abl", "keyword.other.abl"] },
-        { "startIndex": 43, "endIndex": 44, "scopes": ["source.abl", "meta.define.abl", "punctuation.terminator.abl"] }
+        { "startIndex": 43, "endIndex": 44, "scopes": ["source.abl", "punctuation.terminator.abl"] }
     ];
     shared.itShouldMatchExpectedScopes(grammar, statement, expectedTokens);
 })
@@ -42,7 +42,7 @@ describe('', () => {
         { "startIndex": 53, "endIndex": 60, "scopes": ["source.abl", "meta.define.abl", "meta.define.parameter.abl", "keyword.other.abl"] },
         { "startIndex": 60, "endIndex": 61, "scopes": ["source.abl", "meta.define.abl", "meta.define.parameter.abl"] },
         { "startIndex": 61, "endIndex": 66, "scopes": ["source.abl", "meta.define.abl", "meta.define.parameter.abl", "keyword.other.abl"] },
-        { "startIndex": 66, "endIndex": 67, "scopes": ["source.abl", "meta.define.abl", "punctuation.terminator.abl"] }
+        { "startIndex": 66, "endIndex": 67, "scopes": ["source.abl", "punctuation.terminator.abl"] }
     ];
     shared.itShouldMatchExpectedScopes(grammar, statement, expectedTokens);
 })
@@ -63,7 +63,7 @@ describe('', () => {
         {"startIndex":31,"endIndex":40,"scopes":["source.abl","meta.define.abl","meta.define.parameter.abl","storage.type.abl"]},
         {"startIndex":40,"endIndex":41,"scopes":["source.abl","meta.define.abl","meta.define.parameter.abl"]},
         {"startIndex":41,"endIndex":48,"scopes":["source.abl","meta.define.abl","meta.define.parameter.abl","keyword.other.abl"]},
-        {"startIndex":48,"endIndex":49,"scopes":["source.abl","meta.define.abl","punctuation.terminator.abl"]}
+        {"startIndex":48,"endIndex":49,"scopes":["source.abl","punctuation.terminator.abl"]}
     ];
     shared.itShouldMatchExpectedScopes(grammar, statement, expectedTokens);
 })
@@ -84,6 +84,6 @@ describe('', () => {
         {"startIndex":38,"endIndex":47,"scopes":["source.abl","meta.define.abl","meta.define.parameter.abl","storage.type.abl"]},
         {"startIndex":47,"endIndex":48,"scopes":["source.abl","meta.define.abl","meta.define.parameter.abl"]},
         {"startIndex":48,"endIndex":55,"scopes":["source.abl","meta.define.abl","meta.define.parameter.abl","keyword.other.abl"]},
-        {"startIndex":55,"endIndex":56,"scopes":["source.abl","meta.define.abl","punctuation.terminator.abl"]}];
+        {"startIndex":55,"endIndex":56,"scopes":["source.abl","punctuation.terminator.abl"]}];
     shared.itShouldMatchExpectedScopes(grammar, statement, expectedTokens);
 })

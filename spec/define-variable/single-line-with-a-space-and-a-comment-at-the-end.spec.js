@@ -16,7 +16,7 @@ describe('', () => {
         { "startIndex": 33, "endIndex": 36, "scopes": ["source.abl", "meta.define.abl", "meta.define.variable.abl", "storage.type.abl"] },
         { "startIndex": 36, "endIndex": 37, "scopes": ["source.abl", "meta.define.abl", "meta.define.variable.abl"] },
         { "startIndex": 37, "endIndex": 44, "scopes": ["source.abl", "meta.define.abl", "meta.define.variable.abl", "keyword.other.abl"] },
-        { "startIndex": 44, "endIndex": 45, "scopes": ["source.abl", "meta.define.abl", "punctuation.terminator.abl"] },
+        { "startIndex": 44, "endIndex": 45, "scopes": ["source.abl", "punctuation.terminator.abl"] },
         { "startIndex": 45, "endIndex": 46, "scopes": ["source.abl"] },
         { "startIndex": 46, "endIndex": 48, "scopes": ["source.abl", "comment.block.source.abl"] },
         { "startIndex": 48, "endIndex": 57, "scopes": ["source.abl", "comment.block.source.abl", "comment"] },
@@ -38,7 +38,7 @@ describe('', () => {
         { "startIndex": 33, "endIndex": 36, "scopes": ["source.abl", "meta.define.abl", "meta.define.variable.abl", "storage.type.abl"] },
         { "startIndex": 36, "endIndex": 37, "scopes": ["source.abl", "meta.define.abl", "meta.define.variable.abl"] },
         { "startIndex": 37, "endIndex": 44, "scopes": ["source.abl", "meta.define.abl", "meta.define.variable.abl", "keyword.other.abl"] },
-        { "startIndex": 44, "endIndex": 45, "scopes": ["source.abl", "meta.define.abl", "punctuation.terminator.abl"] },
+        { "startIndex": 44, "endIndex": 45, "scopes": ["source.abl", "punctuation.terminator.abl"] },
         { "startIndex": 45, "endIndex": 46, "scopes": ["source.abl"] },
         { "startIndex": 46, "endIndex": 56, "scopes": ["source.abl", "comment.source.abl"] }
     ];
@@ -58,7 +58,7 @@ describe('', () => {
         { "startIndex": 33, "endIndex": 36, "scopes": ["source.abl", "meta.define.abl", "meta.define.variable.abl", "storage.type.abl"] },
         { "startIndex": 36, "endIndex": 37, "scopes": ["source.abl", "meta.define.abl", "meta.define.variable.abl"] },
         { "startIndex": 37, "endIndex": 44, "scopes": ["source.abl", "meta.define.abl", "meta.define.variable.abl", "keyword.other.abl"] },
-        { "startIndex": 44, "endIndex": 45, "scopes": ["source.abl", "meta.define.abl", "punctuation.terminator.abl"] },
+        { "startIndex": 44, "endIndex": 45, "scopes": ["source.abl", "punctuation.terminator.abl"] },
         { "startIndex": 45, "endIndex": 46, "scopes": ["source.abl"] },
         { "startIndex": 46, "endIndex": 55, "scopes": ["source.abl", "comment.source.abl"] }
     ];

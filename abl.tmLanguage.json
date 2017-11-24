@@ -8,53 +8,10 @@
   "name": "OpenEdge ABL",
   "patterns": [
     {
-      "include": "#singlelinecomment"
-    },
-    {
-      "include": "#multilinecomment"
-    },
-    {
-      "include": "#singlequotedstring"
-    },
-    {
-      "include": "#doublequotedstring"
-    },
-    {
-      "include": "#numeric"
-    },
-    {
-      "include": "#constant"
-    },
-    {
-      "include": "#operator"
-    },
-    {
-      "include": "#analyze-suspend-resume"
-    },
-    {
-      "include": "#global-scoped-define"
-    },
-    {
-      "match": "(?i)(\\&[\\w-]*)|({\\&[\\w-]*})|(&window-system|&text-height|&line-number|&batch-mode|&file-name|&undefine|&sequence|&message|defined|&elseif|&scoped|&global|&opsys|&endif|&else|&scop|&then|&glob|&if)",
-      "name": "storage.type.function.abl"
-    },
-    {
-      "include": "#primitive-type"
-    },
-    {
       "include": "#procedure-definition"
     },
     {
-      "include": "#function-call"
-    },
-    {
-      "include": "#code-block"
-    },
-    {
-      "include": "#keywords"
-    },
-    {
-      "include": "#variable-name"
+      "include": "#statements"
     }
   ],
   "repository": {
@@ -68,12 +25,7 @@
           "name": "entity.name.function.abl"
         }
       },
-      "end": "\\.",
-      "endCaptures": {
-        "0": {
-          "name": "punctuation.terminator.abl"
-        }
-      },
+      "end": "(?=\\.)",
       "name": "meta.procedure.abl",
       "patterns": [
         {
@@ -90,6 +42,69 @@
               "include": "#code-block"
             }
           ]
+        }
+      ]
+    },
+    "statements": {
+      "patterns": [
+        {
+          "include": "#singlequotedstring"
+        },
+        {
+          "include": "#doublequotedstring"
+        },
+        {
+          "include": "#singlelinecomment"
+        },
+        {
+          "include": "#multilinecomment"
+        },
+        {
+          "include": "#declarations"
+        },
+        {
+          "include": "#numeric"
+        },
+        {
+          "include": "#constant"
+        },
+        {
+          "include": "#operator"
+        },
+        {
+          "include": "#analyze-suspend-resume"
+        },
+        {
+          "include": "#global-scoped-define"
+        },
+        {
+          "match": "(?i)(\\&[\\w-]*)|({\\&[\\w-]*})|(&window-system|&text-height|&line-number|&batch-mode|&file-name|&undefine|&sequence|&message|defined|&elseif|&scoped|&global|&opsys|&endif|&else|&scop|&then|&glob|&if)",
+          "name": "storage.type.function.abl"
+        },
+        {
+          "include": "#primitive-type"
+        },
+        {
+          "include": "#function-call"
+        },
+        {
+          "include": "#code-block"
+        },
+        {
+          "include": "#keywords"
+        },
+        {
+          "include": "#variable-name"
+        },
+        {
+          "include": "#punctuation-semicolon"
+        }
+      ]
+    },
+    "declarations": {
+      "patterns": [
+        {
+          "include": "#define"
         }
       ]
     },
@@ -143,49 +158,43 @@
           "name": "keyword.other.abl"
         }
       },
-      "end": "\\.",
-      "endCaptures": {
-        "0": {
-          "name": "punctuation.terminator.abl"
-        }
-      },
+      "end": "(?=\\.)",
       "comment": "Let's assume define can't have '.' inside",
       "name": "meta.define.abl",
       "patterns": [
         {
-          "match": "(?i)\\b(new|shared|var|vari|varia|variab|variabl|variable|private|protected|public|static|serializable|non-serializable)\\b(.*)(?=\\.)",
+          "begin": "(?i)\\b(new|shared|var|vari|varia|variab|variabl|variable|private|protected|public|static|serializable|non-serializable)\\b",
+          "end": "(?=\\.)",
           "comment": "https://documentation.progress.com/output/ua/OpenEdge_latest/index.html#page/dvref%2Fdefine-variable-statement.html%23",
           "name": "meta.define.variable.abl",
-          "captures": {
+          "beginCaptures": {
             "1": {
               "name": "keyword.other.abl"
-            },
-            "2": {
-              "patterns": [
-                {
-                  "include": "#singlequotedstring"
-                },
-                {
-                  "include": "#doublequotedstring"
-                },
-                {
-                  "include": "#primitive-type"
-                },
-                {
-                  "include": "#numeric"
-                },
-                {
-                  "include": "#constant"
-                },
-                {
-                  "include": "#keywords"
-                },
-                {
-                  "include": "#variable-name"
-                }
-              ]
             }
-          }
+          },
+          "patterns": [
+            {
+              "include": "#singlequotedstring"
+            },
+            {
+              "include": "#doublequotedstring"
+            },
+            {
+              "include": "#primitive-type"
+            },
+            {
+              "include": "#numeric"
+            },
+            {
+              "include": "#constant"
+            },
+            {
+              "include": "#keywords"
+            },
+            {
+              "include": "#variable-name"
+            }
+          ]
         },
         {
           "match": "(?i)(?<=^|\\s)(input|output|input-output|return)(?=\\s)([^\\.]*)",
@@ -266,12 +275,7 @@
           "name": "keyword.other.abl"
         }
       },
-      "end": "\\.",
-      "endCaptures": {
-        "0": {
-          "name": "punctuation.terminator.abl"
-        }
-      },
+      "end": "(?=\\.)",
       "name": "meta.do.abl",
       "patterns": [
         {
@@ -437,6 +441,10 @@
     "constant": {
       "match": "(?i)(?<=^|\\s)(true|false|yes|no)(?=\\s|\\.)",
       "name": "constant.language.source.abl"
+    },
+    "punctuation-semicolon": {
+      "name": "punctuation.terminator.abl",
+      "match": "\\."
     },
     "operator": {
       "patterns": [

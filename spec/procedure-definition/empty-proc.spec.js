@@ -20,7 +20,7 @@ end procedure.`;
         ],
         [
             { "startIndex": 0, "endIndex": 13, "scopes": ["source.abl", "meta.procedure.abl", "meta.procedure.body.abl", "keyword.other.abl"] },
-            { "startIndex": 13, "endIndex": 14, "scopes": ["source.abl", "meta.procedure.abl", "punctuation.terminator.abl"] }
+            { "startIndex": 13, "endIndex": 14, "scopes": ["source.abl", "punctuation.terminator.abl"] }
         ]
     ];
     shared.itShouldMatchExpectedScopes(grammar, statement, expectedTokens);

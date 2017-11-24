@@ -27,7 +27,7 @@ describe('', () => {
         {"startIndex":56,"endIndex":57,"scopes":["source.abl","meta.define.abl","meta.define.variable.abl","string.double.complex.abl","punctuation.definition.string.begin.abl"]},
         {"startIndex":57,"endIndex":67,"scopes":["source.abl","meta.define.abl","meta.define.variable.abl","string.double.complex.abl"]},
         {"startIndex":67,"endIndex":68,"scopes":["source.abl","meta.define.abl","meta.define.variable.abl","string.double.complex.abl","punctuation.definition.string.end.abl"]},
-        {"startIndex":68,"endIndex":69,"scopes":["source.abl","meta.define.abl","punctuation.terminator.abl"]}
+        {"startIndex":68,"endIndex":69,"scopes":["source.abl","punctuation.terminator.abl"]}
     ];
     shared.itShouldMatchExpectedScopes(grammar, statement, expectedTokens);
 })
@@ -215,7 +215,7 @@ DEFINE TEMP-TABLE inventario
             {"startIndex":41,"endIndex":42,"scopes":["source.abl","meta.define.abl","string.double.complex.abl","punctuation.definition.string.begin.abl"]},
             {"startIndex":42,"endIndex":47,"scopes":["source.abl","meta.define.abl","string.double.complex.abl"]},
             {"startIndex":47,"endIndex":48,"scopes":["source.abl","meta.define.abl","string.double.complex.abl","punctuation.definition.string.end.abl"]},
-            {"startIndex":48,"endIndex":49,"scopes":["source.abl","meta.define.abl","punctuation.terminator.abl"]}
+            {"startIndex":48,"endIndex":49,"scopes":["source.abl","punctuation.terminator.abl"]}
         ],[
             {"startIndex":0,"endIndex":5,"scopes":["source.abl"]}
         ]];
