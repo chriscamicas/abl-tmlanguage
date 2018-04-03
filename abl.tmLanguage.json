@@ -391,10 +391,6 @@
       "name": "string.single.complex.abl",
       "patterns": [
         {
-          "match": "\\\\.",
-          "name": "constant.character.escape.abl"
-        },
-        {
           "match": "~.",
           "name": "constant.character.escape.abl"
         }
@@ -416,16 +412,8 @@
       "name": "string.double.complex.abl",
       "patterns": [
         {
-          "match": "\\\\.",
-          "name": "constant.character.escape.abl"
-        },
-        {
           "match": "~.",
           "name": "constant.character.escape.abl"
-        },
-        {
-          "match": "[^\"]*",
-          "name": ""
         }
       ]
     },
