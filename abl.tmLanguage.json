@@ -279,6 +279,24 @@
       "name": "meta.do.abl",
       "patterns": [
         {
+          "begin": "(?i)\\b(while)\\b",
+          "end": "(?=(?::))",
+          "beginCaptures": {
+            "1": {
+              "name": "keyword.other.abl"
+            }
+          },
+          "name": "meta.do.while.abl",
+          "patterns": [
+            {
+              "include": "#statements"
+            }
+          ]
+        },
+        {
+          "include": "#statements"
+        },
+        {
           "begin": ":",
           "end": "(?i)(end\\s*do|end)",
           "endCaptures": {
