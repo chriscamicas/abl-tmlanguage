@@ -442,7 +442,7 @@
       ]
     },
     "primitive-type": {
-      "match": "(?i)(?<=^|\\s)(blob|character|characte|charact|charac|chara|char|clob|com-handle|date|datetime|datetime-tz|decimal|decima|decim|deci|dec|handle|int64|integer|intege|integ|inte|int|logical|longchar|longcha|longch|memptr|raw|recid|rowid|widget-handle)(?![=\\w-])",
+      "match": "(?i)(?<=^|\\s)(blob|character|characte|charact|charac|chara|char|clob|com-handle|date|datetime|datetime-tz|decimal|decima|decim|deci|dec|handle|int64|integer|intege|integ|inte|int|logical|logica|logic|logi|log|longchar|longcha|longch|memptr|raw|recid|rowid|widget-handle)(?![=\\w-])",
       "name": "storage.type.abl",
       "comment": "https://documentation.progress.com/output/ua/OpenEdge_latest/index.html#page/dvref/data-types.html"
     },
