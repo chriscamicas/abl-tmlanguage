@@ -16,13 +16,25 @@
   ],
   "repository": {
     "procedure-definition": {
-      "begin": "(?i)\\b(proce|proced|procedu|procedur|procedure)\\b\\s+([\\w-]*)?",
+      "begin": "(?i)\\b(proce|proced|procedu|procedur|procedure)\\b\\s+([\\w-]*)?(\\s+(EXTERNAL)\\s+(\")([\\w\\.-]*)(\"))?",
       "beginCaptures": {
         "1": {
           "name": "keyword.other.abl"
         },
         "2": {
           "name": "entity.name.function.abl"
+        },
+        "4": {
+          "name": "keyword.other.abl"
+        },
+        "5": {
+          "name": "punctuation.definition.string.begin.abl"
+        },
+        "6": {
+          "name": "string.double.complex.abl"
+        },
+        "7": {
+          "name": "punctuation.definition.string.begin.abl"
         }
       },
       "end": "(?=\\.)",
@@ -48,10 +60,7 @@
     "statements": {
       "patterns": [
         {
-          "include": "#singlequotedstring"
-        },
-        {
-          "include": "#doublequotedstring"
+          "include": "#string"
         },
         {
           "include": "#singlelinecomment"
@@ -88,6 +97,9 @@
           "include": "#function-call"
         },
         {
+          "include": "#function-call2"
+        },
+        {
           "include": "#code-block"
         },
         {
@@ -95,6 +107,9 @@
         },
         {
           "include": "#variable-name"
+        },
+        {
+          "include": "#array-literal"
         },
         {
           "include": "#punctuation-semicolon"
@@ -117,10 +132,7 @@
           "include": "#multilinecomment"
         },
         {
-          "include": "#singlequotedstring"
-        },
-        {
-          "include": "#doublequotedstring"
+          "include": "#string"
         },
         {
           "include": "#numeric"
@@ -174,10 +186,7 @@
           },
           "patterns": [
             {
-              "include": "#singlequotedstring"
-            },
-            {
-              "include": "#doublequotedstring"
+              "include": "#string"
             },
             {
               "include": "#primitive-type"
@@ -207,10 +216,7 @@
             "2": {
               "patterns": [
                 {
-                  "include": "#singlequotedstring"
-                },
-                {
-                  "include": "#doublequotedstring"
+                  "include": "#string"
                 },
                 {
                   "include": "#primitive-type"
@@ -249,10 +255,7 @@
           }
         },
         {
-          "include": "#singlequotedstring"
-        },
-        {
-          "include": "#doublequotedstring"
+          "include": "#string"
         },
         {
           "include": "#primitive-type"
@@ -338,10 +341,7 @@
       "name": "meta.preprocessor.define.abl",
       "patterns": [
         {
-          "include": "#singlequotedstring"
-        },
-        {
-          "include": "#doublequotedstring"
+          "include": "#string"
         }
       ],
       "comment": "https://documentation.progress.com/output/ua/OpenEdge_latest/index.html#page/dvref%2F%257B-%257D-include-file-reference.html%23"
@@ -350,9 +350,60 @@
       "match": "(?<=\\.|:)(\\w|-)+",
       "name": "support.function.abl"
     },
+    "function-call2": {
+      "name": "meta.function-call.abl",
+      "begin": "(\\w|-)+(?=\\()",
+      "end": "(?=\\))",
+      "beginCaptures": {
+        "0": {
+          "name": "support.function.abl"
+        }
+      },
+      "patterns": [
+        {
+          "include": "#literal"
+        }
+      ]
+    },
     "variable-name": {
-      "match": "(?<=^|\\s)(\\w|-)+(?=\\s*)",
+      "match": "(?<=^|\\s|\\[)(\\w|-)+(?=\\s*|])",
       "name": "variable.other.abl"
+    },
+    "array-literal": {
+      "name": "meta.array.literal.abl",
+      "begin": "\\[",
+      "beginCaptures": {
+        "0": {
+          "name": "meta.brace.square.abl"
+        }
+      },
+      "end": "\\]",
+      "endCaptures": {
+        "0": {
+          "name": "meta.brace.square.abl"
+        }
+      },
+      "patterns": [
+        {
+          "include": "#expression"
+        },
+        {
+          "include": "#punctuation-comma"
+        }
+      ]
+    },
+    "expression": {
+      "patterns": [
+        {
+          "include": "#variable-name"
+        },
+        {
+          "include": "#constant"
+        },
+        {
+          "include": "#numeric"
+        }
+      ]
     },
     "parameter-name": {
       "match": "(?<=^|\\s)(\\w|-)+(?=\\s)",
@@ -396,6 +447,16 @@
         {
           "include": "#multilinecomment",
           "name": "comment.block.source.abl"
+        }
+      ]
+    },
+    "string": {
+      "patterns": [
+        {
+          "include": "#singlequotedstring"
+        },
+        {
+          "include": "#doublequotedstring"
         }
       ]
     },
@@ -453,6 +514,10 @@
     "constant": {
       "match": "(?i)(?<=^|\\s)(true|false|yes|no)(?=\\s|\\.)",
       "name": "constant.language.source.abl"
+    },
+    "punctuation-comma": {
+      "name": "punctuation.separator.comma.abl",
+      "match": ","
     },
     "punctuation-semicolon": {
       "name": "punctuation.terminator.abl",
