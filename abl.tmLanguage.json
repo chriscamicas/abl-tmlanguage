@@ -94,10 +94,10 @@
           "include": "#primitive-type"
         },
         {
-          "include": "#function-call"
+          "include": "#method-call"
         },
         {
-          "include": "#function-call2"
+          "include": "#function-call"
         },
         {
           "include": "#code-block"
@@ -157,6 +157,9 @@
         },
         {
           "include": "#variable-name"
+        },
+        {
+          "include": "#method-call"
         },
         {
           "include": "#function-call"
@@ -346,27 +349,38 @@
       ],
       "comment": "https://documentation.progress.com/output/ua/OpenEdge_latest/index.html#page/dvref%2F%257B-%257D-include-file-reference.html%23"
     },
-    "function-call": {
+    "method-call": {
       "match": "(?<=\\.|:)(\\w|-)+",
       "name": "support.function.abl"
     },
-    "function-call2": {
+    "function-call": {
       "name": "meta.function-call.abl",
-      "begin": "(\\w|-)+(?=\\()",
-      "end": "(?=\\))",
+      "begin": "([\\w-]+)\\s*(\\()",
+      "end": "(\\))",
       "beginCaptures": {
-        "0": {
-          "name": "support.function.abl"
+        "1": {
+          "name": "entity.name.function.abl"
+        },
+        "2": {
+          "name": "meta.brace.round.js"
+        }
+      },
+      "endCaptures": {
+        "1": {
+          "name": "meta.brace.round.js"
         }
       },
       "patterns": [
         {
-          "include": "#literal"
+          "include": "#expression"
+        },
+        {
+          "include": "#punctuation-comma"
         }
       ]
     },
     "variable-name": {
-      "match": "(?<=^|\\s|\\[)(\\w|-)+(?=\\s*|])",
+      "match": "(?<=^|\\s|\\[|\\()([\\w-]+)",
       "name": "variable.other.abl"
     },
     "array-literal": {
@@ -395,13 +409,13 @@
     "expression": {
       "patterns": [
         {
-          "include": "#variable-name"
-        },
-        {
           "include": "#constant"
         },
         {
           "include": "#numeric"
+        },
+        {
+          "include": "#variable-name"
         }
       ]
     },
@@ -512,7 +526,7 @@
       "name": "constant.numeric.source.abl"
     },
     "constant": {
-      "match": "(?i)(?<=^|\\s)(true|false|yes|no)(?=\\s|\\.)",
+      "match": "(?i)(?<=^|\\s)(true|false|yes|no)(?!\\w|-)",
       "name": "constant.language.source.abl"
     },
     "punctuation-comma": {

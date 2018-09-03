@@ -41,7 +41,7 @@ describe('', () => {
         { "startIndex": 52, "endIndex": 53, "scopes": ["source.abl", "meta.define.abl", "meta.define.parameter.abl"] },
         { "startIndex": 53, "endIndex": 60, "scopes": ["source.abl", "meta.define.abl", "meta.define.parameter.abl", "keyword.other.abl"] },
         { "startIndex": 60, "endIndex": 61, "scopes": ["source.abl", "meta.define.abl", "meta.define.parameter.abl"] },
-        { "startIndex": 61, "endIndex": 66, "scopes": ["source.abl", "meta.define.abl", "meta.define.parameter.abl", "keyword.other.abl"] },
+        { "startIndex": 61, "endIndex": 66, "scopes": ["source.abl", "meta.define.abl", "meta.define.parameter.abl", "constant.language.source.abl"] },
         { "startIndex": 66, "endIndex": 67, "scopes": ["source.abl", "punctuation.terminator.abl"] }
     ];
     shared.itShouldMatchExpectedScopes(grammar, statement, expectedTokens);
