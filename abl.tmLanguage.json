@@ -346,8 +346,7 @@
         {
           "include": "#string"
         }
-      ],
-      "comment": "https://documentation.progress.com/output/ua/OpenEdge_latest/index.html#page/dvref%2F%257B-%257D-include-file-reference.html%23"
+      ]
     },
     "method-call": {
       "match": "(?<=\\.|:)(\\w|-)+",
@@ -439,8 +438,8 @@
       "name": "meta.include.abl",
       "patterns": [
         {
-          "match": "([\\.\\w\\\\\/-]*)\\s*",
-          "name": "string.unquoted.filename.abl"
+          "match": "([^}]*)\\s*",
+          "name": "string.unquoted.include-argument.abl"
         }
       ],
       "comment": "https://documentation.progress.com/output/ua/OpenEdge_latest/index.html#page/dvref%2F%257B-%257D-include-file-reference.html%23"
