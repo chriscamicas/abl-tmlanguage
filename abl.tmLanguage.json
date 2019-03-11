@@ -408,6 +408,9 @@
     "expression": {
       "patterns": [
         {
+          "include": "#string"
+        },
+        {
           "include": "#constant"
         },
         {

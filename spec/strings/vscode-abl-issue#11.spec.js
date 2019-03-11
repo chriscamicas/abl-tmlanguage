@@ -6,7 +6,6 @@ describe('', () => {
     let statement =
 `def var DirChar as char no-undo.
 DirChar = if opsys begins 'win':u then '\\':u else '/':u.`;
-console.log(statement);
     let expectedTokens = [
         [
             {"startIndex":0,"endIndex":3,"scopes":["source.abl","meta.define.abl","keyword.other.abl"]},
