@@ -1,6 +1,5 @@
 const { assert, expect } = require('chai');
 const shared = require('../shared.js');
-let grammar = shared.grammar;
 
 describe('', () => {
     let statement = `define input parameter iban as char no-undo.`;
@@ -20,7 +19,7 @@ describe('', () => {
         { "startIndex": 36, "endIndex": 43, "scopes": ["source.abl", "meta.define.abl", "meta.define.parameter.abl", "keyword.other.abl"] },
         { "startIndex": 43, "endIndex": 44, "scopes": ["source.abl", "punctuation.terminator.abl"] }
     ];
-    shared.itShouldMatchExpectedScopes(grammar, statement, expectedTokens);
+    shared.itShouldMatchExpectedScopes(statement, expectedTokens);
 })
 describe('', () => {
     let statement = `define output parameter estValide as logical no-undo initial false.`;
@@ -44,7 +43,7 @@ describe('', () => {
         { "startIndex": 61, "endIndex": 66, "scopes": ["source.abl", "meta.define.abl", "meta.define.parameter.abl", "constant.language.source.abl"] },
         { "startIndex": 66, "endIndex": 67, "scopes": ["source.abl", "punctuation.terminator.abl"] }
     ];
-    shared.itShouldMatchExpectedScopes(grammar, statement, expectedTokens);
+    shared.itShouldMatchExpectedScopes(statement, expectedTokens);
 })
 
 describe('', () => {
@@ -65,7 +64,7 @@ describe('', () => {
         {"startIndex":41,"endIndex":48,"scopes":["source.abl","meta.define.abl","meta.define.parameter.abl","keyword.other.abl"]},
         {"startIndex":48,"endIndex":49,"scopes":["source.abl","punctuation.terminator.abl"]}
     ];
-    shared.itShouldMatchExpectedScopes(grammar, statement, expectedTokens);
+    shared.itShouldMatchExpectedScopes(statement, expectedTokens);
 })
 
 describe('', () => {
@@ -85,5 +84,5 @@ describe('', () => {
         {"startIndex":47,"endIndex":48,"scopes":["source.abl","meta.define.abl","meta.define.parameter.abl"]},
         {"startIndex":48,"endIndex":55,"scopes":["source.abl","meta.define.abl","meta.define.parameter.abl","keyword.other.abl"]},
         {"startIndex":55,"endIndex":56,"scopes":["source.abl","punctuation.terminator.abl"]}];
-    shared.itShouldMatchExpectedScopes(grammar, statement, expectedTokens);
+    shared.itShouldMatchExpectedScopes(statement, expectedTokens);
 })

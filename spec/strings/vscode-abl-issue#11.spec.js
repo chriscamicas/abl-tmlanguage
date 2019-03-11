@@ -1,6 +1,5 @@
 const { assert, expect } = require('chai');
 const shared = require('../shared.js');
-let grammar = shared.grammar;
 
 describe('', () => {
     let statement =
@@ -55,7 +54,7 @@ DirChar = if opsys begins 'win':u then '\\':u else '/':u.`;
             {"startIndex":55,"endIndex":56,"scopes":["source.abl","punctuation.terminator.abl"]}
         ]
     ];
-    shared.itShouldMatchExpectedScopes(grammar, statement, expectedTokens);
+    shared.itShouldMatchExpectedScopes(statement, expectedTokens);
 })
 describe('', () => {
     let statement =
@@ -111,5 +110,5 @@ console.log(statement);
             {"startIndex":55,"endIndex":56,"scopes":["source.abl","punctuation.terminator.abl"]}
         ]
     ];
-    shared.itShouldMatchExpectedScopes(grammar, statement, expectedTokens);
+    shared.itShouldMatchExpectedScopes(statement, expectedTokens);
 })

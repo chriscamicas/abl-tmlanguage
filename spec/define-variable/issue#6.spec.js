@@ -1,6 +1,5 @@
 const { assert, expect } = require('chai');
-const shared = require('../shared.js');
-let grammar = shared.grammar;
+const shared = require('../shared.js')
 
 describe('', () => {
     //label-with-a-dot-inside.spec
@@ -29,7 +28,7 @@ describe('', () => {
         {"startIndex":67,"endIndex":68,"scopes":["source.abl","meta.define.abl","meta.define.variable.abl","string.double.complex.abl","punctuation.definition.string.end.abl"]},
         {"startIndex":68,"endIndex":69,"scopes":["source.abl","punctuation.terminator.abl"]}
     ];
-    shared.itShouldMatchExpectedScopes(grammar, statement, expectedTokens);
+    shared.itShouldMatchExpectedScopes(statement, expectedTokens);
 })
 
 describe('', () => {
@@ -219,5 +218,5 @@ DEFINE TEMP-TABLE inventario
         ],[
             {"startIndex":0,"endIndex":5,"scopes":["source.abl"]}
         ]];
-    shared.itShouldMatchExpectedScopes(grammar, statement, expectedTokens);
+    shared.itShouldMatchExpectedScopes(statement, expectedTokens);
 })

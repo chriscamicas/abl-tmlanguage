@@ -1,6 +1,5 @@
 const { assert, expect } = require('chai');
 const shared = require('../shared.js');
-let grammar = shared.grammar;
 
 describe('', () => {
     let statement =
@@ -40,7 +39,7 @@ trim(c_test)`;
             {"startIndex":11,"endIndex":12,"scopes":["source.abl","meta.function-call.abl","meta.brace.round.js"]}
         ]
     ];
-    shared.itShouldMatchExpectedScopes(grammar, statement, expectedTokens);
+    shared.itShouldMatchExpectedScopes(statement, expectedTokens);
 })
 
 describe('', () => {
@@ -82,7 +81,7 @@ trim( c_test)`;
             {"startIndex":12,"endIndex":13,"scopes":["source.abl","meta.function-call.abl","meta.brace.round.js"]}
         ]
     ];
-    shared.itShouldMatchExpectedScopes(grammar, statement, expectedTokens);
+    shared.itShouldMatchExpectedScopes(statement, expectedTokens);
 })
 describe('', () => {
     let statement =
@@ -123,5 +122,5 @@ trim(c_test )`;
             {"startIndex":12,"endIndex":13,"scopes":["source.abl","meta.function-call.abl","meta.brace.round.js"]}
         ]
     ];
-    shared.itShouldMatchExpectedScopes(grammar, statement, expectedTokens);
+    shared.itShouldMatchExpectedScopes(statement, expectedTokens);
 })

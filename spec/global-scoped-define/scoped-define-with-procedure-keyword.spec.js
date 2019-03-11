@@ -1,6 +1,5 @@
 const { assert, expect } = require('chai');
 const shared = require('../shared.js');
-let grammar = shared.grammar;
 
 describe('', () => {
     let statement = `&Scoped-define PROCEDURE-TYPE Procedure`;
@@ -14,7 +13,7 @@ describe('', () => {
         { "startIndex": 29, "endIndex": 30, "scopes": ["source.abl", "meta.preprocessor.define.abl"] },
         { "startIndex": 30, "endIndex": 39, "scopes": ["source.abl", "meta.preprocessor.define.abl"] }
     ];
-    shared.itShouldMatchExpectedScopes(grammar, statement, expectedTokens);
+    shared.itShouldMatchExpectedScopes(statement, expectedTokens);
 })
 describe('', () => {
     let statement =
@@ -33,5 +32,5 @@ describe('', () => {
         { "startIndex": 23, "endIndex": 24, "scopes": ["source.abl", "meta.preprocessor.define.abl"] },
         { "startIndex": 24, "endIndex": 26, "scopes": ["source.abl", "meta.preprocessor.define.abl"] }]
     ];
-    shared.itShouldMatchExpectedScopes(grammar, statement, expectedTokens);
+    shared.itShouldMatchExpectedScopes(statement, expectedTokens);
 })

@@ -1,6 +1,5 @@
 const { assert, expect } = require('chai');
 const shared = require('../shared.js');
-let grammar = shared.grammar;
 
 describe('', () => {
     let statement =
@@ -15,7 +14,7 @@ describe('', () => {
         {"startIndex":28,"endIndex":37,"scopes":["source.abl","comment.block.source.abl","comment"]},
         {"startIndex":37,"endIndex":39,"scopes":["source.abl","comment.block.source.abl"]}
     ];
-    shared.itShouldMatchExpectedScopes(grammar, statement, expectedTokens);
+    shared.itShouldMatchExpectedScopes(statement, expectedTokens);
 })
 describe('', () => {
     let statement =
@@ -30,7 +29,7 @@ describe('', () => {
         {"startIndex":27,"endIndex":36,"scopes":["source.abl","comment.block.source.abl","comment"]},
         {"startIndex":36,"endIndex":38,"scopes":["source.abl","comment.block.source.abl"]}
     ];
-    shared.itShouldMatchExpectedScopes(grammar, statement, expectedTokens);
+    shared.itShouldMatchExpectedScopes(statement, expectedTokens);
 })
 describe('', () => {
     let statement =
@@ -45,5 +44,5 @@ describe('', () => {
         {"startIndex":27,"endIndex":36,"scopes":["source.abl","comment.block.source.abl","comment"]},
         {"startIndex":36,"endIndex":38,"scopes":["source.abl","comment.block.source.abl"]}
     ];
-    shared.itShouldMatchExpectedScopes(grammar, statement, expectedTokens);
+    shared.itShouldMatchExpectedScopes(statement, expectedTokens);
 })

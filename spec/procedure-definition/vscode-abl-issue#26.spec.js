@@ -1,6 +1,5 @@
 const { assert, expect } = require('chai');
 const shared = require('../shared.js');
-let grammar = shared.grammar;
 
 describe('', () => {
     let statement =
@@ -21,5 +20,5 @@ end procedure.`;
             {"startIndex":13,"endIndex":14,"scopes":["source.abl","punctuation.terminator.abl"]}
         ]
     ];
-    shared.itShouldMatchExpectedScopes(grammar, statement, expectedTokens);
+    shared.itShouldMatchExpectedScopes(statement, expectedTokens);
 })

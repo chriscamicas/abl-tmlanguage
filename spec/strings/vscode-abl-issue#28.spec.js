@@ -1,6 +1,5 @@
 const { assert, expect } = require('chai');
 const shared = require('../shared.js');
-let grammar = shared.grammar;
 
 describe('', () => {
     let statement = `replace("123", "1", ")"). message 1.`;
@@ -28,5 +27,5 @@ describe('', () => {
         {"startIndex":34,"endIndex":35,"scopes":["source.abl","constant.numeric.source.abl"]},
         {"startIndex":35,"endIndex":36,"scopes":["source.abl","punctuation.terminator.abl"]}
     ];
-    shared.itShouldMatchExpectedScopes(grammar, statement, expectedTokens);
+    shared.itShouldMatchExpectedScopes(statement, expectedTokens);
 })

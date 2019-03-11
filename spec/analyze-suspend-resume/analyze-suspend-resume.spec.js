@@ -1,6 +1,5 @@
 const { assert, expect } = require('chai');
 const shared = require('../shared.js');
-let grammar = shared.grammar;
 
 describe('', () => {
     let statement =
@@ -14,5 +13,5 @@ describe('', () => {
         ],[
             {"startIndex":0,"endIndex":16,"scopes":["source.abl","comment.preprocessor.analyze-suspend.abl"]}
         ]];
-    shared.itShouldMatchExpectedScopes(grammar, statement, expectedTokens);
+    shared.itShouldMatchExpectedScopes(statement, expectedTokens);
 })

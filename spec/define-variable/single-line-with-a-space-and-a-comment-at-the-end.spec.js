@@ -1,6 +1,5 @@
 const { assert } = require('chai');
 const shared = require('../shared.js');
-let grammar = shared.grammar;
 
 describe('', () => {
     let statement = `define variable variable-name as int no-undo. /* comment */`;
@@ -22,7 +21,7 @@ describe('', () => {
         { "startIndex": 48, "endIndex": 57, "scopes": ["source.abl", "comment.block.source.abl", "comment"] },
         { "startIndex": 57, "endIndex": 59, "scopes": ["source.abl", "comment.block.source.abl"] }
     ];
-    shared.itShouldMatchExpectedScopes(grammar, statement, expectedTokens);
+    shared.itShouldMatchExpectedScopes(statement, expectedTokens);
 })
 describe('', () => {
     let statement = `define variable variable-name as int no-undo. // comment`;
@@ -42,7 +41,7 @@ describe('', () => {
         { "startIndex": 45, "endIndex": 46, "scopes": ["source.abl"] },
         { "startIndex": 46, "endIndex": 56, "scopes": ["source.abl", "comment.source.abl"] }
     ];
-    shared.itShouldMatchExpectedScopes(grammar, statement, expectedTokens);
+    shared.itShouldMatchExpectedScopes(statement, expectedTokens);
 })
 describe('', () => {
     let statement = `define variable variable-name as int no-undo. //comment`;
@@ -62,5 +61,5 @@ describe('', () => {
         { "startIndex": 45, "endIndex": 46, "scopes": ["source.abl"] },
         { "startIndex": 46, "endIndex": 55, "scopes": ["source.abl", "comment.source.abl"] }
     ];
-    shared.itShouldMatchExpectedScopes(grammar, statement, expectedTokens);
+    shared.itShouldMatchExpectedScopes(statement, expectedTokens);
 })
