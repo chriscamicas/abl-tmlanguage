@@ -441,8 +441,15 @@
       "name": "meta.include.abl",
       "patterns": [
         {
-          "match": "([^}]*)\\s*",
-          "name": "string.unquoted.include-argument.abl"
+          "include": "#string"
+        },
+        {
+          "match": "([^}\\s]*)\\s*",
+          "captures": {
+            "1": {
+              "name": "string.unquoted.include-argument.abl"
+            }
+          }
         }
       ],
       "comment": "https://documentation.progress.com/output/ua/OpenEdge_latest/index.html#page/dvref%2F%257B-%257D-include-file-reference.html%23"
