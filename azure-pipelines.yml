@@ -23,4 +23,5 @@ steps:
 - task: Npm@1
   inputs:
     command: 'publish'
-    publishEndpoint: 'https://registry.npmjs.org/'
+    customRegistry: 'useFeed'
+    publishEndpoint: 'npmjs'
