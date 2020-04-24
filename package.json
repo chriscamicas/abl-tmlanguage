@@ -20,9 +20,9 @@
     "test:debug": "mocha 'spec/**/*.spec.js' -- --inspect-brk=5858"
   },
   "devDependencies": {
-    "vscode-textmate": "^4.2.2",
     "chai": "^4.2.0",
-    "mocha": "^6.2.0"
+    "mocha": "^6.2.3",
+    "vscode-textmate": "^4.2.2"
   },
   "dependencies": {}
 }
