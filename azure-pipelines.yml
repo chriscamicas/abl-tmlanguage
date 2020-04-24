@@ -20,9 +20,7 @@ steps:
     npm run test
   displayName: 'running tests'
 
-- task: npmAuthenticate@0
+- task: Npm@1
   inputs:
-    customEndpoint: npmjs
-
-- script: npm publish
-  displayName: 'publishing to npm registry'
+    command: 'publish'
+    publishEndpoint: 'https://registry.npmjs.org/'
