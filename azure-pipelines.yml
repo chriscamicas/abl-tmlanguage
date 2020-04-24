@@ -20,6 +20,11 @@ steps:
     npm run test
   displayName: 'running tests'
 
+- task: npmAuthenticate@0
+  inputs:
+    workingFile: 
+    customEndpoint: 'https://registry.npmjs.org'
+
 - task: Npm@1
   inputs:
     command: 'publish'
