@@ -20,6 +20,7 @@ steps:
     npm run test
   displayName: 'running tests'
 
-# - script: |
-#     npm publish
-#   displayName: 'publishing to npm'
+  - script: |
+      export NPM_TOKEN="$(npm_token)""
+      npm publish
+    displayName: 'publishing to npm registry'
