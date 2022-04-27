@@ -1,63 +1,44 @@
-// kwlist.txt file can be found in
-// oeide\eclipse\plugins\com.openedge.pdt.core_11.6.0.00\oe_common_services.jar!\com\openedge\pdt\core\ast\kwlist.txt
-// it may change with the OpenEdge version
-
+// kwlist.txt file can be generated with `prowin -zgenkwlist > kwlist.txt`
 const fs = require('fs');
 
 let lineReader = require('readline').createInterface({
   input: fs.createReadStream('kwlist.txt')
 });
 
-
-// Launch parameters
-let singleGrammarBlock = true;
-let lowerCase = true;
+ 
 let output = 'grammar.json';
-
-// internal
-let grammarBlocks = [];
-let keywords = [];
-keywords.push('');
+let result = {};
+let grammarBlocks2 = [[], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], []];
 const re = /(?:\w|-|\()+(?=\s|$)/g
+
 lineReader.on('line', line => {
     let results;
-    if(!singleGrammarBlock) {
-        keywords = [];
-    }
-    if(lowerCase) {
-        line = line.toLowerCase();
-    }
+    line = line.toLowerCase();
 
     while ((results = re.exec(line)) !== null) {
-
         let kw = results[0];
-        if(kw.indexOf('(') !== -1) {
+        if (kw.indexOf('(') !== -1) {
             let kwParts = kw.split('(');
             kw = kwParts[0];
-            keywords.push(kw);
+            grammarBlocks2[kw.charCodeAt(0) - 97].push(kw);
             let kwComplete = kwParts[1];
-            for(let charIndex=0; charIndex<kwComplete.length; charIndex++) {
-                kw += kwComplete[charIndex];
-                keywords.push(kw);
+            for (const element of kwComplete) {
+                kw += element;
+                grammarBlocks2[kw.charCodeAt(0) - 97].push(kw);
             }
         } else {
-            keywords.push(kw);
+            grammarBlocks2[kw.charCodeAt(0) - 97].push(kw);
         }
     }
-    if(!singleGrammarBlock) {
-        grammarBlocks.push(generateGrammarBlock(keywords));
-    }
 });
-lineReader.on('close', () => {
-    if(singleGrammarBlock) {
-        grammarBlocks.push(generateGrammarBlock(keywords));
-    }
-    fs.writeFile(output, JSON.stringify(grammarBlocks, undefined, 4));
-})
 
-function generateGrammarBlock(keywords) {
-    return {
-        match : `(${keywords.join('|')})`,
-        name: "keyword.statement.source.abl"
-    };
-}
+lineReader.on('close', () => {
+    for (var zz = 0; zz < 26; zz++) {
+        result['keywords-' + String.fromCharCode(97 + zz)] = 
+         {
+            match: "(?i)(?<![\\w-])(" + grammarBlocks2[zz].sort().join('|') + ")(?![\\w-])",
+            name: "keyword.other.abl"
+        }
+    }
+    fs.writeFileSync(output, JSON.stringify(result, undefined, 4));
+})
