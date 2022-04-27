@@ -444,6 +444,14 @@
           "include": "#string"
         },
         {
+          "match": "(?i)({\\&[\\w-]*})",
+          "name": "keyword.other"
+        },
+        {
+          "match": "(\\&[\\w-]+)(\\s*)=(\\s*)((\".*\")|('.*')|([^}\\s]*))",
+          "name": "meta.include-named-argument"
+        },
+        {
           "match": "([^}\\s]*)\\s*",
           "captures": {
             "1": {
