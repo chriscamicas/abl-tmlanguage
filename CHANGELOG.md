@@ -1,3 +1,8 @@
+1.1.2
+=====
+- 12.2 keywords
+- Include parameters
+
 1.0.1
 =====
 
