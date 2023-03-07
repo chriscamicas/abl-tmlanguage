@@ -83,6 +83,34 @@ describe('', () => {
         {"startIndex":38,"endIndex":47,"scopes":["source.abl","meta.define.abl","meta.define.parameter.abl","storage.type.abl"]},
         {"startIndex":47,"endIndex":48,"scopes":["source.abl","meta.define.abl","meta.define.parameter.abl"]},
         {"startIndex":48,"endIndex":55,"scopes":["source.abl","meta.define.abl","meta.define.parameter.abl","keyword.other.abl"]},
-        {"startIndex":55,"endIndex":56,"scopes":["source.abl","punctuation.terminator.abl"]}];
+        {"startIndex":55,"endIndex":56,"scopes":["source.abl","punctuation.terminator.abl"]}
+    ];
+    shared.itShouldMatchExpectedScopes(statement, expectedTokens);
+})
+
+describe('', () => {
+    let statement = `define input parameter vdec as decimal format ">>>.99" no-undo.`;
+    let expectedTokens = [
+        {"startIndex":0,"endIndex":6,"scopes":["source.abl","meta.define.abl","keyword.other.abl"]},
+        {"startIndex":6,"endIndex":7,"scopes":["source.abl","meta.define.abl"]},
+        {"startIndex":7,"endIndex":12,"scopes":["source.abl","meta.define.abl","meta.define.parameter.abl","keyword.other.abl"]},
+        {"startIndex":12,"endIndex":13,"scopes":["source.abl","meta.define.abl","meta.define.parameter.abl"]},
+        {"startIndex":13,"endIndex":22,"scopes":["source.abl","meta.define.abl","meta.define.parameter.abl","keyword.other.abl"]},
+        {"startIndex":22,"endIndex":23,"scopes":["source.abl","meta.define.abl","meta.define.parameter.abl"]},
+        {"startIndex":23,"endIndex":27,"scopes":["source.abl","meta.define.abl","meta.define.parameter.abl","variable.parameter.abl"]},
+        {"startIndex":27,"endIndex":28,"scopes":["source.abl","meta.define.abl","meta.define.parameter.abl"]},
+        {"startIndex":28,"endIndex":30,"scopes":["source.abl","meta.define.abl","meta.define.parameter.abl","keyword.other.abl"]},
+        {"startIndex":30,"endIndex":31,"scopes":["source.abl","meta.define.abl","meta.define.parameter.abl"]},
+        {"startIndex":31,"endIndex":38,"scopes":["source.abl","meta.define.abl","meta.define.parameter.abl","storage.type.abl"]},
+        {"startIndex":38,"endIndex":39,"scopes":["source.abl","meta.define.abl","meta.define.parameter.abl"]},
+        {"startIndex":39,"endIndex":45,"scopes":["source.abl","meta.define.abl","meta.define.parameter.abl","keyword.other.abl"]},
+        {"startIndex":45,"endIndex":46,"scopes":["source.abl","meta.define.abl","meta.define.parameter.abl"]},
+        {"startIndex":46,"endIndex":47,"scopes":["source.abl","meta.define.abl","meta.define.parameter.abl","string.double.complex.abl","punctuation.definition.string.begin.abl"]},
+        {"startIndex":47,"endIndex":53,"scopes":["source.abl","meta.define.abl","meta.define.parameter.abl","string.double.complex.abl"]},
+        {"startIndex":53,"endIndex":54,"scopes":["source.abl","meta.define.abl","meta.define.parameter.abl","string.double.complex.abl","punctuation.definition.string.end.abl"]},
+        {"startIndex":54,"endIndex":55,"scopes":["source.abl","meta.define.abl","meta.define.parameter.abl"]},
+        {"startIndex":55,"endIndex":62,"scopes":["source.abl","meta.define.abl","meta.define.parameter.abl","keyword.other.abl"]},
+        {"startIndex":62,"endIndex":63,"scopes":["source.abl","punctuation.terminator.abl"]}
+    ];
     shared.itShouldMatchExpectedScopes(statement, expectedTokens);
 })

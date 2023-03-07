@@ -209,36 +209,35 @@
           ]
         },
         {
-          "match": "(?i)(?<=^|\\s)(input|output|input-output|return)(?=\\s)([^\\.]*)",
+          "begin": "(?i)\\b(?<![\\w-])(input|output|input-output|return)(?![\\w-])\\b",
+          "end": "(?=\\.)",
           "comment": "https://docs.progress.com/bundle/openedge-abl-reference-122/page/DEFINE-PARAMETER-statement.html",
           "name": "meta.define.parameter.abl",
-          "captures": {
+          "beginCaptures": {
             "1": {
               "name": "keyword.other.abl"
-            },
-            "2": {
-              "patterns": [
-                {
-                  "include": "#string"
-                },
-                {
-                  "include": "#primitive-type"
-                },
-                {
-                  "include": "#numeric"
-                },
-                {
-                  "include": "#constant"
-                },
-                {
-                  "include": "#keywords"
-                },
-                {
-                  "include": "#parameter-name"
-                }
-              ]
             }
-          }
+          },
+          "patterns": [
+            {
+              "include": "#string"
+            },
+            {
+              "include": "#primitive-type"
+            },
+            {
+              "include": "#numeric"
+            },
+            {
+              "include": "#constant"
+            },
+            {
+              "include": "#keywords"
+            },
+            {
+              "include": "#parameter-name"
+            }
+          ]
         },
         {
           "match": "(?i)\\b(stream)\\b([^\\.]*)",
