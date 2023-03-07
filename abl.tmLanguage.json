@@ -554,20 +554,6 @@
       "match": "\\."
     },
     "operator": {
-      "patterns": [
-        {
-          "include": "#operator1"
-        },
-        {
-          "include": "#operator2"
-        }
-      ]
-    },
-    "operator1": {
-      "match": "(?i)(?<=^|\\s)(or|and|not|is|eq|ge|ne|le|lt|gt)(?=\\s|\\.)",
-      "name": "keyword.operator.source.abl"
-    },
-    "operator2": {
       "match": "(?i)(<=|<>|>=|=|\\+| - |/|<|>|,)",
       "name": "keyword.operator.source.abl"
     },
