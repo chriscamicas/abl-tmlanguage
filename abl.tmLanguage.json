@@ -16,7 +16,7 @@
   ],
   "repository": {
     "procedure-definition": {
-      "begin": "(?i)\\b(proce|proced|procedu|procedur|procedure)\\b\\s+('[\\w\\.-]*':U|'[\\w\\.-]*'|[\\w\\.-]*)?(\\s+(EXTERNAL)\\s+(\")([\\w\\.-]*)(\"))?",
+      "begin": "(?i)\\b(proce|proced|procedu|procedur|procedure)\\b\\s+('[\\w\\.\\-\\{\\}\\&]*':U|'[\\w\\.\\-\\{\\}\\&]*'|[\\w\\.\\-\\{\\}\\&]*)?(\\s+(EXTERNAL)\\s+(\")([\\w\\.-]*)(\"))?",
       "beginCaptures": {
         "1": {
           "name": "keyword.other.abl"
