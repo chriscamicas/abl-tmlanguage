@@ -15,6 +15,18 @@ npm test
 
 If you noticed a syntax highlight issue in the VSCode extension, please try to create a failing test case first, and then modify the grammar accordingly.
 
+## Debugging
+Clone the https://github.com/microsoft/vscode-textmate repo locally (represented by /path/to/vscode-textmate).
+
+Debug ABL statement(s) using the command below.
+
+```
+cd path/to/vscode-textmate
+node out/tests/inspect.js /path/to/abl-tmlanguage/abl.tmLanguage.json /path/to/abl-tmlanguage/debug-in.txt > /path/to/abl-tmlanguage/debug-out.txt
+```
+
+The `/path/to/abl-tmlanguage/debug-out.txt` file contains the line-by-line resolution of the code using rules defined in the abl-tmlanguage.json file.
+
 # Notes
 ## VSCode extension
 You can test this grammar locally with the associated VSCode extension:
