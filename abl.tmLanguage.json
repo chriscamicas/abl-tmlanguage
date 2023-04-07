@@ -34,7 +34,7 @@
           "name": "string.double.complex.abl"
         },
         "7": {
-          "name": "punctuation.definition.string.begin.abl"
+          "name": "punctuation.definition.string.end.abl"
         }
       },
       "end": "(?=\\.)",
@@ -57,8 +57,195 @@
         }
       ]
     },
+    "method-definition": {
+      "name": "meta.function.method",
+      "begin": "(?i)^\\b(method)\\b",
+      "beginCaptures": {
+        "1": {
+          "name": "keyword.other.abl"
+        }
+      },
+      "comment": "The lookaread on the regex for the closing colon is required to make this scope end properly",
+      "end": "\\s*(?=:)",
+      "patterns": [
+        {
+          "match": "(?i)\\s*(protected|package-protected|private|package-private|public|static|override|abstract|final)\\s*",
+          "captures": {
+            "1": {
+              "name": "keyword.other.abl"
+            }
+          }
+        },
+        {
+          "comment": "The method name will only be correctly scoped if the return type and method name are on the same line.",
+          "match": "(?i)\\s*(blob|character|characte|charact|charac|chara|char|clob|com-handle|date|datetime-tz|datetime|decimal|decima|decim|deci|dec|handle|int64|integer|intege|integ|inte|int|logical|logica|logic|logi|log|longchar|longcha|longch|memptr|raw|recid|rowid|widget-handle)\\s+([a-z_]+[\\w\\-{}#$%&]*)",
+          "captures": {
+            "1": {
+              "name": "storage.type.abl"
+            },
+            "2": {
+              "name": "entity.name.function.abl"
+            }
+          }
+        },
+        {
+          "comment": "The method name will only be correctly scoped if the return type and method name are on the same line.",
+          "match": "(?i)\\s*(void)\\s+([a-z_]+[\\w\\-{}#$%&]*)",
+          "captures": {
+            "1": {
+              "name": "keyword.other.abl"
+            },
+            "2": {
+              "name": "entity.name.function.abl"
+            }
+          }
+        },
+        {
+          "comment": "The method name will only be correctly scoped if the return type and method name are on the same line.",
+          "match": "(?i)\\s*([\\w#$%.]+)\\s+([a-z_]+[\\w\\-{}#$%&]*)",
+          "captures": {
+            "1": {
+              "name": "entity.name.type.abl"
+            },
+            "2": {
+              "name": "entity.name.function.abl"
+            }
+          }
+        },
+        {
+          "include": "#string"
+        },
+        {
+          "include": "#primitive-type"
+        },
+        {
+          "include": "#type-name"
+        },
+        {
+          "include": "#parameter-definition"
+        },
+        {
+          "include": "#comment"
+        }
+      ]
+    },
+    "parameter-definition": {
+      "comment": "https://docs.progress.com/bundle/abl-reference/page/Parameter-definition-syntax.html?labelkey=product_openedge_126",
+      "name": "meta.function.parameters",
+      "begin": "(?=\\()",
+      "end": "(?=\\))",
+      "patterns": [
+        {
+          "match": "(?i)\\s*(blob|character|characte|charact|charac|chara|char|clob|com-handle|date|datetime-tz|datetime|decimal|decima|decim|deci|dec|handle|int64|integer|intege|integ|inte|int|logical|logica|logic|logi|log|longchar|longcha|longch|memptr|raw|recid|rowid|widget-handle?)(?![=\\w-])\\s*(,*)",
+          "captures": {
+            "1": {
+              "name": "storage.type.abl"
+            },
+            "2": {
+              "name": "punctuation.separator.comma.abl"
+            }
+          }
+        },
+        {
+          "match": "(?i)\\s*(input-output|input|output|append|bind|by-value|preselect)",
+          "captures": {
+            "1": {
+              "name": "keyword.other.abl"
+            }
+          }
+        },
+        {
+          "match": "(?i)\\s*(dataset-handle|table-handle)\\s+([\\w\\-]+)",
+          "captures": {
+            "1": {
+              "name": "keyword.other.abl"
+            },
+            "2": {
+              "name": "variable.parameter.abl"
+            },
+            "3": {
+              "name": "keyword.other.abl"
+            },
+            "4": {
+              "name": "keyword.other.abl"
+            }
+          }
+        },
+        {
+          "match": "(?i)\\s*(dataset|table)\\s+([\\w\\-]+).*",
+          "captures": {
+            "1": {
+              "name": "keyword.other.abl"
+            },
+            "2": {
+              "name": "storage.data.table.abl"
+            }
+          }
+        },
+        {
+          "match": "(?i)\\s*([\\w\\-]+)\\s+(as)\\s*",
+          "captures": {
+            "1": {
+              "name": "variable.parameter.abl"
+            },
+            "2": {
+              "name": "keyword.other.abl"
+            }
+          }
+        },
+        {
+          "match": "(?i)\\s*(extent)\\s*((0x[0-9a-f]+)|([0-9]+(\\.[0-9]+)?)?)",
+          "captures": {
+            "1": {
+              "name": "keyword.other.abl"
+            },
+            "2": {
+              "name": "constant.numeric.source.abl"
+            }
+          }
+        },
+        {
+          "match": "(?i)\\s*(buffer)\\s+([\\w\\-]+)\\s+(for)\\s+([\\w\\-#$%]+)",
+          "captures": {
+            "1": {
+              "name": "keyword.other.abl"
+            },
+            "2": {
+              "name": "storage.data.table.abl"
+            },
+            "3": {
+              "name": "keyword.other.abl"
+            },
+            "4": {
+              "name": "storage.data.table.abl"
+            },
+            "5": {
+              "name": "keyword.other.abl"
+            }
+          }
+        },
+        {
+          "include": "#type-name-class"
+        },
+        {
+          "include": "#type-name-comma"
+        },
+        {
+          "include": "#string"
+        },
+        {
+          "include": "#comment"
+        }
+      ]
+    },
     "statements": {
       "patterns": [
+        {
+          "include": "#type-reference"
+        },
+        {
+          "include": "#method-definition"
+        },
         {
           "include": "#string"
         },
@@ -123,6 +310,298 @@
         }
       ]
     },
+    "type-reference": {
+      "patterns": [
+        {
+          "include": "#define-type"
+        },
+        {
+          "include": "#get-class"
+        },
+        {
+          "include": "#new-class"
+        },
+        {
+          "include": "#using"
+        },
+        {
+          "include": "#cast-function"
+        }
+      ]
+    },
+    "using": {
+      "patterns": [
+        {
+          "name": "meta.using.abl",
+          "match": "(?i)\\b(using)\\s+([\\w\\#\\$\\%\\.]*[\\w\\#\\$\\%]+)(\\s+from)?(\\s+propath|assembly)?",
+          "captures": {
+            "1": {
+              "name": "keyword.other.abl"
+            },
+            "2": {
+              "name": "entity.name.type.abl"
+            },
+            "3": {
+              "name": "keyword.other.abl"
+            },
+            "4": {
+              "name": "keyword.other.abl"
+            }
+          }
+        }
+      ]
+    },
+    "define-type": {
+      "patterns": [
+        {
+          "include": "#define-class"
+        },
+        {
+          "include": "#define-interface"
+        },
+        {
+          "include": "#define-enum"
+        }
+      ]
+    },
+    "type-name": {
+      "match": "\\s*([\\w\\#\\$\\%]+[\\w\\#\\$\\%\\.]*)\\s*",
+      "captures": {
+        "1": {
+          "name": "entity.name.type.abl"
+        }
+      }
+    },
+    "type-name-class": {
+      "match": "\\s*(class?)\\s+([\\w\\#\\$\\%]+[\\w\\#\\$\\%\\.]*)\\s*",
+      "captures": {
+        "1": {
+          "name": "keyword.other.abl"
+        },
+        "2": {
+          "name": "entity.name.type.abl"
+        }
+      }
+    },
+    "type-name-comma": {
+      "match": "\\s*(,*)\\s*([\\w\\#\\$\\%]+[\\w\\#\\$\\%\\.]*)\\s*(,*)",
+      "captures": {
+        "1": {
+          "name": "punctuation.separator.comma.abl"
+        },
+        "2": {
+          "name": "entity.name.type.abl"
+        },
+        "3": {
+          "name": "punctuation.separator.comma.abl"
+        }
+      }
+    },
+    "define-class": {
+      "name": "meta.define-type.class.abl",
+      "begin": "(?i)\\s*(class)\\s*([\\w\\#\\$\\%\\.]*)",
+      "beginCaptures": {
+        "1": {
+          "name": "keyword.other.abl"
+        },
+        "2": {
+          "name": "entity.name.type.abl"
+        }
+      },
+      "end": "\\s*(:)",
+      "endCaptures": {
+        "1": {
+          "name": "punctuation.terminator.abl"
+        }
+      },
+      "patterns": [
+        {
+          "match": "(?i)\\s*(serializable|abstract|final|use-widget-pool|inherits|implements)\\s*",
+          "captures": {
+            "1": {
+              "name": "keyword.other.abl"
+            }
+          }
+        },
+        {
+          "include": "#implements-type"
+        },
+        {
+          "include": "#type-name-comma"
+        }
+      ]
+    },
+    "define-interface": {
+      "name": "meta.define-type.interface.abl",
+      "begin": "(?i)\\s*(interface)\\s*([\\w\\#\\$\\%\\.]*)",
+      "beginCaptures": {
+        "1": {
+          "name": "keyword.other.abl"
+        },
+        "2": {
+          "name": "entity.name.type.abl"
+        }
+      },
+      "end": "\\s*(:)",
+      "endCaptures": {
+        "1": {
+          "name": "punctuation.terminator.abl"
+        }
+      },
+      "patterns": [
+        {
+          "match": "(?i)\\s*(inherits|implements)\\s*",
+          "captures": {
+            "1": {
+              "name": "keyword.other.abl"
+            }
+          }
+        },
+        {
+          "include": "#implements-type"
+        },
+        {
+          "include": "#type-name-comma"
+        }
+      ]
+    },
+    "inherits-implements-type": {
+      "name": "meta.define-type.implements.abl",
+      "begin": "(?i)\\s*(implements|inherits)\\s*([\\w\\#\\$\\%\\.]+)",
+      "end": "(?i)\\s*(serializable|abstract|final|use-widget-pool|inherits|implements+?)",
+      "beginCaptures": {
+        "1": {
+          "name": "keyword.other.abl"
+        },
+        "2": {
+          "name": "entity.name.type.abl"
+        }
+      },
+      "endCaptures": {
+        "1": {
+          "name": "keyword.other.abl"
+        }
+      },
+      "patterns": [
+        {
+          "include": "#type-name-comma"
+        }
+      ]
+    },
+    "define-enum": {
+      "patterns": [
+        {
+          "name": "meta.define-type.enum.abl",
+          "match": "(?i)(enum)\\s+([\\w\\#\\$\\%\\.]+)\\s*(flags)?\\s*(:)",
+          "captures": {
+            "1": {
+              "name": "keyword.other.abl"
+            },
+            "2": {
+              "name": "entity.name.type.abl"
+            },
+            "3": {
+              "name": "keyword.other.abl"
+            },
+            "4": {
+              "name": "punctuation.terminator.abl"
+            }
+          }
+        }
+      ]
+    },
+    "new-class": {
+      "patterns": [
+        {
+          "name": "meta.function-call.new.abl",
+          "match": "(?i)(new)\\s+([\\w\\#\\$\\%\\.]+)",
+          "captures": {
+            "1": {
+              "name": "keyword.other.abl"
+            },
+            "2": {
+              "name": "entity.name.type.abl"
+            }
+          }
+        }
+      ]
+    },
+    "get-class": {
+      "patterns": [
+        {
+          "name": "meta.function-call.get-class.abl",
+          "match": "(?i)(get-class)\\s*(\\()\\s*([\\w\\#\\$\\%\\.]+)\\s*(\\))",
+          "captures": {
+            "1": {
+              "name": "entity.name.function.abl"
+            },
+            "2": {
+              "name": "meta.brace.round.js"
+            },
+            "3": {
+              "name": "entity.name.type.abl"
+            },
+            "4": {
+              "name": "meta.brace.round.js"
+            }
+          }
+        }
+      ]
+    },
+    "cast-function": {
+      "name": "meta.function-call.cast.abl",
+      "begin": "(?i)(cast)",
+      "beginCaptures": {
+        "1": {
+          "name": "entity.name.function.abl"
+        }
+      },
+      "end": "(\\))",
+      "endCaptures": {
+        "1": {
+          "name": "meta.brace.round.js"
+        }
+      },
+      "patterns": [
+        {
+          "match": "(\\()",
+          "captures": {
+            "1": {
+              "name": "meta.brace.round.js"
+            }
+          }
+        },
+        {
+          "match": "\\s*([a-zA-Z_]+[\\w\\.\\-_]*)\\s*(,+)",
+          "comment": "Variable names must begin with a letter, but subsequent characters can include letters, numeric digits, periods(.), hyphens(-), and underscores(_)",
+          "captures": {
+            "1": {
+              "name": "variable.other.abl"
+            },
+            "2": {
+              "name": "punctuation.separator.comma.abl"
+            }
+          }
+        },
+        {
+          "include": "#doublequotedstring"
+        },
+        {
+          "include": "#singlequotedstring"
+        },
+        {
+          "match": "\\s*(,*)\\s*([\\w\\#\\$\\%\\.]+)",
+          "captures": {
+            "1": {
+              "name": "punctuation.separator.comma.abl"
+            },
+            "2": {
+              "name": "entity.name.type.abl"
+            }
+          }
+        }
+      ]
+    },
     "code-block": {
       "patterns": [
         {
@@ -157,6 +636,9 @@
         },
         {
           "include": "#variable-name"
+        },
+        {
+          "include": "#type-reference"
         },
         {
           "include": "#method-call"
@@ -204,7 +686,24 @@
               "include": "#keywords"
             },
             {
+              "match": "(?i)\\s*([\\w\\-]+)\\s+(as)\\s+",
+              "captures": {
+                "1": {
+                  "name": "variable.others.abl"
+                },
+                "2": {
+                  "name": "keyword.other.abl"
+                }
+              }
+            },
+            {
               "include": "#variable-name"
+            },
+            {
+              "include": "#type-name-class"
+            },
+            {
+              "include": "#type-name"
             }
           ]
         },
@@ -272,10 +771,7 @@
           "include": "#keywords"
         },
         {
-          "include": "#singlelinecomment"
-        },
-        {
-          "include": "#multilinecomment"
+          "include": "#comment"
         }
       ]
     },
@@ -464,14 +960,25 @@
     "argument-reference": {
       "comment": "https://docs.progress.com/bundle/openedge-abl-reference-122/page/Argument-reference.html"
     },
+    "comment": {
+      "patterns": [
+        {
+          "include": "#singlelinecomment"
+        },
+        {
+          "include": "#multilinecomment"
+        }
+      ]
+    },
     "singlelinecomment": {
-      "match": "//.*$",
-      "name": "comment.source.abl"
+      "match": "\\/\\/.*$",
+      "comment": "Was comment.source.abl but should be changed, per https://macromates.com/manual/en/language_grammars",
+      "name": "comment.line.double-slash.abl"
     },
     "multilinecomment": {
       "begin": "(?<!=)\\/\\*",
       "contentName": "comment",
-      "end": "\\*/",
+      "end": "\\*\\/",
       "name": "comment.block.source.abl",
       "patterns": [
         {
@@ -544,6 +1051,10 @@
     "constant": {
       "match": "(?i)(?<=^|\\s)(true|false|yes|no)(?!\\w|-)",
       "name": "constant.language.source.abl"
+    },
+    "punctuation-colon": {
+      "name": "punctuation.terminator.abl",
+      "match": ":"
     },
     "punctuation-comma": {
       "name": "punctuation.separator.comma.abl",
