@@ -29,6 +29,10 @@ const registry = new vsctm.Registry({
   }
 });
 
+afterEach(function () {
+  console.log(this.currentTest.file);
+})
+
 module.exports = {
   itShouldMatchExpectedScopes: function (statement, expectedTokens) {
     describe(`${statement}`, () => {
@@ -39,8 +43,25 @@ module.exports = {
           let lines = statement.split(/\n/g);
           let nbLines = lines.length;
           if (nbLines === 1) {
-            //singleline
+            //singleline                        
             tokenResult = grammar.tokenizeLine(statement);
+
+            // More human-readable output
+            //console.log(`\nTokenizing line: ${statement}`);
+            for (let j = 0; j < tokenResult.tokens.length; j++) {
+              const token = tokenResult.tokens[j];
+
+              // More human-readable output
+              // console.log(` - token from ${token.startIndex} to ${token.endIndex} ` +
+              //     `(${statement.substring(token.startIndex, token.endIndex)}) ` +
+              //     `with scopes ${token.scopes.join(', ')}`
+              // );
+
+              // Formatted as input-values
+              var O = token.scopes.map((e) => ('"' + e + '",')).join(' ').replace(/,\s*$/, "");
+              console.log(`{ "startIndex": ${token.startIndex}, "endIndex": ${token.endIndex}, "scopes": [${O}] },  // '${statement.substring(token.startIndex, token.endIndex)}'`,);
+
+            }
           } else {
             //multiline, we stack the tokens in an array
             let ruleStack = null;
@@ -51,6 +72,27 @@ module.exports = {
               let r = grammar.tokenizeLine(line, ruleStack);
               ruleStack = r.ruleStack;
               tokenResult.tokens.push(r.tokens);
+
+              // More human-readable output
+              //console.log(`\nTokenizing line: ${line}`);
+              // Formatted as input-values
+              console.log(`[`);
+              for (let j = 0; j < r.tokens.length; j++) {
+                const token = r.tokens[j];
+                // More human-readable output
+                // console.log(` - token from ${token.startIndex} to ${token.endIndex} ` +
+                //     `(${line.substring(token.startIndex, token.endIndex)}) ` +
+                //     `with scopes ${token.scopes.join(', ')}`
+                // );
+
+                // Formatted as input-values
+                var O = token.scopes.map((e) => ('"' + e + '",')).join(' ').replace(/,\s*$/, "");
+                console.log(`{ "startIndex": ${token.startIndex}, "endIndex": ${token.endIndex}, "scopes": [${O}] },  // '${line.substring(token.startIndex, token.endIndex)}'`,);
+
+              }
+              // Formatted as input-values
+              console.log(`],`);
+
             });
           }
           assert.deepEqual(tokenResult.tokens, expectedTokens, JSON.stringify(tokenResult.tokens));
