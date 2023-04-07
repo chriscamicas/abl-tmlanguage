@@ -37,7 +37,7 @@ describe('', () => {
         { "startIndex": 36, "endIndex": 37, "scopes": ["source.abl", "meta.define.abl", "meta.define.variable.abl"] },
         { "startIndex": 37, "endIndex": 44, "scopes": ["source.abl", "meta.define.abl", "meta.define.variable.abl", "keyword.other.abl"] },
         { "startIndex": 44, "endIndex": 45, "scopes": ["source.abl", "punctuation.terminator.abl"] },
-        { "startIndex": 45, "endIndex": 55, "scopes": ["source.abl", "comment.source.abl"] }
+        { "startIndex": 45, "endIndex": 55, "scopes": ["source.abl", "comment.line.double-slash.abl"] }
     ];
     shared.itShouldMatchExpectedScopes(statement, expectedTokens);
 })
@@ -56,7 +56,7 @@ describe('', () => {
         { "startIndex": 36, "endIndex": 37, "scopes": ["source.abl", "meta.define.abl", "meta.define.variable.abl"] },
         { "startIndex": 37, "endIndex": 44, "scopes": ["source.abl", "meta.define.abl", "meta.define.variable.abl", "keyword.other.abl"] },
         { "startIndex": 44, "endIndex": 45, "scopes": ["source.abl", "punctuation.terminator.abl"] },
-        { "startIndex": 45, "endIndex": 54, "scopes": ["source.abl", "comment.source.abl"] }
+        { "startIndex": 45, "endIndex": 54, "scopes": ["source.abl", "comment.line.double-slash.abl"] }
     ];
     shared.itShouldMatchExpectedScopes(statement, expectedTokens);
 })

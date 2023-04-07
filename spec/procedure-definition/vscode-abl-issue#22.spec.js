@@ -17,7 +17,7 @@ END PROCEDURE.`;
             { "startIndex": 38, "endIndex": 39, "scopes": ["source.abl", "meta.procedure.abl"] },
             { "startIndex": 39, "endIndex": 40, "scopes": ["source.abl", "meta.procedure.abl", "punctuation.definition.string.begin.abl"] },
             { "startIndex": 40, "endIndex": 52, "scopes": ["source.abl", "meta.procedure.abl", "string.double.complex.abl"] },
-            { "startIndex": 52, "endIndex": 53, "scopes": ["source.abl", "meta.procedure.abl", "punctuation.definition.string.begin.abl"] },
+            { "startIndex": 52, "endIndex": 53, "scopes": ["source.abl", "meta.procedure.abl", "punctuation.definition.string.end.abl"] },
             { "startIndex": 53, "endIndex": 54, "scopes": ["source.abl", "meta.procedure.abl", "meta.procedure.body.abl"] }
         ], [
             { "startIndex": 0, "endIndex": 6, "scopes": ["source.abl", "meta.procedure.abl", "meta.procedure.body.abl", "meta.define.abl", "keyword.other.abl"] },

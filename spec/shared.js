@@ -36,11 +36,25 @@ module.exports = {
                 return registry.loadGrammar('source.abl').then(grammar => {
                     let tokenResult;
 
+                    console.log(`\nTesting file: ${test.file}`);
+
                     let lines = statement.split(/\n/g);
                     let nbLines = lines.length;
                     if (nbLines === 1) {
-                        //singleline
-                        tokenResult = grammar.tokenizeLine(statement);
+                        //singleline                        
+                        //console.log(`\nTokenizing line: ${statement}`);
+                        for (let j = 0; j < tokenResult.tokens.length; j++) {
+                            const token = tokenResult.tokens[j];
+
+                            // console.log(` - token from ${token.startIndex} to ${token.endIndex} ` +
+                            //     `(${statement.substring(token.startIndex, token.endIndex)}) ` +
+                            //     `with scopes ${token.scopes.join(', ')}`
+                            // );
+
+                            //var O = token.scopes.map((e) => ('"' + e + '",')).join(' ').replace(/,\s*$/, "");
+                            //console.log(`{ "startIndex": ${token.startIndex}, "endIndex": ${token.endIndex}, "scopes": [${O}] },`,);
+
+                        }
                     } else {
                         //multiline, we stack the tokens in an array
                         let ruleStack = null;
@@ -51,6 +65,22 @@ module.exports = {
                             let r = grammar.tokenizeLine(line, ruleStack);
                             ruleStack = r.ruleStack;
                             tokenResult.tokens.push(r.tokens);
+
+                            // console.log(`\nTokenizing line: ${line}`);
+                            //console.log(`[`);
+                            for (let j = 0; j < r.tokens.length; j++) {
+                                const token = r.tokens[j];
+                                // console.log(` - token from ${token.startIndex} to ${token.endIndex} ` +
+                                //     `(${line.substring(token.startIndex, token.endIndex)}) ` +
+                                //     `with scopes ${token.scopes.join(', ')}`
+                                // );
+
+                                //var O = token.scopes.map((e) => ('"' + e + '",')).join(' ').replace(/,\s*$/, "");
+                                //console.log(`{ "startIndex": ${token.startIndex}, "endIndex": ${token.endIndex}, "scopes": [${O}] },`,);
+
+                            }
+                            //console.log(`],`);
+
                         });
                     }
                     assert.deepEqual(tokenResult.tokens, expectedTokens, JSON.stringify(tokenResult.tokens));

@@ -15,14 +15,14 @@
   "homepage": "https://github.com/chriscamicas/openedge-abl-syntax#readme",
   "scripts": {
     "build": "node index.js",
-    "test": "mocha spec/**/*.spec.js",
+    "test": "mocha -R json spec/*/*.spec.js",
     "test:single": "mocha",
-    "test:debug": "mocha 'spec/**/*.spec.js' -- --inspect-brk=5858"
+    "test:debug": "mocha 'spec/type-name/*.spec.js' -- --inspect-brk=5858"
   },
   "devDependencies": {
     "chai": "^4.2.0",
     "mocha": "^10.2.0",
-    "vscode-textmate": "^7.0.1",
-    "vscode-oniguruma": "^1.6.2"
+    "vscode-oniguruma": "^1.6.2",
+    "vscode-textmate": "^7.0.4"
   }
 }
