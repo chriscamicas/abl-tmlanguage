@@ -35,7 +35,7 @@ describe('', () => {
     let expectedTokens = [
         { "startIndex": 0, "endIndex": 5, "scopes": ["source.abl", "meta.define-type.class.abl", "keyword.other.abl"] },
         { "startIndex": 5, "endIndex": 6, "scopes": ["source.abl", "meta.define-type.class.abl"] },
-        { "startIndex": 6, "endIndex": 17, "scopes": ["source.abl", "meta.define-type.class.abl", "entity.name.type.abl"] },        
+        { "startIndex": 6, "endIndex": 17, "scopes": ["source.abl", "meta.define-type.class.abl", "entity.name.type.abl"] },
         { "startIndex": 17, "endIndex": 18, "scopes": ["source.abl", "meta.define-type.class.abl", "punctuation.terminator.abl"] }
     ];
     shared.itShouldMatchExpectedScopes(statement, expectedTokens);
@@ -46,7 +46,7 @@ describe('', () => {
 describe('', () => {
     let statement = `ENUM package.type :`;
 
-    let expectedTokens = [        
+    let expectedTokens = [
         { "startIndex": 0, "endIndex": 4, "scopes": ["source.abl", "meta.define-type.enum.abl", "keyword.other.abl"] },
         { "startIndex": 4, "endIndex": 5, "scopes": ["source.abl", "meta.define-type.enum.abl"] },
         { "startIndex": 5, "endIndex": 17, "scopes": ["source.abl", "meta.define-type.enum.abl", "entity.name.type.abl"] },
@@ -116,7 +116,7 @@ describe('', () => {
         { "startIndex": 36, "endIndex": 37, "scopes": ["source.abl", "meta.define-type.abl", "meta.define-type.inherits-implements.abl", "punctuation.separator.comma.abl"] },
         { "startIndex": 37, "endIndex": 40, "scopes": ["source.abl", "meta.define-type.abl", "meta.define-type.inherits-implements.abl", "entity.name.type.abl"] },
         { "startIndex": 40, "endIndex": 41, "scopes": ["source.abl", "meta.define-type.abl", "meta.define-type.inherits-implements.abl", "punctuation.separator.comma.abl"] },
-        { "startIndex": 41, "endIndex": 45, "scopes": ["source.abl", "meta.define-type.abl", "meta.define-type.inherits-implements.abl", "entity.name.type.abl"] }, 
+        { "startIndex": 41, "endIndex": 45, "scopes": ["source.abl", "meta.define-type.abl", "meta.define-type.inherits-implements.abl", "entity.name.type.abl"] },
         { "startIndex": 45, "endIndex": 46, "scopes": ["source.abl", "meta.define-type.abl", "meta.define-type.inherits-implements.abl"] }
     ];
     shared.itShouldMatchExpectedScopes(statement, expectedTokens);
@@ -231,12 +231,53 @@ describe('', () => {
       `;
 
     let expectedTokens = [
-        { "startIndex": 0, "endIndex": 5, "scopes": ["source.abl", "meta.define-type.abl", "keyword.other.abl"] },
-        { "startIndex": 5, "endIndex": 6, "scopes": ["source.abl", "meta.define-type.abl"] },
-        { "startIndex": 6, "endIndex": 17, "scopes": ["source.abl", "meta.define-type.abl", "entity.name.type.abl"] },
-        { "startIndex": 17, "endIndex": 18, "scopes": ["source.abl"] },
-        { "startIndex": 18, "endIndex": 26, "scopes": ["source.abl", "keyword.other.abl"] },
-        { "startIndex": 26, "endIndex": 28, "scopes": ["source.abl"] }
+        [
+            { "startIndex": 0, "endIndex": 5, "scopes": ["source.abl", "meta.define-type.class.abl", "keyword.other.abl"] },
+            { "startIndex": 5, "endIndex": 6, "scopes": ["source.abl", "meta.define-type.class.abl"] },
+            { "startIndex": 6, "endIndex": 17, "scopes": ["source.abl", "meta.define-type.class.abl", "entity.name.type.abl"] },
+            { "startIndex": 17, "endIndex": 18, "scopes": ["source.abl", "meta.define-type.class.abl"] },
+            { "startIndex": 18, "endIndex": 26, "scopes": ["source.abl", "meta.define-type.class.abl", "keyword.other.abl"] },
+            { "startIndex": 26, "endIndex": 27, "scopes": ["source.abl", "meta.define-type.class.abl"] },
+            { "startIndex": 27, "endIndex": 39, "scopes": ["source.abl", "meta.define-type.class.abl", "entity.name.type.abl"] },
+            { "startIndex": 39, "endIndex": 41, "scopes": ["source.abl", "meta.define-type.class.abl"] }
+        ],
+        [
+            { "startIndex": 0, "endIndex": 4, "scopes": ["source.abl", "meta.define-type.class.abl"] },
+            { "startIndex": 4, "endIndex": 14, "scopes": ["source.abl", "meta.define-type.class.abl", "keyword.other.abl"] },
+            { "startIndex": 14, "endIndex": 15, "scopes": ["source.abl", "meta.define-type.class.abl"] },
+            { "startIndex": 15, "endIndex": 28, "scopes": ["source.abl", "meta.define-type.class.abl", "entity.name.type.abl"] },
+            { "startIndex": 28, "endIndex": 29, "scopes": ["source.abl", "meta.define-type.class.abl", "punctuation.separator.comma.abl"] }
+        ],
+        [
+            { "startIndex": 0, "endIndex": 4, "scopes": ["source.abl", "meta.define-type.class.abl"] },
+            { "startIndex": 4, "endIndex": 17, "scopes": ["source.abl", "meta.define-type.class.abl", "entity.name.type.abl"] }
+        ],
+        [
+            { "startIndex": 0, "endIndex": 4, "scopes": ["source.abl", "meta.define-type.class.abl"] },
+            { "startIndex": 4, "endIndex": 12, "scopes": ["source.abl", "meta.define-type.class.abl", "keyword.other.abl"] },
+            { "startIndex": 12, "endIndex": 14, "scopes": ["source.abl", "meta.define-type.class.abl"] }
+        ],
+        [
+            { "startIndex": 0, "endIndex": 4, "scopes": ["source.abl", "meta.define-type.class.abl"] },
+            { "startIndex": 4, "endIndex": 19, "scopes": ["source.abl", "meta.define-type.class.abl", "keyword.other.abl"] },
+            { "startIndex": 19, "endIndex": 20, "scopes": ["source.abl", "meta.define-type.class.abl", "punctuation.terminator.abl"] }
+        ],
+        [
+            { "startIndex": 0, "endIndex": 6, "scopes": ["source.abl"] },
+            { "startIndex": 6, "endIndex": 9, "scopes": ["source.abl", "meta.define.abl", "keyword.other.abl"] },
+            { "startIndex": 9, "endIndex": 10, "scopes": ["source.abl", "meta.define.abl"] },
+            { "startIndex": 10, "endIndex": 13, "scopes": ["source.abl", "meta.define.abl", "meta.define.variable.abl", "keyword.other.abl"] },
+            { "startIndex": 13, "endIndex": 14, "scopes": ["source.abl", "meta.define.abl", "meta.define.variable.abl"] },
+            { "startIndex": 14, "endIndex": 15, "scopes": ["source.abl", "meta.define.abl", "meta.define.variable.abl", "variable.others.abl"] },
+            { "startIndex": 15, "endIndex": 16, "scopes": ["source.abl", "meta.define.abl", "meta.define.variable.abl"] },
+            { "startIndex": 16, "endIndex": 18, "scopes": ["source.abl", "meta.define.abl", "meta.define.variable.abl", "keyword.other.abl"] },
+            { "startIndex": 18, "endIndex": 19, "scopes": ["source.abl", "meta.define.abl", "meta.define.variable.abl"] },
+            { "startIndex": 19, "endIndex": 22, "scopes": ["source.abl", "meta.define.abl", "meta.define.variable.abl", "storage.type.abl"] },
+            { "startIndex": 22, "endIndex": 23, "scopes": ["source.abl", "punctuation.terminator.abl"] }
+        ],
+        [
+            { "startIndex": 0, "endIndex": 7, "scopes": ["source.abl"] }
+        ]
     ];
     shared.itShouldMatchExpectedScopes(statement, expectedTokens);
 })
