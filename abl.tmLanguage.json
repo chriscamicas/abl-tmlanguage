@@ -194,15 +194,7 @@
           }
         },
         {
-          "match": "(?i)\\s*(extent)\\s*((0x[0-9a-f]+)|([0-9]+(\\.[0-9]+)?)?)",
-          "captures": {
-            "1": {
-              "name": "keyword.other.abl"
-            },
-            "2": {
-              "name": "constant.numeric.source.abl"
-            }
-          }
+          "include": "#extent"
         },
         {
           "match": "(?i)\\s*(buffer)\\s+([\\w\\-]+)\\s+(for)\\s+([\\w\\-#$%]+)",
@@ -306,7 +298,10 @@
     "declarations": {
       "patterns": [
         {
-          "include": "#define"
+          "include": "#define2"
+        },
+        {
+          "include": "#define-NO"
         }
       ]
     },
@@ -626,7 +621,10 @@
           "include": "#include-file"
         },
         {
-          "include": "#define"
+          "include": "#define2"
+        },
+        {
+          "include": "#define-NO"
         },
         {
           "include": "#do-block"
@@ -648,6 +646,181 @@
         }
       ]
     },
+    "get-block": {
+      "name": "meta.define.getter.abl",
+      "begin": "(?i)\\s*(get)",
+      "beginCaptures": {
+        "1": {
+          "name": "keyword.other.abl"
+        }
+      },
+      "end": "(?=end|\\.)",
+      "endCaptures": {
+        "1": {
+          "name": "punctuation.terminator.abl"
+        }
+      },
+      "patterns": [
+        {
+          "include": "#parameter-definition"
+        },
+        {
+          "include": "#code-block"
+        }
+      ]
+    },
+    "set-block": {
+      "name": "meta.define.setter.abl",
+      "begin": "(?i)\\s*(set)",
+      "beginCaptures": {
+        "1": {
+          "name": "keyword.other.abl"
+        }
+      },
+      "end": "(?=end|\\.)",
+      "endCaptures": {
+        "1": {
+          "name": "punctuation.terminator.abl"
+        }
+      },
+      "patterns": [
+        {
+          "include": "#parameter-definition"
+        },
+        {
+          "include": "#code-block"
+        }
+      ]
+    },    
+    "define2": {
+      "name": "meta.define.abl",
+      "begin": "(?i)\\b(define|def)\\b\\s*",
+      "beginCaptures": {
+        "1": {
+          "name": "keyword.other.abl"
+        }
+      },
+      "end": "(?=\\.)",
+      "endCaptures": {
+        "1": {
+          "name": "punctuation.terminator.abl"
+        }
+      },
+      "patterns": [
+        {
+          "match": "(?i)\\s*(new|global|glob|shared|package-private|private|package-protected|protected|public|static|non-serializable|serializable)\\s*",
+          "captures": {
+            "1": {
+              "name": "keyword.other.abl"
+            }
+          }
+        },
+        {
+          "name": "meta.define.var.abl",
+          "begin": "(?i)\\s*(variable|variabl|variab|varia|vari|var|property|prop|dataset)\\s*",
+          "beginCaptures": {
+            "1": {
+              "name": "keyword.other.abl"
+            }
+          },
+          "end": "(?=\\.)",
+          "patterns": [
+            {
+              "match": "(?i)\\s*([\\w\\-]+)\\s+(as)\\s+",
+              "captures": {
+                "1": {
+                  "name": "variable.other.abl"
+                },
+                "2": {
+                  "name": "keyword.other.abl"
+                }
+              }
+            },
+            {
+              "include": "#primitive-type"
+            },
+            {
+              "match": "(?i)\\s*(no-undo)\\s*",
+              "captures": {
+                "1": {
+                  "name": "keyword.other.abl"
+                }
+              }
+            },
+            {
+              "include": "#extent"
+            },
+            {
+              "include": "#set-block"
+            },
+            {
+              "include": "#set-block"
+            },
+            {
+              "include": "#type-name-class"
+            },
+            {
+              "include": "#type-name"
+            }
+          ]
+        },
+        {
+          "begin": "(query|data-source)\\s+([\\w\\-]+)\\s+(for)\\s*",
+          "beginsCaptures": {
+            "1": {
+              "name": "keyword.other.abl"
+            },
+            "2": {
+              "name": "variable.other.abl"
+            },
+            "3": {
+              "name": "keyword.other.abl"
+            }
+          },
+          "end": "(\\.)",
+          "endCaptures": {
+            "0": {
+              "name": "punctuation.terminator.abl"
+            }
+          },
+          "patterns": [
+            {
+              "include": "#tables-comma"
+            }
+          ]
+        },
+        {
+          "begins": "(?i)\\b(buffer|temp-table)\\b",
+          "beginCaptures": {
+            "1": {
+              "name": "keyword.other.abl"
+            }
+          },
+          "patterns": [
+            {
+              "match": "(?i)\\s*([\\w\\-]+)\\s+(as)\\s+",
+              "captures": {
+                "1": {
+                  "name": "variable.other.abl"
+                },
+                "2": {
+                  "name": "keyword.other.abl"
+                }
+              }
+            },
+            {
+              "include": "#primitive-type"
+            },
+            {
+              "include": "#type-name-class"
+            },
+            {
+              "include": "#type-name"
+            }
+          ]
+        }
+      ]
+    },
     "define": {
       "begin": "(?i)\\b(def|define)\\s+",
       "beginCaptures": {
@@ -655,12 +828,16 @@
           "name": "keyword.other.abl"
         }
       },
-      "end": "(?=\\.)",
-      "comment": "Let's assume define can't have '.' inside",
+      "end": "(\\.)",
+      "endCaptures": {
+        "0": {
+          "name": "punctuation.terminator.abl"
+        }
+      },
       "name": "meta.define.abl",
       "patterns": [
         {
-          "begin": "(?i)\\b(new|shared|var|vari|varia|variab|variabl|variable|private|protected|public|static|serializable|non-serializable)\\b",
+          "begin": "(?i)\\b(new|shared|var|vari|varia|variab|variabl|variable|package-private|private|package-protected|protected|public|static|serializable|non-serializable)\\b",
           "end": "(?=\\.)",
           "comment": "https://docs.progress.com/bundle/openedge-abl-reference-122/page/DEFINE-VARIABLE-statement.html",
           "name": "meta.define.variable.abl",
@@ -677,6 +854,9 @@
               "include": "#primitive-type"
             },
             {
+              "include": "#extent"
+            },
+            {
               "include": "#numeric"
             },
             {
@@ -689,7 +869,7 @@
               "match": "(?i)\\s*([\\w\\-]+)\\s+(as)\\s+",
               "captures": {
                 "1": {
-                  "name": "variable.others.abl"
+                  "name": "variable.other.abl"
                 },
                 "2": {
                   "name": "keyword.other.abl"
@@ -697,13 +877,16 @@
               }
             },
             {
-              "include": "#variable-name"
-            },
-            {
               "include": "#type-name-class"
             },
             {
               "include": "#type-name"
+            },
+            {
+              "include": "#get-block"
+            },
+            {
+              "include": "#set-block"
             }
           ]
         },
@@ -876,6 +1059,17 @@
     "variable-name": {
       "match": "(?<=^|\\s|\\[|\\()([\\w-]+)",
       "name": "variable.other.abl"
+    },
+    "extent": {
+      "match": "(?i)\\s*(extent)\\s*((0x[0-9a-f]+)|([0-9]+(\\.[0-9]+)?)?)",
+      "captures": {
+        "1": {
+          "name": "keyword.other.abl"
+        },
+        "2": {
+          "name": "constant.numeric.source.abl"
+        }
+      }
     },
     "array-literal": {
       "name": "meta.array.literal.abl",
