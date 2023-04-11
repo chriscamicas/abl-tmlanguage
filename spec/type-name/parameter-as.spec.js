@@ -123,7 +123,7 @@ describe('', () => {
       { "startIndex": 62, "endIndex": 63, "scopes": ["source.abl", "meta.function.method", "meta.function.parameters"] },
       { "startIndex": 63, "endIndex": 66, "scopes": ["source.abl", "meta.function.method", "meta.function.parameters", "entity.name.type.abl"] },
       { "startIndex": 66, "endIndex": 67, "scopes": ["source.abl", "meta.function.method", "meta.function.parameters"] },
-      { "startIndex": 67, "endIndex": 69, "scopes": ["source.abl", "meta.function.method", "meta.function.parameters", "entity.name.type.abl"] },
+      { "startIndex": 67, "endIndex": 69, "scopes": ["source.abl", "meta.function.method", "meta.function.parameters", "keyword.other.abl"] },
       { "startIndex": 69, "endIndex": 70, "scopes": ["source.abl", "meta.function.method", "meta.function.parameters"] },
       { "startIndex": 70, "endIndex": 80, "scopes": ["source.abl", "meta.function.method", "meta.function.parameters", "entity.name.type.abl"] }
     ],
@@ -133,7 +133,7 @@ describe('', () => {
       { "startIndex": 62, "endIndex": 63, "scopes": ["source.abl", "meta.function.method", "meta.function.parameters"] },
       { "startIndex": 63, "endIndex": 66, "scopes": ["source.abl", "meta.function.method", "meta.function.parameters", "entity.name.type.abl"] },
       { "startIndex": 66, "endIndex": 67, "scopes": ["source.abl", "meta.function.method", "meta.function.parameters"] },
-      { "startIndex": 67, "endIndex": 69, "scopes": ["source.abl", "meta.function.method", "meta.function.parameters", "entity.name.type.abl"] },
+      { "startIndex": 67, "endIndex": 69, "scopes": ["source.abl", "meta.function.method", "meta.function.parameters", "keyword.other.abl"] },
       { "startIndex": 69, "endIndex": 70, "scopes": ["source.abl", "meta.function.method", "meta.function.parameters"] },
       { "startIndex": 70, "endIndex": 77, "scopes": ["source.abl", "meta.function.method", "meta.function.parameters", "storage.type.abl"] },
       { "startIndex": 77, "endIndex": 78, "scopes": ["source.abl", "meta.function.method"] },

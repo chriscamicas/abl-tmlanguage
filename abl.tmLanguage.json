@@ -147,7 +147,7 @@
           }
         },
         {
-          "match": "(?i)\\s*(input-output|input|output|append|bind|by-value|preselect)",
+          "match": "(?i)\\s*(input-output|input|output|append|bind|by-value|preselect|buffer)",
           "captures": {
             "1": {
               "name": "keyword.other.abl"
@@ -197,24 +197,10 @@
           "include": "#extent"
         },
         {
-          "match": "(?i)\\s*(buffer)\\s+([\\w\\-]+)\\s+(for)\\s+([\\w\\-#$%]+)",
-          "captures": {
-            "1": {
-              "name": "keyword.other.abl"
-            },
-            "2": {
-              "name": "storage.data.table.abl"
-            },
-            "3": {
-              "name": "keyword.other.abl"
-            },
-            "4": {
-              "name": "storage.data.table.abl"
-            },
-            "5": {
-              "name": "keyword.other.abl"
-            }
-          }
+          "include": "#buffer-for-table"
+        },
+        {
+          "include": "#keywords"
         },
         {
           "include": "#type-name-class"
@@ -360,7 +346,7 @@
       ]
     },
     "type-name": {
-      "match": "\\s*([\\w\\#\\$\\%]+[\\w\\#\\$\\%\\.]*)\\s*",
+      "match": "\\b([\\w\\#\\$\\%]+[\\w\\#\\$\\%\\.]*)\\b",
       "captures": {
         "1": {
           "name": "entity.name.type.abl"
@@ -691,7 +677,7 @@
           "include": "#code-block"
         }
       ]
-    },    
+    },
     "define2": {
       "name": "meta.define.abl",
       "begin": "(?i)\\b(define|def)\\b\\s*",
@@ -708,7 +694,7 @@
       },
       "patterns": [
         {
-          "match": "(?i)\\s*(new|global|glob|shared|package-private|private|package-protected|protected|public|static|non-serializable|serializable)\\s*",
+          "match": "(?i)\\s*(new|global|glob|shared|static|non-serializable|serializable)\\s*",
           "captures": {
             "1": {
               "name": "keyword.other.abl"
@@ -716,8 +702,11 @@
           }
         },
         {
+          "include": "#access-level"
+        },
+        {
           "name": "meta.define.var.abl",
-          "begin": "(?i)\\s*(variable|variabl|variab|varia|vari|var|property|prop|dataset)\\s*",
+          "begin": "(?i)\\s*(variable|variabl|variab|varia|vari|var|property|prop)\\s*",
           "beginCaptures": {
             "1": {
               "name": "keyword.other.abl"
@@ -726,7 +715,7 @@
           "end": "(?=\\.)",
           "patterns": [
             {
-              "match": "(?i)\\s*([\\w\\-]+)\\s+(as)\\s+",
+              "match": "(?i)\\s*([\\w\\-]+)\\s+(as)\\s*",
               "captures": {
                 "1": {
                   "name": "variable.other.abl"
@@ -740,27 +729,34 @@
               "include": "#primitive-type"
             },
             {
-              "match": "(?i)\\s*(no-undo)\\s*",
-              "captures": {
-                "1": {
-                  "name": "keyword.other.abl"
-                }
-              }
-            },
-            {
               "include": "#extent"
             },
             {
-              "include": "#set-block"
+              "include": "#array-literal"
             },
             {
-              "include": "#set-block"
+              "include": "#timestamp-constant"
+            },
+            {
+              "include": "#keywords"
+            },
+            {
+              "include": "#numeric"
             },
             {
               "include": "#type-name-class"
             },
             {
+              "include": "#string"
+            },
+            {
               "include": "#type-name"
+            },
+            {
+              "include": "#set-block"
+            },
+            {
+              "include": "#set-block"
             }
           ]
         },
@@ -777,7 +773,7 @@
               "name": "keyword.other.abl"
             }
           },
-          "end": "(\\.)",
+          "x-end": "(\\.)",
           "endCaptures": {
             "0": {
               "name": "punctuation.terminator.abl"
@@ -790,7 +786,16 @@
           ]
         },
         {
-          "begins": "(?i)\\b(buffer|temp-table)\\b",
+          "include": "#buffer-for-table"
+        },
+        {
+          "include": "#string"
+        },
+        {
+          "include": "#keywords"
+        },
+        {
+          "begin": "(?i)\\s*(buffer|temp-table)\\s*",
           "beginCaptures": {
             "1": {
               "name": "keyword.other.abl"
@@ -821,6 +826,31 @@
         }
       ]
     },
+    "buffer-for-table": {
+      "match": "(?i)\\s*([\\w\\-#$%]+)\\s+(for)\\s+((temp-table)\\s+)?([\\w\\-#$%]+)\\s*",
+      "captures": {
+        "1": {
+          "name": "storage.data.table.abl"
+        },
+        "2": {
+          "name": "keyword.other.abl"
+        },
+        "4": {
+          "name": "keyword.other.abl"
+        },
+        "5": {
+          "name": "storage.data.table.abl"
+        }
+      }
+    },
+    "access-level": {
+      "match": "\\s*(package-private|private|package-protected|protected|public)\\s*",
+      "captures": {
+        "1": {
+          "name": "keyword.other.abl"
+        }
+      }      
+    },
     "define": {
       "begin": "(?i)\\b(def|define)\\s+",
       "beginCaptures": {
@@ -837,7 +867,7 @@
       "name": "meta.define.abl",
       "patterns": [
         {
-          "begin": "(?i)\\b(new|shared|var|vari|varia|variab|variabl|variable|package-private|private|package-protected|protected|public|static|serializable|non-serializable)\\b",
+          "begin": "(?i)\\b(new|shared|variable|variabl|variab|varia|vari|var|package-private|private|package-protected|protected|public|static|serializable|non-serializable|buffer)\\b",
           "end": "(?=\\.)",
           "comment": "https://docs.progress.com/bundle/openedge-abl-reference-122/page/DEFINE-VARIABLE-statement.html",
           "name": "meta.define.variable.abl",
@@ -847,6 +877,9 @@
             }
           },
           "patterns": [
+            {
+              "include": "#access-level"
+            },
             {
               "include": "#string"
             },
@@ -863,7 +896,23 @@
               "include": "#constant"
             },
             {
+              "include": "#buffer-for-table"
+            },
+            {
               "include": "#keywords"
+            },
+            {
+              "begin": "(?i)\\s*(serialize-name|xml-node-name|namespace-prefix|label|namespace-uri)",
+              "beginCaptures": {
+                "1": {
+                  "name": "keyword.other.abl"
+                }
+              },
+              "patterns": [
+                {
+                  "include": "#string"
+                }
+              ]
             },
             {
               "match": "(?i)\\s*([\\w\\-]+)\\s+(as)\\s+",
@@ -957,6 +1006,17 @@
           "include": "#comment"
         }
       ]
+    },
+    "like-table": {
+      "match": "\\s*(like|like-sequential)\\s+([\\w\\-#$%]+)\\s*",
+      "captures": {
+        "1": {
+          "name": "keyword.other.abl"
+        },
+        "2": {
+          "name": "storage.data.table.abl"
+        }
+      }
     },
     "do-block": {
       "begin": "(?i)\\b(do)\\b",
@@ -1239,8 +1299,13 @@
       "comment": "https://docs.progress.com/bundle/openedge-abl-reference-122/page/Data-types.html"
     },
     "numeric": {
-      "match": "(?<![\\w-])((0(x|X)[0-9a-fA-F]+)|([0-9]+(\\.[0-9]+)?))",
+      "match": "(?<![\\w-])((0(x|X)[0-9a-fA-F]+)|(\\-[0-9]+(\\.[0-9]+)?))",
       "name": "constant.numeric.source.abl"
+    },
+    "timestamp-constant":{
+      "match": "(?i)(?<=^|\\s)(today|now)(?!\\w|-)",
+      "name": "variable.language.abl"
+
     },
     "constant": {
       "match": "(?i)(?<=^|\\s)(true|false|yes|no)(?!\\w|-)",
