@@ -29,6 +29,10 @@ const registry = new vsctm.Registry({
     }
 });
 
+afterEach(function () {
+    console.log(this.currentTest.file);
+})
+
 module.exports = {
     itShouldMatchExpectedScopes: function (statement, expectedTokens) {
         describe(`${statement}`, () => {
@@ -46,13 +50,13 @@ module.exports = {
                         for (let j = 0; j < tokenResult.tokens.length; j++) {
                             const token = tokenResult.tokens[j];
 
-                             console.log(` - token from ${token.startIndex} to ${token.endIndex} ` +
-                                 `(${statement.substring(token.startIndex, token.endIndex)}) ` +
-                                 `with scopes ${token.scopes.join(', ')}`
-                             );
+                            // console.log(` - token from ${token.startIndex} to ${token.endIndex} ` +
+                            //     `(${statement.substring(token.startIndex, token.endIndex)}) ` +
+                            //     `with scopes ${token.scopes.join(', ')}`
+                            // );
 
-                            //var O = token.scopes.map((e) => ('"' + e + '",')).join(' ').replace(/,\s*$/, "");
-                            //console.log(`{ "startIndex": ${token.startIndex}, "endIndex": ${token.endIndex}, "scopes": [${O}] },`,);
+                            var O = token.scopes.map((e) => ('"' + e + '",')).join(' ').replace(/,\s*$/, "");
+                            console.log(`{ "startIndex": ${token.startIndex}, "endIndex": ${token.endIndex}, "scopes": [${O}] },  // '${statement.substring(token.startIndex, token.endIndex)}'`,);
 
                         }
                     } else {
@@ -66,20 +70,20 @@ module.exports = {
                             ruleStack = r.ruleStack;
                             tokenResult.tokens.push(r.tokens);
 
-                            console.log(`\nTokenizing line: ${line}`);
-                            //console.log(`[`);
+                            //console.log(`\nTokenizing line: ${line}`);
+                            console.log(`[`);
                             for (let j = 0; j < r.tokens.length; j++) {
                                 const token = r.tokens[j];
-                                 console.log(` - token from ${token.startIndex} to ${token.endIndex} ` +
-                                     `(${line.substring(token.startIndex, token.endIndex)}) ` +
-                                     `with scopes ${token.scopes.join(', ')}`
-                                 );
+                                // console.log(` - token from ${token.startIndex} to ${token.endIndex} ` +
+                                //     `(${line.substring(token.startIndex, token.endIndex)}) ` +
+                                //     `with scopes ${token.scopes.join(', ')}`
+                                // );
 
-                                //var O = token.scopes.map((e) => ('"' + e + '",')).join(' ').replace(/,\s*$/, "");
-                                //console.log(`{ "startIndex": ${token.startIndex}, "endIndex": ${token.endIndex}, "scopes": [${O}] },`,);
+                                var O = token.scopes.map((e) => ('"' + e + '",')).join(' ').replace(/,\s*$/, "");                                
+                                console.log(`{ "startIndex": ${token.startIndex}, "endIndex": ${token.endIndex}, "scopes": [${O}] },  // '${line.substring(token.startIndex, token.endIndex)}'`,);
 
                             }
-                            //console.log(`],`);
+                            console.log(`],`);
 
                         });
                     }
