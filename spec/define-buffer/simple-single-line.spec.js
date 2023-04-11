@@ -1,0 +1,117 @@
+const { assert, expect } = require('chai');
+const shared = require('../shared.js');
+
+describe('', () => {
+    let statement = `define buffer bCustomer for Customer.`;
+    let expectedTokens = [
+        { "startIndex": 0, "endIndex": 6, "scopes": ["source.abl", "meta.define.abl", "keyword.other.abl"] },  // 'define'
+        { "startIndex": 6, "endIndex": 7, "scopes": ["source.abl", "meta.define.abl"] },  // ' '
+        { "startIndex": 7, "endIndex": 13, "scopes": ["source.abl", "meta.define.abl", "keyword.other.abl"] },  // 'buffer'
+        { "startIndex": 13, "endIndex": 14, "scopes": ["source.abl", "meta.define.abl"] },  // ' '
+        { "startIndex": 14, "endIndex": 23, "scopes": ["source.abl", "meta.define.abl", "storage.data.table.abl"] },  // 'bCustomer'
+        { "startIndex": 23, "endIndex": 24, "scopes": ["source.abl", "meta.define.abl"] },  // ' '
+        { "startIndex": 24, "endIndex": 27, "scopes": ["source.abl", "meta.define.abl", "keyword.other.abl"] },  // 'for'
+        { "startIndex": 27, "endIndex": 28, "scopes": ["source.abl", "meta.define.abl"] },  // ' '
+        { "startIndex": 28, "endIndex": 36, "scopes": ["source.abl", "meta.define.abl", "storage.data.table.abl"] },  // 'Customer'
+        { "startIndex": 36, "endIndex": 37, "scopes": ["source.abl", "punctuation.terminator.abl"] }  // '.'
+    ];
+    shared.itShouldMatchExpectedScopes(statement, expectedTokens);
+})
+describe('', () => {
+    let statement = `define buffer bCustomer for temp-table ttCustomer.`;
+    let expectedTokens = [
+        { "startIndex": 0, "endIndex": 6, "scopes": ["source.abl", "meta.define.abl", "keyword.other.abl"] },  // 'define'
+        { "startIndex": 6, "endIndex": 7, "scopes": ["source.abl", "meta.define.abl"] },  // ' '
+        { "startIndex": 7, "endIndex": 13, "scopes": ["source.abl", "meta.define.abl", "keyword.other.abl"] },  // 'buffer'
+        { "startIndex": 13, "endIndex": 14, "scopes": ["source.abl", "meta.define.abl"] },  // ' '
+        { "startIndex": 14, "endIndex": 23, "scopes": ["source.abl", "meta.define.abl", "storage.data.table.abl"] },  // 'bCustomer'
+        { "startIndex": 23, "endIndex": 24, "scopes": ["source.abl", "meta.define.abl"] },  // ' '
+        { "startIndex": 24, "endIndex": 27, "scopes": ["source.abl", "meta.define.abl", "keyword.other.abl"] },  // 'for'
+        { "startIndex": 27, "endIndex": 28, "scopes": ["source.abl", "meta.define.abl"] },  // ' '
+        { "startIndex": 28, "endIndex": 38, "scopes": ["source.abl", "meta.define.abl", "keyword.other.abl"] },  // 'temp-table'
+        { "startIndex": 38, "endIndex": 39, "scopes": ["source.abl", "meta.define.abl"] },  // ' '
+        { "startIndex": 39, "endIndex": 49, "scopes": ["source.abl", "meta.define.abl", "storage.data.table.abl"] },  // 'ttCustomer'
+        { "startIndex": 49, "endIndex": 50, "scopes": ["source.abl", "punctuation.terminator.abl"] }  // '.'
+    ];
+    shared.itShouldMatchExpectedScopes(statement, expectedTokens);
+})
+
+describe('', () => {
+    let statement = `define buffer bCustomer for temp-table ttCustomer label "theCustomer" preselect.`;
+    let expectedTokens = [
+        { "startIndex": 0, "endIndex": 6, "scopes": ["source.abl", "meta.define.abl", "keyword.other.abl"] },  // 'define'
+        { "startIndex": 6, "endIndex": 7, "scopes": ["source.abl", "meta.define.abl"] },  // ' '
+        { "startIndex": 7, "endIndex": 13, "scopes": ["source.abl", "meta.define.abl", "keyword.other.abl"] },  // 'buffer'
+        { "startIndex": 13, "endIndex": 14, "scopes": ["source.abl", "meta.define.abl"] },  // ' '
+        { "startIndex": 14, "endIndex": 23, "scopes": ["source.abl", "meta.define.abl", "storage.data.table.abl"] },  // 'bCustomer'
+        { "startIndex": 23, "endIndex": 24, "scopes": ["source.abl", "meta.define.abl"] },  // ' '
+        { "startIndex": 24, "endIndex": 27, "scopes": ["source.abl", "meta.define.abl", "keyword.other.abl"] },  // 'for'
+        { "startIndex": 27, "endIndex": 28, "scopes": ["source.abl", "meta.define.abl"] },  // ' '
+        { "startIndex": 28, "endIndex": 38, "scopes": ["source.abl", "meta.define.abl", "keyword.other.abl"] },  // 'temp-table'
+        { "startIndex": 38, "endIndex": 39, "scopes": ["source.abl", "meta.define.abl"] },  // ' '
+        { "startIndex": 39, "endIndex": 49, "scopes": ["source.abl", "meta.define.abl", "storage.data.table.abl"] },  // 'ttCustomer'
+        { "startIndex": 49, "endIndex": 50, "scopes": ["source.abl", "meta.define.abl"] },  // ' '
+        { "startIndex": 50, "endIndex": 55, "scopes": ["source.abl", "meta.define.abl", "keyword.other.abl"] },  // 'label'
+        { "startIndex": 55, "endIndex": 56, "scopes": ["source.abl", "meta.define.abl"] },  // ' '
+        { "startIndex": 56, "endIndex": 57, "scopes": ["source.abl", "meta.define.abl", "string.double.complex.abl", "punctuation.definition.string.begin.abl"] },  // '"'
+        { "startIndex": 57, "endIndex": 68, "scopes": ["source.abl", "meta.define.abl", "string.double.complex.abl"] },  // 'theCustomer'
+        { "startIndex": 68, "endIndex": 69, "scopes": ["source.abl", "meta.define.abl", "string.double.complex.abl", "punctuation.definition.string.end.abl"] },  // '"'
+        { "startIndex": 69, "endIndex": 70, "scopes": ["source.abl", "meta.define.abl"] },  // ' '
+        { "startIndex": 70, "endIndex": 79, "scopes": ["source.abl", "meta.define.abl", "keyword.other.abl"] },  // 'preselect'
+        { "startIndex": 79, "endIndex": 80, "scopes": ["source.abl", "punctuation.terminator.abl"] }  // '.'
+
+    ];
+    shared.itShouldMatchExpectedScopes(statement, expectedTokens);
+})
+
+describe('', () => {
+    let statement = `define buffer bCustomer for temp-table ttCustomer label "theCustomer" .`;
+    let expectedTokens = [
+        { "startIndex": 0, "endIndex": 6, "scopes": ["source.abl", "meta.define.abl", "keyword.other.abl"] },  // 'define'
+        { "startIndex": 6, "endIndex": 7, "scopes": ["source.abl", "meta.define.abl"] },  // ' '
+        { "startIndex": 7, "endIndex": 13, "scopes": ["source.abl", "meta.define.abl", "keyword.other.abl"] },  // 'buffer'
+        { "startIndex": 13, "endIndex": 14, "scopes": ["source.abl", "meta.define.abl"] },  // ' '
+        { "startIndex": 14, "endIndex": 23, "scopes": ["source.abl", "meta.define.abl", "storage.data.table.abl"] },  // 'bCustomer'
+        { "startIndex": 23, "endIndex": 24, "scopes": ["source.abl", "meta.define.abl"] },  // ' '
+        { "startIndex": 24, "endIndex": 27, "scopes": ["source.abl", "meta.define.abl", "keyword.other.abl"] },  // 'for'
+        { "startIndex": 27, "endIndex": 28, "scopes": ["source.abl", "meta.define.abl"] },  // ' '
+        { "startIndex": 28, "endIndex": 38, "scopes": ["source.abl", "meta.define.abl", "keyword.other.abl"] },  // 'temp-table'
+        { "startIndex": 38, "endIndex": 39, "scopes": ["source.abl", "meta.define.abl"] },  // ' '
+        { "startIndex": 39, "endIndex": 49, "scopes": ["source.abl", "meta.define.abl", "storage.data.table.abl"] },  // 'ttCustomer'
+        { "startIndex": 49, "endIndex": 50, "scopes": ["source.abl", "meta.define.abl"] },  // ' '
+        { "startIndex": 50, "endIndex": 55, "scopes": ["source.abl", "meta.define.abl", "keyword.other.abl"] },  // 'label'
+        { "startIndex": 55, "endIndex": 56, "scopes": ["source.abl", "meta.define.abl"] },  // ' '
+        { "startIndex": 56, "endIndex": 57, "scopes": ["source.abl", "meta.define.abl", "string.double.complex.abl", "punctuation.definition.string.begin.abl"] },  // '"'
+        { "startIndex": 57, "endIndex": 68, "scopes": ["source.abl", "meta.define.abl", "string.double.complex.abl"] },  // 'theCustomer'
+        { "startIndex": 68, "endIndex": 69, "scopes": ["source.abl", "meta.define.abl", "string.double.complex.abl", "punctuation.definition.string.end.abl"] },  // '"'
+        { "startIndex": 69, "endIndex": 70, "scopes": ["source.abl", "meta.define.abl"] },  // ' '
+        { "startIndex": 70, "endIndex": 71, "scopes": ["source.abl", "punctuation.terminator.abl"] }  // '.'
+    ];
+    shared.itShouldMatchExpectedScopes(statement, expectedTokens);
+})
+
+describe('', () => {
+    let statement = `define buffer bCustomer for temp-table ttCustomer preselect serialize-name theCustomer" .`;
+    let expectedTokens = [
+        { "startIndex": 0, "endIndex": 6, "scopes": ["source.abl", "meta.define.abl", "keyword.other.abl"] },  // 'define'
+        { "startIndex": 6, "endIndex": 7, "scopes": ["source.abl", "meta.define.abl"] },  // ' '
+        { "startIndex": 7, "endIndex": 13, "scopes": ["source.abl", "meta.define.abl", "keyword.other.abl"] },  // 'buffer'
+        { "startIndex": 13, "endIndex": 14, "scopes": ["source.abl", "meta.define.abl"] },  // ' '
+        { "startIndex": 14, "endIndex": 23, "scopes": ["source.abl", "meta.define.abl", "storage.data.table.abl"] },  // 'bCustomer'
+        { "startIndex": 23, "endIndex": 24, "scopes": ["source.abl", "meta.define.abl"] },  // ' '
+        { "startIndex": 24, "endIndex": 27, "scopes": ["source.abl", "meta.define.abl", "keyword.other.abl"] },  // 'for'
+        { "startIndex": 27, "endIndex": 28, "scopes": ["source.abl", "meta.define.abl"] },  // ' '
+        { "startIndex": 28, "endIndex": 38, "scopes": ["source.abl", "meta.define.abl", "keyword.other.abl"] },  // 'temp-table'
+        { "startIndex": 38, "endIndex": 39, "scopes": ["source.abl", "meta.define.abl"] },  // ' '
+        { "startIndex": 39, "endIndex": 49, "scopes": ["source.abl", "meta.define.abl", "storage.data.table.abl"] },  // 'ttCustomer'
+        { "startIndex": 49, "endIndex": 50, "scopes": ["source.abl", "meta.define.abl"] },  // ' '
+        { "startIndex": 50, "endIndex": 59, "scopes": ["source.abl", "meta.define.abl", "keyword.other.abl"] },  // 'preselect'
+        { "startIndex": 59, "endIndex": 60, "scopes": ["source.abl", "meta.define.abl"] },  // ' '
+        { "startIndex": 60, "endIndex": 74, "scopes": ["source.abl", "meta.define.abl", "keyword.other.abl"] },  // 'serialize-name'
+        { "startIndex": 74, "endIndex": 75, "scopes": ["source.abl", "meta.define.abl"] },  // ' '
+        { "startIndex": 75, "endIndex": 86, "scopes": ["source.abl", "meta.define.abl", "entity.name.type.abl"] },  // 'theCustomer'
+        { "startIndex": 86, "endIndex": 87, "scopes": ["source.abl", "meta.define.abl", "string.double.complex.abl", "punctuation.definition.string.begin.abl"] },  // '"'
+        { "startIndex": 87, "endIndex": 90, "scopes": ["source.abl", "meta.define.abl", "string.double.complex.abl"] }  // ' .'
+    ];
+    shared.itShouldMatchExpectedScopes(statement, expectedTokens);
+})

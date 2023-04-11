@@ -22,7 +22,7 @@ END PROCEDURE.`;
         ], [
             { "startIndex": 0, "endIndex": 6, "scopes": ["source.abl", "meta.procedure.abl", "meta.procedure.body.abl", "meta.define.abl", "keyword.other.abl"] },
             { "startIndex": 6, "endIndex": 7, "scopes": ["source.abl", "meta.procedure.abl", "meta.procedure.body.abl", "meta.define.abl"] },
-            { "startIndex": 7, "endIndex": 13, "scopes": ["source.abl", "meta.procedure.abl", "meta.procedure.body.abl", "meta.define.abl", "meta.define.parameter.abl", "keyword.other.abl"] },
+            { "startIndex": 7, "endIndex": 13, "scopes": ["source.abl", "meta.procedure.abl", "meta.procedure.body.abl", "meta.define.abl", "keyword.other.abl"] },
             { "startIndex": 13, "endIndex": 14, "scopes": ["source.abl", "meta.procedure.abl", "meta.procedure.body.abl", "meta.define.abl", "meta.define.parameter.abl"] },
             { "startIndex": 14, "endIndex": 23, "scopes": ["source.abl", "meta.procedure.abl", "meta.procedure.body.abl", "meta.define.abl", "meta.define.parameter.abl", "keyword.other.abl"] },
             { "startIndex": 23, "endIndex": 24, "scopes": ["source.abl", "meta.procedure.abl", "meta.procedure.body.abl", "meta.define.abl", "meta.define.parameter.abl"] },
