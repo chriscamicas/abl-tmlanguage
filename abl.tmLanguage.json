@@ -7,35 +7,19 @@
     ],
     "name": "OpenEdge ABL",
     "patterns": [
-        {
-            "include": "#procedure-definition"
-        },
-        {
-            "include": "#statements"
-        }
+        { "include": "#procedure-definition" },
+        { "include": "#statements" }
     ],
     "repository": {
         "procedure-definition": {
             "begin": "(?i)\\b(proce|proced|procedu|procedur|procedure)\\b\\s+('[\\w\\.\\-\\{\\}\\&]*':U|'[\\w\\.\\-\\{\\}\\&]*'|[\\w\\.\\-\\{\\}\\&]*)?(\\s+(EXTERNAL)\\s+(\")([\\w\\.-]*)(\"))?",
             "beginCaptures": {
-                "1": {
-                    "name": "keyword.other.abl"
-                },
-                "2": {
-                    "name": "entity.name.function.abl"
-                },
-                "4": {
-                    "name": "keyword.other.abl"
-                },
-                "5": {
-                    "name": "punctuation.definition.string.begin.abl"
-                },
-                "6": {
-                    "name": "string.double.complex.abl"
-                },
-                "7": {
-                    "name": "punctuation.definition.string.end.abl"
-                }
+                "1": { "name": "keyword.other.abl" },
+                "2": { "name": "entity.name.function.abl" },
+                "4": { "name": "keyword.other.abl" },
+                "5": { "name": "punctuation.definition.string.begin.abl" },
+                "6": { "name": "string.double.complex.abl" },
+                "7": { "name": "punctuation.definition.string.end.abl" }
             },
             "end": "(?=\\.)",
             "name": "meta.procedure.abl",
@@ -43,90 +27,52 @@
                 {
                     "begin": ":",
                     "end": "(?i)(end\\s*procedure|end)",
-                    "endCaptures": {
-                        "1": {
-                            "name": "keyword.other.abl"
-                        }
-                    },
+                    "endCaptures": { "1": { "name": "keyword.other.abl" } },
                     "name": "meta.procedure.body.abl",
-                    "patterns": [
-                        {
-                            "include": "#code-block"
-                        }
-                    ]
+                    "patterns": [ { "include": "#code-block" } ]
                 }
             ]
         },
         "method-definition": {
             "name": "meta.function.method",
             "begin": "(?i)^\\b(method)\\b",
-            "beginCaptures": {
-                "1": {
-                    "name": "keyword.other.abl"
-                }
-            },
+            "beginCaptures": { "1": { "name": "keyword.other.abl" } },
             "comment": "The lookaread on the regex for the closing colon is required to make this scope end properly",
             "end": "\\s*(?=:)",
             "patterns": [
                 {
                     "match": "(?i)\\s*(protected|package-protected|private|package-private|public|static|override|abstract|final)\\s*",
-                    "captures": {
-                        "1": {
-                            "name": "keyword.other.abl"
-                        }
-                    }
+                    "captures": { "1": { "name": "keyword.other.abl" } }
                 },
                 {
                     "comment": "The method name will only be correctly scoped if the return type and method name are on the same line.",
                     "match": "(?i)\\s*(blob|character|characte|charact|charac|chara|char|clob|com-handle|date|datetime-tz|datetime|decimal|decima|decim|deci|dec|handle|int64|integer|intege|integ|inte|int|logical|logica|logic|logi|log|longchar|longcha|longch|memptr|raw|recid|rowid|widget-handle)\\s+([a-z_]+[\\w\\-{}#$%&]*)",
                     "captures": {
-                        "1": {
-                            "name": "storage.type.abl"
-                        },
-                        "2": {
-                            "name": "entity.name.function.abl"
-                        }
+                        "1": { "name": "storage.type.abl" },
+                        "2": { "name": "entity.name.function.abl" }
                     }
                 },
                 {
                     "comment": "The method name will only be correctly scoped if the return type and method name are on the same line.",
                     "match": "(?i)\\s*(void)\\s+([a-z_]+[\\w\\-{}#$%&]*)",
                     "captures": {
-                        "1": {
-                            "name": "keyword.other.abl"
-                        },
-                        "2": {
-                            "name": "entity.name.function.abl"
-                        }
+                        "1": { "name": "keyword.other.abl" },
+                        "2": { "name": "entity.name.function.abl" }
                     }
                 },
                 {
                     "comment": "The method name will only be correctly scoped if the return type and method name are on the same line.",
                     "match": "(?i)\\s*([\\w#$%.]+)\\s+([a-z_]+[\\w\\-{}#$%&]*)",
                     "captures": {
-                        "1": {
-                            "name": "entity.name.type.abl"
-                        },
-                        "2": {
-                            "name": "entity.name.function.abl"
-                        }
+                        "1": { "name": "entity.name.type.abl" },
+                        "2": { "name": "entity.name.function.abl" }
                     }
                 },
-                {
-                    "include": "#string"
-                },
-                {
-                    "include": "#primitive-type"
-                },
-                {
-                    "include": "#type-name"
-                },
-                {
-                    "include": "#function-parameter-definition"
-                },
-                {
-                    "include": "#comment"
-                }
+                { "include": "#string" },
+                { "include": "#primitive-type" },
+                { "include": "#type-name" },
+                { "include": "#function-parameter-definition" },
+                { "include": "#comment" }
             ]
         },
         "parameter-definition": {
@@ -135,75 +81,39 @@
                 {
                     "match": "(?i)\\s*(blob|character|characte|charact|charac|chara|char|clob|com-handle|date|datetime-tz|datetime|decimal|decima|decim|deci|dec|handle|int64|integer|intege|integ|inte|int|logical|logica|logic|logi|log|longchar|longcha|longch|memptr|raw|recid|rowid|widget-handle|widget-h?)(?![=\\w-])\\s*(,*)",
                     "captures": {
-                        "1": {
-                            "name": "storage.type.abl"
-                        },
-                        "2": {
-                            "name": "punctuation.separator.comma.abl"
-                        }
+                        "1": { "name": "storage.type.abl" },
+                        "2": { "name": "punctuation.separator.comma.abl" }
                     }
                 },
                 {
                     "match": "(?i)\\s*(input-output|input-outpu|input-outp|input-out|input-ou|input-o|input|output|append|bind|by-value|preselect|buffer|parameter|param|no-undo)",
                     "comment": "Certain keywords like NO-UNDO are 'gathered' by a DEFINE INPUT PARAMETER statement. ",
-                    "captures": {
-                        "1": {
-                            "name": "keyword.other.abl"
-                        }
-                    }
+                    "captures": { "1": { "name": "keyword.other.abl" } }
                 },
                 {
                     "match": "(?i)\\s*(dataset-handle|table-handle)\\s+([\\w\\-]+)",
                     "captures": {
-                        "1": {
-                            "name": "keyword.other.abl"
-                        },
-                        "2": {
-                            "name": "variable.parameter.abl"
-                        },
-                        "3": {
-                            "name": "keyword.other.abl"
-                        },
-                        "4": {
-                            "name": "keyword.other.abl"
-                        }
+                        "1": { "name": "keyword.other.abl" },
+                        "2": { "name": "variable.parameter.abl" },
+                        "3": { "name": "keyword.other.abl" },
+                        "4": { "name": "keyword.other.abl" }
                     }
                 },
                 {
                     "match": "(?i)\\s*(dataset|table)\\s+([\\w\\-]+).*",
                     "captures": {
-                        "1": {
-                            "name": "keyword.other.abl"
-                        },
-                        "2": {
-                            "name": "storage.data.table.abl"
-                        }
+                        "1": { "name": "keyword.other.abl" },
+                        "2": { "name": "storage.data.table.abl" }
                     }
                 },
-                {
-                    "include": "#parameter-as"
-                },
-                {
-                    "include": "#extent"
-                },
-                {
-                    "include": "#buffer-for-table"
-                },
-                {
-                    "include": "#keywords"
-                },
-                {
-                    "include": "#type-name-class"
-                },
-                {
-                    "include": "#type-name-comma"
-                },
-                {
-                    "include": "#string"
-                },
-                {
-                    "include": "#comment"
-                }
+                { "include": "#parameter-as" },
+                { "include": "#extent" },
+                { "include": "#buffer-for-table" },
+                { "include": "#keywords" },
+                { "include": "#type-name-class" },
+                { "include": "#type-name-comma" },
+                { "include": "#string" },
+                { "include": "#comment" }
             ]
         },
         "function-parameter-definition": {
@@ -211,101 +121,45 @@
             "name": "meta.function.parameters",
             "begin": "(?=\\()",
             "end": "(?=\\))",
-            "patterns": [
-                {
-                    "include": "#parameter-definition"
-                }
-            ]
+            "patterns": [ { "include": "#parameter-definition" } ]
         },
         "statements": {
             "patterns": [
-                {
-                    "include": "#type-reference"
-                },
-                {
-                    "include": "#method-definition"
-                },
-                {
-                    "include": "#string"
-                },
-                {
-                    "include": "#singlelinecomment"
-                },
-                {
-                    "include": "#multilinecomment"
-                },
-                {
-                    "include": "#declarations"
-                },
-                {
-                    "include": "#numeric"
-                },
-                {
-                    "include": "#constant"
-                },
-                {
-                    "include": "#operator"
-                },
-                {
-                    "include": "#analyze-suspend-resume"
-                },
-                {
-                    "include": "#global-scoped-define"
-                },
+                { "include": "#type-reference" },
+                { "include": "#method-definition" },
+                { "include": "#string" },
+                { "include": "#singlelinecomment" },
+                { "include": "#multilinecomment" },
+                { "include": "#declarations" },
+                { "include": "#numeric" },
+                { "include": "#constant" },
+                { "include": "#operator" },
+                { "include": "#analyze-suspend-resume" },
+                { "include": "#global-scoped-define" },
                 {
                     "match": "(?i)(\\&[\\w-]*)|({\\&[\\w-]*})|(&window-system|&text-height|&line-number|&batch-mode|&file-name|&undefine|&sequence|&message|defined|&elseif|&scoped|&global|&opsys|&endif|&else|&scop|&then|&glob|&if)",
                     "name": "storage.type.function.abl"
                 },
-                {
-                    "include": "#primitive-type"
-                },
-                {
-                    "include": "#method-call"
-                },
-                {
-                    "include": "#function-call"
-                },
-                {
-                    "include": "#code-block"
-                },
-                {
-                    "include": "#keywords"
-                },
-                {
-                    "include": "#variable-name"
-                },
-                {
-                    "include": "#array-literal"
-                },
-                {
-                    "include": "#punctuation-semicolon"
-                }
+                { "include": "#primitive-type" },
+                { "include": "#method-call" },
+                { "include": "#function-call" },
+                { "include": "#code-block" },
+                { "include": "#keywords" },
+                { "include": "#variable-name" },
+                { "include": "#array-literal" },
+                { "include": "#punctuation-semicolon" }
             ]
         },
         "declarations": {
-            "patterns": [
-                {
-                    "include": "#define"
-                }
-            ]
+            "patterns": [ { "include": "#define" } ]
         },
         "type-reference": {
             "patterns": [
-                {
-                    "include": "#define-type"
-                },
-                {
-                    "include": "#get-class"
-                },
-                {
-                    "include": "#new-class"
-                },
-                {
-                    "include": "#using"
-                },
-                {
-                    "include": "#cast-function"
-                }
+                { "include": "#define-type" },
+                { "include": "#get-class" },
+                { "include": "#new-class" },
+                { "include": "#using" },
+                { "include": "#cast-function" }
             ]
         },
         "using": {
@@ -314,134 +168,74 @@
                     "name": "meta.using.abl",
                     "match": "(?i)\\b(using)\\s+([\\w\\#\\$\\%\\.]*[\\w\\#\\$\\%]+)(\\s+from)?(\\s+propath|assembly)?",
                     "captures": {
-                        "1": {
-                            "name": "keyword.other.abl"
-                        },
-                        "2": {
-                            "name": "entity.name.type.abl"
-                        },
-                        "3": {
-                            "name": "keyword.other.abl"
-                        },
-                        "4": {
-                            "name": "keyword.other.abl"
-                        }
+                        "1": { "name": "keyword.other.abl" },
+                        "2": { "name": "entity.name.type.abl" },
+                        "3": { "name": "keyword.other.abl" },
+                        "4": { "name": "keyword.other.abl" }
                     }
                 }
             ]
         },
         "define-type": {
             "patterns": [
-                {
-                    "include": "#define-class"
-                },
-                {
-                    "include": "#define-interface"
-                },
-                {
-                    "include": "#define-enum"
-                }
+                { "include": "#define-class" },
+                { "include": "#define-interface" },
+                { "include": "#define-enum" }
             ]
         },
         "type-name": {
             "match": "\\b([\\w\\#\\$\\%]+[\\w\\#\\$\\%\\.]*)\\b",
-            "captures": {
-                "1": {
-                    "name": "entity.name.type.abl"
-                }
-            }
+            "captures": { "1": { "name": "entity.name.type.abl" } }
         },
         "type-name-class": {
             "match": "\\s*(class?)\\s+([\\w\\#\\$\\%]+[\\w\\#\\$\\%\\.]*)\\s*",
             "captures": {
-                "1": {
-                    "name": "keyword.other.abl"
-                },
-                "2": {
-                    "name": "entity.name.type.abl"
-                }
+                "1": { "name": "keyword.other.abl" },
+                "2": { "name": "entity.name.type.abl" }
             }
         },
         "type-name-comma": {
             "match": "\\s*(,*)\\s*([\\w\\#\\$\\%]+[\\w\\#\\$\\%\\.]*)\\s*(,*)",
             "captures": {
-                "1": {
-                    "name": "punctuation.separator.comma.abl"
-                },
-                "2": {
-                    "name": "entity.name.type.abl"
-                },
-                "3": {
-                    "name": "punctuation.separator.comma.abl"
-                }
+                "1": { "name": "punctuation.separator.comma.abl" },
+                "2": { "name": "entity.name.type.abl" },
+                "3": { "name": "punctuation.separator.comma.abl" }
             }
         },
         "define-class": {
             "name": "meta.define-type.class.abl",
             "begin": "(?i)\\s*(class)\\s*([\\w\\#\\$\\%\\.]*)",
             "beginCaptures": {
-                "1": {
-                    "name": "keyword.other.abl"
-                },
-                "2": {
-                    "name": "entity.name.type.abl"
-                }
+                "1": { "name": "keyword.other.abl" },
+                "2": { "name": "entity.name.type.abl" }
             },
             "end": "\\s*(:)",
-            "endCaptures": {
-                "1": {
-                    "name": "punctuation.terminator.abl"
-                }
-            },
+            "endCaptures": { "1": { "name": "punctuation.terminator.abl" } },
             "patterns": [
                 {
                     "match": "(?i)\\s*(serializable|abstract|final|use-widget-pool|inherits|implements)\\s*",
-                    "captures": {
-                        "1": {
-                            "name": "keyword.other.abl"
-                        }
-                    }
+                    "captures": { "1": { "name": "keyword.other.abl" } }
                 },
-                {
-                    "include": "#implements-type"
-                },
-                {
-                    "include": "#type-name-comma"
-                }
+                { "include": "#implements-type" },
+                { "include": "#type-name-comma" }
             ]
         },
         "define-interface": {
             "name": "meta.define-type.interface.abl",
             "begin": "(?i)\\s*(interface)\\s*([\\w\\#\\$\\%\\.]*)",
             "beginCaptures": {
-                "1": {
-                    "name": "keyword.other.abl"
-                },
-                "2": {
-                    "name": "entity.name.type.abl"
-                }
+                "1": { "name": "keyword.other.abl" },
+                "2": { "name": "entity.name.type.abl" }
             },
             "end": "\\s*(:)",
-            "endCaptures": {
-                "1": {
-                    "name": "punctuation.terminator.abl"
-                }
-            },
+            "endCaptures": { "1": { "name": "punctuation.terminator.abl" } },
             "patterns": [
                 {
                     "match": "(?i)\\s*(inherits|implements)\\s*",
-                    "captures": {
-                        "1": {
-                            "name": "keyword.other.abl"
-                        }
-                    }
+                    "captures": { "1": { "name": "keyword.other.abl" } }
                 },
-                {
-                    "include": "#implements-type"
-                },
-                {
-                    "include": "#type-name-comma"
-                }
+                { "include": "#implements-type" },
+                { "include": "#type-name-comma" }
             ]
         },
         "inherits-implements-type": {
@@ -449,23 +243,11 @@
             "begin": "(?i)\\s*(implements|inherits)\\s*([\\w\\#\\$\\%\\.]+)",
             "end": "(?i)\\s*(serializable|abstract|final|use-widget-pool|inherits|implements+?)",
             "beginCaptures": {
-                "1": {
-                    "name": "keyword.other.abl"
-                },
-                "2": {
-                    "name": "entity.name.type.abl"
-                }
+                "1": { "name": "keyword.other.abl" },
+                "2": { "name": "entity.name.type.abl" }
             },
-            "endCaptures": {
-                "1": {
-                    "name": "keyword.other.abl"
-                }
-            },
-            "patterns": [
-                {
-                    "include": "#type-name-comma"
-                }
-            ]
+            "endCaptures": { "1": { "name": "keyword.other.abl" } },
+            "patterns": [ { "include": "#type-name-comma" } ]
         },
         "define-enum": {
             "patterns": [
@@ -473,18 +255,10 @@
                     "name": "meta.define-type.enum.abl",
                     "match": "(?i)(enum)\\s+([\\w\\#\\$\\%\\.]+)\\s*(flags)?\\s*(:)",
                     "captures": {
-                        "1": {
-                            "name": "keyword.other.abl"
-                        },
-                        "2": {
-                            "name": "entity.name.type.abl"
-                        },
-                        "3": {
-                            "name": "keyword.other.abl"
-                        },
-                        "4": {
-                            "name": "punctuation.terminator.abl"
-                        }
+                        "1": { "name": "keyword.other.abl" },
+                        "2": { "name": "entity.name.type.abl" },
+                        "3": { "name": "keyword.other.abl" },
+                        "4": { "name": "punctuation.terminator.abl" }
                     }
                 }
             ]
@@ -495,12 +269,8 @@
                     "name": "meta.function-call.new.abl",
                     "match": "(?i)(new)\\s+([\\w\\#\\$\\%\\.]+)",
                     "captures": {
-                        "1": {
-                            "name": "keyword.other.abl"
-                        },
-                        "2": {
-                            "name": "entity.name.type.abl"
-                        }
+                        "1": { "name": "keyword.other.abl" },
+                        "2": { "name": "entity.name.type.abl" }
                     }
                 }
             ]
@@ -511,18 +281,10 @@
                     "name": "meta.function-call.get-class.abl",
                     "match": "(?i)(get-class)\\s*(\\()\\s*([\\w\\#\\$\\%\\.]+)\\s*(\\))",
                     "captures": {
-                        "1": {
-                            "name": "entity.name.function.abl"
-                        },
-                        "2": {
-                            "name": "meta.brace.round.js"
-                        },
-                        "3": {
-                            "name": "entity.name.type.abl"
-                        },
-                        "4": {
-                            "name": "meta.brace.round.js"
-                        }
+                        "1": { "name": "entity.name.function.abl" },
+                        "2": { "name": "meta.brace.round.js" },
+                        "3": { "name": "entity.name.type.abl" },
+                        "4": { "name": "meta.brace.round.js" }
                     }
                 }
             ]
@@ -530,581 +292,285 @@
         "cast-function": {
             "name": "meta.function-call.cast.abl",
             "begin": "(?i)(cast)",
-            "beginCaptures": {
-                "1": {
-                    "name": "entity.name.function.abl"
-                }
-            },
+            "beginCaptures": { "1": { "name": "entity.name.function.abl" } },
             "end": "(\\))",
-            "endCaptures": {
-                "1": {
-                    "name": "meta.brace.round.js"
-                }
-            },
+            "endCaptures": { "1": { "name": "meta.brace.round.js" } },
             "patterns": [
                 {
                     "match": "(\\()",
-                    "captures": {
-                        "1": {
-                            "name": "meta.brace.round.js"
-                        }
-                    }
+                    "captures": { "1": { "name": "meta.brace.round.js" } }
                 },
                 {
                     "match": "\\s*([a-zA-Z_]+[\\w\\.\\-_]*)\\s*(,+)",
                     "comment": "Variable names must begin with a letter, but subsequent characters can include letters, numeric digits, periods(.), hyphens(-), and underscores(_)",
                     "captures": {
-                        "1": {
-                            "name": "variable.other.abl"
-                        },
-                        "2": {
-                            "name": "punctuation.separator.comma.abl"
-                        }
+                        "1": { "name": "variable.other.abl" },
+                        "2": { "name": "punctuation.separator.comma.abl" }
                     }
                 },
-                {
-                    "include": "#doublequotedstring"
-                },
-                {
-                    "include": "#singlequotedstring"
-                },
+                { "include": "#doublequotedstring" },
+                { "include": "#singlequotedstring" },
                 {
                     "match": "\\s*(,*)\\s*([\\w\\#\\$\\%\\.]+)",
                     "captures": {
-                        "1": {
-                            "name": "punctuation.separator.comma.abl"
-                        },
-                        "2": {
-                            "name": "entity.name.type.abl"
-                        }
+                        "1": { "name": "punctuation.separator.comma.abl" },
+                        "2": { "name": "entity.name.type.abl" }
                     }
                 }
             ]
         },
         "code-block": {
             "patterns": [
-                {
-                    "include": "#singlelinecomment"
-                },
-                {
-                    "include": "#multilinecomment"
-                },
-                {
-                    "include": "#string"
-                },
-                {
-                    "include": "#numeric"
-                },
-                {
-                    "include": "#constant"
-                },
-                {
-                    "include": "#operator"
-                },
-                {
-                    "include": "#include-file"
-                },
-                {
-                    "include": "#define"
-                },
-                {
-                    "include": "#do-block"
-                },
-                {
-                    "include": "#abl-system-handles"
-                },
-                {
-                    "include": "#keywords"
-                },
-                {
-                    "include": "#variable-name"
-                },
-                {
-                    "include": "#type-reference"
-                },
-                {
-                    "include": "#method-call"
-                },
-                {
-                    "include": "#function-call"
-                }
+                { "include": "#singlelinecomment" },
+                { "include": "#multilinecomment" },
+                { "include": "#string" },
+                { "include": "#numeric" },
+                { "include": "#constant" },
+                { "include": "#operator" },
+                { "include": "#include-file" },
+                { "include": "#define" },
+                { "include": "#do-block" },
+                { "include": "#abl-system-handles" },
+                { "include": "#keywords" },
+                { "include": "#variable-name" },
+                { "include": "#type-reference" },
+                { "include": "#method-call" },
+                { "include": "#function-call" }
             ]
         },
         "property-accessor": {
             "patterns": [
-                {
-                    "include": "#property-accessor-empty"
-                },
-                {
-                    "include": "#property-accessor-block"
-                }
+                { "include": "#property-accessor-empty" },
+                { "include": "#property-accessor-block" }
             ]
         },
         "property-accessor-empty": {
             "name": "meta.define.accessor.abl",
             "match": "\\s*(get|set)\\s*(super)?\\s*(\\.)",
             "captures": {
-                "1": {
-                    "name": "keyword.other.abl"
-                },
-                "2": {
-                    "name": "keyword.other.abl"
-                },
-                "3": {
-                    "name": "punctuation.terminator.abl"
-                }
+                "1": { "name": "keyword.other.abl" },
+                "2": { "name": "keyword.other.abl" },
+                "3": { "name": "punctuation.terminator.abl" }
             }
         },
         "property-accessor-block": {
             "name": "meta.define.accessor.abl",
             "begin": "(?i)\\s*(get|set)",
-            "beginCaptures": {
-                "1": {
-                    "name": "keyword.other.abl"
-                }
-            },
+            "beginCaptures": { "1": { "name": "keyword.other.abl" } },
             "end": "(?i)\\s*(end)\\s*(get|set)?\\s*(\\.)\\s*",
             "endCaptures": {
-                "1": {
-                    "name": "keyword.other.abl"
-                },
-                "2": {
-                    "name": "keyword.other.abl"
-                },
-                "3": {
-                    "name": "punctuation.terminator.abl"
-                }
+                "1": { "name": "keyword.other.abl" },
+                "2": { "name": "keyword.other.abl" },
+                "3": { "name": "punctuation.terminator.abl" }
             },
             "patterns": [
-                {
-                    "include": "#function-parameter-definition"
-                },
-                {
-                    "include": "#code-block"
-                }
+                { "include": "#function-parameter-definition" },
+                { "include": "#code-block" }
             ]
         },
         "set-block": {
             "name": "meta.define.setter.abl",
             "begin": "(?i)\\s*(set)",
-            "beginCaptures": {
-                "1": {
-                    "name": "keyword.other.abl"
-                }
-            },
+            "beginCaptures": { "1": { "name": "keyword.other.abl" } },
             "end": "(?i)\\s*(end)\\s*(set)?\\s*(\\.)",
             "endCaptures": {
-                "1": {
-                    "name": "keyword.other.abl"
-                },
-                "2": {
-                    "name": "keyword.other.abl"
-                },
-                "3": {
-                    "name": "punctuation.terminator.abl"
-                }
+                "1": { "name": "keyword.other.abl" },
+                "2": { "name": "keyword.other.abl" },
+                "3": { "name": "punctuation.terminator.abl" }
             },
             "patterns": [
-                {
-                    "include": "#function-parameter-definition"
-                },
-                {
-                    "include": "#abl-system-handles"
-                },
-                {
-                    "include": "#code-block"
-                }
+                { "include": "#function-parameter-definition" },
+                { "include": "#abl-system-handles" },
+                { "include": "#code-block" }
             ]
         },
         "parameter-as": {
             "match": "(?i)\\s*([\\w\\-]+)\\s+(as)\\s*",
             "captures": {
-                "1": {
-                    "name": "variable.parameter.abl"
-                },
-                "2": {
-                    "name": "keyword.other.abl"
-                }
+                "1": { "name": "variable.parameter.abl" },
+                "2": { "name": "keyword.other.abl" }
             }
         },
         "variable-as": {
             "match": "(?i)\\s*([\\w\\-]+)\\s+(as)\\s*",
             "captures": {
-                "1": {
-                    "name": "variable.other.abl"
-                },
-                "2": {
-                    "name": "keyword.other.abl"
-                }
+                "1": { "name": "variable.other.abl" },
+                "2": { "name": "keyword.other.abl" }
             }
         },
         "define": {
             "name": "meta.define.abl",
             "begin": "(?i)\\b(define|def)\\b\\s*",
-            "beginCaptures": {
-                "1": {
-                    "name": "keyword.other.abl"
-                }
-            },
+            "beginCaptures": { "1": { "name": "keyword.other.abl" } },
             "end": "(?=\\.)",
-            "endCaptures": {
-                "1": {
-                    "name": "punctuation.terminator.abl"
-                }
-            },
+            "endCaptures": { "1": { "name": "punctuation.terminator.abl" } },
             "patterns": [
                 {
                     "match": "(?i)\\s*(new|global|glob|shared|static)\\s*",
-                    "captures": {
-                        "1": {
-                            "name": "keyword.other.abl"
-                        }
-                    }
+                    "captures": { "1": { "name": "keyword.other.abl" } }
                 },
-                {
-                    "include": "#serializable"
-                },
-                {
-                    "include": "#access-level"
-                },
+                { "include": "#serializable" },
+                { "include": "#access-level" },
                 {
                     "name": "meta.define.variable.abl",
                     "begin": "(?i)\\s*(variable|variabl|variab|varia|vari|var)\\s*",
-                    "beginCaptures": {
-                        "1": {
-                            "name": "keyword.other.abl"
-                        }
-                    },
+                    "beginCaptures": { "1": { "name": "keyword.other.abl" } },
                     "end": "(?=\\.)",
                     "patterns": [
-                        {
-                            "include": "#variable-as"
-                        },
-                        {
-                            "include": "#primitive-type"
-                        },
-                        {
-                            "include": "#extent"
-                        },
-                        {
-                            "include": "#array-literal"
-                        },
-                        {
-                            "include": "#timestamp-constant"
-                        },
-                        {
-                            "include": "#keywords"
-                        },
-                        {
-                            "include": "#numeric"
-                        },
-                        {
-                            "include": "#type-name-class"
-                        },
-                        {
-                            "include": "#string"
-                        },
-                        {
-                            "include": "#type-name"
-                        }
+                        { "include": "#variable-as" },
+                        { "include": "#primitive-type" },
+                        { "include": "#extent" },
+                        { "include": "#array-literal" },
+                        { "include": "#timestamp-constant" },
+                        { "include": "#keywords" },
+                        { "include": "#numeric" },
+                        { "include": "#type-name-class" },
+                        { "include": "#string" },
+                        { "include": "#type-name" }
                     ]
                 },
                 {
                     "name": "meta.define.property.abl",
                     "begin": "(?i)\\s*(property|prop)\\s*",
-                    "beginCaptures": {
-                        "1": {
-                            "name": "keyword.other.abl"
-                        }
-                    },
+                    "beginCaptures": { "1": { "name": "keyword.other.abl" } },
                     "comment": "This match just gets the definition of the property; the getter and setter are handled separately",
                     "end": "(?i)\\s*(no-undo)|(?=private|public|protected|get|set)",
-                    "endCaptures": {
-                        "1": {
-                            "name": "keyword.other.abl"
-                        }
-                    },
+                    "endCaptures": { "1": { "name": "keyword.other.abl" } },
                     "patterns": [
-                        {
-                            "include": "#variable-as"
-                        },
-                        {
-                            "include": "#primitive-type"
-                        },
-                        {
-                            "include": "#extent"
-                        },
-                        {
-                            "include": "#array-literal"
-                        },
-                        {
-                            "include": "#timestamp-constant"
-                        },
-                        {
-                            "include": "#keywords"
-                        },
-                        {
-                            "include": "#numeric"
-                        },
-                        {
-                            "include": "#type-name-class"
-                        },
-                        {
-                            "include": "#string"
-                        },
-                        {
-                            "include": "#type-name"
-                        }
+                        { "include": "#variable-as" },
+                        { "include": "#primitive-type" },
+                        { "include": "#extent" },
+                        { "include": "#array-literal" },
+                        { "include": "#timestamp-constant" },
+                        { "include": "#keywords" },
+                        { "include": "#numeric" },
+                        { "include": "#type-name-class" },
+                        { "include": "#string" },
+                        { "include": "#type-name" }
                     ]
                 },
-                {
-                    "include": "#property-accessor"
-                },
+                { "include": "#property-accessor" },
                 {
                     "name": "meta.define.parameter.abl",
                     "begin": "(?i)\\s*(input-output|input-outpu|input-outp|input-out|input-ou|input-o|input|output|parameter|param)",
-                    "beginCaptures": {
-                        "1": {
-                            "name": "keyword.other.abl"
-                        }
-                    },
+                    "beginCaptures": { "1": { "name": "keyword.other.abl" } },
                     "end": "(?=\\.)",
-                    "endCaptures": {
-                        "1": {
-                            "name": "punctuation.terminator.abl"
-                        }
-                    },
-                    "patterns": [
-                        {
-                            "include": "#parameter-definition"
-                        }
-                    ]
+                    "endCaptures": { "1": { "name": "punctuation.terminator.abl" } },
+                    "patterns": [ { "include": "#parameter-definition" } ]
                 },
-                {
-                    "include": "#define-stream"
-                },
-                {
-                    "include": "#buffer-for-table"
-                },
-                {
-                    "include": "#define-table"
-                },
+                { "include": "#define-stream" },
+                { "include": "#buffer-for-table" },
+                { "include": "#define-table" },
                 {
                     "comment": "This is to capture 'FIELD x AS Object'. As of OE 12.6 only Progress.Lang.Object is allowed as a type name. If/when this changes, this regex becomes trickier",
                     "match": "(?i)\\b(progress\\.lang\\.object|object)\\b",
-                    "captures": {
-                        "1": {
-                            "name": "entity.name.type.abl"
-                        }
-                    }
+                    "captures": { "1": { "name": "entity.name.type.abl" } }
                 },
-                {
-                    "include": "#format-constant"
-                },
-                {
-                    "include": "#timestamp-constant"
-                },
-                {
-                    "include": "#constant"
-                },
-                {
-                    "include": "#numeric"
-                },
-                {
-                    "include": "#string"
-                },
-                {
-                    "include": "#primitive-type"
-                },
-                {
-                    "include": "#type-name-class"
-                },
-                {
-                    "include": "#keywords"
-                },
-                {
-                    "include": "#comment"
-                },
-                {
-                    "include": "#label-variable"
-                },
-                {
-                    "include": "#type-name"
-                }
+                { "include": "#format-constant" },
+                { "include": "#timestamp-constant" },
+                { "include": "#constant" },
+                { "include": "#numeric" },
+                { "include": "#string" },
+                { "include": "#primitive-type" },
+                { "include": "#type-name-class" },
+                { "include": "#keywords" },
+                { "include": "#comment" },
+                { "include": "#label-variable" },
+                { "include": "#type-name" }
             ]
         },
         "label-variable": {
             "match": "(?i)\\b(\\w+)\\s+(label)\\b",
             "captures": {
-                "1": {
-                    "name": "variable.other.abl"
-                },
-                "2": {
-                    "name": "keyword.other.abl"
-                }
+                "1": { "name": "variable.other.abl" },
+                "2": { "name": "keyword.other.abl" }
             }
         },
         "format-constant": {
             "comment": "DATE/TIME/TZ fields can have an unquoted format if it's something like 99/99/9999",
             "match": "(?i)\\b(format)\\s+(9+\\/9+\\/9+)\\b",
             "captures": {
-                "1": {
-                    "name": "keyword.other.abl"
-                },
-                "2": {
-                    "name": "constant.language.source.abl"
-                }
+                "1": { "name": "keyword.other.abl" },
+                "2": { "name": "constant.language.source.abl" }
             }
         },
         "define-as": {
             "name": "meta.define.as.abl",
             "begin": "(?i)\\s*(as)(\\s+\\b)",
             "beginCaptures": {
-                "1": {
-                    "name": "keyword.other.abl"
-                },
-                "2": {
-                    "name": "meta.begin.capture.abl"
-                }
+                "1": { "name": "keyword.other.abl" },
+                "2": { "name": "meta.begin.capture.abl" }
             },
             "end": "(?=\\b)",
-            "endCaptures": {
-                "1": {
-                    "name": "meta.end.capture.abl"
-                }
-            },
+            "endCaptures": { "1": { "name": "meta.end.capture.abl" } },
             "patterns": [
-                {
-                    "include": "#string"
-                },
-                {
-                    "include": "#comment"
-                },
-                {
-                    "include": "#primitive-type"
-                },
-                {
-                    "include": "#type-name-class"
-                },
-                {
-                    "include": "#type-name"
-                }
+                { "include": "#string" },
+                { "include": "#comment" },
+                { "include": "#primitive-type" },
+                { "include": "#type-name-class" },
+                { "include": "#type-name" }
             ]
         },
         "define-table": {
             "match": "(?i)\\b(temp-table|like|before-table)\\s+([\\w\\-#$%]+)\\b",
             "captures": {
-                "1": {
-                    "name": "keyword.other.abl"
-                },
-                "2": {
-                    "name": "storage.data.table.abl"
-                }
+                "1": { "name": "keyword.other.abl" },
+                "2": { "name": "storage.data.table.abl" }
             }
         },
         "buffer-for-table": {
             "match": "(?i)\\s*([\\w\\-#$%]+)\\s+(for)\\s+((temp-table)\\s+)?([\\w\\-#$%]+)\\s*",
             "captures": {
-                "1": {
-                    "name": "storage.data.table.abl"
-                },
-                "2": {
-                    "name": "keyword.other.abl"
-                },
-                "4": {
-                    "name": "keyword.other.abl"
-                },
-                "5": {
-                    "name": "storage.data.table.abl"
-                }
+                "1": { "name": "storage.data.table.abl" },
+                "2": { "name": "keyword.other.abl" },
+                "4": { "name": "keyword.other.abl" },
+                "5": { "name": "storage.data.table.abl" }
             }
         },
         "access-level": {
             "match": "\\s*(package-private|private|package-protected|protected|public)\\s*",
-            "captures": {
-                "1": {
-                    "name": "keyword.other.abl"
-                }
-            }
+            "captures": { "1": { "name": "keyword.other.abl" } }
         },
         "serializable": {
             "match": "(?i)\\b(non-serializable|serializable)\\b",
-            "captures": {
-                "1": {
-                    "name": "keyword.other.abl"
-                }
-            }
+            "captures": { "1": { "name": "keyword.other.abl" } }
         },
         "define-stream": {
             "match": "(?i)\\b(stream)\\s+([\\w\\-]+)",
             "comment": "https://docs.progress.com/bundle/openedge-abl-reference-122/page/DEFINE-STREAM-statement.html",
             "name": "meta.define.stream.abl",
             "captures": {
-                "1": {
-                    "name": "keyword.other.abl"
-                },
-                "2": {
-                    "patterns": [
-                        {
-                            "include": "#variable-name"
-                        }
-                    ]
-                }
+                "1": { "name": "keyword.other.abl" },
+                "2": { "patterns": [ { "include": "#variable-name" } ] }
             }
         },
         "like-table": {
             "match": "\\s*(like|like-sequential)\\s+([\\w\\-#$%]+)\\s*",
             "captures": {
-                "1": {
-                    "name": "keyword.other.abl"
-                },
-                "2": {
-                    "name": "storage.data.table.abl"
-                }
+                "1": { "name": "keyword.other.abl" },
+                "2": { "name": "storage.data.table.abl" }
             }
         },
         "do-block": {
             "begin": "(?i)\\b(do)\\b",
-            "beginCaptures": {
-                "1": {
-                    "name": "keyword.other.abl"
-                }
-            },
+            "beginCaptures": { "1": { "name": "keyword.other.abl" } },
             "end": "(?=\\.)",
             "name": "meta.do.abl",
             "patterns": [
                 {
                     "begin": "(?i)\\b(while)\\b",
                     "end": "(?=(?::))",
-                    "beginCaptures": {
-                        "1": {
-                            "name": "keyword.other.abl"
-                        }
-                    },
+                    "beginCaptures": { "1": { "name": "keyword.other.abl" } },
                     "name": "meta.do.while.abl",
-                    "patterns": [
-                        {
-                            "include": "#statements"
-                        }
-                    ]
+                    "patterns": [ { "include": "#statements" } ]
                 },
-                {
-                    "include": "#statements"
-                },
+                { "include": "#statements" },
                 {
                     "begin": ":",
                     "end": "(?i)(end\\s*do|end)",
-                    "endCaptures": {
-                        "1": {
-                            "name": "keyword.other.abl"
-                        }
-                    },
+                    "endCaptures": { "1": { "name": "keyword.other.abl" } },
                     "name": "meta.do.body.abl",
-                    "patterns": [
-                        {
-                            "include": "#code-block"
-                        }
-                    ]
+                    "patterns": [ { "include": "#code-block" } ]
                 }
             ]
         },
@@ -1116,20 +582,12 @@
         "global-scoped-define": {
             "begin": "(?i)(\\&scoped-define|\\&global-define)\\s*([\\.\\w\\\\\/-]*)\\s*",
             "beginCaptures": {
-                "1": {
-                    "name": "keyword.other.abl"
-                },
-                "2": {
-                    "name": "entity.name.function.preprocessor.abl"
-                }
+                "1": { "name": "keyword.other.abl" },
+                "2": { "name": "entity.name.function.preprocessor.abl" }
             },
             "end": "(?=(?://|/\\*))|$",
             "name": "meta.preprocessor.define.abl",
-            "patterns": [
-                {
-                    "include": "#string"
-                }
-            ]
+            "patterns": [ { "include": "#string" } ]
         },
         "method-call": {
             "match": "(?<=\\.|:)(\\w|-)+",
@@ -1140,25 +598,13 @@
             "begin": "([\\w-]+)\\s*(\\()",
             "end": "(\\))",
             "beginCaptures": {
-                "1": {
-                    "name": "entity.name.function.abl"
-                },
-                "2": {
-                    "name": "meta.brace.round.js"
-                }
+                "1": { "name": "entity.name.function.abl" },
+                "2": { "name": "meta.brace.round.js" }
             },
-            "endCaptures": {
-                "1": {
-                    "name": "meta.brace.round.js"
-                }
-            },
+            "endCaptures": { "1": { "name": "meta.brace.round.js" } },
             "patterns": [
-                {
-                    "include": "#expression"
-                },
-                {
-                    "include": "#punctuation-comma"
-                }
+                { "include": "#expression" },
+                { "include": "#punctuation-comma" }
             ]
         },
         "variable-name": {
@@ -1168,51 +614,27 @@
         "extent": {
             "match": "(?i)\\s*(extent)\\s*((0x[0-9a-f]+)|([0-9]+(\\.[0-9]+)?)?)",
             "captures": {
-                "1": {
-                    "name": "keyword.other.abl"
-                },
-                "2": {
-                    "name": "constant.numeric.source.abl"
-                }
+                "1": { "name": "keyword.other.abl" },
+                "2": { "name": "constant.numeric.source.abl" }
             }
         },
         "array-literal": {
             "name": "meta.array.literal.abl",
             "begin": "\\[",
-            "beginCaptures": {
-                "0": {
-                    "name": "meta.brace.square.abl"
-                }
-            },
+            "beginCaptures": { "0": { "name": "meta.brace.square.abl" } },
             "end": "\\]",
-            "endCaptures": {
-                "0": {
-                    "name": "meta.brace.square.abl"
-                }
-            },
+            "endCaptures": { "0": { "name": "meta.brace.square.abl" } },
             "patterns": [
-                {
-                    "include": "#expression"
-                },
-                {
-                    "include": "#punctuation-comma"
-                }
+                { "include": "#expression" },
+                { "include": "#punctuation-comma" }
             ]
         },
         "expression": {
             "patterns": [
-                {
-                    "include": "#string"
-                },
-                {
-                    "include": "#constant"
-                },
-                {
-                    "include": "#numeric"
-                },
-                {
-                    "include": "#variable-name"
-                }
+                { "include": "#string" },
+                { "include": "#constant" },
+                { "include": "#numeric" },
+                { "include": "#variable-name" }
             ]
         },
         "parameter-name": {
@@ -1221,22 +643,12 @@
         },
         "include-file": {
             "begin": "({)\\s*",
-            "beginCaptures": {
-                "1": {
-                    "name": "punctuation.section.abl"
-                }
-            },
+            "beginCaptures": { "1": { "name": "punctuation.section.abl" } },
             "end": "\\s*(})",
-            "endCaptures": {
-                "1": {
-                    "name": "punctuation.section.abl"
-                }
-            },
+            "endCaptures": { "1": { "name": "punctuation.section.abl" } },
             "name": "meta.include.abl",
             "patterns": [
-                {
-                    "include": "#string"
-                },
+                { "include": "#string" },
                 {
                     "match": "(?i)({\\&[\\w-]*})",
                     "name": "keyword.other"
@@ -1247,11 +659,7 @@
                 },
                 {
                     "match": "([^}\\s]*)\\s*",
-                    "captures": {
-                        "1": {
-                            "name": "string.unquoted.include-argument.abl"
-                        }
-                    }
+                    "captures": { "1": { "name": "string.unquoted.include-argument.abl" } }
                 }
             ],
             "comment": "https://docs.progress.com/bundle/openedge-abl-reference-122/page/Include-file-reference.html"
@@ -1261,12 +669,8 @@
         },
         "comment": {
             "patterns": [
-                {
-                    "include": "#singlelinecomment"
-                },
-                {
-                    "include": "#multilinecomment"
-                }
+                { "include": "#singlelinecomment" },
+                { "include": "#multilinecomment" }
             ]
         },
         "singlelinecomment": {
@@ -1288,27 +692,15 @@
         },
         "string": {
             "patterns": [
-                {
-                    "include": "#singlequotedstring"
-                },
-                {
-                    "include": "#doublequotedstring"
-                }
+                { "include": "#singlequotedstring" },
+                { "include": "#doublequotedstring" }
             ]
         },
         "singlequotedstring": {
             "begin": "'",
-            "beginCaptures": {
-                "0": {
-                    "name": "punctuation.definition.string.begin.abl"
-                }
-            },
+            "beginCaptures": { "0": { "name": "punctuation.definition.string.begin.abl" } },
             "end": "'",
-            "endCaptures": {
-                "0": {
-                    "name": "punctuation.definition.string.end.abl"
-                }
-            },
+            "endCaptures": { "0": { "name": "punctuation.definition.string.end.abl" } },
             "name": "string.single.complex.abl",
             "patterns": [
                 {
@@ -1319,17 +711,9 @@
         },
         "doublequotedstring": {
             "begin": "\"",
-            "beginCaptures": {
-                "0": {
-                    "name": "punctuation.definition.string.begin.abl"
-                }
-            },
+            "beginCaptures": { "0": { "name": "punctuation.definition.string.begin.abl" } },
             "end": "\"",
-            "endCaptures": {
-                "0": {
-                    "name": "punctuation.definition.string.end.abl"
-                }
-            },
+            "endCaptures": { "0": { "name": "punctuation.definition.string.end.abl" } },
             "name": "string.double.complex.abl",
             "patterns": [
                 {
@@ -1350,12 +734,8 @@
         "abl-system-handles": {
             "match": "(?i)\\s*(this-object|super|self|this-procedure|target-procedure|source-procedure|session|error-status|compiler|audit-control|audit-policy|clipboard|codebase-locator|color-table|debugger|dslog-manager|file-information|file-info|font-table|last-event|log-manager|profiler|rcode-information|rcode-info|security-policy|session|web-context)(:)\\s*",
             "captures": {
-                "1": {
-                    "name": "variable.language.abl"
-                },
-                "2": {
-                    "name": "punctuation.terminator.abl"
-                }
+                "1": { "name": "variable.language.abl" },
+                "2": { "name": "punctuation.terminator.abl" }
             }
         },
         "timestamp-constant": {
@@ -1384,81 +764,31 @@
         },
         "keywords": {
             "patterns": [
-                {
-                    "include": "#keywords-a"
-                },
-                {
-                    "include": "#keywords-b"
-                },
-                {
-                    "include": "#keywords-c"
-                },
-                {
-                    "include": "#keywords-d"
-                },
-                {
-                    "include": "#keywords-e"
-                },
-                {
-                    "include": "#keywords-f"
-                },
-                {
-                    "include": "#keywords-g"
-                },
-                {
-                    "include": "#keywords-h"
-                },
-                {
-                    "include": "#keywords-i"
-                },
-                {
-                    "include": "#keywords-j"
-                },
-                {
-                    "include": "#keywords-k"
-                },
-                {
-                    "include": "#keywords-l"
-                },
-                {
-                    "include": "#keywords-m"
-                },
-                {
-                    "include": "#keywords-n"
-                },
-                {
-                    "include": "#keywords-o"
-                },
-                {
-                    "include": "#keywords-p"
-                },
-                {
-                    "include": "#keywords-q"
-                },
-                {
-                    "include": "#keywords-r"
-                },
-                {
-                    "include": "#keywords-s"
-                },
-                {
-                    "include": "#keywords-t"
-                },
-                {
-                    "include": "#keywords-u"
-                },
-                {
-                    "include": "#keywords-v"
-                },
-                {
-                    "include": "#keywords-w"
-                },
-                {
-                    "include": "#keywords-x"
-                },
-                {
-                    "include": "#keywords-y"
-                }
+                { "include": "#keywords-a" },
+                { "include": "#keywords-b" },
+                { "include": "#keywords-c" },
+                { "include": "#keywords-d" },
+                { "include": "#keywords-e" },
+                { "include": "#keywords-f" },
+                { "include": "#keywords-g" },
+                { "include": "#keywords-h" },
+                { "include": "#keywords-i" },
+                { "include": "#keywords-j" },
+                { "include": "#keywords-k" },
+                { "include": "#keywords-l" },
+                { "include": "#keywords-m" },
+                { "include": "#keywords-n" },
+                { "include": "#keywords-o" },
+                { "include": "#keywords-p" },
+                { "include": "#keywords-q" },
+                { "include": "#keywords-r" },
+                { "include": "#keywords-s" },
+                { "include": "#keywords-t" },
+                { "include": "#keywords-u" },
+                { "include": "#keywords-v" },
+                { "include": "#keywords-w" },
+                { "include": "#keywords-x" },
+                { "include": "#keywords-y" }
             ]
         },
         "keywords-a": {
