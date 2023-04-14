@@ -204,3 +204,33 @@ describe('', () => {
     shared.itShouldMatchExpectedScopes(statement, expectedTokens);
 })
 
+describe('', () => {
+  let statement = `define variable strList as Progress.Collections.List<String> no-undo.
+  define variable strList2 as Progress.Collections.List<String> no-undo.`;
+
+  let expectedTokens = [
+      { "startIndex": 0, "endIndex": 6, "scopes": ["source.abl", "meta.define.abl", "keyword.other.abl"] },  // 'define'
+      { "startIndex": 6, "endIndex": 7, "scopes": ["source.abl", "meta.define.abl"] },  // ' '
+      { "startIndex": 7, "endIndex": 13, "scopes": ["source.abl", "meta.define.abl", "keyword.other.abl"] },  // 'static'
+      { "startIndex": 13, "endIndex": 14, "scopes": ["source.abl", "meta.define.abl"] },  // ' '
+      { "startIndex": 14, "endIndex": 31, "scopes": ["source.abl", "meta.define.abl", "keyword.other.abl"] },  // 'package-protected'
+      { "startIndex": 31, "endIndex": 32, "scopes": ["source.abl", "meta.define.abl"] },  // ' '
+      { "startIndex": 32, "endIndex": 40, "scopes": ["source.abl", "meta.define.abl", "keyword.other.abl"] },  // 'abstract'
+      { "startIndex": 40, "endIndex": 41, "scopes": ["source.abl", "meta.define.abl", "meta.define.variable.abl"] },  // ' '
+      { "startIndex": 41, "endIndex": 49, "scopes": ["source.abl", "meta.define.abl", "meta.define.variable.abl", "keyword.other.abl"] },  // 'variable'
+      { "startIndex": 49, "endIndex": 50, "scopes": ["source.abl", "meta.define.abl", "meta.define.variable.abl"] },  // ' '
+      { "startIndex": 50, "endIndex": 54, "scopes": ["source.abl", "meta.define.abl", "meta.define.variable.abl", "variable.other.abl"] },  // 'When'
+      { "startIndex": 54, "endIndex": 55, "scopes": ["source.abl", "meta.define.abl", "meta.define.variable.abl"] },  // ' '
+      { "startIndex": 55, "endIndex": 57, "scopes": ["source.abl", "meta.define.abl", "meta.define.variable.abl", "keyword.other.abl"] },  // 'as'
+      { "startIndex": 57, "endIndex": 58, "scopes": ["source.abl", "meta.define.abl", "meta.define.variable.abl"] },  // ' '
+      { "startIndex": 58, "endIndex": 69, "scopes": ["source.abl", "meta.define.abl", "meta.define.variable.abl", "storage.type.abl"] },  // 'datetime-tz'
+      { "startIndex": 69, "endIndex": 70, "scopes": ["source.abl", "meta.define.abl", "meta.define.variable.abl"] },  // ' '
+      { "startIndex": 70, "endIndex": 77, "scopes": ["source.abl", "meta.define.abl", "meta.define.variable.abl", "keyword.other.abl"] },  // 'initial'
+      { "startIndex": 77, "endIndex": 78, "scopes": ["source.abl", "meta.define.abl", "meta.define.variable.abl"] },  // ' '
+      { "startIndex": 78, "endIndex": 81, "scopes": ["source.abl", "meta.define.abl", "meta.define.variable.abl", "constant.language.abl"] },  // 'now'
+      { "startIndex": 81, "endIndex": 82, "scopes": ["source.abl", "meta.define.abl", "meta.define.variable.abl"] },  // ' '
+      { "startIndex": 82, "endIndex": 89, "scopes": ["source.abl", "meta.define.abl", "meta.define.variable.abl", "keyword.other.abl"] }  // 'no-undo'        
+  ];
+  shared.itShouldMatchExpectedScopes(statement, expectedTokens);
+})
+
