@@ -38,7 +38,7 @@ describe('', () => {
             { "startIndex": 13, "endIndex": 14, "scopes": ["source.abl", "meta.define.abl", "constant.numeric.source.abl"] },  // '4'
             { "startIndex": 14, "endIndex": 15, "scopes": ["source.abl", "meta.define.abl"] },  // ' '
             { "startIndex": 15, "endIndex": 23, "scopes": ["source.abl", "meta.define.abl", "keyword.other.abl"] },  // 'centered'
-            { "startIndex": 23, "endIndex": 24, "scopes": ["source.abl", "punctuation.terminator.abl"] }  // '.'
+            { "startIndex": 23, "endIndex": 24, "scopes": ["source.abl", "meta.define.abl", "punctuation.terminator.abl"] }  // '.'
         ]        
     ];
     shared.itShouldMatchExpectedScopes(statement, expectedTokens);
