@@ -12,7 +12,7 @@
   ],
   "repository": {
     "procedure-definition": {
-      "begin": "(?i)\\b(proce|proced|procedu|procedur|procedure)\\b\\s+('[\\w\\.\\-\\{\\}\\&]*':U|'[\\w\\.\\-\\{\\}\\&]*'|[\\w\\.\\-\\{\\}\\&]*)?(\\s+(EXTERNAL)\\s+(\")([\\w\\.-]*)(\"))?",
+      "begin": "(?i)\\b(procedure|procedur|procedu|proced|proce)\\b\\s+('[\\w\\.\\-\\{\\}\\&]*':U|'[\\w\\.\\-\\{\\}\\&]*'|[\\w\\.\\-\\{\\}\\&]*)?(\\s+(EXTERNAL)\\s+(\")([\\w\\.-]*)(\"))?",
       "beginCaptures": {
         "1": { "name": "keyword.other.abl" },
         "2": { "name": "entity.name.function.abl" },
@@ -32,6 +32,10 @@
           "patterns": [ { "include": "#code-block" } ]
         }
       ]
+    },
+    "language-functions": {
+      "match": "(?i)\\b(opsys|proversion)\\b",
+      "captures": { "1": { "name": "support.function.abl" } }
     },
     "method-definition": {
       "name": "meta.function.method",
@@ -62,10 +66,10 @@
         },
         {
           "comment": "The method name will only be correctly scoped if the return type and method name are on the same line.",
-          "match": "(?i)\\s*([\\w#$%.]+)\\s+([a-z_]+[\\w\\-{}#$%&]*)",
+          "match": "(?i)\\s*(([\\w\\#\\$\\%]+|progress)(\\.[\\w\\#\\$\\%]+)*(?<!\\.))\\s+([a-z_]+[\\w\\-{}#$%&]*)",
           "captures": {
             "1": { "name": "entity.name.type.abl" },
-            "2": { "name": "entity.name.function.abl" }
+            "4": { "name": "entity.name.function.abl" }
           }
         },
         { "include": "#string" },
@@ -79,14 +83,7 @@
       "name": "meta.define.parameter.abl",
       "patterns": [
         {
-          "match": "(?i)\\s*(blob|character|characte|charact|charac|chara|char|clob|com-handle|date|datetime-tz|datetime|decimal|decima|decim|deci|dec|handle|int64|integer|intege|integ|inte|int|logical|logica|logic|logi|log|longchar|longcha|longch|memptr|raw|recid|rowid|widget-handle|widget-h?)(?![=\\w-])\\s*(,*)",
-          "captures": {
-            "1": { "name": "storage.type.abl" },
-            "2": { "name": "punctuation.separator.comma.abl" }
-          }
-        },
-        {
-          "match": "(?i)\\s*(input-output|input-outpu|input-outp|input-out|input-ou|input-o|input|output|append|bind|by-value|preselect|buffer|parameter|param|no-undo)",
+          "match": "(?i)\\s*(input-output|input-outpu|input-outp|input-out|input-ou|input-o|input|output|append|bind|by-value|preselect|buffer|parameter|param|no-undo)\\s*",
           "comment": "Certain keywords like NO-UNDO are 'gathered' by a DEFINE INPUT PARAMETER statement. ",
           "captures": { "1": { "name": "keyword.other.abl" } }
         },
@@ -94,9 +91,7 @@
           "match": "(?i)\\s*(dataset-handle|table-handle)\\s+([\\w\\-]+)",
           "captures": {
             "1": { "name": "keyword.other.abl" },
-            "2": { "name": "variable.parameter.abl" },
-            "3": { "name": "keyword.other.abl" },
-            "4": { "name": "keyword.other.abl" }
+            "2": { "name": "variable.parameter.abl" }
           }
         },
         {
@@ -107,9 +102,22 @@
           }
         },
         { "include": "#parameter-as" },
-        { "include": "#extent" },
+        {
+          "match": "(?i)\\s*(character|characte|charact|charac|chara|char|com-handle|date|datetime-tz|datetime|decimal|decima|decim|deci|dec|handle|int64|integer|intege|integ|inte|int|logical|logica|logic|logi|log|longchar|longcha|longch|memptr|raw|recid|rowid|widget-handle|widget-h?)(?![=\\w-])\\s*(,*)",
+          "captures": {
+            "1": { "name": "storage.type.abl" },
+            "2": { "name": "punctuation.separator.comma.abl" }
+          }
+        },
+        {
+          "match": "\\s*(,)\\s*",
+          "captures": { "1": { "name": "punctuation.separator.comma.abl" } }
+        },
         { "include": "#buffer-for-table" },
+        { "include": "#extent" },
+        { "include": "#constant" },
         { "include": "#keywords" },
+        { "include": "#type-name" },
         { "include": "#type-name-class" },
         { "include": "#type-name-comma" },
         { "include": "#string" },
@@ -119,8 +127,10 @@
     "function-parameter-definition": {
       "comment": "https://docs.progress.com/bundle/abl-reference/page/Parameter-definition-syntax.html?labelkey=product_openedge_126",
       "name": "meta.function.parameters",
-      "begin": "(?=\\()",
-      "end": "(?=\\))",
+      "begin": "(\\()",
+      "beginCaptures": { "1": { "name": "meta.brace.round.js" } },
+      "end": "(\\))",
+      "endCaptures": { "1": { "name": "meta.brace.round.js" } },
       "patterns": [ { "include": "#parameter-definition" } ]
     },
     "statements": {
@@ -142,8 +152,10 @@
         },
         { "include": "#primitive-type" },
         { "include": "#method-call" },
+        { "include": "#property-accessor" },
         { "include": "#function-call" },
         { "include": "#code-block" },
+        { "include": "#language-functions" },
         { "include": "#keywords" },
         { "include": "#variable-name" },
         { "include": "#array-literal" },
@@ -163,17 +175,22 @@
       ]
     },
     "using": {
+      "name": "meta.using.abl",
+      "begin": "(?i)\\s*(using)\\s*",
+      "beginCaptures": { "1": { "name": "keyword.other.abl" } },
+      "end": "(\\.)",
+      "endCaptures": { "1": { "name": "punctuation.terminator.abl" } },
       "patterns": [
         {
-          "name": "meta.using.abl",
-          "match": "(?i)\\b(using)\\s+([\\w\\#\\$\\%\\.]*[\\w\\#\\$\\%]+)(\\s+from)?(\\s+propath|assembly)?",
-          "captures": {
-            "1": { "name": "keyword.other.abl" },
-            "2": { "name": "entity.name.type.abl" },
-            "3": { "name": "keyword.other.abl" },
-            "4": { "name": "keyword.other.abl" }
-          }
-        }
+          "comment": "Captures USING foo.bar.* .",
+          "match": "(?i)\\s*((([\\w\\#\\$\\%]+|progress)(\\.[\\w\\#\\$\\%]+)*)\\.\\*)\\s*",
+          "captures": { "1": { "name": "entity.name.package.abl" } }
+        },
+        {
+          "match": "(?i)\\s*(from|propath|assembly)\\s*",
+          "captures": { "1": { "name": "keyword.other.abl" } }
+        },
+        { "include": "#type-name" }
       ]
     },
     "define-type": {
@@ -183,29 +200,35 @@
         { "include": "#define-enum" }
       ]
     },
+    "type-name-generic": {
+      "match": "\\s*(([\\w\\#\\$\\%]+|progress)(\\.[\\w\\#\\$\\%]+)*\\s*\\<\\s*([\\w\\#\\$\\%]+|progress)(\\.[\\w\\#\\$\\%]+)*\\s*\\>)\\s*",
+      "captures": { "1": { "name": "entity.name.type.abl" } }
+    },
     "type-name": {
-      "match": "\\s*([\\w\\#\\$\\%]+[\\w\\#\\$\\%\\.]*(\\s*<\\s*[\\w\\#\\$\\%\\.]+\\s*\\>)?)\\s*",
+      "comment": "Using |\b instead of \\s works better for not catching DATE, say",
+      "match": "\\b(([\\w\\#\\$\\%]+|progress)(\\.[\\w\\#\\$\\%]+)*(?<!\\.))\\b",
+      "NO-match": "\\b([\\w\\#\\$\\%]+[\\w\\#\\$\\%\\.]*(\\s*<\\s*[\\w\\#\\$\\%\\.]+\\s*\\>)?)\\b",
       "captures": { "1": { "name": "entity.name.type.abl" } }
     },
     "type-name-class": {
-      "match": "\\s*(class?)\\s+([\\w\\#\\$\\%]+[\\w\\#\\$\\%\\.]*(\\s*<\\s*[\\w\\#\\$\\%\\.]+\\s*\\>)?)\\s*",
+      "match": "\\s*(class)\\s+(([\\w\\#\\$\\%]+|progress)[\\w\\#\\$\\%\\.]*(\\s*<\\s*([\\w\\#\\$\\%]+|progress)(\\.[\\w\\#\\$\\%\\.]+)*\\s*\\>)?)\\s*",
+      "comment": "Capture group 3 is the <T> type name",
       "captures": {
         "1": { "name": "keyword.other.abl" },
         "2": { "name": "entity.name.type.abl" }
       }
     },
     "type-name-comma": {
-      "match": "\\s*(,*)\\s*([\\w\\#\\$\\%]+[\\w\\#\\$\\%\\.]*(\\s*<\\s*[\\w\\#\\$\\%\\.]+\\s*\\>)?)\\s*(,*)",
+      "match": "\\s*(,*)\\s*(([\\w\\#\\$\\%]+|progress)(\\.[\\w\\#\\$\\%]*)*(?<!\\.))\\s*(,*)\\s*",
       "comment": "Capture group 3 is the <T> type name",
       "captures": {
         "1": { "name": "punctuation.separator.comma.abl" },
         "2": { "name": "entity.name.type.abl" },
-        "4": { "name": "punctuation.separator.comma.abl" }
+        "5": { "name": "punctuation.separator.comma.abl" }
       }
     },
     "define-class2": {
-      "name": "meta.define-type.class.abl",
-      "begin": "(?i)\\s*(class)\\s*([\\w\\#\\$\\%]+[\\w\\#\\$\\%\\.]*(\\s*<\\s*[\\w\\#\\$\\%\\.]+\\s*\\>)?)\\s*",
+      "begin": "(?i)\\b(class)\\s*([\\w\\#\\$\\%]+[\\w\\#\\$\\%\\.]*(\\s*<\\s*[\\w\\#\\$\\%\\.]+\\s*\\>)?)\\b",
       "beginCaptures": {
         "1": { "name": "keyword.other.abl" },
         "2": { "name": "entity.name.type.abl" }
@@ -223,10 +246,10 @@
       ]
     },
     "define-class": {
-      "name": "meta.define-type.class.abl",
+      "name": "meta.define.class.abl",
       "begin": "(?i)\\s*(class)\\s*",
       "beginCaptures": { "1": { "name": "keyword.other.abl" } },
-      "end": "\\s*(:)",
+      "end": "\\s*(:)\\s*",
       "endCaptures": { "1": { "name": "punctuation.terminator.abl" } },
       "patterns": [
         {
@@ -239,7 +262,7 @@
       ]
     },
     "define-interface": {
-      "name": "meta.define-type.interface.abl",
+      "name": "meta.define.interface.abl",
       "begin": "(?i)\\s*(interface)\\s*([\\w\\#\\$\\%]+[\\w\\#\\$\\%\\.]*(\\s*<\\s*[\\w\\#\\$\\%\\.]+\\s*\\>)?)",
       "beginCaptures": {
         "1": { "name": "keyword.other.abl" },
@@ -258,7 +281,7 @@
     },
     "inherits-implements-type": {
       "name": "meta.define-type.implements.abl",
-      "begin": "(?i)\\s*(implements|inherits)\\s*([\\w\\#\\$\\%\\.]+)",
+      "begin": "(?i)\\s*(implements|inherits)\\s*(([\\w\\#\\$\\%]+|progress)(\\.[\\w\\#\\$\\%]+)*(?<!\\.))\\s*",
       "end": "(?i)\\s*(serializable|abstract|final|use-widget-pool|inherits|implements+?)",
       "beginCaptures": {
         "1": { "name": "keyword.other.abl" },
@@ -270,7 +293,7 @@
     "define-enum": {
       "patterns": [
         {
-          "name": "meta.define-type.enum.abl",
+          "name": "meta.define.enum.abl",
           "match": "(?i)(enum)\\s+([\\w\\#\\$\\%\\.]+)\\s*(flags)?\\s*(:)",
           "captures": {
             "1": { "name": "keyword.other.abl" },
@@ -342,6 +365,7 @@
         { "include": "#singlelinecomment" },
         { "include": "#multilinecomment" },
         { "include": "#string" },
+        { "include": "#language-functions" },
         { "include": "#numeric" },
         { "include": "#constant" },
         { "include": "#operator" },
@@ -358,47 +382,57 @@
     },
     "property-accessor": {
       "patterns": [
-        { "include": "#property-accessor-empty" },
-        { "include": "#property-accessor-block" }
+        { "include": "#property-get-empty" },
+        { "include": "#property-set-empty" },
+        { "include": "#property-get-block" },
+        { "include": "#property-set-block" }
       ]
     },
-    "property-accessor-empty": {
-      "name": "meta.define.accessor.abl",
-      "match": "\\s*(get|set)\\s*(super)?\\s*(\\.)",
+    "property-get-empty": {
+      "name": "meta.define.getter.abl",
+      "match": "\\s*(get)\\s*(super)?\\s*(?=\\.)",
       "captures": {
         "1": { "name": "keyword.other.abl" },
-        "2": { "name": "keyword.other.abl" },
-        "3": { "name": "punctuation.terminator.abl" }
+        "2": { "name": "keyword.other.abl" }
       }
     },
-    "property-accessor-block": {
-      "name": "meta.define.accessor.abl",
-      "begin": "(?i)\\s*(get|set)",
+    "property-set-empty": {
+      "name": "meta.define.setter.abl",
+      "match": "\\s*(set)\\s*(super)?\\s*(?=\\.)",
+      "captures": {
+        "1": { "name": "keyword.other.abl" },
+        "2": { "name": "keyword.other.abl" }
+      }
+    },
+    "property-get-block": {
+      "name": "meta.define.getter.abl",
+      "begin": "(?i)\\s*(get)",
       "beginCaptures": { "1": { "name": "keyword.other.abl" } },
-      "end": "(?i)\\s*(end)\\s*(get|set)?\\s*(\\.)\\s*",
+      "end": "(?i)\\s*(end)\\s*(get)?\\s*(?=\\.)\\s*",
+      "comment": "The end capture does a lookahead on . so that the 'define' capture can end ",
       "endCaptures": {
         "1": { "name": "keyword.other.abl" },
-        "2": { "name": "keyword.other.abl" },
-        "3": { "name": "punctuation.terminator.abl" }
+        "2": { "name": "keyword.other.abl" }
       },
       "patterns": [
+        { "include": "#punctuation-colon" },
         { "include": "#function-parameter-definition" },
         { "include": "#code-block" }
       ]
     },
-    "set-block": {
+    "property-set-block": {
       "name": "meta.define.setter.abl",
       "begin": "(?i)\\s*(set)",
       "beginCaptures": { "1": { "name": "keyword.other.abl" } },
-      "end": "(?i)\\s*(end)\\s*(set)?\\s*(\\.)",
+      "end": "(?i)\\s*(end)\\s*(set)?\\s*(?=\\.)\\s*",
+      "comment": "The end capture does a lookahead on . so that the 'define' capture can end ",
       "endCaptures": {
         "1": { "name": "keyword.other.abl" },
-        "2": { "name": "keyword.other.abl" },
-        "3": { "name": "punctuation.terminator.abl" }
+        "2": { "name": "keyword.other.abl" }
       },
       "patterns": [
+        { "include": "#punctuation-colon" },
         { "include": "#function-parameter-definition" },
-        { "include": "#abl-system-handles" },
         { "include": "#code-block" }
       ]
     },
@@ -418,10 +452,9 @@
     },
     "define": {
       "name": "meta.define.abl",
-      "begin": "(?i)\\b(define|def)\\b",
+      "begin": "(?i)\\b(define|def)\\s*",
       "beginCaptures": { "1": { "name": "keyword.other.abl" } },
-      "no-end": "(?=\\.)",
-      "end": "(?i)\\s*(no-undo)|(?=private|public|protected|get|set)|(?=\\.)",
+      "end": "(\\.)",
       "endCaptures": { "1": { "name": "punctuation.terminator.abl" } },
       "patterns": [
         {
@@ -435,18 +468,24 @@
         { "include": "#property-accessor" },
         {
           "name": "meta.define.parameter.abl",
-          "begin": "(?i)\\s*(input-output|input-outpu|input-outp|input-out|input-ou|input-o|input|output|parameter|param)",
+          "NO-begin": "(?i)\\s*(input-output|input-outpu|input-outp|input-out|input-ou|input-o|input|output|parameter|paramete|paramet|parame|param)",
+          "NO-begin": "(?i)\\s*(parameter|paramete|paramet|parame|param)",
           "beginCaptures": { "1": { "name": "keyword.other.abl" } },
-          "end": "(?=\\.)",
+          "NO-end": "(\\.)",
           "endCaptures": { "1": { "name": "punctuation.terminator.abl" } },
-          "patterns": [ { "include": "#parameter-definition" } ]
+          "NO-patterns": [
+            { "include": "#parameter-definition" }
+          ]
         },
+        { "include": "#define-field" },
+        { "include": "#parameter-as" },
         { "include": "#define-stream" },
+        { "include": "#for-table" },
         { "include": "#buffer-for-table" },
         { "include": "#define-table" },
         {
           "comment": "This is to capture 'FIELD x AS Object'. As of OE 12.6 only Progress.Lang.Object is allowed as a type name. If/when this changes, this regex becomes trickier",
-          "match": "(?i)\\b(progress\\.lang\\.object|object)\\b",
+          "match": "(?i)\\s*(progress\\.lang\\.object|object)\\s*",
           "captures": { "1": { "name": "entity.name.type.abl" } }
         },
         { "include": "#format-constant" },
@@ -455,16 +494,25 @@
         { "include": "#numeric" },
         { "include": "#string" },
         { "include": "#primitive-type" },
-        { "include": "#type-name-class" },
+        {
+          "comment": "Ahead of keywords so that that doesn't grab the CLASS ",
+          "include": "#type-name-class"
+        },
         { "include": "#keywords" },
         { "include": "#comment" },
         { "include": "#label-variable" },
         { "include": "#type-name" }
       ]
     },
+    "define-field": {
+      "match": "(?i)\\s*(field)\\s+([\\w\\-#$%]+)\\s*",
+      "captures": {
+        "1": { "name": "keyword.other.abl" },
+        "2": { "name": "storage.data.table.abl" }
+      }
+    },
     "define-property": {
-      "name": "meta.define.property.abl",
-      "begin": "(?i)\\s*(property|prop)\\s*",
+      "begin": "(?i)\\b(property|prop)\\b",
       "beginCaptures": { "1": { "name": "keyword.other.abl" } },
       "comment": "This match just gets the definition of the property; the getter and setter are handled separately",
       "end": "(?i)\\s*(no-undo)|(?=private|public|protected|get|set)",
@@ -486,7 +534,8 @@
       "name": "meta.define.variable.abl",
       "begin": "(?i)\\s*(variable|variabl|variab|varia|vari|var)\\s*",
       "beginCaptures": { "1": { "name": "keyword.other.abl" } },
-      "end": "(?=\\.)",
+      "end": "(?=\\.)|(?i)\\s*(no-undo)ss",
+      "endCaptures": { "1": { "name": "keyword.other.abl" } },
       "patterns": [
         { "include": "#variable-as" },
         { "include": "#primitive-type" },
@@ -495,16 +544,24 @@
         { "include": "#timestamp-constant" },
         { "include": "#numeric" },
         {
-          "begin":  "(?i)(?<=)progress\\.",
-          "end": "(?=\\b)",
+          "name": "meta.define.variable.progress.abl",
+          "begin": "(?i)\\s*(?=progress\\.)",
+          "end": "(?=\\s+|$)",
           "patterns": [
-            { "include": "#type-name" }    
+            { "include": "#type-name-generic" },
+            { "include": "#type-name-class" },
+            { "include": "#type-name" }
           ]
         },
+        {
+          "match": "(?i)(no-undo)",
+          "captures": { "1": { "name": "keyword.other.abl" } }
+        },
         { "include": "#string" },
-        { "include": "#keywords" },
+        { "include": "#type-name-generic" },
         { "include": "#type-name-class" },
-        { "include": "#type-name" }
+        { "include": "#type-name" },
+        { "include": "#keywords" }
       ]
     },
     "label-variable": {
@@ -522,25 +579,8 @@
         "2": { "name": "constant.language.source.abl" }
       }
     },
-    "define-as": {
-      "name": "meta.define.as.abl",
-      "begin": "(?i)\\s*(as)(\\s+\\b)",
-      "beginCaptures": {
-        "1": { "name": "keyword.other.abl" },
-        "2": { "name": "meta.begin.capture.abl" }
-      },
-      "end": "(?=\\b)",
-      "endCaptures": { "1": { "name": "meta.end.capture.abl" } },
-      "patterns": [
-        { "include": "#string" },
-        { "include": "#comment" },
-        { "include": "#primitive-type" },
-        { "include": "#type-name-class" },
-        { "include": "#type-name" }
-      ]
-    },
     "define-table": {
-      "match": "(?i)\\b(temp-table|like|before-table)\\s+([\\w\\-#$%]+)\\b",
+      "match": "(?i)\\s*(temp-table|like|before-table)\\s+([\\w\\-#$%]+)\\s*",
       "captures": {
         "1": { "name": "keyword.other.abl" },
         "2": { "name": "storage.data.table.abl" }
@@ -555,6 +595,14 @@
         "5": { "name": "storage.data.table.abl" }
       }
     },
+    "for-table": {
+      "match": "(?i)\\s*(for)\\s+((temp-table)\\s+)?([\\w\\-#$%]+)\\s*",
+      "captures": {
+        "1": { "name": "keyword.other.abl" },
+        "3": { "name": "keyword.other.abl" },
+        "4": { "name": "storage.data.table.abl" }
+      }
+    },
     "access-level": {
       "match": "\\s*(package-private|private|package-protected|protected|public)\\s*",
       "captures": { "1": { "name": "keyword.other.abl" } }
@@ -564,9 +612,9 @@
       "captures": { "1": { "name": "keyword.other.abl" } }
     },
     "define-stream": {
+      "name": "meta.define.stream.abl",
       "match": "(?i)\\b(stream)\\s+([\\w\\-]+)",
       "comment": "https://docs.progress.com/bundle/openedge-abl-reference-122/page/DEFINE-STREAM-statement.html",
-      "name": "meta.define.stream.abl",
       "captures": {
         "1": { "name": "keyword.other.abl" },
         "2": { "patterns": [ { "include": "#variable-name" } ] }
@@ -725,9 +773,9 @@
       ]
     },
     "singlequotedstring": {
-      "begin": "'",
+      "begin": "(')",
       "beginCaptures": { "0": { "name": "punctuation.definition.string.begin.abl" } },
-      "end": "'",
+      "end": "(')",
       "endCaptures": { "0": { "name": "punctuation.definition.string.end.abl" } },
       "name": "string.single.complex.abl",
       "patterns": [
@@ -738,9 +786,9 @@
       ]
     },
     "doublequotedstring": {
-      "begin": "\"",
+      "begin": "(\")",
       "beginCaptures": { "0": { "name": "punctuation.definition.string.begin.abl" } },
-      "end": "\"",
+      "end": "(\")",
       "endCaptures": { "0": { "name": "punctuation.definition.string.end.abl" } },
       "name": "string.double.complex.abl",
       "patterns": [
@@ -760,10 +808,11 @@
       "name": "constant.numeric.source.abl"
     },
     "abl-system-handles": {
-      "match": "(?i)\\s*(this-object|super|self|this-procedure|target-procedure|source-procedure|session|error-status|compiler|audit-control|audit-policy|clipboard|codebase-locator|color-table|debugger|dslog-manager|file-information|file-info|font-table|last-event|log-manager|profiler|rcode-information|rcode-info|security-policy|session|web-context)(:)\\s*",
+      "match": "(?i)\\s*(this-object|super|self|this-procedure|target-procedure|source-procedure|session|error-status|compiler|audit-control|audit-policy|clipboard|codebase-locator|color-table|debugger|dslog-manager|file-information|file-info|font-table|last-event|log-manager|profiler|rcode-information|rcode-info|security-policy|session|web-context)(:)?(\\()?\\s*",
       "captures": {
         "1": { "name": "variable.language.abl" },
-        "2": { "name": "punctuation.terminator.abl" }
+        "2": { "name": "punctuation.terminator.abl" },
+        "3": { "name": "meta.brace.round.js" }
       }
     },
     "timestamp-constant": {
@@ -880,7 +929,7 @@
       "name": "keyword.other.abl"
     },
     "keywords-p": {
-      "match": "(?i)(?<![\\w-])(package-private|package-protected|page|page-bot|page-bott|page-botto|page-bottom|page-down|page-left|page-num|page-numb|page-numbe|page-number|page-right|page-right-text|page-size|page-top|page-up|page-wid|page-widt|page-width|paged|param|parame|paramet|paramete|parameter|parent|parent-buffer|parent-fields-after|parent-fields-before|parent-id-field|parent-id-relation|parent-rel|parent-rela|parent-relat|parent-relati|parent-relatio|parent-relation|parent-window-close|parse-status|partial-key|pascal|password-field|paste|pathname|pause|pbe-hash-alg|pbe-hash-algo|pbe-hash-algor|pbe-hash-algori|pbe-hash-algorit|pbe-hash-algorith|pbe-hash-algorithm|pbe-key-rounds|pdbname|perf|perfo|perfor|perform|performa|performan|performanc|performance|persist|persiste|persisten|persistent|persistent-cache-disabled|persistent-procedure|pfc|pfco|pfcol|pfcolo|pfcolor|pick|pick-area|pick-both|pixels|pixels-per-col|pixels-per-colu|pixels-per-colum|pixels-per-column|pixels-per-row|popup-m|popup-me|popup-men|popup-menu|popup-o|popup-on|popup-onl|popup-only|portrait|position|precision|prefer-dataset|prepare-string|prepared|preproc|preproce|preproces|preprocess|presel|presele|preselec|preselect|prev|prev-col|prev-colu|prev-colum|prev-column|prev-frame|prev-sibling|prev-tab-i|prev-tab-it|prev-tab-ite|prev-tab-item|prev-word|primary|primary-passphrase|printer|printer-control-handle|printer-hdc|printer-name|printer-port|printer-setup|private|private-d|private-da|private-dat|private-data|privileges|proc-ha|proc-han|proc-hand|proc-handl|proc-handle|proc-st|proc-sta|proc-stat|proc-statu|proc-status|proce|proced|procedu|procedur|procedure|procedure-call-type|procedure-complete|procedure-name|procedure-type|process|process-architecture|profile-file|profiler|profiling|program-name|progress|progress-s|progress-so|progress-sou|progress-sour|progress-sourc|progress-source|prompt|prompt-f|prompt-fo|prompt-for|promsgs|propath|property|protected|provers|proversi|proversio|proversion|proxy|proxy-password|proxy-userid|public|public-id|publish|published-events|put|put|put-bits|put-byte|put-bytes|put-double|put-float|put-int64|put-key-val|put-key-valu|put-key-value|put-long|put-short|put-string|put-unsigned-long|put-unsigned-short|putbyte)(?![\\w-])",
+      "match": "(?i)(?<![\\w\\-])(package-private|package-protected|page|page-bot|page-bott|page-botto|page-bottom|page-down|page-left|page-num|page-numb|page-numbe|page-number|page-right|page-right-text|page-size|page-top|page-up|page-wid|page-widt|page-width|paged|param|parame|paramet|paramete|parameter|parent|parent-buffer|parent-fields-after|parent-fields-before|parent-id-field|parent-id-relation|parent-rel|parent-rela|parent-relat|parent-relati|parent-relatio|parent-relation|parent-window-close|parse-status|partial-key|pascal|password-field|paste|pathname|pause|pbe-hash-alg|pbe-hash-algo|pbe-hash-algor|pbe-hash-algori|pbe-hash-algorit|pbe-hash-algorith|pbe-hash-algorithm|pbe-key-rounds|pdbname|perf|perfo|perfor|perform|performa|performan|performanc|performance|persist|persiste|persisten|persistent|persistent-cache-disabled|persistent-procedure|pfc|pfco|pfcol|pfcolo|pfcolor|pick|pick-area|pick-both|pixels|pixels-per-col|pixels-per-colu|pixels-per-colum|pixels-per-column|pixels-per-row|popup-m|popup-me|popup-men|popup-menu|popup-o|popup-on|popup-onl|popup-only|portrait|position|precision|prefer-dataset|prepare-string|prepared|preproc|preproce|preproces|preprocess|preselect|preselec|presele|presel|prev|prev-col|prev-colu|prev-colum|prev-column|prev-frame|prev-sibling|prev-tab-i|prev-tab-it|prev-tab-ite|prev-tab-item|prev-word|primary|primary-passphrase|printer|printer-control-handle|printer-hdc|printer-name|printer-port|printer-setup|private|private-d|private-da|private-dat|private-data|privileges|proc-ha|proc-han|proc-hand|proc-handl|proc-handle|proc-st|proc-sta|proc-stat|proc-statu|proc-status|proce|proced|procedu|procedur|procedure|procedure-call-type|procedure-complete|procedure-name|procedure-type|process|process-architecture|profile-file|profiler|profiling|program-name|progress|progress-s|progress-so|progress-sou|progress-sour|progress-sourc|progress-source|prompt|prompt-f|prompt-fo|prompt-for|promsgs|propath|property|protected|provers|proversi|proversio|proversion|proxy|proxy-password|proxy-userid|public|public-id|publish|published-events|put|put|put-bits|put-byte|put-bytes|put-double|put-float|put-int64|put-key-val|put-key-valu|put-key-value|put-long|put-short|put-string|put-unsigned-long|put-unsigned-short|putbyte)(?![\\w\\-])",
       "name": "keyword.other.abl"
     },
     "keywords-q": {
