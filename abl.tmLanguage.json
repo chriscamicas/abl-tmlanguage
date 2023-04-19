@@ -437,18 +437,32 @@
       ]
     },
     "parameter-as": {
-      "match": "(?i)\\s*([\\w\\-]+)\\s+(as)\\s*",
-      "captures": {
+      "begin": "(?i)\\s*([\\w\\-]+)\\s+(as)\\s*",
+      "beginCaptures": {
         "1": { "name": "variable.parameter.abl" },
         "2": { "name": "keyword.other.abl" }
-      }
+      },
+      "end": "(?=\\s*)",
+      "patterns": [
+        { "include": "#primitive-type" },
+        { "include": "#type-name-class" },
+        { "include": "#type-name-generic" },
+        { "include": "#type-name" }
+      ]
     },
     "variable-as": {
-      "match": "(?i)\\s*([\\w\\-]+)\\s+(as)\\s*",
-      "captures": {
+      "begin": "(?i)\\s*([\\w\\-]+)\\s+(as)\\s*",
+      "beginCaptures": {
         "1": { "name": "variable.other.abl" },
         "2": { "name": "keyword.other.abl" }
-      }
+      },
+      "end": "(?=\\s*)",
+      "patterns": [
+        { "include": "#primitive-type" },
+        { "include": "#type-name-class" },
+        { "include": "#type-name-generic" },
+        { "include": "#type-name" }
+      ]
     },
     "define": {
       "name": "meta.define.abl",
@@ -477,6 +491,7 @@
             { "include": "#parameter-definition" }
           ]
         },
+        { "include": "#array-literal" },
         { "include": "#define-field" },
         { "include": "#parameter-as" },
         { "include": "#define-stream" },
@@ -531,10 +546,9 @@
       ]
     },
     "define-variable": {
-      "name": "meta.define.variable.abl",
       "begin": "(?i)\\s*(variable|variabl|variab|varia|vari|var)\\s*",
       "beginCaptures": { "1": { "name": "keyword.other.abl" } },
-      "end": "(?=\\.)|(?i)\\s*(no-undo)ss",
+      "end": "(?=\\.)|(?i)\\s*(no-undo)\\s*",
       "endCaptures": { "1": { "name": "keyword.other.abl" } },
       "patterns": [
         { "include": "#variable-as" },
@@ -558,10 +572,10 @@
           "captures": { "1": { "name": "keyword.other.abl" } }
         },
         { "include": "#string" },
+        { "include": "#keywords" },
         { "include": "#type-name-generic" },
         { "include": "#type-name-class" },
-        { "include": "#type-name" },
-        { "include": "#keywords" }
+        { "include": "#type-name" }
       ]
     },
     "label-variable": {
@@ -816,11 +830,11 @@
       }
     },
     "timestamp-constant": {
-      "match": "(?i)(?<=^|\\s)(today|now|\\?)(?!\\w|-)",
+      "match": "(?i)(?<=^|\\s)(today|now)(?!\\w|-)",
       "name": "constant.language.abl"
     },
     "constant": {
-      "match": "(?i)(?<=^|\\s)(true|false|yes|no)(?!\\w|-)",
+      "match": "(?i)(?<=^|\\s)(true|false|yes|no|\\?)(?!\\w|-)",
       "name": "constant.language.source.abl"
     },
     "punctuation-colon": {
