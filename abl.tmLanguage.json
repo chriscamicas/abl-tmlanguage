@@ -38,44 +38,33 @@
       "captures": { "1": { "name": "support.function.abl" } }
     },
     "method-definition": {
-      "name": "meta.function.method",
+      "name": "meta.define.method.abl",
       "begin": "(?i)^\\b(method)\\b",
       "beginCaptures": { "1": { "name": "keyword.other.abl" } },
       "comment": "The lookaread on the regex for the closing colon is required to make this scope end properly",
       "end": "\\s*(?=:)",
       "patterns": [
+        { "include": "#access-modifier" },
         {
-          "match": "(?i)\\s*(protected|package-protected|private|package-private|public|static|override|abstract|final)\\s*",
+          "match": "(?i)\\s*(void)\\s*",
           "captures": { "1": { "name": "keyword.other.abl" } }
         },
         {
-          "comment": "The method name will only be correctly scoped if the return type and method name are on the same line.",
-          "match": "(?i)\\s*(blob|character|characte|charact|charac|chara|char|clob|com-handle|date|datetime-tz|datetime|decimal|decima|decim|deci|dec|handle|int64|integer|intege|integ|inte|int|logical|logica|logic|logi|log|longchar|longcha|longch|memptr|raw|recid|rowid|widget-handle)\\s+([a-z_]+[\\w\\-{}#$%&]*)",
-          "captures": {
-            "1": { "name": "storage.type.abl" },
-            "2": { "name": "entity.name.function.abl" }
-          }
-        },
-        {
-          "comment": "The method name will only be correctly scoped if the return type and method name are on the same line.",
-          "match": "(?i)\\s*(void)\\s+([a-z_]+[\\w\\-{}#$%&]*)",
-          "captures": {
-            "1": { "name": "keyword.other.abl" },
-            "2": { "name": "entity.name.function.abl" }
-          }
-        },
-        {
-          "comment": "The method name will only be correctly scoped if the return type and method name are on the same line.",
-          "match": "(?i)\\s*(([\\w\\#\\$\\%]+|progress)(\\.[\\w\\#\\$\\%]+)*(?<!\\.))\\s+([a-z_]+[\\w\\-{}#$%&]*)",
-          "captures": {
-            "1": { "name": "entity.name.type.abl" },
-            "4": { "name": "entity.name.function.abl" }
-          }
+          "comment": "The method nameand parameters will only be correctly scoped if the method name and the opening brace/paren are on the same line.",
+          "begin": "(?i)\\s*([a-z_]+[\\w\\-{}#$%&]*)\\s*(\\()\\s*",
+          "beginCaptures": {
+            "1": { "name": "entity.name.function.abl" },
+            "2": { "name": "meta.brace.round.js" }
+          },
+          "end": "(\\))",
+          "endCaptures": { "1": { "name": "meta.brace.round.js" } },
+          "patterns": [ { "include": "#parameter-definition" } ]
         },
         { "include": "#string" },
         { "include": "#primitive-type" },
+        { "include": "#type-name-generic" },
+        { "include": "#type-name-class" },
         { "include": "#type-name" },
-        { "include": "#function-parameter-definition" },
         { "include": "#comment" }
       ]
     },
@@ -476,7 +465,7 @@
           "captures": { "1": { "name": "keyword.other.abl" } }
         },
         { "include": "#serializable" },
-        { "include": "#access-level" },
+        { "include": "#access-modifier" },
         { "include": "#define-variable" },
         { "include": "#define-property" },
         { "include": "#property-accessor" },
@@ -558,7 +547,10 @@
         { "include": "#timestamp-constant" },
         { "include": "#numeric" },
         {
-          "name": "meta.define.variable.progress.abl",
+          "match": "(?i)\\s*(n o-un do)\\s*",
+          "captures": { "1": { "name": "keyword.other.abl" } }
+        },
+        {
           "begin": "(?i)\\s*(?=progress\\.)",
           "end": "(?=\\s+|$)",
           "patterns": [
@@ -566,10 +558,6 @@
             { "include": "#type-name-class" },
             { "include": "#type-name" }
           ]
-        },
-        {
-          "match": "(?i)(no-undo)",
-          "captures": { "1": { "name": "keyword.other.abl" } }
         },
         { "include": "#string" },
         { "include": "#keywords" },
@@ -617,8 +605,8 @@
         "4": { "name": "storage.data.table.abl" }
       }
     },
-    "access-level": {
-      "match": "\\s*(package-private|private|package-protected|protected|public)\\s*",
+    "access-modifier": {
+      "match": "\\s*(package-private|private|package-protected|protected|public|static|override|abstract|final)\\s*",
       "captures": { "1": { "name": "keyword.other.abl" } }
     },
     "serializable": {
