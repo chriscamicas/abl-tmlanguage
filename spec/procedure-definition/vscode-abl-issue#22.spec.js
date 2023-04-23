@@ -31,8 +31,8 @@ END PROCEDURE.`;
       { "startIndex": 40, "endIndex": 41, "scopes": ["source.abl", "meta.procedure.abl", "meta.procedure.body.abl", "meta.define.abl"] },  // ' '
       { "startIndex": 41, "endIndex": 43, "scopes": ["source.abl", "meta.procedure.abl", "meta.procedure.body.abl", "meta.define.abl", "keyword.other.abl"] },  // 'AS'
       { "startIndex": 43, "endIndex": 44, "scopes": ["source.abl", "meta.procedure.abl", "meta.procedure.body.abl", "meta.define.abl"] },  // ' '
-      { "startIndex": 44, "endIndex": 48, "scopes": ["source.abl", "meta.procedure.abl", "meta.procedure.body.abl", "meta.define.abl", "keyword.other.abl"] },  // 'LONG'
-      { "startIndex": 48, "endIndex": 49, "scopes": ["source.abl", "meta.procedure.abl", "meta.procedure.body.abl", "meta.define.abl", "punctuation.terminator.abl"] }  // '.'
+      { "startIndex": 44, "endIndex": 48, "scopes": ["source.abl", "meta.procedure.abl", "meta.procedure.body.abl", "meta.define.abl", "storage.type.abl"] },  // 'LONG'
+      { "startIndex": 48, "endIndex": 49, "scopes": ["source.abl", "meta.procedure.abl", "meta.procedure.body.abl", "meta.define.abl"] }  // '.'
     ],
     [
       { "startIndex": 0, "endIndex": 13, "scopes": ["source.abl", "meta.procedure.abl", "meta.procedure.body.abl", "keyword.other.abl"] },  // 'END PROCEDURE'
