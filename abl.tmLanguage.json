@@ -8,10 +8,27 @@
   "name": "OpenEdge ABL",
   "patterns": [
     { "include": "#procedure-definition" },
+    { "include": "#end-function-procedure-method-block" },
     { "include": "#statements" }
   ],
   "repository": {
     "procedure-definition": {
+      "name": "meta.procedure.abl",
+      "begin": "(?i)\\s*(procedure|procedur|procedu|proced|proce)\\s*",
+      "beginCaptures": { "1": { "name": "keyword.other.abl" } },
+      "end": "(?=:)",
+      "endCaptures": { "1": { "name": "punctuation.terminator.abl" } },
+      "patterns": [
+        { "include": "#ordinal" },
+        { "include": "#string" },
+        { "include": "#keywords" },
+        {
+          "match": "(?i)\\s*([\\w\\.\\-\\{\\}\\&]*)\\s*",
+          "captures": { "1": { "name": "entity.name.function.abl" } }
+        }
+      ]
+    },
+    "X-procedure-definition": {
       "begin": "(?i)\\b(procedure|procedur|procedu|proced|proce)\\b\\s+('[\\w\\.\\-\\{\\}\\&]*':U|'[\\w\\.\\-\\{\\}\\&]*'|[\\w\\.\\-\\{\\}\\&]*)?(\\s+(EXTERNAL)\\s+(\")([\\w\\.-]*)(\"))?",
       "beginCaptures": {
         "1": { "name": "keyword.other.abl" },
@@ -50,7 +67,7 @@
           "captures": { "1": { "name": "keyword.other.abl" } }
         },
         {
-          "comment": "The method nameand parameters will only be correctly scoped if the method name and the opening brace/paren are on the same line.",
+          "comment": "The method name and parameters will only be correctly scoped if the method name and the opening brace/paren are on the same line.",
           "begin": "(?i)\\s*([a-z_]+[\\w\\-{}#$%&]*)\\s*(\\()\\s*",
           "beginCaptures": {
             "1": { "name": "entity.name.function.abl" },
@@ -61,12 +78,21 @@
           "patterns": [ { "include": "#parameter-definition" } ]
         },
         { "include": "#string" },
+        { "include": "#dll-type" },
         { "include": "#primitive-type" },
+        { "include": "#type-name-generic-progress" },
+        { "include": "#type-name-progress" },
         { "include": "#type-name-generic" },
-        { "include": "#type-name-class" },
         { "include": "#type-name" },
         { "include": "#comment" }
       ]
+    },
+    "end-function-procedure-method-block": {
+      "match": "(?i)\\s*(end)\\s*(method|procedure|function)?\\s*(?=\\.)\\s*",
+      "captures": {
+        "1": { "name": "keyword.other.abl" },
+        "2": { "name": "keyword.other.abl" }
+      }
     },
     "parameter-definition": {
       "name": "meta.define.parameter.abl",
@@ -104,11 +130,14 @@
         },
         { "include": "#buffer-for-table" },
         { "include": "#extent" },
+        { "include": "#array-literal" },
+        { "include": "#decimals" },
         { "include": "#constant" },
+        { "include": "#type-name-generic-progress" },
+        { "include": "#type-name-progress" },
         { "include": "#keywords" },
+        { "include": "#type-name-generic" },
         { "include": "#type-name" },
-        { "include": "#type-name-class" },
-        { "include": "#type-name-comma" },
         { "include": "#string" },
         { "include": "#comment" }
       ]
@@ -139,6 +168,7 @@
           "match": "(?i)(\\&[\\w-]*)|({\\&[\\w-]*})|(&window-system|&text-height|&line-number|&batch-mode|&file-name|&undefine|&sequence|&message|defined|&elseif|&scoped|&global|&opsys|&endif|&else|&scop|&then|&glob|&if)",
           "name": "storage.type.function.abl"
         },
+        { "include": "#dll-type" },
         { "include": "#primitive-type" },
         { "include": "#method-call" },
         { "include": "#property-accessor" },
@@ -189,50 +219,61 @@
         { "include": "#define-enum" }
       ]
     },
+    "type-name-generic-progress": {
+      "name": "entity.name.type.generic.abl",
+      "NO-begin": "(?i)\\s*((progress)(\\.[\\w\\#\\$\\%\\-]+)*\\s*)\\s*<",
+      "begin": "(?i)\\s*((progress)(\\.[\\w\\#\\$\\%\\-]+)*)\\s*<",
+      "NO-begin": "(?i)(class)?\\b(([\\w\\#\\$\\%\\-]+|progress\\.|map|set)(\\.?[\\w\\#\\$\\%\\-]+)*\\s*)\\s*<",
+      "beginCaptures": { "1": { "name": "entity.name.type.abl" } },
+      "end": "\\>",
+      "patterns": [ { "include": "#generic-types" } ]
+    },
     "type-name-generic": {
-      "match": "\\s*(([\\w\\#\\$\\%]+|progress)(\\.[\\w\\#\\$\\%]+)*\\s*\\<\\s*([\\w\\#\\$\\%]+|progress)(\\.[\\w\\#\\$\\%]+)*\\s*\\>)\\s*",
-      "captures": { "1": { "name": "entity.name.type.abl" } }
+      "name": "entity.name.type.generic.abl",
+      "begin": "(?i)\\s*(([\\w\\#\\$\\%\\-]+)(\\.[\\w\\#\\$\\%\\-]+)*\\s*)\\s*<",
+      "beginCaptures": { "1": { "name": "entity.name.type.abl" } },
+      "end": "\\>",
+      "patterns": [ { "include": "#generic-types" } ]
+    },
+    "generic-types": {
+      "patterns": [
+        { "include": "#type-name-comma-progress" },
+        { "include": "#type-name-comma" },
+        { "include": "#type-name-generic-progress" },
+        { "include": "#type-name-progress" },
+        { "include": "#type-name-generic" },
+        { "include": "#type-name" }
+      ]
     },
     "type-name": {
-      "comment": "Using |\b instead of \\s works better for not catching DATE, say",
-      "match": "\\b(([\\w\\#\\$\\%]+|progress)(\\.[\\w\\#\\$\\%]+)*(?<!\\.))\\b",
-      "NO-match": "\\b([\\w\\#\\$\\%]+[\\w\\#\\$\\%\\.]*(\\s*<\\s*[\\w\\#\\$\\%\\.]+\\s*\\>)?)\\b",
+      "match": "(?i)\\b([\\w\\#\\$\\%\\-]+(\\.[\\w\\#\\$\\%\\-]+)*)\\b",
+      "NO-match": "(?i)\\s*([\\w\\#\\$\\%\\-]+(\\.[\\w\\#\\$\\%\\-]+)*)\\s*",
       "captures": { "1": { "name": "entity.name.type.abl" } }
     },
-    "type-name-class": {
-      "match": "\\s*(class)\\s+(([\\w\\#\\$\\%]+|progress)[\\w\\#\\$\\%\\.]*(\\s*<\\s*([\\w\\#\\$\\%]+|progress)(\\.[\\w\\#\\$\\%\\.]+)*\\s*\\>)?)\\s*",
-      "comment": "Capture group 3 is the <T> type name",
-      "captures": {
-        "1": { "name": "keyword.other.abl" },
-        "2": { "name": "entity.name.type.abl" }
-      }
-    },
     "type-name-comma": {
-      "match": "\\s*(,*)\\s*(([\\w\\#\\$\\%]+|progress)(\\.[\\w\\#\\$\\%]*)*(?<!\\.))\\s*(,*)\\s*",
+      "match": "(?i)\\s*(,*)\\s*(class)?\\s*(([\\w\\#\\$\\%]+)(\\.?[\\w\\#\\$\\%]*)*(?<!\\.))\\s*(,*)\\s*",
+      "NO-match": "(?i)\\s*(,*)\\s*(class)?\\s*(([\\w\\#\\$\\%]+|progress\\.|map|set)(\\.?[\\w\\#\\$\\%]*)*(?<!\\.))\\s*(,*)\\s*",
       "comment": "Capture group 3 is the <T> type name",
       "captures": {
         "1": { "name": "punctuation.separator.comma.abl" },
-        "2": { "name": "entity.name.type.abl" },
-        "5": { "name": "punctuation.separator.comma.abl" }
+        "2": { "name": "keyword.other.abl" },
+        "3": { "name": "entity.name.type.abl" },
+        "6": { "name": "punctuation.separator.comma.abl" }
       }
     },
-    "define-class2": {
-      "begin": "(?i)\\b(class)\\s*([\\w\\#\\$\\%]+[\\w\\#\\$\\%\\.]*(\\s*<\\s*[\\w\\#\\$\\%\\.]+\\s*\\>)?)\\b",
-      "beginCaptures": {
-        "1": { "name": "keyword.other.abl" },
-        "2": { "name": "entity.name.type.abl" }
-      },
-      "end": "\\s*(:)",
-      "endCaptures": { "1": { "name": "punctuation.terminator.abl" } },
-      "patterns": [
-        {
-          "match": "(?i)\\s*(serializable|abstract|final|use-widget-pool|inherits|implements)\\s*",
-          "captures": { "1": { "name": "keyword.other.abl" } }
-        },
-        { "include": "#implements-type" },
-        { "include": "#type-name-comma" },
-        { "include": "#type-name" }
-      ]
+    "type-name-progress": {
+      "match": "(?i)\\s*((progress\\.)([\\.\\w\\#\\$\\%]+)*)\\s*(?<!\\.)",
+      "captures": { "1": { "name": "entity.name.type.abl" } }
+    },
+    "type-name-comma-progress": {
+      "match": "(?i)\\s*(,*)\\s*(class)?\\s*((progress\\.|map|set)(\\.?[\\w\\#\\$\\%]*)*(?<!\\.))\\s*(,*)\\s*",
+      "comment": "Capture group 3 is the <T> type name",
+      "captures": {
+        "1": { "name": "punctuation.separator.comma.abl" },
+        "2": { "name": "keyword.other.abl" },
+        "3": { "name": "entity.name.type.abl" },
+        "6": { "name": "punctuation.separator.comma.abl" }
+      }
     },
     "define-class": {
       "name": "meta.define.class.abl",
@@ -246,6 +287,10 @@
           "captures": { "1": { "name": "keyword.other.abl" } }
         },
         { "include": "#implements-type" },
+        { "include": "#type-name-generic-progress" },
+        { "include": "#type-name-generic" },
+        { "include": "#type-name-comma-progress" },
+        { "include": "#type-name-progress" },
         { "include": "#type-name-comma" },
         { "include": "#type-name" }
       ]
@@ -431,27 +476,21 @@
         "1": { "name": "variable.parameter.abl" },
         "2": { "name": "keyword.other.abl" }
       },
-      "end": "(?=\\s*)",
+      "end": "(?<=\\s)",
       "patterns": [
+        { "include": "#dll-type" },
         { "include": "#primitive-type" },
-        { "include": "#type-name-class" },
+        { "include": "#type-name-progress" },
         { "include": "#type-name-generic" },
         { "include": "#type-name" }
       ]
     },
     "variable-as": {
-      "begin": "(?i)\\s*([\\w\\-]+)\\s+(as)\\s*",
-      "beginCaptures": {
+      "match": "(?i)\\s*([\\w\\-]+)\\s+(as)\\s*",
+      "captures": {
         "1": { "name": "variable.other.abl" },
         "2": { "name": "keyword.other.abl" }
-      },
-      "end": "(?=\\s*)",
-      "patterns": [
-        { "include": "#primitive-type" },
-        { "include": "#type-name-class" },
-        { "include": "#type-name-generic" },
-        { "include": "#type-name" }
-      ]
+      }
     },
     "define": {
       "name": "meta.define.abl",
@@ -484,6 +523,7 @@
         { "include": "#define-field" },
         { "include": "#parameter-as" },
         { "include": "#define-stream" },
+        { "include": "#define-buffer" },
         { "include": "#for-table" },
         { "include": "#buffer-for-table" },
         { "include": "#define-table" },
@@ -492,19 +532,21 @@
           "match": "(?i)\\s*(progress\\.lang\\.object|object)\\s*",
           "captures": { "1": { "name": "entity.name.type.abl" } }
         },
+        { "include": "#extent" },
+        { "include": "#decimals" },
         { "include": "#format-constant" },
         { "include": "#timestamp-constant" },
         { "include": "#constant" },
         { "include": "#numeric" },
         { "include": "#string" },
+        { "include": "#dll-type" },
         { "include": "#primitive-type" },
-        {
-          "comment": "Ahead of keywords so that that doesn't grab the CLASS ",
-          "include": "#type-name-class"
-        },
+        { "include": "#type-name-progress" },
         { "include": "#keywords" },
         { "include": "#comment" },
         { "include": "#label-variable" },
+        { "include": "#type-name-generic-class" },
+        { "include": "#type-name-generic" },
         { "include": "#type-name" }
       ]
     },
@@ -525,13 +567,34 @@
         { "include": "#variable-as" },
         { "include": "#primitive-type" },
         { "include": "#extent" },
+        { "include": "#decimals" },
         { "include": "#array-literal" },
         { "include": "#timestamp-constant" },
-        { "include": "#keywords" },
         { "include": "#numeric" },
+        {
+          "comment": "needs to be before the #keywords include",
+          "include": "#type-name-generic-progress"
+        },
+        {
+          "comment": "needs to be before the #keywords include",
+          "include": "#type-name-progress"
+        },
+        { "include": "#keywords" },
         { "include": "#string" },
-        { "include": "#type-name-class" },
+        { "include": "#type-name-generic" },
         { "include": "#type-name" }
+      ]
+    },
+    "define-buffer": {
+      "begin": "(?i)\\s*(buffer)\\s*",
+      "beginCaptures": { "1": { "name": "keyword.other.abl" } },
+      "end": "(?=\\.)",
+      "patterns": [
+        { "include": "#for-table" },
+        { "include": "#buffer-for-table" },
+        { "include": "#keywords" },
+        { "include": "#comment" },
+        { "include": "#string" }
       ]
     },
     "define-variable": {
@@ -543,26 +606,21 @@
         { "include": "#variable-as" },
         { "include": "#primitive-type" },
         { "include": "#extent" },
+        { "include": "#decimals" },
         { "include": "#array-literal" },
         { "include": "#timestamp-constant" },
         { "include": "#numeric" },
         {
-          "match": "(?i)\\s*(n o-un do)\\s*",
-          "captures": { "1": { "name": "keyword.other.abl" } }
+          "comment": "needs to be before the #keywords include",
+          "include": "#type-name-generic-progress"
         },
         {
-          "begin": "(?i)\\s*(?=progress\\.)",
-          "end": "(?=\\s+|$)",
-          "patterns": [
-            { "include": "#type-name-generic" },
-            { "include": "#type-name-class" },
-            { "include": "#type-name" }
-          ]
+          "comment": "needs to be before the #keywords include",
+          "include": "#type-name-progress"
         },
-        { "include": "#string" },
         { "include": "#keywords" },
+        { "include": "#string" },
         { "include": "#type-name-generic" },
-        { "include": "#type-name-class" },
         { "include": "#type-name" }
       ]
     },
@@ -606,7 +664,7 @@
       }
     },
     "access-modifier": {
-      "match": "\\s*(package-private|private|package-protected|protected|public|static|override|abstract|final)\\s*",
+      "match": "(?i)\\s*(package-private|private|package-protected|protected|public|static|override|abstract|final)\\s*",
       "captures": { "1": { "name": "keyword.other.abl" } }
     },
     "serializable": {
@@ -690,7 +748,21 @@
       "name": "variable.other.abl"
     },
     "extent": {
-      "match": "(?i)\\s*(extent)\\s*((0x[0-9a-f]+)|([0-9]+(\\.[0-9]+)?)?)",
+      "match": "(?i)\\s*(extent)\\s*((0x[0-9a-f]+)|([0-9]+)?)",
+      "captures": {
+        "1": { "name": "keyword.other.abl" },
+        "2": { "name": "constant.numeric.source.abl" }
+      }
+    },
+    "decimals": {
+      "match": "(?i)\\s*(decimals)\\s((0x[0-9a-f]+)|([0-9]+)?)",
+      "captures": {
+        "1": { "name": "keyword.other.abl" },
+        "2": { "name": "constant.numeric.source.abl" }
+      }
+    },
+    "ordinal": {
+      "match": "(?i)\\s*(ordinal)\\s((0x[0-9a-f]+)|([0-9]+)?)",
       "captures": {
         "1": { "name": "keyword.other.abl" },
         "2": { "name": "constant.numeric.source.abl" }
@@ -800,9 +872,14 @@
         }
       ]
     },
+    "dll-type": {
+      "match": "(?i)\\s*(byte|unsigned-short|short|unsigned-long|long|int64|float)\\s*",
+      "captures": { "1": { "name": "storage.type.abl" } },
+      "comment": "https://docs.progress.com/bundle/openedge-abl-reference-122/page/Data-types.html"
+    },
     "primitive-type": {
       "match": "(?i)(?<=^|\\s)(blob|character|characte|charact|charac|chara|char|clob|com-handle|date|datetime|datetime-tz|decimal|decima|decim|deci|dec|handle|int64|integer|intege|integ|inte|int|logical|logica|logic|logi|log|longchar|longcha|longch|memptr|raw|recid|rowid|widget-handle)(?![=\\w-])",
-      "name": "storage.type.abl",
+      "captures": { "1": { "name": "storage.type.abl" } },
       "comment": "https://docs.progress.com/bundle/openedge-abl-reference-122/page/Data-types.html"
     },
     "numeric": {
