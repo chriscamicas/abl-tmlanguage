@@ -16,41 +16,25 @@
       "name": "meta.procedure.abl",
       "begin": "(?i)\\s*(procedure|procedur|procedu|proced|proce)\\s*",
       "beginCaptures": { "1": { "name": "keyword.other.abl" } },
-      "end": "(?=:)",
+      "end": "(?<=:)",
       "endCaptures": { "1": { "name": "punctuation.terminator.abl" } },
       "patterns": [
-        { "include": "#ordinal" },
         { "include": "#string" },
+        { "include": "#translation-attribute" },
         { "include": "#keywords" },
+        { "include": "#numeric" },
         {
           "match": "(?i)\\s*([\\w\\.\\-\\{\\}\\&]*)\\s*",
           "captures": { "1": { "name": "entity.name.function.abl" } }
         }
       ]
     },
-    "X-procedure-definition": {
-      "begin": "(?i)\\b(procedure|procedur|procedu|proced|proce)\\b\\s+('[\\w\\.\\-\\{\\}\\&]*':U|'[\\w\\.\\-\\{\\}\\&]*'|[\\w\\.\\-\\{\\}\\&]*)?(\\s+(EXTERNAL)\\s+(\")([\\w\\.-]*)(\"))?",
-      "beginCaptures": {
-        "1": { "name": "keyword.other.abl" },
-        "2": { "name": "entity.name.function.abl" },
-        "4": { "name": "keyword.other.abl" },
-        "5": { "name": "punctuation.definition.string.begin.abl" },
-        "6": { "name": "string.double.complex.abl" },
-        "7": { "name": "punctuation.definition.string.end.abl" }
-      },
-      "end": "(?=\\.)",
-      "name": "meta.procedure.abl",
-      "patterns": [
-        {
-          "begin": ":",
-          "end": "(?i)(end\\s*procedure|end)",
-          "endCaptures": { "1": { "name": "keyword.other.abl" } },
-          "name": "meta.procedure.body.abl",
-          "patterns": [ { "include": "#code-block" } ]
-        }
-      ]
+    "translation-attribute": {
+      "comment": "The attribute must have one of L, R, T, or C and/or a U and/or one integer value. For example, R1 as the attribute value for Label.",
+      "match": "(?i)(:[L|R|T|C|U]\\d*)\\s*",
+      "captures": { "1": { "name": "support.other.abl" } }
     },
-    "language-functions": {
+    "language-functions": { 
       "match": "(?i)\\b(opsys|proversion)\\b",
       "captures": { "1": { "name": "support.function.abl" } }
     },
@@ -89,6 +73,7 @@
     },
     "end-function-procedure-method-block": {
       "match": "(?i)\\s*(end)\\s*(method|procedure|function)?\\s*(?=\\.)\\s*",
+      "comment": "This regex exists to make sure that END PROCEDURE is not seen as a new procedure block",
       "captures": {
         "1": { "name": "keyword.other.abl" },
         "2": { "name": "keyword.other.abl" }
@@ -162,6 +147,7 @@
         { "include": "#numeric" },
         { "include": "#constant" },
         { "include": "#operator" },
+        { "include": "#translation-attribute" },
         { "include": "#analyze-suspend-resume" },
         { "include": "#global-scoped-define" },
         {
@@ -385,6 +371,7 @@
         },
         { "include": "#doublequotedstring" },
         { "include": "#singlequotedstring" },
+        { "include": "#translation-attribute" },
         {
           "match": "\\s*(,*)\\s*([\\w\\#\\$\\%\\.]+)",
           "captures": {

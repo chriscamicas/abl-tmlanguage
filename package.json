@@ -15,10 +15,11 @@
   "homepage": "https://github.com/chriscamicas/openedge-abl-syntax#readme",
   "scripts": {
     "build": "node index.js",
-    "test": "mocha  spec/type-name/*variable*.spec.js",
+    "test": "mocha  spec/*/*.spec.js",
     "test:single": "mocha",
-    "test:debug": "mocha 'spec/type-name/*.spec.js' -- --inspect-brk=5858"
+    "test:debug": "mocha 'spec/*/*.spec.js' -- --inspect-brk=5858"
   },
+  "maxDiffSize": 32768,
   "devDependencies": {
     "chai": "^4.2.0",
     "mocha": "^10.2.0",
