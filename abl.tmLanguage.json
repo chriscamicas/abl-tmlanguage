@@ -372,8 +372,14 @@
         { "include": "#doublequotedstring" },
         { "include": "#singlequotedstring" },
         { "include": "#translation-attribute" },
+        { "include": "#type-name-generic-progress" },
+        { "include": "#type-name-generic" },
+        { "include": "#type-name-comma-progress" },
+        { "include": "#type-name-progress" },
+        { "include": "#type-name-comma" },
+        { "include": "#type-name" },
         {
-          "match": "\\s*(,*)\\s*([\\w\\#\\$\\%\\.]+)",
+          "X-match": "\\s*(,*)\\s*([\\w\\#\\$\\%\\.]+)",
           "captures": {
             "1": { "name": "punctuation.separator.comma.abl" },
             "2": { "name": "entity.name.type.abl" }

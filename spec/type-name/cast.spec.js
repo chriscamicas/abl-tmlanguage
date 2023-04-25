@@ -136,5 +136,22 @@ describe('', () => {
   shared.itShouldMatchExpectedScopes(statement, expectedTokens);
 })
 
+describe('', () => {
+    let statement = `cast ( q, Map<foo.bar, baz> ) `;
 
+    let expectedTokens = [
+        { "startIndex": 0, "endIndex": 4, "scopes": ["source.abl", "meta.function-call.cast.abl", "entity.name.function.abl"] },
+        { "startIndex": 4, "endIndex": 5, "scopes": ["source.abl", "meta.function-call.cast.abl"] },
+        { "startIndex": 5, "endIndex": 6, "scopes": ["source.abl", "meta.function-call.cast.abl", "meta.brace.round.js"] },
+        { "startIndex": 6, "endIndex": 7, "scopes": ["source.abl", "meta.function-call.cast.abl"] },
+        { "startIndex": 7, "endIndex": 8, "scopes": ["source.abl", "meta.function-call.cast.abl", "variable.other.abl"] },
+        { "startIndex": 8, "endIndex": 9, "scopes": ["source.abl", "meta.function-call.cast.abl", "punctuation.separator.comma.abl"] },
+        { "startIndex": 9, "endIndex": 10, "scopes": ["source.abl", "meta.function-call.cast.abl"] },
+        { "startIndex": 10, "endIndex": 21, "scopes": ["source.abl", "meta.function-call.cast.abl", "entity.name.type.abl"] },
+        { "startIndex": 21, "endIndex": 22, "scopes": ["source.abl", "meta.function-call.cast.abl"] },
+        { "startIndex": 22, "endIndex": 23, "scopes": ["source.abl", "meta.function-call.cast.abl", "meta.brace.round.js"] },
+        { "startIndex": 23, "endIndex": 25, "scopes": ["source.abl"] }
+    ];
+    shared.itShouldMatchExpectedScopes(statement, expectedTokens);
+})
 
