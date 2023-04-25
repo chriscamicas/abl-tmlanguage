@@ -23,8 +23,10 @@
         { "include": "#translation-attribute" },
         { "include": "#keywords" },
         { "include": "#numeric" },
+        { "include": "#argument-reference" },
         {
-          "match": "(?i)\\s*([\\w\\.\\-\\{\\}\\&]*)\\s*",
+          "X-match": "(?i)\\s*([\\w\\.\\-\\{\\}\\&]*)\\s*",
+          "match": "(?i)\\s*([\\w\\.\\-]*)\\s*",
           "captures": { "1": { "name": "entity.name.function.abl" } }
         }
       ]
@@ -34,7 +36,7 @@
       "match": "(?i)(:[L|R|T|C|U]\\d*)\\s*",
       "captures": { "1": { "name": "support.other.abl" } }
     },
-    "language-functions": { 
+    "language-functions": {
       "match": "(?i)\\b(opsys|proversion)\\b",
       "captures": { "1": { "name": "support.function.abl" } }
     },
@@ -139,6 +141,7 @@
     "statements": {
       "patterns": [
         { "include": "#type-reference" },
+        { "include": "#function-arguments" },
         { "include": "#method-definition" },
         { "include": "#string" },
         { "include": "#singlelinecomment" },
@@ -158,6 +161,7 @@
         { "include": "#primitive-type" },
         { "include": "#method-call" },
         { "include": "#property-accessor" },
+        { "include": "#property-call" },
         { "include": "#function-call" },
         { "include": "#code-block" },
         { "include": "#language-functions" },
@@ -324,7 +328,7 @@
         }
       ]
     },
-    "new-class": {
+    "X-new-class": {
       "patterns": [
         {
           "name": "meta.function-call.new.abl",
@@ -336,22 +340,112 @@
         }
       ]
     },
-    "get-class": {
+    "attribute-access": {
+      "begin": ":",
+      "end": "(?=:)|(?=\\s*)",
+      "comment": "",
+      "patterns": [
+
+       ]
+    },
+    "new-class": {
+      "name": "meta.function-call.new.abl",
+      "begin": "(?i)(new)\\s+",
+      "beginCaptures": { "1": { "name": "entity.name.function.abl" } },
+      "end": "(?=\\()",
+      "patterns": [
+        { "include": "#type-name-generic-progress" },
+        { "include": "#type-name-generic" },
+        { "include": "#type-name-comma-progress" },
+        { "include": "#type-name-progress" },
+        { "include": "#type-name-comma" },
+        { "include": "#type-name" }
+      ]
+    },
+    "XX-new-class": {
+      "name": "meta.function-call.new.abl",
+      "begin": "(?i)(new)",
+      "beginCaptures": { "1": { "name": "entity.name.function.abl" } },
+      "end": "(?=\\))",
+      "endCaptures": { "1": { "name": "meta.brace.round.js" } },
       "patterns": [
         {
-          "name": "meta.function-call.get-class.abl",
-          "match": "(?i)(get-class)\\s*(\\()\\s*([\\w\\#\\$\\%\\.]+)\\s*(\\))",
+          "begin": "(\\()",
+          "beginCaptures": { "1": { "name": "meta.brace.round.js" } },
+          "end": "(?<=\\))",
+          "patterns": [
+            { "include": "#doublequotedstring" },
+            { "include": "#singlequotedstring" },
+            { "include": "#translation-attribute" },
+            { "include": "#type-name-generic-progress" },
+            { "include": "#type-name-generic" },
+            { "include": "#type-name-comma-progress" },
+            { "include": "#type-name-progress" },
+            { "include": "#type-name-comma" },
+            { "include": "#type-name" }
+          ]
+        }
+      ]
+    },
+    "XXX-new-class": {
+      "name": "meta.function-call.new.abl",
+      "begin": "(?i)(new)\\s*",
+      "beginCaptures": { "1": { "name": "keyword.other.abl" } },
+      "end": "(?=\\))",
+      "patterns": [
+        { "include": "#type-name-generic-progress" },
+        { "include": "#type-name-generic" },
+        { "include": "#type-name-comma-progress" },
+        { "include": "#type-name-progress" },
+        { "include": "#type-name-comma" },
+        { "include": "#type-name" },
+        {
+          "begin": "(\\()",
+          "beginCaptures": { "1": { "name": "meta.brace.round.js" } },
+          "end": "(?=\\))",
+          "patterns": [ { "include": "#function-arguments" } ]
+        }
+      ]
+    },
+    "get-class": {
+      "name": "meta.function-call.abl",
+      "begin": "(?i)(get-class)",
+      "beginCaptures": { "1": { "name": "entity.name.function.abl" } },
+      "end": "(\\))",
+      "endCaptures": { "1": { "name": "meta.brace.round.js" } },
+      "patterns": [
+        {
+          "match": "(\\()",
+          "captures": { "1": { "name": "meta.brace.round.js" } }
+        },
+        {
+          "match": "\\s*([a-zA-Z_]+[\\w\\.\\-_]*)\\s*(,+)",
+          "comment": "Variable names must begin with a letter, but subsequent characters can include letters, numeric digits, periods(.), hyphens(-), and underscores(_)",
           "captures": {
-            "1": { "name": "entity.name.function.abl" },
-            "2": { "name": "meta.brace.round.js" },
-            "3": { "name": "entity.name.type.abl" },
-            "4": { "name": "meta.brace.round.js" }
+            "1": { "name": "variable.other.abl" },
+            "2": { "name": "punctuation.separator.comma.abl" }
+          }
+        },
+        { "include": "#doublequotedstring" },
+        { "include": "#singlequotedstring" },
+        { "include": "#translation-attribute" },
+        { "include": "#type-name-generic-progress" },
+        { "include": "#type-name-generic" },
+        { "include": "#type-name-comma-progress" },
+        { "include": "#type-name-progress" },
+        { "include": "#type-name-comma" },
+        { "include": "#type-name" },
+        {
+          "X-match": "\\s*(,*)\\s*([\\w\\#\\$\\%\\.]+)",
+          "captures": {
+            "1": { "name": "punctuation.separator.comma.abl" },
+            "2": { "name": "entity.name.type.abl" }
           }
         }
       ]
     },
     "cast-function": {
-      "name": "meta.function-call.cast.abl",
+      "name": "meta.function-call.abl",
       "begin": "(?i)(cast)",
       "beginCaptures": { "1": { "name": "entity.name.function.abl" } },
       "end": "(\\))",
@@ -372,8 +466,14 @@
         { "include": "#doublequotedstring" },
         { "include": "#singlequotedstring" },
         { "include": "#translation-attribute" },
+        { "include": "#type-name-generic-progress" },
+        { "include": "#type-name-generic" },
+        { "include": "#type-name-comma-progress" },
+        { "include": "#type-name-progress" },
+        { "include": "#type-name-comma" },
+        { "include": "#type-name" },
         {
-          "match": "\\s*(,*)\\s*([\\w\\#\\$\\%\\.]+)",
+          "X-match": "\\s*(,*)\\s*([\\w\\#\\$\\%\\.]+)",
           "captures": {
             "1": { "name": "punctuation.separator.comma.abl" },
             "2": { "name": "entity.name.type.abl" }
@@ -398,6 +498,7 @@
         { "include": "#variable-name" },
         { "include": "#type-reference" },
         { "include": "#method-call" },
+        { "include": "#property-call" },
         { "include": "#function-call" }
       ]
     },
@@ -479,6 +580,13 @@
         "2": { "name": "keyword.other.abl" }
       }
     },
+    "property-as": {
+      "match": "(?i)\\s*([\\w\\-]+)\\s+(as)\\s*",
+      "captures": {
+        "1": { "name": "entity.name.function.abl" },
+        "2": { "name": "keyword.other.abl" }
+      }
+    },
     "define": {
       "name": "meta.define.abl",
       "begin": "(?i)\\b(define|def)\\s*",
@@ -506,6 +614,7 @@
             { "include": "#parameter-definition" }
           ]
         },
+        { "include": "#function-call" },
         { "include": "#array-literal" },
         { "include": "#define-field" },
         { "include": "#parameter-as" },
@@ -551,7 +660,7 @@
       "end": "(?i)\\s*(no-undo)|(?=private|public|protected|get|set)",
       "endCaptures": { "1": { "name": "keyword.other.abl" } },
       "patterns": [
-        { "include": "#variable-as" },
+        { "include": "#property-as" },
         { "include": "#primitive-type" },
         { "include": "#extent" },
         { "include": "#decimals" },
@@ -642,6 +751,10 @@
         "5": { "name": "storage.data.table.abl" }
       }
     },
+    "double-colon-field-name": {
+      "match": "\\s*::([\\w\\-#$%]+)\\s*",
+      "captures": { "1": { "name": "storage.data.table.abl" } }
+    },
     "for-table": {
       "match": "(?i)\\s*(for)\\s+((temp-table)\\s+)?([\\w\\-#$%]+)\\s*",
       "captures": {
@@ -712,23 +825,58 @@
       "name": "meta.preprocessor.define.abl",
       "patterns": [ { "include": "#string" } ]
     },
-    "method-call": {
+    "X-method-call": {
       "match": "(?<=\\.|:)(\\w|-)+",
       "name": "support.function.abl"
     },
+    "function-arguments": {
+      "name": "meta.function.arguments.abl",
+      "comment": "Captures what's between ( and ) when calling a function, excluding the braces ",
+      "begin": "(?<=\\()",
+      "beginCaptures": { "1": { "name": "meta.brace.round.js" } },
+      "end": "(?=\\))",
+      "endCaptures": { "1": { "name": "meta.brace.round.js" } },
+      "patterns": [
+        { "include": "#timestamp-constant" },
+        { "include": "#constant" },
+        { "include": "#new-class" },
+        { "include": "#expression" },
+        { "include": "#doublequotedstring" },
+        { "include": "#singlequotedstring" },
+        { "include": "#translation-attribute" },
+        { "include": "#punctuation-comma" },
+        { "include": "#type-name" },
+        { "include": "#X-type-name-generic-progress" },
+        { "include": "#X-type-name-progress" },
+        { "include": "#NO-keywords" },
+        { "include": "#X-type-name-generic" },
+        { "include": "#function-call" },
+        { "include": "#property-call" },
+        { "include": "#expression" }
+      ]
+    },
     "function-call": {
       "name": "meta.function-call.abl",
+      "match": ":([\\w-]+)\\s*",
+      "captures": { "1": { "name": "entity.name.function.abl" } }
+    },
+    "Y-function-call": {
+      "name": "meta.function-call.abl",
+      "begin": "([\\w-]+)\\s*(?=\\()",
+      "beginCaptures": { "1": { "name": "entity.name.function.abl" } },
+      "end": "(?=\\))",
+      "patterns": [ { "include": "#function-arguments" } ]
+    },
+    "X-function-call": {
+      "name": "meta.function-call.abl",
       "begin": "([\\w-]+)\\s*(\\()",
-      "end": "(\\))",
       "beginCaptures": {
         "1": { "name": "entity.name.function.abl" },
         "2": { "name": "meta.brace.round.js" }
       },
+      "end": "(?=\\))",
       "endCaptures": { "1": { "name": "meta.brace.round.js" } },
-      "patterns": [
-        { "include": "#expression" },
-        { "include": "#punctuation-comma" }
-      ]
+      "patterns": [ { "include": "#function-arguments" } ]
     },
     "variable-name": {
       "match": "(?<=^|\\s|\\[|\\()([\\w-]+)",
@@ -771,7 +919,8 @@
         { "include": "#string" },
         { "include": "#constant" },
         { "include": "#numeric" },
-        { "include": "#variable-name" }
+        { "include": "#variable-name" },
+        { "include": "#double-colon-field-name" }
       ]
     },
     "parameter-name": {
@@ -802,7 +951,9 @@
       "comment": "https://docs.progress.com/bundle/openedge-abl-reference-122/page/Include-file-reference.html"
     },
     "argument-reference": {
-      "comment": "https://docs.progress.com/bundle/openedge-abl-reference-122/page/Argument-reference.html"
+      "comment": "https://docs.progress.com/bundle/openedge-abl-reference-122/page/Argument-reference.html",
+      "match": "\\s*((\\{\\s*\\&[\\.\\w\\\/-]+\\})|(\\{\\s*\\d+\\})|(\\{\\s*\\*\\}))\\s*",
+      "captures": { "1": { "name": "storage.other.abl" } }
     },
     "comment": {
       "patterns": [
