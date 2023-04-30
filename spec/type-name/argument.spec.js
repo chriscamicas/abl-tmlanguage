@@ -3,7 +3,7 @@ const shared = require('../shared.js');
 
 
 describe('', () => {
-  let statement = `x = cast(y, foo.bar.baz) `;
+  let statement = `new foo.bar(y, foo.bar.baz:Property) `;
 
   let expectedTokens = [
     { "startIndex": 0, "endIndex": 1, "scopes": ["source.abl", "keyword.other.abl"] },
@@ -23,9 +23,7 @@ describe('', () => {
 })
 
 describe('', () => {
-  let statement = `x = cast(y
-        ,foo.bar.baz) `;
-
+  let statement = `new foo.bar("y":L9, new foo.bar.baz()) `;
   let expectedTokens = [
     [
       { "startIndex": 0, "endIndex": 1, "scopes": ["source.abl", "keyword.other.abl"] },
@@ -49,8 +47,7 @@ describe('', () => {
 })
 
 describe('', () => {
-  let statement = `x = cast(y,
-                              foo.bar.baz) `;
+  let statement = `x = new baz (true, today, now, ?, -12).`;
 
   let expectedTokens = [
     [
