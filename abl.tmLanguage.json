@@ -117,6 +117,7 @@
         },
         { "include": "#buffer-for-table" },
         { "include": "#extent" },
+        { "include": "#abl-functions" },
         { "include": "#array-literal" },
         { "include": "#decimals" },
         { "include": "#constant" },
@@ -141,6 +142,8 @@
     "statements": {
       "patterns": [
         { "include": "#type-reference" },
+        { "include": "#find-record" },
+        { "include": "#abl-functions" },
         { "include": "#function-arguments" },
         { "include": "#method-definition" },
         { "include": "#string" },
@@ -168,7 +171,8 @@
         { "include": "#keywords" },
         { "include": "#variable-name" },
         { "include": "#array-literal" },
-        { "include": "#punctuation-semicolon" }
+        { "include": "#punctuation-semicolon" },
+        { "include": "#parens" }
       ]
     },
     "declarations": {
@@ -180,7 +184,7 @@
         { "include": "#get-class" },
         { "include": "#new-class" },
         { "include": "#using" },
-        { "include": "#cast-function" }
+        { "include": "#type-argument-function" }
       ]
     },
     "using": {
@@ -285,6 +289,307 @@
         { "include": "#type-name" }
       ]
     },
+    "abl-functions": {
+      "patterns": [
+        { "include": "#abl-functions-A" },
+        { "include": "#abl-functions-B" },
+        { "include": "#abl-functions-C" },
+        { "include": "#abl-functions-D" },
+        { "include": "#abl-functions-E" },
+        { "include": "#abl-functions-F" },
+        { "include": "#abl-functions-G" },
+        { "include": "#abl-functions-H" },
+        { "include": "#abl-functions-I" },
+        { "include": "#abl-functions-K" },
+        { "include": "#abl-functions-L" },
+        { "include": "#abl-functions-M" },
+        { "include": "#abl-functions-N" },
+        { "include": "#abl-functions-O" },
+        { "include": "#abl-functions-P" },
+        { "include": "#abl-functions-Q" },
+        { "include": "#abl-functions-R" },
+        { "include": "#abl-functions-S" },
+        { "include": "#abl-functions-T" },
+        { "include": "#abl-functions-U" },
+        { "include": "#abl-functions-V" },
+        { "include": "#abl-functions-W" },
+        { "include": "#abl-functions-Y" }
+      ]
+    },
+    "abl-functions-A": {
+      "name": "meta.function-call.abl",
+      "begin": "(?i)\\s*(ABSOLUTE|ACCUM|ADD-INTERVAL|ALIAS|AMBIGUOUS|ASC|AUDIT-ENABLED|AVAILABLE)\\s*(?>=\\()",
+      "beginCaptures": { "1": "entity.name.function.abl" },
+      "end": "(?=\\))",
+      "patterns": [
+        { "include": "#function-arguments" },
+        { "include": "#parens" }
+      ]
+    },
+    "abl-functions-B": {
+      "name": "meta.function-call.abl",
+      "begin": "(?i)\\s*(BASE64-DECODE|BASE64-ENCODE|BOX|BUFFER-GROUP-ID|BUFFER-GROUP-NAME|BUFFER-PARTITION-ID|BUFFER-TENANT-ID|BUFFER-TENANT-NAME)\\s*(?>=\\()",
+      "beginCaptures": {
+        "1": "entity.name.function.abl"
+      },
+      "end": "(?=\\))",
+      "patterns": [
+        { "include": "#function-arguments" },
+        { "include": "#parens" }
+      ]
+    },
+    "abl-functions-C": {
+      "name": "meta.function-call.abl",
+      "begin": "(?i)\\s*(CAN-DO|CAN-FIND|CAN-QUERY|CAN-SET|CAPS|CAST|CHR|CODEPAGE-CONVERT|COMPARE|CONNECTED|COUNT-OF|CURRENT-CHANGED|CURRENT-LANGUAGE|CURRENT-RESULT-ROW|CURRENT-VALUE)\\s*(?>=\\()",
+      "beginCaptures": {
+        "1": "entity.name.function.abl"
+      },
+      "end": "(?=\\))",
+      "patterns": [
+        { "include": "#function-arguments" },
+        { "include": "#parens" }
+      ]
+    },
+    "abl-functions-D": {
+      "name": "meta.function-call.abl",
+      "begin": "(?i)\\s*(DATASERVERS|DATA-SOURCE-MODIFIED|DATE|DATETIME|DATETIME-TZ|DAY|DBCODEPAGE|DBCOLLATION|DBNAME|DBPARAM|DB-REMOTE-HOST|DBRESTRICTIONS|DBTASKID|DBTYPE|DBVERSION|DECIMAL|DECRYPT|DEFINED|DYNAMIC-CAST|DYNAMIC-CURRENT-VALUE|DYNAMIC-ENUM|DYNAMIC-FUNCTION|DYNAMIC-INVOKE|DYNAMIC-NEXT-VALUE|DYNAMIC-PROPERTY)\\s*(?>=\\()",
+      "beginCaptures": {
+        "1": "entity.name.function.abl"
+      },
+      "end": "(?=\\))",
+      "patterns": [
+        { "include": "#function-arguments" },
+        { "include": "#parens" }
+      ]
+    },
+    "abl-functions-E": {
+      "name": "meta.function-call.abl",
+      "begin": "(?i)\\s*(ENCODE|ENCRYPT|ENTERED|ENTRY|ERROR|ETIME|EXP|EXTENT)\\s*(?>=\\()",
+      "beginCaptures": {
+        "1": "entity.name.function.abl"
+      },
+      "end": "(?=\\))",
+      "patterns": [
+        { "include": "#function-arguments" },
+        { "include": "#parens" }
+      ]
+    },
+    "abl-functions-F": {
+      "name": "meta.function-call.abl",
+      "begin": "(?i)\\s*(FILL|FIRST|FIRST-OF|FRAME-COL|FRAME-DB|FRAME-DOWN|FRAME-FIELD|FRAME-FILE|FRAME-INDEX|FRAME-LINE|FRAME-NAME|FRAME-ROW|FRAME-VALUE)\\s*(?>=\\()",
+      "beginCaptures": {
+        "1": "entity.name.function.abl"
+      },
+      "end": "(?=\\))",
+      "patterns": [
+        { "include": "#function-arguments" },
+        { "include": "#parens" }
+      ]
+    },
+    "abl-functions-G": {
+      "name": "meta.function-call.abl",
+      "begin": "(?i)\\s*(GATEWAYS|GENERATE-PBE-KEY|GENERATE-PBE-SALT|GENERATE-RANDOM-KEY|GENERATE-UUID|GET-BITS|GET-BYTE|GET-BYTE-ORDER|GET-BYTES|GET-CLASS|GET-CODEPAGE|GET-CODEPAGES|GET-COLLATION|GET-COLLATIONS|GET-DB-CLIENT|GET-DOUBLE|GET-EFFECTIVE-TENANT-ID|GET-EFFECTIVE-TENANT-NAME|GET-FLOAT|GET-INT64|GET-LONG|GET-POINTER-VALUE|GET-SHORT|GET-SIZE|GET-STRING|GET-UNSIGNED-LONG|GET-UNSIGNED-SHORT|GO-PENDING|GUID)\\s*(?>=\\()",
+      "beginCaptures": {
+        "1": "entity.name.function.abl"
+      },
+      "end": "(?=\\))",
+      "patterns": [
+        { "include": "#function-arguments" },
+        { "include": "#parens" }
+      ]
+    },
+    "abl-functions-H": {
+      "name": "meta.function-call.abl",
+      "begin": "(?i)\\s*(HANDLE|HASH-CODE|HEX-DECODE|HEX-ENCODE)\\s*(?>=\\()",
+      "beginCaptures": {
+        "1": "entity.name.function.abl"
+      },
+      "end": "(?=\\))",
+      "patterns": [
+        { "include": "#function-arguments" },
+        { "include": "#parens" }
+      ]
+    },
+    "abl-functions-I": {
+      "name": "meta.function-call.abl",
+      "begin": "(?i)\\s*(INDEX|INPUT|INT64|INTEGER|INTERVAL|IS-ATTR-SPACE|IS-CODEPAGE-FIXED|IS-COLUMN-CODEPAGE|IS-DB-MULTI-TENANT|IS-LEAD-BYTE|ISO-DATE)\\s*(?>=\\()",
+      "beginCaptures": {
+        "1": "entity.name.function.abl"
+      },
+      "end": "(?=\\))",
+      "patterns": [
+        { "include": "#function-arguments" },
+        { "include": "#parens" }
+      ]
+    },
+    "abl-functions-K": {
+      "name": "meta.function-call.abl",
+      "begin": "(?i)\\s*(KBLABEL|KEYCODE|KEYFUNCTION|KEYLABEL|KEYWORD|KEYWORD-ALL)\\s*(?>=\\()",
+      "beginCaptures": {
+        "1": "entity.name.function.abl"
+      },
+      "end": "(?=\\))",
+      "patterns": [
+        { "include": "#function-arguments" },
+        { "include": "#parens" }
+      ]
+    },
+    "abl-functions-L": {
+      "name": "meta.function-call.abl",
+      "begin": "(?i)\\s*(LAST|LASTKEY|LAST-OF|LC|LDBNAME|LEFT-TRIM|LENGTH|LIBRARY|LINE-COUNTER|LIST-EVENTS|LIST-QUERY-ATTRS|LIST-SET-ATTRS|LIST-WIDGETS|LOCKED|LOG|LOGICAL|Logical values|LOOKUP)\\s*(?>=\\()",
+      "beginCaptures": {
+        "1": "entity.name.function.abl"
+      },
+      "end": "(?=\\))",
+      "patterns": [
+        { "include": "#function-arguments" },
+        { "include": "#parens" }
+      ]
+    },
+    "abl-functions-M": {
+      "name": "meta.function-call.abl",
+      "begin": "(?i)\\s*(MAXIMUM|MD5-DIGEST|MEMBER|MESSAGE-DIGEST|MESSAGE-LINES|MINIMUM|MONTH|MTIME)\\s*(?>=\\()",
+      "beginCaptures": {
+        "1": "entity.name.function.abl"
+      },
+      "end": "(?=\\))",
+      "patterns": [
+        { "include": "#function-arguments" },
+        { "include": "#parens" }
+      ]
+    },
+    "abl-functions-N": {
+      "name": "meta.function-call.abl",
+      "begin": "(?i)\\s*(NEXT-VALUE|NORMALIZE|NOT ENTERED|NOW|NUM-ALIASES|NUM-DBS|NUM-ENTRIES|NUM-RESULTS)\\s*(?>=\\()",
+      "beginCaptures": {
+        "1": "entity.name.function.abl"
+      },
+      "end": "(?=\\))",
+      "patterns": [
+        { "include": "#function-arguments" },
+        { "include": "#parens" }
+      ]
+    },
+    "abl-functions-O": {
+      "name": "meta.function-call.abl",
+      "begin": "(?i)\\s*(OPSYS|OS-DRIVES|OS-ERROR|OS-GETENV)\\s*(?>=\\()",
+      "beginCaptures": {
+        "1": "entity.name.function.abl"
+      },
+      "end": "(?=\\))",
+      "patterns": [
+        { "include": "#function-arguments" },
+        { "include": "#parens" }
+      ]
+    },
+    "abl-functions-P": {
+      "name": "meta.function-call.abl",
+      "begin": "(?i)\\s*(PAGE-NUMBER|PAGE-SIZE|PDBNAME|PROC-HANDLE|PROC-STATUS|PROCESS-ARCHITECTURE|PROGRAM-NAME|PROGRESS|PROMSGS|PROPATH|PROVERSION)\\s*(?>=\\()",
+      "beginCaptures": {
+        "1": "entity.name.function.abl"
+      },
+      "end": "(?=\\))",
+      "patterns": [
+        { "include": "#function-arguments" },
+        { "include": "#parens" }
+      ]
+    },
+    "abl-functions-Q": {
+      "name": "meta.function-call.abl",
+      "begin": "(?i)\\s*(QUERY-OFF-END|QUOTER)\\s*(?>=\\()",
+      "beginCaptures": {
+        "1": "entity.name.function.abl"
+      },
+      "end": "(?=\\))",
+      "patterns": [
+        { "include": "#function-arguments" },
+        { "include": "#parens" }
+      ]
+    },
+    "abl-functions-R": {
+      "name": "meta.function-call.abl",
+      "begin": "(?i)\\s*(R-INDEX|RANDOM|RAW|RECID|RECORD-LENGTH|REJECTED|REPLACE|RETRY|RETURN-VALUE|RGB-VALUE|RIGHT-TRIM|ROUND|ROW-STATE|ROWID)\\s*(?>=\\()",
+      "beginCaptures": {
+        "1": "entity.name.function.abl"
+      },
+      "end": "(?=\\))",
+      "patterns": [
+        { "include": "#function-arguments" },
+        { "include": "#parens" }
+      ]
+    },
+    "abl-functions-S": {
+      "name": "meta.function-call.abl",
+      "begin": "(?i)\\s*(SCREEN-LINES|SDBNAME|SEARCH|SEEK|SET-DB-CLIENT|SET-EFFECTIVE-TENANT|SETUSERID|SHA1-DIGEST|SQRT|SSL-SERVER-NAME|STRING|SUBSTITUTE|SUBSTRING|SUPER)\\s*(?>=\\()",
+      "beginCaptures": {
+        "1": "entity.name.function.abl"
+      },
+      "end": "(?=\\))",
+      "patterns": [
+        { "include": "#function-arguments" },
+        { "include": "#parens" }
+      ]
+    },
+    "abl-functions-T": {
+      "name": "meta.function-call.abl",
+      "begin": "(?i)\\s*(TENANT-ID|TENANT-NAME|TENANT-NAME-TO-ID|TERMINAL|TIME|TIMEZONE|TODAY|TO-ROWID|TRANSACTION|TRIM|TRUNCATE|TYPE-OF)\\s*(?>=\\()",
+      "beginCaptures": {
+        "1": "entity.name.function.abl"
+      },
+      "end": "(?=\\))",
+      "patterns": [
+        { "include": "#function-arguments" },
+        { "include": "#parens" }
+      ]
+    },
+    "abl-functions-U": {
+      "name": "meta.function-call.abl",
+      "begin": "(?i)\\s*(UNBOX|USERID)\\s*(?>=\\()",
+      "beginCaptures": {
+        "1": "entity.name.function.abl"
+      },
+      "end": "(?=\\))",
+      "patterns": [
+        { "include": "#function-arguments" },
+        { "include": "#parens" }
+      ]
+    },
+    "abl-functions-V": {
+      "name": "meta.function-call.abl",
+      "begin": "(?i)\\s*(VALID-EVENT|VALID-HANDLE|VALID-OBJECT)\\s*(?>=\\()",
+      "beginCaptures": {
+        "1": "entity.name.function.abl"
+      },
+      "end": "(?=\\))",
+      "patterns": [
+        { "include": "#function-arguments" },
+        { "include": "#parens" }
+      ]
+    },
+    "abl-functions-W": {
+      "name": "meta.function-call.abl",
+      "begin": "(?i)\\s*(WEEKDAY|WIDGET-HANDLE)\\s*(?>=\\()",
+      "beginCaptures": {
+        "1": "entity.name.function.abl"
+      },
+      "end": "(?=\\))",
+      "patterns": [
+        { "include": "#function-arguments" },
+        { "include": "#parens" }
+      ]
+    },
+    "abl-functions-Y": {
+      "name": "meta.function-call.abl",
+      "begin": "(?i)\\s*(YEAR)\\s*(?>=\\()",
+      "beginCaptures": {
+        "1": "entity.name.function.abl"
+      },
+      "end": "(?=\\))",
+      "patterns": [
+        { "include": "#function-arguments" },
+        { "include": "#parens" }
+      ]
+    },
     "define-interface": {
       "name": "meta.define.interface.abl",
       "begin": "(?i)\\s*(interface)\\s*([\\w\\#\\$\\%]+[\\w\\#\\$\\%\\.]*(\\s*<\\s*[\\w\\#\\$\\%\\.]+\\s*\\>)?)",
@@ -344,14 +649,15 @@
       "begin": ":",
       "end": "(?=:)|(?=\\s*)",
       "comment": "",
-      "patterns": [
-
-       ]
+      "patterns": [ ]
+    },
+    "parens": {
+      "match": "\\(|\\)",
+      "name": "meta.brace.round.js"
     },
     "new-class": {
-      "name": "meta.function-call.new.abl",
-      "begin": "(?i)(new)\\s+",
-      "beginCaptures": { "1": { "name": "entity.name.function.abl" } },
+      "begin": "(?i)(new)\\s*",
+      "beginCaptures": { "1": { "name": "keyword.other.abl" } },
       "end": "(?=\\()",
       "patterns": [
         { "include": "#type-name-generic-progress" },
@@ -359,7 +665,8 @@
         { "include": "#type-name-comma-progress" },
         { "include": "#type-name-progress" },
         { "include": "#type-name-comma" },
-        { "include": "#type-name" }
+        { "include": "#type-name" },
+        { "include": "#string" }
       ]
     },
     "XX-new-class": {
@@ -419,6 +726,49 @@
           "captures": { "1": { "name": "meta.brace.round.js" } }
         },
         {
+          "comment": "Variable names must begin with a letter, but subsequent characters can include letters, numeric digits, periods(.), hyphens(-), and underscores(_)",
+          "match": "\\s*([a-zA-Z_]+[\\w\\.\\-_]*)\\s*(,+)",
+          "captures": {
+            "1": { "name": "variable.other.abl" },
+            "2": { "name": "punctuation.separator.comma.abl" }
+          }
+        },
+        { "include": "#doublequotedstring" },
+        { "include": "#singlequotedstring" },
+        { "include": "#translation-attribute" },
+        { "include": "#type-name-generic-progress" },
+        { "include": "#type-name-generic" },
+        { "include": "#type-name-comma-progress" },
+        { "include": "#type-name-progress" },
+        { "include": "#type-name-comma" },
+        { "include": "#type-name" },
+        {
+          "X-match": "\\s*(,*)\\s*([\\w\\#\\$\\%\\.]+)",
+          "captures": {
+            "1": { "name": "punctuation.separator.comma.abl" },
+            "2": { "name": "entity.name.type.abl" }
+          }
+        }
+      ]
+    },
+    "find-record": {
+      "match": "(?i)\\s*(find)\\s+(first|last|next|prev|current)?\\s*([\\w\\-#$%]+)\\s*",
+      "captures": {
+        "1": { "name": "keyword.other.abl" },
+        "2": { "name": "keyword.other.abl" },
+        "3": { "name": "storage.data.table.abl" }
+      }
+    },
+    "X-cast-function": {
+      "name": "meta.function-call.abl",
+      "begin": "(?i)(cast)\\s*(?=\\()",
+      "beginCaptures": { "1": { "name": "entity.name.function.abl" } },
+      "end": "(?>=\\))",
+      "endCaptures": { "1": { "name": "meta.brace.round.js" } },
+      "patterns": [
+        { "include": "#function-arguments" },
+        { "include": "#parens" },
+        {
           "match": "\\s*([a-zA-Z_]+[\\w\\.\\-_]*)\\s*(,+)",
           "comment": "Variable names must begin with a letter, but subsequent characters can include letters, numeric digits, periods(.), hyphens(-), and underscores(_)",
           "captures": {
@@ -444,22 +794,32 @@
         }
       ]
     },
-    "cast-function": {
+    "type-argument-function": {
       "name": "meta.function-call.abl",
-      "begin": "(?i)(cast)",
+      "begin": "(?i)(cast|type-of)\\s*",
       "beginCaptures": { "1": { "name": "entity.name.function.abl" } },
-      "end": "(\\))",
+      "end": "(?<=\\))",
       "endCaptures": { "1": { "name": "meta.brace.round.js" } },
       "patterns": [
         {
-          "match": "(\\()",
-          "captures": { "1": { "name": "meta.brace.round.js" } }
+          "comment": "This can only be ttable.field, never db.table.field, since only TT's can hold objects",
+          "match": "\\s*(([\\w\\-#$%]+)\\.([\\w\\-#$%]+))\\s*(,)",
+          "captures": {
+            "1": { "name": "storage.data.table.abl" },
+            "4": { "name": "punctuation.separator.comma.abl" }
+          }
         },
         {
-          "match": "\\s*([a-zA-Z_]+[\\w\\.\\-_]*)\\s*(,+)",
-          "comment": "Variable names must begin with a letter, but subsequent characters can include letters, numeric digits, periods(.), hyphens(-), and underscores(_)",
+          "match": "\\s*([\\w-]+)\\s*(,)",
           "captures": {
             "1": { "name": "variable.other.abl" },
+            "2": { "name": "punctuation.separator.comma.abl" }
+          }
+        },
+        {          
+          "match": "\\s*:([\\w-]+)\\s*(,)",
+          "captures": {
+            "1": { "name": "entity.name.function.abl" },
             "2": { "name": "punctuation.separator.comma.abl" }
           }
         },
@@ -472,13 +832,7 @@
         { "include": "#type-name-progress" },
         { "include": "#type-name-comma" },
         { "include": "#type-name" },
-        {
-          "X-match": "\\s*(,*)\\s*([\\w\\#\\$\\%\\.]+)",
-          "captures": {
-            "1": { "name": "punctuation.separator.comma.abl" },
-            "2": { "name": "entity.name.type.abl" }
-          }
-        }
+        { "include": "#parens" }
       ]
     },
     "code-block": {
@@ -835,37 +1189,34 @@
       "begin": "(?<=\\()",
       "beginCaptures": { "1": { "name": "meta.brace.round.js" } },
       "end": "(?=\\))",
-      "endCaptures": { "1": { "name": "meta.brace.round.js" } },
       "patterns": [
-        { "include": "#timestamp-constant" },
-        { "include": "#constant" },
+        { "include": "#parens" },
+        { "include": "#property-call" },
         { "include": "#new-class" },
         { "include": "#expression" },
-        { "include": "#doublequotedstring" },
-        { "include": "#singlequotedstring" },
-        { "include": "#translation-attribute" },
         { "include": "#punctuation-comma" },
-        { "include": "#type-name" },
-        { "include": "#X-type-name-generic-progress" },
-        { "include": "#X-type-name-progress" },
-        { "include": "#NO-keywords" },
-        { "include": "#X-type-name-generic" },
         { "include": "#function-call" },
-        { "include": "#property-call" },
         { "include": "#expression" }
       ]
     },
-    "function-call": {
-      "name": "meta.function-call.abl",
-      "match": ":([\\w-]+)\\s*",
+    "property-call": {
+      "match": "\\s*:([\\w-]+)\\s*",
       "captures": { "1": { "name": "entity.name.function.abl" } }
     },
     "Y-function-call": {
       "name": "meta.function-call.abl",
+      "match": ":([\\w-]+)\\s*",
+      "captures": { "1": { "name": "entity.name.function.abl" } }
+    },
+    "function-call": {
+      "name": "meta.function-call.abl",
       "begin": "([\\w-]+)\\s*(?=\\()",
       "beginCaptures": { "1": { "name": "entity.name.function.abl" } },
       "end": "(?=\\))",
-      "patterns": [ { "include": "#function-arguments" } ]
+      "patterns": [
+        { "include": "#function-arguments" },
+        { "include": "#parens" }
+      ]
     },
     "X-function-call": {
       "name": "meta.function-call.abl",
@@ -874,7 +1225,7 @@
         "1": { "name": "entity.name.function.abl" },
         "2": { "name": "meta.brace.round.js" }
       },
-      "end": "(?=\\))",
+      "end": "(\\))",
       "endCaptures": { "1": { "name": "meta.brace.round.js" } },
       "patterns": [ { "include": "#function-arguments" } ]
     },
@@ -917,6 +1268,7 @@
     "expression": {
       "patterns": [
         { "include": "#string" },
+        { "include": "#timestamp-constant" },
         { "include": "#constant" },
         { "include": "#numeric" },
         { "include": "#variable-name" },
@@ -981,7 +1333,8 @@
     "string": {
       "patterns": [
         { "include": "#singlequotedstring" },
-        { "include": "#doublequotedstring" }
+        { "include": "#doublequotedstring" },
+        { "include": "#translation-attribute" }
       ]
     },
     "singlequotedstring": {

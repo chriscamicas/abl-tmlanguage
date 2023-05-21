@@ -127,7 +127,7 @@ describe('', () => {
         { "startIndex": 8, "endIndex": 9, "scopes": ["source.abl"] },  // ' '
         { "startIndex": 9, "endIndex": 14, "scopes": ["source.abl", "keyword.other.abl"] },  // 'first'
         { "startIndex": 14, "endIndex": 15, "scopes": ["source.abl"] },  // ' '
-        { "startIndex": 15, "endIndex": 23, "scopes": ["source.abl", "variable.other.abl"] },  // 'Customer'
+        { "startIndex": 15, "endIndex": 23, "scopes": ["source.abl", "storage.data.table.abl"] },  // 'Customer'
         { "startIndex": 23, "endIndex": 24, "scopes": ["source.abl", "punctuation.terminator.abl"] }  // '.'
         ],
         [
