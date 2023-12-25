@@ -7,8 +7,8 @@
   ],
   "name": "OpenEdge ABL",
   "patterns": [
-    { "include": "#procedure-definition" },
-    { "include": "#end-function-procedure-method-block" },
+    { "include": "#NO-procedure-definition" },
+    { "include": "#NO-end-function-procedure-method-block" },
     { "include": "#statements" }
   ],
   "repository": {
@@ -80,6 +80,21 @@
         "2": { "name": "keyword.other.abl" }
       }
     },
+    "as-type": {
+      "begin": "(?i)\\s*(as)\\s*(class)?",
+      "beginCaptures": {
+        "1": { "name": "keyword.other.abl" },
+        "2": { "name": "keyword.other.abl" }
+      },
+      "end": "\\s*(\\.|\\,|\\s*)",
+      "patterns": [
+        { "include": "#primitive-type" },
+        { "include": "#type-name-generic-progress" },
+        { "include": "#type-name-progress" },
+        { "include": "#type-name-generic" },
+        { "include": "#type-name" }
+      ]
+    },
     "parameter-definition": {
       "name": "meta.define.parameter.abl",
       "patterns": [
@@ -141,16 +156,33 @@
       "patterns": [ { "include": "#parameter-definition" } ]
     },
     "statements": {
+      "name": "meta.statements.abl",
       "patterns": [
-        { "include": "#type-reference" },
+        { "include": "#block-statement" },
+        { "include": "#block-label" },
+        {
+          "match": "(?i)\\s*(end)[\\s*|\\.]",
+          "description": "Cannot be used as variable names",
+          "captures": { "1": { "name": "keyword.other.abl" } }
+        },
+        { "include": "#as-type" },
         { "include": "#find-record" },
         { "include": "#abl-functions" },
         { "include": "#function-arguments" },
-        { "include": "#method-definition" },
+        { "include": "#arguments-reference" },
+        { "include": "#NO-method-definition" },
+        { "include": "#access-modifier" },
+        {
+          "match": "(?i)\\s*(void)\\s*",
+          "captures": { "1": { "name": "keyword.other.abl" } }
+        },
         { "include": "#string" },
+        { "include": "#translation-attribute" },
+        { "include": "#parens" },
         { "include": "#singlelinecomment" },
         { "include": "#multilinecomment" },
         { "include": "#declarations" },
+        { "include": "#decimals" },
         { "include": "#numeric" },
         { "include": "#constant" },
         { "include": "#operator" },
@@ -166,24 +198,50 @@
           "name": "storage.type.function.abl"
         },
         { "include": "#dll-type" },
+        { "include": "#parameter-as" },
+        { "include": "#buffer-for-table" },
         { "include": "#primitive-type" },
         { "include": "#method-call" },
         { "include": "#property-accessor" },
         { "include": "#property-call" },
         { "include": "#function-call" },
-        { "include": "#code-block" },
+        {
+          "comment": "Variable names must begin with a letter, but subsequent characters can include letters, numeric digits, periods(.), hyphens(-), and underscores(_)",
+          "NO-match": "\\s*([a-zA-Z_]+[\\w\\.\\-_]*)\\s*(,+)+",
+          "NO-match": "\\s*([a-zA-Z_]+[\\w\\.\\-_]*)\\s*",
+          "captures": {
+            "1": { "name": "variable.other.abl" },
+            "2": { "name": "punctuation.separator.comma.abl" }
+          }
+        },
+        { "include": "#type-reference" },
+        { "include": "#variable-name" },
+        { "include": "#type-name2" },
+        { "include": "#X-type-name-generic-progress" },
+        { "include": "#X-type-name-progress" },
+        { "include": "#X-type-name-generic" },
+        { "include": "#X-type-name" },
+        { "include": "#X-code-block" },
         { "include": "#language-functions" },
         { "include": "#handle-attributes" },
-        { "include": "#variable-name" },
-        { "include": "#define" },
-        { "include": "#keywords" },
+        { "include": "#NO-define" },
+        { "include": "#comment" },
         { "include": "#array-literal" },
         { "include": "#punctuation-semicolon" },
-        { "include": "#parens" }
+        { "include": "#parens" },
+        { "include": "#keywords" }
       ]
     },
     "declarations": {
       "patterns": [ { "include": "#define" } ]
+    },
+    "type-names": {
+      "patterns": [
+        { "include": "#type-name-generic-progress" },
+        { "include": "#type-name-progress" },
+        { "include": "#type-name-generic" },
+        { "include": "#type-name" }
+      ]
     },
     "type-reference": {
       "patterns": [
@@ -298,30 +356,30 @@
     },
     "handle-attributes": {
       "patterns": [
-        {"include": "#handle-attributes-A"},
-        {"include": "#handle-attributes-B"},
-        {"include": "#handle-attributes-C"},
-        {"include": "#handle-attributes-D"},
-        {"include": "#handle-attributes-E"},
-        {"include": "#handle-attributes-F"},
-        {"include": "#handle-attributes-G"},
-        {"include": "#handle-attributes-H"},
-        {"include": "#handle-attributes-I"},
-        {"include": "#handle-attributes-K"},
-        {"include": "#handle-attributes-L"},
-        {"include": "#handle-attributes-M"},
-        {"include": "#handle-attributes-N"},
-        {"include": "#handle-attributes-O"},
-        {"include": "#handle-attributes-P"},
-        {"include": "#handle-attributes-Q"},
-        {"include": "#handle-attributes-R"},
-        {"include": "#handle-attributes-S"},
-        {"include": "#handle-attributes-T"},
-        {"include": "#handle-attributes-U"},
-        {"include": "#handle-attributes-V"},
-        {"include": "#handle-attributes-W"},
-        {"include": "#handle-attributes-X"},
-        {"include": "#handle-attributes-Y"}
+        { "include": "#handle-attributes-A" },
+        { "include": "#handle-attributes-B" },
+        { "include": "#handle-attributes-C" },
+        { "include": "#handle-attributes-D" },
+        { "include": "#handle-attributes-E" },
+        { "include": "#handle-attributes-F" },
+        { "include": "#handle-attributes-G" },
+        { "include": "#handle-attributes-H" },
+        { "include": "#handle-attributes-I" },
+        { "include": "#handle-attributes-K" },
+        { "include": "#handle-attributes-L" },
+        { "include": "#handle-attributes-M" },
+        { "include": "#handle-attributes-N" },
+        { "include": "#handle-attributes-O" },
+        { "include": "#handle-attributes-P" },
+        { "include": "#handle-attributes-Q" },
+        { "include": "#handle-attributes-R" },
+        { "include": "#handle-attributes-S" },
+        { "include": "#handle-attributes-T" },
+        { "include": "#handle-attributes-U" },
+        { "include": "#handle-attributes-V" },
+        { "include": "#handle-attributes-W" },
+        { "include": "#handle-attributes-X" },
+        { "include": "#handle-attributes-Y" }
       ]
     },
     "handle-attributes-A": {
@@ -389,15 +447,15 @@
       "capture": { "1": "entity.name.function.abl" }
     },
     "handle-attributes-R": {
-      "match": "(?i):(RADIO-BUTTONS|RAW-TRANSFER|READ|READ-FILE|READ-JSON|READ-ONLY|READ-XML|READ-XMLSCHEMA|RECID|record-len|record-leng|record-lengt|record-length|RECURSIVE|REFRESH|REFRESHABLE|REFRESH-AUDIT-POLICY|REGISTER-DOMAIN|REJECT-CHANGES|REJECT-ROW-CHANGES|REJECTED|relation-fi|relation-fie|relation-fiel|relation-field|relation-fields|RELATIONS-ACTIVE|REMOTE|REMOTE-HOST|REMOTE-PORT|REMOVE-ATTRIBUTE|REMOVE-CHILD|remove-events-proc|remove-events-proce|remove-events-proced|remove-events-procedu|remove-events-procedur|remove-events-procedure|remove-super-proc|remove-super-proce|remove-super-proced|remove-super-procedu|remove-super-procedur|remove-super-procedure|REPLACE|REPLACE-CHILD|REPLACE-SELECTION-TEXT|REPOSITION|reposition-back|reposition-backw|reposition-backwa|reposition-backwar|reposition-backward|reposition-backwards|reposition-forw|reposition-forwa|reposition-forwar|reposition-forward|reposition-forwards|REPOSITION-TO-ROW|REPOSITION-TO-ROWID|REQUEST-INFO|RESET|resiza|resizab|resizabl|resizable|RESIZE|RESPONSE-INFO|RESTART-ROW|RESTART-ROWID|retain-s|retain-sh|retain-sha|retain-shap|retain-shape|return-ins|return-inse|return-inser|return-insert|return-inserte|return-inserted|RETURN-VALUE|RETURN-VALUE-DATA-TYPE|RETURN-VALUE-DLL-TYPE|ROLE|ROLES|ROUNDED|ROW|row-height|row-height-c|row-height-ch|row-height-cha|row-height-char|row-height-chars|row-height-p|row-height-pi|row-height-pix|row-height-pixe|row-height-pixel|row-height-pixels|ROW-STATE|ROWID|row-ma|row-mar|row-mark|row-marke|row-marker|row-markers|ROW-RESIZABLE)\\s*",
+      "match": "(?i):(RADIO-BUTTONS|READ|READ-FILE|READ-JSON|READ-ONLY|READ-XML|READ-XMLSCHEMA|RECID|record-len|record-leng|record-lengt|record-length|RECURSIVE|REFRESH|REFRESHABLE|REFRESH-AUDIT-POLICY|REGISTER-DOMAIN|REJECT-CHANGES|REJECT-ROW-CHANGES|REJECTED|relation-fi|relation-fie|relation-fiel|relation-field|relation-fields|RELATIONS-ACTIVE|REMOTE|REMOTE-HOST|REMOTE-PORT|REMOVE-ATTRIBUTE|REMOVE-CHILD|remove-events-proc|remove-events-proce|remove-events-proced|remove-events-procedu|remove-events-procedur|remove-events-procedure|remove-super-proc|remove-super-proce|remove-super-proced|remove-super-procedu|remove-super-procedur|remove-super-procedure|REPLACE|REPLACE-CHILD|REPLACE-SELECTION-TEXT|REPOSITION|reposition-back|reposition-backw|reposition-backwa|reposition-backwar|reposition-backward|reposition-backwards|reposition-forw|reposition-forwa|reposition-forwar|reposition-forward|reposition-forwards|REPOSITION-TO-ROW|REPOSITION-TO-ROWID|REQUEST-INFO|RESET|resiza|resizab|resizabl|resizable|RESIZE|RESPONSE-INFO|RESTART-ROW|RESTART-ROWID|retain-s|retain-sh|retain-sha|retain-shap|retain-shape|return-ins|return-inse|return-inser|return-insert|return-inserte|return-inserted|RETURN-VALUE|RETURN-VALUE-DATA-TYPE|RETURN-VALUE-DLL-TYPE|ROLE|ROLES|ROUNDED|ROW|row-height|row-height-c|row-height-ch|row-height-cha|row-height-char|row-height-chars|row-height-p|row-height-pi|row-height-pix|row-height-pixe|row-height-pixel|row-height-pixels|ROW-STATE|ROWID|row-ma|row-mar|row-mark|row-marke|row-marker|row-markers|ROW-RESIZABLE)\\s*",
       "capture": { "1": "entity.name.function.abl" }
     },
     "handle-attributes-S": {
-      "match": "(?i):(SAVE|SAVE-FILE|SAVE-ROW-CHANGES|SAVE-WHERE-STRING|SAX-PARSE|SAX-PARSE-FIRST|SAX-PARSE-NEXT|SCHEMA-CHANGE|SCHEMA-LOCATION|SCHEMA-MARSHAL|SCHEMA-PATH|SCREEN-LINES|screen-val|screen-valu|screen-value|SCROLL-BARS|SCROLL-TO-CURRENT-ROW|scroll-to-i|scroll-to-it|scroll-to-ite|scroll-to-item|SCROLL-TO-SELECTED-ROW|SCROLLABLE|scrollbar-h|scrollbar-ho|scrollbar-hor|scrollbar-hori|scrollbar-horiz|scrollbar-horizo|scrollbar-horizon|scrollbar-horizont|scrollbar-horizonta|scrollbar-horizontal|scrollbar-v|scrollbar-ve|scrollbar-ver|scrollbar-vert|scrollbar-verti|scrollbar-vertic|scrollbar-vertica|scrollbar-verticalsss|SEAL|SEAL-TIMESTAMP|SEARCH|SELECT-ALL|SELECT-FOCUSED-ROW|SELECT-NEXT-ROW|SELECT-PREV-ROW|SELECT-ROW|SELECTABLE|SELECTED|SELECTION-END|SELECTION-START|SELECTION-TEXT|SENSITIVE|SEPARATORS|SEPARATOR-FGCOLOR|SERIALIZE-HIDDEN|SERIALIZE-NAME|SERIALIZE-ROW|SERVER|SERVER-CONNECTION-BOUND|SERVER-CONNECTION-BOUND-REQUEST|SERVER-CONNECTION-CONTEXT|SERVER-CONNECTION-ID|SERVER-OPERATING-MODE|SESSION-END|SESSION-ID|SET-ACTOR|SET-APPL-CONTEXT|SET-ATTRIBUTE|SET-ATTRIBUTE-NODE|SET-BLUE-VALUE|SET-BREAK|SET-BUFFERS|SET-CALLBACK|SET-CALLBACK-PROCEDURE|SET-CLIENT|SET-COMMIT|SET-CONNECT-PROCEDURE|SET-DYNAMIC|SET-GREEN-VALUE|SET-INPUT-SOURCE|SET-MUST-UNDERSTAND|SET-NODE|SET-NUMERIC-FORMAT|SET-OUTPUT-DESTINATION|SET-PARAMETER|SET-|SET-READ-RESPONSE-PROCEDURE|SET-RED-VALUE|SET-REPOSITIONED-ROW|SET-RGB-VALUE|SET-ROLE|SET-ROLLBACK|SET-SAFE-USER|SET-SELECTION|SET-SERIALIZED|SET-SOCKET-OPTION|SET-SORT-ARROW|SET-WAIT-STATE|SHOW-IN-TASKBAR|SIDE-LABEL-HANDLE|SIDE-LABELS|SIGNATURE-VALUE|SINGLE-RUN|SINGLETON|SKIP-DELETED-RECORD|SMALL-ICON|SMALL-TITLE|SOAP-FAULT-ACTOR|SOAP-FAULT-CODE|SOAP-FAULT-DETAIL|SOAP-FAULT-MISUNDERSTOOD-HEADER|SOAP-FAULT-NODE|SOAP-FAULT-ROLE|SOAP-FAULT-STRING|SOAP-FAULT-SUBCODE|SOAP-VERSION|SORT|SORT-ASCENDING|SORT-NUMBER|SSL-SERVER-NAME|STANDALONE|START-DOCUMENT|START-ELEMENT|STARTUP-PARAMETERS|STATE-DETAIL|STATISTICS|STATUS-AREA|STATUS-AREA-FONT|STOP|STOP-OBJECT|STOP-PARSING|STOPPED|STREAM|STRETCH-TO-FIT|STRICT|STRICT-ENTITY-RESOLUTION|STRING-VALUE|SUBTYPE|SUPER-PROCEDURES|SUPPRESS-NAMESPACE-PROCESSING|SUPPRESS-WARNINGS|SUPPRESS-WARNINGS-LIST|SYMMETRIC-ENCRYPTION-AAD|SYMMETRIC-ENCRYPTION-ALGORITHM|SYMMETRIC-ENCRYPTION-IV|SYMMETRIC-ENCRYPTION-KEY|SYMMETRIC-SUPPORT|SYNCHRONIZE|SYSTEM-ALERT-BOXES|SYSTEM-ID)\\s*",
+      "match": "(?i):(SAVE|SAVE-FILE|SAVE-ROW-CHANGES|SAVE-WHERE-STRING|SAX-PARSE|SAX-PARSE-FIRST|SAX-PARSE-NEXT|sax-parser-error|SCHEMA-CHANGE|SCHEMA-LOCATION|SCHEMA-MARSHAL|SCHEMA-PATH|SCREEN-LINES|screen-val|screen-valu|screen-value|SCROLL-BARS|SCROLL-TO-CURRENT-ROW|scroll-to-i|scroll-to-it|scroll-to-ite|scroll-to-item|SCROLL-TO-SELECTED-ROW|SCROLLABLE|scrollbar-h|scrollbar-ho|scrollbar-hor|scrollbar-hori|scrollbar-horiz|scrollbar-horizo|scrollbar-horizon|scrollbar-horizont|scrollbar-horizonta|scrollbar-horizontal|scrollbar-v|scrollbar-ve|scrollbar-ver|scrollbar-vert|scrollbar-verti|scrollbar-vertic|scrollbar-vertica|scrollbar-verticalsss|SEAL-TIMESTAMP|SEARCH|SELECT-ALL|SELECT-FOCUSED-ROW|SELECT-NEXT-ROW|SELECT-PREV-ROW|SELECT-ROW|SELECTABLE|SELECTED|SELECTION-END|SELECTION-START|SELECTION-TEXT|SENSITIVE|SEPARATORS|SEPARATOR-FGCOLOR|SERIALIZE-HIDDEN|SERIALIZE-NAME|SERIALIZE-ROW|SERVER|server-connection-bo|server-connection-bou|server-connection-boun|server-connection-bound|server-connection-bound-re|server-connection-bound-req|server-connection-bound-requ|server-connection-bound-reque|server-connection-bound-reques|server-connection-bound-request|server-connection-co|server-connection-con|server-connection-cont|server-connection-conte|server-connection-contex|server-connection-context|server-connection-id|server-operating-mode|SESSION-END|SESSION-ID|SET-ACTOR|SET-APPL-CONTEXT|SET-ATTRIBUTE|SET-ATTRIBUTE-NODE|set-blue|set-blue-|set-blue-v|set-blue-va|set-blue-val|set-blue-valu|set-blue-value|SET-BREAK|SET-BUFFERS|SET-CALLBACK|SET-CALLBACK-PROCEDURE|SET-CLIENT|SET-COMMIT|SET-CONNECT-PROCEDURE|SET-DYNAMIC|set-green|set-green-|set-green-v|set-green-va|set-green-val|set-green-valu|set-green-value|SET-INPUT-SOURCE|SET-MUST-UNDERSTAND|SET-NODE|set-numeric-form|set-numeric-forma|set-numeric-format|SET-OUTPUT-DESTINATION|SET-PARAMETER|SET-READ-RESPONSE-PROCEDURE|set-red|set-red-|set-red-v|set-red-va|set-red-val|set-red-valu|set-red-value|SET-REPOSITIONED-ROW|SET-RGB-VALUE|SET-ROLE|SET-ROLLBACK|SET-SAFE-USER|SET-SELECTION|SET-SERIALIZED|SET-SOCKET-OPTION|SET-SORT-ARROW|set-wait|set-wait-|set-wait-s|set-wait-st|set-wait-sta|set-wait-stat|set-wait-state|show-in-task|show-in-taskb|show-in-taskba|show-in-taskbar|side-label-han|side-label-hand|side-label-handl|side-label-handle|SIDE-LABELS|signature|signature-value|SINGLE-RUN|SINGLETON|skip-deleted-rec|skip-deleted-reco|skip-deleted-recor|skip-deleted-record|SMALL-ICON|SMALL-TITLE|soap-fault-actor|soap-fault-code|soap-fault-detail|soap-fault-misunderstood-header|soap-fault-node|soap-fault-role|soap-fault-string|soap-fault-subcode|SOAP-VERSION|SORT|SORT-ASCENDING|SORT-NUMBER|SSL-SERVER-NAME|STANDALONE|START-DOCUMENT|START-ELEMENT|STARTUP-PARAMETERS|STATE-DETAIL|STATISTICS|STATUS-AREA|STATUS-AREA-FONT|STOP|STOP-OBJECT|STOP-PARSING|stoppe|stopped|STREAM|STRETCH-TO-FIT|STRICT|STRICT-ENTITY-RESOLUTION|STRING-VALUE|SUBTYPE|super-proc|super-proce|super-proced|super-procedu|super-procedur|super-procedure|super-procedures|SUPPRESS-NAMESPACE-PROCESSING|suppress-w|suppress-wa|suppress-war|suppress-warn|suppress-warni|suppress-warnin|suppress-warning|suppress-warnings|suppress-warnings-list|SYMMETRIC-ENCRYPTION-AAD|SYMMETRIC-ENCRYPTION-ALGORITHM|SYMMETRIC-ENCRYPTION-IV|SYMMETRIC-ENCRYPTION-KEY|SYMMETRIC-SUPPORT|SYNCHRONIZE|system-alert|system-alert-|system-alert-b|system-alert-bo|system-alert-box|system-alert-boxe|system-alert-boxes|SYSTEM-ID)\\s*",
       "capture": { "1": "entity.name.function.abl" }
     },
     "handle-attributes-T": {
-      "match": "(?i):(TAB-POSITION|TAB-STOP|TABLE|TABLE-CRC-LIST|TABLE-HANDLE|TABLE-LIST|TABLE-NUMBER|Tag|TEMP-DIRECTORY|TEMP-TABLE-PREPARE|TENANT-ID|TENANT-NAME|TEXT-SELECTED|THREAD-SAFE|THREE-D|TIC-MARKS|TIME-SOURCE|TIMEZONE|TITLE|TITLE-BGCOLOR|TITLE-DCOLOR|TITLE-FGCOLOR|TITLE-FONT|TOGGLE-BOX|TOOLTIP|TOOLTIPS|Top |TOP-NAV-QUERY|TOP-ONLY|TRACE-FILTER|TRACING|TRACKING-CHANGES|TRANSACTION|TRANSPARENT|TRANS-INIT-PROCEDURE|TYPE)\\s*",
+      "match": "(?i):(TAB-POSITION|TAB-STOP|TABLE|TABLE-CRC-LIST|TABLE-HANDLE|TABLE-LIST|table-num|table-numb|table-numbe|table-number|temp-dir|temp-dire|temp-direc|temp-direct|temp-directo|temp-director|temp-directory|temp-table-prepar|temp-table-prepare|TENANT-ID|TENANT-NAME|TEXT-SELECTED|THREAD-SAFE|THREE-D|TIC-MARKS|TIME-SOURCE|TIMEZONE|TITLE|title-bgc|title-bgco|title-bgcol|title-bgcolo|title-bgcolor|title-dc|title-dco|title-dcol|title-dcolo|title-dcolor|title-fgc|title-fgco|title-fgcol|title-fgcolo|title-fgcolor|title-fo|title-fon|title-font|TOGGLE-BOX|TOOLTIP|TOOLTIPS|TOP-NAV-QUERY|TOP-ONLY|TRACE-FILTER|TRACING|TRACKING-CHANGES|TRANSACTION|TRANSPARENT|trans-init-proc|trans-init-proce|trans-init-proced|trans-init-procedu|trans-init-procedur|trans-init-procedure|TYPE)\\s*",
       "capture": { "1": "entity.name.function.abl" }
     },
     "handle-attributes-U": {
@@ -405,11 +463,11 @@
       "capture": { "1": "entity.name.function.abl" }
     },
     "handle-attributes-V": {
-      "match": "(?i):(V6DISPLAY|VALIDATE|VALIDATE-DOMAIN-ACCESS-CODE|VALIDATE-EXPRESSION|VALIDATE-MESSAGE|VALIDATE-SEAL|VALIDATE-XML|VALIDATION-ENABLED|VALUE|VERSION|VIEW-AS|VIEW-FIRST-COLUMN-ON-REOPEN|VIRTUAL-HEIGHT-CHARS|VIRTUAL-HEIGHT-PIXELS|VIRTUAL-WIDTH-CHARS|VIRTUAL-WIDTH-PIXELS|VISIBLE)\\s*",
+      "match": "(?i):(V6DISPLAY|VALIDATE|VALIDATE-DOMAIN-ACCESS-CODE|validate-expressio|validate-expression|VALIDATE-MESSAGE|VALIDATE-SEAL|VALIDATE-XML|VALIDATION-ENABLED|VALUE|VERSION|VIEW-AS|VIEW-FIRST-COLUMN-ON-REOPEN|virtual-height|virtual-height-c|virtual-height-ch|virtual-height-cha|virtual-height-char|virtual-height-chars|virtual-height-p|virtual-height-pi|virtual-height-pix|virtual-height-pixe|virtual-height-pixel|virtual-height-pixels|virtual-width|virtual-width-c|virtual-width-ch|virtual-width-cha|virtual-width-char|virtual-width-chars|virtual-width-p|virtual-width-pi|virtual-width-pix|virtual-width-pixe|virtual-width-pixel|virtual-width-pixels|VISIBLE)\\s*",
       "capture": { "1": "entity.name.function.abl" }
     },
     "handle-attributes-W": {
-      "match": "(?i):(WARNING|WC-ADMIN-APP|WHERE-STRING|Widget-Handle |WIDGET-ENTER|WIDGET-ID|WIDGET-LEAVE|Width |WIDTH-CHARS|WIDTH-PIXELS|WINDOW|WINDOW-STATE|WINDOW-SYSTEM|WORD-WRAP|WORK-AREA-HEIGHT-PIXELS|WORK-AREA-WIDTH-PIXELS|WORK-AREA-X|WORK-AREA-Y|WRITE|WRITE-CDATA|WRITE-CHARACTERS|WRITE-COMMENT|WRITE-DATA|WRITE-DATA-ELEMENT|WRITE-EMPTY-ELEMENT|WRITE-ENTITY-REF|WRITE-EXTERNAL-DTD|WRITE-FRAGMENT|WRITE-JSON|WRITE-MESSAGE|WRITE-PROCESSING-INSTRUCTION|WRITE-STATUS|WRITE-XML|WRITE-XMLSCHEMA)\\s*",
+      "match": "(?i):(WARNING|WC-ADMIN-APP|WHERE-STRING|WIDGET-ENTER|WIDGET-ID|widget-l|widget-le|widget-lea|widget-leav|widget-leave|width|width-c|width-ch|width-cha|width-char|width-chars|width-p|width-pi|width-pix|width-pixe|width-pixel|width-pixels|WINDOW|window-sta|window-stat|window-state|window-sys|window-syst|window-syste|window-system|WORD-WRAP|work-area-height-p|work-area-height-pi|work-area-height-pix|work-area-height-pixe|work-area-height-pixel|work-area-height-pixels|work-area-width-p|work-area-width-pi|work-area-width-pix|work-area-width-pixe|work-area-width-pixel|work-area-width-pixels|work-area-x|work-area-y|WRITE|WRITE-CDATA|WRITE-CHARACTERS|WRITE-COMMENT|WRITE-DATA|WRITE-DATA-ELEMENT|WRITE-EMPTY-ELEMENT|WRITE-ENTITY-REF|WRITE-EXTERNAL-DTD|WRITE-FRAGMENT|WRITE-JSON|WRITE-MESSAGE|WRITE-PROCESSING-INSTRUCTION|WRITE-STATUS|WRITE-XML|WRITE-XMLSCHEMA)\\s*",
       "capture": { "1": "entity.name.function.abl" }
     },
     "handle-attributes-X": {
@@ -450,7 +508,7 @@
     "abl-functions-A": {
       "name": "meta.function-call.abl",
       "begin": "(?i)\\s*(ABSOLUTE|ACCUM|ADD-INTERVAL|ALIAS|AMBIGUOUS|ASC|AUDIT-ENABLED|AVAILABLE)\\s*(?>=\\()",
-      "beginCaptures": { "1": "support.function.abl"},
+      "beginCaptures": { "1": "support.function.abl"           },
       "end": "(?=\\))",
       "patterns": [
         { "include": "#function-arguments" },
@@ -460,7 +518,7 @@
     "abl-functions-B": {
       "name": "meta.function-call.abl",
       "begin": "(?i)\\s*(BASE64-DECODE|BASE64-ENCODE|BOX|BUFFER-GROUP-ID|BUFFER-GROUP-NAME|BUFFER-PARTITION-ID|BUFFER-TENANT-ID|BUFFER-TENANT-NAME)\\s*(?>=\\()",
-      "beginCaptures": { "1": "support.function.abl"},
+      "beginCaptures": { "1": "support.function.abl"           },
       "end": "(?=\\))",
       "patterns": [
         { "include": "#function-arguments" },
@@ -470,9 +528,7 @@
     "abl-functions-C": {
       "name": "meta.function-call.abl",
       "begin": "(?i)\\s*(CAN-DO|CAN-FIND|CAN-QUERY|CAN-SET|CAPS|CAST|CHR|CODEPAGE-CONVERT|COMPARE|CONNECTED|COUNT-OF|CURRENT-CHANGED|CURRENT-LANGUAGE|CURRENT-RESULT-ROW|CURRENT-VALUE)\\s*(?>=\\()",
-      "beginCaptures": {
-        "1": "support.function.abl"
-      },
+      "beginCaptures": { "1": "support.function.abl"           },
       "end": "(?=\\))",
       "patterns": [
         { "include": "#function-arguments" },
@@ -482,9 +538,7 @@
     "abl-functions-D": {
       "name": "meta.function-call.abl",
       "begin": "(?i)\\s*(DATASERVERS|DATA-SOURCE-MODIFIED|DATE|DATETIME|DATETIME-TZ|DAY|DBCODEPAGE|DBCOLLATION|DBNAME|DBPARAM|DB-REMOTE-HOST|DBRESTRICTIONS|DBTASKID|DBTYPE|DBVERSION|DECIMAL|DECRYPT|DEFINED|DYNAMIC-CAST|DYNAMIC-CURRENT-VALUE|DYNAMIC-ENUM|DYNAMIC-FUNCTION|DYNAMIC-INVOKE|DYNAMIC-NEXT-VALUE|DYNAMIC-PROPERTY)\\s*(?>=\\()",
-      "beginCaptures": {
-        "1": "support.function.abl"
-      },
+      "beginCaptures": { "1": "support.function.abl"           },
       "end": "(?=\\))",
       "patterns": [
         { "include": "#function-arguments" },
@@ -494,9 +548,7 @@
     "abl-functions-E": {
       "name": "meta.function-call.abl",
       "begin": "(?i)\\s*(ENCODE|ENCRYPT|ENTERED|ENTRY|ERROR|ETIME|EXP|EXTENT)\\s*(?>=\\()",
-      "beginCaptures": {
-        "1": "support.function.abl"
-      },
+      "beginCaptures": { "1": "support.function.abl"           },
       "end": "(?=\\))",
       "patterns": [
         { "include": "#function-arguments" },
@@ -506,9 +558,7 @@
     "abl-functions-F": {
       "name": "meta.function-call.abl",
       "begin": "(?i)\\s*(FILL|FIRST|FIRST-OF|FRAME-COL|FRAME-DB|FRAME-DOWN|FRAME-FIELD|FRAME-FILE|FRAME-INDEX|FRAME-LINE|FRAME-NAME|FRAME-ROW|FRAME-VALUE)\\s*(?>=\\()",
-      "beginCaptures": {
-        "1": "support.function.abl"
-      },
+      "beginCaptures": { "1": "support.function.abl"           },
       "end": "(?=\\))",
       "patterns": [
         { "include": "#function-arguments" },
@@ -518,9 +568,7 @@
     "abl-functions-G": {
       "name": "meta.function-call.abl",
       "begin": "(?i)\\s*(GATEWAYS|GENERATE-PBE-KEY|GENERATE-PBE-SALT|GENERATE-RANDOM-KEY|GENERATE-UUID|GET-BITS|GET-BYTE|GET-BYTE-ORDER|GET-BYTES|GET-CLASS|GET-CODEPAGE|GET-CODEPAGES|GET-COLLATION|GET-COLLATIONS|GET-DB-CLIENT|GET-DOUBLE|GET-EFFECTIVE-TENANT-ID|GET-EFFECTIVE-TENANT-NAME|GET-FLOAT|GET-INT64|GET-LONG|GET-POINTER-VALUE|GET-SHORT|GET-SIZE|GET-STRING|GET-UNSIGNED-LONG|GET-UNSIGNED-SHORT|GO-PENDING|GUID)\\s*(?>=\\()",
-      "beginCaptures": {
-        "1": "support.function.abl"
-      },
+      "beginCaptures": { "1": "support.function.abl"           },
       "end": "(?=\\))",
       "patterns": [
         { "include": "#function-arguments" },
@@ -530,9 +578,7 @@
     "abl-functions-H": {
       "name": "meta.function-call.abl",
       "begin": "(?i)\\s*(HANDLE|HASH-CODE|HEX-DECODE|HEX-ENCODE)\\s*(?>=\\()",
-      "beginCaptures": {
-        "1": "support.function.abl"
-      },
+      "beginCaptures": { "1": "support.function.abl"           },
       "end": "(?=\\))",
       "patterns": [
         { "include": "#function-arguments" },
@@ -542,9 +588,7 @@
     "abl-functions-I": {
       "name": "meta.function-call.abl",
       "begin": "(?i)\\s*(INDEX|INPUT|INT64|INTEGER|INTERVAL|IS-ATTR-SPACE|IS-CODEPAGE-FIXED|IS-COLUMN-CODEPAGE|IS-DB-MULTI-TENANT|IS-LEAD-BYTE|ISO-DATE)\\s*(?>=\\()",
-      "beginCaptures": {
-        "1": "support.function.abl"
-      },
+      "beginCaptures": { "1": "support.function.abl"           },
       "end": "(?=\\))",
       "patterns": [
         { "include": "#function-arguments" },
@@ -554,9 +598,7 @@
     "abl-functions-K": {
       "name": "meta.function-call.abl",
       "begin": "(?i)\\s*(KBLABEL|KEYCODE|KEYFUNCTION|KEYLABEL|KEYWORD|KEYWORD-ALL)\\s*(?>=\\()",
-      "beginCaptures": {
-        "1": "support.function.abl"
-      },
+      "beginCaptures": { "1": "support.function.abl"           },
       "end": "(?=\\))",
       "patterns": [
         { "include": "#function-arguments" },
@@ -566,9 +608,7 @@
     "abl-functions-L": {
       "name": "meta.function-call.abl",
       "begin": "(?i)\\s*(LAST|LASTKEY|LAST-OF|LC|LDBNAME|LEFT-TRIM|LENGTH|LIBRARY|LINE-COUNTER|LIST-EVENTS|LIST-QUERY-ATTRS|LIST-SET-ATTRS|LIST-WIDGETS|LOCKED|LOG|LOGICAL|Logical values|LOOKUP)\\s*(?>=\\()",
-      "beginCaptures": {
-        "1": "support.function.abl"
-      },
+      "beginCaptures": { "1": "support.function.abl"           },
       "end": "(?=\\))",
       "patterns": [
         { "include": "#function-arguments" },
@@ -578,9 +618,7 @@
     "abl-functions-M": {
       "name": "meta.function-call.abl",
       "begin": "(?i)\\s*(MAXIMUM|MD5-DIGEST|MEMBER|MESSAGE-DIGEST|MESSAGE-LINES|MINIMUM|MONTH|MTIME)\\s*(?>=\\()",
-      "beginCaptures": {
-        "1": "support.function.abl"
-      },
+      "beginCaptures": { "1": "support.function.abl"           },
       "end": "(?=\\))",
       "patterns": [
         { "include": "#function-arguments" },
@@ -590,9 +628,7 @@
     "abl-functions-N": {
       "name": "meta.function-call.abl",
       "begin": "(?i)\\s*(NEXT-VALUE|NORMALIZE|NOT ENTERED|NOW|NUM-ALIASES|NUM-DBS|NUM-ENTRIES|NUM-RESULTS)\\s*(?>=\\()",
-      "beginCaptures": {
-        "1": "support.function.abl"
-      },
+      "beginCaptures": { "1": "support.function.abl"           },
       "end": "(?=\\))",
       "patterns": [
         { "include": "#function-arguments" },
@@ -602,9 +638,7 @@
     "abl-functions-O": {
       "name": "meta.function-call.abl",
       "begin": "(?i)\\s*(OPSYS|OS-DRIVES|OS-ERROR|OS-GETENV)\\s*(?>=\\()",
-      "beginCaptures": {
-        "1": "support.function.abl"
-      },
+      "beginCaptures": { "1": "support.function.abl"           },
       "end": "(?=\\))",
       "patterns": [
         { "include": "#function-arguments" },
@@ -613,10 +647,8 @@
     },
     "abl-functions-P": {
       "name": "meta.function-call.abl",
-      "begin": "(?i)\\s*(PAGE-NUMBER|PAGE-SIZE|PDBNAME|PROC-HANDLE|PROC-STATUS|PROCESS-ARCHITECTURE|PROGRAM-NAME|PROGRESS|PROMSGS|PROPATH|PROVERSION)\\s*(?>=\\()",
-      "beginCaptures": {
-        "1": "support.function.abl"
-      },
+      "begin": "(?i)\\s*(PAGE-NUMBER|PAGE-SIZE|PDBNAME|proc-ha|proc-han|proc-hand|proc-handl|proc-handle|PROGRAM-NAME|PROGRESS|PROMSGS|PROPATH|provers|proversi|proversio|proversion)\\s*(?>=\\()",
+      "beginCaptures": { "1": "support.function.abl"           },
       "end": "(?=\\))",
       "patterns": [
         { "include": "#function-arguments" },
@@ -626,9 +658,7 @@
     "abl-functions-Q": {
       "name": "meta.function-call.abl",
       "begin": "(?i)\\s*(QUERY-OFF-END|QUOTER)\\s*(?>=\\()",
-      "beginCaptures": {
-        "1": "support.function.abl"
-      },
+      "beginCaptures": { "1": "support.function.abl"           },
       "end": "(?=\\))",
       "patterns": [
         { "include": "#function-arguments" },
@@ -637,10 +667,8 @@
     },
     "abl-functions-R": {
       "name": "meta.function-call.abl",
-      "begin": "(?i)\\s*(R-INDEX|RANDOM|RAW|RECID|RECORD-LENGTH|REJECTED|REPLACE|RETRY|RETURN-VALUE|RGB-VALUE|RIGHT-TRIM|ROUND|ROW-STATE|ROWID)\\s*(?>=\\()",
-      "beginCaptures": {
-        "1": "support.function.abl"
-      },
+      "begin": "(?i)\\s*(R-INDEX|RANDOM|RAW|RAW-TRANSFER|RECID|RECORD-LENGTH|REJECTED|REPLACE|RETRY|RETURN-VALUE|rgb-v|rgb-va|rgb-val|rgb-valu|rgb-value|RIGHT-TRIM|ROUND|ROW-STATE|ROWID)\\s*(?>=\\()",
+      "beginCaptures": { "1": "support.function.abl"           },
       "end": "(?=\\))",
       "patterns": [
         { "include": "#function-arguments" },
@@ -649,10 +677,8 @@
     },
     "abl-functions-S": {
       "name": "meta.function-call.abl",
-      "begin": "(?i)\\s*(SCREEN-LINES|SDBNAME|SEARCH|SEEK|SET-DB-CLIENT|SET-EFFECTIVE-TENANT|SETUSERID|SHA1-DIGEST|SQRT|SSL-SERVER-NAME|STRING|SUBSTITUTE|SUBSTRING|SUPER)\\s*(?>=\\()",
-      "beginCaptures": {
-        "1": "support.function.abl"
-      },
+      "begin": "(?i)\\s*(SCREEN-LINES|SDBNAME|SEAL|SEARCH|SEEK|SET-DB-CLIENT|SET-EFFECTIVE-TENANT|set-attribute|set-attribute-node|set-rgb|set-byte-order|set-rgb-|set-rgb-v|set-rgb-va|set-rgb-val|set-rgb-valu|set-rgb-value|setuser|setuseri|setuserid|SHA1-DIGEST|SQRT|SSL-SERVER-NAME|subst|substi|substit|substitu|substitut|substitute|substr|substri|substrin|substring|SUPER)\\s*(?>=\\()",
+      "beginCaptures": { "1": "support.function.abl"           },
       "end": "(?=\\))",
       "patterns": [
         { "include": "#function-arguments" },
@@ -662,9 +688,7 @@
     "abl-functions-T": {
       "name": "meta.function-call.abl",
       "begin": "(?i)\\s*(TENANT-ID|TENANT-NAME|TENANT-NAME-TO-ID|TERMINAL|TIME|TIMEZONE|TODAY|TO-ROWID|TRANSACTION|TRIM|TRUNCATE|TYPE-OF)\\s*(?>=\\()",
-      "beginCaptures": {
-        "1": "support.function.abl"
-      },
+      "beginCaptures": { "1": "support.function.abl"           },
       "end": "(?=\\))",
       "patterns": [
         { "include": "#function-arguments" },
@@ -674,9 +698,7 @@
     "abl-functions-U": {
       "name": "meta.function-call.abl",
       "begin": "(?i)\\s*(UNBOX|USERID)\\s*(?>=\\()",
-      "beginCaptures": {
-        "1": "support.function.abl"
-      },
+      "beginCaptures": { "1": "support.function.abl"           },
       "end": "(?=\\))",
       "patterns": [
         { "include": "#function-arguments" },
@@ -686,9 +708,7 @@
     "abl-functions-V": {
       "name": "meta.function-call.abl",
       "begin": "(?i)\\s*(VALID-EVENT|VALID-HANDLE|VALID-OBJECT)\\s*(?>=\\()",
-      "beginCaptures": {
-        "1": "support.function.abl"
-      },
+      "beginCaptures": { "1": "support.function.abl"           },
       "end": "(?=\\))",
       "patterns": [
         { "include": "#function-arguments" },
@@ -698,9 +718,7 @@
     "abl-functions-W": {
       "name": "meta.function-call.abl",
       "begin": "(?i)\\s*(WEEKDAY|WIDGET-HANDLE)\\s*(?>=\\()",
-      "beginCaptures": {
-        "1": "support.function.abl"
-      },
+      "beginCaptures": { "1": "support.function.abl"           },
       "end": "(?=\\))",
       "patterns": [
         { "include": "#function-arguments" },
@@ -710,9 +728,7 @@
     "abl-functions-Y": {
       "name": "meta.function-call.abl",
       "begin": "(?i)\\s*(YEAR)\\s*(?>=\\()",
-      "beginCaptures": {
-        "1": "support.function.abl"
-      },
+      "beginCaptures": { "1": "support.function.abl"           },
       "end": "(?=\\))",
       "patterns": [
         { "include": "#function-arguments" },
@@ -886,15 +902,19 @@
         { "include": "#operator" },
         { "include": "#include-file" },
         { "include": "#define" },
-        { "include": "#do-block" },
+        { "include": "#block-statement" },
+        { "include": "#property-call" },
         { "include": "#abl-system-handles" },
         { "include": "#keywords" },
         { "include": "#variable-name" },
         { "include": "#type-reference" },
         { "include": "#method-call" },
         { "include": "#static-object-property-call" },
-        { "include": "#property-call" },
-        { "include": "#function-call" }
+        { "include": "#function-call" },
+        {
+          "match": "(\\.)$",
+          "captures": { "1": { "name": "punctuation.terminator.abl" } }
+        }
       ]
     },
     "property-accessor": {
@@ -968,6 +988,13 @@
         { "include": "#type-name" }
       ]
     },
+    "define-variable-name": {
+      "match": "(?i)(var|vari|varia|variab|variabl|variable)\\s+([a-z][a-z0-9#$-_%&])+\\s*",
+      "captures": {
+        "1": { "name": "keyword.other.abl" },
+        "2": { "name": "variable.other.abl" }
+      }
+    },
     "variable-as": {
       "match": "(?i)\\s*([\\w\\-]+)\\s+(as)\\s*",
       "captures": {
@@ -983,7 +1010,7 @@
       }
     },
     "field-as-object": {
-      "comment": "This is to capture 'FIELD x AS Object'. As of OE 12.6 only Progress.Lang.Object is allowed as a type name. If/when this changes, this regex becomes trickier",
+      "comment": "This is to capture 'FIELD x AS Object'. As of OE 12.7 only Progress.Lang.Object is allowed as a type name. If/when this changes, this regex becomes trickier",
       "match": "(?i)\\s*(progress\\.lang\\.object|object)\\s*",
       "captures": { "1": { "name": "entity.name.type.abl" } }
     },
@@ -1033,7 +1060,7 @@
       ]
     },
     "define-field": {
-      "match": "(?i)\\s*(field)\\s*([\\w\\-#$%]+)\\s*",
+      "match": "(?i)\\s*(field)\\s+([\\w\\-#$%]+)\\s*",
       "captures": {
         "1": { "name": "keyword.other.abl" },
         "2": { "name": "storage.data.table.abl" }
@@ -1129,14 +1156,14 @@
       }
     },
     "define-table": {
-      "match": "(?i)\\s*(temp-table|like|before-table)\\s+([\\w\\-#$%]+)\\s*",
+      "match": "(?i)\\b(temp-table|like|before-table)\\b([\\w\\-#$%]+)\\b",
       "captures": {
         "1": { "name": "keyword.other.abl" },
         "2": { "name": "storage.data.table.abl" }
       }
     },
     "buffer-for-table": {
-      "match": "(?i)\\s*([\\w\\-#$%]+)\\s+(for)\\s+((temp-table)\\s+)?([\\w\\-#$%]+)\\s*",
+      "match": "(?i)\\s*(?!do|repeat|for)([\\w\\-#$%]+)\\s+(for)\\s+((temp-table)\\s+)?([\\w\\-#$%]+)\\s*",
       "captures": {
         "1": { "name": "storage.data.table.abl" },
         "2": { "name": "keyword.other.abl" },
@@ -1180,27 +1207,155 @@
         "2": { "name": "storage.data.table.abl" }
       }
     },
-    "do-block": {
-      "begin": "(?i)\\b(do)\\b",
+    "block-label": {
+      "match": "(?i)(?!do|repeat|for)(([a-z0-9\\-\\_\\$]+):)\\s+",
+      "comment": "A colon followed by a space is only legal is for block labels",
+      "captures": { "2": { "name": "meta.block.label.abl" } }
+    },
+    "block-statement": {
+      "begin": "(?i)\\b(do)\\s*",
       "beginCaptures": { "1": { "name": "keyword.other.abl" } },
-      "end": "(?=\\.)",
-      "name": "meta.do.abl",
+      "end": "\\s*(?=:)\\s*",
+      "name": "meta.block.abl",
+      "patterns": [
+        { "include": "#for-record" },
+        { "include": "#preselect-phrase" },
+        { "include": "#query-tuning-phrase" },
+        { "include": "#X-expression" },
+        { "include": "#while-expression" },
+        { "include": "#X-from-to-by" },
+        {
+          "match": "(?i)\\s*(transaction)\\s*",
+          "name": "keyword.other.abl"
+        },
+        { "include": "#branch-options" },
+        { "include": "#frame-phrase" },
+        { "include": "#X-statements" }
+      ]
+    },
+    "for-record": {
+      "name": "meta.block.for.abl",
+      "comment": "this regex just tries to capture a bunch (6) of tables",
+      "match": "(?I)\\s*(for)\\s+([\\w\\-#$%]*)\\s*(,)?\\s*([\\w\\-#$%]*)?\\s*(,)?\\s*([\\w\\-#$%]*)?\\s*(,)?\\s*([\\w\\-#$%]*)?\\s*(,)?\\s*([\\w\\-#$%]*)?\\s*(,)?\\s*([\\w\\-#$%]*)?",
+      "captures": {
+        "1": { "name": "keyword.other.abl" },
+        "2": { "name": "storage.data.table.abl" },
+        "3": { "name": "separator.comma.abl" },
+        "4": { "name": "storage.data.table.abl" },
+        "5": { "name": "separator.comma.abl" },
+        "6": { "name": "storage.data.table.abl" },
+        "7": { "name": "separator.comma.abl" },
+        "8": { "name": "storage.data.table.abl" },
+        "9": { "name": "separator.comma.abl" },
+        "10": { "name": "storage.data.table.abl" },
+        "11": { "name": "separator.comma.abl" },
+        "12": { "name": "storage.data.table.abl" }
+      }
+    },
+    "on-error-endkey-stop": {
+      "match": "(?i)\\s*(on)\\s+(endkey|error|stop)\\s+(undo)\\s*(?!leave|next|retry|return|throw)([a-z0-9\\-\\_\\$]*)?\\s*",
+      "captures": {
+        "1": { "name": "keyword.other.abl" },
+        "2": { "name": "keyword.other.abl" },
+        "3": { "name": "keyword.other.abl" },
+        "4": { "name": "meta.block.label.abl" }
+      }
+    },
+    "branch-leave-next-retry-throw": {
+      "match": "(?i)\\s*(,)\\s*(leave|next|retry|throw)\\s*(?!on)([a-z0-9\\-\\_\\$]*)?\\s*",
+      "captures": {
+        "1": { "name": "separator.comma.abl" },
+        "2": { "name": "keyword.other.abl" },
+        "3": { "name": "meta.block.label.abl" }
+      }
+    },
+    "branch-return-value-single": {
+      "comment": "RETURN 'return-value'",
+      "begin": "(?i)\\s*(return)(\\s+(error))?\\s+(')",
+      "beginCaptures": {
+        "1": { "name": "keyword.other.abl" },
+        "2": { "name": "keyword.other.abl" },
+        "3": { "name": "punctuation.definition.string.begin.abl" }
+      },
+      "name": "string.single.complex.abl",
+      "end": "(')",
+      "endCaptures": { "1": { "name": "punctuation.definition.string.end.abl" } },
       "patterns": [
         {
-          "begin": "(?i)\\b(while)\\b",
-          "end": "(?=(?::))",
-          "beginCaptures": { "1": { "name": "keyword.other.abl" } },
-          "name": "meta.do.while.abl",
-          "patterns": [ { "include": "#statements" } ]
-        },
-        { "include": "#statements" },
-        {
-          "begin": ":",
-          "end": "(?i)(end\\s*do|end)",
-          "endCaptures": { "1": { "name": "keyword.other.abl" } },
-          "name": "meta.do.body.abl",
-          "patterns": [ { "include": "#code-block" } ]
+          "match": "~.",
+          "name": "constant.character.escape.abl"
         }
+      ]
+    },
+    "branch-return-value-double": {
+      "comment": "RETURN \"return-value\"",
+      "begin": "(?i)\\s*(return)(\\s+(error))?\\s+(\")",
+      "beginCaptures": {
+        "1": { "name": "keyword.other.abl" },
+        "2": { "name": "keyword.other.abl" },
+        "3": { "name": "punctuation.definition.string.begin.abl" }
+      },
+      "name": "string.double.complex.abl",
+      "end": "(\")",
+      "endCaptures": { "1": { "name": "punctuation.definition.string.end.abl" } },
+      "patterns": [
+        {
+          "match": "~.",
+          "name": "constant.character.escape.abl"
+        }
+      ]
+    },
+    "branch-return-no-apply": {
+      "comment": "RETURN NO-APPLY",
+      "match": "(?i)\\s*(return)\\s+(no-apply)\\s*",
+      "captures": {
+        "1": { "name": "keyword.other.abl" },
+        "2": { "name": "keyword.other.abl" }
+      }
+    },
+    "branch-return-error-expression": {
+      "begin": "(?i)\\s*(return)\\s+(error)\\s*",
+      "beginCaptures": {
+        "1": { "name": "keyword.other.abl" },
+        "2": { "name": "keyword.other.abl" }
+      },
+      "comment": " This regex just captures to the end of the line, so if the RETURN ERROR is split across 2 lines, this will not capture",
+      "end": "\\Z",
+      "patterns": [
+        {
+          "match": "(?i)\\s*(new)\\s+(.*)\\s*\\(",
+          "captures": {
+            "1": { "name": "keyword.other.abl" },
+            "2": { "name": "entity.name.type.abl" }
+          }
+        },
+        { "include": "#property-call" },
+        { "include": "#expression" }
+      ]
+    },
+    "branch-options": {
+      "name": "meta.block.branch.abl",
+      "patterns": [
+        { "include": "#on-error-endkey-stop" },
+        { "include": "#on-quit" },
+        { "include": "#branch-leave-next-retry-throw" },
+        { "include": "#branch-return-value-double" },
+        { "include": "#branch-return-value-single" },
+        { "include": "#branch-return-no-apply" },
+        { "include": "#branch-return-error" },
+        { "include": "#branch-return-error-expression" }
+      ]
+    },
+    "while-expression": {
+      "begin": "(?i)\\s*(while)\\s*",
+      "beginCaptures": { "1": { "name": "keyword.other.abl" } },
+      "comment": " This regex just captures to the end of the line, so if the WHILE is split across 2 lines, this may not capture everything",
+      "end": "\\Z",
+      "name": "meta.block.while.abl",
+      "patterns": [
+        { "include": "#operator" },
+        { "include": "#property-call" },
+        { "include": "#statements" }
       ]
     },
     "analyze-suspend-resume": {
@@ -1223,14 +1378,15 @@
       "comment": "Captures what's between ( and ) when calling a function, excluding the braces ",
       "begin": "(?<=\\()",
       "beginCaptures": { "1": { "name": "meta.brace.round.js" } },
-      "end": "(?=\\))",
+      "end": "(?=>\\))",
+      "endCaptures": { "1": { "name": "meta.brace.round.js" } },
       "patterns": [
         { "include": "#parens" },
         { "include": "#new-class" },
         { "include": "#expression" },
         { "include": "#property-call" },
         { "include": "#punctuation-comma" },
-        { "include": "#static-object-property-call"},
+        { "include": "#static-object-property-call" },
         { "include": "#function-call" }
       ]
     },
@@ -1242,7 +1398,7 @@
       }
     },
     "property-call": {
-      "match": "\\s*:([\\w-]+)\\s*",
+      "match": "(?<=:)([\\w-]+)\\s*",
       "captures": { "1": { "name": "entity.name.function.abl" } }
     },
     "function-call": {
@@ -1281,6 +1437,17 @@
       }
     },
     "array-literal": {
+      "name": "meta.array.literal.abl",
+      "begin": "\\[",
+      "beginCaptures": { "0": { "name": "meta.brace.square.abl" } },
+      "end": "\\]",
+      "endCaptures": { "0": { "name": "meta.brace.square.abl" } },
+      "patterns": [
+        { "include": "#expression" },
+        { "include": "#punctuation-comma" }
+      ]
+    },
+    "array-use": {
       "name": "meta.array.literal.abl",
       "begin": "\\[",
       "beginCaptures": { "0": { "name": "meta.brace.square.abl" } },
@@ -1432,8 +1599,20 @@
       "match": "\\."
     },
     "operator": {
-      "match": "(?i)(<=|<>|>=|=|\\+| - |/|<|>|,)",
-      "name": "keyword.operator.source.abl"
+      "patterns": [
+        { "include": "#operator-no-space" },
+        { "include": "#operator-with-space" }
+      ]
+    },
+    "operator-no-space": {
+      "name": "meta.operator.no.space.abl",
+      "match": "\\s*(<|>|<=|<>|>=|=|\\+| - |\/|,)\\s*",
+      "captures": { "1": { "name": "keyword.operator.source.abl" } }
+    },
+    "operator-with-space": {
+      "name": "meta.operator.with.space.abl",
+      "match": "(?i)\\s*(contains|begins|matches|eq|le|lt|ge|gt|ne)\\s*",
+      "captures": { "1": { "name": "keyword.operator.source.abl" } }
     },
     "keywords": {
       "patterns": [
@@ -1525,43 +1704,43 @@
       "name": "keyword.other.abl"
     },
     "keywords-p": {
-      "match": "(?i)(?<![\\w-])(package-private|package-protected|page|page-bot|page-bott|page-botto|page-bottom|page-down|page-left|page-num|page-numb|page-numbe|page-number|page-right|page-right-text|page-size|page-top|page-up|page-wid|page-widt|page-width|paged|param|parame|paramet|paramete|parameter|parent|parent-window-close|partial-key|pascal|paste|pause|pdbname|perf|perfo|perfor|perform|performa|performan|performanc|performance|persist|persiste|persisten|persistent|pick|pick-area|pick-both|pixels|portrait|precision|preproc|preproce|preproces|preprocess|preselect|preselec|presele|presel|prev|prev-frame|prev-word|primary|printer|printer-setup|private|privileges|proc-ha|proc-han|proc-hand|proc-handl|proc-handle|proc-st|proc-sta|proc-stat|proc-statu|proc-status|proce|proced|procedu|procedur|procedure|procedure-call-type|procedure-complete|process|process-architecture|profile-file|profiler|program-name|progress|prompt|prompt-f|prompt-fo|prompt-for|promsgs|propath|property|protected|provers|proversi|proversio|proversion|public|publish|put|put|put-bits|put-byte|put-bytes|put-double|put-float|put-int64|put-key-val|put-key-valu|put-key-value|put-long|put-short|put-string|put-unsigned-long|put-unsigned-short|putbyte)(?![\\w\\-])",
+      "match": "(?i)(?<![\\w-])(package-private|package-protected|page|page-bot|page-bott|page-botto|page-bottom|page-down|page-left|page-num|page-numb|page-numbe|page-number|page-right|page-right-text|page-size|page-top|page-up|page-wid|page-widt|page-width|paged|param|parame|paramet|paramete|parameter|parent|parent-window-close|partial-key|pascal|paste|pause|perf|perfo|perfor|perform|performa|performan|performanc|performance|persist|persiste|persisten|persistent|pick|pick-area|pick-both|pixels|portrait|precision|preproc|preproce|preproces|preprocess|preselect|preselec|presele|presel|prev|prev-frame|prev-word|primary|printer|printer-setup|private|privileges|proc-st|proc-sta|proc-stat|proc-statu|proc-status|proce|proced|procedu|procedur|procedure|procedure-call-type|procedure-complete|process|process-architecture|profile-file|profiler|progress|prompt|prompt-f|prompt-fo|prompt-for|promsgs|propath|property|protected|provers|proversi|proversio|proversion|public|publish|put|put|put-bits|put-byte|put-bytes|put-double|put-float|put-int64|put-key-val|put-key-valu|put-key-value|put-long|put-short|put-string|put-unsigned-long|put-unsigned-short|putbyte)(?![\\w\\-])",
       "name": "keyword.other.abl"
     },
     "keywords-q": {
-      "match": "(?i)(?<![\\w-])(query|query-tuning|question|quit|quoter)(?![\\w-])",
+      "match": "(?i)(?<![\\w-])(query|query-tuning|question|quit)(?![\\w-])",
       "name": "keyword.other.abl"
     },
     "keywords-r": {
-      "match": "(?i)(?<![\\w-])(r-index|radio-buttons|radio-set|random|raw|raw-transfer|rcode-info|rcode-infor|rcode-inform|rcode-informa|rcode-informat|rcode-informati|rcode-informatio|rcode-information|read-available|read-exact-num|read-response|readkey|real|recall|recid|rect|recta|rectan|rectang|rectangl|rectangle|recursive|reference-only|refreshable|reinstate|relation-fi|relation-fie|relation-fiel|relation-field|relation-fields|release|repeat|replace|replication-create|replication-delete|replication-write|reports|reposition-parent-rel|reposition-parent-rela|reposition-parent-relat|reposition-parent-relati|reposition-parent-relatio|reposition-parent-relation|request|reset|result|resume-display|retain|retry|retry-cancel|return|return|return-to-start-di|return-to-start-dir|return-val|return-valu|return-value|returns|reverse-from|revert|revoke|rgb-v|rgb-va|rgb-val|rgb-valu|rgb-value|right|right|right-align|right-aligne|right-aligned|right-end|right-trim|round|routine-level|row|row-created|row-deleted|row-display|row-entry|row-leave|row-modified|row-of|row-unmodified|rowid|rule|rule-row|rule-y|run|run-proc|run-proce|run-proced|run-procedu|run-procedur|run-procedure)(?![\\w-])",
+      "match": "(?i)(?<![\\w-])(radio-buttons|radio-set|raw|raw-transfer|rcode-info|rcode-infor|rcode-inform|rcode-informa|rcode-informat|rcode-informati|rcode-informatio|rcode-information|read-available|read-exact-num|read-response|readkey|real|recall|recid|rect|recta|rectan|rectang|rectangl|rectangle|recursive|reference-only|refreshable|reinstate|relation-fi|relation-fie|relation-fiel|relation-field|relation-fields|release|repeat|replication-create|replication-delete|replication-write|reports|reposition-parent-rel|reposition-parent-rela|reposition-parent-relat|reposition-parent-relati|reposition-parent-relatio|reposition-parent-relation|request|reset|result|resume-display|retain|retry|retry-cancel|return|return|return-to-start-di|return-to-start-dir|return-val|return-valu|return-value|returns|reverse-from|revert|revoke|right|right|right-align|right-aligne|right-aligned|right-end|routine-level|row|row-created|row-deleted|row-display|row-entry|row-leave|row-modified|row-of|row-unmodified|rowid|rule|rule-row|rule-y|run|run-proc|run-proce|run-proced|run-procedu|run-procedur|run-procedure)(?![\\w-])",
       "name": "keyword.other.abl"
     },
     "keywords-s": {
-      "match": "(?i)(?<![\\w-])(save|save-as|save-file|sax-attributes|sax-comple|sax-complet|sax-complete|sax-parser-error|sax-reader|sax-running|sax-uninitialized|sax-write-begin|sax-write-complete|sax-write-content|sax-write-element|sax-write-error|sax-write-idle|sax-write-tag|sax-writer|sax-xml|schema|screen|screen-io|scroll|scroll-horizontal|scroll-left|scroll-mode|scroll-notify|scroll-right|scroll-vertical|scrollbar-drag|scrollbar-h|scrollbar-ho|scrollbar-hor|scrollbar-hori|scrollbar-horiz|scrollbar-horizo|scrollbar-horizon|scrollbar-horizont|scrollbar-horizonta|scrollbar-horizontal|scrollbar-v|scrollbar-ve|scrollbar-ver|scrollbar-vert|scrollbar-verti|scrollbar-vertic|scrollbar-vertica|scrollbar-vertical|scrolled-row-pos|scrolled-row-posi|scrolled-row-posit|scrolled-row-positi|scrolled-row-positio|scrolled-row-position|scrolling|sdbname|seal|seal-timestamp|search|search-self|search-target|section|security-policy|seek|select|select|select-all|select-extend|select-focused-row|select-next-row|select-on-join|select-prev-row|select-repositioned-row|select-row|selectable|selected|selected-items|selection|selection-end|selection-extend|selection-list|selection-start|selection-text|self|send|sensitive|separate-connection|separator-fgc|separator-fgco|separator-fgcol|separator-fgcolo|separator-fgcolor|separators|serializable|serialize-hidden|serialize-name|serialize-row|server|server-connection-bo|server-connection-bou|server-connection-boun|server-connection-bound|server-connection-bound-re|server-connection-bound-req|server-connection-bound-requ|server-connection-bound-reque|server-connection-bound-reques|server-connection-bound-request|server-connection-co|server-connection-con|server-connection-cont|server-connection-conte|server-connection-contex|server-connection-context|server-connection-id|server-operating-mode|server-socket|session|session-end|session-id|set|set-actor|set-appl-context|set-attr-call-type|set-attribute|set-attribute-node|set-blue|set-blue-|set-blue-v|set-blue-va|set-blue-val|set-blue-valu|set-blue-value|set-break|set-buffers|set-byte-order|set-callback|set-callback-procedure|set-cell-focus|set-client|set-commit|set-connect-procedure|set-contents|set-db-client|set-db-logging|set-dynamic|set-effective-tenant|set-event-manager-option|set-green|set-green-|set-green-v|set-green-va|set-green-val|set-green-valu|set-green-value|set-input-source|set-must-understand|set-node|set-numeric-form|set-numeric-forma|set-numeric-format|set-option|set-output-destination|set-parameter|set-pointer-val|set-pointer-valu|set-pointer-value|set-property|set-read-response-procedure|set-red|set-red-|set-red-v|set-red-va|set-red-val|set-red-valu|set-red-value|set-repositioned-row|set-rgb|set-rgb-|set-rgb-v|set-rgb-va|set-rgb-val|set-rgb-valu|set-rgb-value|set-role|set-rollback|set-safe-user|set-selection|set-serialized|set-size|set-socket-option|set-sort-arrow|set-state|set-wait|set-wait-|set-wait-s|set-wait-st|set-wait-sta|set-wait-stat|set-wait-state|settings|setuser|setuseri|setuserid|sha1-digest|share|share-|share-l|share-lo|share-loc|share-lock|shared|short|show-in-task|show-in-taskb|show-in-taskba|show-in-taskbar|show-stat|show-stats|side-lab|side-labe|side-label|side-label-h|side-label-ha|side-label-han|side-label-hand|side-label-handl|side-label-handle|side-labels|signature|signature-value|silent|simple|single|single-character|single-run|singleton|size|size-c|size-ch|size-cha|size-char|size-chars|size-p|size-pi|size-pix|size-pixe|size-pixel|size-pixels|skip|skip-deleted-rec|skip-deleted-reco|skip-deleted-recor|skip-deleted-record|skip-group-duplicates|skip-schema-check|slider|small-icon|small-title|smallint|soap-fault|soap-fault-actor|soap-fault-code|soap-fault-detail|soap-fault-misunderstood-header|soap-fault-node|soap-fault-role|soap-fault-string|soap-fault-subcode|soap-header|soap-header-entryref|soap-version|socket|some|sort|sort-ascending|sort-number|source|source-procedure|space|sql|sqrt|ssl-server-name|standalone|start|start-box-selection|start-document|start-element|start-extend-box-selection|start-mem-check|start-move|start-resize|start-row-resize|start-search|starting|startup-parameters|state-detail|static|statistics|status|status-area|status-area-font|status-area-msg|stdcall|stomp-detection|stomp-frequency|stop|stop|stop-after|stop-display|stop-mem-check|stop-object|stop-parsing|stoppe|stopped|stored-proc|stored-proce|stored-proced|stored-procedu|stored-procedur|stored-procedure|stream|stream-handle|stream-io|stretch-to-fit|strict|strict-entity-resolution|string|string-value|string-xref|sub-ave|sub-aver|sub-avera|sub-averag|sub-average|sub-count|sub-max|sub-maxi|sub-maxim|sub-maximu|sub-maximum|sub-menu|sub-menu-help|sub-min|sub-mini|sub-minim|sub-minimu|sub-minimum|sub-total|subscribe|subst|substi|substit|substitu|substitut|substitute|substr|substri|substrin|substring|subtype|sum|summary|super|super-proc|super-proce|super-proced|super-procedu|super-procedur|super-procedure|super-procedures|suppress-namespace-processing|suppress-w|suppress-wa|suppress-war|suppress-warn|suppress-warni|suppress-warnin|suppress-warning|suppress-warnings|suppress-warnings-list|suspend|symmetric-encryption-algorithm|symmetric-encryption-iv|symmetric-encryption-key|symmetric-support|synchronize|system-alert|system-alert-|system-alert-b|system-alert-bo|system-alert-box|system-alert-boxe|system-alert-boxes|system-dialog|system-help|system-id)(?![\\w-])",
+      "match": "(?i)(?<![\\w-])(sax-comple|sax-complet|sax-complete|sax-reader|sax-running|sax-uninitialized|sax-write-begin|sax-write-complete|sax-write-content|sax-write-element|sax-write-error|sax-write-idle|sax-write-tag|sax-writer|sax-xml|schema|screen|screen-io|scroll|scroll-horizontal|scroll-left|scroll-mode|scroll-notify|scroll-right|scroll-vertical|scrollbar-drag|scrollbar-h|scrollbar-ho|scrollbar-hor|scrollbar-hori|scrollbar-horiz|scrollbar-horizo|scrollbar-horizon|scrollbar-horizont|scrollbar-horizonta|scrollbar-horizontal|scrollbar-v|scrollbar-ve|scrollbar-ver|scrollbar-vert|scrollbar-verti|scrollbar-vertic|scrollbar-vertica|scrollbar-vertical|scrolled-row-pos|scrolled-row-posi|scrolled-row-posit|scrolled-row-positi|scrolled-row-positio|scrolled-row-position|scrolling|search-self|search-target|section|security-policy|seek|select|select|select-all|select-extend|select-focused-row|select-next-row|select-on-join|select-prev-row|select-repositioned-row|select-row|selectable|selected|selected-items|selection|selection-end|selection-extend|selection-list|selection-start|selection-text|self|send|sensitive|separate-connection|separator-fgc|separator-fgco|separator-fgcol|separator-fgcolo|separator-fgcolor|separators|serializable|serialize-hidden|serialize-name|serialize-row|server|server-socket|session|set|set-attr-call-type|set-cell-focus|set-contents|set-db-logging|set-event-manager-option|set-option|set-pointer-val|set-pointer-valu|set-pointer-value|set-property|set-size|set-state|settings|share|share-|share-l|share-lo|share-loc|share-lock|shared|short|show-stat|show-stats|side-lab|side-labe|side-label|side-label-h|side-label-ha|silent|simple|single|single-character|single-run|singleton|size|size-c|size-ch|size-cha|size-char|size-chars|size-p|size-pi|size-pix|size-pixe|size-pixel|size-pixels|skip|skip-group-duplicates|skip-schema-check|slider|smallint|soap-fault|soap-header|soap-header-entryref|socket|some|sort|source|source-procedure|space|sql|start|start-box-selection|start-extend-box-selection|start-mem-check|start-move|start-resize|start-row-resize|start-search|starting|static|status|status-area-msg|stdcall|stomp-detection|stomp-frequency|stop|stop|stop-after|stop-display|stop-mem-check|stored-proc|stored-proce|stored-proced|stored-procedu|stored-procedur|stored-procedure|stream|stream-handle|stream-io|stretch-to-fit|strict|strict-entity-resolution|string-value|string-xref|sub-ave|sub-aver|sub-avera|sub-averag|sub-average|sub-count|sub-max|sub-maxi|sub-maxim|sub-maximu|sub-maximum|sub-menu|sub-menu-help|sub-min|sub-mini|sub-minim|sub-minimu|sub-minimum|sub-total|subscribe|subtype|sum|summary|super|super-proc|super-proce|super-proced|super-procedu|super-procedur|super-procedure|super-procedures|suspend|system-dialog|system-help|system-id)(?![\\w-])",
       "name": "keyword.other.abl"
     },
     "keywords-t": {
-      "match": "(?i)(?<![\\w-])(tab|tab-position|tab-stop|table|table-crc-list|table-handle|table-list|table-num|table-numb|table-numbe|table-number|table-scan|target|target-procedure|temp-dir|temp-dire|temp-direc|temp-direct|temp-directo|temp-director|temp-directory|temp-table|temp-table-prepar|temp-table-prepare|tenant|tenant-id|tenant-name|tenant-name-to-id|tenant-where|term|terminal|terminate|text|text-cursor|text-seg|text-seg-|text-seg-g|text-seg-gr|text-seg-gro|text-seg-grow|text-seg-growt|text-seg-growth|text-selected|then|this-object|this-procedure|thread-safe|three-d|through|throw|thru|tic-marks|time|time-source|timezone|title|title-bgc|title-bgco|title-bgcol|title-bgcolo|title-bgcolor|title-dc|title-dco|title-dcol|title-dcolo|title-dcolor|title-fgc|title-fgco|title-fgcol|title-fgcolo|title-fgcolor|title-fo|title-fon|title-font|to|to-rowid|today|toggle-box|tooltip|tooltips|top|top-column|top-nav-query|top-only|topic|total|trace-filter|tracing|tracking-changes|trailing|trans|trans-init-proc|trans-init-proce|trans-init-proced|trans-init-procedu|trans-init-procedur|trans-init-procedure|transact|transacti|transactio|transaction|transaction-mode|transpar|transpare|transparen|transparent|trigger|triggers|trim|true|trunc|trunca|truncat|truncate|ttcodepage|type|type-of)(?![\\w-])",
+      "match": "(?i)(?<![\\w-])(tab|table|table-handle|table-scan|target|target-procedure|temp-table|tenant|tenant-where|term|terminal|terminate|text|text-cursor|text-seg|text-seg-|text-seg-g|text-seg-gr|text-seg-gro|text-seg-grow|text-seg-growt|text-seg-growth|then|this-object|this-procedure|three-d|through|throw|thru|title|to|today|toggle-box|tooltip|top|top-column|top-only|topic|total|trailing|trans|transact|transacti|transactio|transaction|transaction-mode|transpar|transpare|transparen|transparent|trigger|triggers|trim|true|trunc|trunca|truncat|truncate|ttcodepage|type-of)(?![\\w-])",
       "name": "keyword.other.abl"
     },
     "keywords-u": {
-      "match": "(?i)(?<![\\w-])(unbox|unbuff|unbuffe|unbuffer|unbuffere|unbuffered|underl|underli|underlin|underline|undo|undo-throw-scope|unform|unforma|unformat|unformatt|unformatte|unformatted|union|unique|unique-id|unique-match|unix|unix-end|unless-hidden|unload|unsigned-byte|unsigned-int64|unsigned-integer|unsigned-long|unsigned-short|unsubscribe|up|up|update|update-attribute|upper|url|url-decode|url-encode|url-password|url-userid|use|use-dic|use-dict|use-dict-|use-dict-e|use-dict-ex|use-dict-exp|use-dict-exps|use-filename|use-index|use-revvideo|use-text|use-underline|use-widget-pool|user|user-data|user-id|userid|using|utc-offset)(?![\\w-])",
+      "match": "(?i)(?<![\\w-])(unbuff|unbuffe|unbuffer|unbuffere|unbuffered|underl|underli|underlin|underline|undo|unform|unforma|unformat|unformatt|unformatte|unformatted|union|unique|unix|unix-end|unless-hidden|unload|unsigned-byte|unsigned-int64|unsigned-integer|unsigned-long|unsigned-short|unsubscribe|up|up|update|upper|use|use-dic|use-dict|use-dict-|use-dict-e|use-dict-ex|use-dict-exp|use-dict-exps|use-filename|use-index|use-revvideo|use-text|use-underline|use-widget-pool|user|using|utc-offset)(?![\\w-])",
       "name": "keyword.other.abl"
     },
     "keywords-v": {
-      "match": "(?i)(?<![\\w-])(v6display|v6frame|valid-event|valid-handle|valid-object|validate|validate-domain-access-code|validate-expressio|validate-expression|validate-message|validate-seal|validate-xml|validation-enabled|value|value-changed|values|var|vari|varia|variab|variabl|variable|verb|verbo|verbos|verbose|version|vert|verti|vertic|vertica|vertical|view|view-as|view-first-column-on-reopen|virtual-height|virtual-height-c|virtual-height-ch|virtual-height-cha|virtual-height-char|virtual-height-chars|virtual-height-p|virtual-height-pi|virtual-height-pix|virtual-height-pixe|virtual-height-pixel|virtual-height-pixels|virtual-width|virtual-width-c|virtual-width-ch|virtual-width-cha|virtual-width-char|virtual-width-chars|virtual-width-p|virtual-width-pi|virtual-width-pix|virtual-width-pixe|virtual-width-pixel|virtual-width-pixels|visible|vms|void)(?![\\w-])",
+      "match": "(?i)(?<![\\w-])(v6frame|validate|value-changed|values|var|vari|varia|variab|variabl|variable|verb|verbo|verbos|verbose|version|vert|verti|vertic|vertica|vertical|view|view-as|vms|void)(?![\\w-])",
       "name": "keyword.other.abl"
     },
     "keywords-w": {
-      "match": "(?i)(?<![\\w-])(wait|wait-for|warning|wc-admin-app|web-con|web-cont|web-conte|web-contex|web-context|web-notify|weekday|when|where|where-string|while|widget|widget-e|widget-en|widget-ent|widget-ente|widget-enter|widget-h|widget-ha|widget-han|widget-hand|widget-handl|widget-handle|widget-id|widget-l|widget-le|widget-lea|widget-leav|widget-leave|widget-pool|width|width-c|width-ch|width-cha|width-char|width-chars|width-p|width-pi|width-pix|width-pixe|width-pixel|width-pixels|window|window-close|window-delayed-min|window-delayed-mini|window-delayed-minim|window-delayed-minimi|window-delayed-minimiz|window-delayed-minimize|window-maxim|window-maximi|window-maximiz|window-maximize|window-maximized|window-maximized|window-minim|window-minimi|window-minimiz|window-minimize|window-minimized|window-minimized|window-name|window-normal|window-resized|window-restored|window-sta|window-stat|window-state|window-sys|window-syst|window-syste|window-system|with|word-index|word-wrap|work-area-height-p|work-area-height-pi|work-area-height-pix|work-area-height-pixe|work-area-height-pixel|work-area-height-pixels|work-area-width-p|work-area-width-pi|work-area-width-pix|work-area-width-pixe|work-area-width-pixel|work-area-width-pixels|work-area-x|work-area-y|work-tab|work-tabl|work-table|workfile|write|write-cdata|write-characters|write-comment|write-data|write-data-element|write-empty-element|write-entity-ref|write-external-dtd|write-fragment|write-json|write-message|write-processing-instruction|write-status|write-xml|write-xmlschema)(?![\\w-])",
+      "match": "(?i)(?<![\\w-])(wait|wait-for|web-con|web-cont|web-conte|web-contex|web-context|web-notify|when|where|while|widget|widget-e|widget-en|widget-ent|widget-ente|widget-enter|widget-h|widget-ha|widget-han|widget-hand|widget-handl|widget-handle|widget-id|widget-pool|window|window-close|window-delayed-min|window-delayed-mini|window-delayed-minim|window-delayed-minimi|window-delayed-minimiz|window-delayed-minimize|window-maxim|window-maximi|window-maximiz|window-maximize|window-maximized|window-maximized|window-minim|window-minimi|window-minimiz|window-minimize|window-minimized|window-minimized|window-name|window-normal|window-resized|window-restored|with|word-index|work-tab|work-tabl|work-table|workfile)(?![\\w-])",
       "name": "keyword.other.abl"
     },
     "keywords-x": {
-      "match": "(?i)(?<![\\w-])(x|x-document|x-noderef|x-of|xcode|xcode-session-key|xml-data-type|xml-entity-expansion-limit|xml-node-name|xml-node-type|xml-schema-pat|xml-schema-path|xml-strict-entity-resolution|xml-suppress-namespace-processing|xor|xref|xref-xml)(?![\\w-])",
+      "match": "(?i)(?<![\\w-])(x-document|x-noderef|x-of|xcode|xref|xref-xml)(?![\\w-])",
       "name": "keyword.other.abl"
     },
     "keywords-y": {
-      "match": "(?i)(?<![\\w-])(y|y-of|year|year-offset|yes|yes-no|yes-no-cancel)(?![\\w-])",
+      "match": "(?i)(?<![\\w-])(yes|yes-no|yes-no-cancel)(?![\\w-])",
       "name": "keyword.other.abl"
     }
   },

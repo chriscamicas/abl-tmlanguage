@@ -92,7 +92,7 @@ describe('', () => {
 
 describe('', () => {
     let statement = `define buffer bCustomer for temp-table ttCustomer preselect serialize-name "theCustomer".
-    
+
     find first Customer.
     `;
     let expectedTokens = [
@@ -119,7 +119,7 @@ describe('', () => {
         { "startIndex": 88, "endIndex": 89, "scopes": ["source.abl", "meta.define.abl", "punctuation.terminator.abl"] }  // '.'
         ],
         [
-        { "startIndex": 0, "endIndex": 5, "scopes": ["source.abl"] },  // '    '
+        { "startIndex": 0, "endIndex": 1, "scopes": ["source.abl"] },  // '    '
         ],
         [
         { "startIndex": 0, "endIndex": 4, "scopes": ["source.abl"] },  // '    '
@@ -132,7 +132,7 @@ describe('', () => {
         ],
         [
         { "startIndex": 0, "endIndex": 5, "scopes": ["source.abl"] }  // '    '
-        ]      
+        ]
     ];
     shared.itShouldMatchExpectedScopes(statement, expectedTokens);
 })

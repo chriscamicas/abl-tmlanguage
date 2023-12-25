@@ -6,7 +6,7 @@ describe('', () => {
   let statement = `x = cast(y, foo.bar.baz) `;
 
   let expectedTokens = [
-    { "startIndex": 0, "endIndex": 1, "scopes": ["source.abl", "keyword.other.abl"] },  // 'x'
+    { "startIndex": 0, "endIndex": 1, "scopes": ["source.abl", "variable.other.abl"] },  // 'x'
     { "startIndex": 1, "endIndex": 2, "scopes": ["source.abl"] },  // ' '
     { "startIndex": 2, "endIndex": 3, "scopes": ["source.abl", "keyword.operator.source.abl"] },  // '='
     { "startIndex": 3, "endIndex": 4, "scopes": ["source.abl", "meta.function-call.abl"] },  // ' '
@@ -29,7 +29,7 @@ describe('', () => {
 
   let expectedTokens = [
     [
-      { "startIndex": 0, "endIndex": 1, "scopes": ["source.abl", "keyword.other.abl"] },  // 'x'
+      { "startIndex": 0, "endIndex": 1, "scopes": ["source.abl", "variable.other.abl"] },  // 'x'
       { "startIndex": 1, "endIndex": 2, "scopes": ["source.abl"] },  // ' '
       { "startIndex": 2, "endIndex": 3, "scopes": ["source.abl", "keyword.operator.source.abl"] },  // '='
       { "startIndex": 3, "endIndex": 4, "scopes": ["source.abl", "meta.function-call.abl"] },  // ' '
