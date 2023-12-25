@@ -126,7 +126,7 @@ describe('', () => {
       { "startIndex": 19, "endIndex": 20, "scopes": ["source.abl", "meta.define.class.abl", "punctuation.terminator.abl"] }  // ':'
     ],
     [
-      { "startIndex": 0, "endIndex": 6, "scopes": ["source.abl"] },  // '      '
+      { "startIndex": 0, "endIndex": 6, "scopes": ["source.abl", "meta.define.abl"] },  // '      '
       { "startIndex": 6, "endIndex": 9, "scopes": ["source.abl", "meta.define.abl", "keyword.other.abl"] },  // 'def'
       { "startIndex": 9, "endIndex": 10, "scopes": ["source.abl", "meta.define.abl"] },  // ' '
       { "startIndex": 10, "endIndex": 13, "scopes": ["source.abl", "meta.define.abl", "keyword.other.abl"] },  // 'var'

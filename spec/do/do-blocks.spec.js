@@ -4,7 +4,7 @@ const shared = require('../shared.js');
 describe('', () => {
   //label-with-a-dot-inside.spec
   let statement = `
-DO mI = 1 TO 3:
+DO mI = 1 TO 3 on error undo, throw:
     /* comment */
 END.`;
   let expectedTokens = [

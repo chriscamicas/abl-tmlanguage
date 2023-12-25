@@ -19,7 +19,7 @@ describe('', () => {
       { "startIndex": 20, "endIndex": 21, "scopes": ["source.abl", "meta.function-call.abl", "meta.function.arguments.abl", "string.double.complex.abl", "punctuation.definition.string.begin.abl"] },  // '"'
       { "startIndex": 21, "endIndex": 22, "scopes": ["source.abl", "meta.function-call.abl", "meta.function.arguments.abl", "string.double.complex.abl"] },  // ')'
       { "startIndex": 22, "endIndex": 23, "scopes": ["source.abl", "meta.function-call.abl", "meta.function.arguments.abl", "string.double.complex.abl", "punctuation.definition.string.end.abl"] },  // '"'
-      { "startIndex": 23, "endIndex": 24, "scopes": ["source.abl", "meta.brace.round.js"] },  // ')'
+      { "startIndex": 23, "endIndex": 24, "scopes": ["source.abl", "meta.function-call.abl", "meta.function.arguments.abl", "meta.brace.round.js"] },  // ')'
       { "startIndex": 24, "endIndex": 25, "scopes": ["source.abl", "punctuation.terminator.abl"] },  // '.'
       { "startIndex": 25, "endIndex": 26, "scopes": ["source.abl"] },  // ' '
       { "startIndex": 26, "endIndex": 33, "scopes": ["source.abl", "keyword.other.abl"] },  // 'message'

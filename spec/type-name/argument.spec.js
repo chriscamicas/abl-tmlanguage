@@ -48,7 +48,7 @@ describe('', () => {
   let statement = `x = new baz (true, today, now, ?, -12).`;
 
   let expectedTokens = [
-    { "startIndex": 0, "endIndex": 1, "scopes": ["source.abl", "keyword.other.abl"] },  // 'x'
+    { "startIndex": 0, "endIndex": 1, "scopes": ["source.abl", "variable.other.abl"] },  // 'x'
     { "startIndex": 1, "endIndex": 2, "scopes": ["source.abl"] },  // ' '
     { "startIndex": 2, "endIndex": 3, "scopes": ["source.abl", "keyword.operator.source.abl"] },  // '='
     { "startIndex": 3, "endIndex": 4, "scopes": ["source.abl"] },  // ' '
