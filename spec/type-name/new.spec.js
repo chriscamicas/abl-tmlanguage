@@ -15,7 +15,7 @@ describe('', () => {
     { "startIndex": 14, "endIndex": 15, "scopes": ["source.abl"] },  // ' '
     { "startIndex": 15, "endIndex": 26, "scopes": ["source.abl", "entity.name.type.abl"] },  // 'foo.bar.baz'
     { "startIndex": 26, "endIndex": 27, "scopes": ["source.abl", "meta.brace.round.js"] },  // '('
-    { "startIndex": 27, "endIndex": 28, "scopes": ["source.abl", "meta.brace.round.js"] }  // ')'    
+    { "startIndex": 27, "endIndex": 28, "scopes": ["source.abl", "meta.function.arguments.abl", "meta.brace.round.js"] }  // ')'
   ];
   shared.itShouldMatchExpectedScopes(statement, expectedTokens);
 })

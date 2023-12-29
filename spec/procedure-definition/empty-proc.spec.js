@@ -12,7 +12,7 @@ end procedure.`;
         { "startIndex": 0, "endIndex": 9, "scopes": ["source.abl", "meta.procedure.abl", "keyword.other.abl"] },  // 'procedure'
         { "startIndex": 9, "endIndex": 10, "scopes": ["source.abl", "meta.procedure.abl"] },  // ' '
         { "startIndex": 10, "endIndex": 18, "scopes": ["source.abl", "meta.procedure.abl", "entity.name.function.abl"] },  // 'procName'
-        { "startIndex": 18, "endIndex": 20, "scopes": ["source.abl"] }  // ':'
+        { "startIndex": 18, "endIndex": 19, "scopes": ["source.abl", "meta.procedure.abl"] }  // ':'
         ],
         [
         { "startIndex": 0, "endIndex": 1, "scopes": ["source.abl"] }  // ''
