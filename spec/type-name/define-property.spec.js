@@ -127,8 +127,8 @@ describe('', () => {
 describe('', () => {
   let statement = `define public property AThing as IHttpClient no-undo
   public get .
-  private set. 
-  
+  private set.
+
   define buffer b for temp-table tt.`;
 
   let expectedTokens = [
@@ -158,13 +158,12 @@ describe('', () => {
     [
       { "startIndex": 0, "endIndex": 2, "scopes": ["source.abl"] },  // '  '
       { "startIndex": 2, "endIndex": 9, "scopes": ["source.abl", "keyword.other.abl"] },  // 'private'
-      { "startIndex": 9, "endIndex": 10, "scopes": ["source.abl", "meta.define.setter.abl"] },  // ' '
+      { "startIndex": 9, "endIndex": 10, "scopes": ["source.abl"] },  // ' '
       { "startIndex": 10, "endIndex": 13, "scopes": ["source.abl", "meta.define.setter.abl", "keyword.other.abl"] },  // 'set'
-      { "startIndex": 13, "endIndex": 14, "scopes": ["source.abl", "punctuation.terminator.abl"] },  // '.'
-      { "startIndex": 14, "endIndex": 16, "scopes": ["source.abl"] }  // ' '
+      { "startIndex": 13, "endIndex": 14, "scopes": ["source.abl", "punctuation.terminator.abl"] }  // '.'
     ],
     [
-      { "startIndex": 0, "endIndex": 3, "scopes": ["source.abl"] }  // '  '
+      { "startIndex": 0, "endIndex": 1, "scopes": ["source.abl"] }  // '  '
     ],
     [
       { "startIndex": 0, "endIndex": 2, "scopes": ["source.abl", "meta.define.abl"] },  // '  '
@@ -186,10 +185,10 @@ describe('', () => {
 })
 
 describe('', () => {
-  let statement = `define public property AThing as IHttpClient 
+  let statement = `define public property AThing as IHttpClient
   public get .
-  private set. 
-  
+  private set.
+
   define buffer b for temp-table tt.`;
 
   let expectedTokens = [
@@ -204,8 +203,7 @@ describe('', () => {
       { "startIndex": 29, "endIndex": 30, "scopes": ["source.abl", "meta.define.abl"] },  // ' '
       { "startIndex": 30, "endIndex": 32, "scopes": ["source.abl", "meta.define.abl", "keyword.other.abl"] },  // 'as'
       { "startIndex": 32, "endIndex": 33, "scopes": ["source.abl", "meta.define.abl"] },  // ' '
-      { "startIndex": 33, "endIndex": 44, "scopes": ["source.abl", "meta.define.abl", "entity.name.type.abl"] },  // 'IHttpClient'
-      { "startIndex": 44, "endIndex": 46, "scopes": ["source.abl", "meta.define.abl"] }  // ' '
+      { "startIndex": 33, "endIndex": 44, "scopes": ["source.abl", "meta.define.abl", "entity.name.type.abl"] }  // 'IHttpClient'
     ],
     [
       { "startIndex": 0, "endIndex": 2, "scopes": ["source.abl", "meta.define.abl"] },  // '  '
@@ -218,13 +216,12 @@ describe('', () => {
     [
       { "startIndex": 0, "endIndex": 2, "scopes": ["source.abl"] },  // '  '
       { "startIndex": 2, "endIndex": 9, "scopes": ["source.abl", "keyword.other.abl"] },  // 'private'
-      { "startIndex": 9, "endIndex": 10, "scopes": ["source.abl", "meta.define.setter.abl"] },  // ' '
+      { "startIndex": 9, "endIndex": 10, "scopes": ["source.abl"] },  // ' '
       { "startIndex": 10, "endIndex": 13, "scopes": ["source.abl", "meta.define.setter.abl", "keyword.other.abl"] },  // 'set'
-      { "startIndex": 13, "endIndex": 14, "scopes": ["source.abl", "punctuation.terminator.abl"] },  // '.'
-      { "startIndex": 14, "endIndex": 16, "scopes": ["source.abl"] }  // ' '
+      { "startIndex": 13, "endIndex": 14, "scopes": ["source.abl", "punctuation.terminator.abl"] }  // '.'
     ],
     [
-      { "startIndex": 0, "endIndex": 3, "scopes": ["source.abl"] }  // '  '
+      { "startIndex": 0, "endIndex": 1, "scopes": ["source.abl"] }  // ''
     ],
     [
       { "startIndex": 0, "endIndex": 2, "scopes": ["source.abl", "meta.define.abl"] },  // '  '
