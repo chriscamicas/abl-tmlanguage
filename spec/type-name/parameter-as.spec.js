@@ -21,7 +21,7 @@ describe('', () => {
     { "startIndex": 29, "endIndex": 30, "scopes": ["source.abl", "meta.define.method.abl"] },  // ' '
     { "startIndex": 30, "endIndex": 41, "scopes": ["source.abl", "meta.define.method.abl", "entity.name.type.abl"] },  // 'foo.bar.baz'
     { "startIndex": 41, "endIndex": 42, "scopes": ["source.abl", "meta.define.method.abl", "meta.brace.round.js"] },  // ')'
-    { "startIndex": 42, "endIndex": 44, "scopes": ["source.abl"] }  // ':'  
+    { "startIndex": 42, "endIndex": 44, "scopes": ["source.abl"] }  // ':'
   ];
   shared.itShouldMatchExpectedScopes(statement, expectedTokens);
 })
@@ -72,7 +72,7 @@ describe('', () => {
     { "startIndex": 63, "endIndex": 64, "scopes": ["source.abl", "meta.define.method.abl"] },  // ' '
     { "startIndex": 64, "endIndex": 75, "scopes": ["source.abl", "meta.define.method.abl", "entity.name.type.abl"] },  // 'foo.bar.baz'
     { "startIndex": 75, "endIndex": 76, "scopes": ["source.abl", "meta.define.method.abl", "meta.brace.round.js"] },  // ')'
-    { "startIndex": 76, "endIndex": 78, "scopes": ["source.abl"] }  // ':'    
+    { "startIndex": 76, "endIndex": 78, "scopes": ["source.abl"] }  // ':'
   ];
   shared.itShouldMatchExpectedScopes(statement, expectedTokens);
 })
@@ -102,7 +102,7 @@ describe('', () => {
     { "startIndex": 69, "endIndex": 80, "scopes": ["source.abl", "meta.define.method.abl", "entity.name.type.generic.abl", "entity.name.type.abl"] },  // 'foo.bar.baz'
     { "startIndex": 80, "endIndex": 81, "scopes": ["source.abl", "meta.define.method.abl", "entity.name.type.generic.abl"] },  // '>'
     { "startIndex": 81, "endIndex": 82, "scopes": ["source.abl", "meta.define.method.abl", "meta.brace.round.js"] },  // ')'
-    { "startIndex": 82, "endIndex": 84, "scopes": ["source.abl"] }  // ':'    
+    { "startIndex": 82, "endIndex": 84, "scopes": ["source.abl"] }  // ':'
   ];
   shared.itShouldMatchExpectedScopes(statement, expectedTokens);
 })
@@ -220,7 +220,7 @@ describe('', () => {
     { "startIndex": 56, "endIndex": 57, "scopes": ["source.abl", "meta.define.method.abl"] },  // ' '
     { "startIndex": 57, "endIndex": 68, "scopes": ["source.abl", "meta.define.method.abl", "entity.name.type.abl"] },  // 'foo.bar.baz'
     { "startIndex": 68, "endIndex": 69, "scopes": ["source.abl", "meta.define.method.abl", "meta.brace.round.js"] },  // ')'
-    { "startIndex": 69, "endIndex": 71, "scopes": ["source.abl"] }  // ':'    
+    { "startIndex": 69, "endIndex": 71, "scopes": ["source.abl"] }  // ':'
   ];
   shared.itShouldMatchExpectedScopes(statement, expectedTokens);
 })
@@ -340,7 +340,7 @@ describe('', () => {
 })
 
 describe('', () => {
-  let statement = `method public void foo( pc as character, 
+  let statement = `method public void foo( pc as character,
                                             po as foo.bar.baz):`;
 
   let expectedTokens = [
@@ -359,8 +359,7 @@ describe('', () => {
       { "startIndex": 27, "endIndex": 29, "scopes": ["source.abl", "meta.define.method.abl", "keyword.other.abl"] },  // 'as'
       { "startIndex": 29, "endIndex": 30, "scopes": ["source.abl", "meta.define.method.abl"] },  // ' '
       { "startIndex": 30, "endIndex": 39, "scopes": ["source.abl", "meta.define.method.abl", "storage.type.abl"] },  // 'character'
-      { "startIndex": 39, "endIndex": 40, "scopes": ["source.abl", "meta.define.method.abl", "punctuation.separator.comma.abl"] },  // ','
-      { "startIndex": 40, "endIndex": 42, "scopes": ["source.abl", "meta.define.method.abl"] }  // ' '
+      { "startIndex": 39, "endIndex": 40, "scopes": ["source.abl", "meta.define.method.abl", "punctuation.separator.comma.abl"] }  // ','
     ],
     [
       { "startIndex": 0, "endIndex": 44, "scopes": ["source.abl", "meta.define.method.abl"] },  // '                                            '
@@ -378,7 +377,7 @@ describe('', () => {
 
 
 describe('', () => {
-  let statement = `METHOD PUBLIC VOID foo( pc as character, 
+  let statement = `METHOD PUBLIC VOID foo( pc as character,
                                             po as class foo.bar.baz):`;
 
   let expectedTokens = [
@@ -397,8 +396,7 @@ describe('', () => {
       { "startIndex": 27, "endIndex": 29, "scopes": ["source.abl", "meta.define.method.abl", "keyword.other.abl"] },  // 'as'
       { "startIndex": 29, "endIndex": 30, "scopes": ["source.abl", "meta.define.method.abl"] },  // ' '
       { "startIndex": 30, "endIndex": 39, "scopes": ["source.abl", "meta.define.method.abl", "storage.type.abl"] },  // 'character'
-      { "startIndex": 39, "endIndex": 40, "scopes": ["source.abl", "meta.define.method.abl", "punctuation.separator.comma.abl"] },  // ','
-      { "startIndex": 40, "endIndex": 42, "scopes": ["source.abl", "meta.define.method.abl"] }  // ' '
+      { "startIndex": 39, "endIndex": 40, "scopes": ["source.abl", "meta.define.method.abl", "punctuation.separator.comma.abl"] }  // ','
     ],
     [
       { "startIndex": 0, "endIndex": 44, "scopes": ["source.abl", "meta.define.method.abl"] },  // '                                            '
@@ -417,7 +415,7 @@ describe('', () => {
 })
 
 describe('', () => {
-  let statement = `METHOD PUBLIC 'System.Byte[]' foo( pc as character, 
+  let statement = `METHOD PUBLIC 'System.Byte[]' foo( pc as character,
                                             po as "System.Byte[]"):`;
 
 
@@ -439,8 +437,7 @@ describe('', () => {
       { "startIndex": 38, "endIndex": 40, "scopes": ["source.abl", "meta.define.method.abl", "keyword.other.abl"] },  // 'as'
       { "startIndex": 40, "endIndex": 41, "scopes": ["source.abl", "meta.define.method.abl"] },  // ' '
       { "startIndex": 41, "endIndex": 50, "scopes": ["source.abl", "meta.define.method.abl", "storage.type.abl"] },  // 'character'
-      { "startIndex": 50, "endIndex": 51, "scopes": ["source.abl", "meta.define.method.abl", "punctuation.separator.comma.abl"] },  // ','
-      { "startIndex": 51, "endIndex": 53, "scopes": ["source.abl", "meta.define.method.abl"] }  // ' '
+      { "startIndex": 50, "endIndex": 51, "scopes": ["source.abl", "meta.define.method.abl", "punctuation.separator.comma.abl"] }  // ','
     ],
     [
       { "startIndex": 0, "endIndex": 44, "scopes": ["source.abl", "meta.define.method.abl"] },  // '                                            '
@@ -459,7 +456,7 @@ describe('', () => {
 })
 
 describe('', () => {
-  let statement = `method public void foo( pc as character, 
+  let statement = `method public void foo( pc as character,
                                             po as baz):`;
 
   let expectedTokens = [
@@ -478,8 +475,7 @@ describe('', () => {
       { "startIndex": 27, "endIndex": 29, "scopes": ["source.abl", "meta.define.method.abl", "keyword.other.abl"] },  // 'as'
       { "startIndex": 29, "endIndex": 30, "scopes": ["source.abl", "meta.define.method.abl"] },  // ' '
       { "startIndex": 30, "endIndex": 39, "scopes": ["source.abl", "meta.define.method.abl", "storage.type.abl"] },  // 'character'
-      { "startIndex": 39, "endIndex": 40, "scopes": ["source.abl", "meta.define.method.abl", "punctuation.separator.comma.abl"] },  // ','
-      { "startIndex": 40, "endIndex": 42, "scopes": ["source.abl", "meta.define.method.abl"] }  // ' '
+      { "startIndex": 39, "endIndex": 40, "scopes": ["source.abl", "meta.define.method.abl", "punctuation.separator.comma.abl"] }  // ','
     ],
     [
       { "startIndex": 0, "endIndex": 44, "scopes": ["source.abl", "meta.define.method.abl"] },  // '                                            '
@@ -496,11 +492,11 @@ describe('', () => {
 })
 
 describe('', () => {
-  let statement = `method public void foo( pc as character, 
+  let statement = `method public void foo( pc as character,
                                             po as baz)
                                             /* comment */
                                             :
-                        var int i.        
+                        var int i.
                     end method.    `;
 
   let expectedTokens = [
@@ -519,8 +515,7 @@ describe('', () => {
       { "startIndex": 27, "endIndex": 29, "scopes": ["source.abl", "meta.define.method.abl", "keyword.other.abl"] },  // 'as'
       { "startIndex": 29, "endIndex": 30, "scopes": ["source.abl", "meta.define.method.abl"] },  // ' '
       { "startIndex": 30, "endIndex": 39, "scopes": ["source.abl", "meta.define.method.abl", "storage.type.abl"] },  // 'character'
-      { "startIndex": 39, "endIndex": 40, "scopes": ["source.abl", "meta.define.method.abl", "punctuation.separator.comma.abl"] },  // ','
-      { "startIndex": 40, "endIndex": 42, "scopes": ["source.abl", "meta.define.method.abl"] }  // ' '
+      { "startIndex": 39, "endIndex": 40, "scopes": ["source.abl", "meta.define.method.abl", "punctuation.separator.comma.abl"] }  // ','
     ],
     [
       { "startIndex": 0, "endIndex": 44, "scopes": ["source.abl", "meta.define.method.abl"] },  // '                                            '
@@ -529,7 +524,7 @@ describe('', () => {
       { "startIndex": 47, "endIndex": 49, "scopes": ["source.abl", "meta.define.method.abl", "keyword.other.abl"] },  // 'as'
       { "startIndex": 49, "endIndex": 50, "scopes": ["source.abl", "meta.define.method.abl"] },  // ' '
       { "startIndex": 50, "endIndex": 53, "scopes": ["source.abl", "meta.define.method.abl", "entity.name.type.abl"] },  // 'baz'
-      { "startIndex": 53, "endIndex": 54, "scopes": ["source.abl", "meta.define.method.abl", "meta.brace.round.js"] },  // ')'
+      { "startIndex": 53, "endIndex": 54, "scopes": ["source.abl", "meta.define.method.abl", "meta.brace.round.js"] }  // ')'
     ],
     [
       { "startIndex": 0, "endIndex": 44, "scopes": ["source.abl", "meta.define.method.abl"] },  // '                                            '
@@ -548,8 +543,7 @@ describe('', () => {
       { "startIndex": 28, "endIndex": 31, "scopes": ["source.abl", "storage.type.abl"] },  // 'int'
       { "startIndex": 31, "endIndex": 32, "scopes": ["source.abl"] },  // ' '
       { "startIndex": 32, "endIndex": 33, "scopes": ["source.abl", "variable.other.abl"] },  // 'i'
-      { "startIndex": 33, "endIndex": 34, "scopes": ["source.abl", "punctuation.terminator.abl"] },  // '.'
-      { "startIndex": 34, "endIndex": 43, "scopes": ["source.abl"] }  // '        '
+      { "startIndex": 33, "endIndex": 34, "scopes": ["source.abl", "punctuation.terminator.abl"] }  // '.'
     ],
     [
       { "startIndex": 0, "endIndex": 20, "scopes": ["source.abl"] },  // '                    '
@@ -565,10 +559,10 @@ describe('', () => {
 
 describe('', () => {
   let statement = `method /*public*/ void  foo (
-            pc as character, 
+            pc as character,
             po as baz
             )
-            // comment 
+            // comment
             :`;
 
   let expectedTokens = [
@@ -583,7 +577,7 @@ describe('', () => {
       { "startIndex": 22, "endIndex": 24, "scopes": ["source.abl", "meta.define.method.abl"] },  // '  '
       { "startIndex": 24, "endIndex": 27, "scopes": ["source.abl", "meta.define.method.abl", "entity.name.function.abl"] },  // 'foo'
       { "startIndex": 27, "endIndex": 28, "scopes": ["source.abl", "meta.define.method.abl"] },  // ' '
-      { "startIndex": 28, "endIndex": 29, "scopes": ["source.abl", "meta.define.method.abl", "meta.brace.round.js"] },  // '('
+      { "startIndex": 28, "endIndex": 29, "scopes": ["source.abl", "meta.define.method.abl", "meta.brace.round.js"] }  // '('
     ],
     [
       { "startIndex": 0, "endIndex": 12, "scopes": ["source.abl", "meta.define.method.abl"] },  // '            '
@@ -592,8 +586,7 @@ describe('', () => {
       { "startIndex": 15, "endIndex": 17, "scopes": ["source.abl", "meta.define.method.abl", "keyword.other.abl"] },  // 'as'
       { "startIndex": 17, "endIndex": 18, "scopes": ["source.abl", "meta.define.method.abl"] },  // ' '
       { "startIndex": 18, "endIndex": 27, "scopes": ["source.abl", "meta.define.method.abl", "storage.type.abl"] },  // 'character'
-      { "startIndex": 27, "endIndex": 28, "scopes": ["source.abl", "meta.define.method.abl", "punctuation.separator.comma.abl"] },  // ','
-      { "startIndex": 28, "endIndex": 30, "scopes": ["source.abl", "meta.define.method.abl"] },  // ' '
+      { "startIndex": 27, "endIndex": 28, "scopes": ["source.abl", "meta.define.method.abl", "punctuation.separator.comma.abl"] }  // ','
     ],
     [
       { "startIndex": 0, "endIndex": 12, "scopes": ["source.abl", "meta.define.method.abl"] },  // '            '
@@ -601,26 +594,26 @@ describe('', () => {
       { "startIndex": 14, "endIndex": 15, "scopes": ["source.abl", "meta.define.method.abl"] },  // ' '
       { "startIndex": 15, "endIndex": 17, "scopes": ["source.abl", "meta.define.method.abl", "keyword.other.abl"] },  // 'as'
       { "startIndex": 17, "endIndex": 18, "scopes": ["source.abl", "meta.define.method.abl"] },  // ' '
-      { "startIndex": 18, "endIndex": 21, "scopes": ["source.abl", "meta.define.method.abl", "entity.name.type.abl"] },  // 'baz'
+      { "startIndex": 18, "endIndex": 21, "scopes": ["source.abl", "meta.define.method.abl", "entity.name.type.abl"] }  // 'baz'
     ],
     [
       { "startIndex": 0, "endIndex": 12, "scopes": ["source.abl", "meta.define.method.abl"] },  // '            '
-      { "startIndex": 12, "endIndex": 13, "scopes": ["source.abl", "meta.define.method.abl", "meta.brace.round.js"] },  // ')'
+      { "startIndex": 12, "endIndex": 13, "scopes": ["source.abl", "meta.define.method.abl", "meta.brace.round.js"] }  // ')'
     ],
     [
       { "startIndex": 0, "endIndex": 12, "scopes": ["source.abl", "meta.define.method.abl"] },  // '            '
-      { "startIndex": 12, "endIndex": 23, "scopes": ["source.abl", "meta.define.method.abl", "comment.line.double-slash.abl"] },  // '// comment '
+      { "startIndex": 12, "endIndex": 22, "scopes": ["source.abl", "meta.define.method.abl", "comment.line.double-slash.abl"] }  // '// comment '
     ],
     [
       { "startIndex": 0, "endIndex": 12, "scopes": ["source.abl", "meta.define.method.abl"] },  // '            '
-      { "startIndex": 12, "endIndex": 14, "scopes": ["source.abl"] },  // ':'
+      { "startIndex": 12, "endIndex": 14, "scopes": ["source.abl"] }  // ':'
     ]
   ];
   shared.itShouldMatchExpectedScopes(statement, expectedTokens);
 })
 
 describe('', () => {
-  let statement = `method public void foo(input pc as character, 
+  let statement = `method public void foo(input pc as character,
                                             output po as foo.bar.baz,
                                             buffer pb for Table,
                                             input-output dataset-handle hh):`;
@@ -642,8 +635,7 @@ describe('', () => {
       { "startIndex": 32, "endIndex": 34, "scopes": ["source.abl", "meta.define.method.abl", "keyword.other.abl"] },  // 'as'
       { "startIndex": 34, "endIndex": 35, "scopes": ["source.abl", "meta.define.method.abl"] },  // ' '
       { "startIndex": 35, "endIndex": 44, "scopes": ["source.abl", "meta.define.method.abl", "storage.type.abl"] },  // 'character'
-      { "startIndex": 44, "endIndex": 45, "scopes": ["source.abl", "meta.define.method.abl", "punctuation.separator.comma.abl"] },  // ','
-      { "startIndex": 45, "endIndex": 47, "scopes": ["source.abl", "meta.define.method.abl"] }  // ' '
+      { "startIndex": 44, "endIndex": 45, "scopes": ["source.abl", "meta.define.method.abl", "punctuation.separator.comma.abl"] }  // ','
     ],
     [
       { "startIndex": 0, "endIndex": 44, "scopes": ["source.abl", "meta.define.method.abl"] },  // '                                            '
@@ -682,7 +674,7 @@ describe('', () => {
 })
 
 describe('', () => {
-  let statement = `method public void foo(input pc as character, 
+  let statement = `method public void foo(input pc as character,
                                             output po as foo.bar.baz,
                                             buffer pb for Table   preselect,
                                             input-output dataset-handle hh):`;
@@ -704,8 +696,7 @@ describe('', () => {
       { "startIndex": 32, "endIndex": 34, "scopes": ["source.abl", "meta.define.method.abl", "keyword.other.abl"] },  // 'as'
       { "startIndex": 34, "endIndex": 35, "scopes": ["source.abl", "meta.define.method.abl"] },  // ' '
       { "startIndex": 35, "endIndex": 44, "scopes": ["source.abl", "meta.define.method.abl", "storage.type.abl"] },  // 'character'
-      { "startIndex": 44, "endIndex": 45, "scopes": ["source.abl", "meta.define.method.abl", "punctuation.separator.comma.abl"] },  // ','
-      { "startIndex": 45, "endIndex": 47, "scopes": ["source.abl", "meta.define.method.abl"] }  // ' '
+      { "startIndex": 44, "endIndex": 45, "scopes": ["source.abl", "meta.define.method.abl", "punctuation.separator.comma.abl"] }  // ','
     ],
     [
       { "startIndex": 0, "endIndex": 44, "scopes": ["source.abl", "meta.define.method.abl"] },  // '                                            '
@@ -747,7 +738,7 @@ describe('', () => {
 })
 
 describe('', () => {
-  let statement = `method public void foo(input pc as character extent 99, 
+  let statement = `method public void foo(input pc as character extent 99,
                                             output po as foo.bar.baz extent,
                                             buffer pb for Table,
                                             input-output dataset-handle hh):`;
@@ -773,8 +764,7 @@ describe('', () => {
       { "startIndex": 45, "endIndex": 51, "scopes": ["source.abl", "meta.define.method.abl", "keyword.other.abl"] },  // 'extent'
       { "startIndex": 51, "endIndex": 52, "scopes": ["source.abl", "meta.define.method.abl"] },  // ' '
       { "startIndex": 52, "endIndex": 54, "scopes": ["source.abl", "meta.define.method.abl", "constant.numeric.source.abl"] },  // '99'
-      { "startIndex": 54, "endIndex": 55, "scopes": ["source.abl", "meta.define.method.abl", "punctuation.separator.comma.abl"] },  // ','
-      { "startIndex": 55, "endIndex": 57, "scopes": ["source.abl", "meta.define.method.abl"] }  // ' '
+      { "startIndex": 54, "endIndex": 55, "scopes": ["source.abl", "meta.define.method.abl", "punctuation.separator.comma.abl"] }  // ','
     ],
     [
       { "startIndex": 0, "endIndex": 44, "scopes": ["source.abl", "meta.define.method.abl"] },  // '                                            '
@@ -831,7 +821,7 @@ describe('', () => {
       { "startIndex": 23, "endIndex": 28, "scopes": ["source.abl", "meta.define.method.abl", "keyword.other.abl"] },  // 'table'
       { "startIndex": 28, "endIndex": 29, "scopes": ["source.abl", "meta.define.method.abl"] },  // ' '
       { "startIndex": 29, "endIndex": 35, "scopes": ["source.abl", "meta.define.method.abl", "storage.data.table.abl"] },  // 'ttItem'
-      { "startIndex": 35, "endIndex": 36, "scopes": ["source.abl", "meta.define.method.abl"] }  // ','
+      { "startIndex": 35, "endIndex": 36, "scopes": ["source.abl", "meta.define.method.abl", "punctuation.separator.comma.abl"] }  // ','
     ],
     [
       { "startIndex": 0, "endIndex": 44, "scopes": ["source.abl", "meta.define.method.abl"] },  // '                                            '
@@ -840,7 +830,8 @@ describe('', () => {
       { "startIndex": 57, "endIndex": 64, "scopes": ["source.abl", "meta.define.method.abl", "keyword.other.abl"] },  // 'dataset'
       { "startIndex": 64, "endIndex": 65, "scopes": ["source.abl", "meta.define.method.abl"] },  // ' '
       { "startIndex": 65, "endIndex": 75, "scopes": ["source.abl", "meta.define.method.abl", "storage.data.table.abl"] },  // 'dsCustomer'
-      { "startIndex": 75, "endIndex": 77, "scopes": ["source.abl", "meta.define.method.abl"] }  // '):'
+      { "startIndex": 75, "endIndex": 76, "scopes": ["source.abl", "meta.define.method.abl", "meta.brace.round.js"] },  // ')'
+      { "startIndex": 76, "endIndex": 78, "scopes": ["source.abl"] }  // ':'
     ]
   ];
   shared.itShouldMatchExpectedScopes(statement, expectedTokens);

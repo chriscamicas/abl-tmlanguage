@@ -112,7 +112,7 @@ describe('', () => {
     { "startIndex": 39, "endIndex": 40, "scopes": ["source.abl", "meta.define.abl"] },  // ' '
     { "startIndex": 40, "endIndex": 47, "scopes": ["source.abl", "meta.define.abl", "keyword.other.abl"] },  // 'no-undo'
     { "startIndex": 47, "endIndex": 48, "scopes": ["source.abl", "meta.define.abl"] },  // ' '
-    { "startIndex": 48, "endIndex": 49, "scopes": ["source.abl", "meta.define.abl", "punctuation.terminator.abl"] }  // '.'                    
+    { "startIndex": 48, "endIndex": 49, "scopes": ["source.abl", "meta.define.abl", "punctuation.terminator.abl"] }  // '.'
   ];
   shared.itShouldMatchExpectedScopes(statement, expectedTokens);
 })
@@ -184,7 +184,7 @@ describe('', () => {
     { "startIndex": 68, "endIndex": 69, "scopes": ["source.abl", "meta.define.abl", "meta.array.literal.abl"] },  // ' '
     { "startIndex": 69, "endIndex": 72, "scopes": ["source.abl", "meta.define.abl", "meta.array.literal.abl", "constant.numeric.source.abl"] },  // '0x4'
     { "startIndex": 72, "endIndex": 73, "scopes": ["source.abl", "meta.define.abl", "meta.array.literal.abl", "meta.brace.square.abl"] },  // ']'
-    { "startIndex": 73, "endIndex": 74, "scopes": ["source.abl", "meta.define.abl", "punctuation.terminator.abl"] }  // '.'    
+    { "startIndex": 73, "endIndex": 74, "scopes": ["source.abl", "meta.define.abl", "punctuation.terminator.abl"] }  // '.'
   ];
   shared.itShouldMatchExpectedScopes(statement, expectedTokens);
 })
@@ -220,7 +220,7 @@ describe('', () => {
     { "startIndex": 61, "endIndex": 62, "scopes": ["source.abl", "meta.define.abl", "meta.array.literal.abl", "string.double.complex.abl", "punctuation.definition.string.end.abl"] },  // '"'
     { "startIndex": 62, "endIndex": 63, "scopes": ["source.abl", "meta.define.abl", "meta.array.literal.abl", "punctuation.separator.comma.abl"] },  // ','
     { "startIndex": 63, "endIndex": 64, "scopes": ["source.abl", "meta.define.abl", "meta.array.literal.abl"] },  // ' '
-    { "startIndex": 64, "endIndex": 65, "scopes": ["source.abl", "meta.define.abl", "meta.array.literal.abl", "constant.language.source.abl"] },  // '?'
+    { "startIndex": 64, "endIndex": 65, "scopes": ["source.abl", "meta.define.abl", "meta.array.literal.abl", "constant.language.abl"] },  // '?'
     { "startIndex": 65, "endIndex": 66, "scopes": ["source.abl", "meta.define.abl", "meta.array.literal.abl", "meta.brace.square.abl"] },  // ']'
     { "startIndex": 66, "endIndex": 67, "scopes": ["source.abl", "meta.define.abl", "punctuation.terminator.abl"] }  // '.'
   ];
