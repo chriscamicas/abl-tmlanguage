@@ -44,7 +44,7 @@
     },
     "method-definition": {
       "name": "meta.define.method.abl",
-      "begin": "(?i)^\\s*(method)\\s*",
+      "begin": "(?i)^\\s*(method|constructor)\\s*",
       "beginCaptures": { "1": { "name": "keyword.other.abl" } },
       "comment": "The lookaread on the regex for the closing colon is required to make this scope end properly",
       "end": "\\s*(?=:)",
