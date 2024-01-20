@@ -5,7 +5,7 @@ const shared = require('../shared.js');
 describe('', () => {
     let statement = `define temp-table ttData no-undo
     field f1 as class Progress.Lang.Object
-    field f3 as Object    
+    field f3 as Object
   `;
 
     let expectedTokens = [
@@ -38,8 +38,7 @@ describe('', () => {
             { "startIndex": 12, "endIndex": 13, "scopes": ["source.abl", "meta.define.abl"] },  // ' '
             { "startIndex": 13, "endIndex": 15, "scopes": ["source.abl", "meta.define.abl", "keyword.other.abl"] },  // 'as'
             { "startIndex": 15, "endIndex": 16, "scopes": ["source.abl", "meta.define.abl"] },  // ' '
-            { "startIndex": 16, "endIndex": 22, "scopes": ["source.abl", "meta.define.abl", "entity.name.type.abl"] },  // 'Object'
-            { "startIndex": 22, "endIndex": 27, "scopes": ["source.abl", "meta.define.abl"] }  // '    '
+            { "startIndex": 16, "endIndex": 22, "scopes": ["source.abl", "meta.define.abl", "entity.name.type.abl"] }  // 'Object'
         ],
         [
             { "startIndex": 0, "endIndex": 3, "scopes": ["source.abl", "meta.define.abl"] }  // '  '
@@ -53,7 +52,7 @@ describe('', () => {
     let statement = `define temp-table ttData no-undo
     field f1 as class Progress.Lang.Object /* long */
     field f2 as date init today
-    field f3 as Object    // short version 
+    field f3 as Object    // short version
     field f4 as clob initial ?
     .
   `;
@@ -108,7 +107,7 @@ describe('', () => {
             { "startIndex": 15, "endIndex": 16, "scopes": ["source.abl", "meta.define.abl"] },  // ' '
             { "startIndex": 16, "endIndex": 22, "scopes": ["source.abl", "meta.define.abl", "entity.name.type.abl"] },  // 'Object'
             { "startIndex": 22, "endIndex": 26, "scopes": ["source.abl", "meta.define.abl"] },  // '    '
-            { "startIndex": 26, "endIndex": 43, "scopes": ["source.abl", "meta.define.abl", "comment.line.double-slash.abl"] }  // '// short version '
+            { "startIndex": 26, "endIndex": 42, "scopes": ["source.abl", "meta.define.abl", "comment.line.double-slash.abl"] }  // '// short version '
         ],
         [
             { "startIndex": 0, "endIndex": 4, "scopes": ["source.abl", "meta.define.abl"] },  // '    '
@@ -122,7 +121,7 @@ describe('', () => {
             { "startIndex": 20, "endIndex": 21, "scopes": ["source.abl", "meta.define.abl"] },  // ' '
             { "startIndex": 21, "endIndex": 28, "scopes": ["source.abl", "meta.define.abl", "keyword.other.abl"] },  // 'initial'
             { "startIndex": 28, "endIndex": 29, "scopes": ["source.abl", "meta.define.abl"] },  // ' '
-            { "startIndex": 29, "endIndex": 30, "scopes": ["source.abl", "meta.define.abl", "constant.language.source.abl"] }  // '?'
+            { "startIndex": 29, "endIndex": 30, "scopes": ["source.abl", "meta.define.abl", "constant.language.abl"] }  // '?'
         ],
         [
             { "startIndex": 0, "endIndex": 4, "scopes": ["source.abl", "meta.define.abl"] },  // '    '
@@ -139,7 +138,7 @@ describe('', () => {
     let statement = `define temp-table ttData no-undo before-table btData
     field f1 as class Progress.Lang.Object /* long */
     field f2 as date init today
-    field f3 as Object    // short version 
+    field f3 as Object    // short version
     field f4 as clob initial ?
     .
   `;
@@ -198,7 +197,7 @@ describe('', () => {
             { "startIndex": 15, "endIndex": 16, "scopes": ["source.abl", "meta.define.abl"] },  // ' '
             { "startIndex": 16, "endIndex": 22, "scopes": ["source.abl", "meta.define.abl", "entity.name.type.abl"] },  // 'Object'
             { "startIndex": 22, "endIndex": 26, "scopes": ["source.abl", "meta.define.abl"] },  // '    '
-            { "startIndex": 26, "endIndex": 43, "scopes": ["source.abl", "meta.define.abl", "comment.line.double-slash.abl"] }  // '// short version '
+            { "startIndex": 26, "endIndex": 42, "scopes": ["source.abl", "meta.define.abl", "comment.line.double-slash.abl"] }  // '// short version '
         ],
         [
             { "startIndex": 0, "endIndex": 4, "scopes": ["source.abl", "meta.define.abl"] },  // '    '
@@ -212,7 +211,7 @@ describe('', () => {
             { "startIndex": 20, "endIndex": 21, "scopes": ["source.abl", "meta.define.abl"] },  // ' '
             { "startIndex": 21, "endIndex": 28, "scopes": ["source.abl", "meta.define.abl", "keyword.other.abl"] },  // 'initial'
             { "startIndex": 28, "endIndex": 29, "scopes": ["source.abl", "meta.define.abl"] },  // ' '
-            { "startIndex": 29, "endIndex": 30, "scopes": ["source.abl", "meta.define.abl", "constant.language.source.abl"] }  // '?'
+            { "startIndex": 29, "endIndex": 30, "scopes": ["source.abl", "meta.define.abl", "constant.language.abl"] }  // '?'
         ],
         [
             { "startIndex": 0, "endIndex": 4, "scopes": ["source.abl", "meta.define.abl"] },  // '    '
@@ -229,7 +228,7 @@ describe('', () => {
     let statement = `define temp-table ttData no-undo like Customer
     field f1 as class Progress.Lang.Object /* long */
     field f2 as date init today
-    field f3 as Object    // short version 
+    field f3 as Object    // short version
     field f4 as clob initial ?
     field f5 as int64
     field f6 as  Progress.Lang.Object /* long */
@@ -290,7 +289,7 @@ describe('', () => {
             { "startIndex": 15, "endIndex": 16, "scopes": ["source.abl", "meta.define.abl"] },  // ' '
             { "startIndex": 16, "endIndex": 22, "scopes": ["source.abl", "meta.define.abl", "entity.name.type.abl"] },  // 'Object'
             { "startIndex": 22, "endIndex": 26, "scopes": ["source.abl", "meta.define.abl"] },  // '    '
-            { "startIndex": 26, "endIndex": 43, "scopes": ["source.abl", "meta.define.abl", "comment.line.double-slash.abl"] }  // '// short version '
+            { "startIndex": 26, "endIndex": 42, "scopes": ["source.abl", "meta.define.abl", "comment.line.double-slash.abl"] }  // '// short version '
         ],
         [
             { "startIndex": 0, "endIndex": 4, "scopes": ["source.abl", "meta.define.abl"] },  // '    '
@@ -304,7 +303,7 @@ describe('', () => {
             { "startIndex": 20, "endIndex": 21, "scopes": ["source.abl", "meta.define.abl"] },  // ' '
             { "startIndex": 21, "endIndex": 28, "scopes": ["source.abl", "meta.define.abl", "keyword.other.abl"] },  // 'initial'
             { "startIndex": 28, "endIndex": 29, "scopes": ["source.abl", "meta.define.abl"] },  // ' '
-            { "startIndex": 29, "endIndex": 30, "scopes": ["source.abl", "meta.define.abl", "constant.language.source.abl"] }  // '?'
+            { "startIndex": 29, "endIndex": 30, "scopes": ["source.abl", "meta.define.abl", "constant.language.abl"] }  // '?'
         ],
         [
             { "startIndex": 0, "endIndex": 4, "scopes": ["source.abl", "meta.define.abl"] },  // '    '
@@ -430,7 +429,7 @@ describe('', () => {
         ],
         [
             { "startIndex": 0, "endIndex": 3, "scopes": ["source.abl"] }  // '  '
-        ]        
+        ]
     ];
     shared.itShouldMatchExpectedScopes(statement, expectedTokens);
 })

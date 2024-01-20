@@ -65,14 +65,38 @@
           "endCaptures": { "1": { "name": "meta.brace.round.js" } },
           "patterns": [ { "include": "#parameter-definition" } ]
         },
-        { "include": "#string" },
-        { "include": "#dll-type" },
-        { "include": "#extent" },
-        { "include": "#primitive-type" },
-        { "include": "#type-name-generic-progress" },
-        { "include": "#type-name-progress" },
-        { "include": "#type-name-generic" },
-        { "include": "#type-name" },
+        {
+          "include": "#string",
+          "comment": "For the return type"
+        },
+        {
+          "include": "#dll-type",
+          "comment": "For the return type"
+        },
+        {
+          "include": "#extent",
+          "comment": "For the return type"
+        },
+        {
+          "include": "#primitive-type",
+          "comment": "For the return type"
+        },
+        {
+          "include": "#type-name-generic-progress",
+          "comment": "For the return type"
+        },
+        {
+          "include": "#type-name-progress",
+          "comment": "For the return type"
+        },
+        {
+          "include": "#type-name-generic",
+          "comment": "For the return type"
+        },
+        {
+          "include": "#type-name",
+          "comment": "For the return type"
+        },
         { "include": "#comment" }
       ]
     },
@@ -115,7 +139,8 @@
           }
         },
         {
-          "match": "(?i)\\s*(dataset|table)\\s+([\\w\\-]+).*",
+          "match": "(?i)\\s*(dataset|table)\\s+([\\w\\-]+)\\s*",
+          "X-match": "(?i)\\s*(dataset|table)\\s+([\\w\\-]+).*",
           "captures": {
             "1": { "name": "keyword.other.abl" },
             "2": { "name": "storage.data.table.abl" }
@@ -1393,6 +1418,7 @@
       "endCaptures": { "1": { "name": "meta.brace.round.js" } },
       "patterns": [
         { "include": "#parens" },
+        { "include": "#constant" },
         { "include": "#X-new-class" },
         { "include": "#type-reference" },
         { "include": "#expression" },
@@ -1593,12 +1619,12 @@
       }
     },
     "timestamp-constant": {
-      "match": "(?i)(?<=^|\\s)(today|now)(?!\\w|-)",
+      "match": "(?i)(?<=^|\\s*)(today|now)(?!\\w|-)",
       "name": "constant.language.abl"
     },
     "constant": {
-      "match": "(?i)(?<=^|\\s)(true|false|yes|no|\\?)(?!\\w|-)",
-      "name": "constant.language.source.abl"
+      "match": "(?i)(?<=^|\\s*)(true|false|yes|no|\\?)(?!\\w|-)",
+      "name": "constant.language.abl"
     },
     "punctuation-colon": {
       "name": "punctuation.terminator.abl",
