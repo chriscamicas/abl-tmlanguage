@@ -21,6 +21,7 @@ steps:
   displayName: 'running tests'
 
 - task: Npm@1
+  condition: eq(variables['Build.SourceBranch'], 'refs/heads/master')
   inputs:
     command: 'publish'
     customRegistry: 'useFeed'
