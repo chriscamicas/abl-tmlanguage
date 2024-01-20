@@ -9,7 +9,7 @@ describe('', () => {
     { "startIndex": 0, "endIndex": 3, "scopes": ["source.abl", "keyword.other.abl"] },  // 'new'
     { "startIndex": 3, "endIndex": 4, "scopes": ["source.abl"] },  // ' '
     { "startIndex": 4, "endIndex": 11, "scopes": ["source.abl", "entity.name.type.abl"] },  // 'foo.bar'
-    { "startIndex": 11, "endIndex": 12, "scopes": ["source.abl", "meta.brace.round.js"] },  // '('
+    { "startIndex": 11, "endIndex": 12, "scopes": ["source.abl", "meta.function.arguments.abl", "meta.brace.round.js"] },  // '('
     { "startIndex": 12, "endIndex": 13, "scopes": ["source.abl", "meta.function.arguments.abl", "variable.other.abl"] },  // 'y'
     { "startIndex": 13, "endIndex": 14, "scopes": ["source.abl", "meta.function.arguments.abl", "punctuation.separator.comma.abl"] },  // ','
     { "startIndex": 14, "endIndex": 15, "scopes": ["source.abl", "meta.function.arguments.abl"] },  // ' '
@@ -28,7 +28,7 @@ describe('', () => {
     { "startIndex": 0, "endIndex": 3, "scopes": ["source.abl", "keyword.other.abl"] },  // 'new'
     { "startIndex": 3, "endIndex": 4, "scopes": ["source.abl"] },  // ' '
     { "startIndex": 4, "endIndex": 11, "scopes": ["source.abl", "entity.name.type.abl"] },  // 'foo.bar'
-    { "startIndex": 11, "endIndex": 12, "scopes": ["source.abl", "meta.brace.round.js"] },  // '('
+    { "startIndex": 11, "endIndex": 12, "scopes": ["source.abl", "meta.function.arguments.abl", "meta.brace.round.js"] },  // '('
     { "startIndex": 12, "endIndex": 13, "scopes": ["source.abl", "meta.function.arguments.abl", "string.double.complex.abl", "punctuation.definition.string.begin.abl"] },  // '"'
     { "startIndex": 13, "endIndex": 14, "scopes": ["source.abl", "meta.function.arguments.abl", "string.double.complex.abl"] },  // 'y'
     { "startIndex": 14, "endIndex": 15, "scopes": ["source.abl", "meta.function.arguments.abl", "string.double.complex.abl", "punctuation.definition.string.end.abl"] },  // '"'
@@ -39,7 +39,9 @@ describe('', () => {
     { "startIndex": 23, "endIndex": 24, "scopes": ["source.abl", "meta.function.arguments.abl"] },  // ' '
     { "startIndex": 24, "endIndex": 35, "scopes": ["source.abl", "meta.function.arguments.abl", "entity.name.type.abl"] },  // 'foo.bar.baz'
     { "startIndex": 35, "endIndex": 36, "scopes": ["source.abl", "meta.function.arguments.abl", "meta.brace.round.js"] },  // '('
-    { "startIndex": 36, "endIndex": 40, "scopes": ["source.abl", "meta.function.arguments.abl"] }  // ')) '
+    { "startIndex": 36, "endIndex": 37, "scopes": ["source.abl", "meta.brace.round.js"] },  // ')'
+    { "startIndex": 37, "endIndex": 38, "scopes": ["source.abl", "meta.brace.round.js"] },  // ')'
+    { "startIndex": 38, "endIndex": 40, "scopes": ["source.abl"] }  // ' '
   ];
   shared.itShouldMatchExpectedScopes(statement, expectedTokens);
 })
@@ -56,7 +58,7 @@ describe('', () => {
     { "startIndex": 7, "endIndex": 8, "scopes": ["source.abl"] },  // ' '
     { "startIndex": 8, "endIndex": 11, "scopes": ["source.abl", "entity.name.type.abl"] },  // 'baz'
     { "startIndex": 11, "endIndex": 12, "scopes": ["source.abl"] },  // ' '
-    { "startIndex": 12, "endIndex": 13, "scopes": ["source.abl", "meta.brace.round.js"] },  // '('
+    { "startIndex": 12, "endIndex": 13, "scopes": ["source.abl", "meta.function.arguments.abl", "meta.brace.round.js"] },  // '('
     { "startIndex": 13, "endIndex": 17, "scopes": ["source.abl", "meta.function.arguments.abl", "variable.other.abl"] },  // 'true'
     { "startIndex": 17, "endIndex": 18, "scopes": ["source.abl", "meta.function.arguments.abl", "punctuation.separator.comma.abl"] },  // ','
     { "startIndex": 18, "endIndex": 19, "scopes": ["source.abl", "meta.function.arguments.abl"] },  // ' '
@@ -71,7 +73,8 @@ describe('', () => {
     { "startIndex": 33, "endIndex": 34, "scopes": ["source.abl", "meta.function.arguments.abl"] },  // ' '
     { "startIndex": 34, "endIndex": 37, "scopes": ["source.abl", "meta.function.arguments.abl", "constant.numeric.source.abl"] },  // '-12'
     { "startIndex": 37, "endIndex": 38, "scopes": ["source.abl", "meta.brace.round.js"] },  // ')'
-    { "startIndex": 38, "endIndex": 39, "scopes": ["source.abl", "punctuation.terminator.abl"] }  // '.'    
+    { "startIndex": 38, "endIndex": 39, "scopes": ["source.abl", "punctuation.terminator.abl"] }  // '.'
+
   ];
   shared.itShouldMatchExpectedScopes(statement, expectedTokens);
 })
@@ -84,7 +87,7 @@ describe('', () => {
     { "startIndex": 4, "endIndex": 5, "scopes": ["source.abl", "meta.function-call.abl"] },  // ' '
     { "startIndex": 5, "endIndex": 6, "scopes": ["source.abl", "meta.function-call.abl", "meta.brace.round.js"] },  // '('
     { "startIndex": 6, "endIndex": 7, "scopes": ["source.abl", "meta.function-call.abl"] },  // ' '
-    { "startIndex": 7, "endIndex": 8, "scopes": ["source.abl", "meta.function-call.abl", "entity.name.type.abl"] },  // 'q'
+    { "startIndex": 7, "endIndex": 8, "scopes": ["source.abl", "meta.function-call.abl", "variable.other.abl"] },  // 'q'
     { "startIndex": 8, "endIndex": 9, "scopes": ["source.abl", "meta.function-call.abl"] },  // ':'
     { "startIndex": 9, "endIndex": 13, "scopes": ["source.abl", "meta.function-call.abl", "entity.name.function.abl"] },  // 'Prop'
     { "startIndex": 13, "endIndex": 14, "scopes": ["source.abl", "meta.function-call.abl", "punctuation.separator.comma.abl"] },  // ','
@@ -92,7 +95,7 @@ describe('', () => {
     { "startIndex": 15, "endIndex": 26, "scopes": ["source.abl", "meta.function-call.abl", "entity.name.type.abl"] },  // 'foo.bar.baz'
     { "startIndex": 26, "endIndex": 27, "scopes": ["source.abl", "meta.function-call.abl"] },  // ' '
     { "startIndex": 27, "endIndex": 28, "scopes": ["source.abl", "meta.function-call.abl", "meta.brace.round.js"] },  // ')'
-    { "startIndex": 28, "endIndex": 30, "scopes": ["source.abl"] }  // ' '    
+    { "startIndex": 28, "endIndex": 30, "scopes": ["source.abl"] }   // ' '
   ];
   shared.itShouldMatchExpectedScopes(statement, expectedTokens);
 })
@@ -151,7 +154,7 @@ describe('', () => {
     { "startIndex": 22, "endIndex": 23, "scopes": ["source.abl", "meta.function-call.abl", "string.double.complex.abl", "punctuation.definition.string.end.abl"] },  // '"'
     { "startIndex": 23, "endIndex": 24, "scopes": ["source.abl", "meta.function-call.abl"] },  // ' '
     { "startIndex": 24, "endIndex": 25, "scopes": ["source.abl", "meta.function-call.abl", "meta.brace.round.js"] },  // ')'
-    { "startIndex": 25, "endIndex": 27, "scopes": ["source.abl"] }  // ' '    
+    { "startIndex": 25, "endIndex": 27, "scopes": ["source.abl"] }  // ' '
   ];
   shared.itShouldMatchExpectedScopes(statement, expectedTokens);
 })
@@ -173,7 +176,7 @@ describe('', () => {
     { "startIndex": 23, "endIndex": 25, "scopes": ["source.abl", "meta.function-call.abl", "support.other.abl"] },  // ':u'
     { "startIndex": 25, "endIndex": 26, "scopes": ["source.abl", "meta.function-call.abl"] },  // ' '
     { "startIndex": 26, "endIndex": 27, "scopes": ["source.abl", "meta.function-call.abl", "meta.brace.round.js"] },  // ')'
-    { "startIndex": 27, "endIndex": 29, "scopes": ["source.abl"] }  // ' '    
+    { "startIndex": 27, "endIndex": 29, "scopes": ["source.abl"] }  // ' '
   ];
   shared.itShouldMatchExpectedScopes(statement, expectedTokens);
 })
