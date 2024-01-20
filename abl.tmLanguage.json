@@ -7,8 +7,6 @@
   ],
   "name": "OpenEdge ABL",
   "patterns": [
-    { "include": "#NO-procedure-definition" },
-    { "include": "#NO-end-function-procedure-method-block" },
     { "include": "#statements" }
   ],
   "repository": {
@@ -140,7 +138,6 @@
         },
         {
           "match": "(?i)\\s*(dataset|table)\\s+([\\w\\-]+)\\s*",
-          "X-match": "(?i)\\s*(dataset|table)\\s+([\\w\\-]+).*",
           "captures": {
             "1": { "name": "keyword.other.abl" },
             "2": { "name": "storage.data.table.abl" }
@@ -190,7 +187,6 @@
         { "include": "#block-statement" },
         { "include": "#block-label" },
         { "include": "#end-function-procedure-method-block" },
-        { "include": "#X-as-type" },
         { "include": "#find-record" },
         { "include": "#type-argument-function" },
         { "include": "#get-class" },
@@ -234,18 +230,12 @@
         },
         { "include": "#property-accessor" },
         { "include": "#property-call" },
-        { "include": "#function-call" },
+        { "include": "#function-call" , "comment": "does not exist" },
         { "include": "#type-reference" },
-        { "include": "#X-variable-name" },
-        { "include": "#type-name2" },
-        { "include": "#X-type-name-generic-progress" },
-        { "include": "#X-type-name-progress" },
-        { "include": "#X-type-name-generic" },
-        { "include": "#X-type-name" },
+        { "include": "#type-name2" , "comment": "does not exist"},
         { "include": "#code-block" },
         { "include": "#language-functions" },
         { "include": "#handle-attributes" },
-        { "include": "#NO-define" },
         { "include": "#comment" },
         { "include": "#array-literal" },
         { "include": "#punctuation-semicolon" },
@@ -303,9 +293,7 @@
     },
     "type-name-generic-progress": {
       "name": "entity.name.type.generic.abl",
-      "NO-NO-begin": "(?i)\\s*((progress)(\\.[\\w\\#\\$\\%\\-]+)*\\s*)\\s*<",
       "begin": "(?i)\\s*((progress)(\\.[\\w\\#\\$\\%\\-]+)*)\\s*<",
-      "NO-begin": "(?i)(class)?\\b(([\\w\\#\\$\\%\\-]+|progress\\.|map|set)(\\.?[\\w\\#\\$\\%\\-]+)*\\s*)\\s*<",
       "beginCaptures": { "1": { "name": "entity.name.type.abl" } },
       "end": "\\>",
       "patterns": [ { "include": "#generic-types" } ]
@@ -329,12 +317,10 @@
     },
     "type-name": {
       "match": "(?i)\\b([\\w\\#\\$\\%\\-]+(\\.[\\w\\#\\$\\%\\-]+)*)\\b",
-      "NO-match": "(?i)\\s*([\\w\\#\\$\\%\\-]+(\\.[\\w\\#\\$\\%\\-]+)*)\\s*",
       "captures": { "1": { "name": "entity.name.type.abl" } }
     },
     "type-name-comma": {
       "match": "(?i)\\s*(,*)\\s*(class)?\\s*(([\\w\\#\\$\\%]+)(\\.?[\\w\\#\\$\\%]*)*(?<!\\.))\\s*(,*)\\s*",
-      "NO-match": "(?i)\\s*(,*)\\s*(class)?\\s*(([\\w\\#\\$\\%]+|progress\\.|map|set)(\\.?[\\w\\#\\$\\%]*)*(?<!\\.))\\s*(,*)\\s*",
       "comment": "Capture group 3 is the <T> type name",
       "captures": {
         "1": { "name": "punctuation.separator.comma.abl" },
@@ -912,7 +898,7 @@
         { "include": "#static-object-property-call" },
         { "include": "#function-call" },
         {
-          "match": "(\\.)$",
+          "match": "(\\.)\\s*$",
           "captures": { "1": { "name": "punctuation.terminator.abl" } }
         }
       ]
@@ -1268,20 +1254,6 @@
         "12": { "name": "storage.data.table.abl" }
       }
     },
-    "X-for-record": {
-      "name": "meta.block.for.abl",
-      "begin": "(?i)\\s*(for)\\s*",
-      "beginCaptures": { "1": { "name": "keyword.other.abl" } },
-      "comment": "End this block at the end of the line, using a lookahed.",
-      "end": "(?=\\R)",
-      "patterns": [
-        { "include": "#punctuation-comma" },
-        {
-          "match": "\\s*([\\w\\-#$%]*)\\s*",
-          "captures": { "1": { "name": "storage.data.table.abl" } }
-        }
-      ]
-    },
     "on-error-endkey-stop": {
       "name": "meta.block.branch.abl",
       "match": "(?i)\\s*(on)\\s+(endkey|error|stop)\\s+(undo)\\s*(?!leave|next|retry|return|throw)([a-z0-9\\-\\_\\$]*)?\\s*",
@@ -1411,7 +1383,6 @@
     "function-arguments": {
       "name": "meta.function.arguments.abl",
       "comment": "Captures what's between ( and ) when calling a function, excluding the braces ",
-      "X-begin": "(?<=\\()",
       "begin": "(?=\\()",
       "beginCaptures": { "1": { "name": "meta.brace.round.js" } },
       "end": "(?=\\))",
@@ -1419,7 +1390,6 @@
       "patterns": [
         { "include": "#parens" },
         { "include": "#constant" },
-        { "include": "#X-new-class" },
         { "include": "#type-reference" },
         { "include": "#expression" },
         { "include": "#property-call" },
@@ -1439,19 +1409,8 @@
       "match": "(?<=:)([\\w-]+)\\s*",
       "captures": { "1": { "name": "entity.name.function.abl" } }
     },
-    "X-function-call": {
-      "name": "meta.function-call.abl",
-      "begin": "([\\w-]+)\\s*(?=\\()",
-      "beginCaptures": { "1": { "name": "entity.name.function.abl" } },
-      "end": "(?=\\))",
-      "patterns": [
-        { "include": "#function-arguments" },
-        { "include": "#parens" }
-      ]
-    },
     "variable-name": {
       "comment": "1 to 128 characters; can consist of any combination of letters (a-z or A-Z), numbers (0-9), and these special characters: #$-_%& Names must begin with a letter (from https://docs.progress.com/bundle/openedge-abl-manage-applications/page/Name-limits.html)",
-      "X-match": "(?<=^|\\s|\\[|\\()([\\w-]+)",
       "match": "(?<=^|\\s|\\[|\\()([a-zA-Z][a-zA-Z0-9\\#\\$\\-\\_\\%\\&]*)",
       "name": "variable.other.abl"
     },
