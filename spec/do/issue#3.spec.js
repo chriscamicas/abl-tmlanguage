@@ -8,7 +8,6 @@ DO mI = 1 TO 3:
     /* comment */
 END.`;
   let expectedTokens = [
-
     [
       { "startIndex": 0, "endIndex": 1, "scopes": ["source.abl"] }  // ''
     ],
@@ -33,7 +32,8 @@ END.`;
     [
       { "startIndex": 0, "endIndex": 3, "scopes": ["source.abl", "keyword.other.abl"] },  // 'END'
       { "startIndex": 3, "endIndex": 4, "scopes": ["source.abl", "punctuation.terminator.abl"] }  // '.'
-    ]];
+    ]
+  ]
   shared.itShouldMatchExpectedScopes(statement, expectedTokens);
 })
 
@@ -75,6 +75,7 @@ END.`;
     [
       { "startIndex": 0, "endIndex": 3, "scopes": ["source.abl", "keyword.other.abl"] },  // 'END'
       { "startIndex": 3, "endIndex": 4, "scopes": ["source.abl", "punctuation.terminator.abl"] }  // '.'
-    ]];
+    ]
+  ]
   shared.itShouldMatchExpectedScopes(statement, expectedTokens);
 })

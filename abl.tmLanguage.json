@@ -6,9 +6,7 @@
     "cls"
   ],
   "name": "OpenEdge ABL",
-  "patterns": [
-    { "include": "#statements" }
-  ],
+  "patterns": [ { "include": "#statements" } ],
   "repository": {
     "procedure-definition": {
       "name": "meta.procedure.abl",
@@ -230,9 +228,15 @@
         },
         { "include": "#property-accessor" },
         { "include": "#property-call" },
-        { "include": "#function-call" , "comment": "does not exist" },
+        {
+          "include": "#function-call",
+          "comment": "does not exist"
+        },
         { "include": "#type-reference" },
-        { "include": "#type-name2" , "comment": "does not exist"},
+        {
+          "include": "#type-name2",
+          "comment": "does not exist"
+        },
         { "include": "#code-block" },
         { "include": "#language-functions" },
         { "include": "#handle-attributes" },
@@ -1026,6 +1030,7 @@
         { "include": "#for-table" },
         { "include": "#buffer-for-table" },
         { "include": "#define-table" },
+        { "include": "#define-like" },
         { "include": "#field-as-object" },
         { "include": "#extent" },
         { "include": "#decimals" },
@@ -1142,7 +1147,7 @@
       }
     },
     "define-table": {
-      "match": "(?i)\\s*(temp-table|like|before-table)\\s+([\\w\\-#$%]+)\\s*",
+      "match": "(?i)\\b(temp-table|like|before-table)\\s*([\\w\\-#$%]+)\\s*",
       "captures": {
         "1": { "name": "keyword.other.abl" },
         "2": { "name": "storage.data.table.abl" }
@@ -1505,6 +1510,12 @@
         { "include": "#multilinecomment" }
       ]
     },
+    "comment": {
+      "patterns": [
+        { "include": "#singlelinecomment" },
+        { "include": "#multilinecomment" }
+      ]
+    },
     "singlelinecomment": {
       "match": "\\/\\/.*$",
       "comment": "Was comment.source.abl but should be changed, per https://macromates.com/manual/en/language_grammars",
@@ -1584,6 +1595,10 @@
     "constant": {
       "match": "(?i)(?<=^|\\s*)(true|false|yes|no|\\?)(?!\\w|-)",
       "name": "constant.language.abl"
+    },
+    "punctuation-colon": {
+      "name": "punctuation.terminator.abl",
+      "match": ":"
     },
     "punctuation-colon": {
       "name": "punctuation.terminator.abl",
