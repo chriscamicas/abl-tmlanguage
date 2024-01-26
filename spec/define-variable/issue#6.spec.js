@@ -53,15 +53,15 @@ DEFINE TEMP-TABLE inventario
   let expectedTokens = [
     [
       { "startIndex": 0, "endIndex": 1, "scopes": ["source.abl"] }  // ''
-      ],
-      [
+    ],
+    [
       { "startIndex": 0, "endIndex": 6, "scopes": ["source.abl", "meta.define.abl", "keyword.other.abl"] },  // 'DEFINE'
       { "startIndex": 6, "endIndex": 7, "scopes": ["source.abl", "meta.define.abl"] },  // ' '
       { "startIndex": 7, "endIndex": 17, "scopes": ["source.abl", "meta.define.abl", "keyword.other.abl"] },  // 'TEMP-TABLE'
       { "startIndex": 17, "endIndex": 18, "scopes": ["source.abl", "meta.define.abl"] },  // ' '
       { "startIndex": 18, "endIndex": 28, "scopes": ["source.abl", "meta.define.abl", "storage.data.table.abl"] }  // 'inventario'
-      ],
-      [
+    ],
+    [
       { "startIndex": 0, "endIndex": 4, "scopes": ["source.abl", "meta.define.abl"] },  // '    '
       { "startIndex": 4, "endIndex": 9, "scopes": ["source.abl", "meta.define.abl", "keyword.other.abl"] },  // 'FIELD'
       { "startIndex": 9, "endIndex": 10, "scopes": ["source.abl", "meta.define.abl"] },  // ' '
@@ -74,8 +74,8 @@ DEFINE TEMP-TABLE inventario
       { "startIndex": 31, "endIndex": 37, "scopes": ["source.abl", "meta.define.abl", "keyword.other.abl"] },  // 'format'
       { "startIndex": 37, "endIndex": 38, "scopes": ["source.abl", "meta.define.abl"] },  // ' '
       { "startIndex": 38, "endIndex": 48, "scopes": ["source.abl", "meta.define.abl", "constant.language.source.abl"] }  // '99/99/9999'
-      ],
-      [
+    ],
+    [
       { "startIndex": 0, "endIndex": 4, "scopes": ["source.abl", "meta.define.abl"] },  // '    '
       { "startIndex": 4, "endIndex": 9, "scopes": ["source.abl", "meta.define.abl", "keyword.other.abl"] },  // 'FIELD'
       { "startIndex": 9, "endIndex": 10, "scopes": ["source.abl", "meta.define.abl"] },  // ' '
@@ -84,8 +84,8 @@ DEFINE TEMP-TABLE inventario
       { "startIndex": 23, "endIndex": 25, "scopes": ["source.abl", "meta.define.abl", "keyword.other.abl"] },  // 'AS'
       { "startIndex": 25, "endIndex": 26, "scopes": ["source.abl", "meta.define.abl"] },  // ' '
       { "startIndex": 26, "endIndex": 35, "scopes": ["source.abl", "meta.define.abl", "storage.type.abl"] }  // 'CHARACTER'
-      ],
-      [
+    ],
+    [
       { "startIndex": 0, "endIndex": 4, "scopes": ["source.abl", "meta.define.abl"] },  // '    '
       { "startIndex": 4, "endIndex": 9, "scopes": ["source.abl", "meta.define.abl", "keyword.other.abl"] },  // 'FIELD'
       { "startIndex": 9, "endIndex": 10, "scopes": ["source.abl", "meta.define.abl"] },  // ' '
@@ -94,8 +94,8 @@ DEFINE TEMP-TABLE inventario
       { "startIndex": 23, "endIndex": 25, "scopes": ["source.abl", "meta.define.abl", "keyword.other.abl"] },  // 'AS'
       { "startIndex": 25, "endIndex": 26, "scopes": ["source.abl", "meta.define.abl"] },  // ' '
       { "startIndex": 26, "endIndex": 35, "scopes": ["source.abl", "meta.define.abl", "storage.type.abl"] }  // 'CHARACTER'
-      ],
-      [
+    ],
+    [
       { "startIndex": 0, "endIndex": 4, "scopes": ["source.abl", "meta.define.abl"] },  // '    '
       { "startIndex": 4, "endIndex": 9, "scopes": ["source.abl", "meta.define.abl", "keyword.other.abl"] },  // 'FIELD'
       { "startIndex": 9, "endIndex": 10, "scopes": ["source.abl", "meta.define.abl"] },  // ' '
@@ -110,8 +110,8 @@ DEFINE TEMP-TABLE inventario
       { "startIndex": 46, "endIndex": 47, "scopes": ["source.abl", "meta.define.abl", "string.double.complex.abl", "punctuation.definition.string.begin.abl"] },  // '"'
       { "startIndex": 47, "endIndex": 59, "scopes": ["source.abl", "meta.define.abl", "string.double.complex.abl"] },  // '->>>,>>9.999'
       { "startIndex": 59, "endIndex": 60, "scopes": ["source.abl", "meta.define.abl", "string.double.complex.abl", "punctuation.definition.string.end.abl"] }  // '"'
-      ],
-      [
+    ],
+    [
       { "startIndex": 0, "endIndex": 4, "scopes": ["source.abl", "meta.define.abl"] },  // '    '
       { "startIndex": 4, "endIndex": 9, "scopes": ["source.abl", "meta.define.abl", "keyword.other.abl"] },  // 'FIELD'
       { "startIndex": 9, "endIndex": 10, "scopes": ["source.abl", "meta.define.abl"] },  // ' '
@@ -126,8 +126,8 @@ DEFINE TEMP-TABLE inventario
       { "startIndex": 46, "endIndex": 47, "scopes": ["source.abl", "meta.define.abl", "string.double.complex.abl", "punctuation.definition.string.begin.abl"] },  // '"'
       { "startIndex": 47, "endIndex": 59, "scopes": ["source.abl", "meta.define.abl", "string.double.complex.abl"] },  // '->>>,>>9.999'
       { "startIndex": 59, "endIndex": 60, "scopes": ["source.abl", "meta.define.abl", "string.double.complex.abl", "punctuation.definition.string.end.abl"] }  // '"'
-      ],
-      [
+    ],
+    [
       { "startIndex": 0, "endIndex": 4, "scopes": ["source.abl", "meta.define.abl"] },  // '    '
       { "startIndex": 4, "endIndex": 9, "scopes": ["source.abl", "meta.define.abl", "keyword.other.abl"] },  // 'FIELD'
       { "startIndex": 9, "endIndex": 10, "scopes": ["source.abl", "meta.define.abl"] },  // ' '
@@ -142,8 +142,8 @@ DEFINE TEMP-TABLE inventario
       { "startIndex": 46, "endIndex": 47, "scopes": ["source.abl", "meta.define.abl", "string.double.complex.abl", "punctuation.definition.string.begin.abl"] },  // '"'
       { "startIndex": 47, "endIndex": 59, "scopes": ["source.abl", "meta.define.abl", "string.double.complex.abl"] },  // '->>>,>>9.999'
       { "startIndex": 59, "endIndex": 60, "scopes": ["source.abl", "meta.define.abl", "string.double.complex.abl", "punctuation.definition.string.end.abl"] }  // '"'
-      ],
-      [
+    ],
+    [
       { "startIndex": 0, "endIndex": 4, "scopes": ["source.abl", "meta.define.abl"] },  // '    '
       { "startIndex": 4, "endIndex": 9, "scopes": ["source.abl", "meta.define.abl", "keyword.other.abl"] },  // 'FIELD'
       { "startIndex": 9, "endIndex": 10, "scopes": ["source.abl", "meta.define.abl"] },  // ' '
@@ -158,8 +158,8 @@ DEFINE TEMP-TABLE inventario
       { "startIndex": 46, "endIndex": 47, "scopes": ["source.abl", "meta.define.abl", "string.double.complex.abl", "punctuation.definition.string.begin.abl"] },  // '"'
       { "startIndex": 47, "endIndex": 58, "scopes": ["source.abl", "meta.define.abl", "string.double.complex.abl"] },  // '->>,>>9.999'
       { "startIndex": 58, "endIndex": 59, "scopes": ["source.abl", "meta.define.abl", "string.double.complex.abl", "punctuation.definition.string.end.abl"] }  // '"'
-      ],
-      [
+    ],
+    [
       { "startIndex": 0, "endIndex": 4, "scopes": ["source.abl", "meta.define.abl"] },  // '    '
       { "startIndex": 4, "endIndex": 9, "scopes": ["source.abl", "meta.define.abl", "keyword.other.abl"] },  // 'FIELD'
       { "startIndex": 9, "endIndex": 10, "scopes": ["source.abl", "meta.define.abl"] },  // ' '
@@ -174,8 +174,8 @@ DEFINE TEMP-TABLE inventario
       { "startIndex": 46, "endIndex": 47, "scopes": ["source.abl", "meta.define.abl", "string.double.complex.abl", "punctuation.definition.string.begin.abl"] },  // '"'
       { "startIndex": 47, "endIndex": 59, "scopes": ["source.abl", "meta.define.abl", "string.double.complex.abl"] },  // '->>>,>>9.999'
       { "startIndex": 59, "endIndex": 60, "scopes": ["source.abl", "meta.define.abl", "string.double.complex.abl", "punctuation.definition.string.end.abl"] }  // '"'
-      ],
-      [
+    ],
+    [
       { "startIndex": 0, "endIndex": 4, "scopes": ["source.abl", "meta.define.abl"] },  // '    '
       { "startIndex": 4, "endIndex": 9, "scopes": ["source.abl", "meta.define.abl", "keyword.other.abl"] },  // 'FIELD'
       { "startIndex": 9, "endIndex": 10, "scopes": ["source.abl", "meta.define.abl"] },  // ' '
@@ -190,8 +190,8 @@ DEFINE TEMP-TABLE inventario
       { "startIndex": 46, "endIndex": 47, "scopes": ["source.abl", "meta.define.abl", "string.double.complex.abl", "punctuation.definition.string.begin.abl"] },  // '"'
       { "startIndex": 47, "endIndex": 55, "scopes": ["source.abl", "meta.define.abl", "string.double.complex.abl"] },  // '>,>>9.<<'
       { "startIndex": 55, "endIndex": 56, "scopes": ["source.abl", "meta.define.abl", "string.double.complex.abl", "punctuation.definition.string.end.abl"] }  // '"'
-      ],
-      [
+    ],
+    [
       { "startIndex": 0, "endIndex": 4, "scopes": ["source.abl", "meta.define.abl"] },  // '    '
       { "startIndex": 4, "endIndex": 9, "scopes": ["source.abl", "meta.define.abl", "keyword.other.abl"] },  // 'FIELD'
       { "startIndex": 9, "endIndex": 10, "scopes": ["source.abl", "meta.define.abl"] },  // ' '
@@ -206,8 +206,8 @@ DEFINE TEMP-TABLE inventario
       { "startIndex": 46, "endIndex": 47, "scopes": ["source.abl", "meta.define.abl", "string.double.complex.abl", "punctuation.definition.string.begin.abl"] },  // '"'
       { "startIndex": 47, "endIndex": 59, "scopes": ["source.abl", "meta.define.abl", "string.double.complex.abl"] },  // '->>>,>>9.999'
       { "startIndex": 59, "endIndex": 60, "scopes": ["source.abl", "meta.define.abl", "string.double.complex.abl", "punctuation.definition.string.end.abl"] }  // '"'
-      ],
-      [
+    ],
+    [
       { "startIndex": 0, "endIndex": 4, "scopes": ["source.abl", "meta.define.abl"] },  // '    '
       { "startIndex": 4, "endIndex": 9, "scopes": ["source.abl", "meta.define.abl", "keyword.other.abl"] },  // 'FIELD'
       { "startIndex": 9, "endIndex": 10, "scopes": ["source.abl", "meta.define.abl"] },  // ' '
@@ -222,8 +222,8 @@ DEFINE TEMP-TABLE inventario
       { "startIndex": 46, "endIndex": 47, "scopes": ["source.abl", "meta.define.abl", "string.double.complex.abl", "punctuation.definition.string.begin.abl"] },  // '"'
       { "startIndex": 47, "endIndex": 55, "scopes": ["source.abl", "meta.define.abl", "string.double.complex.abl"] },  // '>,>>9.<<'
       { "startIndex": 55, "endIndex": 56, "scopes": ["source.abl", "meta.define.abl", "string.double.complex.abl", "punctuation.definition.string.end.abl"] }  // '"'
-      ],
-      [
+    ],
+    [
       { "startIndex": 0, "endIndex": 4, "scopes": ["source.abl", "meta.define.abl"] },  // '    '
       { "startIndex": 4, "endIndex": 9, "scopes": ["source.abl", "meta.define.abl", "keyword.other.abl"] },  // 'FIELD'
       { "startIndex": 9, "endIndex": 10, "scopes": ["source.abl", "meta.define.abl"] },  // ' '
@@ -238,8 +238,8 @@ DEFINE TEMP-TABLE inventario
       { "startIndex": 46, "endIndex": 47, "scopes": ["source.abl", "meta.define.abl", "string.double.complex.abl", "punctuation.definition.string.begin.abl"] },  // '"'
       { "startIndex": 47, "endIndex": 59, "scopes": ["source.abl", "meta.define.abl", "string.double.complex.abl"] },  // '->>>,>>9.999'
       { "startIndex": 59, "endIndex": 60, "scopes": ["source.abl", "meta.define.abl", "string.double.complex.abl", "punctuation.definition.string.end.abl"] }  // '"'
-      ],
-      [
+    ],
+    [
       { "startIndex": 0, "endIndex": 4, "scopes": ["source.abl", "meta.define.abl"] },  // '    '
       { "startIndex": 4, "endIndex": 9, "scopes": ["source.abl", "meta.define.abl", "keyword.other.abl"] },  // 'FIELD'
       { "startIndex": 9, "endIndex": 10, "scopes": ["source.abl", "meta.define.abl"] },  // ' '
@@ -254,8 +254,8 @@ DEFINE TEMP-TABLE inventario
       { "startIndex": 46, "endIndex": 47, "scopes": ["source.abl", "meta.define.abl", "string.double.complex.abl", "punctuation.definition.string.begin.abl"] },  // '"'
       { "startIndex": 47, "endIndex": 59, "scopes": ["source.abl", "meta.define.abl", "string.double.complex.abl"] },  // '->>>,>>9.999'
       { "startIndex": 59, "endIndex": 60, "scopes": ["source.abl", "meta.define.abl", "string.double.complex.abl", "punctuation.definition.string.end.abl"] }  // '"'
-      ],
-      [
+    ],
+    [
       { "startIndex": 0, "endIndex": 4, "scopes": ["source.abl", "meta.define.abl"] },  // '    '
       { "startIndex": 4, "endIndex": 9, "scopes": ["source.abl", "meta.define.abl", "keyword.other.abl"] },  // 'FIELD'
       { "startIndex": 9, "endIndex": 10, "scopes": ["source.abl", "meta.define.abl"] },  // ' '
@@ -271,10 +271,10 @@ DEFINE TEMP-TABLE inventario
       { "startIndex": 42, "endIndex": 47, "scopes": ["source.abl", "meta.define.abl", "string.double.complex.abl"] },  // '>,>>9'
       { "startIndex": 47, "endIndex": 48, "scopes": ["source.abl", "meta.define.abl", "string.double.complex.abl", "punctuation.definition.string.end.abl"] },  // '"'
       { "startIndex": 48, "endIndex": 49, "scopes": ["source.abl", "meta.define.abl", "punctuation.terminator.abl"] }  // '.'
-      ],
-      [
+    ],
+    [
       { "startIndex": 0, "endIndex": 5, "scopes": ["source.abl"] }  // '    '
-      ]
+    ]
   ];
   shared.itShouldMatchExpectedScopes(statement, expectedTokens);
 })

@@ -1030,6 +1030,7 @@
         { "include": "#for-table" },
         { "include": "#buffer-for-table" },
         { "include": "#define-table" },
+        { "include": "#define-like" },
         { "include": "#field-as-object" },
         { "include": "#extent" },
         { "include": "#decimals" },
@@ -1146,7 +1147,7 @@
       }
     },
     "define-table": {
-      "match": "(?i)\\b(temp-table|like|before-table)\\b([\\w\\-#$%]+)\\b",
+      "match": "(?i)\\b(temp-table|like|before-table)\\s*([\\w\\-#$%]+)\\s*",
       "captures": {
         "1": { "name": "keyword.other.abl" },
         "2": { "name": "storage.data.table.abl" }
