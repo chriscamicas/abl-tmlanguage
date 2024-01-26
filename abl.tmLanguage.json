@@ -1146,7 +1146,7 @@
       }
     },
     "define-table": {
-      "match": "(?i)\\s*(temp-table|like|before-table)\\s+([\\w\\-#$%]+)\\s*",
+      "match": "(?i)\\b(temp-table|like|before-table)\\b([\\w\\-#$%]+)\\b",
       "captures": {
         "1": { "name": "keyword.other.abl" },
         "2": { "name": "storage.data.table.abl" }
