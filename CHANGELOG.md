@@ -1,3 +1,7 @@
+1.2.0
+=====
+- Added support for classes
+
 1.1.2
 =====
 - 12.2 keywords
