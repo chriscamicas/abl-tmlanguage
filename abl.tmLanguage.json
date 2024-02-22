@@ -465,10 +465,13 @@
           "include": "#for-each-join"
         },
         {
+          "include": "#for-join"
+        },
+        {
           "include": "#of-phrase"
         },
         {
-          "include": "#table-dot-field",
+          "include": "#db-dot-table-dot-field",
           "comment": "this include must be after any type references so that eg get-class(package.type) can continue to work"
         },
         {
@@ -1656,9 +1659,39 @@
         }
       }
     },
-    "table-dot-field": {
-      "match": "(?i)(?<=^|\\s)([\\w\\-#$%]+\\.[\\w\\-#$%]+(\\.[\\w\\-#$%]+)?)",
+    "field-name": {
+      "comment": "Just a field name",
+      "patterns": [
+        {
+          "match": "\\s*([\\w\\-#$%]+(\\.[\\w\\-#$%]+)?\\s*(\\[\\d+\\]))\\s*",
+          "captures": {
+            "1": {
+              "name": "storage.data.table.abl"
+            }
+          }
+        },
+        {
+          "match": "\\s*([\\w\\-#$%]+(\\.[\\w\\-#$%]+)?)\\s*",
+          "captures": {
+            "1": {
+              "name": "storage.data.table.abl"
+            }
+          }
+        }
+      ]
+    },
+    "db-dot-table-dot-field": {
+      "match": "(?i)(?<=^|\\s)(([\\w\\-#$%]+\\.)?([\\w\\-#$%]+\\.)([\\w\\-#$%]+)(\\[\\d+\\])?)",
       "comment": "Looks for format of 'table.field', with an optional preceding 'db.'. This pattern may conflict with type names",
+      "captures": {
+        "1": {
+          "name": "storage.data.table.abl"
+        }
+      }
+    },
+    "db-dot-table": {
+      "match": "(?i)\\s*([\\w\\-#$%]+(\\.[\\w\\-#$%]+)?)\\s*",
+      "comment": "Looks for format of 'table', with an optional preceding 'db.'. This pattern may conflict with type names",
       "captures": {
         "1": {
           "name": "storage.data.table.abl"
@@ -1696,8 +1729,20 @@
         }
       }
     },
+    "for-join": {
+      "comment": "Captures something like ', salesrep where' or 'salesrep where', when the latter is at the beginning of a line",
+      "match": "(?i)(^|,)\\s*([\\w\\-#$%]+(\\.[\\w\\-#$%]+)?)\\s+(where)\\s*",
+      "captures": {
+        "2": {
+          "name": "storage.data.table.abl"
+        },
+        "4": {
+          "name": "keyword.other.abl"
+        }
+      }
+    },
     "for-each-join": {
-      "begin": "(?i)(?<=,)\\s*((each|first|last|)|([\\w\\-#$%]+(\\.[\\w\\-#$%]+)?))\\s*",
+      "begin": "(?i)(?<=,)\\s*((each|first|last)|([\\w\\-#$%]+(\\.[\\w\\-#$%]+)?))\\s*",
       "beginCaptures": {
         "2": {
           "name": "keyword.other.abl"
@@ -1706,18 +1751,29 @@
           "name": "storage.data.table.abl"
         }
       },
-      "end": "(?i)(?=(where|no-lock|share-lock|exclusive-lock|tenant-where)|,|(?=:))",
-      "endCaptures": {
-        "2": {
-          "name": "keyword.other.abl"
-        }
-      },
+      "end": "(?i)\\s*(?=where|no-lock|share-lock|exclusive-lock|tenant-where|use-index|table-scan|using|no-prefetch|left|outer-join|,|:)\\s*",
       "patterns": [
+        {
+          "include": "#fields-except-list"
+        },
         {
           "include": "#of-phrase"
         },
         {
+          "comment": "Intended to catch joins like ', table of table2', since the first table name is matched by the begin",
+          "match": "(?i)\\s*(of)\\s+([\\w\\-#$%]+(\\.[\\w\\-#$%]+)?)\\s*",
+          "captures": {
+            "1": {
+              "name": "keyword.other.abl"
+            },
+            "2": {
+              "name": "storage.data.table.abl"
+            }
+          }
+        },
+        {
           "match": "\\s*([\\w\\-#$%]+(\\.[\\w\\-#$%]+)?)\\s*",
+          "comment": "Matches the table name in the case of eg ',each table' ",
           "captures": {
             "1": {
               "name": "storage.data.table.abl"
@@ -1727,18 +1783,13 @@
       ]
     },
     "for-each-table": {
-      "begin": "(?i)\\s*(for|preselect)\\s*",
+      "begin": "(?i)(?<=\\s+|^)(for|preselect)[\\s+|$]",
       "beginCaptures": {
         "1": {
           "name": "keyword.other.abl"
         }
       },
-      "end": "(?i)(?=(where|no-lock|share-lock|exclusive-lock|tenant-where)|,|(?=:))",
-      "endCaptures": {
-        "2": {
-          "name": "keyword.other.abl"
-        }
-      },
+      "end": "(?i)\\s*(?=where|no-lock|share-lock|exclusive-lock|tenant-where|use-index|table-scan|using|no-prefetch|left|outer-join|,|:)\\s*",
       "patterns": [
         {
           "match": "(?i)\\s*(each|first|last|of)\\s*",
@@ -1749,15 +1800,44 @@
           }
         },
         {
+          "include": "#fields-except-list"
+        },
+        {
           "include": "#of-phrase"
         },
         {
-          "match": "\\s*([\\w\\-#$%]+(\\.[\\w\\-#$%]+)?)\\s*",
-          "captures": {
-            "1": {
-              "name": "storage.data.table.abl"
-            }
-          }
+          "include": "#field-name"
+        },
+        {
+          "include": "#db-dot-table"
+        },
+        {
+          "include": "#db-dot-table-dot-field"
+        }
+      ]
+    },
+    "fields-except-list": {
+      "begin": "(?i)\\s*(fields|except)\\s*(\\()",
+      "beginCaptures": {
+        "1": {
+          "name": "keyword.other.abl"
+        },
+        "2": {
+          "name": "meta.brace.round.js"
+        }
+      },
+      "end": "(\\))",
+      "endCaptures": {
+        "1": {
+          "name": "meta.brace.round.js"
+        }
+      },
+      "patterns": [
+        {
+          "include": "#db-dot-table-dot-field"
+        },
+        {
+          "include": "#field-name"
         }
       ]
     },
@@ -1777,7 +1857,7 @@
       },
       "patterns": [
         {
-          "comment": "This can only be ttable.field, never db.table.field, since only TT's can hold objects",
+          "comment": "This can only be table.field, never db.table.field, since only TT's can hold objects",
           "match": "\\s*(([\\w\\-#$%]+)\\.([\\w\\-#$%]+))\\s*(,)",
           "captures": {
             "1": {

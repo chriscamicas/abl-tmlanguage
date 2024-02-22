@@ -282,3 +282,155 @@ describe('', () => {
   ];
   shared.itShouldMatchExpectedScopes(statement, expectedTokens);
 })
+
+describe('', () => {
+  let statement = `for each Employee01 WHERE Employee01.EmpNum = piEmpNum, each Department02 where Department02.DeptCode = Employee01.DeptCode
+      , last Family02 of Employee01 no-lock.`;
+  let expectedTokens = [
+    [
+      { "startIndex": 0, "endIndex": 3, "scopes": ["source.abl", "keyword.other.abl"] },  // 'for'
+      { "startIndex": 3, "endIndex": 4, "scopes": ["source.abl"] },  // ' '
+      { "startIndex": 4, "endIndex": 8, "scopes": ["source.abl", "keyword.other.abl"] },  // 'each'
+      { "startIndex": 8, "endIndex": 9, "scopes": ["source.abl"] },  // ' '
+      { "startIndex": 9, "endIndex": 19, "scopes": ["source.abl", "storage.data.table.abl"] },  // 'Employee01'
+      { "startIndex": 19, "endIndex": 20, "scopes": ["source.abl"] },  // ' '
+      { "startIndex": 20, "endIndex": 25, "scopes": ["source.abl", "keyword.other.abl"] },  // 'WHERE'
+      { "startIndex": 25, "endIndex": 26, "scopes": ["source.abl"] },  // ' '
+      { "startIndex": 26, "endIndex": 43, "scopes": ["source.abl", "storage.data.table.abl"] },  // 'Employee01.EmpNum'
+      { "startIndex": 43, "endIndex": 44, "scopes": ["source.abl"] },  // ' '
+      { "startIndex": 44, "endIndex": 45, "scopes": ["source.abl", "keyword.operator.source.abl"] },  // '='
+      { "startIndex": 45, "endIndex": 46, "scopes": ["source.abl"] },  // ' '
+      { "startIndex": 46, "endIndex": 54, "scopes": ["source.abl", "variable.other.abl"] },  // 'piEmpNum'
+      { "startIndex": 54, "endIndex": 55, "scopes": ["source.abl", "keyword.operator.source.abl"] },  // ','
+      { "startIndex": 55, "endIndex": 56, "scopes": ["source.abl"] },  // ' '
+      { "startIndex": 56, "endIndex": 60, "scopes": ["source.abl", "keyword.other.abl"] },  // 'each'
+      { "startIndex": 60, "endIndex": 61, "scopes": ["source.abl"] },  // ' '
+      { "startIndex": 61, "endIndex": 73, "scopes": ["source.abl", "storage.data.table.abl"] },  // 'Department02'
+      { "startIndex": 73, "endIndex": 74, "scopes": ["source.abl"] },  // ' '
+      { "startIndex": 74, "endIndex": 79, "scopes": ["source.abl", "keyword.other.abl"] },  // 'where'
+      { "startIndex": 79, "endIndex": 80, "scopes": ["source.abl"] },  // ' '
+      { "startIndex": 80, "endIndex": 101, "scopes": ["source.abl", "storage.data.table.abl"] },  // 'Department02.DeptCode'
+      { "startIndex": 101, "endIndex": 102, "scopes": ["source.abl"] },  // ' '
+      { "startIndex": 102, "endIndex": 103, "scopes": ["source.abl", "keyword.operator.source.abl"] },  // '='
+      { "startIndex": 103, "endIndex": 104, "scopes": ["source.abl"] },  // ' '
+      { "startIndex": 104, "endIndex": 123, "scopes": ["source.abl", "storage.data.table.abl"] }  // 'Employee01.DeptCode'
+    ],
+    [
+      { "startIndex": 0, "endIndex": 6, "scopes": ["source.abl"] },  // '      '
+      { "startIndex": 6, "endIndex": 7, "scopes": ["source.abl", "keyword.operator.source.abl"] },  // ','
+      { "startIndex": 7, "endIndex": 8, "scopes": ["source.abl"] },  // ' '
+      { "startIndex": 8, "endIndex": 12, "scopes": ["source.abl", "keyword.other.abl"] },  // 'last'
+      { "startIndex": 12, "endIndex": 13, "scopes": ["source.abl"] },  // ' '
+      { "startIndex": 13, "endIndex": 21, "scopes": ["source.abl", "storage.data.table.abl"] },  // 'Family02'
+      { "startIndex": 21, "endIndex": 22, "scopes": ["source.abl"] },  // ' '
+      { "startIndex": 22, "endIndex": 24, "scopes": ["source.abl", "keyword.other.abl"] },  // 'of'
+      { "startIndex": 24, "endIndex": 25, "scopes": ["source.abl"] },  // ' '
+      { "startIndex": 25, "endIndex": 35, "scopes": ["source.abl", "storage.data.table.abl"] },  // 'Employee01'
+      { "startIndex": 35, "endIndex": 36, "scopes": ["source.abl"] },  // ' '
+      { "startIndex": 36, "endIndex": 43, "scopes": ["source.abl", "keyword.other.abl"] },  // 'no-lock'
+      { "startIndex": 43, "endIndex": 44, "scopes": ["source.abl", "punctuation.terminator.abl"] }  // '.'
+    ]
+  ];
+  shared.itShouldMatchExpectedScopes(statement, expectedTokens);
+})
+
+
+describe('', () => {
+  let statement = `for 
+each customer,
+salesrep where salesrep.salesrep EQ customer.salesrep no-lock,
+first order of customer no-lock where order.orderdate < today:`;
+  let expectedTokens = [
+    [
+      { "startIndex": 0, "endIndex": 3, "scopes": ["source.abl", "keyword.other.abl"] },  // 'for'
+      { "startIndex": 3, "endIndex": 4, "scopes": ["source.abl"] }  // ' '
+    ],
+    [
+      { "startIndex": 0, "endIndex": 4, "scopes": ["source.abl", "keyword.other.abl"] },  // 'each'
+      { "startIndex": 4, "endIndex": 5, "scopes": ["source.abl"] },  // ' '
+      { "startIndex": 5, "endIndex": 13, "scopes": ["source.abl", "storage.data.table.abl"] },  // 'customer'
+      { "startIndex": 13, "endIndex": 14, "scopes": ["source.abl", "keyword.operator.source.abl"] }  // ','
+    ],
+    [
+      { "startIndex": 0, "endIndex": 8, "scopes": ["source.abl", "storage.data.table.abl"] },  // 'salesrep'
+      { "startIndex": 8, "endIndex": 9, "scopes": ["source.abl"] },  // ' '
+      { "startIndex": 9, "endIndex": 14, "scopes": ["source.abl", "keyword.other.abl"] },  // 'where'
+      { "startIndex": 14, "endIndex": 15, "scopes": ["source.abl"] },  // ' '
+      { "startIndex": 15, "endIndex": 32, "scopes": ["source.abl", "storage.data.table.abl"] },  // 'salesrep.salesrep'
+      { "startIndex": 32, "endIndex": 33, "scopes": ["source.abl"] },  // ' '
+      { "startIndex": 33, "endIndex": 35, "scopes": ["source.abl", "keyword.operator.source.abl"] },  // 'EQ'
+      { "startIndex": 35, "endIndex": 36, "scopes": ["source.abl"] },  // ' '
+      { "startIndex": 36, "endIndex": 53, "scopes": ["source.abl", "storage.data.table.abl"] },  // 'customer.salesrep'
+      { "startIndex": 53, "endIndex": 54, "scopes": ["source.abl"] },  // ' '
+      { "startIndex": 54, "endIndex": 61, "scopes": ["source.abl", "keyword.other.abl"] },  // 'no-lock'
+      { "startIndex": 61, "endIndex": 62, "scopes": ["source.abl", "keyword.operator.source.abl"] }  // ','
+    ],
+    [
+      { "startIndex": 0, "endIndex": 5, "scopes": ["source.abl", "keyword.other.abl"] },  // 'first'
+      { "startIndex": 5, "endIndex": 6, "scopes": ["source.abl"] },  // ' '
+      { "startIndex": 6, "endIndex": 11, "scopes": ["source.abl", "storage.data.table.abl"] },  // 'order'
+      { "startIndex": 11, "endIndex": 12, "scopes": ["source.abl"] },  // ' '
+      { "startIndex": 12, "endIndex": 14, "scopes": ["source.abl", "keyword.other.abl"] },  // 'of'
+      { "startIndex": 14, "endIndex": 15, "scopes": ["source.abl"] },  // ' '
+      { "startIndex": 15, "endIndex": 23, "scopes": ["source.abl", "storage.data.table.abl"] },  // 'customer'
+      { "startIndex": 23, "endIndex": 24, "scopes": ["source.abl"] },  // ' '
+      { "startIndex": 24, "endIndex": 31, "scopes": ["source.abl", "keyword.other.abl"] },  // 'no-lock'
+      { "startIndex": 31, "endIndex": 32, "scopes": ["source.abl"] },  // ' '
+      { "startIndex": 32, "endIndex": 37, "scopes": ["source.abl", "keyword.other.abl"] },  // 'where'
+      { "startIndex": 37, "endIndex": 38, "scopes": ["source.abl"] },  // ' '
+      { "startIndex": 38, "endIndex": 53, "scopes": ["source.abl", "storage.data.table.abl"] },  // 'order.orderdate'
+      { "startIndex": 53, "endIndex": 54, "scopes": ["source.abl"] },  // ' '
+      { "startIndex": 54, "endIndex": 55, "scopes": ["source.abl", "keyword.operator.source.abl"] },  // '<'
+      { "startIndex": 55, "endIndex": 56, "scopes": ["source.abl"] },  // ' '
+      { "startIndex": 56, "endIndex": 61, "scopes": ["source.abl", "constant.language.abl"] },  // 'today'
+      { "startIndex": 61, "endIndex": 63, "scopes": ["source.abl"] }  // ':'
+    ]
+  ];
+  shared.itShouldMatchExpectedScopes(statement, expectedTokens);
+})
+
+describe('', () => {
+  let statement = `    @Before.
+    method public void BeforeAll():
+        // something
+    end method.`;
+  let expectedTokens = [
+    [
+      { "startIndex": 0, "endIndex": 11, "scopes": ["source.abl"] },  // '    @Before'
+      { "startIndex": 11, "endIndex": 12, "scopes": ["source.abl", "punctuation.terminator.abl"] }  // '.'
+    ],
+    [
+      { "startIndex": 0, "endIndex": 4, "scopes": ["source.abl", "meta.define.method.abl"] },  // '    '
+      { "startIndex": 4, "endIndex": 10, "scopes": ["source.abl", "meta.define.method.abl", "keyword.other.abl"] },  // 'method'
+      { "startIndex": 10, "endIndex": 11, "scopes": ["source.abl", "meta.define.method.abl"] },  // ' '
+      { "startIndex": 11, "endIndex": 17, "scopes": ["source.abl", "meta.define.method.abl", "keyword.other.abl"] },  // 'public'
+      { "startIndex": 17, "endIndex": 18, "scopes": ["source.abl", "meta.define.method.abl"] },  // ' '
+      { "startIndex": 18, "endIndex": 22, "scopes": ["source.abl", "meta.define.method.abl", "keyword.other.abl"] },  // 'void'
+      { "startIndex": 22, "endIndex": 23, "scopes": ["source.abl", "meta.define.method.abl"] },  // ' '
+      { "startIndex": 23, "endIndex": 32, "scopes": ["source.abl", "meta.define.method.abl", "entity.name.function.abl"] },  // 'BeforeAll'
+      { "startIndex": 32, "endIndex": 33, "scopes": ["source.abl", "meta.define.method.abl", "meta.brace.round.js"] },  // '('
+      { "startIndex": 33, "endIndex": 34, "scopes": ["source.abl", "meta.define.method.abl", "meta.brace.round.js"] },  // ')'
+      { "startIndex": 34, "endIndex": 36, "scopes": ["source.abl"] }  // ':'
+    ],
+    [
+      { "startIndex": 0, "endIndex": 8, "scopes": ["source.abl"] },  // '        '
+      { "startIndex": 8, "endIndex": 20, "scopes": ["source.abl", "comment.line.double-slash.abl"] }  // '// something'
+    ],
+    [
+      { "startIndex": 0, "endIndex": 4, "scopes": ["source.abl"] },  // '    '
+      { "startIndex": 4, "endIndex": 7, "scopes": ["source.abl", "keyword.other.abl"] },  // 'end'
+      { "startIndex": 7, "endIndex": 8, "scopes": ["source.abl"] },  // ' '
+      { "startIndex": 8, "endIndex": 14, "scopes": ["source.abl", "keyword.other.abl"] },  // 'method'
+      { "startIndex": 14, "endIndex": 15, "scopes": ["source.abl", "punctuation.terminator.abl"] }  // '.'
+    ]
+  ];
+  shared.itShouldMatchExpectedScopes(statement, expectedTokens);
+})
+
+describe('', () => {
+  let statement = `    @Befor`;
+  let expectedTokens = [
+    { "startIndex": 0, "endIndex": 11, "scopes": ["source.abl"] }  // '    @Befor'    
+  ];
+  shared.itShouldMatchExpectedScopes(statement, expectedTokens);
+})
