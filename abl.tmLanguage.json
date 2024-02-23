@@ -79,7 +79,7 @@
         }
       },
       "comment": "The lookahead on the regex for the closing colon is required to make this scope end properly",
-      "end": "\\s*(?=:)",
+      "end": "(?=:)",
       "patterns": [
         {
           "include": "#access-modifier"
@@ -327,6 +327,9 @@
           "include": "#block-label"
         },
         {
+          "include": "#end-block"
+        },
+        {
           "include": "#end-function-procedure-method-block"
         },
         {
@@ -497,6 +500,9 @@
         },
         {
           "include": "#variable-name"
+        },
+        {
+          "include": "#punctuation-period"
         }
       ]
     },
@@ -1751,7 +1757,7 @@
           "name": "storage.data.table.abl"
         }
       },
-      "end": "(?i)\\s*(?=where|no-lock|share-lock|exclusive-lock|tenant-where|use-index|table-scan|using|no-prefetch|left|outer-join|,|:)\\s*",
+      "end": "(?i)\\s*(?=where|no-lock|share-lock|exclusive-lock|tenant-where|use-index|table-scan|using|no-prefetch|left|outer-join|break|by|transaction,|:)\\s*",
       "patterns": [
         {
           "include": "#fields-except-list"
@@ -1789,7 +1795,7 @@
           "name": "keyword.other.abl"
         }
       },
-      "end": "(?i)\\s*(?=where|no-lock|share-lock|exclusive-lock|tenant-where|use-index|table-scan|using|no-prefetch|left|outer-join|,|:)\\s*",
+      "end": "(?i)\\s*(?=where|no-lock|share-lock|exclusive-lock|tenant-where|use-index|table-scan|using|no-prefetch|left|outer-join|break|by|transaction|,|:)\\s*",
       "patterns": [
         {
           "match": "(?i)\\s*(each|first|last|of)\\s*",
@@ -1964,6 +1970,9 @@
           "include": "#block-statement"
         },
         {
+          "include": "#end-block"
+        },
+        {
           "include": "#property-call"
         },
         {
@@ -2107,8 +2116,16 @@
           "name": "keyword.other.abl"
         }
       },
-      "end": "(?<=\\s)",
+      "end": "(?=\\s|\\)|\\.)",
       "patterns": [
+        {
+          "match": "(?i)\\s*(class)\\s*",
+          "captures": {
+            "1": {
+              "name": "keyword.other.abl"
+            }
+          }
+        },
         {
           "include": "#dll-type"
         },
@@ -2123,6 +2140,18 @@
         },
         {
           "include": "#type-name"
+        },
+        {
+          "include": "#parens"
+        },
+        {
+          "include": "#string"
+        },
+        {
+          "include": "#punctuation-period"
+        },
+        {
+          "include": "#punctuation-comma"
         }
       ]
     },
@@ -2581,8 +2610,20 @@
         }
       }
     },
+    "end-block": {
+      "comment": "Certain blocks have the option of END <block name>",
+      "match": "(?i)\\s*(end)\\s+(CASE|CATCH|CLASS|CONSTRUCTOR|DESTRUCTOR|ENUM|FINALLY|FUNCTION|GET|INTERFACE|METHOD|PROCEDURE|SET|TRIGGERS)\\s*",
+      "captures": {
+        "1": {
+          "name": "keyword.other.abl"
+        },
+        "2": {
+          "name": "keyword.other.abl"
+        }
+      }
+    },
     "block-statement": {
-      "begin": "(?i)\\s*(do|repeat)\\s*",
+      "begin": "(?i)(?<!end)\\s*(do|repeat|finally)\\s*",
       "beginCaptures": {
         "1": {
           "name": "keyword.other.abl"
@@ -3253,6 +3294,10 @@
     },
     "punctuation-semicolon": {
       "name": "punctuation.terminator.abl",
+      "match": ";"
+    },
+    "punctuation-period": {
+      "name": "punctuation.terminator.abl",
       "match": "\\."
     },
     "operator": {
@@ -3381,7 +3426,7 @@
       "name": "keyword.other.abl"
     },
     "keywords-f": {
-      "match": "(?i)(?<![\\w-])(false|false-leaks|fetch|field|fields|file|file-access-d|file-access-da|file-access-dat|file-access-date|file-access-t|file-access-ti|file-access-tim|file-access-time|file-info|file-infor|file-inform|file-informa|file-informat|file-informati|file-informatio|file-information|filename|fill-in|filters|final|finally|find|find|find-case-sensitive|find-global|find-next-occurrence|find-prev-occurrence|find-select|find-wrap-around|finder|firehose-cursor|first|first-of|fix-codepage|fixed-only|flags|float|focus|focus-in|font|font-table|for|force-file|form|forma|format|forward|forwards|fram|frame|frame-db|frame-down|frame-field|frame-file|frame-inde|frame-index|frame-line|frame-val|frame-valu|frame-value|from|from-c|from-ch|from-cha|from-char|from-chars|from-cur|from-curr|from-curre|from-curren|from-current|from-p|from-pi|from-pix|from-pixe|from-pixel|from-pixels|fromnoreorder|full-width|function|function-call-type)(?![\\w-])",
+      "match": "(?i)(?<![\\w-])(false|false-leaks|fetch|field|fields|file|file-access-d|file-access-da|file-access-dat|file-access-date|file-access-t|file-access-ti|file-access-tim|file-access-time|file-info|file-infor|file-inform|file-informa|file-informat|file-informati|file-informatio|file-information|filename|fill-in|filters|finally|final|find|find-case-sensitive|find-global|find-next-occurrence|find-prev-occurrence|find-select|find-wrap-around|finder|firehose-cursor|first|first-of|fix-codepage|fixed-only|flags|float|focus|focus-in|font|font-table|for|force-file|form|forma|format|forward|forwards|fram|frame|frame-db|frame-down|frame-field|frame-file|frame-inde|frame-index|frame-line|frame-val|frame-valu|frame-value|from|from-c|from-ch|from-cha|from-char|from-chars|from-cur|from-curr|from-curre|from-curren|from-current|from-p|from-pi|from-pix|from-pixe|from-pixel|from-pixels|fromnoreorder|full-width|function|function-call-type)(?![\\w-])",
       "name": "keyword.other.abl"
     },
     "keywords-g": {

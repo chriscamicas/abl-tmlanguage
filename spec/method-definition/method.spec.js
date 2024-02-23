@@ -68,7 +68,7 @@ end method.`;
       { "startIndex": 64, "endIndex": 65, "scopes": ["source.abl", "meta.define.method.abl"] },  // ' '
       { "startIndex": 65, "endIndex": 67, "scopes": ["source.abl", "meta.define.method.abl", "keyword.other.abl"] },  // 'as'
       { "startIndex": 67, "endIndex": 68, "scopes": ["source.abl", "meta.define.method.abl"] },  // ' '
-      { "startIndex": 68, "endIndex": 74, "scopes": ["source.abl", "meta.define.method.abl", "keyword.other.abl"] },  // 'Object'
+      { "startIndex": 68, "endIndex": 74, "scopes": ["source.abl", "meta.define.method.abl", "entity.name.type.abl"] },  // 'Object'
       { "startIndex": 74, "endIndex": 75, "scopes": ["source.abl", "meta.define.method.abl", "meta.brace.round.js"] },  // ')'
       { "startIndex": 75, "endIndex": 77, "scopes": ["source.abl"] }  // ':'
     ],
