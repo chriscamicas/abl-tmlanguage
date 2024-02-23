@@ -434,3 +434,94 @@ describe('', () => {
   ];
   shared.itShouldMatchExpectedScopes(statement, expectedTokens);
 })
+
+describe('', () => {
+  let statement = `FOR EACH ttTaskMethods
+        BREAK BY ttTaskMethods.ClassName:`;
+  let expectedTokens = [
+    [
+      { "startIndex": 0, "endIndex": 3, "scopes": ["source.abl", "keyword.other.abl"] },  // 'FOR'
+      { "startIndex": 3, "endIndex": 4, "scopes": ["source.abl"] },  // ' '
+      { "startIndex": 4, "endIndex": 8, "scopes": ["source.abl", "keyword.other.abl"] },  // 'EACH'
+      { "startIndex": 8, "endIndex": 9, "scopes": ["source.abl"] },  // ' '
+      { "startIndex": 9, "endIndex": 22, "scopes": ["source.abl", "storage.data.table.abl"] }  // 'ttTaskMethods'
+    ],
+    [
+      { "startIndex": 0, "endIndex": 8, "scopes": ["source.abl"] },  // '        '
+      { "startIndex": 8, "endIndex": 13, "scopes": ["source.abl", "keyword.other.abl"] },  // 'BREAK'
+      { "startIndex": 13, "endIndex": 14, "scopes": ["source.abl"] },  // ' '
+      { "startIndex": 14, "endIndex": 16, "scopes": ["source.abl", "keyword.other.abl"] },  // 'BY'
+      { "startIndex": 16, "endIndex": 17, "scopes": ["source.abl"] },  // ' '
+      { "startIndex": 17, "endIndex": 40, "scopes": ["source.abl", "storage.data.table.abl"] },  // 'ttTaskMethods.ClassName'
+      { "startIndex": 40, "endIndex": 42, "scopes": ["source.abl"] }  // ':'
+    ]    
+  ];
+  shared.itShouldMatchExpectedScopes(statement, expectedTokens);
+})
+
+describe('', () => {
+  let statement = `FOR EACH ttTaskMethods BY ttTaskMethods.ClassName:`;
+  let expectedTokens = [
+    { "startIndex": 0, "endIndex": 3, "scopes": ["source.abl", "keyword.other.abl"] },  // 'FOR'
+    { "startIndex": 3, "endIndex": 4, "scopes": ["source.abl"] },  // ' '
+    { "startIndex": 4, "endIndex": 8, "scopes": ["source.abl", "keyword.other.abl"] },  // 'EACH'
+    { "startIndex": 8, "endIndex": 9, "scopes": ["source.abl"] },  // ' '
+    { "startIndex": 9, "endIndex": 22, "scopes": ["source.abl", "storage.data.table.abl"] },  // 'ttTaskMethods'
+    { "startIndex": 22, "endIndex": 23, "scopes": ["source.abl"] },  // ' '
+    { "startIndex": 23, "endIndex": 25, "scopes": ["source.abl", "keyword.other.abl"] },  // 'BY'
+    { "startIndex": 25, "endIndex": 26, "scopes": ["source.abl"] },  // ' '
+    { "startIndex": 26, "endIndex": 49, "scopes": ["source.abl", "storage.data.table.abl"] },  // 'ttTaskMethods.ClassName'
+    { "startIndex": 49, "endIndex": 51, "scopes": ["source.abl"] }  // ':'
+  ];
+  shared.itShouldMatchExpectedScopes(statement, expectedTokens);
+})
+
+describe('', () => {
+  let statement = `FOR EACH ttTaskMethods transACTION:`;
+  let expectedTokens = [
+    { "startIndex": 0, "endIndex": 3, "scopes": ["source.abl", "keyword.other.abl"] },  // 'FOR'
+    { "startIndex": 3, "endIndex": 4, "scopes": ["source.abl"] },  // ' '
+    { "startIndex": 4, "endIndex": 8, "scopes": ["source.abl", "keyword.other.abl"] },  // 'EACH'
+    { "startIndex": 8, "endIndex": 9, "scopes": ["source.abl"] },  // ' '
+    { "startIndex": 9, "endIndex": 22, "scopes": ["source.abl", "storage.data.table.abl"] },  // 'ttTaskMethods'
+    { "startIndex": 22, "endIndex": 23, "scopes": ["source.abl"] },  // ' '
+    { "startIndex": 23, "endIndex": 34, "scopes": ["source.abl", "keyword.other.abl"] },  // 'transACTION'
+    { "startIndex": 34, "endIndex": 36, "scopes": ["source.abl"] }  // ':'
+  ];
+  shared.itShouldMatchExpectedScopes(statement, expectedTokens);
+})
+
+describe('', () => {
+  let statement = `FOR EACH ttTaskMethods WHERE ttTaskMethods.field <> ?
+  BY ttTaskMethods.ClassName
+  TRANSACTION:`;
+  let expectedTokens = [
+    [
+      { "startIndex": 0, "endIndex": 3, "scopes": ["source.abl", "keyword.other.abl"] },  // 'FOR'
+      { "startIndex": 3, "endIndex": 4, "scopes": ["source.abl"] },  // ' '
+      { "startIndex": 4, "endIndex": 8, "scopes": ["source.abl", "keyword.other.abl"] },  // 'EACH'
+      { "startIndex": 8, "endIndex": 9, "scopes": ["source.abl"] },  // ' '
+      { "startIndex": 9, "endIndex": 22, "scopes": ["source.abl", "storage.data.table.abl"] },  // 'ttTaskMethods'
+      { "startIndex": 22, "endIndex": 23, "scopes": ["source.abl"] },  // ' '
+      { "startIndex": 23, "endIndex": 28, "scopes": ["source.abl", "keyword.other.abl"] },  // 'WHERE'
+      { "startIndex": 28, "endIndex": 29, "scopes": ["source.abl"] },  // ' '
+      { "startIndex": 29, "endIndex": 48, "scopes": ["source.abl", "storage.data.table.abl"] },  // 'ttTaskMethods.field'
+      { "startIndex": 48, "endIndex": 49, "scopes": ["source.abl"] },  // ' '
+      { "startIndex": 49, "endIndex": 51, "scopes": ["source.abl", "keyword.operator.source.abl"] },  // '<>'
+      { "startIndex": 51, "endIndex": 52, "scopes": ["source.abl"] },  // ' '
+      { "startIndex": 52, "endIndex": 53, "scopes": ["source.abl", "constant.language.abl"] }  // '?'
+    ],
+    [
+      { "startIndex": 0, "endIndex": 2, "scopes": ["source.abl"] },  // '  '
+      { "startIndex": 2, "endIndex": 4, "scopes": ["source.abl", "keyword.other.abl"] },  // 'BY'
+      { "startIndex": 4, "endIndex": 5, "scopes": ["source.abl"] },  // ' '
+      { "startIndex": 5, "endIndex": 28, "scopes": ["source.abl", "storage.data.table.abl"] }  // 'ttTaskMethods.ClassName'
+    ],
+    [
+      { "startIndex": 0, "endIndex": 2, "scopes": ["source.abl"] },  // '  '
+      { "startIndex": 2, "endIndex": 13, "scopes": ["source.abl", "meta.block.label.abl"] },  // 'TRANSACTION'
+      { "startIndex": 13, "endIndex": 15, "scopes": ["source.abl"] }  // ':'
+    ]    
+  ];
+  shared.itShouldMatchExpectedScopes(statement, expectedTokens);
+})

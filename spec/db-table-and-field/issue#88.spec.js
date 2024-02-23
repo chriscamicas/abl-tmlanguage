@@ -104,3 +104,17 @@ describe('', () => {
   ];
   shared.itShouldMatchExpectedScopes(statement, expectedTokens);
 })
+
+describe('', () => {
+  let statement = `//exclusive-lock:
+//no-lock:`;
+  let expectedTokens = [
+    [
+      { "startIndex": 0, "endIndex": 17, "scopes": ["source.abl", "comment.line.double-slash.abl"] }  // '//exclusive-lock:'
+    ],
+    [
+      { "startIndex": 0, "endIndex": 10, "scopes": ["source.abl", "comment.line.double-slash.abl"] }  // '//no-lock:'
+    ]
+  ];
+  shared.itShouldMatchExpectedScopes(statement, expectedTokens);
+})
