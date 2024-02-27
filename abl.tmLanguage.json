@@ -321,6 +321,9 @@
       "name": "meta.statements.abl",
       "patterns": [
         {
+          "include": "#annotation"
+        },
+        {
           "include": "#block-statement"
         },
         {
@@ -2196,6 +2199,38 @@
           "name": "entity.name.type.abl"
         }
       }
+    },
+    "annotation": {
+      "name": "meta.declaration.annotation.abl",
+      "begin": "(?i)(^|\\s+)(\\@[a-z][a-z0-9#$-_%&]*)",
+      "beginCaptures": {
+        "2": {
+          "name": "storage.type.annotation.abl"
+        }
+      },
+      "end": "(?=\\.)",
+      "patterns": [
+        {
+          "match": "\\s*([a-z][a-z0-9#$-_%&]*)(?=\\=)|\\s*|$",
+          "captures": {
+            "1": {
+              "name": "constant.other.key.abl"
+            }
+          }
+        },
+        {
+          "include": "#parens"
+        },
+        {
+          "include": "#string"
+        },
+        {
+          "include": "#operator-no-space"
+        },
+        {
+          "include": "#punctuation-comma"
+        }
+      ]
     },
     "define": {
       "name": "meta.define.abl",
