@@ -2201,8 +2201,23 @@
       }
     },
     "annotation": {
+      "patterns": [
+        {"include": "#annotation-simple"},
+        {"include": "#annotation-attributes"}
+      ]
+    },
+    "annotation-simple": {
       "name": "meta.declaration.annotation.abl",
-      "begin": "(?i)(^|\\s+)(\\@[a-z][a-z0-9#$-_%&]*)",
+      "match": "(?i)(^|\\s*)(\\@[a-z][a-z0-9#\\$-_%&]*)\\s*(?=\\.)",
+      "captures": {
+        "2": {
+          "name": "storage.type.annotation.abl"
+        }
+      }
+    },
+    "annotation-attributes": {
+      "name": "meta.declaration.annotation.abl",
+      "begin": "(?i)(^|\\s+)(\\@[a-z][a-z0-9#\\$-_%&]*)",
       "beginCaptures": {
         "2": {
           "name": "storage.type.annotation.abl"
@@ -2211,15 +2226,15 @@
       "end": "(?=\\.)",
       "patterns": [
         {
-          "match": "\\s*([a-z][a-z0-9#$-_%&]*)(?=\\=)|\\s*|$",
+          "include": "#parens"
+        },
+        {
+          "match": "\\s*([a-z][a-z0-9#\\$-_%&]*)(?=[\\=\\s$])",
           "captures": {
             "1": {
               "name": "constant.other.key.abl"
             }
           }
-        },
-        {
-          "include": "#parens"
         },
         {
           "include": "#string"
