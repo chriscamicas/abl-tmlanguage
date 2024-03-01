@@ -2229,7 +2229,7 @@
           "include": "#parens"
         },
         {
-          "match": "\\s*([a-z][a-z0-9#\\$-_%&]*)(?=[\\=\\s$])",
+          "match": "(?i)\\s*([a-z][a-z0-9#\\$-_%&]+)(?=[\\=\\s$])",
           "captures": {
             "1": {
               "name": "constant.other.key.abl"
