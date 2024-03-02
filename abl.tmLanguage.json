@@ -2868,48 +2868,69 @@
       "name": "variable.parameter.abl"
     },
     "include-file": {
-      "begin": "({)\\s*",
+      "name": "meta.include.abl",
+      "comment": "https://docs.progress.com/bundle/openedge-abl-reference-122/page/Include-file-reference.html",
+      "begin": "(?i)({)\\s*(([a-z][a-z0-9\\/\\-\\_\\\\]+)(\\.[a-z]+)?)",
       "beginCaptures": {
         "1": {
           "name": "punctuation.section.abl"
+        },
+        "2": {
+          "name": "meta.other.include.abl"
         }
       },
-      "end": "\\s*(})",
+      "end": "\\s*(})\\s*",
       "endCaptures": {
         "1": {
           "name": "punctuation.section.abl"
         }
       },
-      "name": "meta.include.abl",
       "patterns": [
+        {
+          "include": "#argument-reference"
+        },
+        {
+          "match": "(?<=\\s)(&[a-zA-Z][a-zA-Z0-9\\#\\$\\-\\_\\%\\.]+)\\s*(=?)",
+          "name": "meta.include.argument.abl",
+          "comment": "This is intended to catch '&arg' and '&arg=' ",
+          "captures": {
+            "1": {
+              "name": "support.other.argument.abl",
+              "comment": "you can use variable names, field names, and reserved words as argument names."
+            },
+            "2": {
+              "name": "keyword.operator.source.abl"
+            }
+          }
+        },
         {
           "include": "#string"
         },
         {
-          "match": "(?i)({\\&[\\w-]*})",
-          "name": "keyword.other"
-        },
-        {
-          "match": "(\\&[\\w-]+)(\\s*)=(\\s*)((\".*\")|('.*')|([^}\\s]*))",
-          "name": "meta.include-named-argument"
-        },
-        {
-          "match": "([^}\\s]*)\\s*",
+          "match": "(?<=\\s)(&[a-zA-Z][a-zA-Z0-9\\#\\$\\-\\_\\%\\.]+)\\s*(=?)",
+          "comment": "non-string argument values after the &arg = ",
+          "name": "meta.include-named-argument",
           "captures": {
             "1": {
-              "name": "string.unquoted.include-argument.abl"
+              "name": "support.other.argument.abl",
+              "comment": "you can use variable names, field names, and reserved words as argument names."
+            },
+            "2": {
+              "name": "keyword.operator.source.abl"
             }
           }
+        },
+        {
+          "include": "#string"
         }
-      ],
-      "comment": "https://docs.progress.com/bundle/openedge-abl-reference-122/page/Include-file-reference.html"
+      ]
     },
     "argument-reference": {
       "comment": "https://docs.progress.com/bundle/openedge-abl-reference-122/page/Argument-reference.html",
       "match": "\\s*((\\{\\s*\\&[\\.\\w\\\/-]+\\})|(\\{\\s*\\d+\\})|(\\{\\s*\\*\\}))\\s*",
       "captures": {
         "1": {
-          "name": "storage.other.abl"
+            "name": "support.other.argument.abl"
         }
       }
     },
