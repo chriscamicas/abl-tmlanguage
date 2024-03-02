@@ -54,10 +54,10 @@ describe('', () => {
   let expectedTokens = [
     { "startIndex": 0, "endIndex": 3, "scopes": ["source.abl"] },  // '   '
     { "startIndex": 3, "endIndex": 6, "scopes": ["source.abl", "keyword.other.abl"] },  // 'run'
-    { "startIndex": 6, "endIndex": 7, "scopes": ["source.abl"] },  // ' '
-    { "startIndex": 7, "endIndex": 12, "scopes": ["source.abl", "variable.other.abl"] },  // 'value'
-    { "startIndex": 12, "endIndex": 13, "scopes": ["source.abl", "meta.function.arguments.abl", "meta.brace.round.js"] },  // '('
-    { "startIndex": 13, "endIndex": 22, "scopes": ["source.abl", "meta.function.arguments.abl", "variable.other.abl"] },  // 'cPriogram'
+    { "startIndex": 6, "endIndex": 7, "scopes": ["source.abl", "meta.function-call.abl"] },  // ' '
+    { "startIndex": 7, "endIndex": 12, "scopes": ["source.abl", "meta.function-call.abl", "support.function.abl"] },  // 'value'
+    { "startIndex": 12, "endIndex": 13, "scopes": ["source.abl", "meta.function-call.abl", "meta.function.arguments.abl", "meta.brace.round.js"] },  // '('
+    { "startIndex": 13, "endIndex": 22, "scopes": ["source.abl", "meta.function-call.abl", "meta.function.arguments.abl", "variable.other.abl"] },  // 'cPriogram'
     { "startIndex": 22, "endIndex": 23, "scopes": ["source.abl", "meta.brace.round.js"] },  // ')'
     { "startIndex": 23, "endIndex": 24, "scopes": ["source.abl", "punctuation.terminator.abl"] }  // '.'
   ];

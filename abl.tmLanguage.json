@@ -1455,7 +1455,7 @@
     },
     "abl-functions-V": {
       "name": "meta.function-call.abl",
-      "begin": "(?i)\\s*(VALID-EVENT|VALID-HANDLE|VALID-OBJECT)\\s*(?=\\()",
+      "begin": "(?i)\\s*(VALID-EVENT|VALID-HANDLE|VALID-OBJECT|VALUE)\\s*(?=\\()",
       "beginCaptures": {
         "1": {
           "name": "support.function.abl"
