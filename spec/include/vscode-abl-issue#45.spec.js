@@ -8,7 +8,7 @@ describe('', () => {
   let expectedTokens = [
     { "startIndex": 0, "endIndex": 1, "scopes": ["source.abl", "meta.include.abl", "punctuation.section.abl"] },  // '{'
     { "startIndex": 1, "endIndex": 2, "scopes": ["source.abl", "meta.include.abl"] },  // ' '
-    { "startIndex": 2, "endIndex": 8, "scopes": ["source.abl", "meta.include.abl", "string.unquoted.include-argument.abl"] },  // 'test.i'
+    { "startIndex": 2, "endIndex": 8, "scopes": ["source.abl", "meta.include.abl", "meta.other.include.abl"] },  // 'test.i'
     { "startIndex": 8, "endIndex": 9, "scopes": ["source.abl", "meta.include.abl"] },  // ' '
     { "startIndex": 9, "endIndex": 10, "scopes": ["source.abl", "meta.include.abl", "string.double.complex.abl", "punctuation.definition.string.begin.abl"] },  // '"'
     { "startIndex": 10, "endIndex": 17, "scopes": ["source.abl", "meta.include.abl", "string.double.complex.abl"] },  // '{&Test}'
