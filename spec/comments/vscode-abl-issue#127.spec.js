@@ -2,7 +2,6 @@ const { assert, expect } = require('chai');
 const shared = require('../shared.js');
 
 describe('', () => {
-  //label-with-a-dot-inside.spec
   let statement = `    define final public non-serializable property Value as longchar no-undo
   get():
       // no need for changes if we're using UTF-8 as CPINTERNAL
@@ -12,7 +11,6 @@ describe('', () => {
           return codepage-convert(mUTF8Value, this-object:Encoding).
   end get.`;
   let expectedTokens = [
-
     [
       { "startIndex": 0, "endIndex": 4, "scopes": ["source.abl", "meta.define.abl"] },  // '    '
       { "startIndex": 4, "endIndex": 10, "scopes": ["source.abl", "meta.define.abl", "keyword.other.abl"] },  // 'define'
@@ -81,8 +79,9 @@ describe('', () => {
       { "startIndex": 34, "endIndex": 44, "scopes": ["source.abl", "meta.define.abl", "meta.define.getter.abl", "meta.function.parameters", "entity.name.type.abl"] },  // 'mUTF8Value'
       { "startIndex": 44, "endIndex": 45, "scopes": ["source.abl", "meta.define.abl", "meta.define.getter.abl", "meta.function.parameters", "punctuation.separator.comma.abl"] },  // ','
       { "startIndex": 45, "endIndex": 46, "scopes": ["source.abl", "meta.define.abl", "meta.define.getter.abl", "meta.function.parameters"] },  // ' '
-      { "startIndex": 46, "endIndex": 57, "scopes": ["source.abl", "meta.define.abl", "meta.define.getter.abl", "meta.function.parameters", "keyword.other.abl"] },  // 'this-object'
-      { "startIndex": 57, "endIndex": 66, "scopes": ["source.abl", "meta.define.abl", "meta.define.getter.abl", "meta.function.parameters"] },  // ':Encoding'
+      { "startIndex": 46, "endIndex": 57, "scopes": ["source.abl", "meta.define.abl", "meta.define.getter.abl", "meta.function.parameters", "variable.language.abl"] },  // 'this-object'
+      { "startIndex": 57, "endIndex": 58, "scopes": ["source.abl", "meta.define.abl", "meta.define.getter.abl", "meta.function.parameters", "punctuation.terminator.abl"] },  // ':'
+      { "startIndex": 58, "endIndex": 66, "scopes": ["source.abl", "meta.define.abl", "meta.define.getter.abl", "meta.function.parameters", "entity.name.function.abl"] },  // 'Encoding'
       { "startIndex": 66, "endIndex": 67, "scopes": ["source.abl", "meta.define.abl", "meta.define.getter.abl", "meta.function.parameters", "meta.brace.round.js"] },  // ')'
       { "startIndex": 67, "endIndex": 68, "scopes": ["source.abl", "meta.define.abl", "meta.define.getter.abl", "punctuation.terminator.abl"] }  // '.'
     ],
