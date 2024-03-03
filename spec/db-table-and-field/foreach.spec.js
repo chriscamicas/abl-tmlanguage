@@ -330,7 +330,7 @@ describe('', () => {
     { "startIndex": 103, "endIndex": 104, "scopes": ["source.abl", "keyword.operator.source.abl"] },  // '='
     { "startIndex": 104, "endIndex": 105, "scopes": ["source.abl"] },  // ' '
     { "startIndex": 105, "endIndex": 124, "scopes": ["source.abl", "storage.data.table.abl"] },  // 'Employee01.DeptCode'
-    { "startIndex": 124, "endIndex": 125, "scopes": ["source.abl", "punctuation.terminator.abl"] }  // '.'      
+    { "startIndex": 124, "endIndex": 125, "scopes": ["source.abl", "punctuation.terminator.abl"] }  // '.'
   ];
   shared.itShouldMatchExpectedScopes(statement, expectedTokens);
 })
@@ -375,7 +375,7 @@ describe('', () => {
     { "startIndex": 136, "endIndex": 137, "scopes": ["source.abl", "keyword.operator.source.abl"] },  // '<'
     { "startIndex": 137, "endIndex": 138, "scopes": ["source.abl"] },  // ' '
     { "startIndex": 138, "endIndex": 143, "scopes": ["source.abl", "constant.language.abl"] },  // 'today'
-    { "startIndex": 143, "endIndex": 145, "scopes": ["source.abl"] }  // ':'    
+    { "startIndex": 143, "endIndex": 145, "scopes": ["source.abl"] }  // ':'
   ];
   shared.itShouldMatchExpectedScopes(statement, expectedTokens);
 })
@@ -433,14 +433,13 @@ describe('', () => {
 
 
 describe('', () => {
-  let statement = `for 
+  let statement = `for
 each customer,
 salesrep where salesrep.salesrep EQ customer.salesrep no-lock,
 first order of customer no-lock where order.orderdate < today:`;
   let expectedTokens = [
     [
-      { "startIndex": 0, "endIndex": 3, "scopes": ["source.abl", "keyword.other.abl"] },  // 'for'
-      { "startIndex": 3, "endIndex": 4, "scopes": ["source.abl"] }  // ' '
+      { "startIndex": 0, "endIndex": 3, "scopes": ["source.abl", "keyword.other.abl"] }  // 'for'
     ],
     [
       { "startIndex": 0, "endIndex": 4, "scopes": ["source.abl", "keyword.other.abl"] },  // 'each'
@@ -493,7 +492,8 @@ describe('', () => {
     end method.`;
   let expectedTokens = [
     [
-      { "startIndex": 0, "endIndex": 11, "scopes": ["source.abl"] },  // '    @Before'
+      { "startIndex": 0, "endIndex": 4, "scopes": ["source.abl", "meta.declaration.annotation.abl"] },  // '    '
+      { "startIndex": 4, "endIndex": 11, "scopes": ["source.abl", "meta.declaration.annotation.abl", "storage.type.annotation.abl"] },  // '@Before'
       { "startIndex": 11, "endIndex": 12, "scopes": ["source.abl", "punctuation.terminator.abl"] }  // '.'
     ],
     [
@@ -527,7 +527,8 @@ describe('', () => {
 describe('', () => {
   let statement = `    @Befor`;
   let expectedTokens = [
-    { "startIndex": 0, "endIndex": 11, "scopes": ["source.abl"] }  // '    @Befor'    
+    { "startIndex": 0, "endIndex": 4, "scopes": ["source.abl", "meta.declaration.annotation.abl"] },  // '    '
+    { "startIndex": 4, "endIndex": 10, "scopes": ["source.abl", "meta.declaration.annotation.abl", "storage.type.annotation.abl"] }  // '@Befor'
   ];
   shared.itShouldMatchExpectedScopes(statement, expectedTokens);
 })
@@ -551,7 +552,7 @@ describe('', () => {
       { "startIndex": 16, "endIndex": 17, "scopes": ["source.abl"] },  // ' '
       { "startIndex": 17, "endIndex": 40, "scopes": ["source.abl", "storage.data.table.abl"] },  // 'ttTaskMethods.ClassName'
       { "startIndex": 40, "endIndex": 42, "scopes": ["source.abl"] }  // ':'
-    ]    
+    ]
   ];
   shared.itShouldMatchExpectedScopes(statement, expectedTokens);
 })
@@ -618,7 +619,7 @@ describe('', () => {
       { "startIndex": 0, "endIndex": 2, "scopes": ["source.abl"] },  // '  '
       { "startIndex": 2, "endIndex": 13, "scopes": ["source.abl", "meta.block.label.abl"] },  // 'TRANSACTION'
       { "startIndex": 13, "endIndex": 15, "scopes": ["source.abl"] }  // ':'
-    ]    
+    ]
   ];
   shared.itShouldMatchExpectedScopes(statement, expectedTokens);
 })
