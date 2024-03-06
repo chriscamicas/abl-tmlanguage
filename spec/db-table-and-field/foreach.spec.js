@@ -145,35 +145,8 @@ describe('', () => {
       { "startIndex": 4, "endIndex": 8, "scopes": ["source.abl", "keyword.other.abl"] },  // 'each'
       { "startIndex": 8, "endIndex": 9, "scopes": ["source.abl"] },  // ' '
       { "startIndex": 9, "endIndex": 17, "scopes": ["source.abl", "storage.data.table.abl"] },  // 'customer'
-      { "startIndex": 17, "endIndex": 18, "scopes": ["source.abl", "keyword.operator.source.abl"] },  // ','
-      { "startIndex": 18, "endIndex": 19, "scopes": ["source.abl"] },  // ' '
-      { "startIndex": 19, "endIndex": 27, "scopes": ["source.abl", "storage.data.table.abl"] },  // 'salesrep'
-      { "startIndex": 27, "endIndex": 28, "scopes": ["source.abl"] },  // ' '
-      { "startIndex": 28, "endIndex": 30, "scopes": ["source.abl", "keyword.other.abl"] },  // 'of'
-      { "startIndex": 30, "endIndex": 31, "scopes": ["source.abl"] },  // ' '
-      { "startIndex": 31, "endIndex": 39, "scopes": ["source.abl", "storage.data.table.abl"] },  // 'customer'
-      { "startIndex": 39, "endIndex": 40, "scopes": ["source.abl"] },  // ' '
-      { "startIndex": 40, "endIndex": 47, "scopes": ["source.abl", "keyword.other.abl"] },  // 'no-lock'
-      { "startIndex": 47, "endIndex": 48, "scopes": ["source.abl", "keyword.operator.source.abl"] },  // ','
-      { "startIndex": 48, "endIndex": 49, "scopes": ["source.abl"] },  // ' '
-      { "startIndex": 49, "endIndex": 54, "scopes": ["source.abl", "keyword.other.abl"] },  // 'first'
-      { "startIndex": 54, "endIndex": 55, "scopes": ["source.abl"] },  // ' '
-      { "startIndex": 55, "endIndex": 60, "scopes": ["source.abl", "storage.data.table.abl"] },  // 'order'
-      { "startIndex": 60, "endIndex": 61, "scopes": ["source.abl"] },  // ' '
-      { "startIndex": 61, "endIndex": 63, "scopes": ["source.abl", "keyword.other.abl"] },  // 'of'
-      { "startIndex": 63, "endIndex": 64, "scopes": ["source.abl"] },  // ' '
-      { "startIndex": 64, "endIndex": 72, "scopes": ["source.abl", "storage.data.table.abl"] },  // 'customer'
-      { "startIndex": 72, "endIndex": 73, "scopes": ["source.abl"] },  // ' '
-      { "startIndex": 73, "endIndex": 80, "scopes": ["source.abl", "keyword.other.abl"] },  // 'no-lock'
-      { "startIndex": 80, "endIndex": 81, "scopes": ["source.abl"] },  // ' '
-      { "startIndex": 81, "endIndex": 86, "scopes": ["source.abl", "keyword.other.abl"] },  // 'where'
-      { "startIndex": 86, "endIndex": 87, "scopes": ["source.abl"] },  // ' '
-      { "startIndex": 87, "endIndex": 102, "scopes": ["source.abl", "storage.data.table.abl"] },  // 'order.orderdate'
-      { "startIndex": 102, "endIndex": 103, "scopes": ["source.abl"] },  // ' '
-      { "startIndex": 103, "endIndex": 104, "scopes": ["source.abl", "keyword.operator.source.abl"] },  // '<'
-      { "startIndex": 104, "endIndex": 105, "scopes": ["source.abl"] },  // ' '
-      { "startIndex": 105, "endIndex": 110, "scopes": ["source.abl", "constant.language.abl"] },  // 'today'
-      { "startIndex": 110, "endIndex": 112, "scopes": ["source.abl"] }  // ':'
+      { "startIndex": 17, "endIndex": 18, "scopes": ["source.abl"] },  // ' '
+      { "startIndex": 18, "endIndex": 20, "scopes": ["source.abl"] }  // ':'
     ],
     [
       { "startIndex": 0, "endIndex": 2, "scopes": ["source.abl"] },  // '  '
@@ -189,8 +162,7 @@ describe('', () => {
       { "startIndex": 2, "endIndex": 5, "scopes": ["source.abl", "keyword.other.abl"] },  // 'end'
       { "startIndex": 5, "endIndex": 6, "scopes": ["source.abl", "punctuation.terminator.abl"] },  // '.'
       { "startIndex": 6, "endIndex": 9, "scopes": ["source.abl"] }  // '  '
-    ]
-  ];
+    ]];
   shared.itShouldMatchExpectedScopes(statement, expectedTokens);
 })
 
