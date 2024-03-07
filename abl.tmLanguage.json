@@ -330,6 +330,9 @@
           "include": "#annotation"
         },
         {
+          "include": "#undo-statement"
+        },
+        {
           "include": "#block-statement"
         },
         {
@@ -2211,8 +2214,12 @@
     },
     "annotation": {
       "patterns": [
-        {"include": "#annotation-simple"},
-        {"include": "#annotation-attributes"}
+        {
+          "include": "#annotation-simple"
+        },
+        {
+          "include": "#annotation-attributes"
+        }
       ]
     },
     "annotation-simple": {
@@ -2924,6 +2931,39 @@
         }
       ]
     },
+    "undo-statement": {
+      "comment": "https://docs.progress.com/bundle/abl-reference/page/UNDO-statement.html",
+      "begin": "(?i)\\s*(undo)\\s*([a-z0-9\\-\\_\\$]*)?\\s*(,)",
+      "beginCaptures": {
+        "1": {
+          "name": "keyword.other.abl"
+        },
+        "2": {
+          "name": "meta.block.label.abl"
+        },
+        "3": {
+          "name": "separator.comma.abl"
+        }
+      },
+      "end": "(?=\\.)",
+      "patterns": [
+     { "include": "#string" },
+     {
+       "match": "(?i)\\s*(leave|next|retry)\\s([a-z0-9\\-\\_\\$]*)?",
+       "captures": {
+         "1": { "name": "keyword.other.abl" },
+         "2": { "name": "meta.block.label.abl" }
+       }
+     },
+     { "include": "#new-class"},
+     { "include": "#keywords" },
+     { "include": "#code-block" },
+     { "include": "#property-call" },
+     { "include": "#function-arguments" },
+     { "include": "#expression" },
+     { "include": "#punctuation-colon"}
+   ]
+    },
     "branch-options": {
       "name": "meta.block.branch.abl",
       "patterns": [
@@ -3171,9 +3211,9 @@
       "match": "(?<=^|\\s)(\\w|-)+(?=\\s)",
       "name": "variable.parameter.abl"
     },
-    "run-statement" : {
+    "run-statement": {
       "match": "(?i)\\s*(run)\\s+(?!value)(([a-z][a-z0-9\\/\\-\\_\\\\]+)(\\.[a-z]+)?)",
-      "captures":{
+      "captures": {
         "1": {
           "name": "keyword.other.abl.abl"
         },
@@ -3259,7 +3299,7 @@
       "match": "\\s*((\\{\\s*\\&[\\.\\w\\\/-]+\\})|(\\{\\s*\\d+\\})|(\\{\\s*\\*\\}))\\s*",
       "captures": {
         "1": {
-            "name": "support.other.argument.abl"
+          "name": "support.other.argument.abl"
         }
       }
     },
