@@ -256,6 +256,9 @@
           "include": "#extent"
         },
         {
+          "include": "#property-call"
+        },
+        {
           "include": "#abl-functions"
         },
         {
@@ -272,6 +275,9 @@
         },
         {
           "include": "#type-name-progress"
+        },
+        {
+          "include": "#abl-system-handles"
         },
         {
           "include": "#keywords"
@@ -1455,7 +1461,7 @@
     },
     "abl-functions-V": {
       "name": "meta.function-call.abl",
-      "begin": "(?i)\\s*(VALID-EVENT|VALID-HANDLE|VALID-OBJECT)\\s*(?=\\()",
+      "begin": "(?i)\\s*(VALID-EVENT|VALID-HANDLE|VALID-OBJECT|VALUE)\\s*(?=\\()",
       "beginCaptures": {
         "1": {
           "name": "support.function.abl"
@@ -1965,6 +1971,9 @@
         },
         {
           "include": "#include-file"
+        },
+        {
+          "include": "#run-statement"
         },
         {
           "include": "#define"
@@ -3161,6 +3170,17 @@
     "parameter-name": {
       "match": "(?<=^|\\s)(\\w|-)+(?=\\s)",
       "name": "variable.parameter.abl"
+    },
+    "run-statement" : {
+      "match": "(?i)\\s*(run)\\s+(?!value)(([a-z][a-z0-9\\/\\-\\_\\\\]+)(\\.[a-z]+)?)",
+      "captures":{
+        "1": {
+          "name": "keyword.other.abl.abl"
+        },
+        "2": {
+          "name": "meta.other.procedure.abl"
+        }
+      }
     },
     "include-file": {
       "name": "meta.include.abl",
