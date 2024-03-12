@@ -177,3 +177,21 @@ describe('', () => {
   ];
   shared.itShouldMatchExpectedScopes(statement, expectedTokens);
 })
+
+describe('', () => {
+  let statement = `ROUTINE-LEVEL ON ERROR UNDO, THROW.`;
+  let expectedTokens = [
+    { "startIndex": 0, "endIndex": 13, "scopes": ["source.abl", "keyword.other.abl"] },  // 'ROUTINE-LEVEL'
+    { "startIndex": 13, "endIndex": 14, "scopes": ["source.abl"] },  // ' '
+    { "startIndex": 14, "endIndex": 16, "scopes": ["source.abl", "keyword.other.abl"] },  // 'ON'
+    { "startIndex": 16, "endIndex": 17, "scopes": ["source.abl"] },  // ' '
+    { "startIndex": 17, "endIndex": 22, "scopes": ["source.abl", "keyword.other.abl"] },  // 'ERROR'
+    { "startIndex": 22, "endIndex": 23, "scopes": ["source.abl"] },  // ' '
+    { "startIndex": 23, "endIndex": 27, "scopes": ["source.abl", "keyword.other.abl"] },  // 'UNDO'
+    { "startIndex": 27, "endIndex": 28, "scopes": ["source.abl", "separator.comma.abl"] },  // ','
+    { "startIndex": 28, "endIndex": 29, "scopes": ["source.abl"] },  // ' '
+    { "startIndex": 29, "endIndex": 34, "scopes": ["source.abl", "keyword.other.abl"] },  // 'THROW'
+    { "startIndex": 34, "endIndex": 35, "scopes": ["source.abl", "punctuation.terminator.abl"] }  // '.'
+  ];
+  shared.itShouldMatchExpectedScopes(statement, expectedTokens);
+})

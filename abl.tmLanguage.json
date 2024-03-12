@@ -413,6 +413,9 @@
           "include": "#timestamp-constant"
         },
         {
+          "include": "#for-join"
+        },
+        {
           "include": "#operator"
         },
         {
@@ -478,9 +481,6 @@
         },
         {
           "include": "#for-each-join"
-        },
-        {
-          "include": "#for-join"
         },
         {
           "include": "#of-phrase"
@@ -1748,28 +1748,25 @@
       }
     },
     "for-join": {
-      "comment": "Captures something like ', salesrep where' or 'salesrep where', when the latter is at the beginning of a line",
-      "match": "(?i)(^|,)\\s*([\\w\\-#$%]+(\\.[\\w\\-#$%]+)?)\\s+(where)\\s*",
+      "comment": "Captures something like ', salesrep where' or 'salesrep where', when the latter is at the beginning of a line. 'OF' phrases handled by of-phrase",
+      "match": "(?i)(?<=,|^)\\s*([\\w\\-#$%]+(\\.[\\w\\-#$%]+)?)\\s+(?=where|no-lock|share-lock|exclusive-lock|tenant-where|use-index|table-scan|using|no-prefetch|left|outer-join|break|by|transaction)",
       "captures": {
-        "2": {
+        "1": {
           "name": "storage.data.table.abl"
-        },
-        "4": {
-          "name": "keyword.other.abl"
         }
       }
     },
     "for-each-join": {
-      "begin": "(?i)(?<=,)\\s*((each|first|last)|([\\w\\-#$%]+(\\.[\\w\\-#$%]+)?))\\s*",
+      "begin": "(?i)(?<=,)\\s*(each|first|last)\\s*",
       "beginCaptures": {
-        "2": {
+        "1": {
           "name": "keyword.other.abl"
         },
         "3": {
           "name": "storage.data.table.abl"
         }
       },
-      "end": "(?i)\\s*(?=where|no-lock|share-lock|exclusive-lock|tenant-where|use-index|table-scan|using|no-prefetch|left|outer-join|break|by|transaction,|:)\\s*",
+      "end": "(?i)\\s*(?=where|no-lock|share-lock|exclusive-lock|tenant-where|use-index|table-scan|using|no-prefetch|left|outer-join|break|by|transaction|,|:)\\s*",
       "patterns": [
         {
           "include": "#fields-except-list"
@@ -2947,22 +2944,42 @@
       },
       "end": "(?=\\.)",
       "patterns": [
-     { "include": "#string" },
-     {
-       "match": "(?i)\\s*(leave|next|retry)\\s([a-z0-9\\-\\_\\$]*)?",
-       "captures": {
-         "1": { "name": "keyword.other.abl" },
-         "2": { "name": "meta.block.label.abl" }
-       }
-     },
-     { "include": "#new-class"},
-     { "include": "#keywords" },
-     { "include": "#code-block" },
-     { "include": "#property-call" },
-     { "include": "#function-arguments" },
-     { "include": "#expression" },
-     { "include": "#punctuation-colon"}
-   ]
+        {
+          "include": "#string"
+        },
+        {
+          "match": "(?i)\\s*(leave|next|retry)\\s([a-z0-9\\-\\_\\$]*)?",
+          "captures": {
+            "1": {
+              "name": "keyword.other.abl"
+            },
+            "2": {
+              "name": "meta.block.label.abl"
+            }
+          }
+        },
+        {
+          "include": "#new-class"
+        },
+        {
+          "include": "#keywords"
+        },
+        {
+          "include": "#code-block"
+        },
+        {
+          "include": "#property-call"
+        },
+        {
+          "include": "#function-arguments"
+        },
+        {
+          "include": "#expression"
+        },
+        {
+          "include": "#punctuation-colon"
+        }
+      ]
     },
     "branch-options": {
       "name": "meta.block.branch.abl",
