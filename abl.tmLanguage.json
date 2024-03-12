@@ -3237,6 +3237,20 @@
         },
         {
           "include": "#string"
+        },
+        {
+          "match": "(?<=\\s)(&[a-zA-Z][a-zA-Z0-9\\#\\$\\-\\_\\%\\.]+)\\s*(=?)",
+          "comment": "non-string argument values after the &arg = ",
+          "name": "meta.include-named-argument",
+          "captures": {
+            "1": {
+              "name": "support.other.argument.abl",
+              "comment": "you can use variable names, field names, and reserved words as argument names."
+            },
+            "2": {
+              "name": "keyword.operator.source.abl"
+            }
+          }
         }
       ]
     },
