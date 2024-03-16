@@ -505,6 +505,9 @@
           "include": "#punctuation-semicolon"
         },
         {
+          "include": "#punctuation-comma"
+        },
+        {
           "include": "#parens"
         },
         {
@@ -2719,6 +2722,9 @@
           "name": "keyword.other.abl"
         },
         {
+          "include": "#punctuation-comma"
+        },
+        {
           "include": "#branch-options"
         },
         {
@@ -2762,31 +2768,31 @@
           "name": "storage.data.table.abl"
         },
         "3": {
-          "name": "separator.comma.abl"
+          "name": "punctuation.separator.comma.abl"
         },
         "4": {
           "name": "storage.data.table.abl"
         },
         "5": {
-          "name": "separator.comma.abl"
+          "name": "punctuation.separator.comma.abl"
         },
         "6": {
           "name": "storage.data.table.abl"
         },
         "7": {
-          "name": "separator.comma.abl"
+          "name": "punctuation.separator.comma.abl"
         },
         "8": {
           "name": "storage.data.table.abl"
         },
         "9": {
-          "name": "separator.comma.abl"
+          "name": "punctuation.separator.comma.abl"
         },
         "10": {
           "name": "storage.data.table.abl"
         },
         "11": {
-          "name": "separator.comma.abl"
+          "name": "punctuation.separator.comma.abl"
         },
         "12": {
           "name": "storage.data.table.abl"
@@ -2813,15 +2819,12 @@
     },
     "branch-leave-next-retry-throw": {
       "name": "meta.block.branch.abl",
-      "match": "(?i)\\s*(,)\\s*(leave|next|retry|throw)\\s*(?!on)([a-z0-9\\-\\_\\$]*)?\\s*",
+      "match": "(?i)\\s*(?<=,)\\s*(leave|next|retry|throw)\\s*(?!on)([a-z0-9\\-\\_\\$]*)?\\s*",
       "captures": {
         "1": {
-          "name": "separator.comma.abl"
-        },
-        "2": {
           "name": "keyword.other.abl"
         },
-        "3": {
+        "2": {
           "name": "meta.block.label.abl"
         }
       }
@@ -2939,7 +2942,7 @@
           "name": "meta.block.label.abl"
         },
         "3": {
-          "name": "separator.comma.abl"
+          "name": "punctuation.separator.comma.abl"
         }
       },
       "end": "(?=\\.)",
@@ -3007,6 +3010,9 @@
         },
         {
           "include": "#branch-return-error-expression"
+        },
+        {
+          "include": "#punctuation-comma"
         }
       ]
     },
@@ -3451,16 +3457,28 @@
       "match": ":"
     },
     "punctuation-comma": {
-      "name": "punctuation.separator.comma.abl",
-      "match": ","
+      "captures": {
+        "1": {
+          "name": "punctuation.separator.comma.abl"
+        }
+      },
+      "match": "(,)"
     },
     "punctuation-semicolon": {
-      "name": "punctuation.terminator.abl",
-      "match": ";"
+      "captures": {
+        "1": {
+          "name": "punctuation.terminator.abl"
+        }
+      },
+      "match": "(;)"
     },
     "punctuation-period": {
-      "name": "punctuation.terminator.abl",
-      "match": "\\."
+      "captures": {
+        "1": {
+          "name": "punctuation.terminator.abl"
+        }
+      },
+      "match": "(\\.)"
     },
     "operator": {
       "patterns": [
@@ -3473,7 +3491,7 @@
       ]
     },
     "operator-no-space": {
-      "match": "(<=|<>|>=|=|\\+|\\-|\/|<|>|,|\\?\\:)",
+      "match": "(<=|<>|>=|=|\\+|\\-|\/|<|>)",
       "captures": {
         "1": {
           "name": "keyword.operator.source.abl"
