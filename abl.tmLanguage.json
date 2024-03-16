@@ -120,15 +120,15 @@
           "comment": "For the return type"
         },
         {
-          "include": "#dll-type",
-          "comment": "For the return type"
-        },
-        {
           "include": "#extent",
           "comment": "For the return type"
         },
         {
           "include": "#primitive-type",
+          "comment": "For the return type"
+        },
+        {
+          "include": "#dll-type",
           "comment": "For the return type"
         },
         {
