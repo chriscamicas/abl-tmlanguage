@@ -334,7 +334,7 @@ describe('', () => {
     { "startIndex": 62, "endIndex": 63, "scopes": ["source.abl", "meta.define.method.abl"] },  // ' '
     { "startIndex": 63, "endIndex": 74, "scopes": ["source.abl", "meta.define.method.abl", "entity.name.type.abl"] },  // 'foo.bar.baz'
     { "startIndex": 74, "endIndex": 75, "scopes": ["source.abl", "meta.define.method.abl", "meta.brace.round.js"] },  // ')'
-    { "startIndex": 75, "endIndex": 77, "scopes": ["source.abl", "meta.define.method.abl"] }  // '.'
+    { "startIndex": 75, "endIndex": 76, "scopes": ["source.abl", "punctuation.terminator.abl"] }  // '.'
   ];
   shared.itShouldMatchExpectedScopes(statement, expectedTokens);
 })

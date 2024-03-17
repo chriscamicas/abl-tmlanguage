@@ -79,7 +79,7 @@
         }
       },
       "comment": "The lookahead on the regex for the closing colon is required to make this scope end properly",
-      "end": "(?=:)",
+      "end": "(?=:|\\.)",
       "patterns": [
         {
           "include": "#access-modifier"
@@ -3087,6 +3087,14 @@
       "patterns": [
         {
           "include": "#parens"
+        },
+        {
+          "match": "(?i)\\s*(input-output|output|input|table-handle|table|dataset-handle|dataset|APPEND|BY-VALUE|BY-REFERENCE|BIND)\\s*",
+          "captures": {
+            "1": {
+              "name": "keyword.other.abl"
+              }
+          }
         },
         {
           "include": "#constant"
