@@ -7,8 +7,8 @@
   ],
   "name": "OpenEdge ABL",
   "patterns": [
-    {
-      "include": "#statements"
+        {
+            "include": "#statements"
     }
   ],
   "repository": {
@@ -1645,7 +1645,7 @@
       "begin": "(?i)\\s*(get-class)\\s*(\\()",
       "beginCaptures": {
         "1": {
-          "name": "entity.name.function.abl"
+          "name": "support.function.abl"
         },
         "2": {
           "name": "meta.brace.round.js"
@@ -1861,10 +1861,13 @@
     },
     "type-argument-function": {
       "name": "meta.function-call.abl",
-      "begin": "(?i)\\s*(cast|type-of)\\s*",
+      "begin": "(?i)\\s*(cast|type-of)\\s*(\\()",
       "beginCaptures": {
         "1": {
           "name": "support.function.abl"
+        },
+        "2": {
+          "name": "meta.brace.round.js"
         }
       },
       "end": "(?<=\\))",
@@ -1907,6 +1910,9 @@
               "name": "punctuation.separator.comma.abl"
             }
           }
+        },
+        {
+          "include": "#type-argument-function"
         },
         {
           "include": "#expression"
@@ -2063,7 +2069,7 @@
     },
     "property-get-block": {
       "name": "meta.define.getter.abl",
-      "begin": "(?i)\\s*(get)",
+      "begin": "(?i)\\s*(?<!\\:)\\s*(get)",
       "beginCaptures": {
         "1": {
           "name": "keyword.other.abl"
@@ -2093,7 +2099,7 @@
     },
     "property-set-block": {
       "name": "meta.define.setter.abl",
-      "begin": "(?i)\\s*(set)",
+      "begin": "(?i)\\s*(?<!\\:)\\s*(set)",
       "beginCaptures": {
         "1": {
           "name": "keyword.other.abl"
