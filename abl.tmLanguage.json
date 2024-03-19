@@ -55,7 +55,7 @@
     },
     "translation-attribute": {
       "comment": "The attribute must have one of L, R, T, or C and/or a U and/or one integer value. For example, R1 as the attribute value for Label.",
-      "match": "(?i)(:[L|R|T|C|U]\\d*)\\s*",
+      "match": "(?i)(:[L|R|T|C|U]\\d*)\\b",
       "captures": {
         "1": {
           "name": "support.other.abl"
@@ -2128,7 +2128,7 @@
       ]
     },
     "parameter-as": {
-      "begin": "(?i)\\s*([\\w\\-]+)\\s+(as)\\s*",
+      "begin": "(?i)\\s*([\\w\\-]+)\\s+(as)\\s+",
       "beginCaptures": {
         "1": {
           "name": "variable.parameter.abl"
