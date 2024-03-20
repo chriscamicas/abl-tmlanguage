@@ -3103,6 +3103,9 @@
           "include": "#type-reference"
         },
         {
+          "include": "#db-dot-table-dot-field"
+        },
+        {
           "include": "#expression"
         },
         {
@@ -3113,6 +3116,9 @@
         },
         {
           "include": "#static-object-property-call"
+        },
+        {
+          "include": "#abl-functions"
         },
         {
           "include": "#function-call"
