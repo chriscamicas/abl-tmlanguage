@@ -10,7 +10,7 @@ describe('', () => {
     { "startIndex": 5, "endIndex": 6, "scopes": ["source.abl", "meta.define.class.abl"] },  // ' '
     { "startIndex": 6, "endIndex": 17, "scopes": ["source.abl", "meta.define.class.abl", "entity.name.type.abl"] },  // 'foo.bar.baz'
     { "startIndex": 17, "endIndex": 18, "scopes": ["source.abl", "meta.define.class.abl"] },  // ' '
-    { "startIndex": 18, "endIndex": 19, "scopes": ["source.abl", "meta.define.class.abl", "punctuation.terminator.abl"] } // ':'    
+    { "startIndex": 18, "endIndex": 19, "scopes": ["source.abl", "meta.define.class.abl", "punctuation.terminator.abl"] } // ':'
   ];
   shared.itShouldMatchExpectedScopes(statement, expectedTokens);
 })
@@ -42,10 +42,10 @@ describe('', () => {
 })
 
 describe('', () => {
-  let statement = `CLASS foo.bar.baz ABSTRACT    
-    inherits parent.class 
+  let statement = `CLASS foo.bar.baz ABSTRACT
+    inherits parent.class
     implements one.interface,
-    anotehr.iface    
+    another.iface
     :`;
 
   let expectedTokens = [
@@ -54,15 +54,13 @@ describe('', () => {
       { "startIndex": 5, "endIndex": 6, "scopes": ["source.abl", "meta.define.class.abl"] },  // ' '
       { "startIndex": 6, "endIndex": 17, "scopes": ["source.abl", "meta.define.class.abl", "entity.name.type.abl"] },  // 'foo.bar.baz'
       { "startIndex": 17, "endIndex": 18, "scopes": ["source.abl", "meta.define.class.abl"] },  // ' '
-      { "startIndex": 18, "endIndex": 26, "scopes": ["source.abl", "meta.define.class.abl", "keyword.other.abl"] },  // 'ABSTRACT'
-      { "startIndex": 26, "endIndex": 31, "scopes": ["source.abl", "meta.define.class.abl"] }  // '    '
+      { "startIndex": 18, "endIndex": 26, "scopes": ["source.abl", "meta.define.class.abl", "keyword.other.abl"] }  // 'ABSTRACT'
     ],
     [
       { "startIndex": 0, "endIndex": 4, "scopes": ["source.abl", "meta.define.class.abl"] },  // '    '
       { "startIndex": 4, "endIndex": 12, "scopes": ["source.abl", "meta.define.class.abl", "keyword.other.abl"] },  // 'inherits'
       { "startIndex": 12, "endIndex": 13, "scopes": ["source.abl", "meta.define.class.abl"] },  // ' '
-      { "startIndex": 13, "endIndex": 25, "scopes": ["source.abl", "meta.define.class.abl", "entity.name.type.abl"] },  // 'parent.class'
-      { "startIndex": 25, "endIndex": 27, "scopes": ["source.abl", "meta.define.class.abl"] }  // ' '
+      { "startIndex": 13, "endIndex": 25, "scopes": ["source.abl", "meta.define.class.abl", "entity.name.type.abl"] }  // 'parent.class'
     ],
     [
       { "startIndex": 0, "endIndex": 4, "scopes": ["source.abl", "meta.define.class.abl"] },  // '    '
@@ -73,8 +71,7 @@ describe('', () => {
     ],
     [
       { "startIndex": 0, "endIndex": 4, "scopes": ["source.abl", "meta.define.class.abl"] },  // '    '
-      { "startIndex": 4, "endIndex": 17, "scopes": ["source.abl", "meta.define.class.abl", "entity.name.type.abl"] },  // 'anotehr.iface'
-      { "startIndex": 17, "endIndex": 22, "scopes": ["source.abl", "meta.define.class.abl"] }  // '    '
+      { "startIndex": 4, "endIndex": 17, "scopes": ["source.abl", "meta.define.class.abl", "entity.name.type.abl"] }  // 'another.iface'
     ],
     [
       { "startIndex": 0, "endIndex": 4, "scopes": ["source.abl", "meta.define.class.abl"] },  // '    '
@@ -85,10 +82,10 @@ describe('', () => {
 })
 
 describe('', () => {
-  let statement = `CLASS foo.bar.baz inherits parent.class 
+  let statement = `CLASS foo.bar.baz inherits parent.class
     implements one.interface,
-    anotehr.iface
-    abstract 
+    another.iface
+    abstract
     use-widget-pool:
       def var x as int.
       `;
@@ -101,8 +98,7 @@ describe('', () => {
       { "startIndex": 17, "endIndex": 18, "scopes": ["source.abl", "meta.define.class.abl"] },  // ' '
       { "startIndex": 18, "endIndex": 26, "scopes": ["source.abl", "meta.define.class.abl", "keyword.other.abl"] },  // 'inherits'
       { "startIndex": 26, "endIndex": 27, "scopes": ["source.abl", "meta.define.class.abl"] },  // ' '
-      { "startIndex": 27, "endIndex": 39, "scopes": ["source.abl", "meta.define.class.abl", "entity.name.type.abl"] },  // 'parent.class'
-      { "startIndex": 39, "endIndex": 41, "scopes": ["source.abl", "meta.define.class.abl"] }  // ' '
+      { "startIndex": 27, "endIndex": 39, "scopes": ["source.abl", "meta.define.class.abl", "entity.name.type.abl"] }  // 'parent.class'
     ],
     [
       { "startIndex": 0, "endIndex": 4, "scopes": ["source.abl", "meta.define.class.abl"] },  // '    '
@@ -113,12 +109,11 @@ describe('', () => {
     ],
     [
       { "startIndex": 0, "endIndex": 4, "scopes": ["source.abl", "meta.define.class.abl"] },  // '    '
-      { "startIndex": 4, "endIndex": 17, "scopes": ["source.abl", "meta.define.class.abl", "entity.name.type.abl"] }  // 'anotehr.iface'
+      { "startIndex": 4, "endIndex": 17, "scopes": ["source.abl", "meta.define.class.abl", "entity.name.type.abl"] }  // 'another.iface'
     ],
     [
       { "startIndex": 0, "endIndex": 4, "scopes": ["source.abl", "meta.define.class.abl"] },  // '    '
-      { "startIndex": 4, "endIndex": 12, "scopes": ["source.abl", "meta.define.class.abl", "keyword.other.abl"] },  // 'abstract'
-      { "startIndex": 12, "endIndex": 14, "scopes": ["source.abl", "meta.define.class.abl"] }  // ' '
+      { "startIndex": 4, "endIndex": 12, "scopes": ["source.abl", "meta.define.class.abl", "keyword.other.abl"] }  // 'abstract'
     ],
     [
       { "startIndex": 0, "endIndex": 4, "scopes": ["source.abl", "meta.define.class.abl"] },  // '    '
@@ -168,16 +163,16 @@ describe('', () => {
     { "startIndex": 92, "endIndex": 100, "scopes": ["source.abl", "meta.define.class.abl", "keyword.other.abl"] },  // 'abstract'
     { "startIndex": 100, "endIndex": 101, "scopes": ["source.abl", "meta.define.class.abl"] },  // ' '
     { "startIndex": 101, "endIndex": 116, "scopes": ["source.abl", "meta.define.class.abl", "keyword.other.abl"] },  // 'use-widget-pool'
-    { "startIndex": 116, "endIndex": 117, "scopes": ["source.abl", "meta.define.class.abl", "punctuation.terminator.abl"] }  // ':'   
+    { "startIndex": 116, "endIndex": 117, "scopes": ["source.abl", "meta.define.class.abl", "punctuation.terminator.abl"] }  // ':'
   ];
   shared.itShouldMatchExpectedScopes(statement, expectedTokens);
 })
 
 describe('', () => {
-  let statement = `CLASS foo.bar.baz inherits parent.class 
+  let statement = `CLASS foo.bar.baz inherits parent.class
     implements one.interface,
-    anotehr.iface
-    abstract 
+    another.iface
+    abstract
     use-widget-pool serializable
     :`;
 
@@ -189,8 +184,7 @@ describe('', () => {
       { "startIndex": 17, "endIndex": 18, "scopes": ["source.abl", "meta.define.class.abl"] },  // ' '
       { "startIndex": 18, "endIndex": 26, "scopes": ["source.abl", "meta.define.class.abl", "keyword.other.abl"] },  // 'inherits'
       { "startIndex": 26, "endIndex": 27, "scopes": ["source.abl", "meta.define.class.abl"] },  // ' '
-      { "startIndex": 27, "endIndex": 39, "scopes": ["source.abl", "meta.define.class.abl", "entity.name.type.abl"] },  // 'parent.class'
-      { "startIndex": 39, "endIndex": 41, "scopes": ["source.abl", "meta.define.class.abl"] }  // ' '
+      { "startIndex": 27, "endIndex": 39, "scopes": ["source.abl", "meta.define.class.abl", "entity.name.type.abl"] }  // 'parent.class'
     ],
     [
       { "startIndex": 0, "endIndex": 4, "scopes": ["source.abl", "meta.define.class.abl"] },  // '    '
@@ -201,12 +195,11 @@ describe('', () => {
     ],
     [
       { "startIndex": 0, "endIndex": 4, "scopes": ["source.abl", "meta.define.class.abl"] },  // '    '
-      { "startIndex": 4, "endIndex": 17, "scopes": ["source.abl", "meta.define.class.abl", "entity.name.type.abl"] }  // 'anotehr.iface'
+      { "startIndex": 4, "endIndex": 17, "scopes": ["source.abl", "meta.define.class.abl", "entity.name.type.abl"] }  // 'another.iface'
     ],
     [
       { "startIndex": 0, "endIndex": 4, "scopes": ["source.abl", "meta.define.class.abl"] },  // '    '
-      { "startIndex": 4, "endIndex": 12, "scopes": ["source.abl", "meta.define.class.abl", "keyword.other.abl"] },  // 'abstract'
-      { "startIndex": 12, "endIndex": 14, "scopes": ["source.abl", "meta.define.class.abl"] }  // ' '
+      { "startIndex": 4, "endIndex": 12, "scopes": ["source.abl", "meta.define.class.abl", "keyword.other.abl"] }  // 'abstract'
     ],
     [
       { "startIndex": 0, "endIndex": 4, "scopes": ["source.abl", "meta.define.class.abl"] },  // '    '
@@ -223,11 +216,11 @@ describe('', () => {
 })
 
 describe('', () => {
-  let statement = `CLASS foo.bar.baz 
+  let statement = `CLASS foo.bar.baz
   implements one.interface,
-  anotehr.iface
-  inherits parent.class 
-    abstract 
+  another.iface
+  inherits parent.class
+    abstract
     use-widget-pool serializable
     :`;
 
@@ -235,8 +228,7 @@ describe('', () => {
     [
       { "startIndex": 0, "endIndex": 5, "scopes": ["source.abl", "meta.define.class.abl", "keyword.other.abl"] },  // 'CLASS'
       { "startIndex": 5, "endIndex": 6, "scopes": ["source.abl", "meta.define.class.abl"] },  // ' '
-      { "startIndex": 6, "endIndex": 17, "scopes": ["source.abl", "meta.define.class.abl", "entity.name.type.abl"] },  // 'foo.bar.baz'
-      { "startIndex": 17, "endIndex": 19, "scopes": ["source.abl", "meta.define.class.abl"] }  // ' '
+      { "startIndex": 6, "endIndex": 17, "scopes": ["source.abl", "meta.define.class.abl", "entity.name.type.abl"] }  // 'foo.bar.baz'
     ],
     [
       { "startIndex": 0, "endIndex": 2, "scopes": ["source.abl", "meta.define.class.abl"] },  // '  '
@@ -247,19 +239,17 @@ describe('', () => {
     ],
     [
       { "startIndex": 0, "endIndex": 2, "scopes": ["source.abl", "meta.define.class.abl"] },  // '  '
-      { "startIndex": 2, "endIndex": 15, "scopes": ["source.abl", "meta.define.class.abl", "entity.name.type.abl"] }  // 'anotehr.iface'
+      { "startIndex": 2, "endIndex": 15, "scopes": ["source.abl", "meta.define.class.abl", "entity.name.type.abl"] }  // 'another.iface'
     ],
     [
       { "startIndex": 0, "endIndex": 2, "scopes": ["source.abl", "meta.define.class.abl"] },  // '  '
       { "startIndex": 2, "endIndex": 10, "scopes": ["source.abl", "meta.define.class.abl", "keyword.other.abl"] },  // 'inherits'
       { "startIndex": 10, "endIndex": 11, "scopes": ["source.abl", "meta.define.class.abl"] },  // ' '
-      { "startIndex": 11, "endIndex": 23, "scopes": ["source.abl", "meta.define.class.abl", "entity.name.type.abl"] },  // 'parent.class'
-      { "startIndex": 23, "endIndex": 25, "scopes": ["source.abl", "meta.define.class.abl"] }  // ' '
+      { "startIndex": 11, "endIndex": 23, "scopes": ["source.abl", "meta.define.class.abl", "entity.name.type.abl"] }  // 'parent.class'
     ],
     [
       { "startIndex": 0, "endIndex": 4, "scopes": ["source.abl", "meta.define.class.abl"] },  // '    '
-      { "startIndex": 4, "endIndex": 12, "scopes": ["source.abl", "meta.define.class.abl", "keyword.other.abl"] },  // 'abstract'
-      { "startIndex": 12, "endIndex": 14, "scopes": ["source.abl", "meta.define.class.abl"] }  // ' '
+      { "startIndex": 4, "endIndex": 12, "scopes": ["source.abl", "meta.define.class.abl", "keyword.other.abl"] }  // 'abstract'
     ],
     [
       { "startIndex": 0, "endIndex": 4, "scopes": ["source.abl", "meta.define.class.abl"] },  // '    '
@@ -285,21 +275,20 @@ describe('', () => {
     { "startIndex": 6, "endIndex": 17, "scopes": ["source.abl", "meta.define.class.abl", "entity.name.type.abl"] },  // 'foo.bar.baz'
     { "startIndex": 17, "endIndex": 19, "scopes": ["source.abl", "meta.define.class.abl"] },  // '  '
     { "startIndex": 19, "endIndex": 34, "scopes": ["source.abl", "meta.define.class.abl", "keyword.other.abl"] },  // 'use-widget-pool'
-    { "startIndex": 34, "endIndex": 35, "scopes": ["source.abl", "meta.define.class.abl", "punctuation.terminator.abl"] }  // ':'      
+    { "startIndex": 34, "endIndex": 35, "scopes": ["source.abl", "meta.define.class.abl", "punctuation.terminator.abl"] }  // ':'
   ];
   shared.itShouldMatchExpectedScopes(statement, expectedTokens);
 })
 
 describe('', () => {
-  let statement = `CLASS foo.bar.baz 
+  let statement = `CLASS foo.bar.baz
      use-widget-pool:`;
 
   let expectedTokens = [
     [
       { "startIndex": 0, "endIndex": 5, "scopes": ["source.abl", "meta.define.class.abl", "keyword.other.abl"] },  // 'CLASS'
       { "startIndex": 5, "endIndex": 6, "scopes": ["source.abl", "meta.define.class.abl"] },  // ' '
-      { "startIndex": 6, "endIndex": 17, "scopes": ["source.abl", "meta.define.class.abl", "entity.name.type.abl"] },  // 'foo.bar.baz'
-      { "startIndex": 17, "endIndex": 19, "scopes": ["source.abl", "meta.define.class.abl"] }  // ' '
+      { "startIndex": 6, "endIndex": 17, "scopes": ["source.abl", "meta.define.class.abl", "entity.name.type.abl"] }  // 'foo.bar.baz'
     ],
     [
       { "startIndex": 0, "endIndex": 5, "scopes": ["source.abl", "meta.define.class.abl"] },  // '     '
@@ -334,17 +323,16 @@ describe('', () => {
 })
 
 describe('', () => {
-  let statement = `CLASS foo.bar.baz 
+  let statement = `CLASS foo.bar.baz
             INheriTS boo.scoo
-     use-widget-POOL 
+     use-widget-POOL
      :`;
 
   let expectedTokens = [
     [
       { "startIndex": 0, "endIndex": 5, "scopes": ["source.abl", "meta.define.class.abl", "keyword.other.abl"] },  // 'CLASS'
       { "startIndex": 5, "endIndex": 6, "scopes": ["source.abl", "meta.define.class.abl"] },  // ' '
-      { "startIndex": 6, "endIndex": 17, "scopes": ["source.abl", "meta.define.class.abl", "entity.name.type.abl"] },  // 'foo.bar.baz'
-      { "startIndex": 17, "endIndex": 19, "scopes": ["source.abl", "meta.define.class.abl"] }  // ' '
+      { "startIndex": 6, "endIndex": 17, "scopes": ["source.abl", "meta.define.class.abl", "entity.name.type.abl"] }  // 'foo.bar.baz'
     ],
     [
       { "startIndex": 0, "endIndex": 12, "scopes": ["source.abl", "meta.define.class.abl"] },  // '            '
@@ -354,8 +342,7 @@ describe('', () => {
     ],
     [
       { "startIndex": 0, "endIndex": 5, "scopes": ["source.abl", "meta.define.class.abl"] },  // '     '
-      { "startIndex": 5, "endIndex": 20, "scopes": ["source.abl", "meta.define.class.abl", "keyword.other.abl"] },  // 'use-widget-POOL'
-      { "startIndex": 20, "endIndex": 22, "scopes": ["source.abl", "meta.define.class.abl"] }  // ' '
+      { "startIndex": 5, "endIndex": 20, "scopes": ["source.abl", "meta.define.class.abl", "keyword.other.abl"] }  // 'use-widget-POOL'
     ],
     [
       { "startIndex": 0, "endIndex": 5, "scopes": ["source.abl", "meta.define.class.abl"] },  // '     '
@@ -366,8 +353,8 @@ describe('', () => {
 })
 
 describe('', () => {
-  let statement = `CLASS foo.bar.baz 
-        INheriTS 
+  let statement = `CLASS foo.bar.baz
+        INheriTS
             boo.scoo
 
      :`;
@@ -376,13 +363,11 @@ describe('', () => {
     [
       { "startIndex": 0, "endIndex": 5, "scopes": ["source.abl", "meta.define.class.abl", "keyword.other.abl"] },  // 'CLASS'
       { "startIndex": 5, "endIndex": 6, "scopes": ["source.abl", "meta.define.class.abl"] },  // ' '
-      { "startIndex": 6, "endIndex": 17, "scopes": ["source.abl", "meta.define.class.abl", "entity.name.type.abl"] },  // 'foo.bar.baz'
-      { "startIndex": 17, "endIndex": 19, "scopes": ["source.abl", "meta.define.class.abl"] }  // ' '
+      { "startIndex": 6, "endIndex": 17, "scopes": ["source.abl", "meta.define.class.abl", "entity.name.type.abl"] }  // 'foo.bar.baz'
     ],
     [
       { "startIndex": 0, "endIndex": 8, "scopes": ["source.abl", "meta.define.class.abl"] },  // '        '
-      { "startIndex": 8, "endIndex": 16, "scopes": ["source.abl", "meta.define.class.abl", "keyword.other.abl"] },  // 'INheriTS'
-      { "startIndex": 16, "endIndex": 18, "scopes": ["source.abl", "meta.define.class.abl"] }  // ' '
+      { "startIndex": 8, "endIndex": 16, "scopes": ["source.abl", "meta.define.class.abl", "keyword.other.abl"] }  // 'INheriTS'
     ],
     [
       { "startIndex": 0, "endIndex": 12, "scopes": ["source.abl", "meta.define.class.abl"] },  // '            '
@@ -400,26 +385,23 @@ describe('', () => {
 })
 
 describe('', () => {
-  let statement = `CLASS 
-        foo.bar.baz 
-        INheriTS 
+  let statement = `CLASS
+        foo.bar.baz
+        INheriTS
         boo.scoo
 :`;
 
   let expectedTokens = [
     [
-      { "startIndex": 0, "endIndex": 5, "scopes": ["source.abl", "meta.define.class.abl", "keyword.other.abl"] },  // 'CLASS'
-      { "startIndex": 5, "endIndex": 7, "scopes": ["source.abl", "meta.define.class.abl"] }  // ' '
+      { "startIndex": 0, "endIndex": 5, "scopes": ["source.abl", "meta.define.class.abl", "keyword.other.abl"] }  // 'CLASS'
     ],
     [
       { "startIndex": 0, "endIndex": 8, "scopes": ["source.abl", "meta.define.class.abl"] },  // '        '
-      { "startIndex": 8, "endIndex": 19, "scopes": ["source.abl", "meta.define.class.abl", "entity.name.type.abl"] },  // 'foo.bar.baz'
-      { "startIndex": 19, "endIndex": 21, "scopes": ["source.abl", "meta.define.class.abl"] } // ' '
+      { "startIndex": 8, "endIndex": 19, "scopes": ["source.abl", "meta.define.class.abl", "entity.name.type.abl"] }  // 'foo.bar.baz'
     ],
     [
       { "startIndex": 0, "endIndex": 8, "scopes": ["source.abl", "meta.define.class.abl"] },  // '        '
-      { "startIndex": 8, "endIndex": 16, "scopes": ["source.abl", "meta.define.class.abl", "keyword.other.abl"] },  // 'INheriTS'
-      { "startIndex": 16, "endIndex": 18, "scopes": ["source.abl", "meta.define.class.abl"] }  // ' '
+      { "startIndex": 8, "endIndex": 16, "scopes": ["source.abl", "meta.define.class.abl", "keyword.other.abl"] }, // 'INheriTS'
     ],
     [
       { "startIndex": 0, "endIndex": 8, "scopes": ["source.abl", "meta.define.class.abl"] },  // '        '
@@ -461,11 +443,3 @@ describe('', () => {
   ];
   shared.itShouldMatchExpectedScopes(statement, expectedTokens);
 })
-
-
-
-
-
-
-
-

@@ -7,8 +7,8 @@
   ],
   "name": "OpenEdge ABL",
   "patterns": [
-        {
-            "include": "#statements"
+    {
+      "include": "#statements"
     }
   ],
   "repository": {
@@ -327,6 +327,15 @@
       "name": "meta.statements.abl",
       "patterns": [
         {
+          "include": "#create-buffer"
+        },
+        {
+          "include": "#buffer-name"
+        },
+        {
+          "include": "#temp-table-name"
+        },
+        {
           "include": "#annotation"
         },
         {
@@ -355,6 +364,9 @@
         },
         {
           "include": "#break-group"
+        },
+        {
+          "include": "#handle-attributes"
         },
         {
           "include": "#abl-functions"
@@ -761,6 +773,9 @@
         },
         {
           "include": "#type-name"
+        },
+        {
+          "include": "#punctuation-comma"
         }
       ]
     },
@@ -1549,7 +1564,13 @@
           "include": "#implements-type"
         },
         {
+          "include": "#type-names"
+        },
+        {
           "include": "#type-name-comma"
+        },
+        {
+          "include": "#punctuation-comma"
         }
       ]
     },
@@ -1952,6 +1973,9 @@
         },
         {
           "include": "#parens"
+        },
+        {
+          "include": "#punctuation-comma"
         }
       ]
     },
@@ -2459,6 +2483,83 @@
         },
         {
           "include": "#type-name"
+        }
+      ]
+    },
+    "buffer-name": {
+      "match": "(?i)\\b(buffer)\\s+([\\w\\-#$%]+(\\.[\\w\\-#$%]+)?)",
+      "captures": {
+        "1": {
+          "name": "keyword.other.abl"
+        },
+        "2": {
+          "name": "storage.data.table.abl"
+        }
+      }
+    },
+    "temp-table-name": {
+      "match": "(?i)\\b(temp-table)\\s+([\\w\\-#$%]+)",
+      "captures": {
+        "1": {
+          "name": "keyword.other.abl"
+        },
+        "2": {
+          "name": "storage.data.table.abl"
+        }
+      }
+    },
+    "create-buffer": {
+      "comment": "https://docs.progress.com/bundle/abl-reference/page/CREATE-BUFFER-statement.html",
+      "begin": "(?i)(create)\\s+(buffer)\\b",
+      "beginCaptures": {
+        "1": {
+          "name": "keyword.other.abl"
+        },
+        "2": {
+          "name": "keyword.other.abl"
+        }
+      },
+      "end": "(?i)(\\b(buffer-name|in)\\b)|(?=\\.)",
+      "endCaptures": {
+        "1": {
+          "name": "#keyword.other.abl"
+        }
+      },
+      "patterns": [
+        {
+          "match": "(?i)\\s*(for|table)\\s*",
+          "captures" : {
+            "1": {
+              "name": "keyword.other.abl"
+            }
+          }
+        },
+        {
+          "include": "#define-table"
+        },
+        {
+          "include": "#buffer-name"
+        },
+        {
+          "include": "#temp-table-name"
+        },
+        {
+          "include": "#expression"
+        },
+        {
+          "include": "#keywords"
+        },
+        {
+          "include": "#string"
+        },
+        {
+          "include": "#comment"
+        },
+        {
+          "include": "#handle-attributes"
+        },
+        {
+          "include": "#variable-name"
         }
       ]
     },
@@ -3093,7 +3194,7 @@
           "captures": {
             "1": {
               "name": "keyword.other.abl"
-              }
+            }
           }
         },
         {
