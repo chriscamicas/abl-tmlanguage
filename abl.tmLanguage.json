@@ -282,7 +282,7 @@
         {
           "include": "#keywords"
         },
-                {
+        {
           "include": "#handle-attributes"
         },
         {
@@ -371,7 +371,7 @@
         {
           "include": "#abl-functions"
         },
-                {
+        {
           "include": "#handle-attributes"
         },
         {
@@ -1047,7 +1047,7 @@
         }
       }
     },
-        "abl-functions": {
+    "abl-functions": {
       "patterns": [
         {
           "include": "#abl-functions-A"
@@ -2531,7 +2531,7 @@
       "patterns": [
         {
           "match": "(?i)\\s*(for|table)\\s*",
-          "captures" : {
+          "captures": {
             "1": {
               "name": "keyword.other.abl"
             }
@@ -2996,10 +2996,13 @@
       },
       "patterns": [
         {
-          "match": "~.",
-          "name": "constant.character.escape.abl"
+          "include": "#escape-char"
         }
       ]
+    },
+    "escape-char": {
+      "match": "~.",
+      "name": "constant.character.escape.abl"
     },
     "branch-return-value-double": {
       "name": "meta.block.branch.abl",
@@ -3024,8 +3027,7 @@
       },
       "patterns": [
         {
-          "match": "~.",
-          "name": "constant.character.escape.abl"
+          "include": "#escape-char"
         }
       ]
     },
@@ -3540,8 +3542,7 @@
       "name": "string.single.complex.abl",
       "patterns": [
         {
-          "match": "~.",
-          "name": "constant.character.escape.abl"
+          "include": "#escape-char"
         }
       ]
     },
@@ -3561,8 +3562,7 @@
       "name": "string.double.complex.abl",
       "patterns": [
         {
-          "match": "~.",
-          "name": "constant.character.escape.abl"
+          "include": "#escape-char"
         }
       ]
     },
