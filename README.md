@@ -72,12 +72,13 @@ The ABL-specific scopes produced by the ABL grammer listed in the table below. T
 |constant.language.abl                      | `today`, `now`, `true`, `false`, `yes`, `no`, `?` (unknown value) |
 |constant.language.source.abl               | `99/99/9999` (or similar) when used as a format clause |
 |constant.numeric.source.abl                | 0x00-0xFF, 0-9 |
-|constant.other.key.abl                     | Annotation attribute names |
 |entity.name.function.abl                   | Method call, property call, procedure name, method name, property name, handle attributes, handle  methods |
 |entity.name.function.preprocessor.abl      | `&scoped-define`, `&global-define` |
 |entity.name.package.abl                    | Package names for `USING` |
+|entity.name.tag.abl                        | Annotation names |
 |entity.name.type.abl                       | Class/interface/enum names |
 |entity.name.type.generic.abl               | Generic type names |
+|entity.other.attribute-name.abl            | Annotation attribute names |
 |keyword.operator.source.abl                | `contains`, `begins`, `matches`, `eq`, `le`, `lt`, `ge`, `gt`, `ne`, `<=`, `<>`, `>=`, `=`, `+`, `-`, `/`, `<`, `>`, `*` |
 |keyword.other.abl                          | Any ABL keyword (incl those covered by other scopes) |
 |punctuation.definition.string.begin.abl    | Start of a quoted string |
@@ -87,7 +88,6 @@ The ABL-specific scopes produced by the ABL grammer listed in the table below. T
 |punctuation.terminator.abl                 | `.` and `:` |
 |storage.data.table.abl                     | (Temp-)Table names, field names, index names |
 |storage.type.abl                           | Primitive datatypes |
-|storage.type.annotation.abl                | Annotation names |
 |storage.type.function.abl                  | ABL preprocessors, `defined` keyword |
 |string.double.complex.abl                  | String in `"` quotes |
 |string.single.complex.abl                  | String in `'` quotes |

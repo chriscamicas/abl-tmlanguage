@@ -2257,7 +2257,7 @@
       "match": "(?i)(^|\\s*)(\\@[a-z][a-z0-9#\\$-_%&]*)\\s*(?=\\.)",
       "captures": {
         "2": {
-          "name": "storage.type.annotation.abl"
+          "name": "entity.name.tag.abl"
         }
       }
     },
@@ -2266,7 +2266,7 @@
       "begin": "(?i)(^|\\s+)(\\@[a-z][a-z0-9#\\$-_%&]*)",
       "beginCaptures": {
         "2": {
-          "name": "storage.type.annotation.abl"
+          "name": "entity.name.tag.abl"
         }
       },
       "end": "(?=\\.)",
@@ -2278,7 +2278,7 @@
           "match": "(?i)\\s*([a-z][a-z0-9#\\$-_%&]+)(?=[\\=\\s$])",
           "captures": {
             "1": {
-              "name": "constant.other.key.abl"
+              "name": "entity.other.attribute-name.abl"
             }
           }
         },

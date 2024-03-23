@@ -605,7 +605,7 @@ describe('', () => {
   let expectedTokens = [
     [
       { "startIndex": 0, "endIndex": 4, "scopes": ["source.abl", "meta.declaration.annotation.abl"] },  // '    '
-      { "startIndex": 4, "endIndex": 11, "scopes": ["source.abl", "meta.declaration.annotation.abl", "storage.type.annotation.abl"] },  // '@Before'
+      { "startIndex": 4, "endIndex": 11, "scopes": ["source.abl", "meta.declaration.annotation.abl", "entity.name.tag.abl"] },  // '@Before'
       { "startIndex": 11, "endIndex": 12, "scopes": ["source.abl", "punctuation.terminator.abl"] }  // '.'
     ],
     [
@@ -640,7 +640,7 @@ describe('', () => {
   let statement = `    @Befor`;
   let expectedTokens = [
     { "startIndex": 0, "endIndex": 4, "scopes": ["source.abl", "meta.declaration.annotation.abl"] },  // '    '
-    { "startIndex": 4, "endIndex": 10, "scopes": ["source.abl", "meta.declaration.annotation.abl", "storage.type.annotation.abl"] }  // '@Befor'
+    { "startIndex": 4, "endIndex": 10, "scopes": ["source.abl", "meta.declaration.annotation.abl", "entity.name.tag.abl"] }  // '@Befor'
   ];
   shared.itShouldMatchExpectedScopes(statement, expectedTokens);
 })
