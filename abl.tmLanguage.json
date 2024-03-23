@@ -282,7 +282,7 @@
         {
           "include": "#keywords"
         },
-        {
+                {
           "include": "#handle-attributes"
         },
         {
@@ -371,7 +371,7 @@
         {
           "include": "#abl-functions"
         },
-        {
+                {
           "include": "#handle-attributes"
         },
         {
@@ -984,7 +984,7 @@
       }
     },
     "handle-attributes-R": {
-      "match": "(?i):(RADIO-BUTTONS|READ|READ-FILE|READ-JSON|READ-ONLY|READ-XML|READ-XMLSCHEMA|RECID|record-len|record-leng|record-lengt|record-length|RECURSIVE|REFRESH|REFRESHABLE|REFRESH-AUDIT-POLICY|REGISTER-DOMAIN|REJECT-CHANGES|REJECT-ROW-CHANGES|REJECTED|relation-fi|relation-fie|relation-fiel|relation-field|relation-fields|RELATIONS-ACTIVE|REMOTE|REMOTE-HOST|REMOTE-PORT|REMOVE-ATTRIBUTE|REMOVE-CHILD|remove-events-proc|remove-events-proce|remove-events-proced|remove-events-procedu|remove-events-procedur|remove-events-procedure|remove-super-proc|remove-super-proce|remove-super-proced|remove-super-procedu|remove-super-procedur|remove-super-procedure|REPLACE|REPLACE-CHILD|REPLACE-SELECTION-TEXT|REPOSITION|reposition-back|reposition-backw|reposition-backwa|reposition-backwar|reposition-backward|reposition-backwards|reposition-forw|reposition-forwa|reposition-forwar|reposition-forward|reposition-forwards|REPOSITION-TO-ROW|REPOSITION-TO-ROWID|REQUEST-INFO|RESET|resiza|resizab|resizabl|resizable|RESIZE|RESPONSE-INFO|RESTART-ROW|RESTART-ROWID|retain-s|retain-sh|retain-sha|retain-shap|retain-shape|return-ins|return-inse|return-inser|return-insert|return-inserte|return-inserted|RETURN-VALUE|RETURN-VALUE-DATA-TYPE|RETURN-VALUE-DLL-TYPE|ROLE|ROLES|ROUNDED|ROW|row-height|row-height-c|row-height-ch|row-height-cha|row-height-char|row-height-chars|row-height-p|row-height-pi|row-height-pix|row-height-pixe|row-height-pixel|row-height-pixels|ROW-STATE|ROWID|row-ma|row-mar|row-mark|row-marke|row-marker|row-markers|ROW-RESIZABLE)\\s*",
+      "match": "(?i):(RADIO-BUTTONS|READ-FILE|READ-JSON|READ-ONLY|READ-XML|READ-XMLSCHEMA|READ|RECID|record-len|record-leng|record-lengt|record-length|RECURSIVE|REFRESH|REFRESHABLE|REFRESH-AUDIT-POLICY|REGISTER-DOMAIN|REJECT-CHANGES|REJECT-ROW-CHANGES|REJECTED|relation-fi|relation-fie|relation-fiel|relation-field|relation-fields|RELATIONS-ACTIVE|REMOTE|REMOTE-HOST|REMOTE-PORT|REMOVE-ATTRIBUTE|REMOVE-CHILD|remove-events-proc|remove-events-proce|remove-events-proced|remove-events-procedu|remove-events-procedur|remove-events-procedure|remove-super-proc|remove-super-proce|remove-super-proced|remove-super-procedu|remove-super-procedur|remove-super-procedure|REPLACE|REPLACE-CHILD|REPLACE-SELECTION-TEXT|REPOSITION|reposition-back|reposition-backw|reposition-backwa|reposition-backwar|reposition-backward|reposition-backwards|reposition-forw|reposition-forwa|reposition-forwar|reposition-forward|reposition-forwards|REPOSITION-TO-ROW|REPOSITION-TO-ROWID|REQUEST-INFO|RESET|resiza|resizab|resizabl|resizable|RESIZE|RESPONSE-INFO|RESTART-ROW|RESTART-ROWID|retain-s|retain-sh|retain-sha|retain-shap|retain-shape|return-ins|return-inse|return-inser|return-insert|return-inserte|return-inserted|RETURN-VALUE|RETURN-VALUE-DATA-TYPE|RETURN-VALUE-DLL-TYPE|ROLE|ROLES|ROUNDED|ROW|row-height|row-height-c|row-height-ch|row-height-cha|row-height-char|row-height-chars|row-height-p|row-height-pi|row-height-pix|row-height-pixe|row-height-pixel|row-height-pixels|ROW-STATE|ROWID|row-ma|row-mar|row-mark|row-marke|row-marker|row-markers|ROW-RESIZABLE)\\s*",
       "captures": {
         "1": {
           "name": "entity.name.function.abl"
@@ -1024,7 +1024,7 @@
       }
     },
     "handle-attributes-W": {
-      "match": "(?i):(WARNING|WC-ADMIN-APP|WHERE-STRING|WIDGET-ENTER|WIDGET-ID|widget-l|widget-le|widget-lea|widget-leav|widget-leave|width|width-c|width-ch|width-cha|width-char|width-chars|width-p|width-pi|width-pix|width-pixe|width-pixel|width-pixels|WINDOW|window-sta|window-stat|window-state|window-sys|window-syst|window-syste|window-system|WORD-WRAP|work-area-height-p|work-area-height-pi|work-area-height-pix|work-area-height-pixe|work-area-height-pixel|work-area-height-pixels|work-area-width-p|work-area-width-pi|work-area-width-pix|work-area-width-pixe|work-area-width-pixel|work-area-width-pixels|work-area-x|work-area-y|WRITE|WRITE-CDATA|WRITE-CHARACTERS|WRITE-COMMENT|WRITE-DATA|WRITE-DATA-ELEMENT|WRITE-EMPTY-ELEMENT|WRITE-ENTITY-REF|WRITE-EXTERNAL-DTD|WRITE-FRAGMENT|WRITE-JSON|WRITE-MESSAGE|WRITE-PROCESSING-INSTRUCTION|WRITE-STATUS|WRITE-XML|WRITE-XMLSCHEMA)\\s*",
+      "match": "(?i):(WARNING|WC-ADMIN-APP|WHERE-STRING|WIDGET-ENTER|WIDGET-ID|widget-l|widget-le|widget-lea|widget-leav|widget-leave|width|width-c|width-ch|width-cha|width-char|width-chars|width-p|width-pi|width-pix|width-pixe|width-pixel|width-pixels|WINDOW|window-sta|window-stat|window-state|window-sys|window-syst|window-syste|window-system|WORD-WRAP|work-area-height-p|work-area-height-pi|work-area-height-pix|work-area-height-pixe|work-area-height-pixel|work-area-height-pixels|work-area-width-p|work-area-width-pi|work-area-width-pix|work-area-width-pixe|work-area-width-pixel|work-area-width-pixels|work-area-x|work-area-y|WRITE-CDATA|WRITE-CHARACTERS|WRITE-COMMENT|WRITE-DATA|WRITE-DATA-ELEMENT|WRITE-EMPTY-ELEMENT|WRITE-ENTITY-REF|WRITE-EXTERNAL-DTD|WRITE-FRAGMENT|WRITE-JSON|WRITE-MESSAGE|WRITE-PROCESSING-INSTRUCTION|WRITE-STATUS|WRITE-XML|WRITE-XMLSCHEMA|WRITE)\\s*",
       "captures": {
         "1": {
           "name": "entity.name.function.abl"
@@ -1047,7 +1047,7 @@
         }
       }
     },
-    "abl-functions": {
+        "abl-functions": {
       "patterns": [
         {
           "include": "#abl-functions-A"
@@ -1446,7 +1446,7 @@
     },
     "abl-functions-T": {
       "name": "meta.function-call.abl",
-      "begin": "(?i)\\s*(TENANT-ID|TENANT-NAME|TENANT-NAME-TO-ID|TERMINAL|TIME|TIMEZONE|TODAY|TO-ROWID|TRANSACTION|TRIM|TRUNCATE|TYPE-OF)\\s*(?=\\()",
+      "begin": "(?i)\\s*(TENANT-ID|TENANT-NAME|TENANT-NAME-TO-ID|TERMINAL|THIS-OBJECT|TIME|TIMEZONE|TODAY|TO-ROWID|TRANSACTION|TRIM|TRUNCATE|TYPE-OF)\\s*(?=\\()",
       "beginCaptures": {
         "1": {
           "name": "support.function.abl"
@@ -2887,7 +2887,11 @@
       "patterns": [
         {
           "match": "(?i)\\s+(to|by)\\s*",
-          "name": "keyword.other"
+          "captures": {
+            "1": {
+              "name": "keyword.other.abl"
+            }
+          }
         },
         {
           "include": "#numeric"
@@ -3392,7 +3396,7 @@
       "match": "(?i)\\s*(run)\\s+(?!value)(([a-z][a-z0-9\\/\\-\\_\\\\]+)(\\.[a-z]+)?)",
       "captures": {
         "1": {
-          "name": "keyword.other.abl.abl"
+          "name": "keyword.other.abl"
         },
         "2": {
           "name": "meta.other.procedure.abl"
@@ -3585,16 +3589,13 @@
       "name": "constant.numeric.source.abl"
     },
     "abl-system-handles": {
-      "match": "(?i)\\s*(this-object|super|self|this-procedure|target-procedure|source-procedure|session|error-status|compiler|audit-control|audit-policy|clipboard|codebase-locator|color-table|debugger|dslog-manager|file-information|file-info|font-table|last-event|log-manager|profiler|rcode-information|rcode-info|security-policy|session|web-context)(:)?(\\()?\\s*",
+      "match": "(?i)\\s*(this-object|super|self|this-procedure|target-procedure|source-procedure|session|error-status|compiler|audit-control|audit-policy|clipboard|codebase-locator|color-table|debugger|dslog-manager|file-information|file-info|font-table|last-event|log-manager|profiler|rcode-information|rcode-info|security-policy|session|web-context)\\s*(:)",
       "captures": {
         "1": {
           "name": "variable.language.abl"
         },
         "2": {
           "name": "punctuation.terminator.abl"
-        },
-        "3": {
-          "name": "meta.brace.round.js"
         }
       }
     },
@@ -3645,7 +3646,7 @@
       ]
     },
     "operator-no-space": {
-      "match": "(<=|<>|>=|=|\\+|\\-|\/|<|>)",
+      "match": "(<=|<>|>=|=|\\+|\\-|\/|<|>|\\*)",
       "captures": {
         "1": {
           "name": "keyword.operator.source.abl"

@@ -6,7 +6,7 @@ describe('', () => {
     `run foo.p.`;
 
   let expectedTokens = [
-    { "startIndex": 0, "endIndex": 3, "scopes": ["source.abl", "keyword.other.abl.abl"] },  // 'run'
+    { "startIndex": 0, "endIndex": 3, "scopes": ["source.abl", "keyword.other.abl"] },  // 'run'
     { "startIndex": 3, "endIndex": 4, "scopes": ["source.abl"] },  // ' '
     { "startIndex": 4, "endIndex": 9, "scopes": ["source.abl", "meta.other.procedure.abl"] },  // 'foo.p'
     { "startIndex": 9, "endIndex": 10, "scopes": ["source.abl", "punctuation.terminator.abl"] }  // '.'
@@ -21,7 +21,7 @@ describe('', () => {
 
   let expectedTokens = [
     { "startIndex": 0, "endIndex": 3, "scopes": ["source.abl"] },  // '   '
-    { "startIndex": 3, "endIndex": 6, "scopes": ["source.abl", "keyword.other.abl.abl"] },  // 'run'
+    { "startIndex": 3, "endIndex": 6, "scopes": ["source.abl", "keyword.other.abl"] },  // 'run'
     { "startIndex": 6, "endIndex": 7, "scopes": ["source.abl"] },  // ' '
     { "startIndex": 7, "endIndex": 20, "scopes": ["source.abl", "meta.other.procedure.abl"] },  // 'destry-object'
     { "startIndex": 20, "endIndex": 21, "scopes": ["source.abl", "punctuation.terminator.abl"] }  // '.'
@@ -35,7 +35,7 @@ describe('', () => {
 
   let expectedTokens = [
     { "startIndex": 0, "endIndex": 3, "scopes": ["source.abl"] },  // '   '
-    { "startIndex": 3, "endIndex": 6, "scopes": ["source.abl", "keyword.other.abl.abl"] },  // 'run'
+    { "startIndex": 3, "endIndex": 6, "scopes": ["source.abl", "keyword.other.abl"] },  // 'run'
     { "startIndex": 6, "endIndex": 7, "scopes": ["source.abl"] },  // ' '
     { "startIndex": 7, "endIndex": 22, "scopes": ["source.abl", "meta.other.procedure.abl"] },  // 'a/b\c\program.p'
     { "startIndex": 22, "endIndex": 23, "scopes": ["source.abl"] },  // ' '
@@ -69,7 +69,7 @@ describe('', () => {
 
   let expectedTokens = [
     { "startIndex": 0, "endIndex": 3, "scopes": ["source.abl"] },  // '   '
-    { "startIndex": 3, "endIndex": 6, "scopes": ["source.abl", "keyword.other.abl.abl"] },  // 'run'
+    { "startIndex": 3, "endIndex": 6, "scopes": ["source.abl", "keyword.other.abl"] },  // 'run'
     { "startIndex": 6, "endIndex": 7, "scopes": ["source.abl"] },  // ' '
     { "startIndex": 7, "endIndex": 18, "scopes": ["source.abl", "meta.other.procedure.abl"] },  // 'a\program.p'
     { "startIndex": 18, "endIndex": 19, "scopes": ["source.abl", "punctuation.terminator.abl"] }  // '.'
@@ -82,7 +82,7 @@ describe('', () => {
 
   let expectedTokens = [
     { "startIndex": 0, "endIndex": 3, "scopes": ["source.abl"] },  // '   '
-    { "startIndex": 3, "endIndex": 6, "scopes": ["source.abl", "keyword.other.abl.abl"] },  // 'run'
+    { "startIndex": 3, "endIndex": 6, "scopes": ["source.abl", "keyword.other.abl"] },  // 'run'
     { "startIndex": 6, "endIndex": 7, "scopes": ["source.abl"] },  // ' '
     { "startIndex": 7, "endIndex": 22, "scopes": ["source.abl", "meta.other.procedure.abl"] },  // 'a/b/c/program.p'
     { "startIndex": 22, "endIndex": 23, "scopes": ["source.abl", "punctuation.terminator.abl"] }  // '.'
@@ -112,7 +112,7 @@ describe('', () => {
 
   let expectedTokens = [
     { "startIndex": 0, "endIndex": 3, "scopes": ["source.abl"] },  // '   '
-    { "startIndex": 3, "endIndex": 6, "scopes": ["source.abl", "keyword.other.abl.abl"] },  // 'run'
+    { "startIndex": 3, "endIndex": 6, "scopes": ["source.abl", "keyword.other.abl"] },  // 'run'
     { "startIndex": 6, "endIndex": 7, "scopes": ["source.abl"] },  // ' '
     { "startIndex": 7, "endIndex": 18, "scopes": ["source.abl", "meta.other.procedure.abl"] },  // 'a/program.p'
     { "startIndex": 18, "endIndex": 19, "scopes": ["source.abl"] },  // ' '
@@ -136,7 +136,7 @@ describe('', () => {
     `run a/program.p on hAppServer single-run (input 0x4, output cData).`;
 
   let expectedTokens = [
-    { "startIndex": 0, "endIndex": 3, "scopes": ["source.abl", "keyword.other.abl.abl"] },  // 'run'
+    { "startIndex": 0, "endIndex": 3, "scopes": ["source.abl", "keyword.other.abl"] },  // 'run'
     { "startIndex": 3, "endIndex": 4, "scopes": ["source.abl"] },  // ' '
     { "startIndex": 4, "endIndex": 15, "scopes": ["source.abl", "meta.other.procedure.abl"] },  // 'a/program.p'
     { "startIndex": 15, "endIndex": 16, "scopes": ["source.abl"] },  // ' '

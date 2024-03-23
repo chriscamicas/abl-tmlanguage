@@ -53,11 +53,50 @@ If you prefer the plist format, or the YAML one, there is an extension for VSCod
 Note: I plan on using the YAML syntax (even more compact and readable) but it needs a build step as VSCode does not handle YAML natively.
 
 ## Tokenize
-This project use the [vscode-textmate](https://www.npmjs.com/package/vscode-textmate) package to tokenize and test the grammar.
+This project uses the [vscode-textmate](https://www.npmjs.com/package/vscode-textmate) package to tokenize and test the grammar.
 
 ## Keywords
 Part of this grammar is generated from a keyword list file.
 See [index.js].
+
+# Scopes
+
+The ABL-specific scopes produced by the ABL grammer listed in the table below. The scope names are largely based on the naming conventions at https://macromates.com/manual/en/language_grammars#language_rules .
+
+| Scope Name | Used for/by |
+| ------------- | ------------- |
+|comment.block.source.abl                   | Everything between `/*` and `*/` |
+|comment.line.double-slash.abl              | Everything in a `//` comment, incl slashes |
+|comment.preprocessor.analyze-suspend.abl   | `&analyze-suspend`, `&analyze-resume` |
+|constant.character.escape.abl              |  `~` and the next char |
+|constant.language.abl                      | `today`, `now`, `true`, `false`, `yes`, `no`, `?` (unknown value) |
+|constant.language.source.abl               | `99/99/9999` (or similar) when used as a format clause |
+|constant.numeric.source.abl                | 0x00-0xFF, 0-9 |
+|constant.other.key.abl                     | Annotation attribute names |
+|entity.name.function.abl                   | Method call, property call, procedure name, method name, property name, handle attributes, handle  methods |
+|entity.name.function.preprocessor.abl      | `&scoped-define`, `&global-define` |
+|entity.name.package.abl                    | Package names for `USING` |
+|entity.name.type.abl                       | Class/interface/enum names |
+|entity.name.type.generic.abl               | Generic type names |
+|keyword.operator.source.abl                | `contains`, `begins`, `matches`, `eq`, `le`, `lt`, `ge`, `gt`, `ne`, `<=`, `<>`, `>=`, `=`, `+`, `-`, `/`, `<`, `>`, `*` |
+|keyword.other.abl                          | Any ABL keyword (incl those covered by other scopes) |
+|punctuation.definition.string.begin.abl    | Start of a quoted string |
+|punctuation.definition.string.end.abl      | End of a quoted string |
+|punctuation.section.abl                    | `{` and `}` |
+|punctuation.separator.comma.abl            | `,` |
+|punctuation.terminator.abl                 | `.` and `:` |
+|storage.data.table.abl                     | (Temp-)Table names, field names, index names |
+|storage.type.abl                           | Primitive datatypes |
+|storage.type.annotation.abl                | Annotation names |
+|storage.type.function.abl                  | ABL preprocessors, `defined` keyword |
+|string.double.complex.abl                  | String in `"` quotes |
+|string.single.complex.abl                  | String in `'` quotes |
+|support.function.abl                       | `opsys`, `proversion`, ABL functions (eg `BASE64-ENCODE`) |
+|support.other.abl                          | `:L`, `:R`, `:T`, `:C`, `:U` |
+|support.other.argument.abl                 | `&<name\|number>` arguments in includes, preprocessor values |
+|variable.language.abl                      | ABL system handles (eg `session` or `this-object`) |
+|variable.other.abl                         | Variable names |
+|variable.parameter.abl                     | Parameter names in method, function, procedure definition |
 
 # License
 MIT
