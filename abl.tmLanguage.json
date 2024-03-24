@@ -776,6 +776,9 @@
         },
         {
           "include": "#punctuation-comma"
+        },
+        {
+          "include": "#comment"
         }
       ]
     },

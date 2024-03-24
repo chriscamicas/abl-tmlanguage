@@ -439,7 +439,30 @@ describe('', () => {
     { "startIndex": 61, "endIndex": 64, "scopes": ["source.abl", "meta.define.class.abl", "entity.name.type.abl"] },  // 'ijk'
     { "startIndex": 64, "endIndex": 65, "scopes": ["source.abl", "meta.define.class.abl"] },  // ' '
     { "startIndex": 65, "endIndex": 66, "scopes": ["source.abl", "meta.define.class.abl", "punctuation.terminator.abl"] }  // ':'
+  ];
+  shared.itShouldMatchExpectedScopes(statement, expectedTokens);
+})
 
+describe('', () => {
+  let statement = `class Package.SubModule.ClassName
+  //inherits JSONSerializer
+  serializable:`;
+
+  let expectedTokens = [
+    [
+      { "startIndex": 0, "endIndex": 5, "scopes": ["source.abl", "meta.define.class.abl", "keyword.other.abl"] },  // 'class'
+      { "startIndex": 5, "endIndex": 6, "scopes": ["source.abl", "meta.define.class.abl"] },  // ' '
+      { "startIndex": 6, "endIndex": 33, "scopes": ["source.abl", "meta.define.class.abl", "entity.name.type.abl"] }  // 'Package.SubModule.ClassName'
+    ],
+    [
+      { "startIndex": 0, "endIndex": 2, "scopes": ["source.abl", "meta.define.class.abl"] },  // '  '
+      { "startIndex": 2, "endIndex": 27, "scopes": ["source.abl", "meta.define.class.abl", "comment.line.double-slash.abl"] }  // '//inherits JSONSerializer'
+    ],
+    [
+      { "startIndex": 0, "endIndex": 2, "scopes": ["source.abl", "meta.define.class.abl"] },  // '  '
+      { "startIndex": 2, "endIndex": 14, "scopes": ["source.abl", "meta.define.class.abl", "keyword.other.abl"] },  // 'serializable'
+      { "startIndex": 14, "endIndex": 15, "scopes": ["source.abl", "meta.define.class.abl", "punctuation.terminator.abl"] }  // ':'
+    ]
   ];
   shared.itShouldMatchExpectedScopes(statement, expectedTokens);
 })
