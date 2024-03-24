@@ -3646,7 +3646,7 @@
       ]
     },
     "operator-no-space": {
-      "match": "(<=|<>|>=|=|\\+|\\-|\/|<|>|\\*)",
+      "match": "(\\+=|-=|\\\\=|\\*=|<=|<>|>=|=|\\+|\\-|\/|<|>|\\*)",
       "captures": {
         "1": {
           "name": "keyword.operator.source.abl"
