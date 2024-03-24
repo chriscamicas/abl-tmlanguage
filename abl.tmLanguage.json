@@ -1831,7 +1831,7 @@
           "name": "keyword.other.abl"
         }
       },
-      "end": "(?i)\\s*(?=where|no-lock|share-lock|exclusive-lock|tenant-where|use-index|table-scan|using|no-prefetch|left|outer-join|break|by|transaction|,|:)\\s*",
+      "end": "(?i)\\s*(?=where|no-lock|share-lock|exclusive-lock|tenant-where|use-index|table-scan|using|no-prefetch|left|outer-join|break|by|transaction|,|:|on)\\s*",
       "patterns": [
         {
           "match": "(?i)\\s*(each|first|last|of)\\s*",
@@ -3094,7 +3094,7 @@
           "name": "punctuation.separator.comma.abl"
         }
       },
-      "end": "(?=\\.)",
+      "end": "(?=\\.|\\:)",
       "patterns": [
         {
           "include": "#string"

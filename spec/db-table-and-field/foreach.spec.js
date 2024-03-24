@@ -736,3 +736,25 @@ describe('', () => {
   ];
   shared.itShouldMatchExpectedScopes(statement, expectedTokens);
 })
+
+describe('', () => {
+  let statement = `for each eCustomer ON error undo, throw:`;
+  let expectedTokens = [
+    { "startIndex": 0, "endIndex": 3, "scopes": ["source.abl", "keyword.other.abl"] },  // 'for'
+    { "startIndex": 3, "endIndex": 4, "scopes": ["source.abl"] },  // ' '
+    { "startIndex": 4, "endIndex": 8, "scopes": ["source.abl", "keyword.other.abl"] },  // 'each'
+    { "startIndex": 8, "endIndex": 9, "scopes": ["source.abl"] },  // ' '
+    { "startIndex": 9, "endIndex": 18, "scopes": ["source.abl", "storage.data.table.abl"] },  // 'eCustomer'
+    { "startIndex": 18, "endIndex": 19, "scopes": ["source.abl"] },  // ' '
+    { "startIndex": 19, "endIndex": 21, "scopes": ["source.abl", "keyword.other.abl"] },  // 'ON'
+    { "startIndex": 21, "endIndex": 22, "scopes": ["source.abl"] },  // ' '
+    { "startIndex": 22, "endIndex": 27, "scopes": ["source.abl", "keyword.other.abl"] },  // 'error'
+    { "startIndex": 27, "endIndex": 28, "scopes": ["source.abl"] },  // ' '
+    { "startIndex": 28, "endIndex": 32, "scopes": ["source.abl", "keyword.other.abl"] },  // 'undo'
+    { "startIndex": 32, "endIndex": 33, "scopes": ["source.abl", "punctuation.separator.comma.abl"] },  // ','
+    { "startIndex": 33, "endIndex": 34, "scopes": ["source.abl"] },  // ' '
+    { "startIndex": 34, "endIndex": 39, "scopes": ["source.abl", "keyword.other.abl"] },  // 'throw'
+    { "startIndex": 39, "endIndex": 41, "scopes": ["source.abl"] }  // ':'
+  ];
+  shared.itShouldMatchExpectedScopes(statement, expectedTokens);
+})
