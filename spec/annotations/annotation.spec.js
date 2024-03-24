@@ -200,3 +200,33 @@ describe('', () => {
   ];
   shared.itShouldMatchExpectedScopes(statement, expectedTokens);
 })
+
+
+describe('', () => {
+  let statement = `@AnnotationName(attrib1="class-tag,store",
+  attrib2="bob").`;
+  let expectedTokens = [
+    [
+      { "startIndex": 0, "endIndex": 15, "scopes": ["source.abl", "meta.declaration.annotation.abl", "entity.name.tag.abl"] },  // '@AnnotationName'
+      { "startIndex": 15, "endIndex": 16, "scopes": ["source.abl", "meta.declaration.annotation.abl", "meta.brace.round.js"] },  // '('
+      { "startIndex": 16, "endIndex": 23, "scopes": ["source.abl", "meta.declaration.annotation.abl", "entity.other.attribute-name.abl"] },  // 'attrib1'
+      { "startIndex": 23, "endIndex": 24, "scopes": ["source.abl", "meta.declaration.annotation.abl", "keyword.operator.source.abl"] },  // '='
+      { "startIndex": 24, "endIndex": 25, "scopes": ["source.abl", "meta.declaration.annotation.abl", "string.double.complex.abl", "punctuation.definition.string.begin.abl"] },  // '"'
+      { "startIndex": 25, "endIndex": 40, "scopes": ["source.abl", "meta.declaration.annotation.abl", "string.double.complex.abl"] },  // 'class-tag,store'
+      { "startIndex": 40, "endIndex": 41, "scopes": ["source.abl", "meta.declaration.annotation.abl", "string.double.complex.abl", "punctuation.definition.string.end.abl"] },  // '"'
+      { "startIndex": 41, "endIndex": 42, "scopes": ["source.abl", "meta.declaration.annotation.abl", "punctuation.separator.comma.abl"] }  // ','
+    ],
+    [
+      { "startIndex": 0, "endIndex": 2, "scopes": ["source.abl", "meta.declaration.annotation.abl"] },  // '  '
+      { "startIndex": 2, "endIndex": 9, "scopes": ["source.abl", "meta.declaration.annotation.abl", "entity.other.attribute-name.abl"] },  // 'attrib2'
+      { "startIndex": 9, "endIndex": 10, "scopes": ["source.abl", "meta.declaration.annotation.abl", "keyword.operator.source.abl"] },  // '='
+      { "startIndex": 10, "endIndex": 11, "scopes": ["source.abl", "meta.declaration.annotation.abl", "string.double.complex.abl", "punctuation.definition.string.begin.abl"] },  // '"'
+      { "startIndex": 11, "endIndex": 14, "scopes": ["source.abl", "meta.declaration.annotation.abl", "string.double.complex.abl"] },  // 'bob'
+      { "startIndex": 14, "endIndex": 15, "scopes": ["source.abl", "meta.declaration.annotation.abl", "string.double.complex.abl", "punctuation.definition.string.end.abl"] },  // '"'
+      { "startIndex": 15, "endIndex": 16, "scopes": ["source.abl", "meta.declaration.annotation.abl", "meta.brace.round.js"] },  // ')'
+      { "startIndex": 16, "endIndex": 17, "scopes": ["source.abl", "punctuation.terminator.abl"] }  // '.'
+    ]
+  ];
+  shared.itShouldMatchExpectedScopes(statement, expectedTokens);
+})
+

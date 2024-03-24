@@ -2263,7 +2263,7 @@
     },
     "annotation-attributes": {
       "name": "meta.declaration.annotation.abl",
-      "begin": "(?i)(^|\\s+)(\\@[a-z][a-z0-9#\\$-_%&]*)",
+      "begin": "(?i)(^|\\s+)(\\@[a-z][a-z0-9#\\$-_%&]*)\\s*(?=\\()",
       "beginCaptures": {
         "2": {
           "name": "entity.name.tag.abl"
@@ -3239,13 +3239,13 @@
         {
           "include": "#constant"
         },
-        {
+                {
           "include": "#type-reference"
         },
         {
           "include": "#db-dot-table-dot-field"
         },
-        {
+{
           "include": "#expression"
         },
         {

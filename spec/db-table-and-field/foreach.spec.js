@@ -637,10 +637,11 @@ describe('', () => {
 })
 
 describe('', () => {
-  let statement = `    @Befor`;
+  let statement = `    @Befor.`;
   let expectedTokens = [
     { "startIndex": 0, "endIndex": 4, "scopes": ["source.abl", "meta.declaration.annotation.abl"] },  // '    '
-    { "startIndex": 4, "endIndex": 10, "scopes": ["source.abl", "meta.declaration.annotation.abl", "entity.name.tag.abl"] }  // '@Befor'
+    { "startIndex": 4, "endIndex": 10, "scopes": ["source.abl", "meta.declaration.annotation.abl", "entity.name.tag.abl"] },  // '@Befor'
+    { "startIndex": 10, "endIndex": 11, "scopes": ["source.abl", "punctuation.terminator.abl"] }  // '.'
   ];
   shared.itShouldMatchExpectedScopes(statement, expectedTokens);
 })
