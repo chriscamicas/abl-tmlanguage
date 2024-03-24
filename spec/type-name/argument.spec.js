@@ -14,7 +14,7 @@ describe('', () => {
     { "startIndex": 13, "endIndex": 14, "scopes": ["source.abl", "meta.function.arguments.abl", "punctuation.separator.comma.abl"] },  // ','
     { "startIndex": 14, "endIndex": 15, "scopes": ["source.abl", "meta.function.arguments.abl"] },  // ' '
     { "startIndex": 15, "endIndex": 26, "scopes": ["source.abl", "meta.function.arguments.abl", "entity.name.type.abl"] },  // 'foo.bar.baz'
-    { "startIndex": 26, "endIndex": 27, "scopes": ["source.abl", "meta.function.arguments.abl"] },  // ':'
+    { "startIndex": 26, "endIndex": 27, "scopes": ["source.abl", "meta.function.arguments.abl", "punctuation.separator.colon.abl"] },  // ':'
     { "startIndex": 27, "endIndex": 35, "scopes": ["source.abl", "meta.function.arguments.abl", "entity.name.function.abl"] },  // 'Property'
     { "startIndex": 35, "endIndex": 36, "scopes": ["source.abl", "meta.brace.round.js"] },  // ')'
     { "startIndex": 36, "endIndex": 38, "scopes": ["source.abl"] }  // ' '

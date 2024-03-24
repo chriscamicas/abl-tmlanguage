@@ -17,7 +17,7 @@ describe('', () => {
       { "startIndex": 16, "endIndex": 17, "scopes": ["source.abl", "keyword.operator.source.abl"] },  // '='
       { "startIndex": 17, "endIndex": 18, "scopes": ["source.abl"] },  // ' '
       { "startIndex": 18, "endIndex": 29, "scopes": ["source.abl", "variable.language.abl"] },  // 'this-object'
-      { "startIndex": 29, "endIndex": 30, "scopes": ["source.abl", "punctuation.terminator.abl"] },  // ':'
+      { "startIndex": 29, "endIndex": 30, "scopes": ["source.abl", "punctuation.separator.colon.abl"] },  // ':'
       { "startIndex": 30, "endIndex": 60, "scopes": ["source.abl", "entity.name.function.abl"] },  // 'GenerateInvokeMethodProperties'
       { "startIndex": 60, "endIndex": 61, "scopes": ["source.abl"] },  // ' '
       { "startIndex": 61, "endIndex": 62, "scopes": ["source.abl", "meta.function.arguments.abl", "meta.brace.round.js"] },  // '('

@@ -10,7 +10,7 @@ if type-of(pProxyReq, IHttpRequest) then
   let expectedTokens = [
     [
       { "startIndex": 0, "endIndex": 2, "scopes": ["source.abl", "keyword.other.abl"] },  // 'if'
-      { "startIndex": 2, "endIndex": 3, "scopes": ["source.abl", "meta.function-call.abl"] },  // ' '
+      { "startIndex": 2, "endIndex": 3, "scopes": ["source.abl"] },  // ' '
       { "startIndex": 3, "endIndex": 10, "scopes": ["source.abl", "meta.function-call.abl", "support.function.abl"] },  // 'type-of'
       { "startIndex": 10, "endIndex": 11, "scopes": ["source.abl", "meta.function-call.abl", "meta.brace.round.js"] },  // '('
       { "startIndex": 11, "endIndex": 20, "scopes": ["source.abl", "meta.function-call.abl", "variable.other.abl"] },  // 'pProxyReq'
@@ -38,7 +38,7 @@ if type-of(pProxyReq, IHttpRequest) then
       { "startIndex": 43, "endIndex": 44, "scopes": ["source.abl", "meta.function-call.abl", "meta.function-call.abl"] },  // ' '
       { "startIndex": 44, "endIndex": 54, "scopes": ["source.abl", "meta.function-call.abl", "meta.function-call.abl", "entity.name.type.abl"] },  // 'IAdaptable'
       { "startIndex": 54, "endIndex": 55, "scopes": ["source.abl", "meta.function-call.abl", "meta.function-call.abl", "meta.brace.round.js"] },  // ')'
-      { "startIndex": 55, "endIndex": 56, "scopes": ["source.abl"] },  // ':'
+      { "startIndex": 55, "endIndex": 56, "scopes": ["source.abl", "punctuation.separator.colon.abl"] },  // ':'
       { "startIndex": 56, "endIndex": 66, "scopes": ["source.abl", "entity.name.function.abl"] },  // 'GetAdapter'
       { "startIndex": 66, "endIndex": 67, "scopes": ["source.abl", "meta.function.arguments.abl", "meta.brace.round.js"] },  // '('
       { "startIndex": 67, "endIndex": 76, "scopes": ["source.abl", "meta.function.arguments.abl", "meta.function-call.abl", "support.function.abl"] },  // 'get-class'
@@ -57,7 +57,7 @@ if type-of(pProxyReq, IHttpRequest) then
     ],
     [
       { "startIndex": 0, "endIndex": 2, "scopes": ["source.abl", "keyword.other.abl"] },  // 'if'
-      { "startIndex": 2, "endIndex": 3, "scopes": ["source.abl", "meta.function-call.abl"] },  // ' '
+      { "startIndex": 2, "endIndex": 3, "scopes": ["source.abl"] },  // ' '
       { "startIndex": 3, "endIndex": 10, "scopes": ["source.abl", "meta.function-call.abl", "support.function.abl"] },  // 'type-of'
       { "startIndex": 10, "endIndex": 11, "scopes": ["source.abl", "meta.function-call.abl", "meta.brace.round.js"] },  // '('
       { "startIndex": 11, "endIndex": 20, "scopes": ["source.abl", "meta.function-call.abl", "variable.other.abl"] },  // 'pProxyReq'
@@ -83,7 +83,7 @@ if type-of(pProxyReq, IHttpRequest) then
       { "startIndex": 38, "endIndex": 39, "scopes": ["source.abl", "meta.function-call.abl"] },  // ' '
       { "startIndex": 39, "endIndex": 51, "scopes": ["source.abl", "meta.function-call.abl", "entity.name.type.abl"] },  // 'IHttpRequest'
       { "startIndex": 51, "endIndex": 52, "scopes": ["source.abl", "meta.function-call.abl", "meta.brace.round.js"] },  // ')'
-      { "startIndex": 52, "endIndex": 53, "scopes": ["source.abl"] },  // ':'
+      { "startIndex": 52, "endIndex": 53, "scopes": ["source.abl", "punctuation.separator.colon.abl"] },  // ':'
       { "startIndex": 53, "endIndex": 56, "scopes": ["source.abl", "entity.name.function.abl"] },  // 'Set'
       { "startIndex": 56, "endIndex": 57, "scopes": ["source.abl", "meta.function.arguments.abl", "meta.brace.round.js"] },  // '('
       { "startIndex": 57, "endIndex": 60, "scopes": ["source.abl", "meta.function.arguments.abl", "constant.language.abl"] },  // 'now'

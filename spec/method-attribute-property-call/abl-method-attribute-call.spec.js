@@ -12,9 +12,9 @@ SessionManager:ContextDataset:WRITE-XML ( "longchar":U,
     ],
     [
       { "startIndex": 0, "endIndex": 14, "scopes": ["source.abl", "variable.other.abl"] },  // 'SessionManager'
-      { "startIndex": 14, "endIndex": 15, "scopes": ["source.abl"] },  // ':'
+      { "startIndex": 14, "endIndex": 15, "scopes": ["source.abl", "punctuation.separator.colon.abl"] },  // ':'
       { "startIndex": 15, "endIndex": 29, "scopes": ["source.abl", "entity.name.function.abl"] },  // 'ContextDataset'
-      { "startIndex": 29, "endIndex": 30, "scopes": ["source.abl"] },  // ':'
+      { "startIndex": 29, "endIndex": 30, "scopes": ["source.abl", "punctuation.separator.colon.abl"] },  // ':'
       { "startIndex": 30, "endIndex": 39, "scopes": ["source.abl", "entity.name.function.abl"] },  // 'WRITE-XML'
       { "startIndex": 39, "endIndex": 40, "scopes": ["source.abl"] },  // ' '
       { "startIndex": 40, "endIndex": 41, "scopes": ["source.abl", "meta.function.arguments.abl", "meta.brace.round.js"] },  // '('
@@ -60,9 +60,9 @@ SessionManager:ContextDataset:READ-XML ( "longchar":U,
     ],
     [
       { "startIndex": 0, "endIndex": 14, "scopes": ["source.abl", "variable.other.abl"] },  // 'SessionManager'
-      { "startIndex": 14, "endIndex": 15, "scopes": ["source.abl"] },  // ':'
+      { "startIndex": 14, "endIndex": 15, "scopes": ["source.abl", "punctuation.separator.colon.abl"] },  // ':'
       { "startIndex": 15, "endIndex": 29, "scopes": ["source.abl", "entity.name.function.abl"] },  // 'ContextDataset'
-      { "startIndex": 29, "endIndex": 30, "scopes": ["source.abl"] },  // ':'
+      { "startIndex": 29, "endIndex": 30, "scopes": ["source.abl", "punctuation.separator.colon.abl"] },  // ':'
       { "startIndex": 30, "endIndex": 38, "scopes": ["source.abl", "entity.name.function.abl"] },  // 'READ-XML'
       { "startIndex": 38, "endIndex": 39, "scopes": ["source.abl"] },  // ' '
       { "startIndex": 39, "endIndex": 40, "scopes": ["source.abl", "meta.function.arguments.abl", "meta.brace.round.js"] },  // '('

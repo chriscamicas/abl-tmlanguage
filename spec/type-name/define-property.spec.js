@@ -41,7 +41,7 @@ describe('', () => {
       { "startIndex": 5, "endIndex": 11, "scopes": ["source.abl", "meta.define.abl", "meta.define.getter.abl", "keyword.other.abl"] },  // 'return'
       { "startIndex": 11, "endIndex": 12, "scopes": ["source.abl", "meta.define.abl", "meta.define.getter.abl"] },  // ' '
       { "startIndex": 12, "endIndex": 23, "scopes": ["source.abl", "meta.define.abl", "meta.define.getter.abl", "variable.language.abl"] },  // 'this-object'
-      { "startIndex": 23, "endIndex": 24, "scopes": ["source.abl", "meta.define.abl", "meta.define.getter.abl", "punctuation.terminator.abl"] },  // ':'
+      { "startIndex": 23, "endIndex": 24, "scopes": ["source.abl", "meta.define.abl", "meta.define.getter.abl", "punctuation.separator.colon.abl"] },  // ':'
       { "startIndex": 24, "endIndex": 30, "scopes": ["source.abl", "meta.define.abl", "meta.define.getter.abl", "entity.name.function.abl"] },  // 'AThing'
       { "startIndex": 30, "endIndex": 31, "scopes": ["source.abl", "meta.define.abl", "meta.define.getter.abl", "punctuation.terminator.abl"] }  // '.'
     ],

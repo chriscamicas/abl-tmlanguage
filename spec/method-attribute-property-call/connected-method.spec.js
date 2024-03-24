@@ -15,7 +15,7 @@ hSrv:connect('-URL http://localhost:1234/apsv').`;
     ],
     [
       { "startIndex": 0, "endIndex": 4, "scopes": ["source.abl", "variable.other.abl"] },  // 'hSrv'
-      { "startIndex": 4, "endIndex": 5, "scopes": ["source.abl"] },  // ':'
+      { "startIndex": 4, "endIndex": 5, "scopes": ["source.abl", "punctuation.separator.colon.abl"] },  // ':'
       { "startIndex": 5, "endIndex": 12, "scopes": ["source.abl", "entity.name.function.abl"] },  // 'connect'
       { "startIndex": 12, "endIndex": 13, "scopes": ["source.abl", "meta.function.arguments.abl", "meta.brace.round.js"] },  // '('
       { "startIndex": 13, "endIndex": 14, "scopes": ["source.abl", "meta.function.arguments.abl", "string.single.complex.abl", "punctuation.definition.string.begin.abl"] },  // '''

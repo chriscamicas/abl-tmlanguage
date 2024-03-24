@@ -789,9 +789,9 @@ describe('', () => {
   let expectedTokens = [
     [
       { "startIndex": 0, "endIndex": 14, "scopes": ["source.abl", "variable.other.abl"] },  // 'SessionManager'
-      { "startIndex": 14, "endIndex": 15, "scopes": ["source.abl"] },  // ':'
+      { "startIndex": 14, "endIndex": 15, "scopes": ["source.abl", "punctuation.separator.colon.abl"] },  // ':'
       { "startIndex": 15, "endIndex": 29, "scopes": ["source.abl", "entity.name.function.abl"] },  // 'ContestDataset'
-      { "startIndex": 29, "endIndex": 30, "scopes": ["source.abl"] },  // ':'
+      { "startIndex": 29, "endIndex": 30, "scopes": ["source.abl", "punctuation.separator.colon.abl"] },  // ':'
       { "startIndex": 30, "endIndex": 38, "scopes": ["source.abl", "entity.name.function.abl"] },  // 'READ-XML'
       { "startIndex": 38, "endIndex": 39, "scopes": ["source.abl", "meta.function.arguments.abl", "meta.brace.round.js"] },  // '('
       { "startIndex": 39, "endIndex": 40, "scopes": ["source.abl", "meta.function.arguments.abl", "string.double.complex.abl", "punctuation.definition.string.begin.abl"] },  // '"'

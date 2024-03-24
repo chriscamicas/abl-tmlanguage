@@ -85,6 +85,8 @@ The ABL-specific scopes produced by the ABL grammer listed in the table below. T
 |punctuation.definition.string.end.abl      | End of a quoted string |
 |punctuation.section.abl                    | `{` and `}` |
 |punctuation.separator.comma.abl            | `,` |
+|punctuation.separator.period.abl           | `.` |
+|punctuation.separator.colon.abl            | `:` |
 |punctuation.terminator.abl                 | `.` and `:` |
 |storage.data.table.abl                     | (Temp-)Table names, field names, index names |
 |storage.type.abl                           | Primitive datatypes |

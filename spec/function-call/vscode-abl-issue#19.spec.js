@@ -37,7 +37,7 @@ trim(c_test)`;
       { "startIndex": 0, "endIndex": 4, "scopes": ["source.abl", "meta.function-call.abl", "support.function.abl"] },  // 'trim'
       { "startIndex": 4, "endIndex": 5, "scopes": ["source.abl", "meta.function-call.abl", "meta.function.arguments.abl", "meta.brace.round.js"] },  // '('
       { "startIndex": 5, "endIndex": 11, "scopes": ["source.abl", "meta.function-call.abl", "meta.function.arguments.abl", "variable.other.abl"] },  // 'c_test'
-      { "startIndex": 11, "endIndex": 12, "scopes": ["source.abl", "meta.brace.round.js"] }  // ')'
+      { "startIndex": 11, "endIndex": 12, "scopes": ["source.abl", "meta.function-call.abl", "meta.brace.round.js"] }  // ')'
     ]
   ];
   shared.itShouldMatchExpectedScopes(statement, expectedTokens);
@@ -80,7 +80,7 @@ trim( c_test)`;
       { "startIndex": 4, "endIndex": 5, "scopes": ["source.abl", "meta.function-call.abl", "meta.function.arguments.abl", "meta.brace.round.js"] },  // '('
       { "startIndex": 5, "endIndex": 6, "scopes": ["source.abl", "meta.function-call.abl", "meta.function.arguments.abl"] },  // ' '
       { "startIndex": 6, "endIndex": 12, "scopes": ["source.abl", "meta.function-call.abl", "meta.function.arguments.abl", "variable.other.abl"] },  // 'c_test'
-      { "startIndex": 12, "endIndex": 13, "scopes": ["source.abl", "meta.brace.round.js"] }  // ')'
+      { "startIndex": 12, "endIndex": 13, "scopes": ["source.abl", "meta.function-call.abl", "meta.brace.round.js"] }  // ')'
     ]
   ];
   shared.itShouldMatchExpectedScopes(statement, expectedTokens);
@@ -122,7 +122,7 @@ trim(c_test )`;
       { "startIndex": 4, "endIndex": 5, "scopes": ["source.abl", "meta.function-call.abl", "meta.function.arguments.abl", "meta.brace.round.js"] },  // '('
       { "startIndex": 5, "endIndex": 11, "scopes": ["source.abl", "meta.function-call.abl", "meta.function.arguments.abl", "variable.other.abl"] },  // 'c_test'
       { "startIndex": 11, "endIndex": 12, "scopes": ["source.abl", "meta.function-call.abl", "meta.function.arguments.abl"] },  // ' '
-      { "startIndex": 12, "endIndex": 13, "scopes": ["source.abl", "meta.brace.round.js"] }  // ')'
+      { "startIndex": 12, "endIndex": 13, "scopes": ["source.abl", "meta.function-call.abl", "meta.brace.round.js"] }  // ')'
     ]
   ];
   shared.itShouldMatchExpectedScopes(statement, expectedTokens);
