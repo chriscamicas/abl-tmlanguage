@@ -1525,7 +1525,7 @@
     },
     "abl-functions-S": {
       "name": "meta.function-call.abl",
-      "begin": "(?i)\\s*(SCREEN-LINES|SDBNAME|SEAL|SEARCH|SEEK|SET-DB-CLIENT|SET-EFFECTIVE-TENANT|set-attribute|set-attribute-node|set-rgb|set-byte-order|set-rgb-|set-rgb-v|set-rgb-va|set-rgb-val|set-rgb-valu|set-rgb-value|setuser|setuseri|setuserid|SHA1-DIGEST|SQRT|SSL-SERVER-NAME|subst|substi|substit|substitu|substitut|substitute|substr|substri|substrin|substring|SUPER)\\s*(?=\\()",
+      "begin": "(?i)\\s*(SCREEN-LINES|SDBNAME|SEAL|SEARCH|SEEK|SET-DB-CLIENT|SET-EFFECTIVE-TENANT|set-attribute|set-attribute-node|set-rgb|set-byte-order|set-rgb-|set-rgb-v|set-rgb-va|set-rgb-val|set-rgb-valu|set-rgb-value|setuser|setuseri|setuserid|SHA1-DIGEST|SQRT|SSL-SERVER-NAME|string|subst|substi|substit|substitu|substitut|substitute|substr|substri|substrin|substring|SUPER)\\s*(?=\\()",
       "beginCaptures": {
         "1": {
           "name": "support.function.abl"
@@ -2151,9 +2151,6 @@
           "include": "#static-object-property-call"
         },
         {
-          "include": "#function-call"
-        },
-        {
           "match": "(\\.)\\s*$",
           "captures": {
             "1": {
@@ -2442,9 +2439,6 @@
         },
         {
           "include": "#property-accessor"
-        },
-        {
-          "include": "#function-call"
         },
         {
           "include": "#array-literal"
@@ -3401,6 +3395,9 @@
           "include": "#abl-system-handles"
         },
         {
+          "include": "#abl-functions"
+        },
+        {
           "include": "#expression"
         },
         {
@@ -3411,12 +3408,6 @@
         },
         {
           "include": "#static-object-property-call"
-        },
-        {
-          "include": "#abl-functions"
-        },
-        {
-          "include": "#function-call"
         }
       ]
     },
