@@ -542,7 +542,7 @@ describe('', () => {
       { "startIndex": 27, "endIndex": 28, "scopes": ["source.abl"] },  // ' '
       { "startIndex": 28, "endIndex": 31, "scopes": ["source.abl", "storage.type.abl"] },  // 'int'
       { "startIndex": 31, "endIndex": 32, "scopes": ["source.abl"] },  // ' '
-      { "startIndex": 32, "endIndex": 33, "scopes": ["source.abl", "variable.other.abl"] },  // 'i'
+      { "startIndex": 32, "endIndex": 33, "scopes": ["source.abl", "storage.type.abl"] },  // 'i'
       { "startIndex": 33, "endIndex": 34, "scopes": ["source.abl", "punctuation.terminator.abl"] }  // '.'
     ],
     [
