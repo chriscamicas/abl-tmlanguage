@@ -79,6 +79,7 @@ describe('', () => {
   ];
   shared.itShouldMatchExpectedScopes(statement, expectedTokens);
 })
+
 describe('', () => {
   let statement = `def var variable-name as int no-undo .`;
   let expectedTokens = [
@@ -95,6 +96,86 @@ describe('', () => {
     { "startIndex": 29, "endIndex": 36, "scopes": ["source.abl", "meta.define.abl", "keyword.other.abl"] },
     { "startIndex": 36, "endIndex": 37, "scopes": ["source.abl", "meta.define.abl"] },
     { "startIndex": 37, "endIndex": 38, "scopes": ["source.abl", "meta.define.abl", "punctuation.terminator.abl"] }
+  ];
+  shared.itShouldMatchExpectedScopes(statement, expectedTokens);
+})
+
+describe('', () => {
+  let statement = `def var bob as i.`;
+  let expectedTokens = [
+    { "startIndex": 0, "endIndex": 3, "scopes": ["source.abl", "meta.define.abl", "keyword.other.abl"] },  // 'def'
+    { "startIndex": 3, "endIndex": 4, "scopes": ["source.abl", "meta.define.abl"] },  // ' '
+    { "startIndex": 4, "endIndex": 7, "scopes": ["source.abl", "meta.define.abl", "keyword.other.abl"] },  // 'var'
+    { "startIndex": 7, "endIndex": 8, "scopes": ["source.abl", "meta.define.abl"] },  // ' '
+    { "startIndex": 8, "endIndex": 11, "scopes": ["source.abl", "meta.define.abl", "variable.other.abl"] },  // 'bob'
+    { "startIndex": 11, "endIndex": 12, "scopes": ["source.abl", "meta.define.abl"] },  // ' '
+    { "startIndex": 12, "endIndex": 14, "scopes": ["source.abl", "meta.define.abl", "keyword.other.abl"] },  // 'as'
+    { "startIndex": 14, "endIndex": 15, "scopes": ["source.abl", "meta.define.abl"] },  // ' '
+    { "startIndex": 15, "endIndex": 16, "scopes": ["source.abl", "meta.define.abl", "storage.type.abl"] },  // 'i'
+    { "startIndex": 16, "endIndex": 17, "scopes": ["source.abl", "meta.define.abl", "punctuation.terminator.abl"] }  // '.'
+  ];
+  shared.itShouldMatchExpectedScopes(statement, expectedTokens);
+})
+
+describe('', () => {
+  let statement = `def var bob as c.`;
+  let expectedTokens = [
+    { "startIndex": 0, "endIndex": 3, "scopes": ["source.abl", "meta.define.abl", "keyword.other.abl"] },  // 'def'
+    { "startIndex": 3, "endIndex": 4, "scopes": ["source.abl", "meta.define.abl"] },  // ' '
+    { "startIndex": 4, "endIndex": 7, "scopes": ["source.abl", "meta.define.abl", "keyword.other.abl"] },  // 'var'
+    { "startIndex": 7, "endIndex": 8, "scopes": ["source.abl", "meta.define.abl"] },  // ' '
+    { "startIndex": 8, "endIndex": 11, "scopes": ["source.abl", "meta.define.abl", "variable.other.abl"] },  // 'bob'
+    { "startIndex": 11, "endIndex": 12, "scopes": ["source.abl", "meta.define.abl"] },  // ' '
+    { "startIndex": 12, "endIndex": 14, "scopes": ["source.abl", "meta.define.abl", "keyword.other.abl"] },  // 'as'
+    { "startIndex": 14, "endIndex": 15, "scopes": ["source.abl", "meta.define.abl"] },  // ' '
+    { "startIndex": 15, "endIndex": 16, "scopes": ["source.abl", "meta.define.abl", "storage.type.abl"] },  // 'c'
+    { "startIndex": 16, "endIndex": 17, "scopes": ["source.abl", "meta.define.abl", "punctuation.terminator.abl"] }  // '.'
+  ];
+  shared.itShouldMatchExpectedScopes(statement, expectedTokens);
+})
+
+describe('', () => {
+  let statement = `def var bob as l initial false.`;
+  let expectedTokens = [
+    { "startIndex": 0, "endIndex": 3, "scopes": ["source.abl", "meta.define.abl", "keyword.other.abl"] },  // 'def'
+    { "startIndex": 3, "endIndex": 4, "scopes": ["source.abl", "meta.define.abl"] },  // ' '
+    { "startIndex": 4, "endIndex": 7, "scopes": ["source.abl", "meta.define.abl", "keyword.other.abl"] },  // 'var'
+    { "startIndex": 7, "endIndex": 8, "scopes": ["source.abl", "meta.define.abl"] },  // ' '
+    { "startIndex": 8, "endIndex": 11, "scopes": ["source.abl", "meta.define.abl", "variable.other.abl"] },  // 'bob'
+    { "startIndex": 11, "endIndex": 12, "scopes": ["source.abl", "meta.define.abl"] },  // ' '
+    { "startIndex": 12, "endIndex": 14, "scopes": ["source.abl", "meta.define.abl", "keyword.other.abl"] },  // 'as'
+    { "startIndex": 14, "endIndex": 15, "scopes": ["source.abl", "meta.define.abl"] },  // ' '
+    { "startIndex": 15, "endIndex": 16, "scopes": ["source.abl", "meta.define.abl", "storage.type.abl"] },  // 'l'
+    { "startIndex": 16, "endIndex": 17, "scopes": ["source.abl", "meta.define.abl"] },  // ' '
+    { "startIndex": 17, "endIndex": 24, "scopes": ["source.abl", "meta.define.abl", "keyword.other.abl"] },  // 'initial'
+    { "startIndex": 24, "endIndex": 25, "scopes": ["source.abl", "meta.define.abl"] },  // ' '
+    { "startIndex": 25, "endIndex": 30, "scopes": ["source.abl", "meta.define.abl", "constant.language.abl"] },  // 'false'
+    { "startIndex": 30, "endIndex": 31, "scopes": ["source.abl", "meta.define.abl", "punctuation.terminator.abl"] }  // '.'
+  ];
+  shared.itShouldMatchExpectedScopes(statement, expectedTokens);
+})
+
+describe('', () => {
+  let statement = `def var bob as da initial today format 99/99/99.`;
+  let expectedTokens = [
+    { "startIndex": 0, "endIndex": 3, "scopes": ["source.abl", "meta.define.abl", "keyword.other.abl"] },  // 'def'
+    { "startIndex": 3, "endIndex": 4, "scopes": ["source.abl", "meta.define.abl"] },  // ' '
+    { "startIndex": 4, "endIndex": 7, "scopes": ["source.abl", "meta.define.abl", "keyword.other.abl"] },  // 'var'
+    { "startIndex": 7, "endIndex": 8, "scopes": ["source.abl", "meta.define.abl"] },  // ' '
+    { "startIndex": 8, "endIndex": 11, "scopes": ["source.abl", "meta.define.abl", "variable.other.abl"] },  // 'bob'
+    { "startIndex": 11, "endIndex": 12, "scopes": ["source.abl", "meta.define.abl"] },  // ' '
+    { "startIndex": 12, "endIndex": 14, "scopes": ["source.abl", "meta.define.abl", "keyword.other.abl"] },  // 'as'
+    { "startIndex": 14, "endIndex": 15, "scopes": ["source.abl", "meta.define.abl"] },  // ' '
+    { "startIndex": 15, "endIndex": 17, "scopes": ["source.abl", "meta.define.abl", "storage.type.abl"] },  // 'da'
+    { "startIndex": 17, "endIndex": 18, "scopes": ["source.abl", "meta.define.abl"] },  // ' '
+    { "startIndex": 18, "endIndex": 25, "scopes": ["source.abl", "meta.define.abl", "keyword.other.abl"] },  // 'initial'
+    { "startIndex": 25, "endIndex": 26, "scopes": ["source.abl", "meta.define.abl"] },  // ' '
+    { "startIndex": 26, "endIndex": 31, "scopes": ["source.abl", "meta.define.abl", "constant.language.abl"] },  // 'today'
+    { "startIndex": 31, "endIndex": 32, "scopes": ["source.abl", "meta.define.abl"] },  // ' '
+    { "startIndex": 32, "endIndex": 38, "scopes": ["source.abl", "meta.define.abl", "keyword.other.abl"] },  // 'format'
+    { "startIndex": 38, "endIndex": 39, "scopes": ["source.abl", "meta.define.abl"] },  // ' '
+    { "startIndex": 39, "endIndex": 47, "scopes": ["source.abl", "meta.define.abl", "constant.language.source.abl"] },  // '99/99/99'
+    { "startIndex": 47, "endIndex": 48, "scopes": ["source.abl", "meta.define.abl", "punctuation.terminator.abl"] }  // '.'
   ];
   shared.itShouldMatchExpectedScopes(statement, expectedTokens);
 })

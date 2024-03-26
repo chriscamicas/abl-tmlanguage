@@ -720,7 +720,7 @@
     },
     "define-class": {
       "name": "meta.define.class.abl",
-      "begin": "(?i)\\s*(class)\\s*",
+      "begin": "(?i)\\b(class)\\b",
       "beginCaptures": {
         "1": {
           "name": "keyword.other.abl"
@@ -1645,7 +1645,7 @@
     },
     "define-interface": {
       "name": "meta.define.interface.abl",
-      "begin": "(?i)\\s*(interface)\\s*([\\w\\#\\$\\%]+[\\w\\#\\$\\%\\.]*(\\s*<\\s*[\\w\\#\\$\\%\\.]+\\s*\\>)?)",
+      "begin": "(?i)\\b(interface)\\s+([\\w\\#\\$\\%]+[\\w\\#\\$\\%\\.]*(\\s*<\\s*[\\w\\#\\$\\%\\.]+\\s*\\>)?)",
       "beginCaptures": {
         "1": {
           "name": "keyword.other.abl"
@@ -1710,7 +1710,7 @@
       "patterns": [
         {
           "name": "meta.define.enum.abl",
-          "match": "(?i)(enum)\\s+([\\w\\#\\$\\%\\.]+)\\s*(flags)?\\s*(:)",
+          "match": "(?i)\\b(enum)\\s+([\\w\\#\\$\\%\\.]+)\\s*(flags)?\\s*(:)",
           "captures": {
             "1": {
               "name": "keyword.other.abl"
@@ -2740,13 +2740,14 @@
       }
     },
     "define-variable": {
+      "comment": "This rule captures just the variable name and the data type. Based on https://docs.progress.com/bundle/abl-reference/page/DEFINE-VARIABLE-statement.html",
       "begin": "(?i)\\s*(variable|variabl|variab|varia|vari|var)\\s*",
       "beginCaptures": {
         "1": {
           "name": "keyword.other.abl"
         }
       },
-      "end": "(?=\\.)|(?i)\\s*(no-undo)\\s*",
+      "end": "(?i)(?=\\.)|\\b(?=bgcolor|column-label|contet-help-id|dcolor|decimals|drop-target|extent|font|fgcolor|format|initial|label|mouse-pointer|no-undo|not|case-sensitive|pfcolor|view-as|triggers)\\b",
       "endCaptures": {
         "1": {
           "name": "keyword.other.abl"
@@ -2754,25 +2755,22 @@
       },
       "patterns": [
         {
+          "match": "(?i)\\b(class)\\b",
+          "captures": {
+            "1": {
+              "name": "keyword.other.abl"
+            }
+          }
+        },
+        {
           "include": "#variable-as"
         },
         {
           "include": "#primitive-type"
         },
         {
-          "include": "#extent"
-        },
-        {
-          "include": "#decimals"
-        },
-        {
-          "include": "#array-literal"
-        },
-        {
-          "include": "#timestamp-constant"
-        },
-        {
-          "include": "#numeric"
+          "comment": "needs to be before the #keywords include",
+          "include": "#type-names"
         },
         {
           "comment": "needs to be before the #keywords include",
@@ -2781,9 +2779,6 @@
         {
           "comment": "needs to be before the #keywords include",
           "include": "#type-name-progress"
-        },
-        {
-          "include": "#keywords"
         },
         {
           "include": "#string"
@@ -3729,7 +3724,7 @@
       "comment": "https://docs.progress.com/bundle/openedge-abl-reference-122/page/Data-types.html"
     },
     "primitive-type": {
-      "match": "(?i)(?<=^|\\s)(blob|character|characte|charact|charac|chara|char|clob|com-handle|date|datetime|datetime-tz|decimal|decima|decim|deci|dec|handle|int64|integer|intege|integ|inte|int|logical|logica|logic|logi|log|longchar|longcha|longch|memptr|raw|recid|rowid|widget-handle)(?![=\\w-])",
+      "match": "(?i)(?<=^|\\s)(blob|character|characte|charact|charac|chara|char|cha|ch|c|clob|com-handle|date|da|datetime|datetime-tz|decimal|decima|decim|deci|dec|de|handle|int64|integer|intege|integ|inte|int|in|i|logical|logica|logic|logi|log|lo|l|longchar|longcha|longch|memptr|raw|recid|rowid|widget-handle)(?![=\\w-])",
       "captures": {
         "1": {
           "name": "storage.type.abl"
