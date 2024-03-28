@@ -825,3 +825,55 @@ describe('', () => {
   ];
   shared.itShouldMatchExpectedScopes(statement, expectedTokens);
 })
+
+describe('', () => {
+  let statement = `if eBusinessEntity.GenerateBE AND CharacterType:IsNUllOrEmpty(eBusinessEntity.BEName) THEN
+    undo, throw NEW ClassNameNotEntertedException("unable"{&TRAN}, 0,  ClassNameNotEntertedEnum:BusinessEntity).`;
+
+  let expectedTokens = [
+    [
+      { "startIndex": 0, "endIndex": 2, "scopes": ["source.abl", "keyword.other.abl"] },  // 'if'
+      { "startIndex": 2, "endIndex": 3, "scopes": ["source.abl"] },  // ' '
+      { "startIndex": 3, "endIndex": 29, "scopes": ["source.abl", "storage.data.table.abl"] },  // 'eBusinessEntity.GenerateBE'
+      { "startIndex": 29, "endIndex": 30, "scopes": ["source.abl"] },  // ' '
+      { "startIndex": 30, "endIndex": 33, "scopes": ["source.abl", "keyword.other.abl"] },  // 'AND'
+      { "startIndex": 33, "endIndex": 34, "scopes": ["source.abl"] },  // ' '
+      { "startIndex": 34, "endIndex": 47, "scopes": ["source.abl", "variable.other.abl"] },  // 'CharacterType'
+      { "startIndex": 47, "endIndex": 48, "scopes": ["source.abl", "punctuation.separator.colon.abl"] },  // ':'
+      { "startIndex": 48, "endIndex": 62, "scopes": ["source.abl", "entity.name.function.abl"] },  // 'IsNUllOrEmopty'
+      { "startIndex": 62, "endIndex": 63, "scopes": ["source.abl", "meta.brace.round.js"] },  // '('
+      { "startIndex": 63, "endIndex": 85, "scopes": ["source.abl", "storage.data.table.abl"] },  // 'eBusinessEntity.BEName'
+      { "startIndex": 85, "endIndex": 86, "scopes": ["source.abl", "meta.brace.round.js"] },  // ')'
+      { "startIndex": 86, "endIndex": 87, "scopes": ["source.abl"] },  // ' '
+      { "startIndex": 87, "endIndex": 91, "scopes": ["source.abl", "keyword.other.abl"] },  // 'THEN'
+    ],
+    [
+      { "startIndex": 0, "endIndex": 4, "scopes": ["source.abl"] },  // '    '
+      { "startIndex": 4, "endIndex": 8, "scopes": ["source.abl", "keyword.other.abl"] },  // 'undo'
+      { "startIndex": 8, "endIndex": 9, "scopes": ["source.abl", "punctuation.separator.comma.abl"] },  // ','
+      { "startIndex": 9, "endIndex": 10, "scopes": ["source.abl"] },  // ' '
+      { "startIndex": 10, "endIndex": 15, "scopes": ["source.abl", "keyword.other.abl"] },  // 'throw'
+      { "startIndex": 15, "endIndex": 16, "scopes": ["source.abl"] },  // ' '
+      { "startIndex": 16, "endIndex": 19, "scopes": ["source.abl", "keyword.other.abl"] },  // 'NEW'
+      { "startIndex": 19, "endIndex": 20, "scopes": ["source.abl"] },  // ' '
+      { "startIndex": 20, "endIndex": 49, "scopes": ["source.abl", "entity.name.type.abl"] },  // 'ClassNameNotEntertedException'
+      { "startIndex": 49, "endIndex": 50, "scopes": ["source.abl", "meta.function.arguments.abl", "meta.brace.round.js"] },  // '('
+      { "startIndex": 50, "endIndex": 51, "scopes": ["source.abl", "meta.function.arguments.abl", "string.double.complex.abl", "punctuation.definition.string.begin.abl"] },  // '"'
+      { "startIndex": 51, "endIndex": 57, "scopes": ["source.abl", "meta.function.arguments.abl", "string.double.complex.abl"] },  // 'unable'
+      { "startIndex": 57, "endIndex": 58, "scopes": ["source.abl", "meta.function.arguments.abl", "string.double.complex.abl", "punctuation.definition.string.end.abl"] },  // '"'
+      { "startIndex": 58, "endIndex": 65, "scopes": ["source.abl", "meta.function.arguments.abl"] },  // '{&TRAN}'
+      { "startIndex": 65, "endIndex": 66, "scopes": ["source.abl", "meta.function.arguments.abl", "punctuation.separator.comma.abl"] },  // ','
+      { "startIndex": 66, "endIndex": 67, "scopes": ["source.abl", "meta.function.arguments.abl"] },  // ' '
+      { "startIndex": 67, "endIndex": 68, "scopes": ["source.abl", "meta.function.arguments.abl", "constant.numeric.source.abl"] },  // '0'
+      { "startIndex": 68, "endIndex": 69, "scopes": ["source.abl", "meta.function.arguments.abl", "punctuation.separator.comma.abl"] },  // ','
+      { "startIndex": 69, "endIndex": 71, "scopes": ["source.abl", "meta.function.arguments.abl"] },  // '  '
+      { "startIndex": 71, "endIndex": 95, "scopes": ["source.abl", "meta.function.arguments.abl", "variable.other.abl"] },  // 'ClassNameNotEntertedEnum'
+      { "startIndex": 95, "endIndex": 96, "scopes": ["source.abl", "meta.function.arguments.abl", "punctuation.separator.colon.abl"] },  // ':'
+      { "startIndex": 96, "endIndex": 110, "scopes": ["source.abl", "meta.function.arguments.abl", "entity.name.function.abl"] },  // 'BusinessEntity'
+      { "startIndex": 110, "endIndex": 111, "scopes": ["source.abl"] },  // ')'
+      { "startIndex": 111, "endIndex": 112, "scopes": ["source.abl", "punctuation.terminator.abl"] }  // '.'
+    ]
+  ];
+  shared.itShouldMatchExpectedScopes(statement, expectedTokens);
+})
+
