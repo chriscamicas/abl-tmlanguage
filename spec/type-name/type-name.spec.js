@@ -840,12 +840,12 @@ describe('', () => {
       { "startIndex": 33, "endIndex": 34, "scopes": ["source.abl"] },  // ' '
       { "startIndex": 34, "endIndex": 47, "scopes": ["source.abl", "variable.other.abl"] },  // 'CharacterType'
       { "startIndex": 47, "endIndex": 48, "scopes": ["source.abl", "punctuation.separator.colon.abl"] },  // ':'
-      { "startIndex": 48, "endIndex": 62, "scopes": ["source.abl", "entity.name.function.abl"] },  // 'IsNUllOrEmopty'
-      { "startIndex": 62, "endIndex": 63, "scopes": ["source.abl", "meta.brace.round.js"] },  // '('
-      { "startIndex": 63, "endIndex": 85, "scopes": ["source.abl", "storage.data.table.abl"] },  // 'eBusinessEntity.BEName'
-      { "startIndex": 85, "endIndex": 86, "scopes": ["source.abl", "meta.brace.round.js"] },  // ')'
-      { "startIndex": 86, "endIndex": 87, "scopes": ["source.abl"] },  // ' '
-      { "startIndex": 87, "endIndex": 91, "scopes": ["source.abl", "keyword.other.abl"] },  // 'THEN'
+      { "startIndex": 48, "endIndex": 61, "scopes": ["source.abl", "entity.name.function.abl"] },  // 'IsNUllOrEmpty'
+      { "startIndex": 61, "endIndex": 62, "scopes": ["source.abl", "meta.brace.round.js"] },  // '('
+      { "startIndex": 62, "endIndex": 84, "scopes": ["source.abl", "storage.data.table.abl"] },  // 'eBusinessEntity.BEName'
+      { "startIndex": 84, "endIndex": 85, "scopes": ["source.abl", "meta.brace.round.js"] },  // ')'
+      { "startIndex": 85, "endIndex": 86, "scopes": ["source.abl"] },  // ' '
+      { "startIndex": 86, "endIndex": 90, "scopes": ["source.abl", "keyword.other.abl"] }  // 'THEN'
     ],
     [
       { "startIndex": 0, "endIndex": 4, "scopes": ["source.abl"] },  // '    '

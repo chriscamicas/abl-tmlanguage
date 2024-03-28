@@ -3046,7 +3046,7 @@
     },
     "on-error-endkey-stop": {
       "name": "meta.block.branch.abl",
-      "match": "(?i)\\s*(on)\\s+(endkey|error|stop)\\s+(undo)\\s*(?!leave|next|retry|return|throw)([a-z0-9\\-\\_\\$]*)?\\s*",
+      "match": "(?i)\\s*(on)\\s+(endkey|error|stop|quit)\\s+(undo)\\s*(?!leave|next|retry|return|throw)([a-z0-9\\-\\_\\$]*)?\\s*",
       "captures": {
         "1": {
           "name": "keyword.other.abl"
