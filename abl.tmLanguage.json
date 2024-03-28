@@ -518,6 +518,9 @@
         },
         {
           "include": "#punctuation-period"
+        },
+        {
+          "include": "#punctuation-colon"
         }
       ]
     },

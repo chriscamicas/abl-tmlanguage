@@ -122,7 +122,7 @@ describe('', () => {
       { "startIndex": 21, "endIndex": 25, "scopes": ["source.abl", "meta.define.method.abl", "entity.name.function.abl"] },  // 'Trim'
       { "startIndex": 25, "endIndex": 26, "scopes": ["source.abl", "meta.define.method.abl", "meta.brace.round.js"] },  // '('
       { "startIndex": 26, "endIndex": 27, "scopes": ["source.abl", "meta.define.method.abl", "meta.brace.round.js"] },  // ')'
-      { "startIndex": 27, "endIndex": 29, "scopes": ["source.abl"] }  // ':'
+      { "startIndex": 27, "endIndex": 28, "scopes": ["source.abl", "punctuation.terminator.abl"] }  // ':'
     ],
     [
       { "startIndex": 0, "endIndex": 6, "scopes": ["source.abl"] },  // '      '

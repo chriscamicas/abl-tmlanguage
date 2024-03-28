@@ -8,7 +8,7 @@ END FINALLY.`;
   let expectedTokens = [
     [
       { "startIndex": 0, "endIndex": 7, "scopes": ["source.abl", "meta.block.abl", "keyword.other.abl"] },  // 'FINALLY'
-      { "startIndex": 7, "endIndex": 9, "scopes": ["source.abl"] }  // ':'
+      { "startIndex": 7, "endIndex": 8, "scopes": ["source.abl", "punctuation.terminator.abl"] }  // ':'
     ],
     [
       { "startIndex": 0, "endIndex": 4, "scopes": ["source.abl"] },  // '    '
@@ -37,7 +37,7 @@ describe('', () => {
   let expectedTokens = [
     [
       { "startIndex": 0, "endIndex": 7, "scopes": ["source.abl", "meta.block.abl", "keyword.other.abl"] },  // 'FINALLY'
-      { "startIndex": 7, "endIndex": 9, "scopes": ["source.abl"] }  // ':'
+      { "startIndex": 7, "endIndex": 8, "scopes": ["source.abl", "punctuation.terminator.abl"] }  // ':'
     ],
     [
       { "startIndex": 0, "endIndex": 2, "scopes": ["source.abl"] },  // '  '

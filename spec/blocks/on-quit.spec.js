@@ -51,7 +51,7 @@ describe('', () => {
       { "startIndex": 16, "endIndex": 17, "scopes": ["source.abl", "meta.block.abl", "punctuation.separator.comma.abl"] },  // ','
       { "startIndex": 17, "endIndex": 18, "scopes": ["source.abl", "meta.block.abl", "meta.block.branch.abl"] },  // ' '
       { "startIndex": 18, "endIndex": 23, "scopes": ["source.abl", "meta.block.abl", "meta.block.branch.abl", "keyword.other.abl"] },  // 'leave'
-      { "startIndex": 23, "endIndex": 25, "scopes": ["source.abl"] }  // ':'
+      { "startIndex": 23, "endIndex": 24, "scopes": ["source.abl", "punctuation.terminator.abl"] }  // ':'
     ]
   ]
   shared.itShouldMatchExpectedScopes(statement, expectedTokens);

@@ -59,7 +59,7 @@ END.`;
       { "startIndex": 12, "endIndex": 14, "scopes": ["source.abl", "meta.block.abl", "keyword.operator.source.abl"] },  // '<='
       { "startIndex": 14, "endIndex": 15, "scopes": ["source.abl", "meta.block.abl"] },  // ' '
       { "startIndex": 15, "endIndex": 17, "scopes": ["source.abl", "meta.block.abl", "constant.numeric.source.abl"] },  // '10'
-      { "startIndex": 17, "endIndex": 18, "scopes": ["source.abl", "meta.block.abl"] }  // ':'
+      { "startIndex": 17, "endIndex": 18, "scopes": ["source.abl", "meta.block.abl", "punctuation.terminator.abl"] }  // ':'
     ],
     [
       { "startIndex": 0, "endIndex": 4, "scopes": ["source.abl"] },  // '    '

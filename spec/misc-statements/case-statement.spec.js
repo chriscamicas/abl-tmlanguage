@@ -13,7 +13,7 @@ end case.`;
       { "startIndex": 0, "endIndex": 4, "scopes": ["source.abl", "keyword.other.abl"] },  // 'case'
       { "startIndex": 4, "endIndex": 5, "scopes": ["source.abl"] },  // ' '
       { "startIndex": 5, "endIndex": 16, "scopes": ["source.abl", "variable.other.abl"] },  // 'iLineNumber'
-      { "startIndex": 16, "endIndex": 18, "scopes": ["source.abl"] }  // ':'
+      { "startIndex": 16, "endIndex": 17, "scopes": ["source.abl", "punctuation.terminator.abl"] }  // ':'
     ],
     [
       { "startIndex": 0, "endIndex": 2, "scopes": ["source.abl"] },  // '  '

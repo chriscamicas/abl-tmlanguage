@@ -56,7 +56,7 @@ describe('', () => {
       { "startIndex": 18, "endIndex": 19, "scopes": ["source.abl", "meta.block.abl", "punctuation.separator.comma.abl"] },  // ','
       { "startIndex": 19, "endIndex": 20, "scopes": ["source.abl", "meta.block.abl", "meta.block.branch.abl"] },  // ' '
       { "startIndex": 20, "endIndex": 25, "scopes": ["source.abl", "meta.block.abl", "meta.block.branch.abl", "keyword.other.abl"] },  // 'throw'
-      { "startIndex": 25, "endIndex": 27, "scopes": ["source.abl"] }  // ':'
+      { "startIndex": 25, "endIndex": 26, "scopes": ["source.abl", "punctuation.terminator.abl"] }  // ':'
     ],
     [
       { "startIndex": 0, "endIndex": 6, "scopes": ["source.abl"] },  // '      '

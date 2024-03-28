@@ -81,7 +81,7 @@ end method.`;
       { "startIndex": 41, "endIndex": 42, "scopes": ["source.abl", "meta.define.method.abl"] },  // ' '
       { "startIndex": 42, "endIndex": 51, "scopes": ["source.abl", "meta.define.method.abl", "storage.data.table.abl"] },  // 'copytable'
       { "startIndex": 51, "endIndex": 52, "scopes": ["source.abl", "meta.define.method.abl", "meta.brace.round.js"] },  // ')'
-      { "startIndex": 52, "endIndex": 54, "scopes": ["source.abl"] }  // ':'
+      { "startIndex": 52, "endIndex": 53, "scopes": ["source.abl", "punctuation.terminator.abl"] }  // ':'
     ],
     [
       { "startIndex": 0, "endIndex": 2, "scopes": ["source.abl"] },  // '  '
