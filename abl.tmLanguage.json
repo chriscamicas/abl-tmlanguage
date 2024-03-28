@@ -2937,7 +2937,7 @@
         }
       },
       "comment": "The end condition is look forward AND backward for the colon, since contained conditions may terminate on a line-ending, which may contain the colon",
-      "end": "\\s*(?=:)|(?<=:)\\s*",
+      "end": "\\s*(?=:)|(?<=:)|(?=\\.)|(?<=\\.)\\s*",
       "name": "meta.block.abl",
       "patterns": [
         {
