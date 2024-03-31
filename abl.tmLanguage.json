@@ -24,7 +24,7 @@
       "end": "(?<=:)",
       "patterns": [
         {
-          "match": "(?i)\\s*(external|cdecl|pascal|stdcall|ordinal|persistent|thread-safe|in|super)\\s*",
+          "match": "(?i)\\b(external|cdecl|pascal|stdcall|ordinal|persistent|thread-safe|in|super)\\b",
           "captures": {
             "1": {
               "name": "keyword.other.abl"
