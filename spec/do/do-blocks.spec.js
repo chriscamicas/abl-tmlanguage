@@ -128,3 +128,97 @@ END.`;
   ];
   shared.itShouldMatchExpectedScopes(statement, expectedTokens);
 })
+
+describe('', () => {
+  let statement = `/* Bug 12345
+  asagfagsd   */
+do &if "{&CATCH-STOP}" eq "" &then on stop undo, return error new StopConditionException
+  (substitute( "A stop condition raised while waiting for the backend.~nComp: &1"{&TRAN},
+              pcEntityName),
+    0) &endif :
+
+   run goo.p.
+end.`;
+  let expectedTokens = [
+    [
+      { "startIndex": 0, "endIndex": 2, "scopes": ["source.abl", "comment.block.source.abl"] },  // '/*'
+      { "startIndex": 2, "endIndex": 13, "scopes": ["source.abl", "comment.block.source.abl", "comment"] },  // ' Bug 12345'
+    ],
+    [
+      { "startIndex": 0, "endIndex": 14, "scopes": ["source.abl", "comment.block.source.abl", "comment"] },  // '  asagfagsd   '
+      { "startIndex": 14, "endIndex": 16, "scopes": ["source.abl", "comment.block.source.abl"] }  // '*/'
+    ],
+    [
+      { "startIndex": 0, "endIndex": 2, "scopes": ["source.abl", "meta.block.abl", "keyword.other.abl"] },  // 'do'
+      { "startIndex": 2, "endIndex": 3, "scopes": ["source.abl", "meta.block.abl"] },  // ' '
+      { "startIndex": 3, "endIndex": 6, "scopes": ["source.abl", "meta.block.abl", "storage.type.function.abl"] },  // '&if'
+      { "startIndex": 6, "endIndex": 7, "scopes": ["source.abl", "meta.block.abl"] },  // ' '
+      { "startIndex": 7, "endIndex": 8, "scopes": ["source.abl", "meta.block.abl", "string.double.complex.abl", "punctuation.definition.string.begin.abl"] },  // '"'
+      { "startIndex": 8, "endIndex": 21, "scopes": ["source.abl", "meta.block.abl", "string.double.complex.abl"] },  // '{&CATCH-STOP}'
+      { "startIndex": 21, "endIndex": 22, "scopes": ["source.abl", "meta.block.abl", "string.double.complex.abl", "punctuation.definition.string.end.abl"] },  // '"'
+      { "startIndex": 22, "endIndex": 23, "scopes": ["source.abl", "meta.block.abl"] },  // ' '
+      { "startIndex": 23, "endIndex": 25, "scopes": ["source.abl", "meta.block.abl", "keyword.operator.source.abl"] },  // 'eq'
+      { "startIndex": 25, "endIndex": 26, "scopes": ["source.abl", "meta.block.abl"] },  // ' '
+      { "startIndex": 26, "endIndex": 27, "scopes": ["source.abl", "meta.block.abl", "string.double.complex.abl", "punctuation.definition.string.begin.abl"] },  // '"'
+      { "startIndex": 27, "endIndex": 28, "scopes": ["source.abl", "meta.block.abl", "string.double.complex.abl", "punctuation.definition.string.end.abl"] },  // '"'
+      { "startIndex": 28, "endIndex": 29, "scopes": ["source.abl", "meta.block.abl"] },  // ' '
+      { "startIndex": 29, "endIndex": 34, "scopes": ["source.abl", "meta.block.abl", "storage.type.function.abl"] },  // '&then'
+      { "startIndex": 34, "endIndex": 35, "scopes": ["source.abl", "meta.block.abl", "meta.block.branch.abl"] },  // ' '
+      { "startIndex": 35, "endIndex": 37, "scopes": ["source.abl", "meta.block.abl", "meta.block.branch.abl", "keyword.other.abl"] },  // 'on'
+      { "startIndex": 37, "endIndex": 38, "scopes": ["source.abl", "meta.block.abl", "meta.block.branch.abl"] },  // ' '
+      { "startIndex": 38, "endIndex": 42, "scopes": ["source.abl", "meta.block.abl", "meta.block.branch.abl", "keyword.other.abl"] },  // 'stop'
+      { "startIndex": 42, "endIndex": 43, "scopes": ["source.abl", "meta.block.abl", "meta.block.branch.abl"] },  // ' '
+      { "startIndex": 43, "endIndex": 47, "scopes": ["source.abl", "meta.block.abl", "meta.block.branch.abl", "keyword.other.abl"] },  // 'undo'
+      { "startIndex": 47, "endIndex": 48, "scopes": ["source.abl", "meta.block.abl", "punctuation.separator.comma.abl"] },  // ','
+      { "startIndex": 48, "endIndex": 49, "scopes": ["source.abl", "meta.block.abl", "meta.block.branch.abl"] },  // ' '
+      { "startIndex": 49, "endIndex": 55, "scopes": ["source.abl", "meta.block.abl", "meta.block.branch.abl", "keyword.other.abl"] },  // 'return'
+      { "startIndex": 55, "endIndex": 56, "scopes": ["source.abl", "meta.block.abl", "meta.block.branch.abl"] },  // ' '
+      { "startIndex": 56, "endIndex": 61, "scopes": ["source.abl", "meta.block.abl", "meta.block.branch.abl", "keyword.other.abl"] },  // 'error'
+      { "startIndex": 61, "endIndex": 62, "scopes": ["source.abl", "meta.block.abl", "meta.block.branch.abl"] },  // ' '
+      { "startIndex": 62, "endIndex": 65, "scopes": ["source.abl", "meta.block.abl", "meta.block.branch.abl", "variable.other.abl"] },  // 'new'
+      { "startIndex": 65, "endIndex": 66, "scopes": ["source.abl", "meta.block.abl", "meta.block.branch.abl"] },  // ' '
+      { "startIndex": 66, "endIndex": 88, "scopes": ["source.abl", "meta.block.abl", "meta.block.branch.abl", "variable.other.abl"] }  // 'StopConditionException'
+    ],
+    [
+      { "startIndex": 0, "endIndex": 3, "scopes": ["source.abl", "meta.block.abl"] },  // '  ('
+      { "startIndex": 3, "endIndex": 13, "scopes": ["source.abl", "meta.block.abl", "variable.other.abl"] },  // 'substitute'
+      { "startIndex": 13, "endIndex": 15, "scopes": ["source.abl", "meta.block.abl"] },  // '( '
+      { "startIndex": 15, "endIndex": 16, "scopes": ["source.abl", "meta.block.abl", "string.double.complex.abl", "punctuation.definition.string.begin.abl"] },  // '"'
+      { "startIndex": 16, "endIndex": 70, "scopes": ["source.abl", "meta.block.abl", "string.double.complex.abl"] },  // 'A stop condition raised while waiting for the backend.'
+      { "startIndex": 70, "endIndex": 72, "scopes": ["source.abl", "meta.block.abl", "string.double.complex.abl", "constant.character.escape.abl"] },  // '~n'
+      { "startIndex": 72, "endIndex": 80, "scopes": ["source.abl", "meta.block.abl", "string.double.complex.abl"] },  // 'Comp: &1'
+      { "startIndex": 80, "endIndex": 81, "scopes": ["source.abl", "meta.block.abl", "string.double.complex.abl", "punctuation.definition.string.end.abl"] },  // '"'
+      { "startIndex": 81, "endIndex": 88, "scopes": ["source.abl", "meta.block.abl", "storage.type.function.abl"] },  // '{&TRAN}'
+      { "startIndex": 88, "endIndex": 89, "scopes": ["source.abl", "meta.block.abl", "punctuation.separator.comma.abl"] }  // ','
+    ],
+    [
+      { "startIndex": 0, "endIndex": 14, "scopes": ["source.abl", "meta.block.abl"] },  // '              '
+      { "startIndex": 14, "endIndex": 26, "scopes": ["source.abl", "meta.block.abl", "variable.other.abl"] },  // 'pcEntityName'
+      { "startIndex": 26, "endIndex": 27, "scopes": ["source.abl", "meta.block.abl"] },  // ')'
+      { "startIndex": 27, "endIndex": 28, "scopes": ["source.abl", "meta.block.abl", "punctuation.separator.comma.abl"] }  // ','
+    ],
+    [
+      { "startIndex": 0, "endIndex": 4, "scopes": ["source.abl", "meta.block.abl"] },  // '    '
+      { "startIndex": 4, "endIndex": 5, "scopes": ["source.abl", "meta.block.abl", "constant.numeric.source.abl"] },  // '0'
+      { "startIndex": 5, "endIndex": 7, "scopes": ["source.abl", "meta.block.abl"] },  // ') '
+      { "startIndex": 7, "endIndex": 13, "scopes": ["source.abl", "meta.block.abl", "storage.type.function.abl"] },  // '&endif'
+      { "startIndex": 13, "endIndex": 14, "scopes": ["source.abl", "meta.block.abl"] },  // ' '
+      { "startIndex": 14, "endIndex": 15, "scopes": ["source.abl", "punctuation.terminator.abl"] }  // ':'
+    ],
+    [
+      { "startIndex": 0, "endIndex": 1, "scopes": ["source.abl"] }  // ''
+    ],
+    [
+      { "startIndex": 0, "endIndex": 3, "scopes": ["source.abl"] },  // '   '
+      { "startIndex": 3, "endIndex": 6, "scopes": ["source.abl", "keyword.other.abl"] },  // 'run'
+      { "startIndex": 6, "endIndex": 7, "scopes": ["source.abl"] },  // ' '
+      { "startIndex": 7, "endIndex": 12, "scopes": ["source.abl", "meta.other.procedure.abl"] },  // 'goo.p'
+      { "startIndex": 12, "endIndex": 13, "scopes": ["source.abl", "punctuation.terminator.abl"] }  // '.'
+    ],
+    [
+      { "startIndex": 0, "endIndex": 3, "scopes": ["source.abl", "keyword.other.abl"] },  // 'end'
+      { "startIndex": 3, "endIndex": 4, "scopes": ["source.abl", "punctuation.terminator.abl"] }  // '.'
+    ]
+  ];
+  shared.itShouldMatchExpectedScopes(statement, expectedTokens);
+})

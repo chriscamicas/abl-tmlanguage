@@ -455,8 +455,7 @@
           "include": "#format-constant"
         },
         {
-          "match": "(?i)(\\&[\\w-]*)|({\\&[\\w-]*})|(&window-system|&text-height|&line-number|&batch-mode|&file-name|&undefine|&sequence|&message|defined|&elseif|&scoped|&global|&opsys|&endif|&else|&scop|&then|&glob|&if)",
-          "name": "storage.type.function.abl"
+          "include": "#preprocessors"
         },
         {
           "include": "#procedure-definition"
@@ -533,6 +532,10 @@
           "include": "#define"
         }
       ]
+    },
+    "preprocessors": {
+        "match": "(?i)(\\&[\\w-]*)|({\\&[\\w-]*})|(&window-system|&text-height|&line-number|&batch-mode|&file-name|&undefine|&sequence|&message|defined|&elseif|&scoped|&global|&opsys|&endif|&else|&scop|&then|&glob|&if)",
+        "name": "storage.type.function.abl"
     },
     "type-names": {
       "patterns": [
@@ -2986,6 +2989,12 @@
         },
         {
           "include": "#frame-phrase"
+        },
+        {
+          "include": "#expression"
+        },
+        {
+          "include": "#preprocessors"
         }
       ]
     },
