@@ -327,6 +327,9 @@
       "name": "meta.statements.abl",
       "patterns": [
         {
+          "include": "#copy-lob"
+        },
+        {
           "include": "#create-buffer"
         },
         {
@@ -1992,6 +1995,21 @@
         }
       ]
     },
+    "copy-lob": {
+      "comment": "Has its own rule because of the 'FOR length' option, which is parsed as a 'FOR EACH' type statement",
+      "begin": "(?i)\\b(copy-lob)\\b",
+      "beginCaptures": {
+        "1": {
+          "name": "keyword.other.abl"
+        }
+      },
+      "end": "(?=\\.)",
+      "patterns": [
+        {
+          "include": "#code-block"
+        }
+      ]
+    },
     "type-argument-function": {
       "name": "meta.function-call.abl",
       "begin": "(?i)\\s*(cast|type-of)\\s*(\\()",
@@ -2154,12 +2172,7 @@
           "include": "#static-object-property-call"
         },
         {
-          "match": "(\\.)\\s*$",
-          "captures": {
-            "1": {
-              "name": "punctuation.terminator.abl"
-            }
-          }
+          "include": "#punctuation-period"
         }
       ]
     },
