@@ -3181,11 +3181,11 @@
           "name": "keyword.other.abl"
         }
       },
-      "comment": " This regex just captures to the end of the line, so if the RETURN ERROR is split across 2 lines, this will not capture",
-      "end": "(?=\\R)",
+      "comment": " This regex captures to the end of the line, or the colon, whichever comes first",
+      "end": "(?=\\:|$)",
       "patterns": [
         {
-          "match": "(?i)\\s*(new)\\s+(.*)\\s*\\(",
+          "match": "(?i)\\b(new)\\s+(.*)\\s*(?=\\($|)",
           "captures": {
             "1": {
               "name": "keyword.other.abl"
@@ -3276,9 +3276,6 @@
         },
         {
           "include": "#branch-return-no-apply"
-        },
-        {
-          "include": "#branch-return-error"
         },
         {
           "include": "#branch-return-error-expression"

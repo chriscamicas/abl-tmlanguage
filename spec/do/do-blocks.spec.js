@@ -142,7 +142,7 @@ end.`;
   let expectedTokens = [
     [
       { "startIndex": 0, "endIndex": 2, "scopes": ["source.abl", "comment.block.source.abl"] },  // '/*'
-      { "startIndex": 2, "endIndex": 13, "scopes": ["source.abl", "comment.block.source.abl", "comment"] },  // ' Bug 12345'
+      { "startIndex": 2, "endIndex": 13, "scopes": ["source.abl", "comment.block.source.abl", "comment"] }  // ' Bug 12345'
     ],
     [
       { "startIndex": 0, "endIndex": 14, "scopes": ["source.abl", "comment.block.source.abl", "comment"] },  // '  asagfagsd   '
@@ -175,9 +175,9 @@ end.`;
       { "startIndex": 55, "endIndex": 56, "scopes": ["source.abl", "meta.block.abl", "meta.block.branch.abl"] },  // ' '
       { "startIndex": 56, "endIndex": 61, "scopes": ["source.abl", "meta.block.abl", "meta.block.branch.abl", "keyword.other.abl"] },  // 'error'
       { "startIndex": 61, "endIndex": 62, "scopes": ["source.abl", "meta.block.abl", "meta.block.branch.abl"] },  // ' '
-      { "startIndex": 62, "endIndex": 65, "scopes": ["source.abl", "meta.block.abl", "meta.block.branch.abl", "variable.other.abl"] },  // 'new'
+      { "startIndex": 62, "endIndex": 65, "scopes": ["source.abl", "meta.block.abl", "meta.block.branch.abl", "keyword.other.abl"] },  // 'new'
       { "startIndex": 65, "endIndex": 66, "scopes": ["source.abl", "meta.block.abl", "meta.block.branch.abl"] },  // ' '
-      { "startIndex": 66, "endIndex": 88, "scopes": ["source.abl", "meta.block.abl", "meta.block.branch.abl", "variable.other.abl"] }  // 'StopConditionException'
+      { "startIndex": 66, "endIndex": 88, "scopes": ["source.abl", "meta.block.abl", "meta.block.branch.abl", "entity.name.type.abl"] }  // 'StopConditionException'
     ],
     [
       { "startIndex": 0, "endIndex": 3, "scopes": ["source.abl", "meta.block.abl"] },  // '  ('
