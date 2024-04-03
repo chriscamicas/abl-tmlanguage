@@ -378,6 +378,9 @@
           "include": "#break-group"
         },
         {
+          "include": "#method-call"
+        },
+        {
           "include": "#property-call"
         },
         {
@@ -535,7 +538,8 @@
     },
     "preprocessors": {
         "match": "(?i)(\\&[\\w-]*)|({\\&[\\w-]*})|(&window-system|&text-height|&line-number|&batch-mode|&file-name|&undefine|&sequence|&message|defined|&elseif|&scoped|&global|&opsys|&endif|&else|&scop|&then|&glob|&if)",
-        "name": "storage.type.function.abl"
+        "name": "storage.type.function.abl",
+        "X-name": "meta.preprocessor.abl storage.type.function.abl"
     },
     "type-names": {
       "patterns": [
@@ -1394,7 +1398,7 @@
     },
     "abl-functions-L": {
       "name": "meta.function-call.abl",
-      "begin": "(?i)\\s*(LAST|LASTKEY|LAST-OF|LC|LDBNAME|LEFT-TRIM|LENGTH|LIBRARY|LINE-COUNTER|LIST-EVENTS|LIST-QUERY-ATTRS|LIST-SET-ATTRS|LIST-WIDGETS|LOCKED|LOG|LOGICAL|Logical values|LOOKUP)\\s*(?=\\()",
+      "begin": "(?i)\\s*(LAST|LASTKEY|LAST-OF|LC|LDBNAME|LEFT-TRIM|LENGTH|LIBRARY|LINE-COUNTER|LIST-EVENTS|LIST-QUERY-ATTRS|LIST-SET-ATTRS|LIST-WIDGETS|LOCKED|LOG|LOGICAL|LOWER|LOOKUP)\\s*(?=\\()",
       "beginCaptures": {
         "1": {
           "name": "support.function.abl"
@@ -2542,6 +2546,9 @@
         },
         {
           "include": "#type-name"
+        },
+        {
+          "include": "#preprocessors"
         }
       ]
     },
@@ -3421,10 +3428,13 @@
           "include": "#abl-functions"
         },
         {
-          "include": "#expression"
+          "include": "#method-call"
         },
         {
           "include": "#property-call"
+        },
+        {
+          "include": "#expression"
         },
         {
           "include": "#punctuation-comma"
@@ -3448,6 +3458,25 @@
           "name": "entity.name.function.abl"
         }
       }
+    },
+    "method-call": {
+      "begin": "(?i)\\s*([a-zA-Z][a-zA-Z0-9\\#\\$\\-\\_\\%\\&]*)\\s*(?=\\()",
+      "beginCaptures": {
+        "1": {
+          "name": "entity.name.function.abl"
+        }
+      },
+      "end": "(\\))",
+      "endCaptures": {
+        "1": {
+          "name": "meta.brace.round.js"
+        }
+      },
+      "patterns": [
+        {
+          "include": "#function-arguments"
+        }
+      ]
     },
     "property-call": {
       "match": "(:)([a-zA-Z][a-zA-Z0-9\\#\\$\\-\\_\\%\\&]*)\\b",
@@ -3719,6 +3748,9 @@
       "patterns": [
         {
           "include": "#escape-char"
+        },
+        {
+          "include": "#preprocessors"
         }
       ]
     },
@@ -3739,6 +3771,9 @@
       "patterns": [
         {
           "include": "#escape-char"
+        },
+        {
+          "include": "#preprocessors"
         }
       ]
     },
