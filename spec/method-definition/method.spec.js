@@ -209,8 +209,7 @@ end method.`;
       { "startIndex": 50, "endIndex": 51, "scopes": ["source.abl", "meta.define.method.abl"] },  // ' '
       { "startIndex": 51, "endIndex": 53, "scopes": ["source.abl", "meta.define.method.abl", "keyword.other.abl"] },  // 'as'
       { "startIndex": 53, "endIndex": 54, "scopes": ["source.abl", "meta.define.method.abl"] },  // ' '
-      { "startIndex": 54, "endIndex": 58, "scopes": ["source.abl", "meta.define.method.abl", "storage.type.abl"] },  // 'long'
-      { "startIndex": 58, "endIndex": 62, "scopes": ["source.abl", "meta.define.method.abl"] },  // 'char'
+      { "startIndex": 54, "endIndex": 62, "scopes": ["source.abl", "meta.define.method.abl", "storage.type.abl"] },  // 'longchar'
       { "startIndex": 62, "endIndex": 63, "scopes": ["source.abl", "meta.define.method.abl", "punctuation.separator.comma.abl"] }  // ','
     ],
     [
