@@ -3424,6 +3424,9 @@
           "include": "#expression"
         },
         {
+          "include": "#comment"
+        },
+        {
           "include": "#property-call"
         },
         {
