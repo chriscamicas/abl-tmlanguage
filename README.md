@@ -88,6 +88,7 @@ The ABL-specific scopes produced by the ABL grammer listed in the table below. T
 |punctuation.separator.period.abl           | `.` |
 |punctuation.separator.colon.abl            | `:` |
 |punctuation.terminator.abl                 | `.` and `:` |
+|storage.data.dataset.abl                   | Statically-defined dataset names |
 |storage.data.table.abl                     | (Temp-)Table names, field names, index names |
 |storage.type.abl                           | Primitive datatypes |
 |storage.type.function.abl                  | ABL preprocessors, `defined` keyword |

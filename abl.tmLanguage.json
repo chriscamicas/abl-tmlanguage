@@ -2454,6 +2454,9 @@
           "include": "#define-variable"
         },
         {
+          "include": "#define-dataset"
+        },
+        {
           "include": "#define-event"
         },
         {
@@ -2497,6 +2500,9 @@
         },
         {
           "include": "#field-as-object"
+        },
+        {
+          "include": "#preprocessors"
         },
         {
           "include": "#extent"
@@ -2723,6 +2729,17 @@
           }
         }
       ]
+    },
+    "define-dataset": {
+      "match": "(?i)\\b(dataset)\\s+([a-zA-Z][a-zA-Z0-9\\#\\$\\-\\_\\%\\&]*)\\b",
+      "captures": {
+        "1": {
+          "name": "keyword.other.abl"
+        },
+        "2": {
+          "name": "storage.data.dataset.abl"
+        }
+      }
     },
     "define-event": {
       "match": "(?i)\\b(EVENT)\\b([a-zA-Z][a-zA-Z0-9\\#\\$\\-\\_\\%\\&]*)\\b",
