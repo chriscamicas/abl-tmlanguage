@@ -81,7 +81,7 @@ describe('', () => {
     { "startIndex": 12, "endIndex": 13, "scopes": ["source.abl", "keyword.operator.source.abl"] },  // '='
     { "startIndex": 13, "endIndex": 14, "scopes": ["source.abl"] },  // ' '
     { "startIndex": 14, "endIndex": 17, "scopes": ["source.abl", "keyword.other.abl"] },  // 'NEW'
-    { "startIndex": 17, "endIndex": 18, "scopes": ["source.abl"] },  // ' '
+    { "startIndex": 17, "endIndex": 18, "scopes": ["source.abl", "entity.name.type.generic.abl"] },  // ' '
     { "startIndex": 18, "endIndex": 23, "scopes": ["source.abl", "entity.name.type.generic.abl", "entity.name.type.abl"] },  // 'List '
     { "startIndex": 23, "endIndex": 24, "scopes": ["source.abl", "entity.name.type.generic.abl"] },  // '<'
     { "startIndex": 24, "endIndex": 30, "scopes": ["source.abl", "entity.name.type.generic.abl", "entity.name.type.abl"] },  // 'Object'
@@ -96,7 +96,6 @@ describe('', () => {
   shared.itShouldMatchExpectedScopes(statement, expectedTokens);
 })
 
-
 describe('', () => {
   let statement = `ASSIGN oVar = NEW Progress.Collections.List<String> (new Comparer())`;
 
@@ -108,7 +107,7 @@ describe('', () => {
     { "startIndex": 12, "endIndex": 13, "scopes": ["source.abl", "keyword.operator.source.abl"] },  // '='
     { "startIndex": 13, "endIndex": 14, "scopes": ["source.abl"] },  // ' '
     { "startIndex": 14, "endIndex": 17, "scopes": ["source.abl", "keyword.other.abl"] },  // 'NEW'
-    { "startIndex": 17, "endIndex": 18, "scopes": ["source.abl"] },  // ' '
+    { "startIndex": 17, "endIndex": 18, "scopes": ["source.abl", "entity.name.type.generic.abl"] },  // ' '
     { "startIndex": 18, "endIndex": 43, "scopes": ["source.abl", "entity.name.type.generic.abl", "entity.name.type.abl"] },  // 'Progress.Collections.List'
     { "startIndex": 43, "endIndex": 44, "scopes": ["source.abl", "entity.name.type.generic.abl"] },  // '<'
     { "startIndex": 44, "endIndex": 50, "scopes": ["source.abl", "entity.name.type.generic.abl", "entity.name.type.abl"] },  // 'String'

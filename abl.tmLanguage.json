@@ -1754,7 +1754,7 @@
       "name": "meta.brace.round.js"
     },
     "new-class": {
-      "begin": "(?i)(new)\\s*",
+      "begin": "(?i)\\b(new)\\b",
       "beginCaptures": {
         "1": {
           "name": "keyword.other.abl"
