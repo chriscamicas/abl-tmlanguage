@@ -34,7 +34,7 @@ describe('', () => {
     [
       { "startIndex": 0, "endIndex": 2, "scopes": ["source.abl", "meta.define.abl"] },  // '  '
       { "startIndex": 2, "endIndex": 5, "scopes": ["source.abl", "meta.define.abl", "keyword.other.abl"] },  // 'get'
-      { "startIndex": 5, "endIndex": 9, "scopes": ["source.abl", "meta.define.abl"] }  // '():'
+      { "startIndex": 5, "endIndex": 9, "scopes": ["source.abl", "meta.define.abl", "needs.braces"] }  // '():'
     ],
     [
       { "startIndex": 0, "endIndex": 6, "scopes": ["source.abl", "meta.define.abl"] },  // '      '
@@ -45,10 +45,10 @@ describe('', () => {
       { "startIndex": 6, "endIndex": 8, "scopes": ["source.abl", "meta.define.abl", "keyword.other.abl"] },  // 'if'
       { "startIndex": 8, "endIndex": 9, "scopes": ["source.abl", "meta.define.abl"] },  // ' '
       { "startIndex": 9, "endIndex": 20, "scopes": ["source.abl", "meta.define.abl", "variable.language.abl"] },  // 'this-object'
-      { "startIndex": 20, "endIndex": 21, "scopes": ["source.abl", "meta.define.abl", "punctuation.separator.colon.abl"] },  // ':'
-      { "startIndex": 21, "endIndex": 29, "scopes": ["source.abl", "meta.define.abl", "kentity.name.function.abl"] },  // 'Encoding'
+      { "startIndex": 20, "endIndex": 21, "scopes": ["source.abl", "meta.define.abl"] },  // ':'
+      { "startIndex": 21, "endIndex": 29, "scopes": ["source.abl", "meta.define.abl", "keyword.other.abl"] },  // 'Encoding'
       { "startIndex": 29, "endIndex": 30, "scopes": ["source.abl", "meta.define.abl"] },  // ' '
-      { "startIndex": 30, "endIndex": 32, "scopes": ["source.abl", "meta.define.abl", "keyword.operator.source.abl"] },  // 'eq'
+      { "startIndex": 30, "endIndex": 32, "scopes": ["source.abl", "meta.define.abl", "keyword.other.abl"] },  // 'eq'
       { "startIndex": 32, "endIndex": 33, "scopes": ["source.abl", "meta.define.abl"] },  // ' '
       { "startIndex": 33, "endIndex": 34, "scopes": ["source.abl", "meta.define.abl", "string.single.complex.abl", "punctuation.definition.string.begin.abl"] },  // '''
       { "startIndex": 34, "endIndex": 39, "scopes": ["source.abl", "meta.define.abl", "string.single.complex.abl"] },  // 'UTF-8'
@@ -61,7 +61,7 @@ describe('', () => {
       { "startIndex": 0, "endIndex": 10, "scopes": ["source.abl", "meta.define.abl"] },  // '          '
       { "startIndex": 10, "endIndex": 16, "scopes": ["source.abl", "meta.define.abl", "keyword.other.abl"] },  // 'return'
       { "startIndex": 16, "endIndex": 17, "scopes": ["source.abl", "meta.define.abl"] },  // ' '
-      { "startIndex": 17, "endIndex": 27, "scopes": ["source.abl", "meta.define.abl", "variable.other.abl"] },  // 'mUTF8Value'
+      { "startIndex": 17, "endIndex": 27, "scopes": ["source.abl", "meta.define.abl", "entity.name.type.abl"] },  // 'mUTF8Value'
       { "startIndex": 27, "endIndex": 28, "scopes": ["source.abl", "meta.define.abl", "punctuation.terminator.abl"] }  // '.'
     ],
     [
