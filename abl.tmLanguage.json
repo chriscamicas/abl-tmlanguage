@@ -3812,6 +3812,16 @@
               "name": "keyword.operator.source.abl"
             }
           }
+        },
+        {
+          "match": "(?<=\\s)([a-zA-Z][a-zA-Z0-9\\#\\$\\-\\_\\%\\.\\:]+)\\b",
+          "comment": "non-string unnamed argument values",
+          "captures": {
+            "1": {
+              "name": "support.other.argument.abl",
+              "comment": "you can use variable names, field names, and reserved words as argument names."
+            }
+          }
         }
       ]
     },
