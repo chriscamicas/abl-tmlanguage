@@ -1409,7 +1409,7 @@
     },
     "abl-functions-L": {
       "name": "meta.function-call.abl",
-      "begin": "(?i)\\s*(LAST|LASTKEY|LAST-OF|LC|LDBNAME|LEFT-TRIM|LENGTH|LIBRARY|LINE-COUNTER|LIST-EVENTS|LIST-QUERY-ATTRS|LIST-SET-ATTRS|LIST-WIDGETS|LOCKED|LOG|LOGICAL|Logical values|LOOKUP)\\s*(?=\\()",
+      "begin": "(?i)\\s*(LAST|LASTKEY|LAST-OF|LC|LDBNAME|LEFT-TRIM|LENGTH|LIBRARY|LINE-COUNTER|LIST-EVENTS|LIST-QUERY-ATTRS|LIST-SET-ATTRS|LIST-WIDGETS|LOCKED|LOG|LOGICAL|LOOKUP|lower)\\s*(?=\\()",
       "beginCaptures": {
         "1": {
           "name": "support.function.abl"
