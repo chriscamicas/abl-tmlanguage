@@ -606,7 +606,7 @@ describe('', () => {
     ],
     [
       { "startIndex": 0, "endIndex": 12, "scopes": ["source.abl", "meta.define.method.abl"] },  // '            '
-      { "startIndex": 12, "endIndex": 13, "scopes": ["source.abl", "punctuation.terminator.abl"]}   // ':'
+      { "startIndex": 12, "endIndex": 13, "scopes": ["source.abl", "punctuation.terminator.abl"] }   // ':'
     ]
   ];
   shared.itShouldMatchExpectedScopes(statement, expectedTokens);
@@ -832,6 +832,52 @@ describe('', () => {
       { "startIndex": 65, "endIndex": 75, "scopes": ["source.abl", "meta.define.method.abl", "storage.data.table.abl"] },  // 'dsCustomer'
       { "startIndex": 75, "endIndex": 76, "scopes": ["source.abl", "meta.define.method.abl", "meta.brace.round.js"] },  // ')'
       { "startIndex": 76, "endIndex": 77, "scopes": ["source.abl", "punctuation.terminator.abl"] }  // ':'
+    ]
+  ];
+  shared.itShouldMatchExpectedScopes(statement, expectedTokens);
+})
+
+describe('', () => {
+  let statement = `method private void ExtractEntity(input poResponse as IHttpResponse,
+    input poMessageBody as ByteBucket):
+end method.`;
+
+  let expectedTokens = [
+    [
+      { "startIndex": 0, "endIndex": 6, "scopes": ["source.abl", "meta.define.method.abl", "keyword.other.abl"] },  // 'method'
+      { "startIndex": 6, "endIndex": 7, "scopes": ["source.abl", "meta.define.method.abl"] },  // ' '
+      { "startIndex": 7, "endIndex": 14, "scopes": ["source.abl", "meta.define.method.abl", "keyword.other.abl"] },  // 'private'
+      { "startIndex": 14, "endIndex": 15, "scopes": ["source.abl", "meta.define.method.abl"] },  // ' '
+      { "startIndex": 15, "endIndex": 19, "scopes": ["source.abl", "meta.define.method.abl", "keyword.other.abl"] },  // 'void'
+      { "startIndex": 19, "endIndex": 20, "scopes": ["source.abl", "meta.define.method.abl"] },  // ' '
+      { "startIndex": 20, "endIndex": 33, "scopes": ["source.abl", "meta.define.method.abl", "entity.name.function.abl"] },  // 'ExtractEntity'
+      { "startIndex": 33, "endIndex": 34, "scopes": ["source.abl", "meta.define.method.abl", "meta.brace.round.js"] },  // '('
+      { "startIndex": 34, "endIndex": 39, "scopes": ["source.abl", "meta.define.method.abl", "keyword.other.abl"] },  // 'input'
+      { "startIndex": 39, "endIndex": 40, "scopes": ["source.abl", "meta.define.method.abl"] },  // ' '
+      { "startIndex": 40, "endIndex": 50, "scopes": ["source.abl", "meta.define.method.abl", "variable.parameter.abl"] },  // 'poResponse'
+      { "startIndex": 50, "endIndex": 51, "scopes": ["source.abl", "meta.define.method.abl"] },  // ' '
+      { "startIndex": 51, "endIndex": 53, "scopes": ["source.abl", "meta.define.method.abl", "keyword.other.abl"] },  // 'as'
+      { "startIndex": 53, "endIndex": 54, "scopes": ["source.abl", "meta.define.method.abl"] },  // ' '
+      { "startIndex": 54, "endIndex": 67, "scopes": ["source.abl", "meta.define.method.abl", "entity.name.type.abl"] },  // 'IHttpResponse'
+      { "startIndex": 67, "endIndex": 68, "scopes": ["source.abl", "meta.define.method.abl", "punctuation.separator.comma.abl"] }  // ','
+    ],
+    [
+      { "startIndex": 0, "endIndex": 4, "scopes": ["source.abl", "meta.define.method.abl"] },  // '    '
+      { "startIndex": 4, "endIndex": 9, "scopes": ["source.abl", "meta.define.method.abl", "keyword.other.abl"] },  // 'input'
+      { "startIndex": 9, "endIndex": 10, "scopes": ["source.abl", "meta.define.method.abl"] },  // ' '
+      { "startIndex": 10, "endIndex": 23, "scopes": ["source.abl", "meta.define.method.abl", "variable.parameter.abl"] },  // 'poMessageBody'
+      { "startIndex": 23, "endIndex": 24, "scopes": ["source.abl", "meta.define.method.abl"] },  // ' '
+      { "startIndex": 24, "endIndex": 26, "scopes": ["source.abl", "meta.define.method.abl", "keyword.other.abl"] },  // 'as'
+      { "startIndex": 26, "endIndex": 27, "scopes": ["source.abl", "meta.define.method.abl"] },  // ' '
+      { "startIndex": 27, "endIndex": 37, "scopes": ["source.abl", "meta.define.method.abl", "entity.name.type.abl"] },  // 'ByteBucket'
+      { "startIndex": 37, "endIndex": 38, "scopes": ["source.abl", "meta.define.method.abl", "meta.brace.round.js"] },  // ')'
+      { "startIndex": 38, "endIndex": 39, "scopes": ["source.abl", "punctuation.terminator.abl"] }  // ':'
+    ],
+    [
+      { "startIndex": 0, "endIndex": 3, "scopes": ["source.abl", "keyword.other.abl"] },  // 'end'
+      { "startIndex": 3, "endIndex": 4, "scopes": ["source.abl"] },  // ' '
+      { "startIndex": 4, "endIndex": 10, "scopes": ["source.abl", "keyword.other.abl"] },  // 'method'
+      { "startIndex": 10, "endIndex": 11, "scopes": ["source.abl", "punctuation.terminator.abl"] }  // '.'
     ]
   ];
   shared.itShouldMatchExpectedScopes(statement, expectedTokens);
