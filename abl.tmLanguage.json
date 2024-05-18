@@ -21,7 +21,12 @@
           "name": "keyword.other.abl"
         }
       },
-      "end": "(?<=:)",
+      "end": "(:|\\.)",
+      "endCaptures": {
+        "1": {
+          "name": "punctuation.terminator.abl"
+        }
+      },
       "patterns": [
         {
           "match": "(?i)\\b(external|cdecl|pascal|stdcall|ordinal|persistent|thread-safe|in|super)\\b",
@@ -35,10 +40,8 @@
           "include": "#string"
         },
         {
-          "include": "#translation-attribute"
-        },
-        {
-          "match": "([a-zA-Z][a-zA-Z0-9\\#\\$\\-\\_\\%\\&\\.]+)",
+          "match": "([a-zA-Z][a-zA-Z0-9\\#\\$\\-\\_\\%\\&\\.]+)(?<!\\.)",
+          "comment": "A procedure name may contain a . but cannot end in one, unless the procedure name is in quotes",
           "captures": {
             "1": {
               "name": "entity.name.function.abl"
@@ -50,6 +53,9 @@
         },
         {
           "include": "#numeric"
+        },
+        {
+          "include": "#comment"
         }
       ]
     },
@@ -2603,6 +2609,21 @@
         },
         {
           "include": "#type-name-progress"
+        },
+        {
+          "include": "#abl-system-handles"
+        },
+        {
+          "include": "#property-call"
+        },
+        {
+          "include": "#handle-attributes"
+        },
+        {
+          "include": "#abl-functions"
+        },
+        {
+          "include": "#function-parameter-definition"
         },
         {
           "include": "#keywords"
