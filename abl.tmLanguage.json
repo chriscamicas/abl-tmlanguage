@@ -1549,7 +1549,7 @@
     },
     "abl-functions-S": {
       "name": "meta.function-call.abl",
-      "begin": "(?i)\\s*(SCREEN-LINES|SDBNAME|SEAL|SEARCH|SEEK|SET-DB-CLIENT|SET-EFFECTIVE-TENANT|set-attribute|set-attribute-node|set-rgb|set-byte-order|set-rgb-|set-rgb-v|set-rgb-va|set-rgb-val|set-rgb-valu|set-rgb-value|setuser|setuseri|setuserid|SHA1-DIGEST|SQRT|SSL-SERVER-NAME|string|subst|substi|substit|substitu|substitut|substitute|substr|substri|substrin|substring|SUPER)\\s*(?=\\()",
+      "begin": "(?i)\\s*(SCREEN-LINES|SDBNAME|SEAL|SEARCH|SEEK|set-size|SET-DB-CLIENT|SET-EFFECTIVE-TENANT|set-attribute|set-attribute-node|set-rgb|set-byte-order|set-rgb-|set-rgb-v|set-rgb-va|set-rgb-val|set-rgb-valu|set-rgb-value|setuser|setuseri|setuserid|SHA1-DIGEST|SQRT|SSL-SERVER-NAME|string|subst|substi|substit|substitu|substitut|substitute|substr|substri|substrin|substring|SUPER)\\s*(?=\\()",
       "beginCaptures": {
         "1": {
           "name": "support.function.abl"
