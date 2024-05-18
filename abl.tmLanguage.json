@@ -333,6 +333,9 @@
       "name": "meta.statements.abl",
       "patterns": [
         {
+          "include": "#release"
+        },
+        {
           "include": "#copy-lob"
         },
         {
@@ -3146,6 +3149,40 @@
         },
         {
           "include": "#branch-options"
+        }
+      ]
+    },
+    "release": {
+      "begin": "(?i)\\s*(release)\\s*",
+      "beginCaptures": {
+        "1": {
+          "name": "keyword.other.abl"
+        }
+      },
+      "end": "(?=\\.)",
+      "patterns": [
+        {
+          "include": "#comment"
+        },
+        {
+          "include": "#string"
+        },
+        {
+          "match": "(?i)\\s*(object)\\s+(.*)\\b",
+          "captures": {
+            "1": {
+              "name": "keyword.other.abl"
+            },
+            "2": {
+              "name": "variable.other.abl"
+            }
+          }
+        },
+        {
+          "include": "#keywords"
+        },
+        {
+          "include": "#db-dot-table"
         }
       ]
     },
