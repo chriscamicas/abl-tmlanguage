@@ -1856,7 +1856,7 @@
       ]
     },
     "db-dot-table-dot-field": {
-      "match": "(?i)(?<=^|\\s|\\()(([\\w\\-#$%]+\\.)?([\\w\\-#$%]+\\.)([\\w\\-#$%]+)(\\[\\d+\\])?)",
+      "match": "(?i)(?<=^|\\s|\\(|,)(([\\w\\-#$%]+\\.)?([\\w\\-#$%]+\\.)([\\w\\-#$%]+)(\\[\\d+\\])?)",
       "comment": "Looks for format of 'table.field', with an optional preceding 'db.'. This pattern may conflict with type names",
       "captures": {
         "1": {
