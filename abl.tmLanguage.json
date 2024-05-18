@@ -3835,7 +3835,7 @@
       ]
     },
     "dll-type": {
-      "match": "(?i)\\s*(byte|unsigned-short|short|unsigned-long|long|int64|float)\\s*",
+      "match": "(?i)\\b(byte|unsigned-short|short|unsigned-long|long|int64|float)\\b",
       "captures": {
         "1": {
           "name": "storage.type.abl"
