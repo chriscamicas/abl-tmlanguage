@@ -89,7 +89,7 @@ describe('', () => {
     { "startIndex": 10, "endIndex": 21, "scopes": ["source.abl", "meta.function-call.abl", "entity.name.type.abl"] },  // 'foo.bar.baz'
     { "startIndex": 21, "endIndex": 22, "scopes": ["source.abl", "meta.function-call.abl"] },  // ' '
     { "startIndex": 22, "endIndex": 23, "scopes": ["source.abl", "meta.function-call.abl", "meta.brace.round.js"] },  // ')'
-    { "startIndex": 23, "endIndex": 25, "scopes": ["source.abl"] }  // ' '    
+    { "startIndex": 23, "endIndex": 25, "scopes": ["source.abl"] }  // ' '
   ];
   shared.itShouldMatchExpectedScopes(statement, expectedTokens);
 })
@@ -110,7 +110,7 @@ describe('', () => {
     { "startIndex": 22, "endIndex": 23, "scopes": ["source.abl", "meta.function-call.abl", "string.double.complex.abl", "punctuation.definition.string.end.abl"] },  // '"'
     { "startIndex": 23, "endIndex": 24, "scopes": ["source.abl", "meta.function-call.abl"] },  // ' '
     { "startIndex": 24, "endIndex": 25, "scopes": ["source.abl", "meta.function-call.abl", "meta.brace.round.js"] },  // ')'
-    { "startIndex": 25, "endIndex": 27, "scopes": ["source.abl"] }  // ' '    
+    { "startIndex": 25, "endIndex": 27, "scopes": ["source.abl"] }  // ' '
   ];
   shared.itShouldMatchExpectedScopes(statement, expectedTokens);
 })
@@ -129,7 +129,7 @@ describe('', () => {
     { "startIndex": 10, "endIndex": 11, "scopes": ["source.abl", "meta.function-call.abl", "string.double.complex.abl", "punctuation.definition.string.begin.abl"] },  // '"'
     { "startIndex": 11, "endIndex": 22, "scopes": ["source.abl", "meta.function-call.abl", "string.double.complex.abl"] },  // 'foo.bar.baz'
     { "startIndex": 22, "endIndex": 23, "scopes": ["source.abl", "meta.function-call.abl", "string.double.complex.abl", "punctuation.definition.string.end.abl"] },  // '"'
-    { "startIndex": 23, "endIndex": 25, "scopes": ["source.abl", "meta.function-call.abl", "support.other.abl"] },  // ':u'
+    { "startIndex": 23, "endIndex": 25, "scopes": ["source.abl", "meta.function-call.abl", "string.double.complex.abl", "support.other.abl"] },  // ':u'
     { "startIndex": 25, "endIndex": 26, "scopes": ["source.abl", "meta.function-call.abl"] },  // ' '
     { "startIndex": 26, "endIndex": 27, "scopes": ["source.abl", "meta.function-call.abl", "meta.brace.round.js"] },  // ')'
     { "startIndex": 27, "endIndex": 29, "scopes": ["source.abl"] }  // ' '

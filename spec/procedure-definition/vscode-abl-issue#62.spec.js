@@ -19,7 +19,7 @@ end procedure.`;
       { "startIndex": 36, "endIndex": 37, "scopes": ["source.abl", "meta.procedure.abl", "string.double.complex.abl", "punctuation.definition.string.begin.abl"] },  // '"'
       { "startIndex": 37, "endIndex": 49, "scopes": ["source.abl", "meta.procedure.abl", "string.double.complex.abl"] },  // 'winspool.drv'
       { "startIndex": 49, "endIndex": 50, "scopes": ["source.abl", "meta.procedure.abl", "string.double.complex.abl", "punctuation.definition.string.end.abl"] },  // '"'
-      { "startIndex": 50, "endIndex": 51, "scopes": ["source.abl", "meta.procedure.abl", "punctuation.terminator.abl"] }  // ':'
+      { "startIndex": 50, "endIndex": 51, "scopes": ["source.abl", "punctuation.terminator.abl"] }  // ':'
     ],
     [
       { "startIndex": 0, "endIndex": 1, "scopes": ["source.abl"] }  // ''

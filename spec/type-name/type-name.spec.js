@@ -797,7 +797,7 @@ describe('', () => {
       { "startIndex": 39, "endIndex": 40, "scopes": ["source.abl", "meta.function.arguments.abl", "string.double.complex.abl", "punctuation.definition.string.begin.abl"] },  // '"'
       { "startIndex": 40, "endIndex": 48, "scopes": ["source.abl", "meta.function.arguments.abl", "string.double.complex.abl"] },  // 'longchar'
       { "startIndex": 48, "endIndex": 49, "scopes": ["source.abl", "meta.function.arguments.abl", "string.double.complex.abl", "punctuation.definition.string.end.abl"] },  // '"'
-      { "startIndex": 49, "endIndex": 51, "scopes": ["source.abl", "meta.function.arguments.abl", "support.other.abl"] },  // ':U'
+      { "startIndex": 49, "endIndex": 51, "scopes": ["source.abl", "meta.function.arguments.abl", "string.double.complex.abl", "support.other.abl"] },  // ':U'
       { "startIndex": 51, "endIndex": 52, "scopes": ["source.abl", "meta.function.arguments.abl", "punctuation.separator.comma.abl"] }  // ','
     ],
     [
@@ -810,7 +810,7 @@ describe('', () => {
       { "startIndex": 2, "endIndex": 3, "scopes": ["source.abl", "meta.function.arguments.abl", "string.double.complex.abl", "punctuation.definition.string.begin.abl"] },  // '"'
       { "startIndex": 3, "endIndex": 8, "scopes": ["source.abl", "meta.function.arguments.abl", "string.double.complex.abl"] },  // 'EMPTY'
       { "startIndex": 8, "endIndex": 9, "scopes": ["source.abl", "meta.function.arguments.abl", "string.double.complex.abl", "punctuation.definition.string.end.abl"] },  // '"'
-      { "startIndex": 9, "endIndex": 11, "scopes": ["source.abl", "meta.function.arguments.abl", "support.other.abl"] },  // ':U'
+      { "startIndex": 9, "endIndex": 11, "scopes": ["source.abl", "meta.function.arguments.abl", "string.double.complex.abl", "support.other.abl"] },  // ':U'
       { "startIndex": 11, "endIndex": 12, "scopes": ["source.abl", "meta.function.arguments.abl", "punctuation.separator.comma.abl"] },  // ','
       { "startIndex": 12, "endIndex": 13, "scopes": ["source.abl", "meta.function.arguments.abl"] },  // ' '
       { "startIndex": 13, "endIndex": 14, "scopes": ["source.abl", "meta.function.arguments.abl", "constant.language.abl"] },  // '?'

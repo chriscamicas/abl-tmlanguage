@@ -24,7 +24,9 @@ describe('', () => {
     { "startIndex": 9, "endIndex": 13, "scopes": ["source.abl", "meta.include.abl", "meta.include.argument.abl", "support.other.argument.abl"] },  // '&abc'
     { "startIndex": 13, "endIndex": 14, "scopes": ["source.abl", "meta.include.abl", "meta.include.argument.abl"] },  // ' '
     { "startIndex": 14, "endIndex": 15, "scopes": ["source.abl", "meta.include.abl", "meta.include.argument.abl", "keyword.operator.source.abl"] },  // '='
-    { "startIndex": 15, "endIndex": 20, "scopes": ["source.abl", "meta.include.abl"] },  // ' ABC '
+    { "startIndex": 15, "endIndex": 16, "scopes": ["source.abl", "meta.include.abl"] },  // ' '
+    { "startIndex": 16, "endIndex": 19, "scopes": ["source.abl", "meta.include.abl", "support.other.argument.abl"] },  // 'ABC'
+    { "startIndex": 19, "endIndex": 20, "scopes": ["source.abl", "meta.include.abl"] },  // ' '
     { "startIndex": 20, "endIndex": 24, "scopes": ["source.abl", "meta.include.abl", "meta.include.argument.abl", "support.other.argument.abl"] },  // '&def'
     { "startIndex": 24, "endIndex": 28, "scopes": ["source.abl", "meta.include.abl", "meta.include.argument.abl"] },  // '    '
     { "startIndex": 28, "endIndex": 29, "scopes": ["source.abl", "meta.include.abl", "meta.include.argument.abl", "keyword.operator.source.abl"] },  // '='
@@ -40,7 +42,6 @@ describe('', () => {
     { "startIndex": 54, "endIndex": 55, "scopes": ["source.abl", "meta.include.abl", "string.double.complex.abl", "punctuation.definition.string.end.abl"] },  // '"'
     { "startIndex": 55, "endIndex": 56, "scopes": ["source.abl", "meta.include.abl"] },  // ' '
     { "startIndex": 56, "endIndex": 57, "scopes": ["source.abl", "meta.include.abl", "punctuation.section.abl"] }  // '}'
-
   ];
   shared.itShouldMatchExpectedScopes(statement, expectedTokens);
 })
