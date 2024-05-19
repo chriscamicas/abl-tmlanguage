@@ -71,7 +71,7 @@ describe('', () => {
     { "startIndex": 10, "endIndex": 11, "scopes": ["source.abl", "string.double.complex.abl", "punctuation.definition.string.begin.abl"] },  // '"'
     { "startIndex": 11, "endIndex": 16, "scopes": ["source.abl", "string.double.complex.abl"] },  // 'thing'
     { "startIndex": 16, "endIndex": 17, "scopes": ["source.abl", "string.double.complex.abl", "punctuation.definition.string.end.abl"] },  // '"'
-    { "startIndex": 17, "endIndex": 19, "scopes": ["source.abl", "support.other.abl"] },  // ':u'
+    { "startIndex": 17, "endIndex": 19, "scopes": ["source.abl", "string.double.complex.abl", "support.other.abl"] },  // ':u'
     { "startIndex": 19, "endIndex": 20, "scopes": ["source.abl", "punctuation.terminator.abl"] }  // '.'
   ];
   shared.itShouldMatchExpectedScopes(statement, expectedTokens);

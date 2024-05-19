@@ -29,7 +29,7 @@ describe('', () => {
       { "startIndex": 16, "endIndex": 17, "scopes": ["source.abl", "meta.include.abl", "string.double.complex.abl", "punctuation.definition.string.begin.abl"] },  // '"'
       { "startIndex": 17, "endIndex": 35, "scopes": ["source.abl", "meta.include.abl", "string.double.complex.abl"] },  // ''@ParameterSchema''
       { "startIndex": 35, "endIndex": 36, "scopes": ["source.abl", "meta.include.abl", "string.double.complex.abl", "punctuation.definition.string.end.abl"] },  // '"'
-      { "startIndex": 36, "endIndex": 38, "scopes": ["source.abl", "meta.include.abl", "support.other.abl"] },  // ':U'
+      { "startIndex": 36, "endIndex": 38, "scopes": ["source.abl", "meta.include.abl", "string.double.complex.abl", "support.other.abl"] },  // ':U'
       { "startIndex": 38, "endIndex": 39, "scopes": ["source.abl", "meta.include.abl", "punctuation.section.abl"] }  // '}'
     ]
   ];

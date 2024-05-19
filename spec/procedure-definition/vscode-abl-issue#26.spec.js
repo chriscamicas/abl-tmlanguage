@@ -14,8 +14,8 @@ end procedure.`;
       { "startIndex": 10, "endIndex": 11, "scopes": ["source.abl", "meta.procedure.abl", "string.single.complex.abl", "punctuation.definition.string.begin.abl"] },  // '''
       { "startIndex": 11, "endIndex": 38, "scopes": ["source.abl", "meta.procedure.abl", "string.single.complex.abl"] },  // 'TpFrame.TaskPanel.ItemClick'
       { "startIndex": 38, "endIndex": 39, "scopes": ["source.abl", "meta.procedure.abl", "string.single.complex.abl", "punctuation.definition.string.end.abl"] },  // '''
-      { "startIndex": 39, "endIndex": 41, "scopes": ["source.abl", "meta.procedure.abl", "support.other.abl"] },  // ':U'
-      { "startIndex": 41, "endIndex": 42, "scopes": ["source.abl", "meta.procedure.abl", "punctuation.terminator.abl"] }  // ':'
+      { "startIndex": 39, "endIndex": 41, "scopes": ["source.abl", "meta.procedure.abl", "string.single.complex.abl", "support.other.abl"] },  // ':U'
+      { "startIndex": 41, "endIndex": 42, "scopes": ["source.abl", "punctuation.terminator.abl"] }  // ':'
     ],
     [
       { "startIndex": 0, "endIndex": 1, "scopes": ["source.abl"] }  // ''
