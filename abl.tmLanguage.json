@@ -339,6 +339,9 @@
           "include": "#copy-lob"
         },
         {
+          "include": "#event-un-subscribe"
+        },
+        {
           "include": "#create-buffer"
         },
         {
@@ -3088,6 +3091,64 @@
         },
         {
           "include": "#branch-options"
+        }
+      ]
+    },
+    "event-un-subscribe": {
+      "begin": "(?i):(unsubscribe|subscribe)\\s*(\\()",
+      "beginCaptures": {
+        "1": {
+          "name": "entity.name.function.abl"
+        },
+        "2": {
+          "name": "meta.brace.round.js"
+        }
+      },
+      "end": "(\\))",
+      "endCaptures": {
+        "1": {
+          "name": "meta.brace.round.js"
+        }
+      },
+      "patterns": [
+        {
+          "comment": "Captures the static class before the : of Subscribe ( [ subscriber : ] handler-method )",
+          "match": "\\s*([\\w\\#\\$\\%\\-]+(\\.[\\w\\#\\$\\%\\-]+)+)\\s*(:)",
+          "captures": {
+            "1": {
+              "name": "entity.name.type.abl"
+            },
+            "3": {
+              "name": "punctuation.separator.colon.abl"
+            }
+          }
+        },
+        {
+          "comment": "Captures the variable before the : or , of Subscribe( [ subscriber-handle , ] handler-procedure ) or Subscribe ( [ subscriber : ] handler-method )",
+          "match": "\\s*([a-zA-Z][a-zA-Z0-9\\#\\$\\-\\_\\%\\&]*)\\s*((,)|(:))\\s*",
+          "captures": {
+            "1": {
+              "name": "variable.other.abl"
+            },
+            "3": {
+              "name": "punctuation.separator.comma.abl"
+            },
+            "4": {
+              "name": "punctuation.separator.colon.abl"
+            }
+          }
+        },
+        {
+          "comment": "Subscribe( handler-procedure or handler-method)",
+          "match": "\\s*([a-zA-Z][a-zA-Z0-9\\#\\$\\-\\_\\%\\&]*)\\s*",
+          "captures": {
+            "1": {
+              "name": "entity.name.function.abl"
+            }
+          }
+        },
+        {
+          "include": "#string"
         }
       ]
     },
