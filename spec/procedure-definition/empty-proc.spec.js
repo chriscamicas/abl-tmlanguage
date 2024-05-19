@@ -12,7 +12,7 @@ end procedure.`;
       { "startIndex": 0, "endIndex": 9, "scopes": ["source.abl", "meta.procedure.abl", "keyword.other.abl"] },  // 'procedure'
       { "startIndex": 9, "endIndex": 10, "scopes": ["source.abl", "meta.procedure.abl"] },  // ' '
       { "startIndex": 10, "endIndex": 18, "scopes": ["source.abl", "meta.procedure.abl", "entity.name.function.abl"] },  // 'procName'
-      { "startIndex": 18, "endIndex": 19, "scopes": ["source.abl", "meta.procedure.abl", "punctuation.terminator.abl"] }  // ':'
+      { "startIndex": 18, "endIndex": 19, "scopes": ["source.abl", "punctuation.terminator.abl"] }  // ':'
     ],
     [
       { "startIndex": 0, "endIndex": 1, "scopes": ["source.abl"] }  // ''
@@ -38,7 +38,7 @@ end procedure.`;
       { "startIndex": 0, "endIndex": 9, "scopes": ["source.abl", "meta.procedure.abl", "keyword.other.abl"] },  // 'procedure'
       { "startIndex": 9, "endIndex": 10, "scopes": ["source.abl", "meta.procedure.abl"] },  // ' '
       { "startIndex": 10, "endIndex": 26, "scopes": ["source.abl", "meta.procedure.abl", "entity.name.function.abl"] },  // 'initProTopServer'
-      { "startIndex": 26, "endIndex": 27, "scopes": ["source.abl", "meta.procedure.abl", "punctuation.terminator.abl"] }  // ':'
+      { "startIndex": 26, "endIndex": 27, "scopes": ["source.abl", "punctuation.terminator.abl"] }  // ':'
     ],
     [
       { "startIndex": 0, "endIndex": 2, "scopes": ["source.abl", "meta.define.abl"] },  // '  '
@@ -78,7 +78,7 @@ end procedure.`;
       { "startIndex": 0, "endIndex": 9, "scopes": ["source.abl", "meta.procedure.abl", "keyword.other.abl"] },  // 'procedure'
       { "startIndex": 9, "endIndex": 10, "scopes": ["source.abl", "meta.procedure.abl"] },  // ' '
       { "startIndex": 10, "endIndex": 31, "scopes": ["source.abl", "meta.procedure.abl", "entity.name.function.abl"] },  // 'pascalStyleFormatting'
-      { "startIndex": 31, "endIndex": 32, "scopes": ["source.abl", "meta.procedure.abl", "punctuation.terminator.abl"] }  // ':'
+      { "startIndex": 31, "endIndex": 32, "scopes": ["source.abl", "punctuation.terminator.abl"] }  // ':'
     ],
     [
       { "startIndex": 0, "endIndex": 2, "scopes": ["source.abl", "meta.define.abl"] },  // '  '
@@ -118,7 +118,7 @@ end procedure.`;
       { "startIndex": 0, "endIndex": 9, "scopes": ["source.abl", "meta.procedure.abl", "keyword.other.abl"] },  // 'procedure'
       { "startIndex": 9, "endIndex": 10, "scopes": ["source.abl", "meta.procedure.abl"] },  // ' '
       { "startIndex": 10, "endIndex": 18, "scopes": ["source.abl", "meta.procedure.abl", "entity.name.function.abl"] },  // 'procName'
-      { "startIndex": 18, "endIndex": 19, "scopes": ["source.abl", "meta.procedure.abl", "punctuation.terminator.abl"] }  // '.'
+      { "startIndex": 18, "endIndex": 19, "scopes": ["source.abl", "punctuation.terminator.abl"] }  // '.'
     ],
     [
       { "startIndex": 0, "endIndex": 1, "scopes": ["source.abl"] }  // ''

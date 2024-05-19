@@ -31,24 +31,24 @@ DirChar = if opsys begins 'win':u then '\\':u else '/':u.`;
       { "startIndex": 18, "endIndex": 19, "scopes": ["source.abl"] },  // ' '
       { "startIndex": 19, "endIndex": 25, "scopes": ["source.abl", "keyword.operator.source.abl"] },  // 'begins'
       { "startIndex": 25, "endIndex": 26, "scopes": ["source.abl"] },  // ' '
-      { "startIndex": 26, "endIndex": 27, "scopes": ["source.abl", "string.single.complex.abl", "punctuation.definition.string.begin.abl"] },  // '"'
+      { "startIndex": 26, "endIndex": 27, "scopes": ["source.abl", "string.single.complex.abl", "punctuation.definition.string.begin.abl"] },  // '''
       { "startIndex": 27, "endIndex": 30, "scopes": ["source.abl", "string.single.complex.abl"] },  // 'win'
-      { "startIndex": 30, "endIndex": 31, "scopes": ["source.abl", "string.single.complex.abl", "punctuation.definition.string.end.abl"] },  // '"'
-      { "startIndex": 31, "endIndex": 33, "scopes": ["source.abl", "support.other.abl"] },  // ':u'
+      { "startIndex": 30, "endIndex": 31, "scopes": ["source.abl", "string.single.complex.abl", "punctuation.definition.string.end.abl"] },  // '''
+      { "startIndex": 31, "endIndex": 33, "scopes": ["source.abl", "string.single.complex.abl", "support.other.abl"] },  // ':u'
       { "startIndex": 33, "endIndex": 34, "scopes": ["source.abl"] },  // ' '
       { "startIndex": 34, "endIndex": 38, "scopes": ["source.abl", "keyword.other.abl"] },  // 'then'
       { "startIndex": 38, "endIndex": 39, "scopes": ["source.abl"] },  // ' '
-      { "startIndex": 39, "endIndex": 40, "scopes": ["source.abl", "string.single.complex.abl", "punctuation.definition.string.begin.abl"] },  // '"'
+      { "startIndex": 39, "endIndex": 40, "scopes": ["source.abl", "string.single.complex.abl", "punctuation.definition.string.begin.abl"] },  // '''
       { "startIndex": 40, "endIndex": 41, "scopes": ["source.abl", "string.single.complex.abl"] },  // '\'
-      { "startIndex": 41, "endIndex": 42, "scopes": ["source.abl", "string.single.complex.abl", "punctuation.definition.string.end.abl"] },  // '"'
-      { "startIndex": 42, "endIndex": 44, "scopes": ["source.abl", "support.other.abl"] },  // ':u'
+      { "startIndex": 41, "endIndex": 42, "scopes": ["source.abl", "string.single.complex.abl", "punctuation.definition.string.end.abl"] },  // '''
+      { "startIndex": 42, "endIndex": 44, "scopes": ["source.abl", "string.single.complex.abl", "support.other.abl"] },  // ':u'
       { "startIndex": 44, "endIndex": 45, "scopes": ["source.abl"] },  // ' '
       { "startIndex": 45, "endIndex": 49, "scopes": ["source.abl", "keyword.other.abl"] },  // 'else'
       { "startIndex": 49, "endIndex": 50, "scopes": ["source.abl"] },  // ' '
-      { "startIndex": 50, "endIndex": 51, "scopes": ["source.abl", "string.single.complex.abl", "punctuation.definition.string.begin.abl"] },  // '"'
+      { "startIndex": 50, "endIndex": 51, "scopes": ["source.abl", "string.single.complex.abl", "punctuation.definition.string.begin.abl"] },  // '''
       { "startIndex": 51, "endIndex": 52, "scopes": ["source.abl", "string.single.complex.abl"] },  // '/'
-      { "startIndex": 52, "endIndex": 53, "scopes": ["source.abl", "string.single.complex.abl", "punctuation.definition.string.end.abl"] },  // '"'
-      { "startIndex": 53, "endIndex": 55, "scopes": ["source.abl", "support.other.abl"] },  // ':u'
+      { "startIndex": 52, "endIndex": 53, "scopes": ["source.abl", "string.single.complex.abl", "punctuation.definition.string.end.abl"] },  // '''
+      { "startIndex": 53, "endIndex": 55, "scopes": ["source.abl", "string.single.complex.abl", "support.other.abl"] },  // ':u'
       { "startIndex": 55, "endIndex": 56, "scopes": ["source.abl", "punctuation.terminator.abl"] }  // '.'
     ]
   ];
@@ -58,7 +58,6 @@ describe('', () => {
   let statement =
     `def var DirChar as char no-undo.
 DirChar = if opsys begins "win":u then "\\":u else "/":u.`;
-  //console.log(statement);
   let expectedTokens = [
     [
       { "startIndex": 0, "endIndex": 3, "scopes": ["source.abl", "meta.define.abl", "keyword.other.abl"] },  // 'def'
@@ -88,21 +87,21 @@ DirChar = if opsys begins "win":u then "\\":u else "/":u.`;
       { "startIndex": 26, "endIndex": 27, "scopes": ["source.abl", "string.double.complex.abl", "punctuation.definition.string.begin.abl"] },  // '"'
       { "startIndex": 27, "endIndex": 30, "scopes": ["source.abl", "string.double.complex.abl"] },  // 'win'
       { "startIndex": 30, "endIndex": 31, "scopes": ["source.abl", "string.double.complex.abl", "punctuation.definition.string.end.abl"] },  // '"'
-      { "startIndex": 31, "endIndex": 33, "scopes": ["source.abl", "support.other.abl"] },  // ':u'
+      { "startIndex": 31, "endIndex": 33, "scopes": ["source.abl", "string.double.complex.abl", "support.other.abl"] },  // ':u'
       { "startIndex": 33, "endIndex": 34, "scopes": ["source.abl"] },  // ' '
       { "startIndex": 34, "endIndex": 38, "scopes": ["source.abl", "keyword.other.abl"] },  // 'then'
       { "startIndex": 38, "endIndex": 39, "scopes": ["source.abl"] },  // ' '
       { "startIndex": 39, "endIndex": 40, "scopes": ["source.abl", "string.double.complex.abl", "punctuation.definition.string.begin.abl"] },  // '"'
       { "startIndex": 40, "endIndex": 41, "scopes": ["source.abl", "string.double.complex.abl"] },  // '\'
       { "startIndex": 41, "endIndex": 42, "scopes": ["source.abl", "string.double.complex.abl", "punctuation.definition.string.end.abl"] },  // '"'
-      { "startIndex": 42, "endIndex": 44, "scopes": ["source.abl", "support.other.abl"] },  // ':u'
+      { "startIndex": 42, "endIndex": 44, "scopes": ["source.abl", "string.double.complex.abl", "support.other.abl"] },  // ':u'
       { "startIndex": 44, "endIndex": 45, "scopes": ["source.abl"] },  // ' '
       { "startIndex": 45, "endIndex": 49, "scopes": ["source.abl", "keyword.other.abl"] },  // 'else'
       { "startIndex": 49, "endIndex": 50, "scopes": ["source.abl"] },  // ' '
       { "startIndex": 50, "endIndex": 51, "scopes": ["source.abl", "string.double.complex.abl", "punctuation.definition.string.begin.abl"] },  // '"'
       { "startIndex": 51, "endIndex": 52, "scopes": ["source.abl", "string.double.complex.abl"] },  // '/'
       { "startIndex": 52, "endIndex": 53, "scopes": ["source.abl", "string.double.complex.abl", "punctuation.definition.string.end.abl"] },  // '"'
-      { "startIndex": 53, "endIndex": 55, "scopes": ["source.abl", "support.other.abl"] },  // ':u'
+      { "startIndex": 53, "endIndex": 55, "scopes": ["source.abl", "string.double.complex.abl", "support.other.abl"] },  // ':u'
       { "startIndex": 55, "endIndex": 56, "scopes": ["source.abl", "punctuation.terminator.abl"] }  // '.'
     ]
   ];

@@ -105,7 +105,7 @@ END.`;
       { "startIndex": 26, "endIndex": 27, "scopes": ["source.abl", "string.double.complex.abl", "punctuation.definition.string.begin.abl"] },  // '"'
       { "startIndex": 27, "endIndex": 29, "scopes": ["source.abl", "string.double.complex.abl", "constant.character.escape.abl"] },  // '~{'
       { "startIndex": 29, "endIndex": 30, "scopes": ["source.abl", "string.double.complex.abl", "punctuation.definition.string.end.abl"] },  // '"'
-      { "startIndex": 30, "endIndex": 32, "scopes": ["source.abl", "support.other.abl"] },  // ':U'
+      { "startIndex": 30, "endIndex": 32, "scopes": ["source.abl", "string.double.complex.abl", "support.other.abl"] },  // ':U'
       { "startIndex": 32, "endIndex": 33, "scopes": ["source.abl"] },  // ' '
       { "startIndex": 33, "endIndex": 37, "scopes": ["source.abl", "keyword.other.abl"] },  // 'then'
       { "startIndex": 37, "endIndex": 38, "scopes": ["source.abl", "meta.block.abl"] },  // ' '

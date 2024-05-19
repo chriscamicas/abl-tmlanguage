@@ -32,7 +32,7 @@ describe('', () => {
       { "startIndex": 35, "endIndex": 36, "scopes": ["source.abl", "string.double.complex.abl", "punctuation.definition.string.begin.abl"] },  // '"'
       { "startIndex": 36, "endIndex": 52, "scopes": ["source.abl", "string.double.complex.abl"] },  // 'application/json'
       { "startIndex": 52, "endIndex": 53, "scopes": ["source.abl", "string.double.complex.abl", "punctuation.definition.string.end.abl"] },  // '"'
-      { "startIndex": 53, "endIndex": 55, "scopes": ["source.abl", "support.other.abl"] }  // ':u'
+      { "startIndex": 53, "endIndex": 55, "scopes": ["source.abl", "string.double.complex.abl", "support.other.abl"] }  // ':u'
     ],
     [
       { "startIndex": 0, "endIndex": 12, "scopes": ["source.abl"] },  // '            '

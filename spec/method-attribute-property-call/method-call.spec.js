@@ -85,7 +85,7 @@ end method.`;
     ],
     [
       { "startIndex": 0, "endIndex": 2, "scopes": ["source.abl"] },  // '  '
-      { "startIndex": 2, "endIndex": 11, "scopes": ["source.abl", "variable.other.abl"] },  // 'CopyTable'
+      { "startIndex": 2, "endIndex": 11, "scopes": ["source.abl", "entity.name.function.abl"] },  // 'CopyTable'
       { "startIndex": 11, "endIndex": 12, "scopes": ["source.abl", "meta.function.arguments.abl", "meta.brace.round.js"] },  // '('
       { "startIndex": 12, "endIndex": 17, "scopes": ["source.abl", "meta.function.arguments.abl", "keyword.other.abl"] },  // 'table'
       { "startIndex": 17, "endIndex": 18, "scopes": ["source.abl", "meta.function.arguments.abl"] },  // ' '

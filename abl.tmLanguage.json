@@ -21,7 +21,7 @@
           "name": "keyword.other.abl"
         }
       },
-      "end": "(:|\\.)",
+      "end": "(?=:|\\.)",
       "endCaptures": {
         "1": {
           "name": "punctuation.terminator.abl"
@@ -400,6 +400,9 @@
         },
         {
           "include": "#abl-functions"
+        },
+        {
+          "include": "#unqualified-method-call"
         },
         {
           "include": "#function-arguments"
@@ -1529,7 +1532,7 @@
     },
     "abl-functions-R": {
       "name": "meta.function-call.abl",
-      "begin": "(?i)\\s*(R-INDEX|RANDOM|RAW|RAW-TRANSFER|RECID|RECORD-LENGTH|REJECTED|REPLACE|RETRY|RETURN-VALUE|rgb-v|rgb-va|rgb-val|rgb-valu|rgb-value|RIGHT-TRIM|ROUND|ROW-STATE|ROWID)\\s*(?=\\()",
+      "begin": "(?i)\\s*(R-INDEX|RANDOM|RAW|RAW-TRANSFER|RECID|RECORD-LENGTH|REJECTED|REPLACE|RETRY|return|RETURN-VALUE|rgb-v|rgb-va|rgb-val|rgb-valu|rgb-value|RIGHT-TRIM|ROUND|ROW-STATE|ROWID)\\s*(?=\\()",
       "beginCaptures": {
         "1": {
           "name": "support.function.abl"
@@ -2836,7 +2839,7 @@
       }
     },
     "define-event": {
-      "match": "(?i)\\b(EVENT)\\b([a-zA-Z][a-zA-Z0-9\\#\\$\\-\\_\\%\\&]*)\\b",
+      "match": "(?i)\\b(event)\\s+([a-zA-Z][a-zA-Z0-9\\#\\$\\-\\_\\%\\&]*)\\b",
       "captures": {
         "1": {
           "name": "keyword.other.abl"
@@ -3580,6 +3583,9 @@
           "include": "#abl-functions"
         },
         {
+          "include": "#unqualified-method-call"
+        },
+        {
           "include": "#expression"
         },
         {
@@ -3607,6 +3613,14 @@
           "name": "punctuation.separator.colon.abl"
         },
         "5": {
+          "name": "entity.name.function.abl"
+        }
+      }
+    },
+    "unqualified-method-call": {
+      "match": "\\b([a-zA-Z][a-zA-Z0-9\\#\\$\\-\\_\\%\\&]*)\\b(?=\\()",
+      "captures": {
+        "1": {
           "name": "entity.name.function.abl"
         }
       }
@@ -3881,10 +3895,13 @@
           "name": "punctuation.definition.string.begin.abl"
         }
       },
-      "end": "(')",
+      "end": "(?i)(')(:[L|R|T|C|U]\\d*\\b)?",
       "endCaptures": {
         "1": {
           "name": "punctuation.definition.string.end.abl"
+        },
+        "2":{
+          "name":  "support.other.abl"
         }
       },
       "name": "string.single.complex.abl",
@@ -3901,10 +3918,13 @@
           "name": "punctuation.definition.string.begin.abl"
         }
       },
-      "end": "(\")",
+      "end": "(?i)(\")(:[L|R|T|C|U]\\d*\\b)?",
       "endCaptures": {
         "1": {
           "name": "punctuation.definition.string.end.abl"
+        },
+        "2":{
+          "name":  "support.other.abl"
         }
       },
       "name": "string.double.complex.abl",
