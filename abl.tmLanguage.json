@@ -3036,8 +3036,14 @@
           "include": "#while-expression"
         },
         {
-          "match": "(?i)\\s*(transaction)\\s*",
+          "match": "(?i)\\b(transaction|stop-after)\\b",
           "name": "keyword.other.abl"
+        },
+        {
+          "include": "#numeric"
+        },
+        {
+          "include": "#type-member-call"
         },
         {
           "include": "#punctuation-comma"
@@ -3566,6 +3572,19 @@
         }
       }
     },
+    "type-member-call": {
+      "patterns": [
+        {
+          "include": "#property-call"
+        },
+        {
+          "include": "#unqualified-method-call"
+        },
+        {
+          "include": "#static-object-property-call"
+        }
+      ]
+    },
     "variable-name": {
       "comment": "1 to 128 characters; can consist of any combination of letters (a-z or A-Z), numbers (0-9), and these special characters: #$-_%& Names must begin with a letter (from https://docs.progress.com/bundle/openedge-abl-manage-applications/page/Name-limits.html)",
       "match": "(?<=^|\\s|\\[|\\()([a-zA-Z][a-zA-Z0-9\\#\\$\\-\\_\\%\\&]*)",
@@ -3830,8 +3849,8 @@
         "1": {
           "name": "punctuation.definition.string.end.abl"
         },
-        "2":{
-          "name":  "support.other.abl"
+        "2": {
+          "name": "support.other.abl"
         }
       },
       "name": "string.single.complex.abl",
@@ -3853,8 +3872,8 @@
         "1": {
           "name": "punctuation.definition.string.end.abl"
         },
-        "2":{
-          "name":  "support.other.abl"
+        "2": {
+          "name": "support.other.abl"
         }
       },
       "name": "string.double.complex.abl",
