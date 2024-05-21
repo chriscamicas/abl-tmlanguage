@@ -181,7 +181,7 @@ end.`;
     ],
     [
       { "startIndex": 0, "endIndex": 3, "scopes": ["source.abl", "meta.block.abl"] },  // '  ('
-      { "startIndex": 3, "endIndex": 13, "scopes": ["source.abl", "meta.block.abl", "variable.other.abl"] },  // 'substitute'
+      { "startIndex": 3, "endIndex": 13, "scopes": ["source.abl", "meta.block.abl", "entity.name.function.abl"] },  // 'substitute'
       { "startIndex": 13, "endIndex": 15, "scopes": ["source.abl", "meta.block.abl"] },  // '( '
       { "startIndex": 15, "endIndex": 16, "scopes": ["source.abl", "meta.block.abl", "string.double.complex.abl", "punctuation.definition.string.begin.abl"] },  // '"'
       { "startIndex": 16, "endIndex": 70, "scopes": ["source.abl", "meta.block.abl", "string.double.complex.abl"] },  // 'A stop condition raised while waiting for the backend.'
