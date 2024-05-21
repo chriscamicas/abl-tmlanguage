@@ -2505,7 +2505,7 @@
     },
     "define": {
       "name": "meta.define.abl",
-      "begin": "(?i)\\s*(define|defin|defi|def)\\s*",
+      "begin": "(?i)\\s*(define|defin|defi|def)\\b",
       "beginCaptures": {
         "1": {
           "name": "keyword.other.abl"
