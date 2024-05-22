@@ -168,3 +168,45 @@ describe('', () => {
   shared.itShouldMatchExpectedScopes(statement, expectedTokens);
 })
 
+
+describe('', () => {
+  let statement = `if this-object:MethodName /* ticket-id */ and
+  valid-handlE(hDataset) then
+    hDataset:EMPTY-DATASET()  .`;
+  let expectedTokens = [
+    [
+      { "startIndex": 0, "endIndex": 2, "scopes": ["source.abl", "keyword.other.abl"] },  // 'if'
+      { "startIndex": 2, "endIndex": 3, "scopes": ["source.abl"] },  // ' '
+      { "startIndex": 3, "endIndex": 14, "scopes": ["source.abl", "variable.language.abl"] },  // 'this-object'
+      { "startIndex": 14, "endIndex": 15, "scopes": ["source.abl", "punctuation.separator.colon.abl"] },  // ':'
+      { "startIndex": 15, "endIndex": 25, "scopes": ["source.abl", "entity.name.function.abl"] },  // 'MethodName'
+      { "startIndex": 25, "endIndex": 26, "scopes": ["source.abl"] },  // ' '
+      { "startIndex": 26, "endIndex": 28, "scopes": ["source.abl", "comment.block.source.abl"] },  // '/*'
+      { "startIndex": 28, "endIndex": 39, "scopes": ["source.abl", "comment.block.source.abl", "comment"] },  // ' ticket-id '
+      { "startIndex": 39, "endIndex": 41, "scopes": ["source.abl", "comment.block.source.abl"] },  // '*/'
+      { "startIndex": 41, "endIndex": 42, "scopes": ["source.abl"] },  // ' '
+      { "startIndex": 42, "endIndex": 45, "scopes": ["source.abl", "keyword.other.abl"] }  // 'and'
+    ],
+    [
+      { "startIndex": 0, "endIndex": 2, "scopes": ["source.abl", "meta.function-call.abl"] },  // '  '
+      { "startIndex": 2, "endIndex": 14, "scopes": ["source.abl", "meta.function-call.abl", "support.function.abl"] },  // 'valid-handlE'
+      { "startIndex": 14, "endIndex": 15, "scopes": ["source.abl", "meta.function-call.abl", "meta.function.arguments.abl", "meta.brace.round.js"] },  // '('
+      { "startIndex": 15, "endIndex": 23, "scopes": ["source.abl", "meta.function-call.abl", "meta.function.arguments.abl", "variable.other.abl"] },  // 'hDataset'
+      { "startIndex": 23, "endIndex": 24, "scopes": ["source.abl", "meta.function-call.abl", "meta.brace.round.js"] },  // ')'
+      { "startIndex": 24, "endIndex": 25, "scopes": ["source.abl"] },  // ' '
+      { "startIndex": 25, "endIndex": 29, "scopes": ["source.abl", "keyword.other.abl"] }  // 'then'
+    ],
+    [
+      { "startIndex": 0, "endIndex": 4, "scopes": ["source.abl"] },  // '    '
+      { "startIndex": 4, "endIndex": 12, "scopes": ["source.abl", "variable.other.abl"] },  // 'hDataset'
+      { "startIndex": 12, "endIndex": 13, "scopes": ["source.abl", "punctuation.separator.colon.abl"] },  // ':'
+      { "startIndex": 13, "endIndex": 26, "scopes": ["source.abl", "entity.name.function.abl"] },  // 'EMPTY-DATASET'
+      { "startIndex": 26, "endIndex": 27, "scopes": ["source.abl", "meta.function.arguments.abl", "meta.brace.round.js"] },  // '('
+      { "startIndex": 27, "endIndex": 28, "scopes": ["source.abl", "meta.brace.round.js"] },  // ')'
+      { "startIndex": 28, "endIndex": 30, "scopes": ["source.abl"] },  // '  '
+      { "startIndex": 30, "endIndex": 31, "scopes": ["source.abl", "punctuation.terminator.abl"] }  // '.'
+    ]
+  ];
+  shared.itShouldMatchExpectedScopes(statement, expectedTokens);
+})
+
