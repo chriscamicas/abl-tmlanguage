@@ -2740,7 +2740,7 @@
           "name": "storage.data.table.abl"
         }
       },
-      "end": "(?i)(?=index|\\.)",
+      "end": "(?i)(?=\\bindex\\b|\\.)",
       "patterns": [
         {
           "match": "(?i)\\b(AS|IS|UNIQUE|PRIMARY|WORD-INDEX|ASCENDING|DESCENDING)\\b",
