@@ -131,7 +131,141 @@ describe('', () => {
     ],
     [
       { "startIndex": 0, "endIndex": 2, "scopes": ["source.abl", "meta.define.abl"] },  // '  '
-      { "startIndex": 2, "endIndex": 3, "scopes": ["source.abl", "meta.define.abl", "punctuation.terminator.abl"]}  // '.'
+      { "startIndex": 2, "endIndex": 3, "scopes": ["source.abl", "meta.define.abl", "punctuation.terminator.abl"] }  // '.'
+    ]
+  ];
+  shared.itShouldMatchExpectedScopes(statement, expectedTokens);
+})
+
+describe('', () => {
+  let statement = `DEFINE {&ACCESS} TEMP-TABLE eIndex{&SUFFIX} NO-UNDO {&REFERENCE-ONLY} &IF DEFINED (NO-BEFORE) EQ 0 &THEN BEFORE-TABLE eIndexBefore{&SUFFIX} &ENDIF
+  FIELD BusinessEntityName AS CHARACTER FORMAT "X(8)":U
+  INDEX IndexName AS UNIQUE PRIMARY TempTableName ASCENDING IndexName ASCENDING
+  INDEX Order TempTableName ASCENDING IndexOrder ASCENDING
+  INDEX DefaultSearchCodeGeneration DefaultSearchCodeGeneration ASCENDING
+  INDEX AdditionalQueryGeneration AdditionalQueryGeneration ASCENDING
+  INDEX Virtual Virtual ASCENDING
+  .`;
+  let expectedTokens = [
+    [
+      { "startIndex": 0, "endIndex": 6, "scopes": ["source.abl", "meta.define.abl", "keyword.other.abl"] },  // 'DEFINE'
+      { "startIndex": 6, "endIndex": 7, "scopes": ["source.abl", "meta.define.abl"] },  // ' '
+      { "startIndex": 7, "endIndex": 16, "scopes": ["source.abl", "meta.define.abl", "storage.type.function.abl"] },  // '{&ACCESS}'
+      { "startIndex": 16, "endIndex": 17, "scopes": ["source.abl", "meta.define.abl"] },  // ' '
+      { "startIndex": 17, "endIndex": 27, "scopes": ["source.abl", "meta.define.abl", "keyword.other.abl"] },  // 'TEMP-TABLE'
+      { "startIndex": 27, "endIndex": 28, "scopes": ["source.abl", "meta.define.abl"] },  // ' '
+      { "startIndex": 28, "endIndex": 34, "scopes": ["source.abl", "meta.define.abl", "storage.data.table.abl"] },  // 'eIndex'
+      { "startIndex": 34, "endIndex": 43, "scopes": ["source.abl", "meta.define.abl", "storage.type.function.abl"] },  // '{&SUFFIX}'
+      { "startIndex": 43, "endIndex": 44, "scopes": ["source.abl", "meta.define.abl"] },  // ' '
+      { "startIndex": 44, "endIndex": 51, "scopes": ["source.abl", "meta.define.abl", "keyword.other.abl"] },  // 'NO-UNDO'
+      { "startIndex": 51, "endIndex": 52, "scopes": ["source.abl", "meta.define.abl"] },  // ' '
+      { "startIndex": 52, "endIndex": 69, "scopes": ["source.abl", "meta.define.abl", "storage.type.function.abl"] },  // '{&REFERENCE-ONLY}'
+      { "startIndex": 69, "endIndex": 70, "scopes": ["source.abl", "meta.define.abl"] },  // ' '
+      { "startIndex": 70, "endIndex": 73, "scopes": ["source.abl", "meta.define.abl", "storage.type.function.abl"] },  // '&IF'
+      { "startIndex": 73, "endIndex": 74, "scopes": ["source.abl", "meta.define.abl", "meta.function-call.abl"] },  // ' '
+      { "startIndex": 74, "endIndex": 81, "scopes": ["source.abl", "meta.define.abl", "meta.function-call.abl", "support.function.abl"] },  // 'DEFINED'
+      { "startIndex": 81, "endIndex": 82, "scopes": ["source.abl", "meta.define.abl", "meta.function-call.abl"] },  // ' '
+      { "startIndex": 82, "endIndex": 83, "scopes": ["source.abl", "meta.define.abl", "meta.function-call.abl", "meta.function.arguments.abl", "meta.brace.round.js"] },  // '('
+      { "startIndex": 83, "endIndex": 92, "scopes": ["source.abl", "meta.define.abl", "meta.function-call.abl", "meta.function.arguments.abl", "variable.other.abl"] },  // 'NO-BEFORE'
+      { "startIndex": 92, "endIndex": 93, "scopes": ["source.abl", "meta.define.abl", "meta.function-call.abl", "meta.brace.round.js"] },  // ')'
+      { "startIndex": 93, "endIndex": 94, "scopes": ["source.abl", "meta.define.abl"] },  // ' '
+      { "startIndex": 94, "endIndex": 96, "scopes": ["source.abl", "meta.define.abl", "keyword.other.abl"] },  // 'EQ'
+      { "startIndex": 96, "endIndex": 97, "scopes": ["source.abl", "meta.define.abl"] },  // ' '
+      { "startIndex": 97, "endIndex": 98, "scopes": ["source.abl", "meta.define.abl", "constant.numeric.source.abl"] },  // '0'
+      { "startIndex": 98, "endIndex": 99, "scopes": ["source.abl", "meta.define.abl"] },  // ' '
+      { "startIndex": 99, "endIndex": 104, "scopes": ["source.abl", "meta.define.abl", "storage.type.function.abl"] },  // '&THEN'
+      { "startIndex": 104, "endIndex": 105, "scopes": ["source.abl", "meta.define.abl"] },  // ' '
+      { "startIndex": 105, "endIndex": 117, "scopes": ["source.abl", "meta.define.abl", "keyword.other.abl"] },  // 'BEFORE-TABLE'
+      { "startIndex": 117, "endIndex": 118, "scopes": ["source.abl", "meta.define.abl"] },  // ' '
+      { "startIndex": 118, "endIndex": 130, "scopes": ["source.abl", "meta.define.abl", "storage.data.table.abl"] },  // 'eIndexBefore'
+      { "startIndex": 130, "endIndex": 139, "scopes": ["source.abl", "meta.define.abl", "storage.type.function.abl"] },  // '{&SUFFIX}'
+      { "startIndex": 139, "endIndex": 140, "scopes": ["source.abl", "meta.define.abl"] },  // ' '
+      { "startIndex": 140, "endIndex": 146, "scopes": ["source.abl", "meta.define.abl", "storage.type.function.abl"] }  // '&ENDIF'
+    ],
+    [
+      { "startIndex": 0, "endIndex": 2, "scopes": ["source.abl", "meta.define.abl"] },  // '  '
+      { "startIndex": 2, "endIndex": 7, "scopes": ["source.abl", "meta.define.abl", "keyword.other.abl"] },  // 'FIELD'
+      { "startIndex": 7, "endIndex": 8, "scopes": ["source.abl", "meta.define.abl"] },  // ' '
+      { "startIndex": 8, "endIndex": 26, "scopes": ["source.abl", "meta.define.abl", "storage.data.table.abl"] },  // 'BusinessEntityName'
+      { "startIndex": 26, "endIndex": 27, "scopes": ["source.abl", "meta.define.abl"] },  // ' '
+      { "startIndex": 27, "endIndex": 29, "scopes": ["source.abl", "meta.define.abl", "keyword.other.abl"] },  // 'AS'
+      { "startIndex": 29, "endIndex": 30, "scopes": ["source.abl", "meta.define.abl"] },  // ' '
+      { "startIndex": 30, "endIndex": 39, "scopes": ["source.abl", "meta.define.abl", "storage.type.abl"] },  // 'CHARACTER'
+      { "startIndex": 39, "endIndex": 40, "scopes": ["source.abl", "meta.define.abl"] },  // ' '
+      { "startIndex": 40, "endIndex": 46, "scopes": ["source.abl", "meta.define.abl", "keyword.other.abl"] },  // 'FORMAT'
+      { "startIndex": 46, "endIndex": 47, "scopes": ["source.abl", "meta.define.abl"] },  // ' '
+      { "startIndex": 47, "endIndex": 48, "scopes": ["source.abl", "meta.define.abl", "string.double.complex.abl", "punctuation.definition.string.begin.abl"] },  // '"'
+      { "startIndex": 48, "endIndex": 52, "scopes": ["source.abl", "meta.define.abl", "string.double.complex.abl"] },  // 'X(8)'
+      { "startIndex": 52, "endIndex": 53, "scopes": ["source.abl", "meta.define.abl", "string.double.complex.abl", "punctuation.definition.string.end.abl"] },  // '"'
+      { "startIndex": 53, "endIndex": 55, "scopes": ["source.abl", "meta.define.abl", "string.double.complex.abl", "support.other.abl"] }  // ':U'
+    ],
+    [
+      { "startIndex": 0, "endIndex": 2, "scopes": ["source.abl", "meta.define.abl"] },  // '  '
+      { "startIndex": 2, "endIndex": 7, "scopes": ["source.abl", "meta.define.abl", "keyword.other.abl"] },  // 'INDEX'
+      { "startIndex": 7, "endIndex": 8, "scopes": ["source.abl", "meta.define.abl"] },  // ' '
+      { "startIndex": 8, "endIndex": 17, "scopes": ["source.abl", "meta.define.abl", "storage.data.table.abl"] },  // 'IndexName'
+      { "startIndex": 17, "endIndex": 18, "scopes": ["source.abl", "meta.define.abl"] },  // ' '
+      { "startIndex": 18, "endIndex": 20, "scopes": ["source.abl", "meta.define.abl", "keyword.other.abl"] },  // 'AS'
+      { "startIndex": 20, "endIndex": 21, "scopes": ["source.abl", "meta.define.abl"] },  // ' '
+      { "startIndex": 21, "endIndex": 27, "scopes": ["source.abl", "meta.define.abl", "keyword.other.abl"] },  // 'UNIQUE'
+      { "startIndex": 27, "endIndex": 28, "scopes": ["source.abl", "meta.define.abl"] },  // ' '
+      { "startIndex": 28, "endIndex": 35, "scopes": ["source.abl", "meta.define.abl", "keyword.other.abl"] },  // 'PRIMARY'
+      { "startIndex": 35, "endIndex": 36, "scopes": ["source.abl", "meta.define.abl"] },  // ' '
+      { "startIndex": 36, "endIndex": 49, "scopes": ["source.abl", "meta.define.abl", "storage.data.table.abl"] },  // 'TempTableName'
+      { "startIndex": 49, "endIndex": 50, "scopes": ["source.abl", "meta.define.abl"] },  // ' '
+      { "startIndex": 50, "endIndex": 59, "scopes": ["source.abl", "meta.define.abl", "keyword.other.abl"] },  // 'ASCENDING'
+      { "startIndex": 59, "endIndex": 60, "scopes": ["source.abl", "meta.define.abl"] },  // ' '
+      { "startIndex": 60, "endIndex": 69, "scopes": ["source.abl", "meta.define.abl", "storage.data.table.abl"] },  // 'IndexName'
+      { "startIndex": 69, "endIndex": 70, "scopes": ["source.abl", "meta.define.abl"] },  // ' '
+      { "startIndex": 70, "endIndex": 79, "scopes": ["source.abl", "meta.define.abl", "keyword.other.abl"] }  // 'ASCENDING'
+    ],
+    [
+      { "startIndex": 0, "endIndex": 2, "scopes": ["source.abl", "meta.define.abl"] },  // '  '
+      { "startIndex": 2, "endIndex": 7, "scopes": ["source.abl", "meta.define.abl", "keyword.other.abl"] },  // 'INDEX'
+      { "startIndex": 7, "endIndex": 8, "scopes": ["source.abl", "meta.define.abl"] },  // ' '
+      { "startIndex": 8, "endIndex": 13, "scopes": ["source.abl", "meta.define.abl", "storage.data.table.abl"] },  // 'Order'
+      { "startIndex": 13, "endIndex": 14, "scopes": ["source.abl", "meta.define.abl"] },  // ' '
+      { "startIndex": 14, "endIndex": 27, "scopes": ["source.abl", "meta.define.abl", "storage.data.table.abl"] },  // 'TempTableName'
+      { "startIndex": 27, "endIndex": 28, "scopes": ["source.abl", "meta.define.abl"] },  // ' '
+      { "startIndex": 28, "endIndex": 37, "scopes": ["source.abl", "meta.define.abl", "keyword.other.abl"] },  // 'ASCENDING'
+      { "startIndex": 37, "endIndex": 38, "scopes": ["source.abl", "meta.define.abl"] },  // ' '
+      { "startIndex": 38, "endIndex": 48, "scopes": ["source.abl", "meta.define.abl", "storage.data.table.abl"] },  // 'IndexOrder'
+      { "startIndex": 48, "endIndex": 49, "scopes": ["source.abl", "meta.define.abl"] },  // ' '
+      { "startIndex": 49, "endIndex": 58, "scopes": ["source.abl", "meta.define.abl", "keyword.other.abl"] }  // 'ASCENDING'
+    ],
+    [
+      { "startIndex": 0, "endIndex": 2, "scopes": ["source.abl", "meta.define.abl"] },  // '  '
+      { "startIndex": 2, "endIndex": 7, "scopes": ["source.abl", "meta.define.abl", "keyword.other.abl"] },  // 'INDEX'
+      { "startIndex": 7, "endIndex": 8, "scopes": ["source.abl", "meta.define.abl"] },  // ' '
+      { "startIndex": 8, "endIndex": 35, "scopes": ["source.abl", "meta.define.abl", "storage.data.table.abl"] },  // 'DefaultSearchCodeGeneration'
+      { "startIndex": 35, "endIndex": 36, "scopes": ["source.abl", "meta.define.abl"] },  // ' '
+      { "startIndex": 36, "endIndex": 63, "scopes": ["source.abl", "meta.define.abl", "storage.data.table.abl"] },  // 'DefaultSearchCodeGeneration'
+      { "startIndex": 63, "endIndex": 64, "scopes": ["source.abl", "meta.define.abl"] },  // ' '
+      { "startIndex": 64, "endIndex": 73, "scopes": ["source.abl", "meta.define.abl", "keyword.other.abl"] }  // 'ASCENDING'
+    ],
+    [
+      { "startIndex": 0, "endIndex": 2, "scopes": ["source.abl", "meta.define.abl"] },  // '  '
+      { "startIndex": 2, "endIndex": 7, "scopes": ["source.abl", "meta.define.abl", "keyword.other.abl"] },  // 'INDEX'
+      { "startIndex": 7, "endIndex": 8, "scopes": ["source.abl", "meta.define.abl"] },  // ' '
+      { "startIndex": 8, "endIndex": 33, "scopes": ["source.abl", "meta.define.abl", "storage.data.table.abl"] },  // 'AdditionalQueryGeneration'
+      { "startIndex": 33, "endIndex": 34, "scopes": ["source.abl", "meta.define.abl"] },  // ' '
+      { "startIndex": 34, "endIndex": 59, "scopes": ["source.abl", "meta.define.abl", "storage.data.table.abl"] },  // 'AdditionalQueryGeneration'
+      { "startIndex": 59, "endIndex": 60, "scopes": ["source.abl", "meta.define.abl"] },  // ' '
+      { "startIndex": 60, "endIndex": 69, "scopes": ["source.abl", "meta.define.abl", "keyword.other.abl"] }  // 'ASCENDING'
+    ],
+    [
+      { "startIndex": 0, "endIndex": 2, "scopes": ["source.abl", "meta.define.abl"] },  // '  '
+      { "startIndex": 2, "endIndex": 7, "scopes": ["source.abl", "meta.define.abl", "keyword.other.abl"] },  // 'INDEX'
+      { "startIndex": 7, "endIndex": 8, "scopes": ["source.abl", "meta.define.abl"] },  // ' '
+      { "startIndex": 8, "endIndex": 15, "scopes": ["source.abl", "meta.define.abl", "storage.data.table.abl"] },  // 'Virtual'
+      { "startIndex": 15, "endIndex": 16, "scopes": ["source.abl", "meta.define.abl"] },  // ' '
+      { "startIndex": 16, "endIndex": 23, "scopes": ["source.abl", "meta.define.abl", "storage.data.table.abl"] },  // 'Virtual'
+      { "startIndex": 23, "endIndex": 24, "scopes": ["source.abl", "meta.define.abl"] },  // ' '
+      { "startIndex": 24, "endIndex": 33, "scopes": ["source.abl", "meta.define.abl", "keyword.other.abl"] }  // 'ASCENDING'
+    ],
+    [
+      { "startIndex": 0, "endIndex": 2, "scopes": ["source.abl", "meta.define.abl"] },  // '  '
+      { "startIndex": 2, "endIndex": 3, "scopes": ["source.abl", "meta.define.abl", "punctuation.terminator.abl"] }  // '.'
     ]
   ];
   shared.itShouldMatchExpectedScopes(statement, expectedTokens);
