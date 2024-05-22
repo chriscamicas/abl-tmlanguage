@@ -3584,13 +3584,13 @@
           "include": "#db-dot-table-dot-field"
         },
         {
+          "include": "#comment"
+        },
+        {
           "include": "#operator"
         },
         {
           "include": "#code-block"
-        },
-        {
-          "include": "#comment"
         },
         {
           "include": "#property-call"
