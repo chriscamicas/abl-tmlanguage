@@ -3588,12 +3588,24 @@
           "include": "#parens"
         },
         {
-          "match": "(?i)\\s*(input-output|output|input|table-handle|table|dataset-handle|dataset|APPEND|BY-VALUE|BY-REFERENCE|BIND)\\s*",
+          "match": "(?i)\\s*(input-output|output|input|table-handle|dataset-handle|APPEND|BY-VALUE|BY-REFERENCE|BIND)\\s*",
           "captures": {
             "1": {
               "name": "keyword.other.abl"
             }
           }
+        },
+        {
+          "match": "(?i)\\b(table|dataset)\\s+([\\w\\-#$%]+(\\.[\\w\\-#$%]+)?)\\b",
+          "captures": {
+            "1": {
+              "name": "keyword.other.abl"
+            },
+            "2": {
+              "name": "storage.data.table.abl"
+            }
+          }
+
         },
         {
           "include": "#constant"
