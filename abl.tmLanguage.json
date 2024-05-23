@@ -637,7 +637,7 @@
           "include": "#define-interface"
         },
         {
-          "include": "#define-enum"
+          "include": "#define-enum-type"
         }
       ]
     },
@@ -1733,7 +1733,7 @@
         }
       ]
     },
-    "define-enum": {
+    "define-enum-type": {
       "patterns": [
         {
           "name": "meta.define.enum.abl",
@@ -1750,6 +1750,34 @@
             },
             "4": {
               "name": "punctuation.terminator.abl"
+            }
+          }
+        }
+      ]
+    },
+    "define-enum-member": {
+      "begin": "(?i)\\b(enum)\\b",
+      "beginCaptures": {
+        "1": {
+          "name": "keyword.other.abl"
+        }
+      },
+      "end": "(?=\\.)",
+      "patterns": [
+        {
+          "include": "#comment"
+        },
+        {
+          "include": "#operator"
+        },
+        {
+          "include": "#numeric"
+        },
+        {
+          "match": "\\b([\\w\\#\\$\\%]+)\\b",
+          "captures": {
+            "1": {
+              "name": "entity.name.function.abl"
             }
           }
         }
@@ -2531,6 +2559,9 @@
         },
         {
           "include": "#access-modifier"
+        },
+        {
+          "include": "#define-enum-member"
         },
         {
           "include": "#define-variable"
