@@ -173,32 +173,34 @@ describe('', () => {
     [
       { "startIndex": 0, "endIndex": 2, "scopes": ["source.abl", "meta.define.abl"] },  // '  '
       { "startIndex": 2, "endIndex": 5, "scopes": ["source.abl", "meta.define.abl", "keyword.other.abl"] },  // 'get'
-      { "startIndex": 5, "endIndex": 9, "scopes": ["source.abl", "meta.define.abl"] }  // '():'
+      { "startIndex": 5, "endIndex": 6, "scopes": ["source.abl", "meta.define.abl", "meta.function.parameters", "meta.brace.round.js"] },  // '('
+      { "startIndex": 6, "endIndex": 7, "scopes": ["source.abl", "meta.define.abl", "meta.function.parameters", "meta.brace.round.js"] },  // ')'
+      { "startIndex": 7, "endIndex": 8, "scopes": ["source.abl", "meta.define.abl", "punctuation.terminator.abl"] }  // ':'
     ],
     [
       { "startIndex": 0, "endIndex": 5, "scopes": ["source.abl", "meta.define.abl"] },  // '     '
       { "startIndex": 5, "endIndex": 11, "scopes": ["source.abl", "meta.define.abl", "keyword.other.abl"] },  // 'return'
       { "startIndex": 11, "endIndex": 12, "scopes": ["source.abl", "meta.define.abl"] },  // ' '
       { "startIndex": 12, "endIndex": 23, "scopes": ["source.abl", "meta.define.abl", "variable.language.abl"] },  // 'this-object'
-      { "startIndex": 23, "endIndex": 24, "scopes": ["source.abl", "meta.define.abl"] },  // ':'
-      { "startIndex": 24, "endIndex": 30, "scopes": ["source.abl", "meta.define.abl", "entity.name.type.abl"] },  // 'AThing'
+      { "startIndex": 23, "endIndex": 24, "scopes": ["source.abl", "meta.define.abl", "punctuation.separator.colon.abl"] },  // ':'
+      { "startIndex": 24, "endIndex": 30, "scopes": ["source.abl", "meta.define.abl", "entity.name.function.abl"] },  // 'AThing'
       { "startIndex": 30, "endIndex": 31, "scopes": ["source.abl", "meta.define.abl", "punctuation.terminator.abl"] }  // '.'
     ],
     [
-      { "startIndex": 0, "endIndex": 2, "scopes": ["source.abl"] },  // '  '
-      { "startIndex": 2, "endIndex": 5, "scopes": ["source.abl", "keyword.other.abl"] },  // 'end'
-      { "startIndex": 5, "endIndex": 6, "scopes": ["source.abl", "punctuation.terminator.abl"] }  // '.'
+      { "startIndex": 0, "endIndex": 2, "scopes": ["source.abl", "meta.define.abl"] },  // '  '
+      { "startIndex": 2, "endIndex": 5, "scopes": ["source.abl", "meta.define.abl", "keyword.other.abl"] },  // 'end'
+      { "startIndex": 5, "endIndex": 6, "scopes": ["source.abl", "meta.define.abl", "punctuation.terminator.abl"] }  // '.'
     ],
     [
       { "startIndex": 0, "endIndex": 2, "scopes": ["source.abl"] },  // '  '
       { "startIndex": 2, "endIndex": 5, "scopes": ["source.abl", "keyword.other.abl"] },  // 'set'
-      { "startIndex": 5, "endIndex": 6, "scopes": ["source.abl", "meta.function.arguments.abl", "meta.brace.round.js"] },  // '('
-      { "startIndex": 6, "endIndex": 10, "scopes": ["source.abl", "meta.function.arguments.abl", "variable.parameter.abl"] },  // 'pVal'
-      { "startIndex": 10, "endIndex": 11, "scopes": ["source.abl", "meta.function.arguments.abl"] },  // ' '
-      { "startIndex": 11, "endIndex": 13, "scopes": ["source.abl", "meta.function.arguments.abl", "keyword.other.abl"] },  // 'as'
-      { "startIndex": 13, "endIndex": 14, "scopes": ["source.abl", "meta.function.arguments.abl"] },  // ' '
-      { "startIndex": 14, "endIndex": 25, "scopes": ["source.abl", "meta.function.arguments.abl", "entity.type.name.abl"] },  // 'IHttpClient'
-      { "startIndex": 25, "endIndex": 26, "scopes": ["source.abl", "meta.brace.round.js"] },  // ')'
+      { "startIndex": 5, "endIndex": 6, "scopes": ["source.abl", "meta.function.parameters", "meta.brace.round.js"] },  // '('
+      { "startIndex": 6, "endIndex": 10, "scopes": ["source.abl", "meta.function.parameters", "variable.parameter.abl"] },  // 'pVal'
+      { "startIndex": 10, "endIndex": 11, "scopes": ["source.abl", "meta.function.parameters"] },  // ' '
+      { "startIndex": 11, "endIndex": 13, "scopes": ["source.abl", "meta.function.parameters", "keyword.other.abl"] },  // 'as'
+      { "startIndex": 13, "endIndex": 14, "scopes": ["source.abl", "meta.function.parameters"] },  // ' '
+      { "startIndex": 14, "endIndex": 25, "scopes": ["source.abl", "meta.function.parameters", "entity.name.type.abl"] },  // 'IHttpClient'
+      { "startIndex": 25, "endIndex": 26, "scopes": ["source.abl", "meta.function.parameters", "meta.brace.round.js"] },  // ')'
       { "startIndex": 26, "endIndex": 27, "scopes": ["source.abl", "punctuation.terminator.abl"] }  // ':'
     ],
     [

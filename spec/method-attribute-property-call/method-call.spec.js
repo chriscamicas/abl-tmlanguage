@@ -89,7 +89,7 @@ end method.`;
       { "startIndex": 11, "endIndex": 12, "scopes": ["source.abl", "meta.function.arguments.abl", "meta.brace.round.js"] },  // '('
       { "startIndex": 12, "endIndex": 17, "scopes": ["source.abl", "meta.function.arguments.abl", "keyword.other.abl"] },  // 'table'
       { "startIndex": 17, "endIndex": 18, "scopes": ["source.abl", "meta.function.arguments.abl"] },  // ' '
-      { "startIndex": 18, "endIndex": 27, "scopes": ["source.abl", "meta.function.arguments.abl", "variable.other.abl"] },  // 'copytable'
+      { "startIndex": 18, "endIndex": 27, "scopes": ["source.abl", "meta.function.arguments.abl", "storage.data.table.abl"] },  // 'copytable'
       { "startIndex": 27, "endIndex": 28, "scopes": ["source.abl", "meta.function.arguments.abl"] },  // ' '
       { "startIndex": 28, "endIndex": 40, "scopes": ["source.abl", "meta.function.arguments.abl", "keyword.other.abl"] },  // 'by-reference'
       { "startIndex": 40, "endIndex": 41, "scopes": ["source.abl", "meta.function.arguments.abl", "punctuation.separator.comma.abl"] },  // ','
