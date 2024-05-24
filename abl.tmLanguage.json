@@ -2225,22 +2225,19 @@
     "property-accessor": {
       "patterns": [
         {
-          "include": "#property-get-empty"
+          "include": "#property-get-set-super"
         },
         {
-          "include": "#property-set-empty"
+          "include": "#property-get-set-empty"
         },
         {
-          "include": "#property-get-block"
-        },
-        {
-          "include": "#property-set-block"
+          "include": "#property-get-set-block"
         }
       ]
     },
-    "property-get-empty": {
-      "name": "meta.define.getter.abl",
-      "match": "\\s*(get)\\s*(super)?\\s*(?=\\.)",
+    "property-get-set-super": {
+      "match": "\\b(get|set)\\s+(super)\\s*(?=\\.)",
+      "comment": "This is a call to the parent class' property getter or setter",
       "captures": {
         "1": {
           "name": "keyword.other.abl"
@@ -2250,27 +2247,23 @@
         }
       }
     },
-    "property-set-empty": {
-      "name": "meta.define.setter.abl",
-      "match": "\\s*(set)\\s*(super)?\\s*(?=\\.)",
+    "property-get-set-empty": {
+      "comment": "This rule is needed since for 'plain' gets and sets, there's no END",
+      "match": "\\b(get|set)\\s*(?=\\.)",
       "captures": {
         "1": {
-          "name": "keyword.other.abl"
-        },
-        "2": {
           "name": "keyword.other.abl"
         }
       }
     },
-    "property-get-block": {
-      "name": "meta.define.getter.abl",
-      "begin": "(?i)\\s*(?<!\\:)\\s*(get)",
+    "property-get-set-block": {
+      "begin": "(?i)\\s*(?<!\\:)\\s*(get|set)",
       "beginCaptures": {
         "1": {
           "name": "keyword.other.abl"
         }
       },
-      "end": "(?i)\\s*(end)\\s*(get)?\\s*(?=\\.)\\s*",
+      "end": "(?i)\\s*(end)\\s*(get|set)?\\s*(?=\\.)\\s*",
       "comment": "The end capture does a lookahead on . so that the 'define' capture can end ",
       "endCaptures": {
         "1": {
@@ -2289,36 +2282,6 @@
         },
         {
           "include": "#punctuation-colon"
-        }
-      ]
-    },
-    "property-set-block": {
-      "name": "meta.define.setter.abl",
-      "begin": "(?i)\\s*(?<!\\:)\\s*(set)",
-      "beginCaptures": {
-        "1": {
-          "name": "keyword.other.abl"
-        }
-      },
-      "end": "(?i)\\s*(end)\\s*(set)?\\s*(?=\\.)\\s*",
-      "comment": "The end capture does a lookahead on . so that the 'define' capture can end ",
-      "endCaptures": {
-        "1": {
-          "name": "keyword.other.abl"
-        },
-        "2": {
-          "name": "keyword.other.abl"
-        }
-      },
-      "patterns": [
-        {
-          "include": "#punctuation-colon"
-        },
-        {
-          "include": "#function-parameter-definition"
-        },
-        {
-          "include": "#code-block"
         }
       ]
     },
@@ -2634,15 +2597,13 @@
         }
       },
       "comment": "This match just gets the definition of the property; the getter and setter are handled separately",
-      "end": "(?i)\\s*(no-undo)|(?=private|public|protected|get|set)",
-      "endCaptures": {
-        "1": {
-          "name": "keyword.other.abl"
-        }
-      },
+      "end": "(?i)\\s*(?=get|set)",
       "patterns": [
         {
           "include": "#property-as"
+        },
+        {
+          "include": "#comment"
         },
         {
           "include": "#primitive-type"
@@ -3605,7 +3566,6 @@
               "name": "storage.data.table.abl"
             }
           }
-
         },
         {
           "include": "#constant"
