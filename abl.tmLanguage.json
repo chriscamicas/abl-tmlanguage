@@ -330,6 +330,12 @@
           "include": "#copy-lob"
         },
         {
+          "include": "#can-find"
+        },
+        {
+          "include": "#use-index"
+        },
+        {
           "include": "#create-buffer"
         },
         {
@@ -534,8 +540,8 @@
       ]
     },
     "preprocessors": {
-        "match": "(?i)(\\&[\\w-]*)|({\\&[\\w-]*})|(&window-system|&text-height|&line-number|&batch-mode|&file-name|&undefine|&sequence|&message|defined|&elseif|&scoped|&global|&opsys|&endif|&else|&scop|&then|&glob|&if)",
-        "name": "storage.type.function.abl"
+      "match": "(?i)(\\&[\\w-]*)|({\\&[\\w-]*})|(&window-system|&text-height|&line-number|&batch-mode|&file-name|&undefine|&sequence|&message|defined|&elseif|&scoped|&global|&opsys|&endif|&else|&scop|&then|&glob|&if)",
+      "name": "storage.type.function.abl"
     },
     "type-names": {
       "patterns": [
@@ -2012,6 +2018,70 @@
           "include": "#code-block"
         }
       ]
+    },
+    "find-where": {
+
+    },
+    "can-find": {
+      "name": "meta.function-call.can-find.abl",
+      "begin": "(?i)\\s*\\b(can-find)\\s*(?=\\()",
+      "beginCaptures": {
+        "1": {
+          "name": "support.function.abl"
+        },
+        "2": {
+          "name": "meta.brace.round.js"
+        }
+      },
+      "end": "\\b(?=\\)|where|no-lock|share-lock|exclusive-lock|tenant-where|using|no-prefetch|no-wait|no-error)\\s*",
+      "patterns": [
+        {
+          "include": "#parens"
+        },
+        {
+          "include": "#comment"
+        },
+        {
+          "include": "#string"
+        },
+        {
+          "include": "#numeric"
+        },
+        {
+          "match": "(?i)\\b(first|last)\\b",
+          "captures": {
+            "1": {
+              "name": "keyword.other.abl"
+            }
+          }
+        },
+        {
+          "include": "#use-index"
+        },
+        {
+          "include": "#of-phrase"
+        },
+        {
+          "include": "#field-name"
+        },
+        {
+          "include": "#db-dot-table"
+        },
+        {
+          "include": "#db-dot-table-dot-field"
+        }
+      ]
+    },
+    "use-index": {
+      "match": "(?i)\\b(use-index)\\b([a-z][a-z0-9\\-\\_\\$]*)\\s*",
+      "captures": {
+        "1": {
+          "name": "keyword.other.abl"
+        },
+        "2": {
+          "name": "storage.data.table.abl"
+        }
+      }
     },
     "type-argument-function": {
       "name": "meta.function-call.abl",
@@ -4043,7 +4113,7 @@
       "match": "(?i)(?<![\\w-])(y|y-of|year|year-offset|yes|yes-no|yes-no-cancel)(?![\\w-])",
       "name": "keyword.other.abl"
     }
- },
+  },
   "scopeName": "source.abl",
   "uuid": "075bb86e-03ea-4fea-bac0-e11b9dc73e03"
 }
