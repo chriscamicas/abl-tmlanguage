@@ -2023,7 +2023,7 @@
 
     },
     "can-find": {
-      "name": "meta.function-call.can-find.abl",
+      "name": "meta.function-call.abl",
       "begin": "(?i)\\s*\\b(can-find)\\s*(?=\\()",
       "beginCaptures": {
         "1": {
@@ -2073,7 +2073,7 @@
       ]
     },
     "use-index": {
-      "match": "(?i)\\b(use-index)\\b([a-z][a-z0-9\\-\\_\\$]*)\\s*",
+      "match": "(?i)\\b(use-index)\\s+([a-z][a-z0-9\\-\\_\\$]*)\\s*",
       "captures": {
         "1": {
           "name": "keyword.other.abl"
