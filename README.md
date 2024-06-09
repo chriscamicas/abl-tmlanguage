@@ -72,7 +72,7 @@ The ABL-specific scopes produced by the ABL grammer listed in the table below. T
 |constant.language.abl                      | `today`, `now`, `true`, `false`, `yes`, `no`, `?` (unknown value) |
 |constant.language.source.abl               | `99/99/9999` (or similar) when used as a format clause |
 |constant.numeric.source.abl                | 0x00-0xFF, 0-9 |
-|entity.name.function.abl                   | Method call, property call, procedure name, method name, property name, handle attributes, handle  methods |
+|entity.name.function.abl                   | Method call, property call, procedure name, method name, property name, handle attributes, handle  methods, event names |
 |entity.name.function.preprocessor.abl      | `&scoped-define`, `&global-define` |
 |entity.name.package.abl                    | Package names for `USING` |
 |entity.name.tag.abl                        | Annotation names |
