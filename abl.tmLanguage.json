@@ -393,6 +393,9 @@
           "include": "#break-group"
         },
         {
+          "include": "#event-un-subscribe"
+        },
+        {
           "include": "#property-call"
         },
         {
@@ -2059,9 +2062,6 @@
         }
       ]
     },
-    "find-where": {
-
-    },
     "can-find": {
       "name": "meta.function-call.abl",
       "begin": "(?i)\\s*\\b(can-find)\\s*(?=\\()",
@@ -3154,12 +3154,15 @@
       ]
     },
     "event-un-subscribe": {
-      "begin": "(?i):(unsubscribe|subscribe)\\s*(\\()",
+      "begin": "(?i)(:)(unsubscribe|subscribe)\\s*(\\()",
       "beginCaptures": {
         "1": {
-          "name": "entity.name.function.abl"
+          "name": "punctuation.separator.colon.abl"
         },
         "2": {
+          "name": "entity.name.function.abl"
+        },
+        "3": {
           "name": "meta.brace.round.js"
         }
       },
