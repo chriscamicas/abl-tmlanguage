@@ -3013,6 +3013,9 @@
       "name": "meta.block.abl",
       "patterns": [
         {
+          "include": "#comment"
+        },
+        {
           "include": "#for-record"
         },
         {
@@ -3447,6 +3450,10 @@
       "end": "(?=\\R)",
       "patterns": [
         {
+          "comment": "The comment scopes are included in the statements pattern, but the operator trumps these",
+          "include": "#comment"
+        },
+        {
           "include": "#operator"
         },
         {
@@ -3456,7 +3463,10 @@
           "include": "#branch-options"
         },
         {
-          "include": "#statements"
+          "include": "#expression"
+        },
+        {
+          "include": "X-#statements"
         }
       ]
     },
