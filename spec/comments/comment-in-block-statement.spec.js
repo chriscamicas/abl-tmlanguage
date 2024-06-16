@@ -118,7 +118,7 @@ end.`;
       { "startIndex": 6, "endIndex": 7, "scopes": ["source.abl", "meta.block.abl"] },  // ' '
       { "startIndex": 7, "endIndex": 12, "scopes": ["source.abl", "meta.block.abl", "keyword.other.abl"] },  // 'while'
       { "startIndex": 12, "endIndex": 13, "scopes": ["source.abl", "meta.block.abl"] },  // ' '
-      { "startIndex": 13, "endIndex": 14, "scopes": ["source.abl", "meta.block.abl", "storage.type.abl"] },  // 'i'
+      { "startIndex": 13, "endIndex": 14, "scopes": ["source.abl", "meta.block.abl", "variable.other.abl"] },  // 'i'
       { "startIndex": 14, "endIndex": 15, "scopes": ["source.abl", "meta.block.abl"] },  // ' '
       { "startIndex": 15, "endIndex": 16, "scopes": ["source.abl", "meta.block.abl", "keyword.operator.source.abl"] },  // '<'
       { "startIndex": 16, "endIndex": 17, "scopes": ["source.abl", "meta.block.abl"] },  // ' '
@@ -131,7 +131,7 @@ end.`;
       { "startIndex": 0, "endIndex": 35, "scopes": ["source.abl", "meta.block.abl", "comment.block.source.abl", "comment"] },  // '                       many digits '
       { "startIndex": 35, "endIndex": 37, "scopes": ["source.abl", "meta.block.abl", "comment.block.source.abl"] },  // '*/'
       { "startIndex": 37, "endIndex": 38, "scopes": ["source.abl", "meta.block.abl"] },  // ' '
-      { "startIndex": 38, "endIndex": 39, "scopes": ["source.abl", "meta.block.abl", "punctuation.terminator.abl"] }  // ':'
+      { "startIndex": 38, "endIndex": 39, "scopes": ["source.abl", "punctuation.terminator.abl"] }  // ':'
     ],
     [
       { "startIndex": 0, "endIndex": 3, "scopes": ["source.abl", "keyword.other.abl"] },  // 'end'

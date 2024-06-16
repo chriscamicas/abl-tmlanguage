@@ -405,9 +405,6 @@
           "include": "#function-arguments"
         },
         {
-          "include": "#arguments-reference"
-        },
-        {
           "include": "#method-definition"
         },
         {
@@ -525,6 +522,9 @@
           "include": "#punctuation-comma"
         },
         {
+          "include": "#punctuation-colon"
+        },
+        {
           "include": "#parens"
         },
         {
@@ -596,7 +596,6 @@
         }
       },
       "end": "(\\.)",
-      "comment": "use \\R lookahead here",
       "endCaptures": {
         "1": {
           "name": "punctuation.terminator.abl"
@@ -764,9 +763,6 @@
               "name": "keyword.other.abl"
             }
           }
-        },
-        {
-          "include": "#implements-type"
         },
         {
           "include": "#type-name-generic-progress"
@@ -1694,9 +1690,6 @@
           }
         },
         {
-          "include": "#implements-type"
-        },
-        {
           "include": "#type-names"
         },
         {
@@ -2219,6 +2212,9 @@
         },
         {
           "include": "#punctuation-period"
+        },
+        {
+          "include": "#punctuation-colon"
         }
       ]
     },
@@ -2566,9 +2562,6 @@
         },
         {
           "include": "#label-variable"
-        },
-        {
-          "include": "#type-name-generic-class"
         },
         {
           "include": "#type-name-generic"
@@ -3019,12 +3012,6 @@
           "include": "#for-record"
         },
         {
-          "include": "#preselect-phrase"
-        },
-        {
-          "include": "#query-tuning-phrase"
-        },
-        {
           "include": "#operator"
         },
         {
@@ -3047,10 +3034,10 @@
           "include": "#punctuation-comma"
         },
         {
-          "include": "#branch-options"
+          "include": "#punctuation-colon"
         },
         {
-          "include": "#frame-phrase"
+          "include": "#branch-options"
         },
         {
           "include": "#expression"
@@ -3070,8 +3057,7 @@
           "name": "keyword.operator.source.abl"
         }
       },
-      "comment": "End this block at the end of the line, using a lookahed.",
-      "end": "(?=\\R)",
+      "end": "(?i)(?=transaction|on|\\:|with|while)",
       "patterns": [
         {
           "match": "(?i)\\s+(to|by)\\s*",
@@ -3417,9 +3403,6 @@
           "include": "#on-error-endkey-stop"
         },
         {
-          "include": "#on-quit"
-        },
-        {
           "include": "#branch-leave-next-retry-throw"
         },
         {
@@ -3440,14 +3423,13 @@
       ]
     },
     "while-expression": {
-      "begin": "(?i)\\s*(while)\\s*",
+      "begin": "(?i)\\s*(while)\\b",
       "beginCaptures": {
         "1": {
           "name": "keyword.other.abl"
         }
       },
-      "comment": " This regex just captures to the end of the line, so if the WHILE is split across 2 lines, this may not capture everything",
-      "end": "(?=\\R)",
+      "end": "(?i)(?=transaction|on|\\:|with)",
       "patterns": [
         {
           "comment": "The comment scopes are included in the statements pattern, but the operator trumps these",

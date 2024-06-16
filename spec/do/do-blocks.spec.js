@@ -32,7 +32,7 @@ END.`;
       { "startIndex": 28, "endIndex": 29, "scopes": ["source.abl", "meta.block.abl", "punctuation.separator.comma.abl"] },  // ','
       { "startIndex": 29, "endIndex": 30, "scopes": ["source.abl", "meta.block.abl", "meta.block.branch.abl"] },  // ' '
       { "startIndex": 30, "endIndex": 35, "scopes": ["source.abl", "meta.block.abl", "meta.block.branch.abl", "keyword.other.abl"] },  // 'throw'
-      { "startIndex": 35, "endIndex": 36, "scopes": ["source.abl", "meta.block.abl"] }  // ':'
+      { "startIndex": 35, "endIndex": 36, "scopes": ["source.abl", "punctuation.terminator.abl"] }  // ':'
     ],
     [
       { "startIndex": 0, "endIndex": 4, "scopes": ["source.abl"] },  // '    '
