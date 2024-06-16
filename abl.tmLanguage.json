@@ -414,9 +414,6 @@
           "include": "#function-arguments"
         },
         {
-          "include": "#arguments-reference"
-        },
-        {
           "include": "#method-definition"
         },
         {
@@ -773,9 +770,6 @@
               "name": "keyword.other.abl"
             }
           }
-        },
-        {
-          "include": "#implements-type"
         },
         {
           "include": "#type-name-generic-progress"
@@ -1701,9 +1695,6 @@
               "name": "keyword.other.abl"
             }
           }
-        },
-        {
-          "include": "#implements-type"
         },
         {
           "include": "#type-names"
@@ -2638,9 +2629,6 @@
           "include": "#label-variable"
         },
         {
-          "include": "#type-name-generic-class"
-        },
-        {
           "include": "#type-name-generic"
         },
         {
@@ -3086,12 +3074,6 @@
           "include": "#for-record"
         },
         {
-          "include": "#preselect-phrase"
-        },
-        {
-          "include": "#query-tuning-phrase"
-        },
-        {
           "include": "#operator"
         },
         {
@@ -3115,9 +3097,6 @@
         },
         {
           "include": "#branch-options"
-        },
-        {
-          "include": "#frame-phrase"
         },
         {
           "include": "#expression"
@@ -3485,9 +3464,6 @@
       "patterns": [
         {
           "include": "#on-error-endkey-stop"
-        },
-        {
-          "include": "#on-quit"
         },
         {
           "include": "#branch-leave-next-retry-throw"
