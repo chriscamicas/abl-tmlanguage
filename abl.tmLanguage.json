@@ -339,6 +339,12 @@
           "include": "#copy-lob"
         },
         {
+          "include": "#can-find"
+        },
+        {
+          "include": "#use-index"
+        },
+        {
           "include": "#event-un-subscribe"
         },
         {
@@ -390,6 +396,9 @@
           "include": "#break-group"
         },
         {
+          "include": "#event-un-subscribe"
+        },
+        {
           "include": "#property-call"
         },
         {
@@ -403,9 +412,6 @@
         },
         {
           "include": "#function-arguments"
-        },
-        {
-          "include": "#arguments-reference"
         },
         {
           "include": "#method-definition"
@@ -764,9 +770,6 @@
               "name": "keyword.other.abl"
             }
           }
-        },
-        {
-          "include": "#implements-type"
         },
         {
           "include": "#type-name-generic-progress"
@@ -1694,9 +1697,6 @@
           }
         },
         {
-          "include": "#implements-type"
-        },
-        {
           "include": "#type-names"
         },
         {
@@ -2055,6 +2055,67 @@
           "include": "#code-block"
         }
       ]
+    },
+    "can-find": {
+      "name": "meta.function-call.abl",
+      "begin": "(?i)\\s*\\b(can-find)\\s*(?=\\()",
+      "beginCaptures": {
+        "1": {
+          "name": "support.function.abl"
+        },
+        "2": {
+          "name": "meta.brace.round.js"
+        }
+      },
+      "end": "\\b(?=\\)|where|no-lock|share-lock|exclusive-lock|tenant-where|using|no-prefetch|no-wait|no-error)\\s*",
+      "patterns": [
+        {
+          "include": "#parens"
+        },
+        {
+          "include": "#comment"
+        },
+        {
+          "include": "#string"
+        },
+        {
+          "include": "#numeric"
+        },
+        {
+          "match": "(?i)\\b(first|last)\\b",
+          "captures": {
+            "1": {
+              "name": "keyword.other.abl"
+            }
+          }
+        },
+        {
+          "include": "#use-index"
+        },
+        {
+          "include": "#of-phrase"
+        },
+        {
+          "include": "#field-name"
+        },
+        {
+          "include": "#db-dot-table"
+        },
+        {
+          "include": "#db-dot-table-dot-field"
+        }
+      ]
+    },
+    "use-index": {
+      "match": "(?i)\\b(use-index)\\s+([a-z][a-z0-9\\-\\_\\$]*)\\s*",
+      "captures": {
+        "1": {
+          "name": "keyword.other.abl"
+        },
+        "2": {
+          "name": "storage.data.table.abl"
+        }
+      }
     },
     "type-argument-function": {
       "name": "meta.function-call.abl",
@@ -2568,9 +2629,6 @@
           "include": "#label-variable"
         },
         {
-          "include": "#type-name-generic-class"
-        },
-        {
           "include": "#type-name-generic"
         },
         {
@@ -3016,12 +3074,6 @@
           "include": "#for-record"
         },
         {
-          "include": "#preselect-phrase"
-        },
-        {
-          "include": "#query-tuning-phrase"
-        },
-        {
           "include": "#operator"
         },
         {
@@ -3045,9 +3097,6 @@
         },
         {
           "include": "#branch-options"
-        },
-        {
-          "include": "#frame-phrase"
         },
         {
           "include": "#expression"
@@ -3087,12 +3136,15 @@
       ]
     },
     "event-un-subscribe": {
-      "begin": "(?i):(unsubscribe|subscribe)\\s*(\\()",
+      "begin": "(?i)(:)(unsubscribe|subscribe)\\s*(\\()",
       "beginCaptures": {
         "1": {
-          "name": "entity.name.function.abl"
+          "name": "punctuation.separator.colon.abl"
         },
         "2": {
+          "name": "entity.name.function.abl"
+        },
+        "3": {
           "name": "meta.brace.round.js"
         }
       },
@@ -3412,9 +3464,6 @@
       "patterns": [
         {
           "include": "#on-error-endkey-stop"
-        },
-        {
-          "include": "#on-quit"
         },
         {
           "include": "#branch-leave-next-retry-throw"
