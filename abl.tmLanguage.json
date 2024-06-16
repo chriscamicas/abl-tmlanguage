@@ -525,6 +525,9 @@
           "include": "#punctuation-comma"
         },
         {
+          "include": "#punctuation-colon"
+        },
+        {
           "include": "#parens"
         },
         {
@@ -596,7 +599,6 @@
         }
       },
       "end": "(\\.)",
-      "comment": "use \\R lookahead here",
       "endCaptures": {
         "1": {
           "name": "punctuation.terminator.abl"
@@ -2213,6 +2215,9 @@
         },
         {
           "include": "#punctuation-period"
+        },
+        {
+          "include": "#punctuation-colon"
         }
       ]
     },
@@ -3004,6 +3009,9 @@
       "name": "meta.block.abl",
       "patterns": [
         {
+          "include": "#comment"
+        },
+        {
           "include": "#for-record"
         },
         {
@@ -3029,6 +3037,9 @@
           "include": "#punctuation-comma"
         },
         {
+          "include": "#punctuation-colon"
+        },
+        {
           "include": "#branch-options"
         },
         {
@@ -3049,8 +3060,7 @@
           "name": "keyword.operator.source.abl"
         }
       },
-      "comment": "End this block at the end of the line, using a lookahed.",
-      "end": "(?=\\R)",
+      "end": "(?i)(?=transaction|on|\\:|with|while)",
       "patterns": [
         {
           "match": "(?i)\\s+(to|by)\\s*",
@@ -3419,15 +3429,18 @@
       ]
     },
     "while-expression": {
-      "begin": "(?i)\\s*(while)\\s*",
+      "begin": "(?i)\\s*(while)\\b",
       "beginCaptures": {
         "1": {
           "name": "keyword.other.abl"
         }
       },
-      "comment": " This regex just captures to the end of the line, so if the WHILE is split across 2 lines, this may not capture everything",
-      "end": "(?=\\R)",
+      "end": "(?i)(?=transaction|on|\\:|with)",
       "patterns": [
+        {
+          "comment": "The comment scopes are included in the statements pattern, but the operator trumps these",
+          "include": "#comment"
+        },
         {
           "include": "#operator"
         },
@@ -3438,7 +3451,10 @@
           "include": "#branch-options"
         },
         {
-          "include": "#statements"
+          "include": "#expression"
+        },
+        {
+          "include": "X-#statements"
         }
       ]
     },
