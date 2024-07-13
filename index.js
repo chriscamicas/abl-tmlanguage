@@ -36,13 +36,14 @@ const re = /(?:\w|-|\()+(?=\s|$)/g
 // The doc is not always accurate ...
 // Add the full keyword to one of these arrays, and
 // it and any abbreviated versions will be added to the
-/// appropriate scopes
+// appropriate scopes
 let alsoStatements = [];
 alsoStatements.push('centered');
 alsoStatements.push('first');
 alsoStatements.push('format');
 alsoStatements.push('initial');
 alsoStatements.push('label');
+alsoStatements.push('nested');
 alsoStatements.push('row');
 alsoStatements.push('serialize-name');
 alsoStatements.push('single-run');
@@ -52,11 +53,12 @@ let functionsNotStatements = [];
 functionsNotStatements.push('set-size');
 
 let alsoFunctions = [];
-alsoFunctions.push('value');
-alsoFunctions.push('return');
-alsoFunctions.push('this-object');
 alsoFunctions.push('lower');
+alsoFunctions.push('relation-fields');
+alsoFunctions.push('return');
 alsoFunctions.push('substitute');
+alsoFunctions.push('this-object');
+alsoFunctions.push('value');
 
 lineReaderMethods.on('line', line => {
   let results;
@@ -293,8 +295,8 @@ lineReaderKeywords.on('close', () => {
 
 // Sorts in reverse order - so that the longer versions of the keywords appear earlier in the regex
 function reverseSort(a, b) {
-  const nameA = a.toUpperCase(); // ignore upper and lowercase
-  const nameB = b.toUpperCase(); // ignore upper and lowercase
+  const nameA = a.toLowerCase(); // ignore upper and lowercase
+  const nameB = b.toLowerCase(); // ignore upper and lowercase
 
   if (nameA < nameB) {
     return 1;
@@ -303,6 +305,6 @@ function reverseSort(a, b) {
     return -1;
   }
 
-  // names must be equal
+  // names are equal
   return 0;
 }
