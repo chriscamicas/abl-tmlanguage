@@ -7,7 +7,7 @@ describe('', () => {
 
   let expectedTokens = [
     { "startIndex": 0, "endIndex": 1, "scopes": ["source.abl", "meta.include.abl", "punctuation.section.abl"] },  // '{'
-    { "startIndex": 1, "endIndex": 9, "scopes": ["source.abl", "meta.include.abl", "meta.other.include.abl"] },  // 'assigned'
+    { "startIndex": 1, "endIndex": 9, "scopes": ["source.abl", "meta.include.abl", "entity.name.include.abl"] },  // 'assigned'
     { "startIndex": 9, "endIndex": 10, "scopes": ["source.abl", "meta.include.abl"] },  // ' '
     { "startIndex": 10, "endIndex": 11, "scopes": ["source.abl", "meta.include.abl", "string.double.complex.abl", "punctuation.definition.string.begin.abl"] },  // '"'
     { "startIndex": 11, "endIndex": 18, "scopes": ["source.abl", "meta.include.abl", "string.double.complex.abl"] },  // 'mExtVar'
@@ -27,7 +27,7 @@ describe('', () => {
 
   let expectedTokens = [
     { "startIndex": 0, "endIndex": 1, "scopes": ["source.abl", "meta.include.abl", "punctuation.section.abl"] },  // '{'
-    { "startIndex": 1, "endIndex": 9, "scopes": ["source.abl", "meta.include.abl", "meta.other.include.abl"] },  // 'assigned'
+    { "startIndex": 1, "endIndex": 9, "scopes": ["source.abl", "meta.include.abl", "entity.name.include.abl"] },  // 'assigned'
     { "startIndex": 9, "endIndex": 10, "scopes": ["source.abl", "meta.include.abl"] },  // ' '
     { "startIndex": 10, "endIndex": 17, "scopes": ["source.abl", "meta.include.abl", "meta.include.argument.abl", "support.other.argument.abl"] },  // '&ExtVar'
     { "startIndex": 17, "endIndex": 18, "scopes": ["source.abl", "meta.include.abl", "punctuation.section.abl"] },  // '}'

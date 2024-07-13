@@ -8,7 +8,7 @@ describe('', () => {
   let expectedTokens = [
     [
       { "startIndex": 0, "endIndex": 1, "scopes": ["source.abl", "meta.include.abl", "punctuation.section.abl"] },  // '{'
-      { "startIndex": 1, "endIndex": 29, "scopes": ["source.abl", "meta.include.abl", "meta.other.include.abl"] },  // 'Consultingwerk/linqGeneric.i'
+      { "startIndex": 1, "endIndex": 29, "scopes": ["source.abl", "meta.include.abl", "entity.name.include.abl"] },  // 'Consultingwerk/linqGeneric.i'
       { "startIndex": 29, "endIndex": 30, "scopes": ["source.abl", "meta.include.abl"] },  // ' '
       { "startIndex": 30, "endIndex": 52, "scopes": ["source.abl", "meta.include.abl", "support.other.argument.abl"] },  // 'SerializableAnnotation'
       { "startIndex": 52, "endIndex": 53, "scopes": ["source.abl", "meta.include.abl"] },  // ' '

@@ -7,7 +7,7 @@ describe('', () => {
 
   let expectedTokens = [
     { "startIndex": 0, "endIndex": 1, "scopes": ["source.abl", "meta.include.abl", "punctuation.section.abl"] },  // '{'
-    { "startIndex": 1, "endIndex": 14, "scopes": ["source.abl", "meta.include.abl", "meta.other.include.abl"] },  // 'rec/zetin.ooi'
+    { "startIndex": 1, "endIndex": 14, "scopes": ["source.abl", "meta.include.abl", "entity.name.include.abl"] },  // 'rec/zetin.ooi'
     { "startIndex": 14, "endIndex": 15, "scopes": ["source.abl", "meta.include.abl"] },  // ' '
     { "startIndex": 15, "endIndex": 21, "scopes": ["source.abl", "meta.include.abl", "meta.include.argument.abl", "support.other.argument.abl"] },  // '&where'
     { "startIndex": 21, "endIndex": 22, "scopes": ["source.abl", "meta.include.abl", "meta.include.argument.abl", "keyword.operator.source.abl"] },  // '='
@@ -28,7 +28,7 @@ describe('', () => {
   let expectedTokens = [
     [
       { "startIndex": 0, "endIndex": 1, "scopes": ["source.abl", "meta.include.abl", "punctuation.section.abl"] },  // '{'
-      { "startIndex": 1, "endIndex": 14, "scopes": ["source.abl", "meta.include.abl", "meta.other.include.abl"] }  // 'rec/zetin.ooi'
+      { "startIndex": 1, "endIndex": 14, "scopes": ["source.abl", "meta.include.abl", "entity.name.include.abl"] }  // 'rec/zetin.ooi'
     ],
     [
       { "startIndex": 0, "endIndex": 4, "scopes": ["source.abl", "meta.include.abl"] },  // '    '
@@ -54,7 +54,7 @@ describe('', () => {
   let expectedTokens = [
     [
       { "startIndex": 0, "endIndex": 1, "scopes": ["source.abl", "meta.include.abl", "punctuation.section.abl"] },  // '{'
-      { "startIndex": 1, "endIndex": 14, "scopes": ["source.abl", "meta.include.abl", "meta.other.include.abl"] },  // 'rec/zetin.ooi'
+      { "startIndex": 1, "endIndex": 14, "scopes": ["source.abl", "meta.include.abl", "entity.name.include.abl"] },  // 'rec/zetin.ooi'
       { "startIndex": 14, "endIndex": 15, "scopes": ["source.abl", "meta.include.abl"] },  // ' '
       { "startIndex": 15, "endIndex": 21, "scopes": ["source.abl", "meta.include.abl", "meta.include.argument.abl", "support.other.argument.abl"] },  // '&where'
       { "startIndex": 21, "endIndex": 22, "scopes": ["source.abl", "meta.include.abl", "meta.include.argument.abl", "keyword.operator.source.abl"] },  // '='
@@ -78,7 +78,7 @@ describe('', () => {
 
   let expectedTokens = [
     { "startIndex": 0, "endIndex": 1, "scopes": ["source.abl", "meta.include.abl", "punctuation.section.abl"] },  // '{'
-    { "startIndex": 1, "endIndex": 14, "scopes": ["source.abl", "meta.include.abl", "meta.other.include.abl"] },  // 'rec/zetin.ooi'
+    { "startIndex": 1, "endIndex": 14, "scopes": ["source.abl", "meta.include.abl", "entity.name.include.abl"] },  // 'rec/zetin.ooi'
     { "startIndex": 14, "endIndex": 15, "scopes": ["source.abl", "meta.include.abl"] },  // ' '
     { "startIndex": 15, "endIndex": 21, "scopes": ["source.abl", "meta.include.abl", "meta.include.argument.abl", "support.other.argument.abl"] },  // '&where'
     { "startIndex": 21, "endIndex": 22, "scopes": ["source.abl", "meta.include.abl", "meta.include.argument.abl", "keyword.operator.source.abl"] },  // '='
@@ -104,7 +104,7 @@ describe('', () => {
   let expectedTokens = [
     [
       { "startIndex": 0, "endIndex": 1, "scopes": ["source.abl", "meta.include.abl", "punctuation.section.abl"] },  // '{'
-      { "startIndex": 1, "endIndex": 14, "scopes": ["source.abl", "meta.include.abl", "meta.other.include.abl"] }  // 'rec/zetin.ooi'
+      { "startIndex": 1, "endIndex": 14, "scopes": ["source.abl", "meta.include.abl", "entity.name.include.abl"] }  // 'rec/zetin.ooi'
     ],
     [
       { "startIndex": 0, "endIndex": 2, "scopes": ["source.abl", "meta.include.abl"] },  // '  '
