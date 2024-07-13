@@ -3764,7 +3764,7 @@
           "name": "keyword.other.abl"
         },
         "2": {
-          "name": "meta.other.procedure.abl"
+          "name": "entity.name.procedure.abl"
         }
       }
     },
@@ -3777,7 +3777,7 @@
           "name": "punctuation.section.abl"
         },
         "2": {
-          "name": "meta.other.include.abl"
+          "name": "entity.name.include.abl"
         }
       },
       "end": "\\s*(})\\s*",

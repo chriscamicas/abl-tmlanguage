@@ -6,7 +6,7 @@ describe('', () => {
   let expectedTokens = [
     { "startIndex": 0, "endIndex": 3, "scopes": ["source.abl", "keyword.other.abl"] },  // 'run'
     { "startIndex": 3, "endIndex": 4, "scopes": ["source.abl"] },  // ' '
-    { "startIndex": 4, "endIndex": 10, "scopes": ["source.abl", "meta.other.procedure.abl"] },  // 'getOEM'
+    { "startIndex": 4, "endIndex": 10, "scopes": ["source.abl", "entity.name.procedure.abl"] },  // 'getOEM'
     { "startIndex": 10, "endIndex": 11, "scopes": ["source.abl", "meta.function.arguments.abl", "meta.brace.round.js"] },  // '('
     { "startIndex": 11, "endIndex": 12, "scopes": ["source.abl", "meta.function.arguments.abl"] },  // ' '
     { "startIndex": 12, "endIndex": 16, "scopes": ["source.abl", "meta.function.arguments.abl", "variable.other.abl"] },  // 'host'

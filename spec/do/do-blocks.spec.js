@@ -169,7 +169,7 @@ end.`;
       { "startIndex": 0, "endIndex": 3, "scopes": ["source.abl"] },  // '   '
       { "startIndex": 3, "endIndex": 6, "scopes": ["source.abl", "keyword.other.abl"] },  // 'run'
       { "startIndex": 6, "endIndex": 7, "scopes": ["source.abl"] },  // ' '
-      { "startIndex": 7, "endIndex": 12, "scopes": ["source.abl", "meta.other.procedure.abl"] },  // 'goo.p'
+      { "startIndex": 7, "endIndex": 12, "scopes": ["source.abl", "entity.name.procedure.abl"] },  // 'goo.p'
       { "startIndex": 12, "endIndex": 13, "scopes": ["source.abl", "punctuation.terminator.abl"] }  // '.'
     ],
     [

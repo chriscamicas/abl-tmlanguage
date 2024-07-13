@@ -213,7 +213,7 @@ END CASE.  `;
       { "startIndex": 0, "endIndex": 4, "scopes": ["source.abl"] },  // '    '
       { "startIndex": 4, "endIndex": 7, "scopes": ["source.abl", "keyword.other.abl"] },  // 'RUN'
       { "startIndex": 7, "endIndex": 8, "scopes": ["source.abl"] },  // ' '
-      { "startIndex": 8, "endIndex": 18, "scopes": ["source.abl", "meta.other.procedure.abl"] },  // 'pi_edition'
+      { "startIndex": 8, "endIndex": 18, "scopes": ["source.abl", "entity.name.procedure.abl"] },  // 'pi_edition'
       { "startIndex": 18, "endIndex": 19, "scopes": ["source.abl", "punctuation.terminator.abl"] }  // '.'
     ],
     [
