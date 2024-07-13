@@ -5,7 +5,7 @@ describe('', () => {
   let expectedTokens = [
     { "startIndex": 0, "endIndex": 1, "scopes": ["source.abl", "meta.include.abl", "punctuation.section.abl"] },  // '{'
     { "startIndex": 1, "endIndex": 2, "scopes": ["source.abl", "meta.include.abl"] },  // ' '
-    { "startIndex": 2, "endIndex": 8, "scopes": ["source.abl", "meta.include.abl", "meta.other.include.abl"] },  // 'test.i'
+    { "startIndex": 2, "endIndex": 8, "scopes": ["source.abl", "meta.include.abl", "entity.name.include.abl"] },  // 'test.i'
     { "startIndex": 8, "endIndex": 9, "scopes": ["source.abl", "meta.include.abl"] },  // ' '
     { "startIndex": 9, "endIndex": 16, "scopes": ["source.abl", "meta.include.abl", "support.other.argument.abl"] },  // '{&Test}'
     { "startIndex": 16, "endIndex": 17, "scopes": ["source.abl", "meta.include.abl"] },  // ' '
@@ -19,7 +19,7 @@ describe('', () => {
   let expectedTokens = [
     { "startIndex": 0, "endIndex": 1, "scopes": ["source.abl", "meta.include.abl", "punctuation.section.abl"] },  // '{'
     { "startIndex": 1, "endIndex": 2, "scopes": ["source.abl", "meta.include.abl"] },  // ' '
-    { "startIndex": 2, "endIndex": 8, "scopes": ["source.abl", "meta.include.abl", "meta.other.include.abl"] },  // 'test.i'
+    { "startIndex": 2, "endIndex": 8, "scopes": ["source.abl", "meta.include.abl", "entity.name.include.abl"] },  // 'test.i'
     { "startIndex": 8, "endIndex": 9, "scopes": ["source.abl", "meta.include.abl"] },  // ' '
     { "startIndex": 9, "endIndex": 13, "scopes": ["source.abl", "meta.include.abl", "meta.include.argument.abl", "support.other.argument.abl"] },  // '&abc'
     { "startIndex": 13, "endIndex": 14, "scopes": ["source.abl", "meta.include.abl", "meta.include.argument.abl"] },  // ' '
