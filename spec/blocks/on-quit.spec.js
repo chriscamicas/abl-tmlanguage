@@ -9,7 +9,7 @@ describe('', () => {
   let expectedTokens = [
     [
       { "startIndex": 0, "endIndex": 2, "scopes": ["source.abl", "meta.block.abl", "keyword.other.abl"] },  // 'do'
-      { "startIndex": 2, "endIndex": 3, "scopes": ["source.abl", "meta.block.abl"] },  // ' '
+      { "startIndex": 2, "endIndex": 3, "scopes": ["source.abl", "meta.block.abl", "meta.block.branch.abl"] },  // ' '
       { "startIndex": 3, "endIndex": 5, "scopes": ["source.abl", "meta.block.abl", "meta.block.branch.abl", "keyword.other.abl"] },  // 'on'
       { "startIndex": 5, "endIndex": 6, "scopes": ["source.abl", "meta.block.abl", "meta.block.branch.abl"] },  // ' '
       { "startIndex": 6, "endIndex": 11, "scopes": ["source.abl", "meta.block.abl", "meta.block.branch.abl", "keyword.other.abl"] },  // 'error'

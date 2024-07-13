@@ -2256,7 +2256,7 @@
       }
     },
     "property-get-set-block": {
-      "begin": "(?i)\\s*(?<!\\:)\\s*(get|set)",
+      "begin": "(?i)\\s*(?<!\\:)\\s*(get|set)\\b",
       "beginCaptures": {
         "1": {
           "name": "keyword.other.abl"
@@ -2748,20 +2748,9 @@
         }
       ]
     },
-    "X-define-dataset": {
+    "define-dataset": {
       "match": "(?i)\\b(dataset)\\s+([a-zA-Z][a-zA-Z0-9\\#\\$\\-\\_\\%\\&]*)\\b",
       "captures": {
-        "1": {
-          "name": "keyword.other.abl"
-        },
-        "2": {
-          "name": "storage.data.dataset.abl"
-        }
-      }
-    },
-    "define-dataset": {
-      "begin": "(?i)\\b(dataset)\\s+([a-zA-Z][a-zA-Z0-9\\#\\$\\-\\_\\%\\&]*)\\b",
-      "beginCaptures": {
         "1": {
           "name": "keyword.other.abl"
         },
@@ -2944,7 +2933,7 @@
       }
     },
     "access-modifier": {
-      "match": "(?i)\\s*(package-private|private|package-protected|protected|public|static|override|abstract|final)\\s*",
+      "match": "(?i)\\s*(package-private|private|package-protected|protected|public|static|override|abstract|final)\\b",
       "captures": {
         "1": {
           "name": "keyword.other.abl"
@@ -3009,7 +2998,7 @@
       }
     },
     "block-statement": {
-      "begin": "(?i)(?<!end)\\s*(do|repeat|finally)\\s*",
+      "begin": "(?i)(?<!end)\\s*(do|repeat|finally)\\b",
       "beginCaptures": {
         "1": {
           "name": "keyword.other.abl"

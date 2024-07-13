@@ -16,7 +16,7 @@ describe('', () => {
   end.`;
   let expectedTokens = [
     [
-      { "startIndex": 0, "endIndex": 83, "scopes": ["source.abl", "comment.line.double-slash.abl"] },  // '// Per https://tools.ietf.org/html/rfc2817 section 5.3, any 2xx status code is good'
+      { "startIndex": 0, "endIndex": 83, "scopes": ["source.abl", "comment.line.double-slash.abl"] }  // '// Per https://tools.ietf.org/html/rfc2817 section 5.3, any 2xx status code is good'
     ],
     [
       { "startIndex": 0, "endIndex": 2, "scopes": ["source.abl"] },  // '  '
@@ -47,7 +47,7 @@ describe('', () => {
     [
       { "startIndex": 0, "endIndex": 2, "scopes": ["source.abl", "meta.block.abl"] },  // '  '
       { "startIndex": 2, "endIndex": 4, "scopes": ["source.abl", "meta.block.abl", "keyword.other.abl"] },  // 'do'
-      { "startIndex": 4, "endIndex": 5, "scopes": ["source.abl", "meta.block.abl"] },  // ' '
+      { "startIndex": 4, "endIndex": 5, "scopes": ["source.abl", "meta.block.abl", "meta.block.branch.abl"] },  // ' '
       { "startIndex": 5, "endIndex": 7, "scopes": ["source.abl", "meta.block.abl", "meta.block.branch.abl", "keyword.other.abl"] },  // 'on'
       { "startIndex": 7, "endIndex": 8, "scopes": ["source.abl", "meta.block.abl", "meta.block.branch.abl"] },  // ' '
       { "startIndex": 8, "endIndex": 13, "scopes": ["source.abl", "meta.block.abl", "meta.block.branch.abl", "keyword.other.abl"] },  // 'error'

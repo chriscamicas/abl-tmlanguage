@@ -67,7 +67,7 @@ END.`;
       { "startIndex": 33, "endIndex": 37, "scopes": ["source.abl", "keyword.other.abl"] },  // 'then'
       { "startIndex": 37, "endIndex": 38, "scopes": ["source.abl", "meta.block.abl"] },  // ' '
       { "startIndex": 38, "endIndex": 40, "scopes": ["source.abl", "meta.block.abl", "keyword.other.abl"] },  // 'do'
-      { "startIndex": 40, "endIndex": 41, "scopes": ["source.abl", "meta.block.abl"] },  // ' '
+      { "startIndex": 40, "endIndex": 41, "scopes": ["source.abl", "meta.block.abl", "meta.block.branch.abl"] },  // ' '
       { "startIndex": 41, "endIndex": 43, "scopes": ["source.abl", "meta.block.abl", "meta.block.branch.abl", "keyword.other.abl"] },  // 'on'
       { "startIndex": 43, "endIndex": 44, "scopes": ["source.abl", "meta.block.abl", "meta.block.branch.abl"] },  // ' '
       { "startIndex": 44, "endIndex": 49, "scopes": ["source.abl", "meta.block.abl", "meta.block.branch.abl", "keyword.other.abl"] },  // 'error'
