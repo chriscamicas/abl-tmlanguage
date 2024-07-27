@@ -78,7 +78,12 @@ describe('', () => {
       { "startIndex": 69, "endIndex": 70, "scopes": ["source.abl", "meta.block.abl", "meta.block.branch.abl"] },  // ' '
       { "startIndex": 70, "endIndex": 73, "scopes": ["source.abl", "meta.block.abl", "meta.block.branch.abl", "keyword.other.abl"] },  // 'NEW'
       { "startIndex": 73, "endIndex": 74, "scopes": ["source.abl", "meta.block.abl", "meta.block.branch.abl"] },  // ' '
-      { "startIndex": 74, "endIndex": 106, "scopes": ["source.abl", "meta.block.abl", "meta.block.branch.abl", "entity.name.type.abl"] }  // 'StopConditionException() &ENDIF:'
+      { "startIndex": 74, "endIndex": 96, "scopes": ["source.abl", "meta.block.abl", "meta.block.branch.abl", "entity.name.type.abl"] },  // 'StopConditionException'
+      { "startIndex": 96, "endIndex": 97, "scopes": ["source.abl", "meta.block.abl", "meta.block.branch.abl", "meta.function.arguments.abl", "meta.brace.round.js"] },  // '('
+      { "startIndex": 97, "endIndex": 98, "scopes": ["source.abl", "meta.block.abl", "meta.block.branch.abl", "meta.brace.round.js"] },  // ')'
+      { "startIndex": 98, "endIndex": 99, "scopes": ["source.abl", "meta.block.abl", "meta.block.branch.abl"] },  // ' '
+      { "startIndex": 99, "endIndex": 105, "scopes": ["source.abl", "meta.block.abl", "meta.block.branch.abl", "storage.type.function.abl"] },  // '&ENDIF'
+      { "startIndex": 105, "endIndex": 106, "scopes": ["source.abl", "punctuation.terminator.abl"] }  // ':'
     ]
   ];
   shared.itShouldMatchExpectedScopes(statement, expectedTokens);
