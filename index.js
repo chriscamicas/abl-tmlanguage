@@ -34,6 +34,9 @@ let functionBlocks  = [[], [], [], [], [], [], [], [], [], [], [], [], [], [], [
 const re = /(?:\w|-|\()+(?=\s|$)/g
 
 // The doc is not always accurate ...
+// Add the full keyword to one of these arrays, and
+// it and any abbreviated versions will be added to the
+/// appropriate scopes
 let alsoStatements = [];
 alsoStatements.push('centered');
 alsoStatements.push('first');
@@ -53,6 +56,7 @@ alsoFunctions.push('value');
 alsoFunctions.push('return');
 alsoFunctions.push('this-object');
 alsoFunctions.push('lower');
+alsoFunctions.push('substitute');
 
 lineReaderMethods.on('line', line => {
   let results;
@@ -154,12 +158,6 @@ lineReaderKeywords.on('line', line => {
 
 function addToBlock(charIdx, fullKw, addKw) {
 
-  console.log(fullKw + ' ' + addKw);
-  console.log('    A: ' + attributeBlocks[charIdx]);
-  console.log('    M: ' + methodBlocks[charIdx]);
-  console.log('    F: ' + functionBlocks[charIdx]);
-  console.log('    K: ' + keywordBlocks[charIdx]);
-
   if (alsoFunctions.includes(fullKw)) {
     if (!functionBlocks[charIdx].includes(addKw)) {
       functionBlocks[charIdx].push(addKw);
@@ -196,7 +194,8 @@ lineReaderKeywords.on('close', () => {
 
       result['keywords-' + String.fromCharCode(97 + zz).toUpperCase()] =
       {
-        match: "(?i)(?<![\\w\\-\\:\\.])(" + keywordBlocks[zz].sort(reverseSort).join('|') + ")(?![\\w\\-])",
+        //match: "(?i)(?<![\\w\\-\\:\\.])(" + keywordBlocks[zz].sort(reverseSort).join('|') + ")(?![\\w\\-])",
+        match: "(?i)\\b(" + keywordBlocks[zz].sort(reverseSort).join('|') + ")\\b",
         captures: {
           1: {
             name: "keyword.other.abl"
