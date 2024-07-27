@@ -2507,18 +2507,19 @@
       "end": "(?=\\:|$)",
       "patterns": [
         {
-          "match": "(?i)\\b(new)\\s+(.*)\\s*(?=\\($|)",
-          "captures": {
-            "1": {
-              "name": "keyword.other.abl"
-            },
-            "2": {
-              "name": "entity.name.type.abl"
-            }
-          }
+          "include": "#new-class"
+        },
+        {
+          "include": "#function-arguments"
+        },
+        {
+          "include": "#parens"
         },
         {
           "include": "#property-call"
+        },
+        {
+          "include": "#preprocessors"
         },
         {
           "include": "#expression"
@@ -2779,6 +2780,9 @@
         },
         {
           "include": "#static-object-property-call"
+        },
+        {
+          "include": "#preprocessors"
         }
       ]
     },

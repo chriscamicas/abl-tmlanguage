@@ -861,7 +861,7 @@ describe('', () => {
       { "startIndex": 50, "endIndex": 51, "scopes": ["source.abl", "meta.function.arguments.abl", "string.double.complex.abl", "punctuation.definition.string.begin.abl"] },  // '"'
       { "startIndex": 51, "endIndex": 57, "scopes": ["source.abl", "meta.function.arguments.abl", "string.double.complex.abl"] },  // 'unable'
       { "startIndex": 57, "endIndex": 58, "scopes": ["source.abl", "meta.function.arguments.abl", "string.double.complex.abl", "punctuation.definition.string.end.abl"] },  // '"'
-      { "startIndex": 58, "endIndex": 65, "scopes": ["source.abl", "meta.function.arguments.abl"] },  // '{&TRAN}'
+      { "startIndex": 58, "endIndex": 65, "scopes": ["source.abl", "meta.function.arguments.abl", "storage.type.function.abl"] },  // '{&TRAN}'
       { "startIndex": 65, "endIndex": 66, "scopes": ["source.abl", "meta.function.arguments.abl", "punctuation.separator.comma.abl"] },  // ','
       { "startIndex": 66, "endIndex": 67, "scopes": ["source.abl", "meta.function.arguments.abl"] },  // ' '
       { "startIndex": 67, "endIndex": 68, "scopes": ["source.abl", "meta.function.arguments.abl", "constant.numeric.source.abl"] },  // '0'
