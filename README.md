@@ -56,8 +56,11 @@ Note: I plan on using the YAML syntax (even more compact and readable) but it ne
 This project uses the [vscode-textmate](https://www.npmjs.com/package/vscode-textmate) package to tokenize and test the grammar.
 
 ## Keywords
-Part of this grammar is generated from a keyword list file.
-See [index.js].
+Part of this grammar is generated from a keyword list file. See [index.js] for information on how to generate that file, as well as the others required for the generation.
+
+When `npm run build` is executed, a file called grammer.json is created, which contains properties for `keywords` (all the keywords), `abl-functions` and `handle-attributes` (attributes and method calls on ABL handles). The contents of this file should be copied into the `abl.tmLanguage.json` file, replacing the existing contents.
+
+
 
 # Scopes
 
@@ -81,8 +84,8 @@ The ABL-specific scopes produced by the ABL grammer listed in the table below. T
 |entity.name.type.abl                       | Class/interface/enum names |
 |entity.name.type.generic.abl               | Generic type names |
 |entity.other.attribute-name.abl            | Annotation attribute names |
-|keyword.operator.source.abl                | `contains`, `begins`, `matches`, `eq`, `le`, `lt`, `ge`, `gt`, `ne`, `<=`, `<>`, `>=`, `=`, `+`, `-`, `/`, `<`, `>`, `*` |
-|keyword.other.abl                          | Any ABL keyword (incl those covered by other scopes) |
+|keyword.operator.source.abl                | `contains`, `begins`, `matches`, `eq`, `le`, `lt`, `ge`, `gt`, `ne`, `<=`, `<>`, `>=`, `=`, `+`, `-`, `/`, `<`, `>`, `*`, `+=`, `-=`, `/=`, `*=` |
+|keyword.other.abl                          | Any ABL keyword (incl those covered by other scopes like support.function.abl and entity.name.function.abl) |
 |punctuation.definition.string.begin.abl    | Start of a quoted string |
 |punctuation.definition.string.end.abl      | End of a quoted string |
 |punctuation.section.abl                    | `{` and `}` |
@@ -90,14 +93,14 @@ The ABL-specific scopes produced by the ABL grammer listed in the table below. T
 |punctuation.separator.period.abl           | `.` |
 |punctuation.separator.colon.abl            | `:` |
 |punctuation.terminator.abl                 | `.` and `:` |
-|storage.data.dataset.abl                   | Statically-defined dataset names |
+|storage.data.dataset.abl                   | Statically-defined dataset names, data-relation names |
 |storage.data.table.abl                     | (Temp-)Table names, field names, index names |
 |storage.type.abl                           | Primitive datatypes |
 |storage.type.function.abl                  | ABL preprocessors, `defined` keyword |
 |string.double.complex.abl                  | String in `"` quotes |
 |string.single.complex.abl                  | String in `'` quotes |
 |support.function.abl                       | `opsys`, `proversion`, ABL functions (eg `BASE64-ENCODE`) |
-|support.other.abl                          | `:L`, `:R`, `:T`, `:C`, `:U` |
+|support.other.abl                          | Translation attributes `:L`, `:R`, `:T`, `:C`, `:U` |
 |support.other.argument.abl                 | `&<name\|number>` arguments in includes, preprocessor values |
 |variable.language.abl                      | ABL system handles (eg `session` or `this-object`) |
 |variable.other.abl                         | Variable names |
