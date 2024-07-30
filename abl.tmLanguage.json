@@ -2760,7 +2760,18 @@
           }
         },
         {
-          "match": "(?i)\\b(table|dataset)\\s+([\\w\\-#$%]+(\\.[\\w\\-#$%]+)?)\\b",
+          "match": "(?i)\\b(dataset)\\s+([\\w\\-#$%]+(\\.[\\w\\-#$%]+)?)\\b",
+          "captures": {
+            "1": {
+              "name": "keyword.other.abl"
+            },
+            "2": {
+              "name": "storage.data.dataset.abl"
+            }
+          }
+        },
+        {
+          "match": "(?i)\\b(temp-table|table|buffer)\\s+([\\w\\-#$%]+(\\.[\\w\\-#$%]+)?)\\b",
           "captures": {
             "1": {
               "name": "keyword.other.abl"
