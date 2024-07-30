@@ -2169,11 +2169,14 @@
       }
     },
     "block-label": {
-      "match": "(?i)^\\s*((?!transaction|no-lock|exclusive-lock|exclusive-loc|exclusive-lo|exclusive-l|share-lock|share-loc|share-lo|share-|share)([a-z][a-z0-9\\-\\$\\#]*)+:)",
-      "comment": "A colon followed by a space is only legal is for block labels. block labels must be at the beginning of a line",
+      "match": "(?i)^\\s*((?!transaction|no-lock|exclusive-lock|exclusive-loc|exclusive-lo|exclusive-l|share-lock|share-loc|share-lo|share-|share)([a-z][a-z0-9\\-\\$\\#]*)+(:))\\s",
+      "comment": "A colon followed by a space is only legal is for block labels. Block labels must also be at the beginning of a line",
       "captures": {
         "2": {
           "name": "meta.block.label.abl"
+        },
+        "3": {
+          "name": "punctuation.terminator.abl"
         }
       }
     },

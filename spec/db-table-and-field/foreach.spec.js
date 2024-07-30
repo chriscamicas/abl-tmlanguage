@@ -558,8 +558,8 @@ describe('', () => {
     ],
     [
       { "startIndex": 0, "endIndex": 2, "scopes": ["source.abl"] },  // '  '
-      { "startIndex": 2, "endIndex": 13, "scopes": ["source.abl", "meta.block.label.abl"] },  // 'TRANSACTION'
-      { "startIndex": 13, "endIndex": 15, "scopes": ["source.abl"] }  // ':'
+      { "startIndex": 2, "endIndex": 13, "scopes": ["source.abl", "keyword.other.abl"] },  // 'TRANSACTION'
+      { "startIndex": 13, "endIndex": 14, "scopes": ["source.abl", "punctuation.terminator.abl"] }  // ':'
     ]
   ];
   shared.itShouldMatchExpectedScopes(statement, expectedTokens);
