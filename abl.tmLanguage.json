@@ -2801,6 +2801,9 @@
           "include": "#handle-attributes"
         },
         {
+          "include": "#preprocessors"
+        },
+        {
           "include": "#keywords"
         }
       ],
