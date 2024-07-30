@@ -223,7 +223,18 @@
           }
         },
         {
-          "match": "(?i)\\s*(dataset|table)\\s+([\\w\\-]+)\\s*",
+          "match": "(?i)\\s*(dataset)\\s+([\\w\\-]+)\\s*",
+          "captures": {
+            "1": {
+              "name": "keyword.other.abl"
+            },
+            "2": {
+              "name": "storage.data.dataset.abl"
+            }
+          }
+        },
+        {
+          "match": "(?i)\\s*(table)\\s+([\\w\\-]+)\\s*",
           "captures": {
             "1": {
               "name": "keyword.other.abl"
@@ -1605,6 +1616,9 @@
           "include": "#define-variable"
         },
         {
+          "include": "#define-parameter"
+        },
+        {
           "include": "#define-dataset"
         },
         {
@@ -1730,6 +1744,66 @@
           "name": "storage.data.table.abl"
         }
       }
+    },
+    "define-parameter": {
+      "begin": "(?i)\\b(parameter|paramete|paramet|parame|param)\\b",
+      "beginCaptures": {
+        "1": {
+          "name": "keyword.other.abl"
+        }
+      },
+      "end": "(?i)(?=\\.)|\\b(?=bgcolor|column-label|contet-help-id|dcolor|decimals|drop-target|extent|font|fgcolor|format|initial|label|mouse-pointer|no-undo|not|case-sensitive|pfcolor|view-as|triggers)\\b",
+      "comment": "The end capture does a lookahead on . so that the 'define' capture can end ",
+      "patterns": [
+        {
+          "match": "(?i)\\b(table)\\s+(for)\\s+([\\w\\-#$%]+(\\.[\\w\\-#$%]+)?)\\b",
+          "captures": {
+            "1": {
+              "name": "keyword.other.abl"
+            },
+            "2": {
+              "name": "keyword.other.abl"
+            },
+            "3": {
+              "name": "storage.data.table.abl"
+            }
+          }
+        },
+        {
+          "match": "(?i)\\b(table-handle|dataset-handle)\\s+([a-zA-Z][a-zA-Z0-9\\#\\$\\-\\_\\%\\&]*)\\b",
+          "captures": {
+            "1": {
+              "name": "keyword.other.abl"
+            },
+            "2": {
+              "name": "variable.other.abl"
+            }
+          }
+        },
+        {
+          "match": "(?i)\\b(dataset)\\s+(for)\\s+([\\w\\-#$%]+(\\.[\\w\\-#$%]+)?)\\b",
+          "captures": {
+            "1": {
+              "name": "keyword.other.abl"
+            },
+            "2": {
+              "name": "keyword.other.abl"
+            },
+            "3": {
+              "name": "storage.data.dataset.abl"
+            }
+          }
+        },
+        {
+          "include": "#parameter-as"
+        },
+        {
+          "include": "#keywords"
+        },
+        {
+          "include": "#expression"
+        }
+      ]
     },
     "define-property": {
       "begin": "(?i)\\b(property|prop)\\b",
