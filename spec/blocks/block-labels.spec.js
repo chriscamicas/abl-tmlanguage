@@ -78,7 +78,7 @@ end.`;
 
 describe('', () => {
   let statement = `for each bCustomer
-shared-lo:
+share-lo:
 end.`;
   let expectedTokens = [
     [
@@ -89,8 +89,8 @@ end.`;
       { "startIndex": 9, "endIndex": 18, "scopes": ["source.abl", "storage.data.table.abl"] }  // 'bCustomer'
     ],
     [
-      { "startIndex": 0, "endIndex": 9, "scopes": ["source.abl", "storage.data.table.abl"] },  // 'shared-lo'
-      { "startIndex": 9, "endIndex": 10, "scopes": ["source.abl", "punctuation.terminator.abl"] }  // ':'
+      { "startIndex": 0, "endIndex": 8, "scopes": ["source.abl", "keyword.other.abl"] },  // 'share-lo'
+      { "startIndex": 8, "endIndex": 9, "scopes": ["source.abl", "punctuation.terminator.abl"] }  // ':'
     ],
     [
       { "startIndex": 0, "endIndex": 3, "scopes": ["source.abl", "keyword.other.abl"] },  // 'end'
@@ -102,12 +102,12 @@ end.`;
 
 describe('', () => {
   let statement = `block-label: for each bCustomer
-shared-lo:
+share-lo:
 end.`;
   let expectedTokens = [
     [
       { "startIndex": 0, "endIndex": 11, "scopes": ["source.abl", "meta.block.label.abl"] },  // 'block-label'
-      { "startIndex": 11, "endIndex": 12, "scopes": ["source.abl"] },  // ':'
+      { "startIndex": 11, "endIndex": 12, "scopes": ["source.abl", "punctuation.terminator.abl"] },  // ':'
       { "startIndex": 12, "endIndex": 13, "scopes": ["source.abl"] },  // ' '
       { "startIndex": 13, "endIndex": 16, "scopes": ["source.abl", "keyword.other.abl"] },  // 'for'
       { "startIndex": 16, "endIndex": 17, "scopes": ["source.abl"] },  // ' '
@@ -116,8 +116,8 @@ end.`;
       { "startIndex": 22, "endIndex": 31, "scopes": ["source.abl", "storage.data.table.abl"] }  // 'bCustomer'
     ],
     [
-      { "startIndex": 0, "endIndex": 9, "scopes": ["source.abl", "keyword.other.abl"] },  // 'shared-lo'
-      { "startIndex": 9, "endIndex": 10, "scopes": ["source.abl", "punctuation.terminator.abl"] }  // ':'
+      { "startIndex": 0, "endIndex": 8, "scopes": ["source.abl", "keyword.other.abl"] },  // 'share-lo'
+      { "startIndex": 8, "endIndex": 9, "scopes": ["source.abl", "punctuation.terminator.abl"] }  // ':'
     ],
     [
       { "startIndex": 0, "endIndex": 3, "scopes": ["source.abl", "keyword.other.abl"] },  // 'end'
@@ -134,7 +134,7 @@ end.`;
   let expectedTokens = [
     [
       { "startIndex": 0, "endIndex": 11, "scopes": ["source.abl", "meta.block.label.abl"] },  // 'block-label'
-      { "startIndex": 11, "endIndex": 12, "scopes": ["source.abl"] }  // ':'
+      { "startIndex": 11, "endIndex": 12, "scopes": ["source.abl", "punctuation.terminator.abl"] }  // ':'
     ],
     [
       { "startIndex": 0, "endIndex": 6, "scopes": ["source.abl", "meta.block.abl", "keyword.other.abl"] },  // 'repeat'
