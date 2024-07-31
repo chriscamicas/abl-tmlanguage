@@ -110,3 +110,66 @@ end method.`;
   ];
   shared.itShouldMatchExpectedScopes(statement, expectedTokens);
 })
+
+describe('', () => {
+  let statement = `for each table transaction:
+  oAccessRequestBusinessEntity:SaveChanges(DATASET dsAccessRequest).
+  oARBE:SaveChanges(DATASET dsAccessRequest).
+  DatasetHelper:ThrowDatasetErrors(DATASET dsAccessRequest:HANDLE).
+end.`;
+  let expectedTokens = [
+    [
+      { "startIndex": 0, "endIndex": 3, "scopes": ["source.abl", "keyword.other.abl"] },  // 'for'
+      { "startIndex": 3, "endIndex": 4, "scopes": ["source.abl"] },  // ' '
+      { "startIndex": 4, "endIndex": 8, "scopes": ["source.abl", "keyword.other.abl"] },  // 'each'
+      { "startIndex": 8, "endIndex": 9, "scopes": ["source.abl"] },  // ' '
+      { "startIndex": 9, "endIndex": 14, "scopes": ["source.abl", "storage.data.table.abl"] },  // 'table'
+      { "startIndex": 14, "endIndex": 15, "scopes": ["source.abl"] },  // ' '
+      { "startIndex": 15, "endIndex": 26, "scopes": ["source.abl", "keyword.other.abl"] },  // 'transaction'
+      { "startIndex": 26, "endIndex": 27, "scopes": ["source.abl", "punctuation.terminator.abl"] }  // ':'
+    ],
+    [
+      { "startIndex": 0, "endIndex": 2, "scopes": ["source.abl"] },  // '  '
+      { "startIndex": 2, "endIndex": 30, "scopes": ["source.abl", "variable.other.abl"] },  // 'oAccessRequestBusinessEntity'
+      { "startIndex": 30, "endIndex": 31, "scopes": ["source.abl", "punctuation.separator.colon.abl"] },  // ':'
+      { "startIndex": 31, "endIndex": 42, "scopes": ["source.abl", "entity.name.function.abl"] },  // 'SaveChanges'
+      { "startIndex": 42, "endIndex": 43, "scopes": ["source.abl", "meta.function.arguments.abl", "meta.brace.round.js"] },  // '('
+      { "startIndex": 43, "endIndex": 50, "scopes": ["source.abl", "meta.function.arguments.abl", "keyword.other.abl"] },  // 'DATASET'
+      { "startIndex": 50, "endIndex": 51, "scopes": ["source.abl", "meta.function.arguments.abl"] },  // ' '
+      { "startIndex": 51, "endIndex": 66, "scopes": ["source.abl", "meta.function.arguments.abl", "storage.data.dataset.abl"] },  // 'dsAccessRequest'
+      { "startIndex": 66, "endIndex": 67, "scopes": ["source.abl", "meta.brace.round.js"] },  // ')'
+      { "startIndex": 67, "endIndex": 68, "scopes": ["source.abl", "punctuation.terminator.abl"] }  // '.'
+    ],
+    [
+      { "startIndex": 0, "endIndex": 2, "scopes": ["source.abl"] },  // '  '
+      { "startIndex": 2, "endIndex": 7, "scopes": ["source.abl", "variable.other.abl"] },  // 'oARBE'
+      { "startIndex": 7, "endIndex": 8, "scopes": ["source.abl", "punctuation.separator.colon.abl"] },  // ':'
+      { "startIndex": 8, "endIndex": 19, "scopes": ["source.abl", "entity.name.function.abl"] },  // 'SaveChanges'
+      { "startIndex": 19, "endIndex": 20, "scopes": ["source.abl", "meta.function.arguments.abl", "meta.brace.round.js"] },  // '('
+      { "startIndex": 20, "endIndex": 27, "scopes": ["source.abl", "meta.function.arguments.abl", "keyword.other.abl"] },  // 'DATASET'
+      { "startIndex": 27, "endIndex": 28, "scopes": ["source.abl", "meta.function.arguments.abl"] },  // ' '
+      { "startIndex": 28, "endIndex": 43, "scopes": ["source.abl", "meta.function.arguments.abl", "storage.data.dataset.abl"] },  // 'dsAccessRequest'
+      { "startIndex": 43, "endIndex": 44, "scopes": ["source.abl", "meta.brace.round.js"] },  // ')'
+      { "startIndex": 44, "endIndex": 45, "scopes": ["source.abl", "punctuation.terminator.abl"] }  // '.'
+    ],
+    [
+      { "startIndex": 0, "endIndex": 2, "scopes": ["source.abl"] },  // '  '
+      { "startIndex": 2, "endIndex": 15, "scopes": ["source.abl", "variable.other.abl"] },  // 'DatasetHelper'
+      { "startIndex": 15, "endIndex": 16, "scopes": ["source.abl", "punctuation.separator.colon.abl"] },  // ':'
+      { "startIndex": 16, "endIndex": 34, "scopes": ["source.abl", "entity.name.function.abl"] },  // 'ThrowDatasetErrors'
+      { "startIndex": 34, "endIndex": 35, "scopes": ["source.abl", "meta.function.arguments.abl", "meta.brace.round.js"] },  // '('
+      { "startIndex": 35, "endIndex": 42, "scopes": ["source.abl", "meta.function.arguments.abl", "keyword.other.abl"] },  // 'DATASET'
+      { "startIndex": 42, "endIndex": 43, "scopes": ["source.abl", "meta.function.arguments.abl"] },  // ' '
+      { "startIndex": 43, "endIndex": 58, "scopes": ["source.abl", "meta.function.arguments.abl", "storage.data.dataset.abl"] },  // 'dsAccessRequest'
+      { "startIndex": 58, "endIndex": 59, "scopes": ["source.abl", "meta.function.arguments.abl", "punctuation.separator.colon.abl"] },  // ':'
+      { "startIndex": 59, "endIndex": 65, "scopes": ["source.abl", "meta.function.arguments.abl", "entity.name.function.abl"] },  // 'HANDLE'
+      { "startIndex": 65, "endIndex": 66, "scopes": ["source.abl", "meta.brace.round.js"] },  // ')'
+      { "startIndex": 66, "endIndex": 67, "scopes": ["source.abl", "punctuation.terminator.abl"] }  // '.'
+    ],
+    [
+      { "startIndex": 0, "endIndex": 3, "scopes": ["source.abl", "keyword.other.abl"] },  // 'end'
+      { "startIndex": 3, "endIndex": 4, "scopes": ["source.abl", "punctuation.terminator.abl"] }  // '.'
+    ]
+  ];
+  shared.itShouldMatchExpectedScopes(statement, expectedTokens);
+})
