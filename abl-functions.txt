@@ -1,0 +1,548 @@
+# Updated 2024-07-30 from 12.8 doc
+: Punctuation
+:: Punctuation
+. Punctuation
+; Punctuation
+, Punctuation
+; Special character
+? Special character
+?: Safe navigation operator
+\ Special character
+~ Special character
+" Special character
+' Special character
+/ Special character
+( ) Expression precedence
+[ ] Array reference
+= Special character
+< Special character
+< = Special character
+< > Special character
+> Special character
+> = Special character
+" "Character-string literal
+<T> Generic type reference
+{ } Argument reference
+{ } Include file reference
+{ } Preprocessor name reference
+&GLOBAL-DEFINE preprocessor directive
+&IF, &THEN, &ELSEIF, &ELSE, and &ENDIF preprocessor directives
+&MESSAGE preprocessor directive
+&SCOPED-DEFINE preprocessor directive
+&UNDEFINE preprocessor directive
+/* Multi-line comments */
+// Single-line comments
++ Unary positive operator
++ Addition operator
++ Concatenation operator
++ Date addition operator
++ Datetime addition operator
++= Addition assignment operator
+- Unary negative operator
+- Subtraction operator
+- Date subtraction operator
+- Datetime subtraction operator
+-= Subtraction assignment operator
+* Multiplication operator
+*= Multiplication assignment operator
+/ Division operator
+/= Division assignment operator
+ABSOLUTE function
+ACCUM function
+ACCUMULATE statement
+ACTIVE-FORM system reference
+ADD-INTERVAL function
+Aggregate phrase
+AGGREGATE statement
+ALIAS function
+AMBIGUOUS function
+AND operator (bitwise)
+AND operator (logical)
+APPLY statement
+ASC function
+Assignment (=) statement
+ASSIGN statement
+AT phrase
+AUDIT-ENABLED function
+AVAILABLE function
+BASE64-DECODE function
+BASE64-ENCODE function
+BEGINS operator
+BELL statement
+BLOCK-LEVEL ON ERROR UNDO, THROW statement
+BOX function
+BUFFER-COMPARE statement
+BUFFER-COPY statement
+BUFFER-GROUP-ID function
+BUFFER-GROUP-NAME function
+BUFFER-PARTITION-ID function
+BUFFER-TENANT-ID function
+BUFFER-TENANT-NAME function
+CALL statement
+CAN-DO function
+CAN-FIND function
+CAN-QUERY function
+CAN-SET function
+CAPS function
+CASE statement
+CAST function
+CATCH statement
+CHOOSE statement
+CHR function
+Class-based data member access
+Class-based method call
+Class-based object reference
+Class-based property access
+CLASS statement
+CLEAR statement
+CLOSE QUERY statement
+CLOSE STORED-PROCEDURE statement
+CODEPAGE-CONVERT function
+COLOR phrase
+COLOR statement
+COMBO-BOX phrase
+COMPARE function
+COMPILE statement
+CONNECT statement
+CONNECTED function
+CONSTRUCTOR statement
+COPY-LOB statement
+COUNT-OF function
+CREATE statement
+CREATE ALIAS statement
+CREATE automation object statement
+CREATE BROWSE statement
+CREATE BUFFER statement
+CREATE CALL statement
+CREATE CLIENT-PRINCIPAL statement
+CREATE DATABASE statement
+CREATE DATASET statement
+CREATE DATA-SOURCE statement
+CREATE QUERY statement
+CREATE SAX-ATTRIBUTES statement
+CREATE SAX-READER statement
+CREATE SAX-WRITER statement
+CREATE SERVER statement
+CREATE SERVER-SOCKET statement
+CREATE SOAP-HEADER statement
+CREATE SOAP-HEADER-ENTRYREF statement
+CREATE SOCKET statement
+CREATE TEMP-TABLE statement
+CREATE widget statement
+CREATE WIDGET-POOL statement
+CREATE X-DOCUMENT statement
+CREATE X-NODEREF statement
+CURRENT-CHANGED function
+CURRENT-LANGUAGE function
+CURRENT-LANGUAGE statement
+CURRENT-RESULT-ROW function
+CURRENT-VALUE function
+CURRENT-VALUE statement
+Data types
+DATASERVERS function
+DATA-SOURCE-MODIFIED function
+DATE function
+DATETIME function
+DATETIME-TZ function
+DAY function
+DBCODEPAGE function
+DBCOLLATION function
+DBNAME function
+DBPARAM function
+DB-REMOTE-HOST function
+DBRESTRICTIONS function
+DBTASKID function
+DBTYPE function
+DBVERSION function
+DDE ADVISE statement
+DDE EXECUTE statement
+DDE GET statement
+DDE INITIATE statement
+DDE REQUEST statement
+DDE SEND statement
+DDE TERMINATE statement
+DECIMAL function
+DECRYPT function
+DEFINE BROWSE statement
+DEFINE BUFFER statement
+DEFINE BUTTON statement
+DEFINE DATASET statement
+DEFINE DATA-SOURCE statement
+DEFINE ENUM statement
+DEFINE EVENT statement
+DEFINE FRAME statement
+DEFINE IMAGE statement
+DEFINE MENU statement
+DEFINE PARAMETER statement
+DEFINE PROPERTY statement
+DEFINE QUERY statement
+DEFINE RECTANGLE statement
+DEFINE STREAM statement
+DEFINE SUB-MENU statement
+DEFINE TEMP-TABLE statement
+DEFINE VARIABLE statement
+DEFINE WORK-TABLE statement
+DEFINE WORKFILE statement
+DEFINED preprocessor function
+DELETE statement
+DELETE ALIAS statement
+DELETE OBJECT statement
+DELETE PROCEDURE statement
+DELETE WIDGET statement
+DELETE WIDGET-POOL statement
+DESTRUCTOR statement
+DICTIONARY statement
+DISABLE statement
+DISABLE TRIGGERS statement
+DISCONNECT statement
+DISPLAY statement
+DO statement
+DOS statement
+DOWN statement
+DYNAMIC-CAST function
+DYNAMIC-CURRENT-VALUE function
+DYNAMIC-CURRENT-VALUE statement
+DYNAMIC-ENUM function
+DYNAMIC-FUNCTION function
+DYNAMIC-INVOKE function
+DYNAMIC-NEW statement
+DYNAMIC-NEXT-VALUE function
+DYNAMIC-PROPERTY function
+DYNAMIC-PROPERTY statement
+EDITING phrase
+EDITOR phrase
+EMPTY TEMP-TABLE statement
+ENABLE statement
+ENCODE function
+ENCRYPT function
+END statement
+ENTERED function
+ENTRY function
+ENTRY statement
+ENUM statement
+Enumeration member access
+EQ or = operator
+ERROR function
+ETIME function
+EXP function
+EXPORT statement
+Expression
+EXTENT function
+EXTENT statement
+FILL function
+FINALLY statement
+FIND statement
+FIRST function
+FIRST-OF function
+FIX-CODEPAGE statement
+FOR statement
+FORM statement
+Format phrase
+Frame phrase
+FRAME-COL function
+FRAME-DB function
+FRAME-DOWN function
+FRAME-FIELD function
+FRAME-FILE function
+FRAME-INDEX function
+FRAME-LINE function
+FRAME-NAME function
+FRAME-ROW function
+FRAME-VALUE function
+FRAME-VALUE statement
+FUNCTION statement
+GATEWAYS function
+GE or >= operator
+GENERATE-PBE-KEY function
+GENERATE-PBE-SALT function
+GENERATE-RANDOM-KEY function
+GENERATE-UUID function
+GET statement
+GET-BITS function
+GET-BYTE function
+GET-BYTE-ORDER function
+GET-BYTES function
+GET-CLASS function
+GET-CODEPAGE function
+GET-CODEPAGES function
+GET-COLLATION function
+GET-COLLATIONS function
+GET-DB-CLIENT function
+GET-DOUBLE function
+GET-EFFECTIVE-TENANT-ID function
+GET-EFFECTIVE-TENANT-NAME function
+GET-FLOAT function
+GET-INT64 function
+GET-KEY-VALUE statement
+GET-LONG function
+GET-POINTER-VALUE function
+GET-SHORT function
+GET-SIZE function
+GET-STRING function
+GET-UNSIGNED-LONG function
+GET-UNSIGNED-SHORT function
+GO-PENDING function
+GT or > operator
+GUID function
+HANDLE function
+HASH-CODE function
+HEX-DECODE function
+HEX-ENCODE function
+HIDE statement
+IF...THEN...ELSE function
+IF...THEN...ELSE statement
+Image phrase
+IMPORT statement
+INDEX function
+INPUT function
+INPUT CLEAR statement
+INPUT CLOSE statement
+INPUT FROM statement
+INPUT THROUGH statement
+INPUT-OUTPUT CLOSE statement
+INPUT-OUTPUT THROUGH statement
+INSERT statement
+INT64 function
+INTEGER function
+INTERFACE statement
+INTERVAL function
+IS-ATTR-SPACE function
+IS-CODEPAGE-FIXED function
+IS-COLUMN-CODEPAGE function
+IS-DB-MULTI-TENANT function
+IS-LEAD-BYTE function
+ISO-DATE function
+KBLABEL function
+KEYCODE function
+KEYFUNCTION function
+KEYLABEL function
+KEYWORD function
+KEYWORD-ALL function
+LAST function
+LASTKEY function
+LAST-OF function
+LC function
+LDBNAME function
+LE or < = operator
+LEAVE statement
+LEFT-TRIM function
+LENGTH function
+LENGTH statement
+LIBRARY function
+LINE-COUNTER function
+LIST-EVENTS function
+LIST-QUERY-ATTRS function
+LIST-SET-ATTRS function
+LIST-WIDGETS function
+LOAD statement
+LOAD-PICTURE statement
+LOCKED function
+LOG function
+LOGICAL function
+Logical values
+LOOKUP function
+LT or < operator
+MATCHES operator
+MAXIMUM function
+MD5-DIGEST function
+MEMBER function
+MESSAGE statement
+MESSAGE-DIGEST function
+MESSAGE-LINES function
+METHOD statement
+MINIMUM function
+MODULO operator
+MONTH function
+MTIME function
+NE or <> operator
+NEW function (classes)
+NEW function (record buffers)
+NEW statement
+NEXT statement
+NEXT-PROMPT statement
+NEXT-VALUE function
+NORMALIZE function
+NOT operator (bitwise)
+NOT operator (logical)
+NOT ENTERED function
+NOW function
+NO-ERROR option
+NUM-ALIASES function
+NUM-DBS function
+NUM-ENTRIES function
+NUM-RESULTS function
+ON ENDKEY phrase
+ON ERROR phrase
+ON QUIT phrase
+ON statement
+ON STOP phrase
+OPEN QUERY statement
+OPSYS function
+OR operator (bitwise)
+OR operator (logical)
+OS-APPEND statement
+OS-COMMAND statement
+OS-COPY statement
+OS-CREATE-DIR statement
+OS-DELETE statement
+OS-DRIVES function
+OS-ERROR function
+OS-GETENV function
+OS-RENAME statement
+OUTPUT CLOSE statement
+OUTPUT THROUGH statement
+OUTPUT TO statement
+OVERLAY statement
+PAGE statement
+PAGE-NUMBER function
+PAGE-SIZE function
+Parameter definition syntax
+Parameter passing syntax
+PAUSE statement
+PDBNAME function
+PRESELECT phrase
+PROC-HANDLE function
+PROC-STATUS function
+PROCEDURE statement
+PROCESS-ARCHITECTURE function
+PROCESS EVENTS statement
+PROGRAM-NAME function
+PROGRESS function
+PROMPT-FOR statement
+PROMSGS function
+PROMSGS statement
+PROPATH function
+PROPATH statement
+PROVERSION function
+PUBLISH statement
+PUT CURSOR statement
+PUT SCREEN statement
+PUT statement
+PUT-BITS statement
+PUT-BYTE statement
+PUT-BYTES statement
+PUT-DOUBLE statement
+PUT-FLOAT statement
+PUT-INT64 statement
+PUT-KEY-VALUE statement
+PUT-LONG statement
+PUT-SHORT statement
+PUT-STRING statement
+PUT-UNSIGNED-LONG statement
+PUT-UNSIGNED-SHORT statement
+QUERY-OFF-END function
+QUERY-TUNING phrase
+QUIT statement
+QUOTER function
+R-INDEX function
+RADIO-SET phrase
+RANDOM function
+RAW function
+RAW statement
+RAW-TRANSFER statement
+READKEY statement
+RECID function
+Record phrase
+RECORD-LENGTH function
+REJECTED function
+RELEASE statement
+RELEASE EXTERNAL statement
+RELEASE OBJECT statement
+REPEAT statement
+REPLACE function
+REPOSITION statement
+RETRY function
+RETURN statement
+RETURN-VALUE function
+RGB-VALUE function
+RIGHT-TRIM function
+ROUND function
+ROUTINE-LEVEL ON ERROR UNDO, THROW statement
+ROW-STATE function
+ROWID function
+RUN statement
+RUN STORED-PROCEDURE statement
+RUN SUPER statement
+SAVE CACHE statement
+SCREEN-LINES function
+SCROLL statement
+SDBNAME function
+SEARCH function
+SEEK function
+SEEK statement
+SELECTION-LIST phrase
+SET statement
+SET-BYTE-ORDER statement
+SET-DB-CLIENT function
+SET-EFFECTIVE-TENANT function
+SET-POINTER-VALUE statement
+SET-SIZE statement
+SETUSERID function
+SHA1-DIGEST function
+SHOW-STATS statement
+SIZE phrase
+SLIDER phrase
+SQRT function
+SSL-SERVER-NAME function
+STATUS statement
+STOP statement
+STOP-AFTER phrase
+STRING function
+SUBSCRIBE statement
+SUBSTITUTE function
+SUBSTRING function
+SUBSTRING statement
+SUPER function
+SUPER statement
+SUPER system reference
+SYSTEM-DIALOG COLOR statement
+SYSTEM-DIALOG FONT statement
+SYSTEM-DIALOG GET-DIR statement
+SYSTEM-DIALOG GET-FILE statement
+SYSTEM-DIALOG PRINTER-SETUP statement
+SYSTEM-HELP statement
+TENANT-ID function
+TENANT-NAME function
+TENANT-NAME-TO-ID function
+TERMINAL function
+TERMINAL statement
+THIS-OBJECT statement
+THIS-OBJECT system reference
+TIME function
+TIMEZONE function
+TODAY function
+TO-ROWID function
+TRANSACTION function
+TRANSACTION-MODE AUTOMATIC statement
+Trigger phrase
+TRIGGER PROCEDURE statement
+TRIM function
+TRUNCATE function
+Type-name syntax
+TYPE-OF function
+UNBOX function
+UNDERLINE statement
+UNDO statement
+UNIX statement
+UNLOAD statement
+UNSUBSCRIBE statement
+UP statement
+UPDATE statement
+USE statement
+USERID function
+USING statement
+VALID-EVENT function
+VALID-HANDLE function
+VALID-OBJECT function
+VALIDATE statement
+VAR statement
+VIEW statement
+VIEW-AS phrase
+WAIT-FOR statement (ABL only)
+WAIT-FOR statement (.NET and ABL)
+WEEKDAY function
+WIDGET-HANDLE function
+Widget phrase
+Working directory
+XOR operator (bitwise)
+YEAR function

@@ -3582,7 +3582,7 @@
       }
     },
     "keywords-R": {
-      "match": "(?i)\\b(run-procedure|run-procedur|run-procedu|run-proced|run-proce|run-proc|run|rule-y|rule-row|rule|row-unmodified|row-of|row-modified|row-leave|row-height|row-entry|row-display|row-deleted|row-created|row|routine-level|right-end|right-aligned|right-aligne|right-align|right|revoke|revert|reverse-from|returns|return-to-start-dir|return-to-start-di|return|retry-cancel|retain|resume-display|result|request|reposition-parent-relation|reposition-parent-relatio|reposition-parent-relati|reposition-parent-relat|reposition-parent-rela|reposition-parent-rel|reposition-forwards|reposition-forward|reposition-forwar|reposition-forwa|reposition-forw|reposition-backwards|reposition-backward|reposition-backwar|reposition-backwa|reposition-backw|reposition-back|reposition|reports|replication-write|replication-delete|replication-create|repeat|release|reinstate|reference-only|rectangle|rectangl|rectang|rectan|recta|rect|recall|real|readkey|read-response|read-exact-num|read-available|rcode-information|rcode-informatio|rcode-informati|rcode-informat|rcode-informa|rcode-inform|rcode-infor|rcode-info|raw-transfer|raw|radio-set)\\b",
+      "match": "(?i)\\b(run-procedure|run-procedur|run-procedu|run-proced|run-proce|run-proc|run|rule-y|rule-row|rule|row-unmodified|row-of|row-modified|row-leave|row-height|row-entry|row-display|row-deleted|row-created|row|routine-level|right-end|right-aligned|right-aligne|right-align|right|revoke|revert|reverse-from|returns|return-value|return-to-start-dir|return-to-start-di|return|retry-cancel|retain|resume-display|result|request|reposition-parent-relation|reposition-parent-relatio|reposition-parent-relati|reposition-parent-relat|reposition-parent-rela|reposition-parent-rel|reposition-forwards|reposition-forward|reposition-forwar|reposition-forwa|reposition-forw|reposition-backwards|reposition-backward|reposition-backwar|reposition-backwa|reposition-backw|reposition-back|reposition|reports|replication-write|replication-delete|replication-create|repeat|release|reinstate|reference-only|rectangle|rectangl|rectang|rectan|recta|rect|recall|real|readkey|read-response|read-exact-num|read-available|rcode-information|rcode-informatio|rcode-informati|rcode-informat|rcode-informa|rcode-inform|rcode-infor|rcode-info|raw-transfer|raw|radio-set)\\b",
       "captures": {
         "1": {
           "name": "keyword.other.abl"
@@ -3638,7 +3638,7 @@
       }
     },
     "keywords-Y": {
-      "match": "(?i)\\b(yes-no-cancel|yes-no|yes|year-offset|y-of)\\b",
+      "match": "(?i)\\b(yes-no-cancel|yes-no|yes|year-offset|year|y-of)\\b",
       "captures": {
         "1": {
           "name": "keyword.other.abl"

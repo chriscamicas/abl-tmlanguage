@@ -1,6 +1,6 @@
 // This script create 3 sections: keywords-<A>, handle-attributes-<Z> and abl-functions-<A> . ABL keywords can only be in
 // one of these sections.
-// kwlist.txt file can be generated with `prowin -zgenkwlist > kwlist.txt`
+// kwlist.txt file can be generated with `prowin -zgenkwlist > abl-keywords.txt`
 //
 // methods.txt can be created by copying the 'Related Links' from https://docs.progress.com/bundle/abl-reference/page/Handle-Attributes-and-Methods-Reference.html//
 // It will look something like:
@@ -14,7 +14,7 @@
 const fs = require('fs');
 
 let lineReaderMethods = require('readline').createInterface({
-  input: fs.createReadStream('methods.txt')
+  input: fs.createReadStream('abl-methods.txt')
 });
 
 let lineReaderFunctions = require('readline').createInterface({
@@ -22,7 +22,7 @@ let lineReaderFunctions = require('readline').createInterface({
 });
 
 let lineReaderKeywords = require('readline').createInterface({
-  input: fs.createReadStream('kwlist.txt')
+  input: fs.createReadStream('abl-keywords.txt')
 });
 
 let output = 'grammar.json';
@@ -39,11 +39,13 @@ const re = /(?:\w|-|\()+(?=\s|$)/g
 // appropriate scopes
 let alsoStatements = [];
 alsoStatements.push('centered');
+alsoStatements.push('delete');
 alsoStatements.push('first');
 alsoStatements.push('format');
 alsoStatements.push('initial');
 alsoStatements.push('label');
 alsoStatements.push('nested');
+alsoStatements.push('return-value');
 alsoStatements.push('row');
 alsoStatements.push('serialize-name');
 alsoStatements.push('single-run');
@@ -64,28 +66,30 @@ lineReaderMethods.on('line', line => {
   let results;
   line = line.toLowerCase();
 
-  let kw = line.split(' ');
-  let charIdx = kw[0].charCodeAt(0) - 97;
-  let keyWord = kw[0].split('(')[0];
+  if (!line.startsWith("#")) {
+    let kw = line.split(' ');
+    let charIdx = kw[0].charCodeAt(0) - 97;
+    let keyWord = kw[0].split('(')[0];
 
-  if (kw.includes('attribute')) {
-    if (!attributeBlocks[charIdx].includes(keyWord)) {
-      attributeBlocks[charIdx].push(keyWord);
+    if (kw.includes('attribute')) {
+      if (!attributeBlocks[charIdx].includes(keyWord)) {
+        attributeBlocks[charIdx].push(keyWord);
+      }
+    } else if (kw.includes('method')) {
+      if (!methodBlocks[charIdx].includes(keyWord)) {
+        methodBlocks[charIdx].push(keyWord);
+      }
     }
-  } else if (kw.includes('method')) {
-    if (!methodBlocks[charIdx].includes(keyWord)) {
-      methodBlocks[charIdx].push(keyWord);
-    }
-  }
 
-  if (alsoStatements.includes(keyWord)) {
-    if (!keywordBlocks[charIdx].includes(keyWord)) {
-      keywordBlocks[charIdx].push(keyWord);
+    if (alsoStatements.includes(keyWord)) {
+      if (!keywordBlocks[charIdx].includes(keyWord)) {
+        keywordBlocks[charIdx].push(keyWord);
+      }
     }
-  }
-  if (alsoFunctions.includes(keyWord)) {
-    if (!functionBlocks[charIdx].includes(keyWord)) {
-      functionBlocks[charIdx].push(keyWord);
+    if (alsoFunctions.includes(keyWord)) {
+      if (!functionBlocks[charIdx].includes(keyWord)) {
+        functionBlocks[charIdx].push(keyWord);
+      }
     }
   }
 });
@@ -94,37 +98,40 @@ lineReaderFunctions.on('line', line => {
   let results;
   line = line.toLowerCase();
 
-  let kw = line.split(' ');
+  if (!line.startsWith("#")) {
 
-  if (kw.includes('function')) {
-    // CAPS letter alphabet
-    let charIdx = kw[0].charCodeAt(0) - 97;
+    let kw = line.split(' ');
 
-    if (!functionBlocks[charIdx].includes(kw[0]) && !kw[0].includes('...')) {
-      functionBlocks[charIdx].push(kw[0]);
-    }
+    if (kw.includes('function')) {
+      // CAPS letter alphabet
+      let charIdx = kw[0].charCodeAt(0) - 97;
 
-    if (alsoStatements.includes(kw[0])) {
-      if (!keywordBlocks[charIdx].includes(kw[0])) {
-        keywordBlocks[charIdx].push(kw[0]);
+      if (!functionBlocks[charIdx].includes(kw[0]) && !kw[0].includes('...')) {
+        functionBlocks[charIdx].push(kw[0]);
       }
-    }
-  } else if (kw.includes('statement')) {
-    for (const keyWord of kw) {
-      let charIdx = keyWord.charCodeAt(0) - 97;
 
-      if (keyWord == "statement") { break; }
+      if (alsoStatements.includes(kw[0])) {
+        if (!keywordBlocks[charIdx].includes(kw[0])) {
+          keywordBlocks[charIdx].push(kw[0]);
+        }
+      }
+    } else if (kw.includes('statement')) {
+      for (const keyWord of kw) {
+        let charIdx = keyWord.charCodeAt(0) - 97;
 
-      if (keyWord.indexOf('(') !== -1) { continue; }
+        if (keyWord == "statement") { break; }
 
-      if (keyWord.includes('...')) { break; }
+        if (keyWord.indexOf('(') !== -1) { continue; }
 
-      kw2 = keyWord.replace(",", "");
+        if (keyWord.includes('...')) { break; }
 
-      if (charIdx > 0 && functionsNotStatements.includes(kw2)) {
-        functionBlocks[charIdx].push(kw2);
-      } else if (charIdx > 0 && !keywordBlocks[charIdx].includes(kw2)) {
-        keywordBlocks[charIdx].push(kw2);
+        kw2 = keyWord.replace(",", "");
+
+        if (charIdx > 0 && functionsNotStatements.includes(kw2)) {
+          functionBlocks[charIdx].push(kw2);
+        } else if (charIdx > 0 && !keywordBlocks[charIdx].includes(kw2)) {
+          keywordBlocks[charIdx].push(kw2);
+        }
       }
     }
   }
@@ -133,27 +140,28 @@ lineReaderFunctions.on('line', line => {
 lineReaderKeywords.on('line', line => {
   let results;
   line = line.toLowerCase();
+  if (!line.startsWith("#")) {
+    while ((results = re.exec(line)) !== null) {
+      let kw = results[0];
+      // CAPS letter alphabet
+      let charIdx = kw.charCodeAt(0) - 97;
 
-  while ((results = re.exec(line)) !== null) {
-    let kw = results[0];
-    // CAPS letter alphabet
-    let charIdx = kw.charCodeAt(0) - 97;
+      if (kw.indexOf('(') !== -1) {
+        let kwParts = kw.split('(');
+        let fullKw = kwParts[0] + kwParts[1];
 
-    if (kw.indexOf('(') !== -1) {
-      let kwParts = kw.split('(');
-      let fullKw = kwParts[0] + kwParts[1];
-
-      kw = kwParts[0];
-      addToBlock(charIdx, fullKw, kw);
-
-      let kwComplete = kwParts[1];
-      for (const element of kwComplete) {
-        kw += element;
-
+        kw = kwParts[0];
         addToBlock(charIdx, fullKw, kw);
+
+        let kwComplete = kwParts[1];
+        for (const element of kwComplete) {
+          kw += element;
+
+          addToBlock(charIdx, fullKw, kw);
+        }
+      } else {
+        addToBlock(charIdx, kw, kw);
       }
-    } else {
-      addToBlock(charIdx, kw, kw);
     }
   }
 });
