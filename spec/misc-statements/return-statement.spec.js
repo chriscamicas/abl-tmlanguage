@@ -51,3 +51,14 @@ describe('', () => {
   ];
   shared.itShouldMatchExpectedScopes(statement, expectedTokens);
 })
+
+describe('', () => {
+  let statement = `RETURN return-VALUE.`;
+  let expectedTokens = [
+    { "startIndex": 0, "endIndex": 6, "scopes": ["source.abl", "keyword.other.abl"] },  // 'RETURN'
+    { "startIndex": 6, "endIndex": 7, "scopes": ["source.abl"] },  // ' '
+    { "startIndex": 7, "endIndex": 19, "scopes": ["source.abl", "keyword.other.abl"] },  // 'return-VALUE'
+    { "startIndex": 19, "endIndex": 20, "scopes": ["source.abl", "punctuation.terminator.abl"] }  // '.'
+  ];
+  shared.itShouldMatchExpectedScopes(statement, expectedTokens);
+})
