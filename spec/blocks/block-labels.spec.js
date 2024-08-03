@@ -151,3 +151,28 @@ end.`;
   ]
   shared.itShouldMatchExpectedScopes(statement, expectedTokens);
 })
+
+describe('', () => {
+  let statement = `EXCLUSIVE-LOCK-BLOCK:
+for bCustomer exclusive-lock:
+end.`;
+  let expectedTokens = [
+    [
+      { "startIndex": 0, "endIndex": 20, "scopes": ["source.abl", "meta.block.label.abl"] },  // 'EXCLUSIVE-LOCK-BLOCK'
+      { "startIndex": 20, "endIndex": 21, "scopes": ["source.abl", "punctuation.terminator.abl"] }  // ':'
+    ],
+    [
+      { "startIndex": 0, "endIndex": 3, "scopes": ["source.abl", "keyword.other.abl"] },  // 'for'
+      { "startIndex": 3, "endIndex": 4, "scopes": ["source.abl"] },  // ' '
+      { "startIndex": 4, "endIndex": 13, "scopes": ["source.abl", "storage.data.table.abl"] },  // 'bCustomer'
+      { "startIndex": 13, "endIndex": 14, "scopes": ["source.abl"] },  // ' '
+      { "startIndex": 14, "endIndex": 28, "scopes": ["source.abl", "keyword.other.abl"] },  // 'exclusive-lock'
+      { "startIndex": 28, "endIndex": 29, "scopes": ["source.abl", "punctuation.terminator.abl"] }  // ':'
+    ],
+    [
+      { "startIndex": 0, "endIndex": 3, "scopes": ["source.abl", "keyword.other.abl"] },  // 'end'
+      { "startIndex": 3, "endIndex": 4, "scopes": ["source.abl", "punctuation.terminator.abl"] }  // '.'
+    ]
+  ]
+  shared.itShouldMatchExpectedScopes(statement, expectedTokens);
+})
