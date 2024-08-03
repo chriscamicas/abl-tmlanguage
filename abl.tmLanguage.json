@@ -76,9 +76,95 @@
         }
       }
     },
+    "function-definition": {
+      "name": "meta.define.function.abl",
+      "begin": "(?i)\\b(function)\\s+([a-z0-9][a-z0-9#$\\-_%&]+)\\b",
+      "beginCaptures": {
+        "1": {
+          "name": "keyword.other.abl"
+        },
+        "2": {
+          "name": "entity.name.function.abl"
+        }
+      },
+      "end": "(\\.|\\:)",
+      "endCaptures": {
+        "1": {
+          "name": "punctuation.terminator.abl"
+        }
+      },
+      "patterns": [
+        {
+          "match": "(?i)\\b(map|to)\\s+(?!to\\s+)([a-z0-9][a-z0-9#$\\-_%&]+)\\b",
+          "captures": {
+            "1": {
+              "name": "keyword.other.abl"
+            },
+            "2": {
+              "name": "entity.name.function.abl"
+            }
+          }
+        },
+        {
+          "match": "(?i)\\b(returns|private|class|extent|in|super|forward|map)\\b",
+          "comment": "Captures the allowed keywords before the parenthesis. Some keywords are after the 'parens' when there are no parens used",
+          "captures":{
+            "1": {
+              "name": "keyword.other.abl"
+            }
+          }
+        },
+        {
+          "include": "#function-parameter-definition"
+        },
+        {
+          "include": "#parens"
+        },
+        {
+          "comment": "This captures everything after the parens, which may contain variables and methods",
+          "begin": "(?i)(?<=\\)|in)",
+          "end": "(?=(\\.|\\:)\\s)",
+          "patterns": [
+            {
+              "include": "#keywords"
+            },
+            {
+              "include": "#type-member-call"
+            },
+            {
+              "include": "#variable-name"
+            },
+            {
+              "include": "#comment"
+            },
+            {
+              "include": "#string"
+            },
+            {
+              "include": "#preprocessors"
+            }
+          ]
+        },
+        {
+          "include": "#primitive-type"
+        },
+        {
+          "include": "#type-name"
+        },
+        {
+          "include": "#keywords"
+        },
+        {
+          "include": "#comment"
+        },
+        {
+          "include": "#preprocessors"
+        }
+      ]
+    },
     "method-definition": {
       "name": "meta.define.method.abl",
-      "begin": "(?i)^\\s*(method|constructor)\\s*",
+      "begin": "(?i)^\\s*(method|constructor|destructor)\\s*",
       "beginCaptures": {
         "1": {
           "name": "keyword.other.abl"
@@ -316,6 +402,9 @@
         },
         {
           "include": "#comment"
+        },
+        {
+          "include": "#preprocessors"
         }
       ]
     },
@@ -343,6 +432,9 @@
     "statements": {
       "name": "meta.statements.abl",
       "patterns": [
+        {
+          "include": "#function-definition"
+        },
         {
           "include": "#release"
         },
