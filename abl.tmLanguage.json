@@ -552,6 +552,9 @@
           "include": "#timestamp-constant"
         },
         {
+          "include": "#break-by"
+        },
+        {
           "include": "#for-join"
         },
         {
@@ -656,6 +659,21 @@
           "include": "#define"
         }
       ]
+    },
+    "break-by": {
+      "match": "(?i)\\s*((break)\\s+)?(by)\\s+(([\\w\\-#$%]+\\.)?([\\w\\-#$%]+\\.)([\\w\\-#$%]+)(\\[\\d+\\])?)\\b",
+      "comments": "The match needs a space capture before the BREAK, not a word break",
+      "captures": {
+        "2": {
+          "name": "keyword.other.abl"
+        },
+        "3": {
+          "name": "keyword.other.abl"
+        },
+        "4": {
+          "name": "storage.data.table.abl"
+        }
+      }
     },
     "preprocessors": {
       "match": "(?i)(\\&[\\w-]*)|({\\&[\\w-]*})|(&window-system|&text-height|&line-number|&batch-mode|&file-name|&undefine|&sequence|&message|defined|&elseif|&scoped|&global|&opsys|&endif|&else|&scop|&then|&glob|&if)",
