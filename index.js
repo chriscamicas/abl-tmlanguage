@@ -38,12 +38,15 @@ const re = /(?:\w|-|\()+(?=\s|$)/g
 // it and any abbreviated versions will be added to the
 // appropriate scopes
 let alsoStatements = [];
+alsoStatements.push('ambiguous');
+alsoStatements.push('available');
 alsoStatements.push('centered');
 alsoStatements.push('delete');
 alsoStatements.push('first');
 alsoStatements.push('format');
 alsoStatements.push('initial');
 alsoStatements.push('label');
+alsoStatements.push('locked');
 alsoStatements.push('namespace-prefix');
 alsoStatements.push('namespace-uri');
 alsoStatements.push('nested');
@@ -105,18 +108,27 @@ lineReaderFunctions.on('line', line => {
   if (!line.startsWith("#")) {
 
     let kw = line.split(' ');
+    let kwName = '';
 
-    if (kw.includes('function')) {
-      // CAPS letter alphabet
-      let charIdx = kw[0].charCodeAt(0) - 97;
+    // This is to skip the FUNCTION statement
+    if (kw.includes('function') && !kw.includes('statement')) {
 
-      if (!functionBlocks[charIdx].includes(kw[0]) && !kw[0].includes('...')) {
-        functionBlocks[charIdx].push(kw[0]);
+      if (kw.includes('preprocessor')) {
+        kwName = kw[0];
+      } else {
+        kwName = kw.slice(0, kw.indexOf('function')).join(' ');
       }
 
-      if (alsoStatements.includes(kw[0])) {
-        if (!keywordBlocks[charIdx].includes(kw[0])) {
-          keywordBlocks[charIdx].push(kw[0]);
+      // CAPS letter alphabet
+      let charIdx = kwName.charCodeAt(0) - 97;
+
+      if (!functionBlocks[charIdx].includes(kwName) && !kwName.includes('...')) {
+        functionBlocks[charIdx].push(kwName);
+      }
+
+      if (alsoStatements.includes(kwName)) {
+        if (!keywordBlocks[charIdx].includes(kwName)) {
+          keywordBlocks[charIdx].push(kwName);
         }
       }
     } else if (kw.includes('statement')) {
