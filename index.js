@@ -44,12 +44,16 @@ alsoStatements.push('first');
 alsoStatements.push('format');
 alsoStatements.push('initial');
 alsoStatements.push('label');
+alsoStatements.push('namespace-prefix');
+alsoStatements.push('namespace-uri');
 alsoStatements.push('nested');
 alsoStatements.push('return-value');
 alsoStatements.push('row');
 alsoStatements.push('serialize-name');
 alsoStatements.push('single-run');
 alsoStatements.push('transaction');
+alsoStatements.push('xml-node-name');
+
 
 let functionsNotStatements = [];
 functionsNotStatements.push('set-size');
