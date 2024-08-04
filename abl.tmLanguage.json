@@ -3493,7 +3493,8 @@
       }
     },
     "operator-with-space": {
-      "match": "(?i)\\s+(contains|begins|matches|eq|le|lt|ge|gt|ne)\\s+",
+      "match": "(?i)(?<=\\s)(not|contains|begins|matches|eq|le|lt|ge|gt|ne)(?=\\s|\\()",
+      "comment": "Lookahead and -behind for the spaces, so that in particular the NOT is captured properly",
       "captures": {
         "1": {
           "name": "keyword.operator.source.abl"
