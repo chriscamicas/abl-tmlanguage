@@ -1051,7 +1051,8 @@
       "name": "meta.brace.round.js"
     },
     "new-class": {
-      "begin": "(?i)\\b(new)\\b",
+      "comment": "A dash/minus is not a word boundary, so we need to make sure we don't capture constructs like new-variable",
+      "begin": "(?i)\\b(new)\\b(?!\\-)",
       "beginCaptures": {
         "1": {
           "name": "keyword.other.abl"
@@ -3665,7 +3666,7 @@
       ]
     },
     "keywords-A": {
-      "match": "(?i)\\b(avg|average|averag|avera|aver|ave|available|automatic|auto-endkey|authorization|audit-policy|audit-control|attribute-type|attachment|attach|at|assign|assembly|ask-overwrite|ascending|ascendin|ascendi|ascend|ascen|asce|asc|as-cursor|as|array-message|array-messag|array-messa|array-mess|array-mes|array-me|array-m|apply|application|append-line|append|anywhere|any-printable|any-key|any|ansi-only|and|ambiguous|alternate-key|alter|allow-replication|all|alert-box|aggregate|advise|add|active-window|active-form|across|accumulate|accumulat|accumula|accumul|accumu|accum|abstract|abort)\\b",
+      "match": "(?i)\\b(avg|average|averag|avera|aver|ave|available|automatic|auto-endkey|authorization|audit-policy|audit-control|attribute-type|attachment|attach|at|assign|assembly|ask-overwrite|ascending|ascendin|ascendi|ascend|ascen|asce|asc|as-cursor|as|array-message|array-messag|array-messa|array-mess|array-mes|array-me|array-m|apply|application|append-line|append|anywhere|any-printable|any-key|any|ansi-only|and|ambiguous|alternate-key|alter|allow-replication|all|alert-box|aggregate|advise|add|active-window|active-form|across|accumulate|accumulat|accumula|accumul|accumu|accum|abstract|abort)\\b(?!\\-)",
       "captures": {
         "1": {
           "name": "keyword.other.abl"
@@ -3673,7 +3674,7 @@
       }
     },
     "keywords-B": {
-      "match": "(?i)\\b(byte|by-variant-pointer|by-variant-pointe|by-variant-point|by-value|by-reference|by-pointer|by|buttons|button|buffer-copy|buffer-compare|buffer|btos|browse-header|browse-column-labels|browse-column-formats|browse-column-data-types|browse|break-line|break|bottom-column|bottom|both|border-top|border-to|border-t|border-right|border-righ|border-rig|border-ri|border-r|border-left|border-lef|border-le|border-l|border-bottom|border-botto|border-bott|border-bot|border-bo|border-b|block-level|block-leve|block-lev|block|blob|bind-where|bind|binary|big-endian|between|bell|begins|before-hide|before-hid|before-hi|before-h|batch|base64|base-key|backwards|backward|backspace|back-tab)\\b",
+      "match": "(?i)\\b(byte|by-variant-pointer|by-variant-pointe|by-variant-point|by-value|by-reference|by-pointer|by|buttons|button|buffer-copy|buffer-compare|buffer|btos|browse-header|browse-column-labels|browse-column-formats|browse-column-data-types|browse|break-line|break|bottom-column|bottom|both|border-top|border-to|border-t|border-right|border-righ|border-rig|border-ri|border-r|border-left|border-lef|border-le|border-l|border-bottom|border-botto|border-bott|border-bot|border-bo|border-b|block-level|block-leve|block-lev|block|blob|bind-where|bind|binary|big-endian|between|bell|begins|before-hide|before-hid|before-hi|before-h|batch|base64|base-key|backwards|backward|backspace|back-tab)\\b(?!\\-)",
       "captures": {
         "1": {
           "name": "keyword.other.abl"
@@ -3681,7 +3682,7 @@
       }
     },
     "keywords-C": {
-      "match": "(?i)\\b(cut|cursor-up|cursor-right|cursor-left|cursor-down|cursor|curso|curs|current_date|current-value|current-language|current|ctos|create-test-file|create-on-add|create|count|copy-lob|copy|convert|control-frame|control-fram|control-container|control-containe|control-contain|control-contai|control-conta|control-cont|control|context-popup|context-popu|context-pop|context|contents|contains|container-event|constructor|constrained|connect|component-self|component-handle|compiler|compile|compares|compare|command|combo-box|com-self|columns|column-of|column-label-height-pixels|column-label-height-pixel|column-label-height-pixe|column-label-height-pix|column-label-height-pi|column-label-height-p|column-label-height-chars|column-label-height-char|column-label-height-cha|column-label-height-ch|column-label-height-c|column-label-font|column-label-fgcolor|column-label-fgcolo|column-label-fgcol|column-label-fgco|column-label-fgc|column-label-dcolor|column-label-bgcolor|column-label-bgcolo|column-label-bgcol|column-label-bgco|column-label-bgc|column-codepage|column|color-table|color|colon-aligned|colon-aligne|colon-align|colon|collate|col-of|col|codebase-locator|close|clob|clipboard|client-principal|clear|class|choose|choices|check-mem-stomp|check|character_length|character|characte|charact|charac|chara|char|chained|centered|cdecl|catch|case|cancel-pick|call|cache-size|cache)\\b",
+      "match": "(?i)\\b(cut|cursor-up|cursor-right|cursor-left|cursor-down|cursor|curso|curs|current_date|current-value|current-language|current|ctos|create-test-file|create-on-add|create|count|copy-lob|copy|convert|control-frame|control-fram|control-container|control-containe|control-contain|control-contai|control-conta|control-cont|control|context-popup|context-popu|context-pop|context|contents|contains|container-event|constructor|constrained|connect|component-self|component-handle|compiler|compile|compares|compare|command|combo-box|com-self|columns|column-of|column-label-height-pixels|column-label-height-pixel|column-label-height-pixe|column-label-height-pix|column-label-height-pi|column-label-height-p|column-label-height-chars|column-label-height-char|column-label-height-cha|column-label-height-ch|column-label-height-c|column-label-font|column-label-fgcolor|column-label-fgcolo|column-label-fgcol|column-label-fgco|column-label-fgc|column-label-dcolor|column-label-bgcolor|column-label-bgcolo|column-label-bgcol|column-label-bgco|column-label-bgc|column-codepage|column|color-table|color|colon-aligned|colon-aligne|colon-align|colon|collate|col-of|col|codebase-locator|close|clob|clipboard|client-principal|clear|class|choose|choices|check-mem-stomp|check|character_length|character|characte|charact|charac|chara|char|chained|centered|cdecl|catch|case|cancel-pick|call|cache-size|cache)\\b(?!\\-)",
       "captures": {
         "1": {
           "name": "keyword.other.abl"
@@ -3689,7 +3690,7 @@
       }
     },
     "keywords-D": {
-      "match": "(?i)\\b(dynamic-property|dynamic-new|dynamic-current-value|dump|dslog-manager|drop-file-notify|drop-down-list|drop-down|drop|down|double|dotnet-clr-loaded|dos-end|dos|do|dll-call-type|distinct|display|displa|displ|disp|dismiss-menu|disconnect|disabled|disable|dir|dictionary|dictionar|dictiona|diction|dictio|dicti|dict|dialog-help|dialog-box|detach|destructor|deselection-extend|deselection|deselect-extend|deselect|descending|descendin|descendi|descend|descen|desce|desc|delete-word|delete-field|delete-end-line|delete-column|delete-character|delete|delegate|del|define-user-event-manager|define|defin|defi|defer-lob-fetch|default-window|default-untranslatable|default-pop-up|default-extension|default-extensio|default-extensi|default-extens|default-exten|default-exte|default-ext|default-ex|default-action|def|declare|debugger|debug-set-tenant|debug-list|dde-notify|dde|dataset-handle|dataset|database|data-source|data-relation|data-relatio|data-relati|data-relat|data-rela|data-rel|data-refresh-page|data-refresh-line|data-bind|data-bin|data-bi|data-b)\\b",
+      "match": "(?i)\\b(dynamic-property|dynamic-new|dynamic-current-value|dump|dslog-manager|drop-file-notify|drop-down-list|drop-down|drop|down|double|dotnet-clr-loaded|dos-end|dos|do|dll-call-type|distinct|display|displa|displ|disp|dismiss-menu|disconnect|disabled|disable|dir|dictionary|dictionar|dictiona|diction|dictio|dicti|dict|dialog-help|dialog-box|detach|destructor|deselection-extend|deselection|deselect-extend|deselect|descending|descendin|descendi|descend|descen|desce|desc|delete-word|delete-field|delete-end-line|delete-column|delete-character|delete|delegate|del|define-user-event-manager|define|defin|defi|defer-lob-fetch|default-window|default-untranslatable|default-pop-up|default-extension|default-extensio|default-extensi|default-extens|default-exten|default-exte|default-ext|default-ex|default-action|def|declare|debugger|debug-set-tenant|debug-list|dde-notify|dde|dataset-handle|dataset|database|data-source|data-relation|data-relatio|data-relati|data-relat|data-rela|data-rel|data-refresh-page|data-refresh-line|data-bind|data-bin|data-bi|data-b)\\b(?!\\-)",
       "captures": {
         "1": {
           "name": "keyword.other.abl"
@@ -3697,7 +3698,7 @@
       }
     },
     "keywords-E": {
-      "match": "(?i)\\b(extract|external|extent|extended|export|explicit|expire|exit|exists|execute|exclusive-web-user|exclusive-web-use|exclusive-web-us|exclusive-web-u|exclusive-web-|exclusive-web|exclusive-lock|exclusive-loc|exclusive-lo|exclusive-l|exclusive|except|events|event-handler-context|event|escape|error-status|error-statu|error-stat|error|eq|enum|entry|enter-menubar|endkey|end-search|end-row-resize|end-resize|end-move|end-key|end-error|end-box-selection|end|enable|empty-selection|empty|else|editor-tab|editor-backtab|editor|editing|edge|echo|each)\\b",
+      "match": "(?i)\\b(extract|external|extent|extended|export|explicit|expire|exit|exists|execute|exclusive-web-user|exclusive-web-use|exclusive-web-us|exclusive-web-u|exclusive-web-|exclusive-web|exclusive-lock|exclusive-loc|exclusive-lo|exclusive-l|exclusive|except|events|event-handler-context|event|escape|error-status|error-statu|error-stat|error|eq|enum|entry|enter-menubar|endkey|end-search|end-row-resize|end-resize|end-move|end-key|end-error|end-box-selection|end|enable|empty-selection|empty|else|editor-tab|editor-backtab|editor|editing|edge|echo|each)\\b(?!\\-)",
       "captures": {
         "1": {
           "name": "keyword.other.abl"
@@ -3705,7 +3706,7 @@
       }
     },
     "keywords-F": {
-      "match": "(?i)\\b(function-call-type|function|full-height|fromnoreorder|from-pixels|from-pixel|from-pixe|from-pix|from-pi|from-p|from-current|from-curren|from-curre|from-curr|from-cur|from-chars|from-char|from-cha|from-ch|from-c|from|frame-value|frame|forwards|forward|format|form|force-file|for|font-table|font|focus-in|focus|float|flags|fixed-only|fix-codepage|first|firehose-cursor|finder|find-wrap-around|find-select|find-previous|find-prev-occurrence|find-next-occurrence|find-next|find-global|find-case-sensitive|find|finally|final|filters|fill-in|filename|file-information|file-informatio|file-informati|file-informat|file-informa|file-inform|file-infor|file-info|file-access-time|file-access-tim|file-access-ti|file-access-t|file-access-date|file-access-dat|file-access-da|file-access-d|file|fields|field|fetch|false-leaks|false)\\b",
+      "match": "(?i)\\b(function-call-type|function|full-height|fromnoreorder|from-pixels|from-pixel|from-pixe|from-pix|from-pi|from-p|from-current|from-curren|from-curre|from-curr|from-cur|from-chars|from-char|from-cha|from-ch|from-c|from|frame-value|frame|forwards|forward|format|form|force-file|for|font-table|font|focus-in|focus|float|flags|fixed-only|fix-codepage|first|firehose-cursor|finder|find-wrap-around|find-select|find-previous|find-prev-occurrence|find-next-occurrence|find-next|find-global|find-case-sensitive|find|finally|final|filters|fill-in|filename|file-information|file-informatio|file-informati|file-informat|file-informa|file-inform|file-infor|file-info|file-access-time|file-access-tim|file-access-ti|file-access-t|file-access-date|file-access-dat|file-access-da|file-access-d|file|fields|field|fetch|false-leaks|false)\\b(?!\\-)",
       "captures": {
         "1": {
           "name": "keyword.other.abl"
@@ -3713,7 +3714,7 @@
       }
     },
     "keywords-G": {
-      "match": "(?i)\\b(gt|group|grid-unit-width|grid-unit-height|grid-set|grayed|grant-archive|grant|goto|go-on|go|global|getbyte|get-text-width|get-text-height|get-key-value|get-key-valu|get-key-val|get-file|get-dir|get-attr-call-type|get|generate-md5|ge)\\b",
+      "match": "(?i)\\b(gt|group|grid-unit-width|grid-unit-height|grid-set|grayed|grant-archive|grant|goto|go-on|go|global|getbyte|get-text-width|get-text-height|get-key-value|get-key-valu|get-key-val|get-file|get-dir|get-attr-call-type|get|generate-md5|ge)\\b(?!\\-)",
       "captures": {
         "1": {
           "name": "keyword.other.abl"
@@ -3721,7 +3722,7 @@
       }
     },
     "keywords-H": {
-      "match": "(?i)\\b(host-byte-order|horiz-scroll-drag|horiz-home|horiz-end|home|hint|hide|helpfile-name|helpfile-nam|helpfile-na|helpfile-n|help-topic|help-context|help-contex|help-conte|help-cont|help-con|height|header|having)\\b",
+      "match": "(?i)\\b(host-byte-order|horiz-scroll-drag|horiz-home|horiz-end|home|hint|hide|helpfile-name|helpfile-nam|helpfile-na|helpfile-n|help-topic|help-context|help-contex|help-conte|help-cont|help-con|height|header|having)\\b(?!\\-)",
       "captures": {
         "1": {
           "name": "keyword.other.abl"
@@ -3729,7 +3730,7 @@
       }
     },
     "keywords-I": {
-      "match": "(?i)\\b(iteration-changed|item|is|into|interface|insert-mode|insert-field-label|insert-field-data|insert-field|insert-column|insert|input-output|input-outpu|input-outp|input-out|input-ou|input-o|input|inner|initiate|initial-filter|initial-dir|initial|init|inherits|inherit-color-mode|information|informatio|informati|informat|informa|inform|infor|info|indicator|indexed-reposition|index-hint|in|import|implements|image-size-pixels|image-size-pixel|image-size-pixe|image-size-pix|image-size-pi|image-size-p|image-size-chars|image-size-char|image-size-cha|image-size-ch|image-size-c|image-size|image|if)\\b",
+      "match": "(?i)\\b(iteration-changed|item|is|into|interface|insert-mode|insert-field-label|insert-field-data|insert-field|insert-column|insert|input-output|input-outpu|input-outp|input-out|input-ou|input-o|input|inner|initiate|initial-filter|initial-dir|initial|init|inherits|inherit-color-mode|information|informatio|informati|informat|informa|inform|infor|info|indicator|indexed-reposition|index-hint|in|import|implements|image-size-pixels|image-size-pixel|image-size-pixe|image-size-pix|image-size-pi|image-size-p|image-size-chars|image-size-char|image-size-cha|image-size-ch|image-size-c|image-size|image|if)\\b(?!\\-)",
       "captures": {
         "1": {
           "name": "keyword.other.abl"
@@ -3737,7 +3738,7 @@
       }
     },
     "keywords-J": {
-      "match": "(?i)\\b(join-on-select|join-by-sqldb|join)\\b",
+      "match": "(?i)\\b(join-on-select|join-by-sqldb|join)\\b(?!\\-)",
       "captures": {
         "1": {
           "name": "keyword.other.abl"
@@ -3745,7 +3746,7 @@
       }
     },
     "keywords-K": {
-      "match": "(?i)\\b(keycache-join|key-label|key-function|key-functio|key-functi|key-funct|key-func|key-code|keep-tab-order|keep-messages)\\b",
+      "match": "(?i)\\b(keycache-join|key-label|key-function|key-functio|key-functi|key-funct|key-func|key-code|keep-tab-order|keep-messages)\\b(?!\\-)",
       "captures": {
         "1": {
           "name": "keyword.other.abl"
@@ -3753,7 +3754,7 @@
       }
     },
     "keywords-L": {
-      "match": "(?i)\\b(lt|lookahead|longchar|longcha|longch|long|log-manager|log-id|locked|lob-dir|load-result-into|load-picture|load-from|load|little-endian|listing|listin|listi|line-up|line-right|line-left|line-down|like-sequential|like|length|left-end|left-aligned|left-aligne|left-align|left|leave|leak-detection|leading|le|last-key|last-event|last-even|landscape|label-pfcolor|label-pfcolo|label-pfcol|label-pfco|label-pfc|label)\\b",
+      "match": "(?i)\\b(lt|lookahead|longchar|longcha|longch|long|log-manager|log-id|locked|lob-dir|load-result-into|load-picture|load-from|load|little-endian|listing|listin|listi|line-up|line-right|line-left|line-down|like-sequential|like|length|left-end|left-aligned|left-aligne|left-align|left|leave|leak-detection|leading|le|last-key|last-event|last-even|landscape|label-pfcolor|label-pfcolo|label-pfcol|label-pfco|label-pfc|label)\\b(?!\\-)",
       "captures": {
         "1": {
           "name": "keyword.other.abl"
@@ -3761,7 +3762,7 @@
       }
     },
     "keywords-M": {
-      "match": "(?i)\\b(must-exist|multiple-key|mpe|move|mouse|modulo|mod|min-width|min-size|min-schema-marshall|min-schema-marshal|min-height|method|message-line|message-area-msg|message|menubar|menu-item|menu-drop|menu|memptr|md5-value|maximize|max-width|max-size|max-rows|max-height|max|matches|margin-width-pixels|margin-width-pixel|margin-width-pixe|margin-width-pix|margin-width-pi|margin-width-p|margin-width-chars|margin-width-char|margin-width-cha|margin-width-ch|margin-width-c|margin-width|margin-height-pixels|margin-height-pixel|margin-height-pixe|margin-height-pix|margin-height-pi|margin-height-p|margin-height-chars|margin-height-char|margin-height-cha|margin-height-ch|margin-height-c|margin-height|margin-extra|map|main-menu|machine-class)\\b",
+      "match": "(?i)\\b(must-exist|multiple-key|mpe|move|mouse|modulo|mod|min-width|min-size|min-schema-marshall|min-schema-marshal|min-height|method|message-line|message-area-msg|message|menubar|menu-item|menu-drop|menu|memptr|md5-value|maximize|max-width|max-size|max-rows|max-height|max|matches|margin-width-pixels|margin-width-pixel|margin-width-pixe|margin-width-pix|margin-width-pi|margin-width-p|margin-width-chars|margin-width-char|margin-width-cha|margin-width-ch|margin-width-c|margin-width|margin-height-pixels|margin-height-pixel|margin-height-pixe|margin-height-pix|margin-height-pi|margin-height-p|margin-height-chars|margin-height-char|margin-height-cha|margin-height-ch|margin-height-c|margin-height|margin-extra|map|main-menu|machine-class)\\b(?!\\-)",
       "captures": {
         "1": {
           "name": "keyword.other.abl"
@@ -3769,7 +3770,7 @@
       }
     },
     "keywords-N": {
-      "match": "(?i)\\b(numeric|num-selected|num-copies|null|not-active|not|none|non-serializable|node-type|no-word-wrap|no-wait|no-undo|no-underline|no-underlin|no-underli|no-underl|no-under|no-unde|no-und|no-tab-stop|no-tab-sto|no-tab-st|no-tab-s|no-tab-|no-tab|no-separators|no-separate-connection|no-scrolling|no-scrollbar-vertical|no-scrollbar-vertica|no-scrollbar-vertic|no-scrollbar-verti|no-scrollbar-vert|no-scrollbar-ver|no-scrollbar-ve|no-scrollbar-v|no-schema-marshall|no-schema-marshal|no-row-markers|no-return-value|no-return-valu|no-return-val|no-query-unique-added|no-query-unique-adde|no-query-unique-add|no-query-unique-ad|no-query-unique-a|no-query-unique-|no-query-unique|no-query-uniqu|no-query-uniq|no-query-uni|no-query-un|no-query-u|no-query-order-added|no-query-order-adde|no-query-order-add|no-query-order-ad|no-query-order-a|no-query-order-|no-query-order|no-query-orde|no-query-ord|no-query-or|no-query-o|no-prefetch|no-prefetc|no-prefet|no-prefe|no-pause|no-message|no-messag|no-messa|no-mess|no-mes|no-map|no-lookahead|no-lock|no-lobs|no-labels|no-label|no-keycache-join|no-join-by-sqldb|no-inherit-fgcolor|no-inherit-fgcolo|no-inherit-fgcol|no-inherit-fgco|no-inherit-fgc|no-inherit-bgcolor|no-inherit-bgcolo|no-inherit-bgcol|no-inherit-bgco|no-inherit-bgc|no-index-hint|no-hide|no-help|no-firehose-cursor|no-fill|no-fil|no-fi|no-f|no-error|no-echo|no-drag|no-debug|no-convert-3d-colors|no-convert-3d-color|no-convert-3d-colo|no-convert-3d-col|no-convert-3d-co|no-convert-3d-c|no-convert-3d-|no-convert-3d|no-convert|no-console|no-column-scrolling|no-column-scrollin|no-column-scrolli|no-column-scroll|no-column-scrol|no-column-scro|no-column-scr|no-column-sc|no-box|no-bind-where|no-auto-validate|no-auto-trim|no-auto-tri|no-attr-space|no-attr-spac|no-attr-spa|no-attr-sp|no-attr-s|no-attr-list|no-attr-lis|no-attr-li|no-attr-l|no-attr|no-assign|no-array-message|no-array-messag|no-array-messa|no-array-mess|no-array-mes|no-array-me|no-array-m|no-apply|no|next-word|next-prompt|next-frame|next-error|next|new-line|new-instance|new|nested|ne|native|namespace-uri|namespace-prefix)\\b",
+      "match": "(?i)\\b(numeric|num-selected|num-copies|null|not-active|not|none|non-serializable|node-type|no-word-wrap|no-wait|no-undo|no-underline|no-underlin|no-underli|no-underl|no-under|no-unde|no-und|no-tab-stop|no-tab-sto|no-tab-st|no-tab-s|no-tab-|no-tab|no-separators|no-separate-connection|no-scrolling|no-scrollbar-vertical|no-scrollbar-vertica|no-scrollbar-vertic|no-scrollbar-verti|no-scrollbar-vert|no-scrollbar-ver|no-scrollbar-ve|no-scrollbar-v|no-schema-marshall|no-schema-marshal|no-row-markers|no-return-value|no-return-valu|no-return-val|no-query-unique-added|no-query-unique-adde|no-query-unique-add|no-query-unique-ad|no-query-unique-a|no-query-unique-|no-query-unique|no-query-uniqu|no-query-uniq|no-query-uni|no-query-un|no-query-u|no-query-order-added|no-query-order-adde|no-query-order-add|no-query-order-ad|no-query-order-a|no-query-order-|no-query-order|no-query-orde|no-query-ord|no-query-or|no-query-o|no-prefetch|no-prefetc|no-prefet|no-prefe|no-pause|no-message|no-messag|no-messa|no-mess|no-mes|no-map|no-lookahead|no-lock|no-lobs|no-labels|no-label|no-keycache-join|no-join-by-sqldb|no-inherit-fgcolor|no-inherit-fgcolo|no-inherit-fgcol|no-inherit-fgco|no-inherit-fgc|no-inherit-bgcolor|no-inherit-bgcolo|no-inherit-bgcol|no-inherit-bgco|no-inherit-bgc|no-index-hint|no-hide|no-help|no-firehose-cursor|no-fill|no-fil|no-fi|no-f|no-error|no-echo|no-drag|no-debug|no-convert-3d-colors|no-convert-3d-color|no-convert-3d-colo|no-convert-3d-col|no-convert-3d-co|no-convert-3d-c|no-convert-3d-|no-convert-3d|no-convert|no-console|no-column-scrolling|no-column-scrollin|no-column-scrolli|no-column-scroll|no-column-scrol|no-column-scro|no-column-scr|no-column-sc|no-box|no-bind-where|no-auto-validate|no-auto-trim|no-auto-tri|no-attr-space|no-attr-spac|no-attr-spa|no-attr-sp|no-attr-s|no-attr-list|no-attr-lis|no-attr-li|no-attr-l|no-attr|no-assign|no-array-message|no-array-messag|no-array-messa|no-array-mess|no-array-mes|no-array-me|no-array-m|no-apply|no|next-word|next-prompt|next-frame|next-error|next|new-line|new-instance|new|nested|ne|native|namespace-uri|namespace-prefix)\\b(?!\\-)",
       "captures": {
         "1": {
           "name": "keyword.other.abl"
@@ -3777,7 +3778,7 @@
       }
     },
     "keywords-O": {
-      "match": "(?i)\\b(override|overlay|output|outer-join|outer|out-of-data|otherwise|os400|os2|os-rename|os-dir|os-delete|os-create-dir|os-copy|os-command|os-append|orientation|ordered-join|or|options-file|option|open-line-above|open|on|ole-names-locale|ole-names-local|ole-names-loca|ole-invoke-locale|ole-invoke-local|ole-invoke-loca|old|ok-cancel|ok|off-home|off-end|off|of|octet_length|object)\\b",
+      "match": "(?i)\\b(override|overlay|output|outer-join|outer|out-of-data|otherwise|os400|os2|os-rename|os-dir|os-delete|os-create-dir|os-copy|os-command|os-append|orientation|ordered-join|or|options-file|option|open-line-above|open|on|ole-names-locale|ole-names-local|ole-names-loca|ole-invoke-locale|ole-invoke-local|ole-invoke-loca|old|ok-cancel|ok|off-home|off-end|off|of|octet_length|object)\\b(?!\\-)",
       "captures": {
         "1": {
           "name": "keyword.other.abl"
@@ -3785,7 +3786,7 @@
       }
     },
     "keywords-P": {
-      "match": "(?i)\\b(putbyte|put-unsigned-short|put-unsigned-long|put-string|put-short|put-long|put-key-value|put-key-valu|put-key-val|put-int64|put-float|put-double|put-bytes|put-byte|put-bits|put|publish|public|protected|property|propath|promsgs|prompt-for|prompt-fo|prompt-f|prompt|profiler|profile-file|process|procedure-complete|procedure-call-type|procedure|procedur|procedu|proced|proce|privileges|private|printer-setup|printer|prev-word|prev-frame|prev|preselect|preselec|presele|presel|preprocess|preproces|preproce|preproc|precision|portrait|pixels|pick-both|pick-area|pick|performance|performanc|performan|performa|perform|perfor|perfo|perf|pause|paste|pascal|partial-key|parent-window-close|parent-id-field|parameter|paged|page-width|page-widt|page-wid|page-up|page-right-text|page-right|page-left|page-down|page|package-protected|package-private)\\b",
+      "match": "(?i)\\b(putbyte|put-unsigned-short|put-unsigned-long|put-string|put-short|put-long|put-key-value|put-key-valu|put-key-val|put-int64|put-float|put-double|put-bytes|put-byte|put-bits|put|publish|public|protected|property|propath|promsgs|prompt-for|prompt-fo|prompt-f|prompt|profiler|profile-file|process|procedure-complete|procedure-call-type|procedure|procedur|procedu|proced|proce|privileges|private|printer-setup|printer|prev-word|prev-frame|prev|preselect|preselec|presele|presel|preprocess|preproces|preproce|preproc|precision|portrait|pixels|pick-both|pick-area|pick|performance|performanc|performan|performa|perform|perfor|perfo|perf|pause|paste|pascal|partial-key|parent-window-close|parent-id-field|parameter|paged|page-width|page-widt|page-wid|page-up|page-right-text|page-right|page-left|page-down|page|package-protected|package-private)\\b(?!\\-)",
       "captures": {
         "1": {
           "name": "keyword.other.abl"
@@ -3793,7 +3794,7 @@
       }
     },
     "keywords-Q": {
-      "match": "(?i)\\b(quit|question|query-tuning|query)\\b",
+      "match": "(?i)\\b(quit|question|query-tuning|query)\\b(?!\\-)",
       "captures": {
         "1": {
           "name": "keyword.other.abl"
@@ -3801,7 +3802,7 @@
       }
     },
     "keywords-R": {
-      "match": "(?i)\\b(run-procedure|run-procedur|run-procedu|run-proced|run-proce|run-proc|run|rule-y|rule-row|rule|row-unmodified|row-of|row-modified|row-leave|row-height|row-entry|row-display|row-deleted|row-created|row|routine-level|right-end|right-aligned|right-aligne|right-align|right|revoke|revert|reverse-from|returns|return-value|return-to-start-dir|return-to-start-di|return|retry-cancel|retain|resume-display|result|request|reposition-parent-relation|reposition-parent-relatio|reposition-parent-relati|reposition-parent-relat|reposition-parent-rela|reposition-parent-rel|reposition-forwards|reposition-forward|reposition-forwar|reposition-forwa|reposition-forw|reposition-backwards|reposition-backward|reposition-backwar|reposition-backwa|reposition-backw|reposition-back|reposition|reports|replication-write|replication-delete|replication-create|repeat|release|reinstate|reference-only|rectangle|rectangl|rectang|rectan|recta|rect|recall|real|readkey|read-response|read-exact-num|read-available|rcode-information|rcode-informatio|rcode-informati|rcode-informat|rcode-informa|rcode-inform|rcode-infor|rcode-info|raw-transfer|raw|radio-set)\\b",
+      "match": "(?i)\\b(run-procedure|run-procedur|run-procedu|run-proced|run-proce|run-proc|run|rule-y|rule-row|rule|row-unmodified|row-of|row-modified|row-leave|row-height|row-entry|row-display|row-deleted|row-created|row|routine-level|right-end|right-aligned|right-aligne|right-align|right|revoke|revert|reverse-from|returns|return-value|return-to-start-dir|return-to-start-di|return|retry-cancel|retain|resume-display|result|request|reposition-parent-relation|reposition-parent-relatio|reposition-parent-relati|reposition-parent-relat|reposition-parent-rela|reposition-parent-rel|reposition-forwards|reposition-forward|reposition-forwar|reposition-forwa|reposition-forw|reposition-backwards|reposition-backward|reposition-backwar|reposition-backwa|reposition-backw|reposition-back|reposition|reports|replication-write|replication-delete|replication-create|repeat|release|reinstate|reference-only|rectangle|rectangl|rectang|rectan|recta|rect|recall|real|readkey|read-response|read-exact-num|read-available|rcode-information|rcode-informatio|rcode-informati|rcode-informat|rcode-informa|rcode-inform|rcode-infor|rcode-info|raw-transfer|raw|radio-set)\\b(?!\\-)",
       "captures": {
         "1": {
           "name": "keyword.other.abl"
@@ -3809,7 +3810,7 @@
       }
     },
     "keywords-S": {
-      "match": "(?i)\\b(system-help|system-dialog|suspend|super|summary|sum|substring|subscribe|sub-total|sub-minimum|sub-minimu|sub-minim|sub-mini|sub-min|sub-menu-help|sub-menu|sub-maximum|sub-maximu|sub-maxim|sub-maxi|sub-max|sub-count|sub-average|sub-averag|sub-avera|sub-aver|sub-ave|string-xref|stream-io|stream-handle|stream|stored-procedure|stored-procedur|stored-procedu|stored-proced|stored-proce|stored-proc|stop-mem-check|stop-display|stop-after|stop|stomp-frequency|stomp-detection|stdcall|status-area-msg|status|static|starting|start-search|start-row-resize|start-resize|start-move|start-mem-check|start-extend-box-selection|start-box-selection|start|sql|space|source-procedure|source|some|socket|soap-header-entryref|soap-header|soap-fault|smallint|slider|skip-schema-check|skip-group-duplicates|skip|size-pixels|size-pixel|size-pixe|size-pix|size-pi|size-p|size-chars|size-char|size-cha|size-ch|size-c|size|single-run|single-character|single|simple|silent|signature|side-label|side-labe|side-lab|show-stats|show-stat|short|shared|share-lock|share-loc|share-lo|share-l|share-|share|settings|set-state|set-pointer-value|set-pointer-valu|set-pointer-val|set-option|set-event-manager-option|set-db-logging|set-contents|set-cell-focus|set-byte-order|set-attr-call-type|set|session|server-socket|server|serialize-name|serializable|separate-connection|send|self|selection-list|selection-extend|selection|selected-items|select-repositioned-row|select-on-join|select-extend|select|seek|security-policy|section|search-target|search-self|scrolling|scrolled-row-position|scrolled-row-positio|scrolled-row-positi|scrolled-row-posit|scrolled-row-posi|scrolled-row-pos|scrollbar-drag|scroll-vertical|scroll-right|scroll-notify|scroll-mode|scroll-left|scroll-horizontal|scroll|screen-io|screen|schema|sax-xml|sax-writer|sax-write-tag|sax-write-idle|sax-write-error|sax-write-element|sax-write-content|sax-write-complete|sax-write-begin|sax-uninitialized|sax-running|sax-reader|sax-parser-error|sax-complete|sax-complet|sax-comple|sax-attributes|save-as|save)\\b",
+      "match": "(?i)\\b(system-help|system-dialog|suspend|super|summary|sum|substring|subscribe|sub-total|sub-minimum|sub-minimu|sub-minim|sub-mini|sub-min|sub-menu-help|sub-menu|sub-maximum|sub-maximu|sub-maxim|sub-maxi|sub-max|sub-count|sub-average|sub-averag|sub-avera|sub-aver|sub-ave|string-xref|stream-io|stream-handle|stream|stored-procedure|stored-procedur|stored-procedu|stored-proced|stored-proce|stored-proc|stop-mem-check|stop-display|stop-after|stop|stomp-frequency|stomp-detection|stdcall|status-area-msg|status|static|starting|start-search|start-row-resize|start-resize|start-move|start-mem-check|start-extend-box-selection|start-box-selection|start|sql|space|source-procedure|source|some|socket|soap-header-entryref|soap-header|soap-fault|smallint|slider|skip-schema-check|skip-group-duplicates|skip|size-pixels|size-pixel|size-pixe|size-pix|size-pi|size-p|size-chars|size-char|size-cha|size-ch|size-c|size|single-run|single-character|single|simple|silent|signature|side-label|side-labe|side-lab|show-stats|show-stat|short|shared|share-lock|share-loc|share-lo|share-l|share-|share|settings|set-state|set-pointer-value|set-pointer-valu|set-pointer-val|set-option|set-event-manager-option|set-db-logging|set-contents|set-cell-focus|set-byte-order|set-attr-call-type|set|session|server-socket|server|serialize-name|serializable|separate-connection|send|self|selection-list|selection-extend|selection|selected-items|select-repositioned-row|select-on-join|select-extend|select|seek|security-policy|section|search-target|search-self|scrolling|scrolled-row-position|scrolled-row-positio|scrolled-row-positi|scrolled-row-posit|scrolled-row-posi|scrolled-row-pos|scrollbar-drag|scroll-vertical|scroll-right|scroll-notify|scroll-mode|scroll-left|scroll-horizontal|scroll|screen-io|screen|schema|sax-xml|sax-writer|sax-write-tag|sax-write-idle|sax-write-error|sax-write-element|sax-write-content|sax-write-complete|sax-write-begin|sax-uninitialized|sax-running|sax-reader|sax-parser-error|sax-complete|sax-complet|sax-comple|sax-attributes|save-as|save)\\b(?!\\-)",
       "captures": {
         "1": {
           "name": "keyword.other.abl"
@@ -3817,7 +3818,7 @@
       }
     },
     "keywords-T": {
-      "match": "(?i)\\b(ttcodepage|true|triggers|trigger|transaction-mode|transaction|trans|trailing|total|topic|top-column|top|to|thru|throw|through|this-procedure|this-object|then|text-seg-growth|text-seg-growt|text-seg-grow|text-seg-gro|text-seg-gr|text-seg-g|text-seg-|text-seg|text-cursor|text|terminate|terminal|term|tenant-where|tenant|temp-table|target-procedure|target|table-scan|tab)\\b",
+      "match": "(?i)\\b(ttcodepage|true|triggers|trigger|transaction-mode|transaction|trans|trailing|total|topic|top-column|top|to|thru|throw|through|this-procedure|this-object|then|text-seg-growth|text-seg-growt|text-seg-grow|text-seg-gro|text-seg-gr|text-seg-g|text-seg-|text-seg|text-cursor|text|terminate|terminal|term|tenant-where|tenant|temp-table|target-procedure|target|table-scan|tab)\\b(?!\\-)",
       "captures": {
         "1": {
           "name": "keyword.other.abl"
@@ -3825,7 +3826,7 @@
       }
     },
     "keywords-U": {
-      "match": "(?i)\\b(utc-offset|using|user|use-widget-pool|use-underline|use-text|use-revvideo|use-index|use-filename|use-dict-exps|use-dict-exp|use-dict-ex|use-dict-e|use-dict-|use-dict|use-dic|use|upper|update|up|unsubscribe|unsigned-short|unsigned-long|unsigned-integer|unsigned-int64|unsigned-byte|unload|unless-hidden|unix-end|unix|unique|union|unformatted|unformatte|unformatt|unformat|unforma|unform|undo|underline|underlin|underli|underl|unbuffered|unbuffere|unbuffer|unbuffe|unbuff)\\b",
+      "match": "(?i)\\b(utc-offset|using|user|use-widget-pool|use-underline|use-text|use-revvideo|use-index|use-filename|use-dict-exps|use-dict-exp|use-dict-ex|use-dict-e|use-dict-|use-dict|use-dic|use|upper|update|up|unsubscribe|unsigned-short|unsigned-long|unsigned-integer|unsigned-int64|unsigned-byte|unload|unless-hidden|unix-end|unix|unique|union|unformatted|unformatte|unformatt|unformat|unforma|unform|undo|underline|underlin|underli|underl|unbuffered|unbuffere|unbuffer|unbuffe|unbuff)\\b(?!\\-)",
       "captures": {
         "1": {
           "name": "keyword.other.abl"
@@ -3833,7 +3834,7 @@
       }
     },
     "keywords-V": {
-      "match": "(?i)\\b(void|vms|virtual-width|virtual-height|view|vertical|vertica|vertic|verti|vert|verbose|verbos|verbo|verb|variable|variabl|variab|varia|vari|var|values|value-changed|validate|v6frame)\\b",
+      "match": "(?i)\\b(void|vms|virtual-width|virtual-height|view-as|view|vertical|vertica|vertic|verti|vert|verbose|verbos|verbo|verb|variable|variabl|variab|varia|vari|var|values|value-changed|validate|v6frame)\\b(?!\\-)",
       "captures": {
         "1": {
           "name": "keyword.other.abl"
@@ -3841,7 +3842,7 @@
       }
     },
     "keywords-W": {
-      "match": "(?i)\\b(workfile|work-table|work-tabl|work-tab|word-index|with|window-restored|window-resized|window-normal|window-name|window-minimized|window-minimize|window-minimiz|window-minimi|window-minim|window-maximized|window-maximize|window-maximiz|window-maximi|window-maxim|window-delayed-minimize|window-delayed-minimiz|window-delayed-minimi|window-delayed-minim|window-delayed-mini|window-delayed-min|window-close|width|widget-pool|widget|while|where|when|web-notify|web-context|web-contex|web-conte|web-cont|web-con|wait-for|wait)\\b",
+      "match": "(?i)\\b(workfile|work-table|work-tabl|work-tab|word-index|with|window-restored|window-resized|window-normal|window-name|window-minimized|window-minimize|window-minimiz|window-minimi|window-minim|window-maximized|window-maximize|window-maximiz|window-maximi|window-maxim|window-delayed-minimize|window-delayed-minimiz|window-delayed-minimi|window-delayed-minim|window-delayed-mini|window-delayed-min|window-close|width|widget-pool|widget|while|where|when|web-notify|web-context|web-contex|web-conte|web-cont|web-con|wait-for|wait)\\b(?!\\-)",
       "captures": {
         "1": {
           "name": "keyword.other.abl"
@@ -3849,7 +3850,7 @@
       }
     },
     "keywords-X": {
-      "match": "(?i)\\b(xref-xml|xref|xor|xml-node-name|xcode|x-of|x-noderef|x-document)\\b",
+      "match": "(?i)\\b(xref-xml|xref|xor|xml-node-name|xcode|x-of|x-noderef|x-document)\\b(?!\\-)",
       "captures": {
         "1": {
           "name": "keyword.other.abl"
@@ -3857,7 +3858,7 @@
       }
     },
     "keywords-Y": {
-      "match": "(?i)\\b(yes-no-cancel|yes-no|yes|year-offset|year|y-of)\\b",
+      "match": "(?i)\\b(yes-no-cancel|yes-no|yes|year-offset|year|y-of)\\b(?!\\-)",
       "captures": {
         "1": {
           "name": "keyword.other.abl"
