@@ -221,8 +221,8 @@ lineReaderKeywords.on('close', () => {
 
       result['keywords-' + String.fromCharCode(97 + zz).toUpperCase()] =
       {
-        //match: "(?i)(?<![\\w\\-\\:\\.])(" + keywordBlocks[zz].sort(reverseSort).join('|') + ")(?![\\w\\-])",
-        match: "(?i)\\b(" + keywordBlocks[zz].sort(reverseSort).join('|') + ")\\b(?!\\-)",
+        comment: "The keyword must not have a trailing variable character (one of #$-_%&)",
+        match: "(?i)\\b(" + keywordBlocks[zz].sort(reverseSort).join('|') + ")\\b(?![\\#\\$\\-\\_\\%\\&])",
         captures: {
           1: {
             name: "keyword.other.abl"
