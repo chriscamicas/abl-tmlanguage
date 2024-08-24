@@ -131,7 +131,7 @@ END.`;
       { "startIndex": 78, "endIndex": 79, "scopes": ["source.abl"] },  // ' '
       { "startIndex": 79, "endIndex": 83, "scopes": ["source.abl", "keyword.other.abl"] },  // 'NEXT'
       { "startIndex": 83, "endIndex": 84, "scopes": ["source.abl"] },  // ' '
-      { "startIndex": 84, "endIndex": 94, "scopes": ["source.abl", "variable.other.abl"] },  // 'LOOP-TRADE'
+      { "startIndex": 84, "endIndex": 94, "scopes": ["source.abl", "meta.block.label.abl"] },  // 'LOOP-TRADE'
       { "startIndex": 94, "endIndex": 95, "scopes": ["source.abl", "punctuation.terminator.abl"] }  // '.'
     ],
     [
@@ -159,7 +159,7 @@ END.`;
       { "startIndex": 34, "endIndex": 35, "scopes": ["source.abl"] },  // ' '
       { "startIndex": 35, "endIndex": 39, "scopes": ["source.abl", "keyword.other.abl"] },  // 'NEXT'
       { "startIndex": 39, "endIndex": 40, "scopes": ["source.abl"] },  // ' '
-      { "startIndex": 40, "endIndex": 50, "scopes": ["source.abl", "variable.other.abl"] },  // 'LOOP-TRADE'
+      { "startIndex": 40, "endIndex": 50, "scopes": ["source.abl", "meta.block.label.abl"] },  // 'LOOP-TRADE'
       { "startIndex": 50, "endIndex": 51, "scopes": ["source.abl", "punctuation.terminator.abl"] }  // '.'
     ],
     [
@@ -187,7 +187,7 @@ END.`;
       { "startIndex": 52, "endIndex": 53, "scopes": ["source.abl"] },  // ' '
       { "startIndex": 53, "endIndex": 57, "scopes": ["source.abl", "keyword.other.abl"] },  // 'NEXT'
       { "startIndex": 57, "endIndex": 58, "scopes": ["source.abl"] },  // ' '
-      { "startIndex": 58, "endIndex": 68, "scopes": ["source.abl", "variable.other.abl"] },  // 'LOOP-TRADE'
+      { "startIndex": 58, "endIndex": 68, "scopes": ["source.abl", "meta.block.label.abl"] },  // 'LOOP-TRADE'
       { "startIndex": 68, "endIndex": 69, "scopes": ["source.abl", "punctuation.terminator.abl"] }  // '.'
     ],
     [
