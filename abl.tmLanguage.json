@@ -1465,6 +1465,9 @@
           "include": "#break-group"
         },
         {
+          "include": "#block-undo-leave-next-retry"
+        },
+        {
           "include": "#operator"
         },
         {
@@ -2709,7 +2712,6 @@
       }
     },
     "on-error-endkey-stop": {
-      "name": "meta.block.branch.abl",
       "match": "(?i)\\s*(on)\\s+(endkey|error|stop|quit)\\s+(undo)\\s*(?!leave|next|retry|return|throw)([a-z0-9\\-\\_\\$]*)?\\s*",
       "captures": {
         "1": {
@@ -2726,8 +2728,19 @@
         }
       }
     },
+    "block-undo-leave-next-retry": {
+      "comment": "Covers NEXT, LEAVE, RETRY and UNDO with block labels that are not preceded by UNDO, ",
+      "match": "(?i)\\s*(?<!,)\\s*(leave|next|retry|undo)\\s*(?!on)([a-z0-9\\-\\_\\$]*)?\\s*",
+      "captures": {
+        "1": {
+          "name": "keyword.other.abl"
+        },
+        "2": {
+          "name": "meta.block.label.abl"
+        }
+      }
+    },
     "branch-leave-next-retry-throw": {
-      "name": "meta.block.branch.abl",
       "match": "(?i)\\s*(?<=,)\\s*(leave|next|retry|throw)\\s*(?!on)([a-z0-9\\-\\_\\$]*)?\\s*",
       "captures": {
         "1": {
@@ -2770,7 +2783,6 @@
       "name": "constant.character.escape.abl"
     },
     "branch-return-value-double": {
-      "name": "meta.block.branch.abl",
       "comment": "RETURN \"return-value\"",
       "begin": "(?i)\\s*(return)(\\s+(error))?\\s+(\")",
       "beginCaptures": {
@@ -2797,7 +2809,6 @@
       ]
     },
     "branch-return-no-apply": {
-      "name": "meta.block.branch.abl",
       "comment": "RETURN NO-APPLY",
       "match": "(?i)\\s*(return)\\s+(no-apply)\\s*",
       "captures": {
@@ -2810,7 +2821,6 @@
       }
     },
     "branch-return-error-expression": {
-      "name": "meta.block.branch.abl",
       "begin": "(?i)\\s*(return)\\s+(error)\\s*",
       "beginCaptures": {
         "1": {
@@ -2897,7 +2907,6 @@
       ]
     },
     "branch-options": {
-      "name": "meta.block.branch.abl",
       "patterns": [
         {
           "include": "#on-error-endkey-stop"

@@ -47,15 +47,15 @@ describe('', () => {
     [
       { "startIndex": 0, "endIndex": 2, "scopes": ["source.abl", "meta.block.abl"] },  // '  '
       { "startIndex": 2, "endIndex": 4, "scopes": ["source.abl", "meta.block.abl", "keyword.other.abl"] },  // 'do'
-      { "startIndex": 4, "endIndex": 5, "scopes": ["source.abl", "meta.block.abl", "meta.block.branch.abl"] },  // ' '
-      { "startIndex": 5, "endIndex": 7, "scopes": ["source.abl", "meta.block.abl", "meta.block.branch.abl", "keyword.other.abl"] },  // 'on'
-      { "startIndex": 7, "endIndex": 8, "scopes": ["source.abl", "meta.block.abl", "meta.block.branch.abl"] },  // ' '
-      { "startIndex": 8, "endIndex": 13, "scopes": ["source.abl", "meta.block.abl", "meta.block.branch.abl", "keyword.other.abl"] },  // 'error'
-      { "startIndex": 13, "endIndex": 14, "scopes": ["source.abl", "meta.block.abl", "meta.block.branch.abl"] },  // ' '
-      { "startIndex": 14, "endIndex": 18, "scopes": ["source.abl", "meta.block.abl", "meta.block.branch.abl", "keyword.other.abl"] },  // 'undo'
+      { "startIndex": 4, "endIndex": 5, "scopes": ["source.abl", "meta.block.abl"] },  // ' '
+      { "startIndex": 5, "endIndex": 7, "scopes": ["source.abl", "meta.block.abl", "keyword.other.abl"] },  // 'on'
+      { "startIndex": 7, "endIndex": 8, "scopes": ["source.abl", "meta.block.abl"] },  // ' '
+      { "startIndex": 8, "endIndex": 13, "scopes": ["source.abl", "meta.block.abl", "keyword.other.abl"] },  // 'error'
+      { "startIndex": 13, "endIndex": 14, "scopes": ["source.abl", "meta.block.abl"] },  // ' '
+      { "startIndex": 14, "endIndex": 18, "scopes": ["source.abl", "meta.block.abl", "keyword.other.abl"] },  // 'undo'
       { "startIndex": 18, "endIndex": 19, "scopes": ["source.abl", "meta.block.abl", "punctuation.separator.comma.abl"] },  // ','
-      { "startIndex": 19, "endIndex": 20, "scopes": ["source.abl", "meta.block.abl", "meta.block.branch.abl"] },  // ' '
-      { "startIndex": 20, "endIndex": 25, "scopes": ["source.abl", "meta.block.abl", "meta.block.branch.abl", "keyword.other.abl"] },  // 'throw'
+      { "startIndex": 19, "endIndex": 20, "scopes": ["source.abl", "meta.block.abl"] },  // ' '
+      { "startIndex": 20, "endIndex": 25, "scopes": ["source.abl", "meta.block.abl", "keyword.other.abl"] },  // 'throw'
       { "startIndex": 25, "endIndex": 26, "scopes": ["source.abl", "punctuation.terminator.abl"] }  // ':'
     ],
     [
