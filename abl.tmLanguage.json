@@ -883,7 +883,7 @@
     },
     "define-class": {
       "name": "meta.define.class.abl",
-      "begin": "(?i)\\b(class)\\b",
+      "begin": "(?i)\\b(?<![\\#\\$\\-\\_\\%\\&])(class)\\b(?![\\#\\$\\-\\_\\%\\&])",
       "beginCaptures": {
         "1": {
           "name": "keyword.other.abl"
