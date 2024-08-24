@@ -3169,7 +3169,7 @@
     },
     "variable-name": {
       "comment": "1 to 128 characters; can consist of any combination of letters (a-z or A-Z), numbers (0-9), and these special characters: #$-_%& Names must begin with a letter (from https://docs.progress.com/bundle/openedge-abl-manage-applications/page/Name-limits.html)",
-      "match": "(?<=^|\\s|\\[|\\()([a-zA-Z][a-zA-Z0-9\\#\\$\\-\\_\\%\\&]*)",
+      "match": "(?<=^|\\s|\\[|\\(|,)([a-zA-Z][a-zA-Z0-9\\#\\$\\-\\_\\%\\&]*)(?=\\.\\s|\\.$|,|:|\\s|\\)|\\]|\\[|$)",
       "name": "variable.other.abl"
     },
     "extent": {
