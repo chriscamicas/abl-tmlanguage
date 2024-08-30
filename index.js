@@ -42,6 +42,7 @@ alsoStatements.push('ambiguous');
 alsoStatements.push('available');
 alsoStatements.push('centered');
 alsoStatements.push('delete');
+alsoStatements.push('delimiter');
 alsoStatements.push('first');
 alsoStatements.push('format');
 alsoStatements.push('initial');
@@ -58,7 +59,6 @@ alsoStatements.push('transaction');
 alsoStatements.push('view-as');
 alsoStatements.push('xml-node-name');
 
-
 let functionsNotStatements = [];
 functionsNotStatements.push('set-size');
 
@@ -66,6 +66,7 @@ let alsoFunctions = [];
 alsoFunctions.push('lower');
 alsoFunctions.push('relation-fields');
 alsoFunctions.push('return');
+alsoFunctions.push('skip');
 alsoFunctions.push('substitute');
 alsoFunctions.push('this-object');
 alsoFunctions.push('value');
@@ -185,12 +186,6 @@ lineReaderKeywords.on('line', line => {
 
 function addToBlock(charIdx, fullKw, addKw) {
 
-  if (alsoFunctions.includes(fullKw)) {
-    if (!functionBlocks[charIdx].includes(addKw)) {
-      functionBlocks[charIdx].push(addKw);
-    }
-  }
-
   if (attributeBlocks[charIdx].includes(fullKw)) {
     if (!attributeBlocks[charIdx].includes(addKw)) {
       attributeBlocks[charIdx].push(addKw);
@@ -208,6 +203,13 @@ function addToBlock(charIdx, fullKw, addKw) {
       keywordBlocks[charIdx].push(addKw);
     }
   }
+
+  if (alsoFunctions.includes(fullKw)) {
+    if (!functionBlocks[charIdx].includes(addKw)) {
+      functionBlocks[charIdx].push(addKw);
+    }
+  }
+
 }
 
 lineReaderKeywords.on('close', () => {

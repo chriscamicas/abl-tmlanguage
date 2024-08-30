@@ -3703,7 +3703,7 @@
     },
     "keywords-D": {
       "comment": "The keyword must not have a trailing variable character (one of #$-_%&)",
-      "match": "(?i)\\b(dynamic-property|dynamic-new|dynamic-current-value|dump|dslog-manager|drop-file-notify|drop-down-list|drop-down|drop|down|double|dotnet-clr-loaded|dos-end|dos|do|dll-call-type|distinct|display|displa|displ|disp|dismiss-menu|disconnect|disabled|disable|dir|dictionary|dictionar|dictiona|diction|dictio|dicti|dict|dialog-help|dialog-box|detach|destructor|deselection-extend|deselection|deselect-extend|deselect|descending|descendin|descendi|descend|descen|desce|desc|delete-word|delete-field|delete-end-line|delete-column|delete-character|delete|delegate|del|define-user-event-manager|define|defin|defi|defer-lob-fetch|default-window|default-untranslatable|default-pop-up|default-extension|default-extensio|default-extensi|default-extens|default-exten|default-exte|default-ext|default-ex|default-action|def|declare|debugger|debug-set-tenant|debug-list|dde-notify|dde|dataset-handle|dataset|database|data-source|data-relation|data-relatio|data-relati|data-relat|data-rela|data-rel|data-refresh-page|data-refresh-line|data-bind|data-bin|data-bi|data-b)\\b(?![\\#\\$\\-\\_\\%\\&])",
+      "match": "(?i)\\b(dynamic-property|dynamic-new|dynamic-current-value|dump|dslog-manager|drop-file-notify|drop-down-list|drop-down|drop|down|double|dotnet-clr-loaded|dos-end|dos|do|dll-call-type|distinct|display|displa|displ|disp|dismiss-menu|disconnect|disabled|disable|dir|dictionary|dictionar|dictiona|diction|dictio|dicti|dict|dialog-help|dialog-box|detach|destructor|deselection-extend|deselection|deselect-extend|deselect|descending|descendin|descendi|descend|descen|desce|desc|delimiter|delete-word|delete-field|delete-end-line|delete-column|delete-character|delete|delegate|del|define-user-event-manager|define|defin|defi|defer-lob-fetch|default-window|default-untranslatable|default-pop-up|default-extension|default-extensio|default-extensi|default-extens|default-exten|default-exte|default-ext|default-ex|default-action|def|declare|debugger|debug-set-tenant|debug-list|dde-notify|dde|dataset-handle|dataset|database|data-source|data-relation|data-relatio|data-relati|data-relat|data-rela|data-rel|data-refresh-page|data-refresh-line|data-bind|data-bin|data-bi|data-b)\\b(?![\\#\\$\\-\\_\\%\\&])",
       "captures": {
         "1": {
           "name": "keyword.other.abl"
@@ -3775,7 +3775,7 @@
     },
     "keywords-L": {
       "comment": "The keyword must not have a trailing variable character (one of #$-_%&)",
-      "match": "(?i)\\b(lt|lookahead|longchar|longcha|longch|long|log-manager|log-id|locked|lob-dir|load-result-into|load-picture|load-from|load|little-endian|listing|listin|listi|line-up|line-right|line-left|line-down|like-sequential|like|length|left-end|left-aligned|left-aligne|left-align|left|leave|leak-detection|leading|le|last-key|last-event|last-even|landscape|label-pfcolor|label-pfcolo|label-pfcol|label-pfco|label-pfc|label)\\b(?![\\#\\$\\-\\_\\%\\&])",
+      "match": "(?i)\\b(lt|lower|lookahead|longchar|longcha|longch|long|log-manager|log-id|locked|lob-dir|load-result-into|load-picture|load-from|load|little-endian|listing|listin|listi|line-up|line-right|line-left|line-down|like-sequential|like|length|left-end|left-aligned|left-aligne|left-align|left|leave|leak-detection|leading|le|last-key|last-event|last-even|landscape|label-pfcolor|label-pfcolo|label-pfcol|label-pfco|label-pfc|label)\\b(?![\\#\\$\\-\\_\\%\\&])",
       "captures": {
         "1": {
           "name": "keyword.other.abl"
@@ -5108,7 +5108,7 @@
     },
     "abl-functions-S": {
       "name": "meta.function-call.abl",
-      "begin": "(?i)\\s*(super|substring|substrin|substri|substr|substitute|substitut|substitu|substit|substi|subst|string|ssl-server-name|sqrt|sha1-digest|setuserid|setuseri|setuser|set-size|set-effective-tenant|set-db-client|seek|search|sdbname|screen-lines)\\s*(?=\\()",
+      "begin": "(?i)\\s*(super|substring|substrin|substri|substr|substitute|substitut|substitu|substit|substi|subst|string|ssl-server-name|sqrt|skip|sha1-digest|setuserid|setuseri|setuser|set-size|set-effective-tenant|set-db-client|seek|search|sdbname|screen-lines)\\s*(?=\\()",
       "beginCaptures": {
         "1": {
           "name": "support.function.abl"

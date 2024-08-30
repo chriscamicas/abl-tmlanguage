@@ -18,9 +18,9 @@ with down# down row 12 no-labels no-box frame f-body.`;
       { "startIndex": 5, "endIndex": 7, "scopes": ["source.abl", "constant.numeric.source.abl"] }  // '15'
     ],
     [
-      { "startIndex": 0, "endIndex": 4, "scopes": ["source.abl", "entity.name.function.abl"] },  // 'skip'
-      { "startIndex": 4, "endIndex": 5, "scopes": ["source.abl", "meta.function.arguments.abl", "meta.brace.round.js"] },  // '('
-      { "startIndex": 5, "endIndex": 6, "scopes": ["source.abl", "meta.brace.round.js"] }  // ')'
+      { "startIndex": 0, "endIndex": 4, "scopes": ["source.abl", "meta.function-call.abl", "support.function.abl"] },  // 'skip'
+      { "startIndex": 4, "endIndex": 5, "scopes": ["source.abl", "meta.function-call.abl", "meta.function.arguments.abl", "meta.brace.round.js"] },  // '('
+      { "startIndex": 5, "endIndex": 6, "scopes": ["source.abl", "meta.function-call.abl", "meta.brace.round.js"] }  // ')'
     ],
     [
       { "startIndex": 0, "endIndex": 4, "scopes": ["source.abl", "keyword.other.abl"] },  // 'with'
