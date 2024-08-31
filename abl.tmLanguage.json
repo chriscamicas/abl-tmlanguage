@@ -3881,8 +3881,7 @@
         }
       }
     },
-    "keywords-X": {
-      "comment": "The keyword must not have a trailing variable character (one of #$-_%&)",
+    "keywords-X": {      "comment": "The keyword must not have a trailing variable character (one of #$-_%&)",
       "match": "(?i)\\b(xref-xml|xref|xor|xml-node-name|xcode|x-of|x-noderef|x-document)\\b(?![\\#\\$\\-\\_\\%\\&])",
       "captures": {
         "1": {

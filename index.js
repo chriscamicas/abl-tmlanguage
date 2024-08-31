@@ -75,30 +75,28 @@ lineReaderMethods.on('line', line => {
   let results;
   line = line.toLowerCase();
 
-  if (!line.startsWith("#")) {
-    let kw = line.split(' ');
-    let charIdx = kw[0].charCodeAt(0) - 97;
-    let keyWord = kw[0].split('(')[0];
+  let kw = line.split(' ');
+  let charIdx = kw[0].charCodeAt(0) - 97;
+  let keyWord = kw[0].split('(')[0];
 
-    if (kw.includes('attribute')) {
-      if (!attributeBlocks[charIdx].includes(keyWord)) {
-        attributeBlocks[charIdx].push(keyWord);
-      }
-    } else if (kw.includes('method')) {
-      if (!methodBlocks[charIdx].includes(keyWord)) {
-        methodBlocks[charIdx].push(keyWord);
-      }
+  if (kw.includes('attribute')) {
+    if (!attributeBlocks[charIdx].includes(keyWord)) {
+      attributeBlocks[charIdx].push(keyWord);
     }
+  } else if (kw.includes('method')) {
+    if (!methodBlocks[charIdx].includes(keyWord)) {
+      methodBlocks[charIdx].push(keyWord);
+    }
+  }
 
-    if (alsoStatements.includes(keyWord)) {
-      if (!keywordBlocks[charIdx].includes(keyWord)) {
-        keywordBlocks[charIdx].push(keyWord);
-      }
+  if (alsoStatements.includes(keyWord)) {
+    if (!keywordBlocks[charIdx].includes(keyWord)) {
+      keywordBlocks[charIdx].push(keyWord);
     }
-    if (alsoFunctions.includes(keyWord)) {
-      if (!functionBlocks[charIdx].includes(keyWord)) {
-        functionBlocks[charIdx].push(keyWord);
-      }
+  }
+  if (alsoFunctions.includes(keyWord)) {
+    if (!functionBlocks[charIdx].includes(keyWord)) {
+      functionBlocks[charIdx].push(keyWord);
     }
   }
 });
@@ -107,7 +105,7 @@ lineReaderFunctions.on('line', line => {
   let results;
   line = line.toLowerCase();
 
-  if (!line.startsWith("#")) {
+  let kw = line.split(' ');
 
     let kw = line.split(' ');
     let kwName = '';
@@ -120,6 +118,10 @@ lineReaderFunctions.on('line', line => {
       } else {
         kwName = kw.slice(0, kw.indexOf('function')).join(' ');
       }
+    }
+  } else if (kw.includes('statement')) {
+    for (const keyWord of kw) {
+      let charIdx = keyWord.charCodeAt(0) - 97;
 
       // CAPS letter alphabet
       let charIdx = kwName.charCodeAt(0) - 97;
@@ -158,28 +160,27 @@ lineReaderFunctions.on('line', line => {
 lineReaderKeywords.on('line', line => {
   let results;
   line = line.toLowerCase();
-  if (!line.startsWith("#")) {
-    while ((results = re.exec(line)) !== null) {
-      let kw = results[0];
-      // CAPS letter alphabet
-      let charIdx = kw.charCodeAt(0) - 97;
 
-      if (kw.indexOf('(') !== -1) {
-        let kwParts = kw.split('(');
-        let fullKw = kwParts[0] + kwParts[1];
+  while ((results = re.exec(line)) !== null) {
+    let kw = results[0];
+    // CAPS letter alphabet
+    let charIdx = kw.charCodeAt(0) - 97;
 
-        kw = kwParts[0];
+    if (kw.indexOf('(') !== -1) {
+      let kwParts = kw.split('(');
+      let fullKw = kwParts[0] + kwParts[1];
+
+      kw = kwParts[0];
+      addToBlock(charIdx, fullKw, kw);
+
+      let kwComplete = kwParts[1];
+      for (const element of kwComplete) {
+        kw += element;
+
         addToBlock(charIdx, fullKw, kw);
-
-        let kwComplete = kwParts[1];
-        for (const element of kwComplete) {
-          kw += element;
-
-          addToBlock(charIdx, fullKw, kw);
-        }
-      } else {
-        addToBlock(charIdx, kw, kw);
       }
+    } else {
+      addToBlock(charIdx, kw, kw);
     }
   }
 });
