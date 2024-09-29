@@ -2264,6 +2264,9 @@
           "include": "#primitive-type"
         },
         {
+          "include": "#define-like"
+        },
+        {
           "comment": "needs to be before the #keywords include",
           "include": "#type-names"
         },
@@ -2451,7 +2454,7 @@
       }
     },
     "define-like": {
-      "match": "(?i)\\s*(like|like-sequential)\\s+([\\w\\-#$%]+)\\s*",
+      "match": "(?i)\\s*(like|like-sequential)\\s+(([\\w\\-#$%]+\\.)?([\\w\\-#$%]+\\.)?([\\w\\-#$%]+))",
       "captures": {
         "1": {
           "name": "keyword.other.abl"
