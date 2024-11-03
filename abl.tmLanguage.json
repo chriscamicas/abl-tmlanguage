@@ -1670,6 +1670,14 @@
         }
       }
     },
+    "variable-like": {
+      "match": "(?i)\\s*([\\w\\-]+)\\s+(?=like)\\s*",
+      "captures": {
+        "1": {
+          "name": "variable.other.abl"
+        }
+      }
+    },
     "property-as": {
       "match": "(?i)\\s*([\\w\\-]+)\\s+(as)\\s*",
       "captures": {
@@ -2316,6 +2324,9 @@
           "include": "#variable-as"
         },
         {
+          "include": "#variable-like"
+        },
+        {
           "include": "#primitive-type"
         },
         {
@@ -2368,7 +2379,7 @@
       }
     },
     "define-table": {
-      "match": "(?i)(?<=\\b)(temp-table|like|before-table)\\s*([\\w\\-#$%]+)\\s*",
+      "match": "(?i)(?<=\\b)(temp-table|before-table)\\s*([\\w\\-#$%]+)\\s*",
       "captures": {
         "1": {
           "name": "keyword.other.abl"
