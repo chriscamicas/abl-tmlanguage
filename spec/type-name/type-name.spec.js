@@ -215,8 +215,8 @@ describe('', () => {
   let expectedTokens = [
     { "startIndex": 0, "endIndex": 5, "scopes": ["source.abl", "meta.using.abl", "keyword.other.abl"] },  // 'using'
     { "startIndex": 5, "endIndex": 6, "scopes": ["source.abl", "meta.using.abl"] },  // ' '
-    { "startIndex": 6, "endIndex": 15, "scopes": ["source.abl", "meta.using.abl", "entity.name.package.abl"] },  // 'foo.bar.*'
-    { "startIndex": 15, "endIndex": 16, "scopes": ["source.abl", "meta.using.abl"] },  // ' '
+    { "startIndex": 6, "endIndex": 13, "scopes": ["source.abl", "meta.using.abl", "entity.name.package.abl"] },  // 'foo.bar'
+    { "startIndex": 13, "endIndex": 16, "scopes": ["source.abl", "meta.using.abl"] },  // '.* '
     { "startIndex": 16, "endIndex": 20, "scopes": ["source.abl", "meta.using.abl", "keyword.other.abl"] },  // 'from'
     { "startIndex": 20, "endIndex": 21, "scopes": ["source.abl", "meta.using.abl"] },  // ' '
     { "startIndex": 21, "endIndex": 28, "scopes": ["source.abl", "meta.using.abl", "keyword.other.abl"] },  // 'propath'
@@ -226,15 +226,14 @@ describe('', () => {
 })
 
 describe('', () => {
-  let statement = `using foo.bar.* ..`;
+  let statement = `using foo.bar.* .`;
 
   let expectedTokens = [
     { "startIndex": 0, "endIndex": 5, "scopes": ["source.abl", "meta.using.abl", "keyword.other.abl"] },  // 'using'
     { "startIndex": 5, "endIndex": 6, "scopes": ["source.abl", "meta.using.abl"] },  // ' '
-    { "startIndex": 6, "endIndex": 15, "scopes": ["source.abl", "meta.using.abl", "entity.name.package.abl"] },  // 'foo.bar.*'
-    { "startIndex": 15, "endIndex": 16, "scopes": ["source.abl", "meta.using.abl"] },  // ' '
-    { "startIndex": 16, "endIndex": 17, "scopes": ["source.abl", "meta.using.abl", "punctuation.terminator.abl"] },  // '.'
-    { "startIndex": 17, "endIndex": 18, "scopes": ["source.abl", "punctuation.terminator.abl"] }  // '.'
+    { "startIndex": 6, "endIndex": 13, "scopes": ["source.abl", "meta.using.abl", "entity.name.package.abl"] },  // 'foo.bar'
+    { "startIndex": 13, "endIndex": 16, "scopes": ["source.abl", "meta.using.abl"] },  // '.* '
+    { "startIndex": 16, "endIndex": 17, "scopes": ["source.abl", "meta.using.abl", "punctuation.terminator.abl"] }  // '.'
   ];
   shared.itShouldMatchExpectedScopes(statement, expectedTokens);
 })
