@@ -73,6 +73,7 @@ alsoStatements.push('single-run');
 alsoStatements.push('tooltip');
 alsoStatements.push('transaction');
 alsoStatements.push('view-as');
+alsoStatements.push('warning');
 alsoStatements.push('xml-node-name');
 
 let functionsNotStatements = [];

@@ -3943,7 +3943,7 @@
     },
     "keywords-W": {
       "comment": "The keyword must not have a trailing variable character (one of #$-_%&)",
-      "match": "(?i)\\b(workfile|work-table|work-tabl|work-tab|word-index|with|window-restored|window-resized|window-normal|window-name|window-minimized|window-minimize|window-minimiz|window-minimi|window-minim|window-maximized|window-maximize|window-maximiz|window-maximi|window-maxim|window-delayed-minimize|window-delayed-minimiz|window-delayed-minimi|window-delayed-minim|window-delayed-mini|window-delayed-min|window-close|width|widget-pool|widget|while|where|when|web-notify|web-context|web-contex|web-conte|web-cont|web-con|wait-for|wait)\\b(?![\\#\\$\\-\\_\\%\\&])",
+      "match": "(?i)\\b(workfile|work-table|work-tabl|work-tab|word-index|with|window-restored|window-resized|window-normal|window-name|window-minimized|window-minimize|window-minimiz|window-minimi|window-minim|window-maximized|window-maximize|window-maximiz|window-maximi|window-maxim|window-delayed-minimize|window-delayed-minimiz|window-delayed-minimi|window-delayed-minim|window-delayed-mini|window-delayed-min|window-close|width|widget-pool|widget|while|where|when|web-notify|web-context|web-contex|web-conte|web-cont|web-con|warning|wait-for|wait)\\b(?![\\#\\$\\-\\_\\%\\&])",
       "captures": {
         "1": {
           "name": "keyword.other.abl"
