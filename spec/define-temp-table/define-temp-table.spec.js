@@ -429,3 +429,73 @@ describe('', () => {
   ];
   shared.itShouldMatchExpectedScopes(statement, expectedTokens);
 })
+
+describe('', () => {
+  let statement = `define temp-table item no-undo
+  namespace-uri "urn:schemas-cybersource-com:transaction-data-{&API-VERSION}"
+  field id as decimal decimals 0 xml-data-type "integer" xml-node-type "ATTRIBUTE"
+  field requestMessage_id as recid xml-node-type "HIDDEN".`;
+  let expectedTokens = [
+    [
+      { "startIndex": 0, "endIndex": 6, "scopes": ["source.abl", "meta.define.abl", "keyword.other.abl"] },  // 'define'
+      { "startIndex": 6, "endIndex": 7, "scopes": ["source.abl", "meta.define.abl"] },  // ' '
+      { "startIndex": 7, "endIndex": 17, "scopes": ["source.abl", "meta.define.abl", "keyword.other.abl"] },  // 'temp-table'
+      { "startIndex": 17, "endIndex": 18, "scopes": ["source.abl", "meta.define.abl"] },  // ' '
+      { "startIndex": 18, "endIndex": 22, "scopes": ["source.abl", "meta.define.abl", "storage.data.table.abl"] },  // 'item'
+      { "startIndex": 22, "endIndex": 23, "scopes": ["source.abl", "meta.define.abl"] },  // ' '
+      { "startIndex": 23, "endIndex": 30, "scopes": ["source.abl", "meta.define.abl", "keyword.other.abl"] }  // 'no-undo'
+    ],
+    [
+      { "startIndex": 0, "endIndex": 2, "scopes": ["source.abl", "meta.define.abl"] },  // '  '
+      { "startIndex": 2, "endIndex": 15, "scopes": ["source.abl", "meta.define.abl", "keyword.other.abl"] },  // 'namespace-uri'
+      { "startIndex": 15, "endIndex": 16, "scopes": ["source.abl", "meta.define.abl"] },  // ' '
+      { "startIndex": 16, "endIndex": 17, "scopes": ["source.abl", "meta.define.abl", "string.double.complex.abl", "punctuation.definition.string.begin.abl"] },  // '"'
+      { "startIndex": 17, "endIndex": 76, "scopes": ["source.abl", "meta.define.abl", "string.double.complex.abl"] },  // 'urn:schemas-cybersource-com:transaction-data-{&API-VERSION}'
+      { "startIndex": 76, "endIndex": 77, "scopes": ["source.abl", "meta.define.abl", "string.double.complex.abl", "punctuation.definition.string.end.abl"] }  // '"'
+    ],
+    [
+      { "startIndex": 0, "endIndex": 2, "scopes": ["source.abl", "meta.define.abl"] },  // '  '
+      { "startIndex": 2, "endIndex": 7, "scopes": ["source.abl", "meta.define.abl", "keyword.other.abl"] },  // 'field'
+      { "startIndex": 7, "endIndex": 8, "scopes": ["source.abl", "meta.define.abl"] },  // ' '
+      { "startIndex": 8, "endIndex": 10, "scopes": ["source.abl", "meta.define.abl", "storage.data.table.abl"] },  // 'id'
+      { "startIndex": 10, "endIndex": 11, "scopes": ["source.abl", "meta.define.abl"] },  // ' '
+      { "startIndex": 11, "endIndex": 13, "scopes": ["source.abl", "meta.define.abl", "keyword.other.abl"] },  // 'as'
+      { "startIndex": 13, "endIndex": 14, "scopes": ["source.abl", "meta.define.abl"] },  // ' '
+      { "startIndex": 14, "endIndex": 21, "scopes": ["source.abl", "meta.define.abl", "storage.type.abl"] },  // 'decimal'
+      { "startIndex": 21, "endIndex": 22, "scopes": ["source.abl", "meta.define.abl"] },  // ' '
+      { "startIndex": 22, "endIndex": 30, "scopes": ["source.abl", "meta.define.abl", "keyword.other.abl"] },  // 'decimals'
+      { "startIndex": 30, "endIndex": 31, "scopes": ["source.abl", "meta.define.abl"] },  // ' '
+      { "startIndex": 31, "endIndex": 32, "scopes": ["source.abl", "meta.define.abl", "constant.numeric.source.abl"] },  // '0'
+      { "startIndex": 32, "endIndex": 33, "scopes": ["source.abl", "meta.define.abl"] },  // ' '
+      { "startIndex": 33, "endIndex": 46, "scopes": ["source.abl", "meta.define.abl", "keyword.other.abl"] },  // 'xml-data-type'
+      { "startIndex": 46, "endIndex": 47, "scopes": ["source.abl", "meta.define.abl"] },  // ' '
+      { "startIndex": 47, "endIndex": 48, "scopes": ["source.abl", "meta.define.abl", "string.double.complex.abl", "punctuation.definition.string.begin.abl"] },  // '"'
+      { "startIndex": 48, "endIndex": 55, "scopes": ["source.abl", "meta.define.abl", "string.double.complex.abl"] },  // 'integer'
+      { "startIndex": 55, "endIndex": 56, "scopes": ["source.abl", "meta.define.abl", "string.double.complex.abl", "punctuation.definition.string.end.abl"] },  // '"'
+      { "startIndex": 56, "endIndex": 57, "scopes": ["source.abl", "meta.define.abl"] },  // ' '
+      { "startIndex": 57, "endIndex": 70, "scopes": ["source.abl", "meta.define.abl", "keyword.other.abl"] },  // 'xml-node-type'
+      { "startIndex": 70, "endIndex": 71, "scopes": ["source.abl", "meta.define.abl"] },  // ' '
+      { "startIndex": 71, "endIndex": 72, "scopes": ["source.abl", "meta.define.abl", "string.double.complex.abl", "punctuation.definition.string.begin.abl"] },  // '"'
+      { "startIndex": 72, "endIndex": 81, "scopes": ["source.abl", "meta.define.abl", "string.double.complex.abl"] },  // 'ATTRIBUTE'
+      { "startIndex": 81, "endIndex": 82, "scopes": ["source.abl", "meta.define.abl", "string.double.complex.abl", "punctuation.definition.string.end.abl"] }  // '"'
+    ],
+    [
+      { "startIndex": 0, "endIndex": 2, "scopes": ["source.abl", "meta.define.abl"] },  // '  '
+      { "startIndex": 2, "endIndex": 7, "scopes": ["source.abl", "meta.define.abl", "keyword.other.abl"] },  // 'field'
+      { "startIndex": 7, "endIndex": 8, "scopes": ["source.abl", "meta.define.abl"] },  // ' '
+      { "startIndex": 8, "endIndex": 25, "scopes": ["source.abl", "meta.define.abl", "storage.data.table.abl"] },  // 'requestMessage_id'
+      { "startIndex": 25, "endIndex": 26, "scopes": ["source.abl", "meta.define.abl"] },  // ' '
+      { "startIndex": 26, "endIndex": 28, "scopes": ["source.abl", "meta.define.abl", "keyword.other.abl"] },  // 'as'
+      { "startIndex": 28, "endIndex": 29, "scopes": ["source.abl", "meta.define.abl"] },  // ' '
+      { "startIndex": 29, "endIndex": 34, "scopes": ["source.abl", "meta.define.abl", "storage.type.abl"] },  // 'recid'
+      { "startIndex": 34, "endIndex": 35, "scopes": ["source.abl", "meta.define.abl"] },  // ' '
+      { "startIndex": 35, "endIndex": 48, "scopes": ["source.abl", "meta.define.abl", "keyword.other.abl"] },  // 'xml-node-type'
+      { "startIndex": 48, "endIndex": 49, "scopes": ["source.abl", "meta.define.abl"] },  // ' '
+      { "startIndex": 49, "endIndex": 50, "scopes": ["source.abl", "meta.define.abl", "string.double.complex.abl", "punctuation.definition.string.begin.abl"] },  // '"'
+      { "startIndex": 50, "endIndex": 56, "scopes": ["source.abl", "meta.define.abl", "string.double.complex.abl"] },  // 'HIDDEN'
+      { "startIndex": 56, "endIndex": 57, "scopes": ["source.abl", "meta.define.abl", "string.double.complex.abl", "punctuation.definition.string.end.abl"] },  // '"'
+      { "startIndex": 57, "endIndex": 58, "scopes": ["source.abl", "meta.define.abl", "punctuation.terminator.abl"] }  // '.'
+    ]
+  ];
+  shared.itShouldMatchExpectedScopes(statement, expectedTokens);
+})

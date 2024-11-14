@@ -74,7 +74,9 @@ alsoStatements.push('tooltip');
 alsoStatements.push('transaction');
 alsoStatements.push('view-as');
 alsoStatements.push('warning');
+alsoStatements.push('xml-data-type');
 alsoStatements.push('xml-node-name');
+alsoStatements.push('xml-node-type');
 
 let functionsNotStatements = [];
 functionsNotStatements.push('set-size');
@@ -260,7 +262,7 @@ lineReaderKeywords.on('close', () => {
 
       result['handle-attributes-' + String.fromCharCode(97 + zz).toUpperCase()] =
       {
-        match: "(?i)(:)(" + attributeBlocks[zz].sort(reverseSort).join('|') + ")\\s*",
+        match: "(?i)(:)(" + attributeBlocks[zz].sort(reverseSort).join('|') + ")\\b(?![\\#\\$\\-\\_\\%\\&])",
         captures: {
           1: {
             name: "punctuation.separator.colon.abl"
