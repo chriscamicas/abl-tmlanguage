@@ -3123,7 +3123,7 @@
           "include": "#parens"
         },
         {
-          "match": "(?i)\\s*(input-output|input-outpu|input-outp|input-out|input-ou|input-o|output|input|table-handle|dataset-handle|APPEND|BY-VALUE|BY-REFERENCE|BIND)\\s*",
+          "match": "(?i)\\s*(input-output|input-outpu|input-outp|input-out|input-ou|input-o|output|input|table-handle|dataset-handle|APPEND|BY-VALUE|BY-REFERENCE|BIND)\\b(?![\\#\\$\\-\\_\\%\\&])",
           "captures": {
             "1": {
               "name": "keyword.other.abl"
