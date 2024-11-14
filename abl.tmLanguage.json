@@ -561,6 +561,9 @@
           "include": "#break-by"
         },
         {
+          "include": "#type-reference"
+        },
+        {
           "include": "#for-join"
         },
         {
@@ -604,9 +607,6 @@
         },
         {
           "include": "#property-accessor"
-        },
-        {
-          "include": "#type-reference"
         },
         {
           "include": "#for-each-table"
@@ -746,7 +746,7 @@
           "comment": "Captures USING foo.bar.* .",
           "match": "(?i)\\s*((([\\w\\#\\$\\%]+|progress)(\\.[\\w\\#\\$\\%]+)*)\\.\\*)\\s*",
           "captures": {
-            "1": {
+            "2": {
               "name": "entity.name.package.abl"
             }
           }
@@ -1212,7 +1212,7 @@
     },
     "for-join": {
       "comment": "Captures something like ', salesrep where' or 'salesrep where', when the latter is at the beginning of a line. 'OF' phrases handled by of-phrase",
-      "match": "(?i)(?<=,|^)\\s*([\\w\\-#$%]+(\\.[\\w\\-#$%]+)?)\\s+(?=where|no-lock|exclusive-lock|exclusive-loc|exclusive-lo|exclusive-l|share-lock|share-loc|share-lo|share-|share|tenant-where|use-index|table-scan|using|no-prefetch|left|outer-join|break|by|transaction)",
+      "match": "(?i)(?<=,|^)\\s*([\\w\\-#$%]+(\\.[\\w\\-#$%]+)?)\\s+(?=where|no-lock|exclusive-lock|exclusive-loc|exclusive-lo|exclusive-l|share-lock|share-loc|share-lo|share-|share|tenant-where|use-index|table-scan|using|no-prefetch|left|outer-join|break|by|transaction)\\s*",
       "captures": {
         "1": {
           "name": "storage.data.table.abl"
