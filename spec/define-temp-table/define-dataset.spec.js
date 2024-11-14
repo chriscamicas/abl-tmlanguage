@@ -126,7 +126,7 @@ describe('', () => {
       { "startIndex": 20, "endIndex": 23, "scopes": ["source.abl", "meta.define.abl", "string.double.complex.abl"] },  // 'foo'
       { "startIndex": 23, "endIndex": 24, "scopes": ["source.abl", "meta.define.abl", "string.double.complex.abl", "punctuation.definition.string.end.abl"] },  // '"'
       { "startIndex": 24, "endIndex": 25, "scopes": ["source.abl", "meta.define.abl"] },  // ' '
-      { "startIndex": 25, "endIndex": 38, "scopes": ["source.abl", "meta.define.abl", "storage.data.table.abl"] },  // 'xml-node-type'
+      { "startIndex": 25, "endIndex": 38, "scopes": ["source.abl", "meta.define.abl", "keyword.other.abl"] },  // 'xml-node-type'
       { "startIndex": 38, "endIndex": 39, "scopes": ["source.abl", "meta.define.abl"] },  // ' '
       { "startIndex": 39, "endIndex": 40, "scopes": ["source.abl", "meta.define.abl", "string.double.complex.abl", "punctuation.definition.string.begin.abl"] },  // '"'
       { "startIndex": 40, "endIndex": 47, "scopes": ["source.abl", "meta.define.abl", "string.double.complex.abl"] },  // 'ELEMENT'
