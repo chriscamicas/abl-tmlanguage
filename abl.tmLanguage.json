@@ -2640,6 +2640,9 @@
           "include": "#abl-functions"
         },
         {
+          "include": "#db-dot-table-dot-field"
+        },
+        {
           "include": "#expression"
         }
       ]
