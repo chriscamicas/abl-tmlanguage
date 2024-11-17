@@ -132,7 +132,7 @@ describe('', () => {
       { "startIndex": 40, "endIndex": 47, "scopes": ["source.abl", "meta.define.abl", "string.double.complex.abl"] },  // 'ELEMENT'
       { "startIndex": 47, "endIndex": 48, "scopes": ["source.abl", "meta.define.abl", "string.double.complex.abl", "punctuation.definition.string.end.abl"] },  // '"'
       { "startIndex": 48, "endIndex": 49, "scopes": ["source.abl", "meta.define.abl"] },  // ' '
-      { "startIndex": 49, "endIndex": 65, "scopes": ["source.abl", "meta.define.abl", "storage.data.table.abl"] }  // 'serialize-hidden'
+      { "startIndex": 49, "endIndex": 65, "scopes": ["source.abl", "meta.define.abl", "keyword.other.abl"] }  // 'serialize-hidden'
     ],
     [
       { "startIndex": 0, "endIndex": 4, "scopes": ["source.abl", "meta.define.abl"] },  // '    '
@@ -173,7 +173,7 @@ describe('', () => {
       { "startIndex": 81, "endIndex": 82, "scopes": ["source.abl", "meta.define.abl"] },  // ' '
       { "startIndex": 82, "endIndex": 88, "scopes": ["source.abl", "meta.define.abl", "keyword.other.abl"] },  // 'nested'
       { "startIndex": 88, "endIndex": 89, "scopes": ["source.abl", "meta.define.abl"] },  // ' '
-      { "startIndex": 89, "endIndex": 107, "scopes": ["source.abl", "meta.define.abl", "storage.data.table.abl"] },  // 'foreign-key-hidden'
+      { "startIndex": 89, "endIndex": 107, "scopes": ["source.abl", "meta.define.abl", "keyword.other.abl"] },  // 'foreign-key-hidden'
       { "startIndex": 107, "endIndex": 108, "scopes": ["source.abl", "meta.define.abl"] },  // ' '
       { "startIndex": 108, "endIndex": 118, "scopes": ["source.abl", "meta.define.abl", "keyword.other.abl"] }  // 'not-active'
     ],
@@ -203,7 +203,7 @@ describe('', () => {
       { "startIndex": 64, "endIndex": 69, "scopes": ["source.abl", "meta.define.abl", "storage.data.table.abl"] },  // 'FooId'
       { "startIndex": 69, "endIndex": 70, "scopes": ["source.abl", "meta.define.abl", "meta.brace.round.js"] },  // ')'
       { "startIndex": 70, "endIndex": 71, "scopes": ["source.abl", "meta.define.abl"] },  // ' '
-      { "startIndex": 71, "endIndex": 80, "scopes": ["source.abl", "meta.define.abl", "storage.data.table.abl"] },  // 'recursive'
+      { "startIndex": 71, "endIndex": 80, "scopes": ["source.abl", "meta.define.abl", "keyword.other.abl"] },  // 'recursive'
       { "startIndex": 80, "endIndex": 81, "scopes": ["source.abl", "meta.define.abl", "punctuation.terminator.abl"] }  // '.'
     ]
   ];
