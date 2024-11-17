@@ -250,3 +250,34 @@ end.`;
   ];
   shared.itShouldMatchExpectedScopes(statement, expectedTokens);
 })
+
+describe('', () => {
+  let statement = `do vIndex = 1 to ttFoo.MaximumValue:
+  end. /* */`;
+  let expectedTokens = [
+    [
+      { "startIndex": 0, "endIndex": 2, "scopes": ["source.abl", "meta.block.abl", "keyword.other.abl"] },  // 'do'
+      { "startIndex": 2, "endIndex": 3, "scopes": ["source.abl", "meta.block.abl"] },  // ' '
+      { "startIndex": 3, "endIndex": 9, "scopes": ["source.abl", "meta.block.abl", "variable.other.abl"] },  // 'vIndex'
+      { "startIndex": 9, "endIndex": 10, "scopes": ["source.abl", "meta.block.abl"] },  // ' '
+      { "startIndex": 10, "endIndex": 11, "scopes": ["source.abl", "meta.block.abl", "keyword.operator.source.abl"] },  // '='
+      { "startIndex": 11, "endIndex": 12, "scopes": ["source.abl", "meta.block.abl"] },  // ' '
+      { "startIndex": 12, "endIndex": 13, "scopes": ["source.abl", "meta.block.abl", "constant.numeric.source.abl"] },  // '1'
+      { "startIndex": 13, "endIndex": 14, "scopes": ["source.abl", "meta.block.abl"] },  // ' '
+      { "startIndex": 14, "endIndex": 16, "scopes": ["source.abl", "meta.block.abl", "keyword.other.abl"] },  // 'to'
+      { "startIndex": 16, "endIndex": 17, "scopes": ["source.abl", "meta.block.abl"] },  // ' '
+      { "startIndex": 17, "endIndex": 35, "scopes": ["source.abl", "meta.block.abl", "storage.data.table.abl"] },  // 'ttFoo.MaximumValue'
+      { "startIndex": 35, "endIndex": 36, "scopes": ["source.abl", "punctuation.terminator.abl"] }  // ':'
+    ],
+    [
+      { "startIndex": 0, "endIndex": 2, "scopes": ["source.abl"] },  // '  '
+      { "startIndex": 2, "endIndex": 5, "scopes": ["source.abl", "keyword.other.abl"] },  // 'end'
+      { "startIndex": 5, "endIndex": 6, "scopes": ["source.abl", "punctuation.terminator.abl"] },  // '.'
+      { "startIndex": 6, "endIndex": 7, "scopes": ["source.abl"] },  // ' '
+      { "startIndex": 7, "endIndex": 9, "scopes": ["source.abl", "comment.block.source.abl"] },  // '/*'
+      { "startIndex": 9, "endIndex": 10, "scopes": ["source.abl", "comment.block.source.abl", "comment"] },  // ' '
+      { "startIndex": 10, "endIndex": 12, "scopes": ["source.abl", "comment.block.source.abl"] }  // '*/'
+    ]
+  ];
+  shared.itShouldMatchExpectedScopes(statement, expectedTokens);
+})
