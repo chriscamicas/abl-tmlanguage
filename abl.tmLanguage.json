@@ -1796,6 +1796,12 @@
           "include": "#define-dataset"
         },
         {
+          "include": "#define-query"
+        },
+        {
+          "include": "#fields-except-list"
+        },
+        {
           "include": "#define-event"
         },
         {
@@ -1918,6 +1924,18 @@
           "name": "storage.data.table.abl"
         }
       }
+    },
+    "define-query": {
+      "begin": "(?i)\\b(query)\\s+([a-zA-Z][a-zA-Z0-9\\#\\$\\-\\_\\%\\&]*)\\s*",
+      "beginCaptures": {
+        "1": {
+          "name": "keyword.other.abl"
+        },
+        "2": {
+          "name": "variable.other.abl"
+        }
+      },
+      "end": "(?i)\\b(?=for)\\b"
     },
     "define-parameter": {
       "begin": "(?i)\\b(parameter|paramete|paramet|parame|param)\\b",
@@ -2263,7 +2281,7 @@
       }
     },
     "define-buffer": {
-      "begin": "(?i)\\s*(buffer)\\s*",
+      "begin": "(?i)\\s*(buffer)\\b(?![\\#\\$\\-\\_\\%\\&])",
       "beginCaptures": {
         "1": {
           "name": "keyword.other.abl"
