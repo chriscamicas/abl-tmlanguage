@@ -98,9 +98,7 @@ describe('', () => {
     { "startIndex": 0, "endIndex": 3, "scopes": ["source.abl"] },  // '   '
     { "startIndex": 3, "endIndex": 6, "scopes": ["source.abl", "keyword.other.abl"] },  // 'run'
     { "startIndex": 6, "endIndex": 7, "scopes": ["source.abl"] },  // ' '
-    { "startIndex": 7, "endIndex": 8, "scopes": ["source.abl", "string.double.complex.abl", "punctuation.definition.string.begin.abl"] },  // '"'
-    { "startIndex": 8, "endIndex": 19, "scopes": ["source.abl", "string.double.complex.abl"] },  // 'a/program.p'
-    { "startIndex": 19, "endIndex": 20, "scopes": ["source.abl", "string.double.complex.abl", "punctuation.definition.string.end.abl"] },  // '"'
+    { "startIndex": 7, "endIndex": 20, "scopes": ["source.abl", "entity.name.procedure.abl"] },  // '"a/program.p"'
     { "startIndex": 20, "endIndex": 21, "scopes": ["source.abl", "punctuation.terminator.abl"] }  // '.'
   ];
   shared.itShouldMatchExpectedScopes(statement, expectedTokens);
@@ -157,6 +155,133 @@ describe('', () => {
     { "startIndex": 60, "endIndex": 65, "scopes": ["source.abl", "meta.function.arguments.abl", "variable.other.abl"] },  // 'cData'
     { "startIndex": 65, "endIndex": 66, "scopes": ["source.abl", "meta.brace.round.js"] },  // ')'
     { "startIndex": 66, "endIndex": 67, "scopes": ["source.abl", "punctuation.terminator.abl"] }  // '.'
+  ];
+  shared.itShouldMatchExpectedScopes(statement, expectedTokens);
+})
+
+describe('', () => {
+  let statement = `run $SYSSYS\\P\\TestServerSockAppSrv.p(31000).`;
+
+  let expectedTokens = [
+    { "startIndex": 0, "endIndex": 3, "scopes": ["source.abl", "keyword.other.abl"] },  // 'run'
+    { "startIndex": 3, "endIndex": 4, "scopes": ["source.abl"] },  // ' '
+    { "startIndex": 4, "endIndex": 36, "scopes": ["source.abl", "entity.name.procedure.abl"] },  // '$SYSSYS\P\TestServerSockAppSrv.p'
+    { "startIndex": 36, "endIndex": 37, "scopes": ["source.abl", "meta.function.arguments.abl", "meta.brace.round.js"] },  // '('
+    { "startIndex": 37, "endIndex": 42, "scopes": ["source.abl", "meta.function.arguments.abl", "constant.numeric.source.abl"] },  // '31000'
+    { "startIndex": 42, "endIndex": 43, "scopes": ["source.abl", "meta.brace.round.js"] },  // ')'
+    { "startIndex": 43, "endIndex": 44, "scopes": ["source.abl", "punctuation.terminator.abl"] }  // '.'
+  ];
+  shared.itShouldMatchExpectedScopes(statement, expectedTokens);
+})
+
+describe('', () => {
+  let statement = `run $SYSSYS/P/TestServerSockAppSrv.p(31000).`;
+
+  let expectedTokens = [
+    { "startIndex": 0, "endIndex": 3, "scopes": ["source.abl", "keyword.other.abl"] },  // 'run'
+    { "startIndex": 3, "endIndex": 4, "scopes": ["source.abl"] },  // ' '
+    { "startIndex": 4, "endIndex": 36, "scopes": ["source.abl", "entity.name.procedure.abl"] },  // '$SYSSYS/P/TestServerSockAppSrv.p'
+    { "startIndex": 36, "endIndex": 37, "scopes": ["source.abl", "meta.function.arguments.abl", "meta.brace.round.js"] },  // '('
+    { "startIndex": 37, "endIndex": 42, "scopes": ["source.abl", "meta.function.arguments.abl", "constant.numeric.source.abl"] },  // '31000'
+    { "startIndex": 42, "endIndex": 43, "scopes": ["source.abl", "meta.brace.round.js"] },  // ')'
+    { "startIndex": 43, "endIndex": 44, "scopes": ["source.abl", "punctuation.terminator.abl"] }  // '.'
+  ];
+  shared.itShouldMatchExpectedScopes(statement, expectedTokens);
+})
+
+describe('', () => {
+  let statement = `run "$SYSSYS/P/TestServerSockAppSrv.p"(31000).`;
+
+  let expectedTokens = [
+    { "startIndex": 0, "endIndex": 3, "scopes": ["source.abl", "keyword.other.abl"] },  // 'run'
+    { "startIndex": 3, "endIndex": 4, "scopes": ["source.abl"] },  // ' '
+    { "startIndex": 4, "endIndex": 38, "scopes": ["source.abl", "entity.name.procedure.abl"] },  // '"$SYSSYS/P/TestServerSockAppSrv.p"'
+    { "startIndex": 38, "endIndex": 39, "scopes": ["source.abl", "meta.function.arguments.abl", "meta.brace.round.js"] },  // '('
+    { "startIndex": 39, "endIndex": 44, "scopes": ["source.abl", "meta.function.arguments.abl", "constant.numeric.source.abl"] },  // '31000'
+    { "startIndex": 44, "endIndex": 45, "scopes": ["source.abl", "meta.brace.round.js"] },  // ')'
+    { "startIndex": 45, "endIndex": 46, "scopes": ["source.abl", "punctuation.terminator.abl"] }  // '.'
+  ];
+  shared.itShouldMatchExpectedScopes(statement, expectedTokens);
+})
+
+describe('', () => {
+  let statement = `run '$SYSSYS/P/TestServerSockAppSrv.p' (31000).`;
+
+  let expectedTokens = [
+    { "startIndex": 0, "endIndex": 3, "scopes": ["source.abl", "keyword.other.abl"] },  // 'run'
+    { "startIndex": 3, "endIndex": 4, "scopes": ["source.abl"] },  // ' '
+    { "startIndex": 4, "endIndex": 38, "scopes": ["source.abl", "entity.name.procedure.abl"] },  // ''$SYSSYS/P/TestServerSockAppSrv.p''
+    { "startIndex": 38, "endIndex": 39, "scopes": ["source.abl"] },  // ' '
+    { "startIndex": 39, "endIndex": 40, "scopes": ["source.abl", "meta.function.arguments.abl", "meta.brace.round.js"] },  // '('
+    { "startIndex": 40, "endIndex": 45, "scopes": ["source.abl", "meta.function.arguments.abl", "constant.numeric.source.abl"] },  // '31000'
+    { "startIndex": 45, "endIndex": 46, "scopes": ["source.abl", "meta.brace.round.js"] },  // ')'
+    { "startIndex": 46, "endIndex": 47, "scopes": ["source.abl", "punctuation.terminator.abl"] }  // '.'
+  ];
+  shared.itShouldMatchExpectedScopes(statement, expectedTokens);
+})
+
+describe('', () => {
+  let statement = `run value(SYSSYS) (31000).`;
+
+  let expectedTokens = [
+    { "startIndex": 0, "endIndex": 3, "scopes": ["source.abl", "keyword.other.abl"] },  // 'run'
+    { "startIndex": 3, "endIndex": 4, "scopes": ["source.abl", "meta.function-call.abl"] },  // ' '
+    { "startIndex": 4, "endIndex": 9, "scopes": ["source.abl", "meta.function-call.abl", "support.function.abl"] },  // 'value'
+    { "startIndex": 9, "endIndex": 10, "scopes": ["source.abl", "meta.function-call.abl", "meta.function.arguments.abl", "meta.brace.round.js"] },  // '('
+    { "startIndex": 10, "endIndex": 16, "scopes": ["source.abl", "meta.function-call.abl", "meta.function.arguments.abl", "variable.other.abl"] },  // 'SYSSYS'
+    { "startIndex": 16, "endIndex": 17, "scopes": ["source.abl", "meta.function-call.abl", "meta.brace.round.js"] },  // ')'
+    { "startIndex": 17, "endIndex": 18, "scopes": ["source.abl"] },  // ' '
+    { "startIndex": 18, "endIndex": 19, "scopes": ["source.abl", "meta.function.arguments.abl", "meta.brace.round.js"] },  // '('
+    { "startIndex": 19, "endIndex": 24, "scopes": ["source.abl", "meta.function.arguments.abl", "constant.numeric.source.abl"] },  // '31000'
+    { "startIndex": 24, "endIndex": 25, "scopes": ["source.abl", "meta.brace.round.js"] },  // ')'
+    { "startIndex": 25, "endIndex": 26, "scopes": ["source.abl", "punctuation.terminator.abl"] }  // '.'
+  ];
+  shared.itShouldMatchExpectedScopes(statement, expectedTokens);
+})
+
+describe('', () => {
+  let statement = `run temprunprogram.p@.`;
+
+  let expectedTokens = [
+    { "startIndex": 0, "endIndex": 3, "scopes": ["source.abl", "keyword.other.abl"] },  // 'run'
+    { "startIndex": 3, "endIndex": 4, "scopes": ["source.abl"] },  // ' '
+    { "startIndex": 4, "endIndex": 21, "scopes": ["source.abl", "entity.name.procedure.abl"] },  // 'temprunprogram.p@'
+    { "startIndex": 21, "endIndex": 22, "scopes": ["source.abl", "punctuation.terminator.abl"] }  // '.'
+  ];
+  shared.itShouldMatchExpectedScopes(statement, expectedTokens);
+})
+
+describe('', () => {
+  let statement = `run me.p`;
+
+  let expectedTokens = [
+    { "startIndex": 0, "endIndex": 3, "scopes": ["source.abl", "keyword.other.abl"] },  // 'run'
+    { "startIndex": 3, "endIndex": 4, "scopes": ["source.abl"] },  // ' '
+    { "startIndex": 4, "endIndex": 8, "scopes": ["source.abl", "entity.name.procedure.abl"] }  // 'me.p'
+  ];
+  shared.itShouldMatchExpectedScopes(statement, expectedTokens);
+})
+
+describe('', () => {
+  let statement = `run foo.`;
+
+  let expectedTokens = [
+    { "startIndex": 0, "endIndex": 3, "scopes": ["source.abl", "keyword.other.abl"] },  // 'run'
+    { "startIndex": 3, "endIndex": 4, "scopes": ["source.abl"] },  // ' '
+    { "startIndex": 4, "endIndex": 7, "scopes": ["source.abl", "entity.name.procedure.abl"] },  // 'foo'
+    { "startIndex": 7, "endIndex": 8, "scopes": ["source.abl", "punctuation.terminator.abl"] }  // '.'
+  ];
+  shared.itShouldMatchExpectedScopes(statement, expectedTokens);
+})
+
+describe('', () => {
+  let statement = `run foo/blah.r.`;
+
+  let expectedTokens = [
+    { "startIndex": 0, "endIndex": 3, "scopes": ["source.abl", "keyword.other.abl"] },  // 'run'
+    { "startIndex": 3, "endIndex": 4, "scopes": ["source.abl"] },  // ' '
+    { "startIndex": 4, "endIndex": 14, "scopes": ["source.abl", "entity.name.procedure.abl"] },  // 'foo/blah.r'
+    { "startIndex": 14, "endIndex": 15, "scopes": ["source.abl", "punctuation.terminator.abl"] }  // '.'
   ];
   shared.itShouldMatchExpectedScopes(statement, expectedTokens);
 })
