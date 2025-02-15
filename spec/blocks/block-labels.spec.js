@@ -106,7 +106,7 @@ share-lo:
 end.`;
   let expectedTokens = [
     [
-      { "startIndex": 0, "endIndex": 11, "scopes": ["source.abl", "meta.block.label.abl"] },  // 'block-label'
+      { "startIndex": 0, "endIndex": 11, "scopes": ["source.abl", "entity.name.label.abl"] },  // 'block-label'
       { "startIndex": 11, "endIndex": 12, "scopes": ["source.abl", "punctuation.terminator.abl"] },  // ':'
       { "startIndex": 12, "endIndex": 13, "scopes": ["source.abl"] },  // ' '
       { "startIndex": 13, "endIndex": 16, "scopes": ["source.abl", "keyword.other.abl"] },  // 'for'
@@ -133,7 +133,7 @@ repeat for bCustomer:
 end.`;
   let expectedTokens = [
     [
-      { "startIndex": 0, "endIndex": 11, "scopes": ["source.abl", "meta.block.label.abl"] },  // 'block-label'
+      { "startIndex": 0, "endIndex": 11, "scopes": ["source.abl", "entity.name.label.abl"] },  // 'block-label'
       { "startIndex": 11, "endIndex": 12, "scopes": ["source.abl", "punctuation.terminator.abl"] }  // ':'
     ],
     [
@@ -158,7 +158,7 @@ for bCustomer exclusive-lock:
 end.`;
   let expectedTokens = [
     [
-      { "startIndex": 0, "endIndex": 20, "scopes": ["source.abl", "meta.block.label.abl"] },  // 'EXCLUSIVE-LOCK-BLOCK'
+      { "startIndex": 0, "endIndex": 20, "scopes": ["source.abl", "entity.name.label.abl"] },  // 'EXCLUSIVE-LOCK-BLOCK'
       { "startIndex": 20, "endIndex": 21, "scopes": ["source.abl", "punctuation.terminator.abl"] }  // ':'
     ],
     [

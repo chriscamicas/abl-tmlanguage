@@ -186,8 +186,8 @@
           }
         },
         {
-          "comment": "The method name and parameters will only be correctly scoped if the method name and the opening brace/paren are on the same line.",
-          "begin": "(?i)\\s*([a-z_]+[\\w\\-{}#$%&]*)\\s*(\\()\\s*",
+          "comment": "The method name will only be correctly scoped if the method name and the opening brace/paren are on the same line.",
+          "begin": "(?i)\\s*([a-z_]+[\\w\\-{}#$%&]*)?\\s*(\\()\\s*",
           "beginCaptures": {
             "1": {
               "name": "entity.name.function.abl"
@@ -225,19 +225,7 @@
           "comment": "For the return type"
         },
         {
-          "include": "#type-name-generic-progress",
-          "comment": "For the return type"
-        },
-        {
-          "include": "#type-name-progress",
-          "comment": "For the return type"
-        },
-        {
-          "include": "#type-name-generic",
-          "comment": "For the return type"
-        },
-        {
-          "include": "#type-name",
+          "include": "#type-names",
           "comment": "For the return type"
         },
         {
@@ -273,16 +261,7 @@
           "include": "#primitive-type"
         },
         {
-          "include": "#type-name-generic-progress"
-        },
-        {
-          "include": "#type-name-progress"
-        },
-        {
-          "include": "#type-name-generic"
-        },
-        {
-          "include": "#type-name"
+          "include": "#type-names"
         }
       ]
     },
@@ -375,12 +354,6 @@
           "include": "#constant"
         },
         {
-          "include": "#type-name-generic-progress"
-        },
-        {
-          "include": "#type-name-progress"
-        },
-        {
           "include": "#abl-system-handles"
         },
         {
@@ -393,10 +366,7 @@
           "include": "#handle-methods"
         },
         {
-          "include": "#type-name-generic"
-        },
-        {
-          "include": "#type-name"
+          "include": "#type-names"
         },
         {
           "include": "#string"
@@ -683,7 +653,6 @@
       }
     },
     "preprocessors": {
-      "X-match": "(?i)(\\&[\\w-]*)|(&window-system|&text-height|&line-number|&batch-mode|&file-name|&undefine|&sequence|&message|defined|&elseif|&scoped|&global|&opsys|&endif|&else|&scop|&then|&glob|&if)",
       "match": "(?i)(&window-system|&text-height|&line-number|&batch-mode|&file-name|&undefine|&sequence|&message|defined|&elseif|&scoped|&global|&opsys|&endif|&else|&scop|&then|&glob|&if)|({\\&[\\w\\-\\s\\(\\)]+})|(\\&[\\w-])",
       "captures": {
         "1": {
@@ -696,12 +665,6 @@
     },
     "type-names": {
       "patterns": [
-        {
-          "include": "#type-name-generic-progress"
-        },
-        {
-          "include": "#type-name-progress"
-        },
         {
           "include": "#type-name-generic"
         },
@@ -779,52 +742,30 @@
         }
       ]
     },
-    "type-name-generic-progress": {
-      "name": "entity.name.type.generic.abl",
-      "begin": "(?i)\\s*((progress)(\\.[\\w\\#\\$\\%\\-]+)*)\\s*<",
-      "beginCaptures": {
-        "1": {
-          "name": "entity.name.type.abl"
-        }
-      },
-      "end": "\\>",
-      "patterns": [
-        {
-          "include": "#generic-types"
-        }
-      ]
-    },
     "type-name-generic": {
-      "name": "entity.name.type.generic.abl",
-      "begin": "(?i)\\s*(([\\w\\#\\$\\%\\-]+)(\\.[\\w\\#\\$\\%\\-]+)*\\s*)\\s*<",
+      "comment": "Scope names from https://www.sublimetext.com/docs/scope_naming.html",
+      "name": "meta.generic.abl",
+      "begin": "(?i)\\s*(([\\w\\#\\$\\%\\-]+)(\\.[\\w\\#\\$\\%\\-]+)*\\s*)\\s*(<)",
       "beginCaptures": {
         "1": {
           "name": "entity.name.type.abl"
+        },
+        "4": {
+          "name": "punctuation.definition.generic.begin.abl"
         }
       },
-      "end": "\\>",
-      "patterns": [
-        {
-          "include": "#generic-types"
+      "end": "(>)",
+      "endCaptures": {
+        "1": {
+          "name": "punctuation.definition.generic.end.abl"
         }
-      ]
-    },
-    "generic-types": {
+      },
       "patterns": [
-        {
-          "include": "#type-name-comma-progress"
-        },
-        {
-          "include": "#type-name-comma"
-        },
-        {
-          "include": "#type-name-generic-progress"
-        },
-        {
-          "include": "#type-name-progress"
-        },
         {
           "include": "#type-name-generic"
+        },
+        {
+          "include": "#punctuation-comma"
         },
         {
           "include": "#type-name"
@@ -836,50 +777,6 @@
       "captures": {
         "1": {
           "name": "entity.name.type.abl"
-        }
-      }
-    },
-    "type-name-comma": {
-      "match": "(?i)\\s*(,*)\\s*(class)?\\s+(([\\w\\#\\$\\%]+)(\\.?[\\w\\#\\$\\%]*)*(?<!\\.))\\s*(,*)\\s*",
-      "comment": "Capture group 3 is the <T> type name",
-      "captures": {
-        "1": {
-          "name": "punctuation.separator.comma.abl"
-        },
-        "2": {
-          "name": "keyword.other.abl"
-        },
-        "3": {
-          "name": "entity.name.type.abl"
-        },
-        "6": {
-          "name": "punctuation.separator.comma.abl"
-        }
-      }
-    },
-    "type-name-progress": {
-      "match": "(?i)\\s*((progress\\.)([\\.\\w\\#\\$\\%]+)*)\\s*(?<!\\.)",
-      "captures": {
-        "1": {
-          "name": "entity.name.type.abl"
-        }
-      }
-    },
-    "type-name-comma-progress": {
-      "match": "(?i)\\s*(,*)\\s*(class)?\\s*((progress\\.|map|set)(\\.?[\\w\\#\\$\\%]*)*(?<!\\.))\\s*(,*)\\s*",
-      "comment": "Capture group 3 is the <T> type name",
-      "captures": {
-        "1": {
-          "name": "punctuation.separator.comma.abl"
-        },
-        "2": {
-          "name": "keyword.other.abl"
-        },
-        "3": {
-          "name": "entity.name.type.abl"
-        },
-        "6": {
-          "name": "punctuation.separator.comma.abl"
         }
       }
     },
@@ -907,22 +804,7 @@
           }
         },
         {
-          "include": "#type-name-generic-progress"
-        },
-        {
-          "include": "#type-name-generic"
-        },
-        {
-          "include": "#type-name-comma-progress"
-        },
-        {
-          "include": "#type-name-progress"
-        },
-        {
-          "include": "#type-name-comma"
-        },
-        {
-          "include": "#type-name"
+          "include": "#type-names"
         },
         {
           "include": "#punctuation-comma"
@@ -962,9 +844,6 @@
           "include": "#type-names"
         },
         {
-          "include": "#type-name-comma"
-        },
-        {
           "include": "#punctuation-comma"
         }
       ]
@@ -988,7 +867,7 @@
       },
       "patterns": [
         {
-          "include": "#type-name-comma"
+          "include": "#type-names"
         }
       ]
     },
@@ -1063,22 +942,7 @@
       "end": "(?=\\()",
       "patterns": [
         {
-          "include": "#type-name-generic-progress"
-        },
-        {
-          "include": "#type-name-generic"
-        },
-        {
-          "include": "#type-name-comma-progress"
-        },
-        {
-          "include": "#type-name-progress"
-        },
-        {
-          "include": "#type-name-comma"
-        },
-        {
-          "include": "#type-name"
+          "include": "#type-names"
         },
         {
           "include": "#string"
@@ -1373,83 +1237,39 @@
       },
       "patterns": [
         {
-          "comment": "This can only be table.field, never db.table.field, since only TT's can hold objects",
-          "match": "\\s*(([\\w\\-#$%]+)\\.([\\w\\-#$%]+))\\s*(,)",
-          "captures": {
+          "begin": "(?<=\\()",
+          "end": "(,)",
+          "endCaptures": {
             "1": {
-              "name": "storage.data.table.abl"
-            },
-            "4": {
               "name": "punctuation.separator.comma.abl"
             }
-          }
-        },
-        {
-          "match": "\\s*([a-zA-Z][a-zA-Z0-9\\#\\$\\-\\_\\%\\&]*)\\s*((,)|(?=:))",
-          "captures": {
-            "1": {
-              "name": "variable.other.abl"
+          },
+          "patterns": [
+            {
+              "include": "#function-arguments-no-parens"
             },
-            "3": {
-              "name": "punctuation.separator.comma.abl"
+            {
+              "include": "#parens"
             }
-          }
+          ]
         },
         {
-          "match": "\\s*:([\\w-]+)\\s*(,)",
-          "captures": {
-            "1": {
-              "name": "entity.name.function.abl"
-            },
-            "2": {
-              "name": "punctuation.separator.comma.abl"
-            }
-          }
+          "include": "#type-names"
         },
         {
-          "include": "#type-argument-function"
+          "include": "#comment"
         },
         {
-          "include": "#expression"
-        },
-        {
-          "include": "#property-call"
-        },
-        {
-          "include": "#static-object-property-call"
-        },
-        {
-          "include": "#doublequotedstring"
-        },
-        {
-          "include": "#singlequotedstring"
-        },
-        {
-          "include": "#translation-attribute"
-        },
-        {
-          "include": "#type-name-generic-progress"
-        },
-        {
-          "include": "#type-name-generic"
-        },
-        {
-          "include": "#type-name-comma-progress"
-        },
-        {
-          "include": "#type-name-progress"
-        },
-        {
-          "include": "#type-name-comma"
-        },
-        {
-          "include": "#type-name"
+          "include": "#string"
         },
         {
           "include": "#parens"
         },
         {
           "include": "#punctuation-comma"
+        },
+        {
+          "include": "#preprocessors"
         }
       ]
     },
@@ -1611,7 +1431,7 @@
           "name": "keyword.other.abl"
         }
       },
-      "end": "(?=\\s|\\)|\\.)",
+      "end": "(?=\\s|\\)|\\.|,)",
       "patterns": [
         {
           "match": "(?i)\\s*(class)\\s*",
@@ -1628,13 +1448,7 @@
           "include": "#dll-type"
         },
         {
-          "include": "#type-name-progress"
-        },
-        {
-          "include": "#type-name-generic"
-        },
-        {
-          "include": "#type-name"
+          "include": "#type-names"
         },
         {
           "include": "#parens"
@@ -1799,6 +1613,9 @@
           "include": "#define-query"
         },
         {
+          "include": "#define-browse"
+        },
+        {
           "include": "#fields-except-list"
         },
         {
@@ -1877,9 +1694,6 @@
           "include": "#dll-type"
         },
         {
-          "include": "#type-name-progress"
-        },
-        {
           "include": "#abl-system-handles"
         },
         {
@@ -1907,10 +1721,7 @@
           "include": "#label-variable"
         },
         {
-          "include": "#type-name-generic"
-        },
-        {
-          "include": "#type-name"
+          "include": "#type-names"
         }
       ]
     },
@@ -1935,7 +1746,19 @@
           "name": "variable.other.abl"
         }
       },
-      "end": "(?i)\\b(?=for)\\b"
+      "end": "(?i)\\b(?=for|display|share-lock|no-lock|exclusive-lock)\\b"
+    },
+    "define-browse": {
+      "begin": "(?i)\\b(browse)\\s+([a-zA-Z][a-zA-Z0-9\\#\\$\\-\\_\\%\\&]*)\\s*",
+      "beginCaptures": {
+        "1": {
+          "name": "keyword.other.abl"
+        },
+        "2": {
+          "name": "variable.other.abl"
+        }
+      },
+      "end": "(?i)\\b(?=query)\\b"
     },
     "define-parameter": {
       "begin": "(?i)\\b(parameter|paramete|paramet|parame|param)\\b",
@@ -2032,24 +1855,13 @@
           "include": "#numeric"
         },
         {
-          "comment": "needs to be before the #keywords include",
-          "include": "#type-name-generic-progress"
-        },
-        {
-          "comment": "needs to be before the #keywords include",
-          "include": "#type-name-progress"
-        },
-        {
           "include": "#keywords"
         },
         {
           "include": "#string"
         },
         {
-          "include": "#type-name-generic"
-        },
-        {
-          "include": "#type-name"
+          "include": "#type-names"
         }
       ]
     },
@@ -2357,21 +2169,7 @@
           "include": "#type-names"
         },
         {
-          "comment": "needs to be before the #keywords include",
-          "include": "#type-name-generic-progress"
-        },
-        {
-          "comment": "needs to be before the #keywords include",
-          "include": "#type-name-progress"
-        },
-        {
           "include": "#string"
-        },
-        {
-          "include": "#type-name-generic"
-        },
-        {
-          "include": "#type-name"
         }
       ]
     },
@@ -2551,11 +2349,11 @@
       }
     },
     "block-label": {
-      "match": "(?i)^\\s*(?!(transaction|no-lock|exclusive-lock|exclusive-loc|exclusive-lo|exclusive-l|share-lock|share-loc|share-lo|share-|share):)([a-z][a-z0-9\\-\\$\\#]*)(:)\\s",
-      "comment": "A colon followed by a space is only legal is for block labels. Block labels must also be at the beginning of a line",
+      "match": "(?i)^\\s*(?!(transaction|no-lock|exclusive-lock|exclusive-loc|exclusive-lo|exclusive-l|share-lock|share-loc|share-lo|share-|share):)([a-z0-9\\-\\_\\$\\#]+)(:)\\s",
+      "comment": "A colon followed by a space is only legal is for block labels. Block labels must also be at the beginning of a line. Scope name is per https://www.sublimetext.com/docs/scope_naming.html",
       "captures": {
         "2": {
-          "name": "meta.block.label.abl"
+          "name": "entity.name.label.abl"
         },
         "3": {
           "name": "punctuation.terminator.abl"
@@ -2817,7 +2615,7 @@
           "name": "keyword.other.abl"
         },
         "4": {
-          "name": "meta.block.label.abl"
+          "name": "entity.name.label.abl"
         }
       }
     },
@@ -2829,7 +2627,7 @@
           "name": "keyword.other.abl"
         },
         "2": {
-          "name": "meta.block.label.abl"
+          "name": "entity.name.label.abl"
         }
       }
     },
@@ -2840,7 +2638,7 @@
           "name": "keyword.other.abl"
         },
         "2": {
-          "name": "meta.block.label.abl"
+          "name": "entity.name.label.abl"
         }
       }
     },
@@ -2954,7 +2752,7 @@
           "name": "keyword.other.abl"
         },
         "2": {
-          "name": "meta.block.label.abl"
+          "name": "entity.name.label.abl"
         },
         "3": {
           "name": "punctuation.separator.comma.abl"
@@ -2972,7 +2770,7 @@
               "name": "keyword.other.abl"
             },
             "2": {
-              "name": "meta.block.label.abl"
+              "name": "entity.name.label.abl"
             }
           }
         },
@@ -3048,9 +2846,6 @@
         },
         {
           "include": "#expression"
-        },
-        {
-          "include": "X-#statements"
         }
       ]
     },
@@ -3146,6 +2941,14 @@
           "include": "#parens"
         },
         {
+          "include": "#function-arguments-no-parens"
+        }
+      ]
+    },
+    "function-arguments-no-parens": {
+      "name": "meta.function.arguments.abl",
+      "patterns": [
+        {
           "match": "(?i)\\s*(input-output|input-outpu|input-outp|input-out|input-ou|input-o|output|input|table-handle|dataset-handle|APPEND|BY-VALUE|BY-REFERENCE|BIND)\\b(?![\\#\\$\\-\\_\\%\\&])",
           "captures": {
             "1": {
@@ -3203,7 +3006,7 @@
           "include": "#handle-methods"
         },
         {
-          "include": "#unqualified-method-call"
+          "include": "#type-member-call"
         },
         {
           "include": "#expression"
@@ -3212,13 +3015,7 @@
           "include": "#comment"
         },
         {
-          "include": "#property-call"
-        },
-        {
           "include": "#punctuation-comma"
-        },
-        {
-          "include": "#static-object-property-call"
         },
         {
           "include": "#preprocessors"
@@ -3383,7 +3180,24 @@
       "name": "variable.parameter.abl"
     },
     "run-statement": {
-      "match": "(?i)\\s*(run)\\s+(?!value)(([a-z][a-z0-9\\/\\-\\_\\\\]+)(\\.[a-z]+)?)",
+      "patterns": [
+        {"include": "#run-unquoted"},
+        {"include": "#run-quoted"}
+      ]
+    },
+    "run-quoted": {
+      "match": "(?i)\\s*(run)\\s+(?!value)\\s*(['\"].*['\"])",
+      "captures": {
+        "1": {
+          "name": "keyword.other.abl"
+        },
+        "2": {
+          "name": "entity.name.procedure.abl"
+        }
+      }
+    },
+    "run-unquoted": {
+      "match": "(?i)\\s*(run)\\s+(?!value)\\s*([\\w\\-\\$\\@\\/\\\\]{1,253}(\\.[\\w@\\$\\-]{1,2})?)",
       "captures": {
         "1": {
           "name": "keyword.other.abl"
@@ -3435,7 +3249,7 @@
         {
           "match": "(?<=\\s)(&[a-zA-Z][a-zA-Z0-9\\#\\$\\-\\_\\%\\.]+)\\s*(=?)",
           "comment": "non-string argument values after the &arg = ",
-          "name": "meta.include-named-argument",
+          "name": "meta.include.argument.abl",
           "captures": {
             "1": {
               "name": "support.other.argument.abl",
@@ -3452,7 +3266,7 @@
         {
           "match": "(?<=\\s)(&[a-zA-Z][a-zA-Z0-9\\#\\$\\-\\_\\%\\.]+)\\s*(=?)",
           "comment": "non-string argument values after the &arg = ",
-          "name": "meta.include-named-argument",
+          "name": "meta.include.argument.abl",
           "captures": {
             "1": {
               "name": "support.other.argument.abl",
@@ -3924,7 +3738,7 @@
     },
     "keywords-R": {
       "comment": "The keyword must not have a trailing variable character (one of #$-_%&)",
-      "match": "(?i)\\b(run-procedure|run-procedur|run-procedu|run-proced|run-proce|run-proc|run|rule-y|rule-row|rule|row-unmodified|row-of|row-modified|row-leave|row-height|row-entry|row-display|row-deleted|row-created|row|routine-level|right-end|right-aligned|right-aligne|right-align|right|revoke|revert|reverse-from|returns|return-value|return-to-start-dir|return-to-start-di|return|retry-cancel|retain|resume-display|result|request|reposition-parent-relation|reposition-parent-relatio|reposition-parent-relati|reposition-parent-relat|reposition-parent-rela|reposition-parent-rel|reposition-forwards|reposition-forward|reposition-forwar|reposition-forwa|reposition-forw|reposition-backwards|reposition-backward|reposition-backwar|reposition-backwa|reposition-backw|reposition-back|reposition|reports|replication-write|replication-delete|replication-create|repeat|release|relation-fields|reinstate|reference-only|recursive|rectangle|rectangl|rectang|rectan|recta|rect|recall|real|readkey|read-response|read-exact-num|read-available|rcode-information|rcode-informatio|rcode-informati|rcode-informat|rcode-informa|rcode-inform|rcode-infor|rcode-info|raw-transfer|raw|radio-set)\\b(?![\\#\\$\\-\\_\\%\\&])",
+      "match": "(?i)\\b(run-procedure|run-procedur|run-procedu|run-proced|run-proce|run-proc|run|rule-y|rule-row|rule|row-unmodified|row-of|row-modified|row-leave|row-height|row-entry|row-display|row-deleted|row-created|row|routine-level|right-end|right-aligned|right-aligne|right-align|right|revoke|revert|reverse-from|returns|return-value|return-to-start-dir|return-to-start-di|return|retry-cancel|retain|resume-display|result|request|reposition-parent-relation|reposition-parent-relatio|reposition-parent-relati|reposition-parent-relat|reposition-parent-rela|reposition-parent-rel|reposition-forwards|reposition-forward|reposition-forwar|reposition-forwa|reposition-forw|reposition-backwards|reposition-backward|reposition-backwar|reposition-backwa|reposition-backw|reposition-back|reposition|reports|replication-write|replication-delete|replication-create|repeat|release|reinstate|reference-only|recursive|rectangle|rectangl|rectang|rectan|recta|rect|recall|real|readkey|read-response|read-exact-num|read-available|rcode-information|rcode-informatio|rcode-informati|rcode-informat|rcode-informa|rcode-inform|rcode-infor|rcode-info|raw-transfer|raw|radio-set)\\b(?![\\#\\$\\-\\_\\%\\&])",
       "captures": {
         "1": {
           "name": "keyword.other.abl"
@@ -3933,7 +3747,7 @@
     },
     "keywords-S": {
       "comment": "The keyword must not have a trailing variable character (one of #$-_%&)",
-      "match": "(?i)\\b(system-help|system-dialog|suspend|super|summary|sum|substring|subscribe|sub-total|sub-minimum|sub-minimu|sub-minim|sub-mini|sub-min|sub-menu-help|sub-menu|sub-maximum|sub-maximu|sub-maxim|sub-maxi|sub-max|sub-count|sub-average|sub-averag|sub-avera|sub-aver|sub-ave|string-xref|stream-io|stream-handle|stream|stored-procedure|stored-procedur|stored-procedu|stored-proced|stored-proce|stored-proc|stop-mem-check|stop-display|stop-after|stop|stomp-frequency|stomp-detection|stdcall|status-area-msg|status|static|starting|start-search|start-row-resize|start-resize|start-move|start-mem-check|start-extend-box-selection|start-box-selection|start|sql|space|source-procedure|source|some|socket|soap-header-entryref|soap-header|soap-fault|smallint|slider|skip-schema-check|skip-group-duplicates|skip|size-pixels|size-pixel|size-pixe|size-pix|size-pi|size-p|size-chars|size-char|size-cha|size-ch|size-c|size|single-run|single-character|single|simple|silent|signature|side-label|side-labe|side-lab|show-stats|show-stat|short|shared|share-lock|share-loc|share-lo|share-l|share-|share|settings|set-state|set-pointer-value|set-pointer-valu|set-pointer-val|set-option|set-event-manager-option|set-db-logging|set-contents|set-cell-focus|set-byte-order|set-attr-call-type|set|session|server-socket|server|serialize-name|serialize-hidden|serializable|separate-connection|send|self|selection-list|selection-extend|selection|selected-items|select-repositioned-row|select-on-join|select-extend|select|seek|security-policy|section|search-target|search-self|scrolling|scrolled-row-position|scrolled-row-positio|scrolled-row-positi|scrolled-row-posit|scrolled-row-posi|scrolled-row-pos|scrollbar-drag|scroll-vertical|scroll-right|scroll-notify|scroll-mode|scroll-left|scroll-horizontal|scroll|screen-io|screen|schema|sax-xml|sax-writer|sax-write-tag|sax-write-idle|sax-write-error|sax-write-element|sax-write-content|sax-write-complete|sax-write-begin|sax-uninitialized|sax-running|sax-reader|sax-parser-error|sax-complete|sax-complet|sax-comple|sax-attributes|save-as|save)\\b(?![\\#\\$\\-\\_\\%\\&])",
+      "match": "(?i)\\b(system-help|system-dialog|suspend|super|summary|sum|substring|subscribe|sub-total|sub-minimum|sub-minimu|sub-minim|sub-mini|sub-min|sub-menu-help|sub-menu|sub-maximum|sub-maximu|sub-maxim|sub-maxi|sub-max|sub-count|sub-average|sub-averag|sub-avera|sub-aver|sub-ave|string-xref|stream-io|stream-handle|stream|stored-procedure|stored-procedur|stored-procedu|stored-proced|stored-proce|stored-proc|stop-mem-check|stop-display|stop-after|stop|stomp-frequency|stomp-detection|stdcall|status-area-msg|status|static|starting|start-search|start-row-resize|start-resize|start-move|start-mem-check|start-extend-box-selection|start-box-selection|start|sql|space|source-procedure|source|some|socket|soap-header-entryref|soap-header|soap-fault|smallint|slider|skip-schema-check|skip-group-duplicates|skip|size-pixels|size-pixel|size-pixe|size-pix|size-pi|size-p|size-chars|size-char|size-cha|size-ch|size-c|size|single-run|single-character|single|simple|silent|signature|side-label|side-labe|side-lab|show-stats|show-stat|short|shared|share-lock|share-loc|share-lo|share-l|share-|share|settings|set-state|set-pointer-value|set-pointer-valu|set-pointer-val|set-option|set-event-manager-option|set-db-logging|set-contents|set-cell-focus|set-byte-order|set-attr-call-type|set|session|server-socket|server|serialize-name|serialize-hidden|serializable|separators|separate-connection|send|self|selection-list|selection-extend|selection|selected-items|select-repositioned-row|select-on-join|select-extend|select|seek|security-policy|section|search-target|search-self|scrolling|scrolled-row-position|scrolled-row-positio|scrolled-row-positi|scrolled-row-posit|scrolled-row-posi|scrolled-row-pos|scrollbar-drag|scroll-vertical|scroll-right|scroll-notify|scroll-mode|scroll-left|scroll-horizontal|scroll|screen-io|screen|schema|sax-xml|sax-writer|sax-write-tag|sax-write-idle|sax-write-error|sax-write-element|sax-write-content|sax-write-complete|sax-write-begin|sax-uninitialized|sax-running|sax-reader|sax-parser-error|sax-complete|sax-complet|sax-comple|sax-attributes|save-as|save)\\b(?![\\#\\$\\-\\_\\%\\&])",
       "captures": {
         "1": {
           "name": "keyword.other.abl"

@@ -70,6 +70,7 @@ alsoStatements.push('pfcolor');
 alsoStatements.push('recursive');
 alsoStatements.push('return-value');
 alsoStatements.push('row');
+alsoStatements.push('separators');
 alsoStatements.push('serialize-hidden');
 alsoStatements.push('serialize-name');
 alsoStatements.push('single-run');

@@ -64,7 +64,7 @@ When `npm run build` is executed, a file called grammer.json is created, which c
 
 # Scopes
 
-The ABL-specific scopes produced by the ABL grammer listed in the table below. The scope names are largely based on the naming conventions at https://macromates.com/manual/en/language_grammars#language_rules .
+The ABL-specific scopes produced by the ABL grammer listed in the table below. The scope names are largely based on the naming conventions at https://macromates.com/manual/en/language_grammars#language_rules and https://www.sublimetext.com/docs/scope_naming.html .
 
 | Scope Name | Used for/by |
 | ------------- | ------------- |
@@ -78,7 +78,8 @@ The ABL-specific scopes produced by the ABL grammer listed in the table below. T
 |entity.name.function.abl                   | Method call, property call, method name, property name, handle attributes, handle methods, event names |
 |entity.name.function.preprocessor.abl      | `&scoped-define`, `&global-define` |
 |entity.name.include.abl                    | Include file names |
-|entity.name.package.abl                    | Package names for `USING` |
+|entity.name.label.abl                      | Block label names |
+|entity.name.package.abl                    | Package names for `using` |
 |entity.name.procedure.abl                  | Internal and external procedure names |
 |entity.name.tag.abl                        | Annotation names |
 |entity.name.type.abl                       | Class/interface/enum names |
@@ -86,6 +87,8 @@ The ABL-specific scopes produced by the ABL grammer listed in the table below. T
 |entity.other.attribute-name.abl            | Annotation attribute names |
 |keyword.operator.source.abl                | `contains`, `begins`, `matches`, `eq`, `le`, `lt`, `ge`, `gt`, `ne`, `<=`, `<>`, `>=`, `=`, `+`, `-`, `/`, `<`, `>`, `*`, `+=`, `-=`, `/=`, `*=` |
 |keyword.other.abl                          | Any ABL keyword (incl those covered by other scopes like support.function.abl and entity.name.function.abl) |
+|punctuation.definition.generic.begin.abl   |  `<` used for generic type arguments |
+|punctuation.definition.generic.end.abl     |  `>` used for generic type arguments |
 |punctuation.definition.string.begin.abl    | Start of a quoted string |
 |punctuation.definition.string.end.abl      | End of a quoted string |
 |punctuation.section.abl                    | `{` and `}` |
@@ -99,12 +102,40 @@ The ABL-specific scopes produced by the ABL grammer listed in the table below. T
 |storage.type.function.abl                  | ABL preprocessors, `defined` keyword |
 |string.double.complex.abl                  | String in `"` quotes |
 |string.single.complex.abl                  | String in `'` quotes |
-|support.function.abl                       | `opsys`, `proversion`, ABL functions (eg `BASE64-ENCODE`) |
+|support.function.abl                       | `opsys`, `proversion`, ABL functions (eg `base64-encode`) |
 |support.other.abl                          | Translation attributes `:L`, `:R`, `:T`, `:C`, `:U` |
 |support.other.argument.abl                 | `&<name\|number>` arguments in includes, preprocessor values |
 |variable.language.abl                      | ABL system handles (eg `session` or `this-object`) |
 |variable.other.abl                         | Variable names |
 |variable.parameter.abl                     | Parameter names in method, function, procedure definition |
+
+There are also a number of 'meta' scopes that usually cover multiple other scopes.
+| Scope Name | Used for/by |
+| ------------- | ------------- |
+|meta.array.literal.abl           | Literal values in an array |
+|meta.block.abl                   | A block statement like `do`, `repeat` and ` finally |
+|meta.brace.round.js              | `(` and `)`  |
+|meta.brace.square.abl            | `[` and `]`  |
+|meta.declaration.annotation.abl  | An annotation from the `@` to the `.`  |
+|meta.define.abl                  | An entire `define` statement  |
+|meta.define.class.abl            | A class definition, from the `class` keyword to its closing `:`  |
+|meta.define.enum.abl             | An enum definition, from the `enum` keyword to its closing `:`  |
+|meta.define.function.abl         | A user-defined function definition, from the `function` keyword to its closing `:`  |
+|meta.define.interface.abl        | An interface definition, from the `interface` keyword to its closing `:`  |
+|meta.define.method.abl           | A method, constructor or destructor definition, from the `method`keyword to the ending `:` or `.` Includes parameter definions, if any.  |
+|meta.define.parameter.abl        | An individual parameter definition  |
+|meta.define.stream.abl           | A stream definition  |
+|meta.define-type.implements.abl  | The type names that a type implements and/or inherits  |
+|meta.function.arguments.abl      | Captures what's between ( and ) when calling a function, excluding the braces  |
+|meta.function-call.abl           | The name of an ABL function, including `get-class`, `type-of` and `cast`   |
+|meta.function.parameters         | Parameter definitions  |
+|meta.generic.abl                 | Generic type names  |
+|meta.include.abl                 | Include file references, from `{` to `}`  |
+|meta.include.argument.abl        | Include argument references like `&arg` and `&arg=` |
+|meta.preprocessor.define.abl     | Preprocessor definitions for `&global-define` and `&scoped-define`  |
+|meta.procedure.abl               | An internal procedure definition, from the `procedure` keyword to its closing `:` or `.`  |
+|meta.statements.abl              | All ABL statmements |
+|meta.using.abl                   | A `using` definition |
 
 # License
 MIT

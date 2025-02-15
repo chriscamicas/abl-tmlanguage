@@ -111,10 +111,10 @@ end constructor.`;
       { "startIndex": 30, "endIndex": 31, "scopes": ["source.abl", "meta.define.method.abl"] },  // ' '
       { "startIndex": 31, "endIndex": 33, "scopes": ["source.abl", "meta.define.method.abl", "keyword.other.abl"] },  // 'as'
       { "startIndex": 33, "endIndex": 34, "scopes": ["source.abl", "meta.define.method.abl"] },  // ' '
-      { "startIndex": 34, "endIndex": 38, "scopes": ["source.abl", "meta.define.method.abl", "entity.name.type.generic.abl", "entity.name.type.abl"] },  // 'List'
-      { "startIndex": 38, "endIndex": 39, "scopes": ["source.abl", "meta.define.method.abl", "entity.name.type.generic.abl"] },  // '<'
-      { "startIndex": 39, "endIndex": 52, "scopes": ["source.abl", "meta.define.method.abl", "entity.name.type.generic.abl", "entity.name.type.abl"] },  // 'Package.Thing'
-      { "startIndex": 52, "endIndex": 53, "scopes": ["source.abl", "meta.define.method.abl", "entity.name.type.generic.abl"] },  // '>'
+      { "startIndex": 34, "endIndex": 38, "scopes": ["source.abl", "meta.define.method.abl", "meta.generic.abl", "entity.name.type.abl"] },  // 'List'
+      { "startIndex": 38, "endIndex": 39, "scopes": ["source.abl", "meta.define.method.abl", "meta.generic.abl", "punctuation.definition.generic.begin.abl"] },  // '<'
+      { "startIndex": 39, "endIndex": 52, "scopes": ["source.abl", "meta.define.method.abl", "meta.generic.abl", "entity.name.type.abl"] },  // 'Package.Thing'
+      { "startIndex": 52, "endIndex": 53, "scopes": ["source.abl", "meta.define.method.abl", "meta.generic.abl", "punctuation.definition.generic.end.abl"] },  // '>'
       { "startIndex": 53, "endIndex": 54, "scopes": ["source.abl", "meta.define.method.abl", "punctuation.separator.comma.abl"] }  // ','
     ],
     [

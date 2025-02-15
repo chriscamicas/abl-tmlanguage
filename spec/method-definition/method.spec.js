@@ -122,10 +122,10 @@ end method.`;
       { "startIndex": 50, "endIndex": 51, "scopes": ["source.abl", "meta.define.method.abl"] },  // ' '
       { "startIndex": 51, "endIndex": 53, "scopes": ["source.abl", "meta.define.method.abl", "keyword.other.abl"] },  // 'as'
       { "startIndex": 53, "endIndex": 54, "scopes": ["source.abl", "meta.define.method.abl"] },  // ' '
-      { "startIndex": 54, "endIndex": 58, "scopes": ["source.abl", "meta.define.method.abl", "entity.name.type.generic.abl", "entity.name.type.abl"] },  // 'List'
-      { "startIndex": 58, "endIndex": 59, "scopes": ["source.abl", "meta.define.method.abl", "entity.name.type.generic.abl"] },  // '<'
-      { "startIndex": 59, "endIndex": 72, "scopes": ["source.abl", "meta.define.method.abl", "entity.name.type.generic.abl", "entity.name.type.abl"] },  // 'Package.Thing'
-      { "startIndex": 72, "endIndex": 73, "scopes": ["source.abl", "meta.define.method.abl", "entity.name.type.generic.abl"] },  // '>'
+      { "startIndex": 54, "endIndex": 58, "scopes": ["source.abl", "meta.define.method.abl", "meta.generic.abl", "entity.name.type.abl"] },  // 'List'
+      { "startIndex": 58, "endIndex": 59, "scopes": ["source.abl", "meta.define.method.abl", "meta.generic.abl", "punctuation.definition.generic.begin.abl"] },  // '<'
+      { "startIndex": 59, "endIndex": 72, "scopes": ["source.abl", "meta.define.method.abl", "meta.generic.abl", "entity.name.type.abl"] },  // 'Package.Thing'
+      { "startIndex": 72, "endIndex": 73, "scopes": ["source.abl", "meta.define.method.abl", "meta.generic.abl", "punctuation.definition.generic.end.abl"] },  // '>'
       { "startIndex": 73, "endIndex": 74, "scopes": ["source.abl", "meta.define.method.abl", "punctuation.separator.comma.abl"] }  // ','
     ],
     [
@@ -243,8 +243,6 @@ end method.`;
   shared.itShouldMatchExpectedScopes(statement, expectedTokens);
 })
 
-
-
 describe('', () => {
   let statement =
     `interface iFace:
@@ -314,6 +312,46 @@ end interface.`;
       { "startIndex": 3, "endIndex": 4, "scopes": ["source.abl"] },  // ' '
       { "startIndex": 4, "endIndex": 13, "scopes": ["source.abl", "keyword.other.abl"] },  // 'interface'
       { "startIndex": 13, "endIndex": 14, "scopes": ["source.abl", "punctuation.terminator.abl"] }  // '.'
+    ]
+  ];
+  shared.itShouldMatchExpectedScopes(statement, expectedTokens);
+})
+
+describe('', () => {
+  let statement = `// method name is wrong scope, parameter names wrong scope
+METHOD STATIC LOGICAL XlsxVersCsv
+(p-file AS CHARACTER,p-sheetnum AS INT ):`;
+
+  let expectedTokens = [
+    [
+      { "startIndex": 0, "endIndex": 58, "scopes": ["source.abl", "comment.line.double-slash.abl"] }  // '// method name is wrong scope, parameter names wrong scope'
+    ],
+    [
+      { "startIndex": 0, "endIndex": 6, "scopes": ["source.abl", "meta.define.method.abl", "keyword.other.abl"] },  // 'METHOD'
+      { "startIndex": 6, "endIndex": 7, "scopes": ["source.abl", "meta.define.method.abl"] },  // ' '
+      { "startIndex": 7, "endIndex": 13, "scopes": ["source.abl", "meta.define.method.abl", "keyword.other.abl"] },  // 'STATIC'
+      { "startIndex": 13, "endIndex": 14, "scopes": ["source.abl", "meta.define.method.abl"] },  // ' '
+      { "startIndex": 14, "endIndex": 21, "scopes": ["source.abl", "meta.define.method.abl", "storage.type.abl"] },  // 'LOGICAL'
+      { "startIndex": 21, "endIndex": 22, "scopes": ["source.abl", "meta.define.method.abl"] },  // ' '
+      // See line 189 in abl.tmLanguage.json ; this should in theory be entity.name.function.abl
+      { "startIndex": 22, "endIndex": 33, "scopes": ["source.abl", "meta.define.method.abl", "entity.name.type.abl"] }  // 'XlsxVersCsv'
+    ],
+    [
+      { "startIndex": 0, "endIndex": 1, "scopes": ["source.abl", "meta.define.method.abl", "meta.brace.round.js"] },  // '('
+      { "startIndex": 1, "endIndex": 7, "scopes": ["source.abl", "meta.define.method.abl", "variable.parameter.abl"] },  // 'p-file'
+      { "startIndex": 7, "endIndex": 8, "scopes": ["source.abl", "meta.define.method.abl"] },  // ' '
+      { "startIndex": 8, "endIndex": 10, "scopes": ["source.abl", "meta.define.method.abl", "keyword.other.abl"] },  // 'AS'
+      { "startIndex": 10, "endIndex": 11, "scopes": ["source.abl", "meta.define.method.abl"] },  // ' '
+      { "startIndex": 11, "endIndex": 20, "scopes": ["source.abl", "meta.define.method.abl", "storage.type.abl"] },  // 'CHARACTER'
+      { "startIndex": 20, "endIndex": 21, "scopes": ["source.abl", "meta.define.method.abl", "punctuation.separator.comma.abl"] },  // ','
+      { "startIndex": 21, "endIndex": 31, "scopes": ["source.abl", "meta.define.method.abl", "variable.parameter.abl"] },  // 'p-sheetnum'
+      { "startIndex": 31, "endIndex": 32, "scopes": ["source.abl", "meta.define.method.abl"] },  // ' '
+      { "startIndex": 32, "endIndex": 34, "scopes": ["source.abl", "meta.define.method.abl", "keyword.other.abl"] },  // 'AS'
+      { "startIndex": 34, "endIndex": 35, "scopes": ["source.abl", "meta.define.method.abl"] },  // ' '
+      { "startIndex": 35, "endIndex": 38, "scopes": ["source.abl", "meta.define.method.abl", "storage.type.abl"] },  // 'INT'
+      { "startIndex": 38, "endIndex": 39, "scopes": ["source.abl", "meta.define.method.abl"] },  // ' '
+      { "startIndex": 39, "endIndex": 40, "scopes": ["source.abl", "meta.define.method.abl", "meta.brace.round.js"] },  // ')'
+      { "startIndex": 40, "endIndex": 41, "scopes": ["source.abl", "punctuation.terminator.abl"] }  // ':'
     ]
   ];
   shared.itShouldMatchExpectedScopes(statement, expectedTokens);
