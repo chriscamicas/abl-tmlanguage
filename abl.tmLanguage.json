@@ -532,6 +532,9 @@
           "include": "#break-by"
         },
         {
+          "include": "#new-record"
+        },
+        {
           "include": "#type-reference"
         },
         {
@@ -1325,6 +1328,9 @@
         },
         {
           "include": "#property-call"
+        },
+        {
+          "include": "#new-record"
         },
         {
           "include": "#type-reference"
@@ -3503,6 +3509,41 @@
           "name": "keyword.operator.source.abl"
         }
       }
+    },
+    "new-record": {
+      "comment": "This scope MUST be called after before type-reference (especially new-class) to avoid types being captured as tables",
+      "patterns": [
+        {
+          "comment": " NEW\\s+( <buffer> )",
+          "match": "(?i)\\s*(new)\\s+(\\()\\s*([\\w\\-#$%]+(\\.[\\w\\-#$%]+)?)\\s*(\\))",
+          "captures": {
+            "1": {
+              "name": "support.function.abl"
+            },
+            "2": {
+              "name": "meta.brace.round.js"
+            },
+            "3": {
+              "name": "storage.data.table.abl"
+            },
+            "5": {
+              "name": "meta.brace.round.js"
+            }
+          }
+        },
+        {
+          "comment": " NEW <buffer>. The position of the negative lookahead (?!...) is very important",
+          "match": "(?i)\\s*((new)\\s+(?!.*\\()([\\w\\-#$%\\.]+))",
+          "captures": {
+            "2": {
+              "name": "support.function.abl"
+            },
+            "3": {
+              "name": "storage.data.table.abl"
+            }
+          }
+        }
+      ]
     },
     "keywords": {
       "patterns": [
