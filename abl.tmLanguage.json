@@ -3129,6 +3129,15 @@
       },
       "patterns": [
         {
+          "comment": "See https://docs.progress.com/bundle/abl-reference/page/Array-reference.html for array ranges",
+          "match":"(?i)\\s+(for)\\s+",
+          "captures": {
+            "1": {
+              "name": "keyword.other.abl"
+            }
+          }
+        },
+        {
           "include": "#expression"
         },
         {
