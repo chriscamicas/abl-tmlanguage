@@ -318,13 +318,13 @@ end interface.`;
 })
 
 describe('', () => {
-  let statement = `// method name is wrong scope, parameter names wrong scope
+  let statement = `// method name and parametres are the correct scopes
 METHOD STATIC LOGICAL XlsxVersCsv
 (p-file AS CHARACTER,p-sheetnum AS INT ):`;
 
   let expectedTokens = [
     [
-      { "startIndex": 0, "endIndex": 58, "scopes": ["source.abl", "comment.line.double-slash.abl"] }  // '// method name is wrong scope, parameter names wrong scope'
+      { "startIndex": 0, "endIndex": 52, "scopes": ["source.abl", "comment.line.double-slash.abl"] }  // '// method name and parametres are the correct scopes'
     ],
     [
       { "startIndex": 0, "endIndex": 6, "scopes": ["source.abl", "meta.define.method.abl", "keyword.other.abl"] },  // 'METHOD'
@@ -333,8 +333,7 @@ METHOD STATIC LOGICAL XlsxVersCsv
       { "startIndex": 13, "endIndex": 14, "scopes": ["source.abl", "meta.define.method.abl"] },  // ' '
       { "startIndex": 14, "endIndex": 21, "scopes": ["source.abl", "meta.define.method.abl", "storage.type.abl"] },  // 'LOGICAL'
       { "startIndex": 21, "endIndex": 22, "scopes": ["source.abl", "meta.define.method.abl"] },  // ' '
-      // See line 189 in abl.tmLanguage.json ; this should in theory be entity.name.function.abl
-      { "startIndex": 22, "endIndex": 33, "scopes": ["source.abl", "meta.define.method.abl", "entity.name.type.abl"] }  // 'XlsxVersCsv'
+      { "startIndex": 22, "endIndex": 33, "scopes": ["source.abl", "meta.define.method.abl", "entity.name.function.abl"] }  // 'XlsxVersCsv'
     ],
     [
       { "startIndex": 0, "endIndex": 1, "scopes": ["source.abl", "meta.define.method.abl", "meta.brace.round.js"] },  // '('

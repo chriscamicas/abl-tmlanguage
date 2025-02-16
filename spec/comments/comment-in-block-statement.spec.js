@@ -30,7 +30,7 @@ describe('', () => {
       { "startIndex": 0, "endIndex": 8, "scopes": ["source.abl", "meta.block.abl"] },  // '        '
       { "startIndex": 8, "endIndex": 11, "scopes": ["source.abl", "meta.block.abl", "storage.type.function.abl"] },  // '&IF'
       { "startIndex": 11, "endIndex": 12, "scopes": ["source.abl", "meta.block.abl"] },  // ' '
-      { "startIndex": 12, "endIndex": 22, "scopes": ["source.abl", "meta.block.abl", "variable.other.abl"] },  // 'PROVERSION'
+      { "startIndex": 12, "endIndex": 22, "scopes": ["source.abl", "meta.block.abl", "support.function.abl"] },  // 'PROVERSION'
       { "startIndex": 22, "endIndex": 23, "scopes": ["source.abl", "meta.block.abl"] },  // ' '
       { "startIndex": 23, "endIndex": 25, "scopes": ["source.abl", "meta.block.abl", "keyword.operator.source.abl"] },  // 'NE'
       { "startIndex": 25, "endIndex": 26, "scopes": ["source.abl", "meta.block.abl"] },  // ' '
