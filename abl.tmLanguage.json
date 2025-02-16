@@ -186,7 +186,15 @@
           }
         },
         {
-          "comment": "The method name will only be correctly scoped if the method name and the opening brace/paren are on the same line.",
+          "comment": "The last word on the line is assumed to me the method name. Legal ABL can have each word of the method definition on its own line, so this rule may not return the correct values",
+          "match": "(?i)\\b([a-z_]+[\\w\\-{}#$%&]*)\\b\\R",
+          "captures": {
+            "1": {
+              "name": "entity.name.function.abl"
+            }
+          }
+        },
+        {
           "begin": "(?i)\\s*([a-z_]+[\\w\\-{}#$%&]*)?\\s*(\\()\\s*",
           "beginCaptures": {
             "1": {
@@ -207,6 +215,9 @@
               "include": "#parameter-definition"
             }
           ]
+        },
+        {
+          "include": "#parameter-as"
         },
         {
           "include": "#string",
@@ -1223,13 +1234,10 @@
     },
     "type-argument-function": {
       "name": "meta.function-call.abl",
-      "begin": "(?i)\\s*(cast|type-of)\\s*(\\()",
+      "begin": "(?i)\\s*(cast|type-of)\\s*(?=\\()",
       "beginCaptures": {
         "1": {
           "name": "support.function.abl"
-        },
-        "2": {
-          "name": "meta.brace.round.js"
         }
       },
       "end": "(?<=\\))",
@@ -2415,6 +2423,9 @@
           "include": "#type-member-call"
         },
         {
+          "include": "#language-functions"
+        },
+        {
           "include": "#abl-functions"
         },
         {
@@ -2425,6 +2436,9 @@
         },
         {
           "include": "#branch-options"
+        },
+        {
+          "include":"#keywords"
         },
         {
           "include": "#expression"
@@ -2901,6 +2915,12 @@
           "include": "#function-arguments"
         },
         {
+          "include": "#property-call"
+        },
+        {
+          "include": "#static-object-property-call"
+        },
+        {
           "include": "#db-dot-table-dot-field"
         },
         {
@@ -2911,9 +2931,6 @@
         },
         {
           "include": "#code-block"
-        },
-        {
-          "include": "#property-call"
         },
         {
           "include": "#handle-attributes"
