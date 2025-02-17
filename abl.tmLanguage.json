@@ -40,7 +40,7 @@
           "include": "#string"
         },
         {
-          "match": "([a-zA-Z][a-zA-Z0-9\\#\\$\\-\\_\\%\\&\\.]+)(?<!\\.)",
+          "match": "([[:alpha:]][\\w\\#\\$\\-\\%\\&\\.]+)(?<!\\.)",
           "comment": "A procedure name may contain a . but cannot end in one, unless the procedure name is in quotes",
           "captures": {
             "1": {
@@ -79,7 +79,7 @@
     },
     "function-definition": {
       "name": "meta.define.function.abl",
-      "begin": "(?i)\\b(function)\\s+([a-z0-9][a-z0-9#$\\-_%&]+)\\b",
+      "begin": "(?i)\\b(function)\\s+([[:alnum:]][\\w#$\\-%&]+)\\b",
       "beginCaptures": {
         "1": {
           "name": "keyword.other.abl"
@@ -96,7 +96,7 @@
       },
       "patterns": [
         {
-          "match": "(?i)\\b(map|to)\\s+(?!to\\s+)([a-z0-9][a-z0-9#$\\-_%&]+)\\b",
+          "match": "(?i)\\b(map|to)\\s+(?!to\\s+)([[:alpha:]][\\w#$\\-%&]+)\\b",
           "captures": {
             "1": {
               "name": "keyword.other.abl"
@@ -187,7 +187,7 @@
         },
         {
           "comment": "The last word on the line is assumed to me the method name. Legal ABL can have each word of the method definition on its own line, so this rule may not return the correct values",
-          "match": "(?i)\\b([a-z_]+[\\w\\-{}#$%&]*)\\b\\R",
+          "match": "(?i)\\b([[:alpha:]_]+[\\w\\-{}#$%&]*)\\b\\R",
           "captures": {
             "1": {
               "name": "entity.name.function.abl"
@@ -195,7 +195,7 @@
           }
         },
         {
-          "begin": "(?i)\\s*([a-z_]+[\\w\\-{}#$%&]*)?\\s*(\\()\\s*",
+          "begin": "(?i)\\s*([[:alpha:]_]+[\\w\\-{}#$%&]*)?\\s*(\\()\\s*",
           "beginCaptures": {
             "1": {
               "name": "entity.name.function.abl"
@@ -1479,7 +1479,7 @@
       ]
     },
     "define-variable-name": {
-      "match": "(?i)(var|vari|varia|variab|variabl|variable)\\s+([a-z][a-z0-9#$-_%&])+\\s*",
+      "match": "(?i)(variable|variabl|variab|varia|vari|var)\\s+([[:alpha:]][\\w#$-%&])+\\s*",
       "captures": {
         "1": {
           "name": "keyword.other.abl"
@@ -1540,7 +1540,7 @@
     },
     "annotation-simple": {
       "name": "meta.declaration.annotation.abl",
-      "match": "(?i)(^|\\s*)(\\@[a-z][a-z0-9#\\$-_%&]*)\\s*(?=\\.)",
+      "match": "(^|\\s*)(\\@[[:alpha:]][\\w#\\$-%&]*)\\s*(?=\\.)",
       "captures": {
         "2": {
           "name": "entity.name.tag.abl"
@@ -1549,7 +1549,7 @@
     },
     "annotation-attributes": {
       "name": "meta.declaration.annotation.abl",
-      "begin": "(?i)(^|\\s+)(\\@[a-z][a-z0-9#\\$-_%&]*)\\s*(?=\\()",
+      "begin": "(^|\\s+)(\\@[[:alpha:]][\\w#\\$-%&]*)\\s*(?=\\()",
       "beginCaptures": {
         "2": {
           "name": "entity.name.tag.abl"
@@ -1561,7 +1561,7 @@
           "include": "#parens"
         },
         {
-          "match": "(?i)\\s*([a-z][a-z0-9#\\$-_%&]+)(?=[\\=\\s$])",
+          "match": "\\s*([[:alpha:]][\\w#\\$-%&]+)(?=[\\=\\s$])",
           "captures": {
             "1": {
               "name": "entity.other.attribute-name.abl"
@@ -1751,7 +1751,7 @@
       }
     },
     "define-query": {
-      "begin": "(?i)\\b(query)\\s+([a-zA-Z][a-zA-Z0-9\\#\\$\\-\\_\\%\\&]*)\\s*",
+      "begin": "(?i)\\b(query)\\s+([[:alpha:]][\\w\\#\\$\\-\\%\\&]*)\\s*",
       "beginCaptures": {
         "1": {
           "name": "keyword.other.abl"
@@ -1763,7 +1763,7 @@
       "end": "(?i)\\b(?=for|display|share-lock|no-lock|exclusive-lock)\\b"
     },
     "define-browse": {
-      "begin": "(?i)\\b(browse)\\s+([a-zA-Z][a-zA-Z0-9\\#\\$\\-\\_\\%\\&]*)\\s*",
+      "begin": "(?i)\\b(browse)\\s+([[:alpha:]][\\w\\#\\$\\-\\%\\&]*)\\s*",
       "beginCaptures": {
         "1": {
           "name": "keyword.other.abl"
@@ -1799,7 +1799,7 @@
           }
         },
         {
-          "match": "(?i)\\b(table-handle|dataset-handle)\\s+([a-zA-Z][a-zA-Z0-9\\#\\$\\-\\_\\%\\&]*)\\b",
+          "match": "(?i)\\b(table-handle|dataset-handle)\\s+([[:alpha:]][\\w\\#\\$\\-\\%\\&]*)\\b",
           "captures": {
             "1": {
               "name": "keyword.other.abl"
@@ -1957,7 +1957,7 @@
       ]
     },
     "define-index": {
-      "begin": "(?i)\\s*(index)\\s+([a-zA-Z][a-zA-Z0-9\\#\\$\\-\\_\\%\\&]*)",
+      "begin": "(?i)\\s*(index)\\s+([[:alpha:]][\\w\\#\\$\\-\\%\\&]*)",
       "beginCaptures": {
         "1": {
           "name": "keyword.other.abl"
@@ -1977,7 +1977,7 @@
           }
         },
         {
-          "match": "\\b([a-zA-Z][a-zA-Z0-9\\#\\$\\-\\_\\%\\&]*)\\b",
+          "match": "\\b([[:alpha:]][\\w\\#\\$\\-\\%\\&]*)\\b",
           "captures": {
             "1": {
               "name": "storage.data.table.abl"
@@ -1987,7 +1987,7 @@
       ]
     },
     "define-dataset": {
-      "begin": "(?i)\\b(dataset)\\s+([a-zA-Z][a-zA-Z0-9\\#\\$\\-\\_\\%\\&]*)\\b",
+      "begin": "(?i)\\b(dataset)\\s+([[:alpha:]][\\w\\#\\$\\-\\%\\&]*)\\b",
       "beginCaptures": {
         "1": {
           "name": "keyword.other.abl"
@@ -2006,7 +2006,7 @@
           "include": "#punctuation-comma"
         },
         {
-          "match": "(?i)\\b(data-relation|parent-id-relation)\\s*([a-z][a-z0-9#$\\-\\_\\%\\&]+)",
+          "match": "(?i)\\b(data-relation|parent-id-relation)\\s*([[:alpha:]][\\w#$\\-\\%\\&]+)",
           "comment": "Manually capture these so that we can name the relation name properly",
           "captures": {
             "1": {
@@ -2044,7 +2044,7 @@
       ]
     },
     "define-event": {
-      "match": "(?i)\\b(event)\\s+([a-zA-Z][a-zA-Z0-9\\#\\$\\-\\_\\%\\&]*)\\b",
+      "match": "(?i)\\b(event)\\s+([[:alpha:]][\\w\\#\\$\\-\\%\\&]*)\\b",
       "captures": {
         "1": {
           "name": "keyword.other.abl"
@@ -2055,7 +2055,7 @@
       }
     },
     "define-button": {
-      "begin": "(?i)\\s*(button)\\s+([a-z][a-z0-9#$\\-_%&]*)",
+      "begin": "(?i)\\s*(button)\\s+([[:alpha:]][\\w#$\\-%&]*)",
       "beginCaptures": {
         "1": {
           "name": "keyword.other.abl"
@@ -2087,7 +2087,7 @@
       ]
     },
     "from-x-and-y": {
-      "match": "(?i)\\b(from)\\s+(X)\\s+((0(x)[0-9a-fA-F]+)|(\\-?[0-9]+(\\.[0-9]+)?))\\s+(y)\\s+((0(x)[0-9a-fA-F]+)|(\\-?[0-9]+(\\.[0-9]+)?))\\s+ ",
+      "match": "(?i)\\b(from)\\s+(X)\\s+((0(x)[[[:xdigit:]]]+)|(\\-?[[[:digit:]]]+(\\.[[[:digit:]]]+)?))\\s+(y)\\s+((0(x)[[[:xdigit:]]]+)|(\\-?[[[:digit:]]]+(\\.[[[:digit:]]]+)?))\\s+ ",
       "captures": {
         "1": {
           "name": "keyword.other.abl"
@@ -2133,7 +2133,7 @@
       ]
     },
     "define-frame": {
-      "match": "(?i)\\s*(frame)\\s*([a-z][a-z0-9#$\\-_%&]*)",
+      "match": "(?i)\\s*(frame)\\s*([[:alpha:]][\\w#$\\-%&]*)",
       "captures": {
         "1": {
           "name": "keyword.other.abl"
@@ -2308,7 +2308,7 @@
       ]
     },
     "use-index": {
-      "match": "(?i)\\b(use-index)\\s+([a-z][a-z0-9\\-\\_\\$]*)\\b",
+      "match": "(?i)\\b(use-index)\\s+([[:alpha:]][\\w\\-\\$]*)\\b",
       "captures": {
         "1": {
           "name": "keyword.other.abl"
@@ -2363,7 +2363,7 @@
       }
     },
     "block-label": {
-      "match": "(?i)^\\s*(?!(transaction|no-lock|exclusive-lock|exclusive-loc|exclusive-lo|exclusive-l|share-lock|share-loc|share-lo|share-|share):)([a-z0-9\\-\\_\\$\\#]+)(:)\\s",
+      "match": "(?i)^\\s*(?!(transaction|no-lock|exclusive-lock|exclusive-loc|exclusive-lo|exclusive-l|share-lock|share-loc|share-lo|share-|share):)([\\w\\-\\$\\#]+)(:)\\s",
       "comment": "A colon followed by a space is only legal is for block labels. Block labels must also be at the beginning of a line. Scope name is per https://www.sublimetext.com/docs/scope_naming.html",
       "captures": {
         "2": {
@@ -2519,7 +2519,7 @@
         },
         {
           "comment": "Captures the variable before the : or , of Subscribe( [ subscriber-handle , ] handler-procedure ) or Subscribe ( [ subscriber : ] handler-method )",
-          "match": "\\s*([a-zA-Z][a-zA-Z0-9\\#\\$\\-\\_\\%\\&]*)\\s*((,)|(:))\\s*",
+          "match": "\\s*([[:alpha:]][\\w\\#\\$\\-\\%\\&]*)\\s*((,)|(:))\\s*",
           "captures": {
             "1": {
               "name": "variable.other.abl"
@@ -2534,7 +2534,7 @@
         },
         {
           "comment": "Subscribe( handler-procedure or handler-method)",
-          "match": "\\s*([a-zA-Z][a-zA-Z0-9\\#\\$\\-\\_\\%\\&]*)\\s*",
+          "match": "\\s*([[:alpha:]][\\w\\#\\$\\-\\%\\&]*)\\s*",
           "captures": {
             "1": {
               "name": "entity.name.function.abl"
@@ -2623,7 +2623,7 @@
       }
     },
     "on-error-endkey-stop": {
-      "match": "(?i)\\s*(on)\\s+(endkey|error|stop|quit)\\s+(undo)\\s*(?!leave|next|retry|return|throw)([a-z0-9\\-\\_\\$]*)?\\s*",
+      "match": "(?i)\\s*(on)\\s+(endkey|error|stop|quit)\\s+(undo)\\s*(?!leave|next|retry|return|throw)([\\w\\-\\$]*)?\\s*",
       "captures": {
         "1": {
           "name": "keyword.other.abl"
@@ -2641,7 +2641,7 @@
     },
     "block-undo-leave-next-retry": {
       "comment": "Covers NEXT, LEAVE, RETRY and UNDO with block labels that are not preceded by UNDO, ",
-      "match": "(?i)\\s*(?<!,)\\s*(leave|next|retry|undo)\\s*(?!on)([a-z0-9\\-\\_\\$]*)?\\s*",
+      "match": "(?i)\\s*(?<!,)\\s*(leave|next|retry|undo)\\s*(?!on)([\\w\\-\\$]*)?\\s*",
       "captures": {
         "1": {
           "name": "keyword.other.abl"
@@ -2652,7 +2652,7 @@
       }
     },
     "branch-leave-next-retry-throw": {
-      "match": "(?i)\\s*(?<=,)\\s*(leave|next|retry|throw)\\s*(?!on)([a-z0-9\\-\\_\\$]*)?\\s*",
+      "match": "(?i)\\s*(?<=,)\\s*(leave|next|retry|throw)\\s*(?!on)([\\w\\-\\$]*)?\\s*",
       "captures": {
         "1": {
           "name": "keyword.other.abl"
@@ -2766,7 +2766,7 @@
     },
     "undo-statement": {
       "comment": "https://docs.progress.com/bundle/abl-reference/page/UNDO-statement.html",
-      "begin": "(?i)\\s*(undo)\\s*([a-z0-9\\-\\_\\$]*)?\\s*(,)",
+      "begin": "(?i)\\s*(undo)\\s*([\\w\\-\\$]*)?\\s*(,)",
       "beginCaptures": {
         "1": {
           "name": "keyword.other.abl"
@@ -2784,7 +2784,7 @@
           "include": "#string"
         },
         {
-          "match": "(?i)\\s*(leave|next|retry)\\s([a-z0-9\\-\\_\\$]*)?",
+          "match": "(?i)\\s*(leave|next|retry)\\s([\\w\\-\\$]*)?",
           "captures": {
             "1": {
               "name": "keyword.other.abl"
@@ -3061,7 +3061,7 @@
       }
     },
     "unqualified-method-call": {
-      "match": "\\b([a-zA-Z][a-zA-Z0-9\\#\\$\\-\\_\\%\\&]*)\\b(?=\\()",
+      "match": "\\b([[:alpha:]][\\w\\#\\$\\-\\%\\&]*)\\b(?=\\()",
       "captures": {
         "1": {
           "name": "entity.name.function.abl"
@@ -3069,7 +3069,7 @@
       }
     },
     "property-call": {
-      "match": "(:)([a-zA-Z][a-zA-Z0-9\\#\\$\\-\\_\\%\\&]*)\\b",
+      "match": "(:)([[:alpha:]][\\w\\#\\$\\-\\%\\&]*)\\b",
       "captures": {
         "1": {
           "name": "punctuation.separator.colon.abl"
@@ -3094,11 +3094,11 @@
     },
     "variable-name": {
       "comment": "1 to 128 characters; can consist of any combination of letters (a-z or A-Z), numbers (0-9), and these special characters: #$-_%& Names must begin with a letter (from https://docs.progress.com/bundle/openedge-abl-manage-applications/page/Name-limits.html)",
-      "match": "(?<=^|\\s|\\[|\\(|,)([a-zA-Z][a-zA-Z0-9\\#\\$\\-\\_\\%\\&]*)(?=\\.\\s|\\.$|,|:|\\s|\\)|\\]|\\[|$)",
+      "match": "(?<=^|\\s|\\[|\\(|,)([[:alpha:]][\\w\\#\\$\\-\\%\\&]*)(?=\\.\\s|\\.$|,|:|\\s|\\)|\\]|\\[|$)",
       "name": "variable.other.abl"
     },
     "extent": {
-      "match": "(?i)\\s*(extent)\\s*((0x[0-9a-f]+)|([0-9]+)?)",
+      "match": "(?i)\\s*(extent)\\s*((0x)?[[:xdigit:]]+)?",
       "captures": {
         "1": {
           "name": "keyword.other.abl"
@@ -3109,7 +3109,7 @@
       }
     },
     "decimals": {
-      "match": "(?i)\\s*(decimals)\\s((0x[0-9a-f]+)|([0-9]+)?)",
+      "match": "(?i)\\s*(decimals)\\s((0x)?[[:xdigit:]]+)?",
       "captures": {
         "1": {
           "name": "keyword.other.abl"
@@ -3120,7 +3120,7 @@
       }
     },
     "ordinal": {
-      "match": "(?i)\\s*(ordinal)\\s((0x[0-9a-f]+)|([0-9]+)?)",
+      "match": "(?i)\\s*(ordinal)\\s((0x)?[[:xdigit:]]+)?",
       "captures": {
         "1": {
           "name": "keyword.other.abl"
@@ -3242,7 +3242,7 @@
     "include-file": {
       "name": "meta.include.abl",
       "comment": "https://docs.progress.com/bundle/openedge-abl-reference-122/page/Include-file-reference.html",
-      "begin": "(?i)({)\\s*(([a-z][a-z0-9\\/\\-\\_\\\\]+)(\\.[a-z]+)?)",
+      "begin": "({)\\s*(([[:alpha:]][\\w\\/\\-\\\\]+)(\\.[[:alpha:]]+)?)",
       "beginCaptures": {
         "1": {
           "name": "punctuation.section.abl"
@@ -3262,7 +3262,7 @@
           "include": "#argument-reference"
         },
         {
-          "match": "(?<=\\s)(&[a-zA-Z][a-zA-Z0-9\\#\\$\\-\\_\\%\\.]+)\\s*(=?)",
+          "match": "(?<=\\s)(&[[:alpha:]][\\w\\#\\$\\-\\%\\.]+)\\s*(=?)",
           "name": "meta.include.argument.abl",
           "comment": "This is intended to catch '&arg' and '&arg=' ",
           "captures": {
@@ -3279,7 +3279,7 @@
           "include": "#string"
         },
         {
-          "match": "(?<=\\s)(&[a-zA-Z][a-zA-Z0-9\\#\\$\\-\\_\\%\\.]+)\\s*(=?)",
+          "match": "(?<=\\s)(&[[:alpha:]][\\w\\#\\$\\-\\%\\.]+)\\s*(=?)",
           "comment": "non-string argument values after the &arg = ",
           "name": "meta.include.argument.abl",
           "captures": {
@@ -3296,7 +3296,7 @@
           "include": "#string"
         },
         {
-          "match": "(?<=\\s)(&[a-zA-Z][a-zA-Z0-9\\#\\$\\-\\_\\%\\.]+)\\s*(=?)",
+          "match": "(?<=\\s)(&[[:alpha:]][\\w\\#\\$\\-\\%\\.]+)\\s*(=?)",
           "comment": "non-string argument values after the &arg = ",
           "name": "meta.include.argument.abl",
           "captures": {
@@ -3310,7 +3310,7 @@
           }
         },
         {
-          "match": "(?<=\\s)([a-zA-Z][a-zA-Z0-9\\#\\$\\-\\_\\%\\.\\:]+)\\b",
+          "match": "(?<=\\s)([[:alpha:]][\\w\\#\\$\\-\\%\\.\\:]+)\\b",
           "comment": "non-string unnamed argument values",
           "captures": {
             "1": {
@@ -3435,7 +3435,7 @@
       "comment": "https://docs.progress.com/bundle/openedge-abl-reference-122/page/Data-types.html"
     },
     "numeric": {
-      "match": "(?<![\\w-])((0(x|X)[0-9a-fA-F]+)|(\\-?[0-9]+(\\.[0-9]+)?))",
+      "match": "(?<![\\w-])(0[xX][[:xdigit:]]+)|(\\-?[[:digit:]]+(\\.[[:digit:]]+)?)",
       "name": "constant.numeric.source.abl"
     },
     "abl-system-handles": {
