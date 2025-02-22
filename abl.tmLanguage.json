@@ -421,6 +421,9 @@
           "include": "#record-buffer-functions"
         },
         {
+          "include": "#create-widget"
+        },
+        {
           "include": "#can-find"
         },
         {
@@ -1287,6 +1290,9 @@
     "code-block": {
       "patterns": [
         {
+          "include": "#create-widget"
+        },
+        {
           "include": "#record-buffer-functions"
         },
         {
@@ -1901,6 +1907,20 @@
         }
       }
     },
+    "create-widget": {
+      "match": "(?i)\\s*(create)\\s+(BUTTON|COMBO-BOX|CONTROL-FRAME|DIALOG-BOX|EDITOR|FILL-IN|FRAME|IMAGE|MENU|MENU-ITEM|RADIO-SET|RECTANGLE|SELECTION-LIST|SLIDER|SUB-MENU|TEXT|TOGGLE-BOX|WINDOW)\\s+([[:alpha:]][\\w\\#\\$\\-\\%\\&]*)\\b",
+      "captures": {
+        "1": {
+          "name": "keyword.other.abl"
+        },
+        "2": {
+          "name": "keyword.other.abl"
+        },
+        "3": {
+          "name": "variable.other.abl"
+        }
+      }
+    },
     "create-buffer": {
       "comment": "https://docs.progress.com/bundle/abl-reference/page/CREATE-BUFFER-statement.html",
       "begin": "(?i)(create)\\s+(buffer)\\b",
@@ -2438,7 +2458,7 @@
           "include": "#branch-options"
         },
         {
-          "include":"#keywords"
+          "include": "#keywords"
         },
         {
           "include": "#expression"
@@ -3147,7 +3167,7 @@
       "patterns": [
         {
           "comment": "See https://docs.progress.com/bundle/abl-reference/page/Array-reference.html for array ranges",
-          "match":"(?i)\\s+(for)\\s+",
+          "match": "(?i)\\s+(for)\\s+",
           "captures": {
             "1": {
               "name": "keyword.other.abl"
@@ -3213,8 +3233,12 @@
     },
     "run-statement": {
       "patterns": [
-        {"include": "#run-unquoted"},
-        {"include": "#run-quoted"}
+        {
+          "include": "#run-unquoted"
+        },
+        {
+          "include": "#run-quoted"
+        }
       ]
     },
     "run-quoted": {
@@ -3439,7 +3463,7 @@
       "name": "constant.numeric.source.abl"
     },
     "abl-system-handles": {
-      "match": "(?i)\\b(this-object|super|self|this-procedure|target-procedure|source-procedure|session|error-status|compiler|audit-control|audit-policy|clipboard|codebase-locator|color-table|debugger|dslog-manager|file-information|file-info|font-table|last-event|log-manager|profiler|rcode-information|rcode-info|security-policy|session|web-context)\\b(?![\\#\\$\\-\\_\\%\\&])",
+      "match": "(?i)\\b(audit-control|audit-policy|clipboard|codebase-locator|color-table|compiler|current-window|debugger|dslog-manager|error-status|file-info|file-information|font-table|last-event|log-manager|profiler|rcode-information|rcode-info|security-policy|self|session|source-procedure|super|target-procedure|this-procedure|web-context|this-object)\\b(?![\\#\\$\\-\\_\\%\\&])",
       "captures": {
         "1": {
           "name": "variable.language.abl"
@@ -3715,7 +3739,7 @@
     },
     "keywords-H": {
       "comment": "The keyword must not have a trailing variable character (one of #$-_%&)",
-      "match": "(?i)\\b(host-byte-order|horiz-scroll-drag|horiz-home|horiz-end|home|hint|hide|helpfile-name|helpfile-nam|helpfile-na|helpfile-n|help-topic|help-context|help-contex|help-conte|help-cont|help-con|height|header|having)\\b(?![\\#\\$\\-\\_\\%\\&])",
+      "match": "(?i)\\b(host-byte-order|horiz-scroll-drag|horiz-home|horiz-end|home|hint|hide|hidden|helpfile-name|helpfile-nam|helpfile-na|helpfile-n|help-topic|help-context|help-contex|help-conte|help-cont|help-con|height|header|having)\\b(?![\\#\\$\\-\\_\\%\\&])",
       "captures": {
         "1": {
           "name": "keyword.other.abl"
@@ -3760,7 +3784,7 @@
     },
     "keywords-M": {
       "comment": "The keyword must not have a trailing variable character (one of #$-_%&)",
-      "match": "(?i)\\b(must-exist|multiple-key|mpe|move|mouse-pointer|mouse|modulo|mod|min-width|min-size|min-schema-marshall|min-schema-marshal|min-height|method|message-line|message-area-msg|message|menubar|menu-item|menu-drop|menu|memptr|md5-value|maximize|max-width|max-size|max-rows|max-height|max|matches|margin-width-pixels|margin-width-pixel|margin-width-pixe|margin-width-pix|margin-width-pi|margin-width-p|margin-width-chars|margin-width-char|margin-width-cha|margin-width-ch|margin-width-c|margin-width|margin-height-pixels|margin-height-pixel|margin-height-pixe|margin-height-pix|margin-height-pi|margin-height-p|margin-height-chars|margin-height-char|margin-height-cha|margin-height-ch|margin-height-c|margin-height|margin-extra|map|main-menu|machine-class)\\b(?![\\#\\$\\-\\_\\%\\&])",
+      "match": "(?i)\\b(must-exist|multiple-key|mpe|move|mouse-pointer|mouse|modulo|mod|min-width|min-size|min-schema-marshall|min-schema-marshal|min-height|method|message-line|message-area-msg|message-area|message|menubar|menu-item|menu-drop|menu|memptr|md5-value|maximize|max-width|max-size|max-rows|max-height|max|matches|margin-width-pixels|margin-width-pixel|margin-width-pixe|margin-width-pix|margin-width-pi|margin-width-p|margin-width-chars|margin-width-char|margin-width-cha|margin-width-ch|margin-width-c|margin-width|margin-height-pixels|margin-height-pixel|margin-height-pixe|margin-height-pix|margin-height-pi|margin-height-p|margin-height-chars|margin-height-char|margin-height-cha|margin-height-ch|margin-height-c|margin-height|margin-extra|map|main-menu|machine-class)\\b(?![\\#\\$\\-\\_\\%\\&])",
       "captures": {
         "1": {
           "name": "keyword.other.abl"
@@ -3805,7 +3829,7 @@
     },
     "keywords-R": {
       "comment": "The keyword must not have a trailing variable character (one of #$-_%&)",
-      "match": "(?i)\\b(run-procedure|run-procedur|run-procedu|run-proced|run-proce|run-proc|run|rule-y|rule-row|rule|row-unmodified|row-of|row-modified|row-leave|row-height|row-entry|row-display|row-deleted|row-created|row|routine-level|right-end|right-aligned|right-aligne|right-align|right|revoke|revert|reverse-from|returns|return-value|return-to-start-dir|return-to-start-di|return|retry-cancel|retain|resume-display|result|request|reposition-parent-relation|reposition-parent-relatio|reposition-parent-relati|reposition-parent-relat|reposition-parent-rela|reposition-parent-rel|reposition-forwards|reposition-forward|reposition-forwar|reposition-forwa|reposition-forw|reposition-backwards|reposition-backward|reposition-backwar|reposition-backwa|reposition-backw|reposition-back|reposition|reports|replication-write|replication-delete|replication-create|repeat|release|reinstate|reference-only|recursive|rectangle|rectangl|rectang|rectan|recta|rect|recall|real|readkey|read-response|read-exact-num|read-available|rcode-information|rcode-informatio|rcode-informati|rcode-informat|rcode-informa|rcode-inform|rcode-infor|rcode-info|raw-transfer|raw|radio-set)\\b(?![\\#\\$\\-\\_\\%\\&])",
+      "match": "(?i)\\b(run-procedure|run-procedur|run-procedu|run-proced|run-proce|run-proc|run|rule-y|rule-row|rule|row-unmodified|row-of|row-modified|row-leave|row-height|row-entry|row-display|row-deleted|row-created|row|routine-level|right-end|right-aligned|right-aligne|right-align|right|revoke|revert|reverse-from|returns|return-value|return-to-start-dir|return-to-start-di|return|retry-cancel|retain|resume-display|result|resize|request|reposition-parent-relation|reposition-parent-relatio|reposition-parent-relati|reposition-parent-relat|reposition-parent-rela|reposition-parent-rel|reposition-forwards|reposition-forward|reposition-forwar|reposition-forwa|reposition-forw|reposition-backwards|reposition-backward|reposition-backwar|reposition-backwa|reposition-backw|reposition-back|reposition|reports|replication-write|replication-delete|replication-create|repeat|release|reinstate|reference-only|recursive|rectangle|rectangl|rectang|rectan|recta|rect|recall|real|readkey|read-response|read-exact-num|read-available|rcode-information|rcode-informatio|rcode-informati|rcode-informat|rcode-informa|rcode-inform|rcode-infor|rcode-info|raw-transfer|raw|radio-set)\\b(?![\\#\\$\\-\\_\\%\\&])",
       "captures": {
         "1": {
           "name": "keyword.other.abl"
@@ -3814,7 +3838,7 @@
     },
     "keywords-S": {
       "comment": "The keyword must not have a trailing variable character (one of #$-_%&)",
-      "match": "(?i)\\b(system-help|system-dialog|suspend|super|summary|sum|substring|subscribe|sub-total|sub-minimum|sub-minimu|sub-minim|sub-mini|sub-min|sub-menu-help|sub-menu|sub-maximum|sub-maximu|sub-maxim|sub-maxi|sub-max|sub-count|sub-average|sub-averag|sub-avera|sub-aver|sub-ave|string-xref|stream-io|stream-handle|stream|stored-procedure|stored-procedur|stored-procedu|stored-proced|stored-proce|stored-proc|stop-mem-check|stop-display|stop-after|stop|stomp-frequency|stomp-detection|stdcall|status-area-msg|status|static|starting|start-search|start-row-resize|start-resize|start-move|start-mem-check|start-extend-box-selection|start-box-selection|start|sql|space|source-procedure|source|some|socket|soap-header-entryref|soap-header|soap-fault|smallint|slider|skip-schema-check|skip-group-duplicates|skip|size-pixels|size-pixel|size-pixe|size-pix|size-pi|size-p|size-chars|size-char|size-cha|size-ch|size-c|size|single-run|single-character|single|simple|silent|signature|side-label|side-labe|side-lab|show-stats|show-stat|short|shared|share-lock|share-loc|share-lo|share-l|share-|share|settings|set-state|set-pointer-value|set-pointer-valu|set-pointer-val|set-option|set-event-manager-option|set-db-logging|set-contents|set-cell-focus|set-byte-order|set-attr-call-type|set|session|server-socket|server|serialize-name|serialize-hidden|serializable|separators|separate-connection|send|self|selection-list|selection-extend|selection|selected-items|select-repositioned-row|select-on-join|select-extend|select|seek|security-policy|section|search-target|search-self|scrolling|scrolled-row-position|scrolled-row-positio|scrolled-row-positi|scrolled-row-posit|scrolled-row-posi|scrolled-row-pos|scrollbar-drag|scroll-vertical|scroll-right|scroll-notify|scroll-mode|scroll-left|scroll-horizontal|scroll|screen-io|screen|schema|sax-xml|sax-writer|sax-write-tag|sax-write-idle|sax-write-error|sax-write-element|sax-write-content|sax-write-complete|sax-write-begin|sax-uninitialized|sax-running|sax-reader|sax-parser-error|sax-complete|sax-complet|sax-comple|sax-attributes|save-as|save)\\b(?![\\#\\$\\-\\_\\%\\&])",
+      "match": "(?i)\\b(system-help|system-dialog|suspend|super|summary|sum|substring|subscribe|sub-total|sub-minimum|sub-minimu|sub-minim|sub-mini|sub-min|sub-menu-help|sub-menu|sub-maximum|sub-maximu|sub-maxim|sub-maxi|sub-max|sub-count|sub-average|sub-averag|sub-avera|sub-aver|sub-ave|string-xref|stream-io|stream-handle|stream|stored-procedure|stored-procedur|stored-procedu|stored-proced|stored-proce|stored-proc|stop-mem-check|stop-display|stop-after|stop|stomp-frequency|stomp-detection|stdcall|status-area-msg|status-area|status|static|starting|start-search|start-row-resize|start-resize|start-move|start-mem-check|start-extend-box-selection|start-box-selection|start|sql|space|source-procedure|source|some|socket|soap-header-entryref|soap-header|soap-fault|smallint|slider|skip-schema-check|skip-group-duplicates|skip|size-pixels|size-pixel|size-pixe|size-pix|size-pi|size-p|size-chars|size-char|size-cha|size-ch|size-c|size|single-run|single-character|single|simple|silent|signature|side-label|side-labe|side-lab|show-stats|show-stat|short|shared|share-lock|share-loc|share-lo|share-l|share-|share|settings|set-state|set-pointer-value|set-pointer-valu|set-pointer-val|set-option|set-event-manager-option|set-db-logging|set-contents|set-cell-focus|set-byte-order|set-attr-call-type|set|session|server-socket|server|serialize-name|serialize-hidden|serializable|separators|separate-connection|sensitive|send|self|selection-list|selection-extend|selection|selected-items|select-repositioned-row|select-on-join|select-extend|select|seek|security-policy|section|search-target|search-self|scrolling|scrolled-row-position|scrolled-row-positio|scrolled-row-positi|scrolled-row-posit|scrolled-row-posi|scrolled-row-pos|scrollbar-drag|scroll-vertical|scroll-right|scroll-notify|scroll-mode|scroll-left|scroll-horizontal|scroll-bars|scroll|screen-io|screen|schema|sax-xml|sax-writer|sax-write-tag|sax-write-idle|sax-write-error|sax-write-element|sax-write-content|sax-write-complete|sax-write-begin|sax-uninitialized|sax-running|sax-reader|sax-parser-error|sax-complete|sax-complet|sax-comple|sax-attributes|save-as|save)\\b(?![\\#\\$\\-\\_\\%\\&])",
       "captures": {
         "1": {
           "name": "keyword.other.abl"
@@ -3823,7 +3847,7 @@
     },
     "keywords-T": {
       "comment": "The keyword must not have a trailing variable character (one of #$-_%&)",
-      "match": "(?i)\\b(ttcodepage|true|triggers|trigger|transaction-mode|transaction|trans|trailing|total|topic|top-column|top|tooltip|to|thru|throw|through|this-procedure|this-object|then|text-seg-growth|text-seg-growt|text-seg-grow|text-seg-gro|text-seg-gr|text-seg-g|text-seg-|text-seg|text-cursor|text|terminate|terminal|term|tenant-where|tenant|temp-table|target-procedure|target|table-scan|tab)\\b(?![\\#\\$\\-\\_\\%\\&])",
+      "match": "(?i)\\b(ttcodepage|true|triggers|trigger|transaction-mode|transaction|trans|trailing|total|topic|top-column|top|tooltip|to|title|thru|throw|through|three-d|this-procedure|this-object|then|text-seg-growth|text-seg-growt|text-seg-grow|text-seg-gro|text-seg-gr|text-seg-g|text-seg-|text-seg|text-cursor|text|terminate|terminal|term|tenant-where|tenant|temp-table|target-procedure|target|table-scan|tab)\\b(?![\\#\\$\\-\\_\\%\\&])",
       "captures": {
         "1": {
           "name": "keyword.other.abl"
