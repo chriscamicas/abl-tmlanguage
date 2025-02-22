@@ -3463,7 +3463,7 @@
       "name": "constant.numeric.source.abl"
     },
     "abl-system-handles": {
-      "match": "(?i)\\b(audit-control|audit-policy|clipboard|codebase-locator|color-table|compiler|current-window|debugger|dslog-manager|error-status|file-info|file-information|font-table|last-event|log-manager|profiler|rcode-information|rcode-info|security-policy|self|session|source-procedure|super|target-procedure|this-procedure|web-context|this-object)\\b(?![#$\\-_%&])",
+      "match": "(?i)\\b(active-window|audit-control|audit-policy|clipboard|codebase-locator|color-table|compiler|current-window|debugger|default-window|dslog-manager|error-status|file-information|file-info|font-table|last-event|log-manager|profiler|rcode-information|rcode-info|security-policy|self|session|source-procedure|super|target-procedure|this-object|this-procedure|web-context)\\b(?![#$\\-_%&])",
       "captures": {
         "1": {
           "name": "variable.language.abl"
