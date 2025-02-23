@@ -355,3 +355,187 @@ METHOD STATIC LOGICAL XlsxVersCsv
   ];
   shared.itShouldMatchExpectedScopes(statement, expectedTokens);
 })
+
+describe('', () => {
+  // This test is to validate that STATIC, PRIVATE and LOGICAL are scoped correctly.
+  let statement = `METHOD
+STATIC
+PRIVATE
+LOGICAL
+XlsxVersCsv
+(p-file AS CHARACTER,p-sheetnum AS INT ):`;
+
+  let expectedTokens = [
+    [
+      { "startIndex": 0, "endIndex": 6, "scopes": ["source.abl", "meta.define.method.abl", "keyword.other.abl"] }  // 'METHOD'
+    ],
+    [
+      { "startIndex": 0, "endIndex": 6, "scopes": ["source.abl", "meta.define.method.abl", "keyword.other.abl"] }  // 'STATIC'
+    ],
+    [
+      { "startIndex": 0, "endIndex": 7, "scopes": ["source.abl", "meta.define.method.abl", "keyword.other.abl"] }  // 'PRIVATE'
+    ],
+    [
+      { "startIndex": 0, "endIndex": 7, "scopes": ["source.abl", "meta.define.method.abl", "storage.type.abl"] }  // 'LOGICAL'
+    ],
+    [
+      { "startIndex": 0, "endIndex": 11, "scopes": ["source.abl", "meta.define.method.abl", "entity.name.function.abl"] }  // 'XlsxVersCsv'
+    ],
+    [
+      { "startIndex": 0, "endIndex": 1, "scopes": ["source.abl", "meta.define.method.abl", "meta.brace.round.js"] },  // '('
+      { "startIndex": 1, "endIndex": 7, "scopes": ["source.abl", "meta.define.method.abl", "variable.parameter.abl"] },  // 'p-file'
+      { "startIndex": 7, "endIndex": 8, "scopes": ["source.abl", "meta.define.method.abl"] },  // ' '
+      { "startIndex": 8, "endIndex": 10, "scopes": ["source.abl", "meta.define.method.abl", "keyword.other.abl"] },  // 'AS'
+      { "startIndex": 10, "endIndex": 11, "scopes": ["source.abl", "meta.define.method.abl"] },  // ' '
+      { "startIndex": 11, "endIndex": 20, "scopes": ["source.abl", "meta.define.method.abl", "storage.type.abl"] },  // 'CHARACTER'
+      { "startIndex": 20, "endIndex": 21, "scopes": ["source.abl", "meta.define.method.abl", "punctuation.separator.comma.abl"] },  // ','
+      { "startIndex": 21, "endIndex": 31, "scopes": ["source.abl", "meta.define.method.abl", "variable.parameter.abl"] },  // 'p-sheetnum'
+      { "startIndex": 31, "endIndex": 32, "scopes": ["source.abl", "meta.define.method.abl"] },  // ' '
+      { "startIndex": 32, "endIndex": 34, "scopes": ["source.abl", "meta.define.method.abl", "keyword.other.abl"] },  // 'AS'
+      { "startIndex": 34, "endIndex": 35, "scopes": ["source.abl", "meta.define.method.abl"] },  // ' '
+      { "startIndex": 35, "endIndex": 38, "scopes": ["source.abl", "meta.define.method.abl", "storage.type.abl"] },  // 'INT'
+      { "startIndex": 38, "endIndex": 39, "scopes": ["source.abl", "meta.define.method.abl"] },  // ' '
+      { "startIndex": 39, "endIndex": 40, "scopes": ["source.abl", "meta.define.method.abl", "meta.brace.round.js"] },  // ')'
+      { "startIndex": 40, "endIndex": 41, "scopes": ["source.abl", "punctuation.terminator.abl"] }  // ':'
+    ]
+  ];
+  shared.itShouldMatchExpectedScopes(statement, expectedTokens);
+})
+
+describe('', () => {
+  // This test is to validate that STATIC, PRIVATE and LOGICAL are scoped correctly.
+  let statement = `METHOD
+STATIC
+PRIVATE
+VOID
+XlsxVersCsv
+(p-file AS CHARACTER,p-sheetnum AS INT ):`;
+
+  let expectedTokens = [
+    [
+      { "startIndex": 0, "endIndex": 6, "scopes": ["source.abl", "meta.define.method.abl", "keyword.other.abl"] },  // 'METHOD'
+    ],
+    [
+      { "startIndex": 0, "endIndex": 6, "scopes": ["source.abl", "meta.define.method.abl", "keyword.other.abl"] },  // 'STATIC'
+    ],
+    [
+      { "startIndex": 0, "endIndex": 7, "scopes": ["source.abl", "meta.define.method.abl", "keyword.other.abl"] },  // 'PRIVATE'
+    ],
+    [
+      { "startIndex": 0, "endIndex": 4, "scopes": ["source.abl", "meta.define.method.abl", "keyword.other.abl"] },  // 'VOID'
+    ],
+    [
+      { "startIndex": 0, "endIndex": 11, "scopes": ["source.abl", "meta.define.method.abl", "entity.name.function.abl"] },  // 'XlsxVersCsv'
+    ],
+    [
+      { "startIndex": 0, "endIndex": 1, "scopes": ["source.abl", "meta.define.method.abl", "meta.brace.round.js"] },  // '('
+      { "startIndex": 1, "endIndex": 7, "scopes": ["source.abl", "meta.define.method.abl", "variable.parameter.abl"] },  // 'p-file'
+      { "startIndex": 7, "endIndex": 8, "scopes": ["source.abl", "meta.define.method.abl"] },  // ' '
+      { "startIndex": 8, "endIndex": 10, "scopes": ["source.abl", "meta.define.method.abl", "keyword.other.abl"] },  // 'AS'
+      { "startIndex": 10, "endIndex": 11, "scopes": ["source.abl", "meta.define.method.abl"] },  // ' '
+      { "startIndex": 11, "endIndex": 20, "scopes": ["source.abl", "meta.define.method.abl", "storage.type.abl"] },  // 'CHARACTER'
+      { "startIndex": 20, "endIndex": 21, "scopes": ["source.abl", "meta.define.method.abl", "punctuation.separator.comma.abl"] },  // ','
+      { "startIndex": 21, "endIndex": 31, "scopes": ["source.abl", "meta.define.method.abl", "variable.parameter.abl"] },  // 'p-sheetnum'
+      { "startIndex": 31, "endIndex": 32, "scopes": ["source.abl", "meta.define.method.abl"] },  // ' '
+      { "startIndex": 32, "endIndex": 34, "scopes": ["source.abl", "meta.define.method.abl", "keyword.other.abl"] },  // 'AS'
+      { "startIndex": 34, "endIndex": 35, "scopes": ["source.abl", "meta.define.method.abl"] },  // ' '
+      { "startIndex": 35, "endIndex": 38, "scopes": ["source.abl", "meta.define.method.abl", "storage.type.abl"] },  // 'INT'
+      { "startIndex": 38, "endIndex": 39, "scopes": ["source.abl", "meta.define.method.abl"] },  // ' '
+      { "startIndex": 39, "endIndex": 40, "scopes": ["source.abl", "meta.define.method.abl", "meta.brace.round.js"] },  // ')'
+      { "startIndex": 40, "endIndex": 41, "scopes": ["source.abl", "punctuation.terminator.abl"] }  // ':'
+    ]
+  ];
+  shared.itShouldMatchExpectedScopes(statement, expectedTokens);
+})
+
+describe('', () => {
+  // This test is to validate that STATIC and PRIVATE are scoped correctly. The return type will be scoped as a function, not a type
+  let statement = `METHOD
+STATIC
+PRIVATE
+SomeClass
+XlsxVersCsv
+(p-file AS CHARACTER,p-sheetnum AS INT ):`;
+
+  let expectedTokens = [
+    [
+      { "startIndex": 0, "endIndex": 6, "scopes": ["source.abl", "meta.define.method.abl", "keyword.other.abl"] }  // 'METHOD'
+    ],
+    [
+      { "startIndex": 0, "endIndex": 6, "scopes": ["source.abl", "meta.define.method.abl", "keyword.other.abl"] }  // 'STATIC'
+    ],
+    [
+      { "startIndex": 0, "endIndex": 7, "scopes": ["source.abl", "meta.define.method.abl", "keyword.other.abl"] }  // 'PRIVATE'
+    ],
+    [
+      { "startIndex": 0, "endIndex": 9, "scopes": ["source.abl", "meta.define.method.abl", "entity.name.function.abl"] }  // 'SomeClass'
+    ],
+    [
+      { "startIndex": 0, "endIndex": 11, "scopes": ["source.abl", "meta.define.method.abl", "entity.name.function.abl"] }  // 'XlsxVersCsv'
+    ],
+    [
+      { "startIndex": 0, "endIndex": 1, "scopes": ["source.abl", "meta.define.method.abl", "meta.brace.round.js"] },  // '('
+      { "startIndex": 1, "endIndex": 7, "scopes": ["source.abl", "meta.define.method.abl", "variable.parameter.abl"] },  // 'p-file'
+      { "startIndex": 7, "endIndex": 8, "scopes": ["source.abl", "meta.define.method.abl"] },  // ' '
+      { "startIndex": 8, "endIndex": 10, "scopes": ["source.abl", "meta.define.method.abl", "keyword.other.abl"] },  // 'AS'
+      { "startIndex": 10, "endIndex": 11, "scopes": ["source.abl", "meta.define.method.abl"] },  // ' '
+      { "startIndex": 11, "endIndex": 20, "scopes": ["source.abl", "meta.define.method.abl", "storage.type.abl"] },  // 'CHARACTER'
+      { "startIndex": 20, "endIndex": 21, "scopes": ["source.abl", "meta.define.method.abl", "punctuation.separator.comma.abl"] },  // ','
+      { "startIndex": 21, "endIndex": 31, "scopes": ["source.abl", "meta.define.method.abl", "variable.parameter.abl"] },  // 'p-sheetnum'
+      { "startIndex": 31, "endIndex": 32, "scopes": ["source.abl", "meta.define.method.abl"] },  // ' '
+      { "startIndex": 32, "endIndex": 34, "scopes": ["source.abl", "meta.define.method.abl", "keyword.other.abl"] },  // 'AS'
+      { "startIndex": 34, "endIndex": 35, "scopes": ["source.abl", "meta.define.method.abl"] },  // ' '
+      { "startIndex": 35, "endIndex": 38, "scopes": ["source.abl", "meta.define.method.abl", "storage.type.abl"] },  // 'INT'
+      { "startIndex": 38, "endIndex": 39, "scopes": ["source.abl", "meta.define.method.abl"] },  // ' '
+      { "startIndex": 39, "endIndex": 40, "scopes": ["source.abl", "meta.define.method.abl", "meta.brace.round.js"] },  // ')'
+      { "startIndex": 40, "endIndex": 41, "scopes": ["source.abl", "punctuation.terminator.abl"] }  // ':'
+    ]
+  ];
+  shared.itShouldMatchExpectedScopes(statement, expectedTokens);
+})
+
+describe('', () => {
+  // This test is to validate that STATIC, PRIVATE and return type are scoped correctly.
+  let statement = `METHOD
+STATIC
+PRIVATE
+Package.SomeClass
+XlsxVersCsv
+(p-file AS CHARACTER,p-sheetnum AS INT ):`;
+
+  let expectedTokens = [
+    [
+      { "startIndex": 0, "endIndex": 6, "scopes": ["source.abl", "meta.define.method.abl", "keyword.other.abl"] }  // 'METHOD'
+    ],
+    [
+      { "startIndex": 0, "endIndex": 6, "scopes": ["source.abl", "meta.define.method.abl", "keyword.other.abl"] }  // 'STATIC'
+    ],
+    [
+      { "startIndex": 0, "endIndex": 7, "scopes": ["source.abl", "meta.define.method.abl", "keyword.other.abl"] }  // 'PRIVATE'
+    ],
+    [
+      { "startIndex": 0, "endIndex": 17, "scopes": ["source.abl", "meta.define.method.abl", "entity.name.type.abl"] }  // 'Package.SomeClass'
+    ],
+    [
+      { "startIndex": 0, "endIndex": 11, "scopes": ["source.abl", "meta.define.method.abl", "entity.name.function.abl"] }  // 'XlsxVersCsv'
+    ],
+    [
+      { "startIndex": 0, "endIndex": 1, "scopes": ["source.abl", "meta.define.method.abl", "meta.brace.round.js"] },  // '('
+      { "startIndex": 1, "endIndex": 7, "scopes": ["source.abl", "meta.define.method.abl", "variable.parameter.abl"] },  // 'p-file'
+      { "startIndex": 7, "endIndex": 8, "scopes": ["source.abl", "meta.define.method.abl"] },  // ' '
+      { "startIndex": 8, "endIndex": 10, "scopes": ["source.abl", "meta.define.method.abl", "keyword.other.abl"] },  // 'AS'
+      { "startIndex": 10, "endIndex": 11, "scopes": ["source.abl", "meta.define.method.abl"] },  // ' '
+      { "startIndex": 11, "endIndex": 20, "scopes": ["source.abl", "meta.define.method.abl", "storage.type.abl"] },  // 'CHARACTER'
+      { "startIndex": 20, "endIndex": 21, "scopes": ["source.abl", "meta.define.method.abl", "punctuation.separator.comma.abl"] },  // ','
+      { "startIndex": 21, "endIndex": 31, "scopes": ["source.abl", "meta.define.method.abl", "variable.parameter.abl"] },  // 'p-sheetnum'
+      { "startIndex": 31, "endIndex": 32, "scopes": ["source.abl", "meta.define.method.abl"] },  // ' '
+      { "startIndex": 32, "endIndex": 34, "scopes": ["source.abl", "meta.define.method.abl", "keyword.other.abl"] },  // 'AS'
+      { "startIndex": 34, "endIndex": 35, "scopes": ["source.abl", "meta.define.method.abl"] },  // ' '
+      { "startIndex": 35, "endIndex": 38, "scopes": ["source.abl", "meta.define.method.abl", "storage.type.abl"] },  // 'INT'
+      { "startIndex": 38, "endIndex": 39, "scopes": ["source.abl", "meta.define.method.abl"] },  // ' '
+      { "startIndex": 39, "endIndex": 40, "scopes": ["source.abl", "meta.define.method.abl", "meta.brace.round.js"] },  // ')'
+      { "startIndex": 40, "endIndex": 41, "scopes": ["source.abl", "punctuation.terminator.abl"] }  // ':'
+    ]
+  ];
+  shared.itShouldMatchExpectedScopes(statement, expectedTokens);
+})
