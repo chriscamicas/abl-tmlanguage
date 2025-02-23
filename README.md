@@ -68,46 +68,48 @@ The ABL-specific scopes produced by the ABL grammer listed in the table below. T
 
 | Scope Name | Used for/by |
 | ------------- | ------------- |
-|comment.block.source.abl                   | Everything between `/*` and `*/` |
-|comment.line.double-slash.abl              | Everything in a `//` comment, incl slashes |
-|comment.preprocessor.analyze-suspend.abl   | `&analyze-suspend`, `&analyze-resume` |
-|constant.character.escape.abl              |  `~` and the next char |
-|constant.language.abl                      | `today`, `now`, `true`, `false`, `yes`, `no`, `?` (unknown value) |
-|constant.language.source.abl               | `99/99/9999` (or similar) when used as a format clause |
-|constant.numeric.source.abl                | 0x00-0xFF, 0-9 |
-|entity.name.function.abl                   | Method call, property call, method name, property name, handle attributes, handle methods, event names |
-|entity.name.function.preprocessor.abl      | `&scoped-define`, `&global-define` |
-|entity.name.include.abl                    | Include file names |
-|entity.name.label.abl                      | Block label names |
-|entity.name.package.abl                    | Package names for `using` |
-|entity.name.procedure.abl                  | Internal and external procedure names |
-|entity.name.tag.abl                        | Annotation names |
-|entity.name.type.abl                       | Class/interface/enum names |
-|entity.name.type.generic.abl               | Generic type names |
-|entity.other.attribute-name.abl            | Annotation attribute names |
-|keyword.operator.source.abl                | `contains`, `begins`, `matches`, `eq`, `le`, `lt`, `ge`, `gt`, `ne`, `<=`, `<>`, `>=`, `=`, `+`, `-`, `/`, `<`, `>`, `*`, `+=`, `-=`, `/=`, `*=` |
-|keyword.other.abl                          | Any ABL keyword (incl those covered by other scopes like `support.function.abl` and `entity.name.function.abl`) |
-|punctuation.definition.generic.begin.abl   |  `<` used for generic type arguments |
-|punctuation.definition.generic.end.abl     |  `>` used for generic type arguments |
-|punctuation.definition.string.begin.abl    | Start of a quoted string |
-|punctuation.definition.string.end.abl      | End of a quoted string |
-|punctuation.section.abl                    | `{` and `}` |
-|punctuation.separator.comma.abl            | `,` |
-|punctuation.separator.period.abl           | `.` |
-|punctuation.separator.colon.abl            | `:` |
-|punctuation.terminator.abl                 | `.` and `:` |
-|storage.data.dataset.abl                   | Statically-defined dataset names, data-relation names |
-|storage.data.table.abl                     | (Temp-)Table names, field names, index names |
-|storage.type.abl                           | Primitive datatypes |
-|storage.type.function.abl                  | ABL preprocessors, `defined` keyword |
-|string.double.complex.abl                  | String in `"` quotes |
-|string.single.complex.abl                  | String in `'` quotes |
-|support.function.abl                       | `opsys`, `proversion`, ABL functions (eg `base64-encode`) |
-|support.other.abl                          | Translation attributes `:L`, `:R`, `:T`, `:C`, `:U` |
-|support.other.argument.abl                 | `&<name\|number>` arguments in includes, preprocessor values |
-|variable.language.abl                      | ABL system handles (eg `session` or `this-object`) |
-|variable.other.abl                         | Variable names |
-|variable.parameter.abl                     | Parameter names in method, function, procedure definition |
+|comment.block.source.abl                         | Everything between `/*` and `*/` |
+|comment.line.double-slash.abl                    | Everything in a `//` comment, incl slashes |
+|comment.preprocessor.analyze-suspend.abl         | `&analyze-suspend`, `&analyze-resume` |
+|constant.character.escape.abl                    |  `~` and the next char |
+|constant.language.abl                            | `today`, `now`, `true`, `false`, `yes`, `no`, `?` (unknown value) |
+|constant.language.source.abl                     | `99/99/9999` (or similar) when used as a format clause |
+|constant.numeric.source.abl                      | 0x00-0xFF, 0-9 |
+|entity.name.function.abl                         | Method call, property call, method name, property name, handle attributes, handle methods, event names |
+|entity.name.function.preprocessor.abl            | `&scoped-define`, `&global-define` |
+|entity.name.include.abl                          | Include file names |
+|entity.name.label.abl                            | Block label names |
+|entity.name.package.abl                          | Package names for `using` |
+|entity.name.procedure.abl                        | Internal and external procedure names |
+|entity.name.tag.abl                              | Annotation names |
+|entity.name.type.abl                             | Class/interface/enum names |
+|entity.name.type.generic.abl                     | Generic type names |
+|entity.other.attribute-name.abl                  | Annotation attribute names |
+|keyword.operator.source.abl                      | `contains`, `begins`, `matches`, `eq`, `le`, `lt`, `ge`, `gt`, `ne`, `<=`, `<>`, `>=`, `=`, `+`, `-`, `/`, `<`, `>`, `*`, `+=`, `-=`, `/=`, `*=` |
+|keyword.other.abl                                | Any ABL keyword (incl those covered by other scopes like `support.function.abl` and `entity.name.function.abl`) |
+|punctuation.definition.bracket.square.begin.abl  |  `[` used for array arguments |
+|punctuation.definition.bracket.square.end.abl    |  `]` used for array arguments |
+|punctuation.definition.generic.begin.abl         |  `<` used for generic type arguments |
+|punctuation.definition.generic.end.abl           |  `>` used for generic type arguments |
+|punctuation.definition.string.begin.abl          | Start of a quoted string |
+|punctuation.definition.string.end.abl            | End of a quoted string |
+|punctuation.section.abl                          | `{` and `}` |
+|punctuation.separator.comma.abl                  | `,` |
+|punctuation.separator.period.abl                 | `.` |
+|punctuation.separator.colon.abl                  | `:` |
+|punctuation.terminator.abl                       | `.` and `:` |
+|storage.data.dataset.abl                         | Statically-defined dataset names, data-relation names |
+|storage.data.table.abl                           | (Temp-)Table names, field names, index names |
+|storage.type.abl                                 | Primitive datatypes |
+|storage.type.function.abl                        | ABL preprocessors, `defined` keyword |
+|string.double.complex.abl                        | String in `"` quotes |
+|string.single.complex.abl                        | String in `'` quotes |
+|support.function.abl                             | `opsys`, `proversion`, ABL functions (eg `base64-encode`) |
+|support.other.abl                                | Translation attributes `:L`, `:R`, `:T`, `:C`, `:U` |
+|support.other.argument.abl                       | `&<name\|number>` arguments in includes, preprocessor values |
+|variable.language.abl                            | ABL system handles (eg `session` or `this-object`) |
+|variable.other.abl                               | Variable names |
+|variable.parameter.abl                           | Parameter names in method, function, procedure definition |
 
 There are also a number of 'meta' scopes that usually cover multiple other scopes.
 | Scope Name | Used for/by |
@@ -115,7 +117,6 @@ There are also a number of 'meta' scopes that usually cover multiple other scope
 |meta.array.literal.abl           | Literal values in an array |
 |meta.block.abl                   | A block statement like `do`, `repeat` and ` finally |
 |meta.brace.round.js              | `(` and `)`  |
-|meta.brace.square.abl            | `[` and `]`  |
 |meta.declaration.annotation.abl  | An annotation from the `@` to the `.`  |
 |meta.define.abl                  | An entire `define` statement  |
 |meta.define.class.abl            | A class definition, from the `class` keyword to its closing `:`  |
