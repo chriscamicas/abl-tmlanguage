@@ -86,7 +86,7 @@ The ABL-specific scopes produced by the ABL grammer listed in the table below. T
 |entity.name.type.generic.abl               | Generic type names |
 |entity.other.attribute-name.abl            | Annotation attribute names |
 |keyword.operator.source.abl                | `contains`, `begins`, `matches`, `eq`, `le`, `lt`, `ge`, `gt`, `ne`, `<=`, `<>`, `>=`, `=`, `+`, `-`, `/`, `<`, `>`, `*`, `+=`, `-=`, `/=`, `*=` |
-|keyword.other.abl                          | Any ABL keyword (incl those covered by other scopes like support.function.abl and entity.name.function.abl) |
+|keyword.other.abl                          | Any ABL keyword (incl those covered by other scopes like `support.function.abl` and `entity.name.function.abl`) |
 |punctuation.definition.generic.begin.abl   |  `<` used for generic type arguments |
 |punctuation.definition.generic.end.abl     |  `>` used for generic type arguments |
 |punctuation.definition.string.begin.abl    | Start of a quoted string |

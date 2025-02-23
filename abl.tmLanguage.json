@@ -3022,13 +3022,13 @@
           }
         },
         {
+          "include": "#function-arguments"
+        },
+        {
           "include": "#constant"
         },
         {
           "include": "#type-reference"
-        },
-        {
-          "include": "#db-dot-table-dot-field"
         },
         {
           "include": "#abl-system-handles"
@@ -3043,13 +3043,16 @@
           "include": "#abl-functions"
         },
         {
+          "include": "#type-member-call"
+        },
+        {
+          "include": "#db-dot-table-dot-field"
+        },
+        {
           "include": "#handle-attributes"
         },
         {
           "include": "#handle-methods"
-        },
-        {
-          "include": "#type-member-call"
         },
         {
           "include": "#expression"
