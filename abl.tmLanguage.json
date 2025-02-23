@@ -186,15 +186,6 @@
           }
         },
         {
-          "comment": "The last word on the line is assumed to me the method name. Legal ABL can have each word of the method definition on its own line, so this rule may not return the correct values",
-          "match": "(?i)\\b([[:alpha:]_]+[\\w\\-{}#$%&]*)\\b\\R",
-          "captures": {
-            "1": {
-              "name": "entity.name.function.abl"
-            }
-          }
-        },
-        {
           "begin": "(?i)\\s*([[:alpha:]_]+[\\w\\-{}#$%&]*)?\\s*(\\()\\s*",
           "beginCaptures": {
             "1": {
@@ -230,6 +221,15 @@
         {
           "include": "#primitive-type",
           "comment": "For the return type"
+        },
+        {
+          "comment": "The last word on the line is assumed to me the method name. Legal ABL can have each word of the method definition on its own line, so this rule may not return the correct values",
+          "match": "(?i)\\b([[:alpha:]_]+[\\w\\-{}#$%&]*)\\b\\R",
+          "captures": {
+            "1": {
+              "name": "entity.name.function.abl"
+            }
+          }
         },
         {
           "include": "#dll-type",
@@ -3211,13 +3211,13 @@
       "begin": "\\[",
       "beginCaptures": {
         "0": {
-          "name": "meta.brace.square.abl"
+          "name": "punctuation.definition.bracket.square.begin.abl"
         }
       },
       "end": "\\]",
       "endCaptures": {
         "0": {
-          "name": "meta.brace.square.abl"
+          "name": "punctuation.definition.bracket.square.end.abl"
         }
       },
       "patterns": [
@@ -3249,13 +3249,13 @@
       "begin": "\\[",
       "beginCaptures": {
         "0": {
-          "name": "meta.brace.square.abl"
+          "name": "punctuation.definition.bracket.square.begin.abl"
         }
       },
       "end": "\\]",
       "endCaptures": {
         "0": {
-          "name": "meta.brace.square.abl"
+          "name": "punctuation.definition.bracket.square.end.abl"
         }
       },
       "patterns": [
