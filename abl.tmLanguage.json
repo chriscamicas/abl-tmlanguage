@@ -673,7 +673,7 @@
       }
     },
     "preprocessors": {
-      "match": "(?i)(&window-system|&text-height|&line-number|&batch-mode|&file-name|&undefine|&sequence|&message|defined|&elseif|&scoped|&global|&opsys|&endif|&else|&scop|&then|&glob|&if)|({\\&[\\w\\-\\s\\(\\)]+})|(\\&[\\w-])",
+      "match": "(?i)(&window-system|&text-height|&line-number|&batch-mode|&file-name|&undefine|&sequence|&message|defined|&elseif|&scoped|&global|&opsys|&endif|&else|&scop|&then|&glob|&if)|({\\&[\\w\\-\\s\\(\\)]+})|(\\&[\\w-]+)",
       "captures": {
         "1": {
           "name": "storage.type.function.abl"
@@ -3328,13 +3328,14 @@
     "include-file": {
       "name": "meta.include.abl",
       "comment": "https://docs.progress.com/bundle/abl-reference/page/Include-file-reference.html",
-      "begin": "({)\\s*(([[:alpha:]][\\w\\/\\-\\\\]+)(\\.[[:alpha:]]+)?)",
+      "begin": "({)\\s*([\\\\'\\\"]?([[:alpha:]$_][\\w\\/\\-\\\\\\$]+)(\\.[[:alpha:]]+[\\\\'\\\"]?)?)",
       "beginCaptures": {
         "1": {
           "name": "punctuation.section.abl"
         },
         "2": {
-          "name": "entity.name.include.abl"
+          "name": "entity.name.include.abl",
+          "comment": "The include name may be quoted"
         }
       },
       "end": "\\s*(})\\s*",
@@ -3348,13 +3349,12 @@
           "include": "#argument-reference"
         },
         {
-          "match": "(?<=\\s)(&[[:alpha:]][\\w\\#\\$\\-\\%\\.]+)\\s*(=?)",
+          "match": "(?<=\\s)(&[[:alpha:]][\\w\\#\\$\\-\\%\\.]+)\\s*(=)?",
           "name": "meta.include.argument.abl",
           "comment": "This is intended to catch '&arg' and '&arg=' ",
           "captures": {
             "1": {
-              "name": "support.other.argument.abl",
-              "comment": "you can use variable names, field names, and reserved words as argument names."
+              "name": "support.other.argument.abl"
             },
             "2": {
               "name": "keyword.operator.source.abl"
@@ -3365,45 +3365,17 @@
           "include": "#string"
         },
         {
-          "match": "(?<=\\s)(&[[:alpha:]][\\w\\#\\$\\-\\%\\.]+)\\s*(=?)",
-          "comment": "non-string argument values after the &arg = ",
-          "name": "meta.include.argument.abl",
+          "match": "([[:alpha:]][\\w\\#\\$\\-\\%\\.\\:]+)\\b",
+          "comment": "non-string argument values",
           "captures": {
             "1": {
-              "name": "support.other.argument.abl",
-              "comment": "you can use variable names, field names, and reserved words as argument names."
-            },
-            "2": {
-              "name": "keyword.operator.source.abl"
+              "name": "support.other.argument.abl"
             }
           }
         },
         {
-          "include": "#string"
-        },
-        {
-          "match": "(?<=\\s)(&[[:alpha:]][\\w\\#\\$\\-\\%\\.]+)\\s*(=?)",
-          "comment": "non-string argument values after the &arg = ",
-          "name": "meta.include.argument.abl",
-          "captures": {
-            "1": {
-              "name": "support.other.argument.abl",
-              "comment": "you can use variable names, field names, and reserved words as argument names."
-            },
-            "2": {
-              "name": "keyword.operator.source.abl"
-            }
-          }
-        },
-        {
-          "match": "(?<=\\s)([[:alpha:]][\\w\\#\\$\\-\\%\\.\\:]+)\\b",
-          "comment": "non-string unnamed argument values",
-          "captures": {
-            "1": {
-              "name": "support.other.argument.abl",
-              "comment": "you can use variable names, field names, and reserved words as argument names."
-            }
-          }
+          "comment": "Argument references can be passed into includes as arguments",
+          "include":"#argument-reference"
         }
       ]
     },
