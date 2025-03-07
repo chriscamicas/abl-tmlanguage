@@ -2379,11 +2379,14 @@
           "include": "#serializable"
         },
         {
-          "comment": "This capture must use spaces and not word boundaries because the 'end' is on a space",
-          "match": "(?i)\\s*(class)\\s*",
+          "comment": "This capture must use spaces and not word boundaries because the 'end' is on a space. This also captures class names that are ABL primitive type names, for example OpenEdge.Core.Memptr in its short form",
+          "match": "(?i)\\s*(class)\\s*(blob|character|characte|charact|charac|chara|char|cha|ch|c|clob|com-handle|date|da|datetime|datetime-tz|decimal|decima|decim|deci|dec|de|handle|int64|integer|intege|integ|inte|int|in|i|logical|logica|logic|logi|log|lo|l|longchar|longcha|longch|memptr|raw|recid|rowid|widget-handle)?",
           "captures": {
             "1": {
               "name": "keyword.other.abl"
+            },
+            "2": {
+              "name": "entity.name.type.abl"
             }
           }
         },

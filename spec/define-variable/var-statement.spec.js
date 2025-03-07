@@ -331,3 +331,45 @@ describe('', () => {
   ]
   shared.itShouldMatchExpectedScopes(statement, expectedTokens);
 })
+
+describe('', () => {
+  let statement = `var class memptr mData`;
+  let expectedTokens = [
+    { "startIndex": 0, "endIndex": 3, "scopes": ["source.abl", "meta.define.abl", "keyword.other.abl"] },  // 'var'
+    { "startIndex": 3, "endIndex": 4, "scopes": ["source.abl", "meta.define.abl"] },  // ' '
+    { "startIndex": 4, "endIndex": 9, "scopes": ["source.abl", "meta.define.abl", "keyword.other.abl"] },  // 'class'
+    { "startIndex": 9, "endIndex": 10, "scopes": ["source.abl", "meta.define.abl"] },  // ' '
+    { "startIndex": 10, "endIndex": 16, "scopes": ["source.abl", "meta.define.abl", "entity.name.type.abl"] },  // 'memptr'
+    { "startIndex": 16, "endIndex": 17, "scopes": ["source.abl", "meta.define.abl"] },  // ' '
+    { "startIndex": 17, "endIndex": 22, "scopes": ["source.abl", "meta.define.abl", "variable.other.abl"] }  // 'mData'
+  ]
+  shared.itShouldMatchExpectedScopes(statement, expectedTokens);
+})
+
+describe('', () => {
+  let statement = `var    memptr   mData`;
+  let expectedTokens = [
+    { "startIndex": 0, "endIndex": 3, "scopes": ["source.abl", "meta.define.abl", "keyword.other.abl"] },  // 'var'
+    { "startIndex": 3, "endIndex": 7, "scopes": ["source.abl", "meta.define.abl"] },  // '    '
+    { "startIndex": 7, "endIndex": 13, "scopes": ["source.abl", "meta.define.abl", "storage.type.abl"] },  // 'memptr'
+    { "startIndex": 13, "endIndex": 15, "scopes": ["source.abl", "meta.define.abl"] },  // '  '
+    { "startIndex": 15, "endIndex": 16, "scopes": ["source.abl", "meta.define.abl"] },  // ' '
+    { "startIndex": 16, "endIndex": 21, "scopes": ["source.abl", "meta.define.abl", "variable.other.abl"] }  // 'mData'
+  ]
+  shared.itShouldMatchExpectedScopes(statement, expectedTokens);
+})
+
+describe('', () => {
+  let statement = `var class George oGeorge.`;
+  let expectedTokens = [
+    { "startIndex": 0, "endIndex": 3, "scopes": ["source.abl", "meta.define.abl", "keyword.other.abl"] },  // 'var'
+    { "startIndex": 3, "endIndex": 4, "scopes": ["source.abl", "meta.define.abl"] },  // ' '
+    { "startIndex": 4, "endIndex": 9, "scopes": ["source.abl", "meta.define.abl", "keyword.other.abl"] },  // 'class'
+    { "startIndex": 9, "endIndex": 10, "scopes": ["source.abl", "meta.define.abl"] },  // ' '
+    { "startIndex": 10, "endIndex": 16, "scopes": ["source.abl", "meta.define.abl", "entity.name.type.abl"] },  // 'George'
+    { "startIndex": 16, "endIndex": 17, "scopes": ["source.abl", "meta.define.abl"] },  // ' '
+    { "startIndex": 17, "endIndex": 24, "scopes": ["source.abl", "meta.define.abl", "variable.other.abl"] },  // 'oGeorge'
+    { "startIndex": 24, "endIndex": 25, "scopes": ["source.abl", "punctuation.terminator.abl"] }  // '.'
+  ]
+  shared.itShouldMatchExpectedScopes(statement, expectedTokens);
+})
