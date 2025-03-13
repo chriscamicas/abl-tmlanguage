@@ -3015,6 +3015,9 @@
           "include": "#preprocessors"
         },
         {
+          "include": "#abl-system-handles"
+        },
+        {
           "include": "#keywords"
         }
       ],

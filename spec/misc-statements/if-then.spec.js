@@ -210,3 +210,74 @@ describe('', () => {
   shared.itShouldMatchExpectedScopes(statement, expectedTokens);
 })
 
+
+describe('', () => {
+  let statement = `    /* Point to a valid window handle. */
+    ASSIGN p_Window = IF VALID-HANDLE( p_Window ) THEN
+                        p_Window
+                      ELSE IF VALID-HANDLE( CURRENT-WINDOW ) THEN
+                        CURRENT-WINDOW
+                      ELSE
+                         DEFAULT-WINDOW.`;
+  let expectedTokens = [
+    [
+      { "startIndex": 0, "endIndex": 4, "scopes": ["source.abl"] },  // '    '
+      { "startIndex": 4, "endIndex": 6, "scopes": ["source.abl", "comment.block.source.abl"] },  // '/*'
+      { "startIndex": 6, "endIndex": 39, "scopes": ["source.abl", "comment.block.source.abl", "comment"] },  // ' Point to a valid window handle. '
+      { "startIndex": 39, "endIndex": 41, "scopes": ["source.abl", "comment.block.source.abl"] }  // '*/'
+    ],
+    [
+      { "startIndex": 0, "endIndex": 4, "scopes": ["source.abl"] },  // '    '
+      { "startIndex": 4, "endIndex": 10, "scopes": ["source.abl", "keyword.other.abl"] },  // 'ASSIGN'
+      { "startIndex": 10, "endIndex": 11, "scopes": ["source.abl"] },  // ' '
+      { "startIndex": 11, "endIndex": 19, "scopes": ["source.abl", "variable.other.abl"] },  // 'p_Window'
+      { "startIndex": 19, "endIndex": 20, "scopes": ["source.abl"] },  // ' '
+      { "startIndex": 20, "endIndex": 21, "scopes": ["source.abl", "keyword.operator.source.abl"] },  // '='
+      { "startIndex": 21, "endIndex": 22, "scopes": ["source.abl"] },  // ' '
+      { "startIndex": 22, "endIndex": 24, "scopes": ["source.abl", "keyword.other.abl"] },  // 'IF'
+      { "startIndex": 24, "endIndex": 25, "scopes": ["source.abl"] },  // ' '
+      { "startIndex": 25, "endIndex": 37, "scopes": ["source.abl", "meta.function-call.abl", "support.function.abl"] },  // 'VALID-HANDLE'
+      { "startIndex": 37, "endIndex": 38, "scopes": ["source.abl", "meta.function-call.abl", "meta.function.arguments.abl", "meta.brace.round.js"] },  // '('
+      { "startIndex": 38, "endIndex": 39, "scopes": ["source.abl", "meta.function-call.abl", "meta.function.arguments.abl"] },  // ' '
+      { "startIndex": 39, "endIndex": 47, "scopes": ["source.abl", "meta.function-call.abl", "meta.function.arguments.abl", "variable.other.abl"] },  // 'p_Window'
+      { "startIndex": 47, "endIndex": 48, "scopes": ["source.abl", "meta.function-call.abl", "meta.function.arguments.abl"] },  // ' '
+      { "startIndex": 48, "endIndex": 49, "scopes": ["source.abl", "meta.function-call.abl", "meta.brace.round.js"] },  // ')'
+      { "startIndex": 49, "endIndex": 50, "scopes": ["source.abl"] },  // ' '
+      { "startIndex": 50, "endIndex": 54, "scopes": ["source.abl", "keyword.other.abl"] }  // 'THEN'
+    ],
+    [
+      { "startIndex": 0, "endIndex": 24, "scopes": ["source.abl"] },  // '                        '
+      { "startIndex": 24, "endIndex": 32, "scopes": ["source.abl", "variable.other.abl"] }  // 'p_Window'
+    ],
+    [
+      { "startIndex": 0, "endIndex": 22, "scopes": ["source.abl"] },  // '                      '
+      { "startIndex": 22, "endIndex": 26, "scopes": ["source.abl", "keyword.other.abl"] },  // 'ELSE'
+      { "startIndex": 26, "endIndex": 27, "scopes": ["source.abl"] },  // ' '
+      { "startIndex": 27, "endIndex": 29, "scopes": ["source.abl", "keyword.other.abl"] },  // 'IF'
+      { "startIndex": 29, "endIndex": 30, "scopes": ["source.abl"] },  // ' '
+      { "startIndex": 30, "endIndex": 42, "scopes": ["source.abl", "meta.function-call.abl", "support.function.abl"] },  // 'VALID-HANDLE'
+      { "startIndex": 42, "endIndex": 43, "scopes": ["source.abl", "meta.function-call.abl", "meta.function.arguments.abl", "meta.brace.round.js"] },  // '('
+      { "startIndex": 43, "endIndex": 44, "scopes": ["source.abl", "meta.function-call.abl", "meta.function.arguments.abl"] },  // ' '
+      { "startIndex": 44, "endIndex": 58, "scopes": ["source.abl", "meta.function-call.abl", "meta.function.arguments.abl", "variable.language.abl"] },  // 'CURRENT-WINDOW'
+      { "startIndex": 58, "endIndex": 59, "scopes": ["source.abl", "meta.function-call.abl", "meta.function.arguments.abl"] },  // ' '
+      { "startIndex": 59, "endIndex": 60, "scopes": ["source.abl", "meta.function-call.abl", "meta.brace.round.js"] },  // ')'
+      { "startIndex": 60, "endIndex": 61, "scopes": ["source.abl"] },  // ' '
+      { "startIndex": 61, "endIndex": 65, "scopes": ["source.abl", "keyword.other.abl"] }  // 'THEN'
+    ],
+    [
+      { "startIndex": 0, "endIndex": 24, "scopes": ["source.abl"] },  // '                        '
+      { "startIndex": 24, "endIndex": 38, "scopes": ["source.abl", "variable.language.abl"] }  // 'CURRENT-WINDOW'
+    ],
+    [
+      { "startIndex": 0, "endIndex": 22, "scopes": ["source.abl"] },  // '                      '
+      { "startIndex": 22, "endIndex": 26, "scopes": ["source.abl", "keyword.other.abl"] }  // 'ELSE'
+    ],
+    [
+      { "startIndex": 0, "endIndex": 25, "scopes": ["source.abl"] },  // '                         '
+      { "startIndex": 25, "endIndex": 39, "scopes": ["source.abl", "variable.language.abl"] },  // 'DEFAULT-WINDOW'
+      { "startIndex": 39, "endIndex": 40, "scopes": ["source.abl", "punctuation.terminator.abl"] }  // '.'
+    ]
+  ];
+  shared.itShouldMatchExpectedScopes(statement, expectedTokens);
+})
+
