@@ -424,7 +424,7 @@
           "include": "#record-buffer-functions"
         },
         {
-          "include": "#create-widget"
+          "include": "#create-statement"
         },
         {
           "include": "#can-find"
@@ -437,9 +437,6 @@
         },
         {
           "include": "#event-un-subscribe"
-        },
-        {
-          "include": "#create-buffer"
         },
         {
           "include": "#buffer-name"
@@ -1293,7 +1290,7 @@
     "code-block": {
       "patterns": [
         {
-          "include": "#create-widget"
+          "include": "#create-statement"
         },
         {
           "include": "#record-buffer-functions"
@@ -1921,6 +1918,85 @@
         },
         "3": {
           "name": "variable.other.abl"
+        }
+      }
+    },
+    "create-statement": {
+      "patterns": [
+        {
+          "include": "#create-buffer"
+        },
+        {
+          "include": "#create-alias"
+        },
+        {
+          "include": "#create-widget"
+        },
+        {
+          "include": "#create-with-expression"
+        },
+        {
+          "include": "#create-record"
+        }
+      ]
+    },
+    "create-record": {
+      "match":"(?i)\\s*(create)\\s+([\\w\\-#$%]+(\\.[\\w\\-#$%]+)?)\\s*((for)\\s+(tenant))?\\s*",
+      "captures": {
+        "1": {
+          "name": "keyword.other.abl"
+        },
+        "2": {
+          "name": "storage.data.table.abl"
+        },
+        "5": {
+          "name": "keyword.other.abl"
+        },
+        "6": {
+          "name": "keyword.other.abl"
+        }
+      }
+    },
+    "create-alias": {
+      "begin": "(?i)\\s*(create)\\s+(alias)\\s*",
+      "beginCaptures": {
+        "1": {
+          "name": "keyword.other.abl"
+        },
+        "2": {
+          "name": "keyword.other.abl"
+        }
+      },
+      "end": "(=\\.)",
+      "patterns": [
+        {
+          "include":"#keywords"
+        },
+        {
+          "include": "#abl-functions"
+        },
+        {
+          "match": "\\b([[:alpha:]][[:alnum:]_-]+)\\b",
+          "captures": {
+            "1": {
+              "name": "storage.data.database.abl"
+            }
+          }
+        },
+        {
+          "include":"#expression"
+        }
+      ]
+    },
+    "create-with-expression": {
+      "comment": "The variable, temp-table field, etc used to store the created expression, will be dealt with by other scopes",
+      "match": "(?i)\\s*(create)\\s+(browse|call|client-principal|database|dataset|data-source|query|sax-attributes|sax-reader|sax-writer|server|server-socket|soap-header|soap-header-entryref|socket|temp-table|widget-pool|x-document|x-noderef)\\s*",
+      "captures": {
+        "1": {
+          "name": "keyword.other.abl"
+        },
+        "2": {
+          "name": "keyword.other.abl"
         }
       }
     },
