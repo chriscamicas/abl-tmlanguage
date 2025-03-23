@@ -418,7 +418,7 @@
           "include": "#var-statement"
         },
         {
-          "include": "#output-to"
+          "include": "#input-output-from-to"
         },
         {
           "include": "#function-definition"
@@ -1487,8 +1487,8 @@
         }
       ]
     },
-    "output-to": {
-      "begin": "(?i)\\b(output)\\s+((stream|stream-handle)\\s+([[:alpha:]][\\w#$-%&]*)\\s+)?(to)",
+    "input-output-from-to": {
+      "begin": "(?i)\\b(input|output)\\s+((stream|stream-handle)\\s+([[:alpha:]][\\w#$-%&]*)\\s+)?(to|from)",
       "beginCaptures": {
         "1": {
           "name": "keyword.other.abl"
