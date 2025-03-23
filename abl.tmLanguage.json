@@ -1488,7 +1488,7 @@
       ]
     },
     "input-output-from-to": {
-      "begin": "(?i)\\b(input|output)\\s+((stream|stream-handle)\\s+([[:alpha:]][\\w#$-%&]*)\\s+)?(to|from)",
+      "begin": "(?i)\\b(input|output)\\s+((stream|stream-handle)\\s+([[:alpha:]][\\w#$-%&]*)\\s+)?(from|to)",
       "beginCaptures": {
         "1": {
           "name": "keyword.other.abl"
@@ -1540,7 +1540,8 @@
       ]
     },
     "opsys-device-name": {
-      "match": "(([[:alnum:]$_][\\w\\/\\-\\\\\\$:]+)(\\.[[:alnum:]\\w+\\-\\$]+)*)",
+      "match": "(([[:alnum:]_\\w\\/\\-\\\\\\$:]+)(\\.[[:alnum:]\\w+\\-\\$]+)*)",
+      "comment": "For this regex to work, a device name may have periods in its name, but cannot end in one",
       "captures": {
         "1": {
           "name": "storage.other.opsys-device.abl"
@@ -3949,7 +3950,7 @@
     },
     "keywords-K": {
       "comment": "The keyword must not have a trailing variable character (one of #$-_%&)",
-      "match": "(?i)\\b(keycache-join|key-label|key-function|key-functio|key-functi|key-funct|key-func|key-code|keep-tab-order|keep-messages)\\b(?![\\#\\$\\-\\_\\%\\&])",
+      "match": "(?i)\\b(keycache-join|key-label|key-function|key-functio|key-functi|key-funct|key-func|key-code|keep-tab-order|keep-messages|keep-frame-z-order)\\b(?![\\#\\$\\-\\_\\%\\&])",
       "captures": {
         "1": {
           "name": "keyword.other.abl"
@@ -3967,7 +3968,7 @@
     },
     "keywords-M": {
       "comment": "The keyword must not have a trailing variable character (one of #$-_%&)",
-      "match": "(?i)\\b(must-exist|multiple-key|mpe|move|mouse-pointer|mouse|modulo|mod|min-width|min-size|min-schema-marshall|min-schema-marshal|min-height|method|message-line|message-area-msg|message-area|message|menubar|menu-item|menu-drop|menu|memptr|md5-value|maximize|max-width|max-size|max-rows|max-height|max|matches|margin-width-pixels|margin-width-pixel|margin-width-pixe|margin-width-pix|margin-width-pi|margin-width-p|margin-width-chars|margin-width-char|margin-width-cha|margin-width-ch|margin-width-c|margin-width|margin-height-pixels|margin-height-pixel|margin-height-pixe|margin-height-pix|margin-height-pi|margin-height-p|margin-height-chars|margin-height-char|margin-height-cha|margin-height-ch|margin-height-c|margin-height|margin-extra|map|main-menu|machine-class)\\b(?![\\#\\$\\-\\_\\%\\&])",
+      "match": "(?i)\\b(must-exist|multiple-key|mpe|move|mouse-pointer|mouse|modulo|mod|min-width|min-size|min-schema-marshall|min-schema-marshal|min-height|method|message-line|message-area-msg|message-area|message|menubar|menu-item|menu-drop|menu|memptr|md5-value|maximize|max-width|max-size|max-rows|max-height|max-button|max|matches|margin-width-pixels|margin-width-pixel|margin-width-pixe|margin-width-pix|margin-width-pi|margin-width-p|margin-width-chars|margin-width-char|margin-width-cha|margin-width-ch|margin-width-c|margin-width|margin-height-pixels|margin-height-pixel|margin-height-pixe|margin-height-pix|margin-height-pi|margin-height-p|margin-height-chars|margin-height-char|margin-height-cha|margin-height-ch|margin-height-c|margin-height|margin-extra|map|main-menu|machine-class)\\b(?![\\#\\$\\-\\_\\%\\&])",
       "captures": {
         "1": {
           "name": "keyword.other.abl"
