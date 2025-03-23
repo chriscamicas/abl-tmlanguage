@@ -75,3 +75,27 @@ describe('', () => {
   ];
   shared.itShouldMatchExpectedScopes(statement, expectedTokens);
 })
+
+describe('', () => {
+  let statement = `CREATE ALIAS "DICTDB2" FOR DATABASE VALUE(user_dbname).`;
+  let expectedTokens = [
+    { "startIndex": 0, "endIndex": 6, "scopes": ["source.abl", "keyword.other.abl"] },  // 'CREATE'
+    { "startIndex": 6, "endIndex": 7, "scopes": ["source.abl"] },  // ' '
+    { "startIndex": 7, "endIndex": 12, "scopes": ["source.abl", "keyword.other.abl"] },  // 'ALIAS'
+    { "startIndex": 12, "endIndex": 13, "scopes": ["source.abl"] },  // ' '
+    { "startIndex": 13, "endIndex": 14, "scopes": ["source.abl", "string.double.complex.abl", "punctuation.definition.string.begin.abl"] },  // '"'
+    { "startIndex": 14, "endIndex": 21, "scopes": ["source.abl", "string.double.complex.abl"] },  // 'DICTDB2'
+    { "startIndex": 21, "endIndex": 22, "scopes": ["source.abl", "string.double.complex.abl", "punctuation.definition.string.end.abl"] },  // '"'
+    { "startIndex": 22, "endIndex": 23, "scopes": ["source.abl"] },  // ' '
+    { "startIndex": 23, "endIndex": 26, "scopes": ["source.abl", "keyword.other.abl"] },  // 'FOR'
+    { "startIndex": 26, "endIndex": 27, "scopes": ["source.abl"] },  // ' '
+    { "startIndex": 27, "endIndex": 35, "scopes": ["source.abl", "keyword.other.abl"] },  // 'DATABASE'
+    { "startIndex": 35, "endIndex": 36, "scopes": ["source.abl", "meta.function-call.abl"] },  // ' '
+    { "startIndex": 36, "endIndex": 41, "scopes": ["source.abl", "meta.function-call.abl", "support.function.abl"] },  // 'VALUE'
+    { "startIndex": 41, "endIndex": 42, "scopes": ["source.abl", "meta.function-call.abl", "meta.function.arguments.abl", "meta.brace.round.js"] },  // '('
+    { "startIndex": 42, "endIndex": 53, "scopes": ["source.abl", "meta.function-call.abl", "meta.function.arguments.abl", "variable.other.abl"] },  // 'user_dbname'
+    { "startIndex": 53, "endIndex": 54, "scopes": ["source.abl", "meta.function-call.abl", "meta.brace.round.js"] },  // ')'
+    { "startIndex": 54, "endIndex": 56, "scopes": ["source.abl"] }  // '.'
+  ];
+  shared.itShouldMatchExpectedScopes(statement, expectedTokens);
+})
