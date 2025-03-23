@@ -98,8 +98,10 @@ The ABL-specific scopes produced by the ABL grammer listed in the table below. T
 |punctuation.separator.period.abl                 | `.` |
 |punctuation.separator.colon.abl                  | `:` |
 |punctuation.terminator.abl                       | `.` and `:` |
+|storage.data.database.abl                        | Statically-defined database names, e.g.in the `create alias` statement |
 |storage.data.dataset.abl                         | Statically-defined dataset names, data-relation names |
 |storage.data.table.abl                           | (Temp-)Table names, field names, index names |
+|storage.other.opsys-device.abl                   | Files and other operating system devices |
 |storage.type.abl                                 | Primitive datatypes |
 |storage.type.function.abl                        | ABL preprocessors, `defined` keyword |
 |string.double.complex.abl                        | String in `"` quotes |
