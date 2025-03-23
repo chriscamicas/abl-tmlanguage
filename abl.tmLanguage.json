@@ -1529,6 +1529,9 @@
           "include": "#array-literal"
         },
         {
+          "include": "#preprocessors"
+        },
+        {
           "include": "#opsys-device-name"
         },
         {
@@ -2001,7 +2004,7 @@
       ]
     },
     "create-record": {
-      "match":"(?i)\\s*(create)\\s+([\\w\\-#$%]+(\\.[\\w\\-#$%]+)?)\\s*((for)\\s+(tenant))?\\s*",
+      "match": "(?i)\\s*(create)\\s+([\\w\\-#$%]+(\\.[\\w\\-#$%]+)?)\\s*((for)\\s+(tenant))?\\s*",
       "captures": {
         "1": {
           "name": "keyword.other.abl"
@@ -2030,7 +2033,7 @@
       "end": "(=\\.)",
       "patterns": [
         {
-          "include":"#keywords"
+          "include": "#keywords"
         },
         {
           "include": "#abl-functions"
@@ -2044,7 +2047,7 @@
           }
         },
         {
-          "include":"#expression"
+          "include": "#expression"
         }
       ]
     },
@@ -3520,7 +3523,7 @@
         },
         {
           "comment": "Argument references can be passed into includes as arguments",
-          "include":"#argument-reference"
+          "include": "#argument-reference"
         }
       ]
     },
@@ -5208,7 +5211,7 @@
     },
     "abl-functions-O": {
       "name": "meta.function-call.abl",
-      "begin": "(?i)\\s*(os-getenv|os-error|os-drives|os-drive|opsys)\\s*(?=\\()",
+      "begin": "(?i)\\s*(os-getenv|os-error|os-drives|os-drive|os-dir|opsys)\\s*(?=\\()",
       "beginCaptures": {
         "1": {
           "name": "support.function.abl"

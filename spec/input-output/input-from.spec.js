@@ -454,3 +454,48 @@ describe('', () => {
   ];
   shared.itShouldMatchExpectedScopes(statement, expectedTokens);
 })
+
+describe('', () => {
+  let statement =
+    `INPUT FROM OS-DIR(CurDir) ECHO.`;
+
+  let expectedTokens = [
+    { "startIndex": 0, "endIndex": 5, "scopes": ["source.abl", "keyword.other.abl"] },  // 'INPUT'
+    { "startIndex": 5, "endIndex": 6, "scopes": ["source.abl"] },  // ' '
+    { "startIndex": 6, "endIndex": 10, "scopes": ["source.abl", "keyword.other.abl"] },  // 'FROM'
+    { "startIndex": 10, "endIndex": 11, "scopes": ["source.abl", "meta.function-call.abl"] },  // ' '
+    { "startIndex": 11, "endIndex": 17, "scopes": ["source.abl", "meta.function-call.abl", "support.function.abl"] },  // 'OS-DIR'
+    { "startIndex": 17, "endIndex": 18, "scopes": ["source.abl", "meta.function-call.abl", "meta.function.arguments.abl", "meta.brace.round.js"] },  // '('
+    { "startIndex": 18, "endIndex": 24, "scopes": ["source.abl", "meta.function-call.abl", "meta.function.arguments.abl", "variable.other.abl"] },  // 'CurDir'
+    { "startIndex": 24, "endIndex": 25, "scopes": ["source.abl", "meta.function-call.abl", "meta.brace.round.js"] },  // ')'
+    { "startIndex": 25, "endIndex": 26, "scopes": ["source.abl"] },  // ' '
+    { "startIndex": 26, "endIndex": 30, "scopes": ["source.abl", "keyword.other.abl"] },  // 'ECHO'
+    { "startIndex": 30, "endIndex": 31, "scopes": ["source.abl", "punctuation.terminator.abl"] }  // '.'
+  ];
+
+  shared.itShouldMatchExpectedScopes(statement, expectedTokens);
+})
+
+describe('', () => {
+  let statement =
+    `INPUT FROM VALUE (s_logfile) NO-ECHO {&NO-MAP}.`;
+
+  let expectedTokens = [
+    { "startIndex": 0, "endIndex": 5, "scopes": ["source.abl", "keyword.other.abl"] },  // 'INPUT'
+    { "startIndex": 5, "endIndex": 6, "scopes": ["source.abl"] },  // ' '
+    { "startIndex": 6, "endIndex": 10, "scopes": ["source.abl", "keyword.other.abl"] },  // 'FROM'
+    { "startIndex": 10, "endIndex": 11, "scopes": ["source.abl", "meta.function-call.abl"] },  // ' '
+    { "startIndex": 11, "endIndex": 16, "scopes": ["source.abl", "meta.function-call.abl", "support.function.abl"] },  // 'VALUE'
+    { "startIndex": 16, "endIndex": 17, "scopes": ["source.abl", "meta.function-call.abl"] },  // ' '
+    { "startIndex": 17, "endIndex": 18, "scopes": ["source.abl", "meta.function-call.abl", "meta.function.arguments.abl", "meta.brace.round.js"] },  // '('
+    { "startIndex": 18, "endIndex": 27, "scopes": ["source.abl", "meta.function-call.abl", "meta.function.arguments.abl", "variable.other.abl"] },  // 's_logfile'
+    { "startIndex": 27, "endIndex": 28, "scopes": ["source.abl", "meta.function-call.abl", "meta.brace.round.js"] },  // ')'
+    { "startIndex": 28, "endIndex": 29, "scopes": ["source.abl"] },  // ' '
+    { "startIndex": 29, "endIndex": 36, "scopes": ["source.abl", "keyword.other.abl"] },  // 'NO-ECHO'
+    { "startIndex": 36, "endIndex": 37, "scopes": ["source.abl"] },  // ' '
+    { "startIndex": 37, "endIndex": 46, "scopes": ["source.abl", "storage.type.function.abl"] },  // '{&NO-MAP}'
+    { "startIndex": 46, "endIndex": 47, "scopes": ["source.abl", "punctuation.terminator.abl"] }  // '.'
+  ];
+
+  shared.itShouldMatchExpectedScopes(statement, expectedTokens);
+})

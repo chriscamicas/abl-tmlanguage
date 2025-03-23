@@ -95,6 +95,7 @@ functionsNotStatements.push('set-size');
 
 let alsoFunctions = [];
 alsoFunctions.push('lower');
+alsoFunctions.push('os-dir');
 alsoFunctions.push('relation-fields');
 alsoFunctions.push('return');
 alsoFunctions.push('skip');
