@@ -418,6 +418,9 @@
           "include": "#var-statement"
         },
         {
+          "include": "#output-to"
+        },
+        {
           "include": "#function-definition"
         },
         {
@@ -1483,6 +1486,63 @@
           "include": "#punctuation-comma"
         }
       ]
+    },
+    "output-to": {
+      "begin": "(?i)\\b(output)\\s+((stream|stream-handle)\\s+([[:alpha:]][\\w#$-%&]*)\\s+)?(to)",
+      "beginCaptures": {
+        "1": {
+          "name": "keyword.other.abl"
+        },
+        "3": {
+          "name": "keyword.other.abl"
+        },
+        "4": {
+          "patterns": [
+            {
+              "include": "#variable-name"
+            }
+          ]
+        },
+        "5": {
+          "name": "keyword.other.abl"
+        }
+      },
+      "end": "(?i)(?=\\.|target|source)",
+      "comment": "End with TARGET or SOURCE since these are the only options that take variables as arguments, and they must be the last options",
+      "patterns": [
+        {
+          "include": "#type-member-call"
+        },
+        {
+          "include": "#abl-functions"
+        },
+        {
+          "include": "#abl-system-handles"
+        },
+        {
+          "include": "#keywords"
+        },
+        {
+          "include": "#comment"
+        },
+        {
+          "include": "#array-literal"
+        },
+        {
+          "include": "#opsys-device-name"
+        },
+        {
+          "include": "#expression"
+        }
+      ]
+    },
+    "opsys-device-name": {
+      "match": "(([[:alnum:]$_][\\w\\/\\-\\\\\\$:]+)(\\.[[:alnum:]\\w+\\-\\$]+)*)",
+      "captures": {
+        "1": {
+          "name": "storage.other.opsys-device.abl"
+        }
+      }
     },
     "define-variable-name": {
       "match": "(?i)(variable|variabl|variab|varia|vari|var)\\s+([[:alpha:]][\\w#$-%&])+\\s*",
@@ -3196,6 +3256,9 @@
           "include": "#comment"
         },
         {
+          "include": "#array-literal"
+        },
+        {
           "include": "#punctuation-comma"
         },
         {
@@ -3591,6 +3654,7 @@
     },
     "timestamp-constant": {
       "match": "(?i)(?<=^|\\s*)(today|now)(?!\\w|-)",
+      "comment": "These are constants that can be used in initial values. This excludes MTIME and ETIME",
       "name": "constant.language.abl"
     },
     "constant": {
@@ -3598,8 +3662,8 @@
       "name": "constant.language.abl"
     },
     "punctuation-colon": {
-      "name": "punctuation.terminator.abl",
-      "match": ":"
+      "match": ":",
+      "name": "punctuation.terminator.abl"
     },
     "punctuation-separator": {
       "name": "punctuation.separator.abl",
