@@ -146,8 +146,8 @@ describe('', () => {
     { "startIndex": 0, "endIndex": 5, "scopes": ["source.abl", "keyword.other.abl"] },  // 'input'
     { "startIndex": 5, "endIndex": 6, "scopes": ["source.abl"] },  // ' '
     { "startIndex": 6, "endIndex": 10, "scopes": ["source.abl", "keyword.other.abl"] },  // 'from'
-    { "startIndex": 10, "endIndex": 12, "scopes": ["source.abl"] },  // ' /'
-    { "startIndex": 12, "endIndex": 33, "scopes": ["source.abl", "storage.other.opsys-device.abl"] },  // 'blah/path/to/file.bin'
+    { "startIndex": 10, "endIndex": 11, "scopes": ["source.abl"] },  // ' '
+    { "startIndex": 11, "endIndex": 33, "scopes": ["source.abl", "storage.other.opsys-device.abl"] },  // '/blah/path/to/file.bin'
     { "startIndex": 33, "endIndex": 34, "scopes": ["source.abl", "punctuation.terminator.abl"] }  // '.'
   ];
   shared.itShouldMatchExpectedScopes(statement, expectedTokens);
