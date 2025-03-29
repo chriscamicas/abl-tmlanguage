@@ -415,6 +415,9 @@
       "name": "meta.statements.abl",
       "patterns": [
         {
+          "include": "#comment"
+        },
+        {
           "include": "#var-statement"
         },
         {
@@ -523,12 +526,6 @@
         },
         {
           "include": "#parens"
-        },
-        {
-          "include": "#singlelinecomment"
-        },
-        {
-          "include": "#multilinecomment"
         },
         {
           "include": "#declarations"
@@ -3553,9 +3550,9 @@
       "name": "comment.line.double-slash.abl"
     },
     "multilinecomment": {
-      "begin": "(?<!=)/\\*",
-      "contentName": "comment",
+      "begin": "/\\*",
       "end": "\\*/",
+      "contentName": "comment",
       "name": "comment.block.source.abl",
       "patterns": [
         {
