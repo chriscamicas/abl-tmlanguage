@@ -415,6 +415,9 @@
       "name": "meta.statements.abl",
       "patterns": [
         {
+          "include": "#comment"
+        },
+        {
           "include": "#var-statement"
         },
         {
@@ -523,12 +526,6 @@
         },
         {
           "include": "#parens"
-        },
-        {
-          "include": "#singlelinecomment"
-        },
-        {
-          "include": "#multilinecomment"
         },
         {
           "include": "#declarations"
@@ -3548,14 +3545,14 @@
       ]
     },
     "singlelinecomment": {
-      "match": "\\/\\/.*$",
+      "match": "//.*$",
       "comment": "Was comment.source.abl but should be changed, per https://macromates.com/manual/en/language_grammars",
       "name": "comment.line.double-slash.abl"
     },
     "multilinecomment": {
-      "begin": "(?<!=)\\/\\*",
+      "begin": "/\\*",
+      "end": "\\*/",
       "contentName": "comment",
-      "end": "\\*\\/",
       "name": "comment.block.source.abl",
       "patterns": [
         {
