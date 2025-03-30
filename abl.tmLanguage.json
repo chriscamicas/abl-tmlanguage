@@ -3495,7 +3495,7 @@
           "include": "#argument-reference"
         },
         {
-          "match": "(?<=\\s)(&[[:alpha:]][\\w#$\\-%.]+)\\s*(=)?",
+          "match": "(?<=\\s)(&[[:alnum:]][\\w#$\\-%.]+)\\s*(=)?",
           "name": "meta.include.argument.abl",
           "comment": "This is intended to catch '&arg' and '&arg=' ",
           "captures": {
@@ -3511,10 +3511,19 @@
           "include": "#string"
         },
         {
-          "match": "([[:alpha:]][\\w#$\\-%.\\:]+)\\b",
+          "match": "([[:alnum:]][\\w#$\\-%.\\:]+)\\b",
           "comment": "non-string argument values",
           "captures": {
             "1": {
+              "name": "support.other.argument.abl"
+            }
+          }
+        },
+        {
+          "match": "(\\/\\*+)|(\\*+\\/)|(\\/\\/)",
+          "comment": "Comment start/stop argument values",
+          "captures": {
+            "0": {
               "name": "support.other.argument.abl"
             }
           }

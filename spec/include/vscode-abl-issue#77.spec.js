@@ -90,7 +90,7 @@ describe('', () => {
     { "startIndex": 40, "endIndex": 41, "scopes": ["source.abl", "meta.include.abl", "meta.include.argument.abl"] },  // ' '
     { "startIndex": 41, "endIndex": 47, "scopes": ["source.abl", "meta.include.abl", "meta.include.argument.abl", "support.other.argument.abl"] },  // '&Thrid'
     { "startIndex": 47, "endIndex": 48, "scopes": ["source.abl", "meta.include.abl", "meta.include.argument.abl", "keyword.operator.source.abl"] },  // '='
-    { "startIndex": 48, "endIndex": 50, "scopes": ["source.abl", "meta.include.abl"] },  // '43'
+    { "startIndex": 48, "endIndex": 50, "scopes": ["source.abl", "meta.include.abl", "support.other.argument.abl"] },  // '43'
     { "startIndex": 50, "endIndex": 51, "scopes": ["source.abl", "meta.include.abl", "punctuation.section.abl"] }  // '}'
   ];
   shared.itShouldMatchExpectedScopes(statement, expectedTokens);
@@ -120,7 +120,7 @@ describe('', () => {
       { "startIndex": 8, "endIndex": 9, "scopes": ["source.abl", "meta.include.abl", "meta.include.argument.abl"] },  // ' '
       { "startIndex": 9, "endIndex": 15, "scopes": ["source.abl", "meta.include.abl", "meta.include.argument.abl", "support.other.argument.abl"] },  // '&Thrid'
       { "startIndex": 15, "endIndex": 16, "scopes": ["source.abl", "meta.include.abl", "meta.include.argument.abl", "keyword.operator.source.abl"] },  // '='
-      { "startIndex": 16, "endIndex": 18, "scopes": ["source.abl", "meta.include.abl"] },  // '43'
+      { "startIndex": 16, "endIndex": 18, "scopes": ["source.abl", "meta.include.abl", "support.other.argument.abl"] },  // '43'
       { "startIndex": 18, "endIndex": 19, "scopes": ["source.abl", "meta.include.abl", "punctuation.section.abl"] }  // '}'
     ]
   ];
