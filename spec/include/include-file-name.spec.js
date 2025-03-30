@@ -107,3 +107,54 @@ describe('', () => {
   ];
   shared.itShouldMatchExpectedScopes(statement, expectedTokens);
 })
+
+describe('', () => {
+  let statement = `{silly.i
+  &co=/*
+  &cc=*/
+  &int=13
+  &NEW=OLD
+  &lc=//
+}`;
+
+  let expectedTokens = [
+    [
+      { "startIndex": 0, "endIndex": 1, "scopes": ["source.abl", "meta.include.abl", "punctuation.section.abl"] },  // '{'
+      { "startIndex": 1, "endIndex": 8, "scopes": ["source.abl", "meta.include.abl", "entity.name.include.abl"] }  // 'silly.i'
+    ],
+    [
+      { "startIndex": 0, "endIndex": 2, "scopes": ["source.abl", "meta.include.abl"] },  // '  '
+      { "startIndex": 2, "endIndex": 5, "scopes": ["source.abl", "meta.include.abl", "meta.include.argument.abl", "support.other.argument.abl"] },  // '&co'
+      { "startIndex": 5, "endIndex": 6, "scopes": ["source.abl", "meta.include.abl", "meta.include.argument.abl", "keyword.operator.source.abl"] },  // '='
+      { "startIndex": 6, "endIndex": 8, "scopes": ["source.abl", "meta.include.abl", "support.other.argument.abl"] }  // '/*'
+    ],
+    [
+      { "startIndex": 0, "endIndex": 2, "scopes": ["source.abl", "meta.include.abl"] },  // '  '
+      { "startIndex": 2, "endIndex": 5, "scopes": ["source.abl", "meta.include.abl", "meta.include.argument.abl", "support.other.argument.abl"] },  // '&cc'
+      { "startIndex": 5, "endIndex": 6, "scopes": ["source.abl", "meta.include.abl", "meta.include.argument.abl", "keyword.operator.source.abl"] },  // '='
+      { "startIndex": 6, "endIndex": 8, "scopes": ["source.abl", "meta.include.abl", "support.other.argument.abl"] }  // '*/'
+    ],
+    [
+      { "startIndex": 0, "endIndex": 2, "scopes": ["source.abl", "meta.include.abl"] },  // '  '
+      { "startIndex": 2, "endIndex": 6, "scopes": ["source.abl", "meta.include.abl", "meta.include.argument.abl", "support.other.argument.abl"] },  // '&int'
+      { "startIndex": 6, "endIndex": 7, "scopes": ["source.abl", "meta.include.abl", "meta.include.argument.abl", "keyword.operator.source.abl"] },  // '='
+      { "startIndex": 7, "endIndex": 9, "scopes": ["source.abl", "meta.include.abl", "support.other.argument.abl"] }  // '13'
+    ],
+    [
+      { "startIndex": 0, "endIndex": 2, "scopes": ["source.abl", "meta.include.abl"] },  // '  '
+      { "startIndex": 2, "endIndex": 6, "scopes": ["source.abl", "meta.include.abl", "meta.include.argument.abl", "support.other.argument.abl"] },  // '&NEW'
+      { "startIndex": 6, "endIndex": 7, "scopes": ["source.abl", "meta.include.abl", "meta.include.argument.abl", "keyword.operator.source.abl"] },  // '='
+      { "startIndex": 7, "endIndex": 10, "scopes": ["source.abl", "meta.include.abl", "support.other.argument.abl"] }  // 'OLD'
+    ],
+    [
+      { "startIndex": 0, "endIndex": 2, "scopes": ["source.abl", "meta.include.abl"] },  // '  '
+      { "startIndex": 2, "endIndex": 5, "scopes": ["source.abl", "meta.include.abl", "meta.include.argument.abl", "support.other.argument.abl"] },  // '&lc'
+      { "startIndex": 5, "endIndex": 6, "scopes": ["source.abl", "meta.include.abl", "meta.include.argument.abl", "keyword.operator.source.abl"] },  // '='
+      { "startIndex": 6, "endIndex": 8, "scopes": ["source.abl", "meta.include.abl", "support.other.argument.abl"] }  // '//'
+    ],
+    [
+      { "startIndex": 0, "endIndex": 1, "scopes": ["source.abl", "meta.include.abl", "punctuation.section.abl"] }  // '}'
+    ]
+  ];
+  shared.itShouldMatchExpectedScopes(statement, expectedTokens);
+})
