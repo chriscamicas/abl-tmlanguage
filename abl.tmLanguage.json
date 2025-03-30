@@ -3520,7 +3520,7 @@
           }
         },
         {
-          "match": "(\\/\\*+)|(\\*+\\/)|(\\/\\/)",
+          "match": "(?<=\\=)(\\/\\*+)|(\\*+\\/)|(\\/\\/)",
           "comment": "Comment start/stop argument values",
           "captures": {
             "0": {
@@ -3531,6 +3531,9 @@
         {
           "comment": "Argument references can be passed into includes as arguments",
           "include": "#argument-reference"
+        },
+        {
+          "include": "#comment"
         }
       ]
     },
