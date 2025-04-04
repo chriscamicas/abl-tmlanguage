@@ -40,7 +40,7 @@
           "include": "#string"
         },
         {
-          "match": "([a-zA-Z_][a-zA-Z0-9_#$\\-%&.]+)(?<!\\.)",
+          "match": "([a-zA-Z_][a-zA-Z0-9_#$\\-%&\\.]+)(?<!\\.)",
           "comment": "A procedure name may contain a . but cannot end in one, unless the procedure name is in quotes",
           "captures": {
             "1": {
@@ -79,7 +79,7 @@
     },
     "function-definition": {
       "name": "meta.define.function.abl",
-      "begin": "(?i)\\b(function)\\s+([a-zA-Z_][a-zA-Z0-9_#$\\-%&]+)\\b",
+      "begin": "(?i)\\b(function)\\s+([a-zA-Z0-9_][a-zA-Z0-9_#$\\-%&]+)\\b",
       "beginCaptures": {
         "1": {
           "name": "keyword.other.abl"
@@ -88,7 +88,7 @@
           "name": "entity.name.function.abl"
         }
       },
-      "end": "(\\.|\\:)",
+      "end": "(\\.|:)",
       "endCaptures": {
         "1": {
           "name": "punctuation.terminator.abl"
@@ -124,7 +124,7 @@
         {
           "comment": "This captures everything after the parens, which may contain variables and methods",
           "begin": "(?i)(?<=\\)|in)",
-          "end": "(?=(\\.|\\:)\\s)",
+          "end": "(?=(\\.|:)\\s)",
           "patterns": [
             {
               "include": "#keywords"
@@ -670,7 +670,7 @@
       }
     },
     "preprocessors": {
-      "match": "(?i)(&window-system|&text-height|&line-number|&batch-mode|&file-name|&undefine|&sequence|&message|defined|&elseif|&scoped|&global|&opsys|&endif|&else|&scop|&then|&glob|&if)|({&[a-zA-Z0-9_\\-#$%\\-\\s()]+})|(&[a-zA-Z0-9_\\-#$%]+)",
+      "match": "(?i)(&window-system|&text-height|&line-number|&batch-mode|&file-name|&undefine|&sequence|&message|defined|&elseif|&scoped|&global|&opsys|&endif|&else|&scop|&then|&glob|&if)|({&[a-zA-Z0-9_\\-#$%\\s\\(\\)]+})|(&[a-zA-Z0-9_\\-#$%]+)",
       "captures": {
         "1": {
           "name": "storage.type.function.abl"
@@ -836,7 +836,7 @@
     "define-interface": {
       "comment": "Type names are files, so support unicode",
       "name": "meta.define.interface.abl",
-      "begin": "(?i)\\b(interface)\\s+([\\w#$%]+[\\w#$%.]*(\\s*<\\s*[\\w#$%.]+\\s*>)?)",
+      "begin": "(?i)\\b(interface)\\s+([\\w#$%]+[\\w#$%\\.]*(\\s*<\\s*[\\w#$%\\.]+\\s*\\>)?)",
       "beginCaptures": {
         "1": {
           "name": "keyword.other.abl"
@@ -897,7 +897,7 @@
         {
           "name": "meta.define.enum.abl",
           "comment": "Type names are files, so support unicode",
-          "match": "(?i)\\b(enum)\\s+([\\w#$%.]+)\\s*(flags)?\\s*(:)",
+          "match": "(?i)\\b(enum)\\s+([\\w#$%\\.]+)\\s*(flags)?\\s*(:)",
           "captures": {
             "1": {
               "name": "keyword.other.abl"
@@ -1015,7 +1015,7 @@
       "comment": "Just a field name",
       "patterns": [
         {
-          "match": "\\s*([a-zA-Z][a-zA-Z_\\-#$%]*(\\.[a-zA-Z][a-zA-Z_\\-#$%]*)?\\s*(\\[\\d+\\]))\\s*",
+          "match": "\\s*([a-zA-Z][a-zA-Z0-9_\\-#$%]*(\\.[a-zA-Z][a-zA-Z0-9_\\-#$%]*)?\\s*(\\[\\d+\\]))\\s*",
           "captures": {
             "1": {
               "name": "storage.data.table.abl"
@@ -1023,7 +1023,7 @@
           }
         },
         {
-          "match": "\\s*([a-zA-Z][a-zA-Z_\\-#$%]*(\\.[a-zA-Z][a-zA-Z_\\-#$%]*)?)\\s*",
+          "match": "\\s*([a-zA-Z][a-zA-Z0-9_\\-#$%]*(\\.[a-zA-Z][a-zA-Z0-9_\\-#$%]*)?)\\s*",
           "captures": {
             "1": {
               "name": "storage.data.table.abl"
@@ -1033,7 +1033,7 @@
       ]
     },
     "db-dot-table-dot-field": {
-      "match": "(?i)(?<=^|\\s|\\(|,)(([a-zA-Z][a-zA-Z#$\\-_%&]*\\.)?([a-zA-Z][a-zA-Z#$\\-_%&]*\\.)([a-zA-Z][a-zA-Z0-9#$\\-_%&]*)(\\[\\d+\\])?)",
+      "match": "(?i)(?<=^|\\s|\\(|,)(([a-zA-Z][a-zA-Z0-9#$\\-_%&]*\\.)?([a-zA-Z_][a-zA-Z0-9#$\\-_%&]*\\.)([a-zA-Z_][a-zA-Z0-9#$\\-_%&]*)(\\[\\d+\\])?)",
       "comment": "Looks for format of 'table.field', with an optional preceding 'db.'. This pattern may conflict with type names",
       "captures": {
         "1": {
@@ -1042,7 +1042,7 @@
       }
     },
     "db-dot-table": {
-      "match": "(?i)\\b([a-zA-Z][a-zA-Z#$\\-_%&]*(\\.[a-zA-Z][a-zA-Z#$\\-_%&]*)?)\\b",
+      "match": "(?i)\\b([a-zA-Z_][a-zA-Z0-9#$\\-_%&]*(\\.[a-zA-Z_][a-zA-Z0-9#$\\-_%&]*)?)\\b",
       "comment": "Looks for format of 'table', with an optional preceding 'db.'. This pattern may conflict with type names",
       "captures": {
         "1": {
@@ -1051,7 +1051,7 @@
       }
     },
     "break-group": {
-      "match": "(?i)\\s*(first-of|first|last-of|last)\\s*(\\()\\s*([a-zA-Z][a-zA-Z#$\\-_%&]*\\.[a-zA-Z][a-zA-Z#$\\-_%&]*(\\.[a-zA-Z][a-zA-Z#$\\-_%&]*)?)\\s*(\\))\\s*",
+      "match": "(?i)\\s*(first-of|first|last-of|last)\\s*(\\()\\s*([a-zA-Z][a-zA-Z#$\\-_%&]*\\.[a-zA-Z_][a-zA-Z#$\\-_%&]*(\\.[a-zA-Z_][a-zA-Z#$\\-_%&]*)?)\\s*(\\))\\s*",
       "captures": {
         "1": {
           "name": "keyword.other.abl"
@@ -1071,7 +1071,7 @@
       "patterns": [
         {
           "comment": " This matches OF <table>",
-          "match": "(?i)\\s*(of)\\s+([a-zA-Z][a-zA-Z_\\-#$%]*(\\.[a-zA-Z][a-zA-Z_\\-#$%]*)?)\\s*",
+          "match": "(?i)\\s*(of)\\s+([a-zA-Z][a-zA-Z0-9_\\-#$%]*(\\.[a-zA-Z_][a-zA-Z0-9_\\-#$%]*)?)\\s*",
           "captures": {
             "1": {
               "name": "keyword.other.abl"
@@ -1083,7 +1083,7 @@
         },
         {
           "comment": " This matches <table> OF <table>",
-          "match": "(?i)\\s*([a-zA-Z][a-zA-Z_\\-#$%]*(\\.[a-zA-Z][a-zA-Z_\\-#$%]*)?)\\s+(of)\\s+([a-zA-Z][a-zA-Z_\\-#$%]*(\\.[a-zA-Z][a-zA-Z_\\-#$%]*)?)\\s*",
+          "match": "(?i)\\s*([a-zA-Z][a-zA-Z0-9_\\-#$%]*(\\.[a-zA-Z_][a-zA-Z0-9_\\-#$%]*)?)\\s+(of)\\s+([a-zA-Z][a-zA-Z0-9_\\-#$%]*(\\.[a-zA-Z_][a-zA-Z0-9_\\-#$%]*)?)\\s*",
           "captures": {
             "1": {
               "name": "storage.data.table.abl"
@@ -1100,7 +1100,7 @@
     },
     "for-join": {
       "comment": "Captures something like ', salesrep where' or 'salesrep where', when the latter is at the beginning of a line. 'OF' phrases handled by of-phrase",
-      "match": "(?i)(?<=,|^)\\s*([a-zA-Z][a-zA-Z_\\-#$%]*(\\.[a-zA-Z][a-zA-Z_\\-#$%]*)?)\\s+(?=where|no-lock|exclusive-lock|exclusive-loc|exclusive-lo|exclusive-l|share-lock|share-loc|share-lo|share-|share|tenant-where|use-index|table-scan|using|no-prefetch|left|outer-join|break|by|transaction)\\s*",
+      "match": "(?i)(?<=,|^)\\s*([a-zA-Z][a-zA-Z0-9_\\-#$%]*(\\.[a-zA-Z_][a-zA-Z0-9_\\-#$%]*)?)\\s+(?=where|no-lock|exclusive-lock|exclusive-loc|exclusive-lo|exclusive-l|share-lock|share-loc|share-lo|share-|share|tenant-where|use-index|table-scan|using|no-prefetch|left|outer-join|break|by|transaction)\\s*",
       "captures": {
         "1": {
           "name": "storage.data.table.abl"
@@ -1138,7 +1138,7 @@
           }
         },
         {
-          "match": "\\s*([a-zA-Z][a-zA-Z_\\-#$%]*(\\.[a-zA-Z][a-zA-Z_\\-#$%]*)?)\\s*",
+          "match": "\\s*([a-zA-Z][a-zA-Z0-9_\\-#$%]*(\\.[a-zA-Z][a-zA-Z0-9_\\-#$%]*)?)\\s*",
           "comment": "Matches the table name in the case of eg ',each table' ",
           "captures": {
             "1": {
@@ -1209,7 +1209,7 @@
     },
     "record-buffer-functions": {
       "comment": "this capture does not include the NOT function since it is impossible to determine whether this is a new class or a new record.",
-      "match": "(?i)\\b(available|locked|ambiguous)\\s*(\\()?\\s*([a-zA-Z][a-zA-Z_\\-#$%]*(\\.[a-zA-Z][a-zA-Z_\\-#$%]*)?)\\s*(\\))?",
+      "match": "(?i)\\b(available|locked|ambiguous)\\s*(\\()?\\s*([a-zA-Z][a-zA-Z0-9_\\-#$%]*(\\.[a-zA-Z][a-zA-Z0-9_\\-#$%]*)?)\\s*(\\))?",
       "captures": {
         "1": {
           "name": "support.function.abl"
@@ -1418,7 +1418,7 @@
       }
     },
     "property-get-set-block": {
-      "begin": "(?i)\\s*(?<!\\:)\\s*(get|set)\\b",
+      "begin": "(?i)\\s*(?<!:)\\s*(get|set)\\b",
       "beginCaptures": {
         "1": {
           "name": "keyword.other.abl"
@@ -1447,7 +1447,7 @@
       ]
     },
     "parameter-as": {
-      "begin": "(?i)\\s*([a-zA-Z_\\-#$%]+)\\s+(as)\\s+",
+      "begin": "(?i)\\s*([a-zA-Z0-9_\\-#$%]+)\\s+(as)\\s+",
       "beginCaptures": {
         "1": {
           "name": "variable.parameter.abl"
@@ -1542,7 +1542,7 @@
       ]
     },
     "opsys-device-name": {
-      "match": "(([[:alnum:]_\\w\\/\\-\\\\\\$:]+)(\\.[[:alnum:]\\w+\\-\\$]+)*)",
+      "match": "(([[:alnum:]_\\w\\/\\-\\\\$:]+)(\\.[[:alnum:]\\w+\\-$]+)*)",
       "comment": "For this regex to work, a device name may have periods in its name, but cannot end in one. File names support unicode",
       "captures": {
         "1": {
@@ -1612,7 +1612,7 @@
     },
     "annotation-simple": {
       "name": "meta.declaration.annotation.abl",
-      "match": "(^|\\s*)(@[a-zA-Z_][a-zA-Z0-9_#$\\-%&]*)\\s*(?=\\.)",
+      "match": "(^|\\s*)(\\@[a-zA-Z_][a-zA-Z0-9_#$\\-%&]*)\\s*(?=\\.)",
       "captures": {
         "2": {
           "name": "entity.name.tag.abl"
@@ -1621,7 +1621,7 @@
     },
     "annotation-attributes": {
       "name": "meta.declaration.annotation.abl",
-      "begin": "(^|\\s+)(@[a-zA-Z_][a-zA-Z0-9_#$\\-%&]*)\\s*(?=\\()",
+      "begin": "(^|\\s+)(\\@[a-zA-Z_][a-zA-Z0-9_#$\\-%&]*)\\s*(?=\\()",
       "beginCaptures": {
         "2": {
           "name": "entity.name.tag.abl"
@@ -1633,7 +1633,7 @@
           "include": "#parens"
         },
         {
-          "match": "\\s*([a-zA-Z_][a-zA-Z0-9_#$\\-%&]+)(?=[=\\s$])",
+          "match": "\\s*([a-zA-Z_][a-zA-Z0-9_#$\\-%&]+)(?=[\\=\\s$])",
           "captures": {
             "1": {
               "name": "entity.other.attribute-name.abl"
@@ -1952,7 +1952,7 @@
       ]
     },
     "buffer-name": {
-      "match": "(?i)\\b(buffer)\\s+([a-zA-Z][a-zA-Z_\\-#$%]*(\\.[a-zA-Z][a-zA-Z_\\-#$%]*)?)",
+      "match": "(?i)\\b(buffer)\\s+([a-zA-Z][a-zA-Z0-9_\\-#$%]*(\\.[a-zA-Z][a-zA-Z0-9_\\-#$%]*)?)",
       "captures": {
         "1": {
           "name": "keyword.other.abl"
@@ -1963,7 +1963,7 @@
       }
     },
     "temp-table-name": {
-      "match": "(?i)\\b(temp-table)\\s+([a-zA-Z][a-zA-Z_\\-#$%]*)",
+      "match": "(?i)\\b(temp-table)\\s+([a-zA-Z][a-zA-Z0-9_\\-#$%]*)",
       "captures": {
         "1": {
           "name": "keyword.other.abl"
@@ -1974,7 +1974,7 @@
       }
     },
     "create-widget": {
-      "match": "(?i)\\s*(create)\\s+(BUTTON|COMBO-BOX|CONTROL-FRAME|DIALOG-BOX|EDITOR|FILL-IN|FRAME|IMAGE|MENU|MENU-ITEM|RADIO-SET|RECTANGLE|SELECTION-LIST|SLIDER|SUB-MENU|TEXT|TOGGLE-BOX|WINDOW)\\s+([a-zA-Z_][a-zA-Z0-9_#$\\-%&]*)\\b",
+      "match": "(?i)\\s*(create)\\s+(button|combo-box|control-frame|dialog-box|editor|fill-in|frame|image|menu|menu-item|radio-set|rectangle|selection-list|slider|sub-menu|text|toggle-box|window)\\s+([a-zA-Z_][a-zA-Z0-9_#$\\-%&]*)\\b",
       "captures": {
         "1": {
           "name": "keyword.other.abl"
@@ -2353,7 +2353,7 @@
       ]
     },
     "label-variable": {
-      "match": "(?i)\\s*(a-zA-Z0-9_\\-#$%+)\\s+(label)\\s*",
+      "match": "(?i)\\s*([a-zA-Z0-9_\\-#$%]+)\\s+(label)\\s*",
       "captures": {
         "1": {
           "name": "variable.other.abl"
@@ -2376,7 +2376,7 @@
       }
     },
     "define-table": {
-      "match": "(?i)(?<=\\b)(temp-table|before-table)\\s*([a-zA-Z_\\-#$%]+)\\s*",
+      "match": "(?i)(?<=\\b)(temp-table|before-table)\\s*([a-zA-Z_][a-zA-Z0-9_\\-#$%]*)\\s*",
       "captures": {
         "1": {
           "name": "keyword.other.abl"
@@ -2387,7 +2387,7 @@
       }
     },
     "buffer-for-table": {
-      "match": "(?i)\\s*(?!do|repeat|for)([a-zA-Z_\\-#$%]+)\\s+(for)\\s+((temp-table)\\s+)?([a-zA-Z][a-zA-Z_\\-#$%]*)\\s*",
+      "match": "(?i)\\s*(?!do|repeat|for)([a-zA-Z_\\-#$%]+)\\s+(for)\\s+((temp-table)\\s+)?([a-zA-Z][a-zA-Z0-9_\\-#$%]*)\\s*",
       "captures": {
         "1": {
           "name": "storage.data.table.abl"
@@ -2570,7 +2570,7 @@
       }
     },
     "define-like": {
-      "match": "(?i)\\s*(like|like-sequential)\\s+(([a-zA-Z][a-zA-Z_\\-#$%]*\\.)?([a-zA-Z][a-zA-Z_\\-#$%]*\\.)?([a-zA-Z][a-zA-Z_\\-#$%]*))",
+      "match": "(?i)\\s*(like|like-sequential)\\s+(([a-zA-Z][a-zA-Z_\\-#$%]*\\.)?([a-zA-Z][a-zA-Z0-9_\\-#$%]*\\.)?([a-zA-Z][a-zA-Z0-9_\\-#$%]*))",
       "captures": {
         "1": {
           "name": "keyword.other.abl"
@@ -2676,7 +2676,7 @@
           "name": "keyword.operator.source.abl"
         }
       },
-      "end": "(?i)(?=transaction|on|\\:|with|while)",
+      "end": "(?i)(?=transaction|on|:|with|while)",
       "patterns": [
         {
           "match": "(?i)\\s+(to|by)\\s*",
@@ -2960,7 +2960,7 @@
         }
       },
       "comment": " This regex captures to the end of the line, or the colon, whichever comes first",
-      "end": "(?=\\:|$)",
+      "end": "(?=:|$)",
       "patterns": [
         {
           "include": "#new-class"
@@ -2996,7 +2996,7 @@
           "name": "punctuation.separator.comma.abl"
         }
       },
-      "end": "(?=\\.|\\:)",
+      "end": "(?=\\.|:)",
       "patterns": [
         {
           "include": "#string"
@@ -3067,7 +3067,7 @@
           "name": "keyword.other.abl"
         }
       },
-      "end": "(?i)(?=transaction|on|\\:|with)",
+      "end": "(?i)(?=transaction|on|:|with)",
       "patterns": [
         {
           "comment": "The comment scopes are included in the statements pattern, but the operator trumps these",
@@ -3089,11 +3089,11 @@
     },
     "analyze-suspend-resume": {
       "begin": "(?i)(&analyze-suspend|&analyze-resume)\\s*",
-      "end": "(?=//|/\\*)|$",
+      "end": "(?=(?://|/\\*))|$",
       "name": "comment.preprocessor.analyze-suspend.abl"
     },
     "global-scoped-define": {
-      "begin": "(?i)(&scoped-define|&global-define)\\s*([.a-zA-Z0-9_\\-#$%\\\\/-]*)\\s*",
+      "begin": "(?i)(&scoped-define|&global-define)\\s*([\\.a-zA-Z0-9_\\-#$%\\\\\/\\-]*)\\s*",
       "beginCaptures": {
         "1": {
           "name": "keyword.other.abl"
@@ -3193,7 +3193,7 @@
       "name": "meta.function.arguments.abl",
       "patterns": [
         {
-          "match": "(?i)\\s*(input-output|input-outpu|input-outp|input-out|input-ou|input-o|output|input|table-handle|dataset-handle|APPEND|BY-VALUE|BY-REFERENCE|BIND)\\b(?![#$\\-_%&])",
+          "match": "(?i)\\s*(input-output|input-outpu|input-outp|input-out|input-ou|input-o|output|input|table-handle|dataset-handle|append|by-value|by-reference|bind)\\b(?![#$\\-_%&])",
           "captures": {
             "1": {
               "name": "keyword.other.abl"
@@ -3274,7 +3274,7 @@
     },
     "static-object-property-call": {
       "comment": "This rule only captures dotted type name and not single class names. Type names are files, so support unicode.",
-      "match": "(?i)\\s*(([\\w#$%\\-]+|progress)(\\.[\\w#$%\\-]+)+)\\s*(:)([\\w-]+)\\s*",
+      "match": "(?i)\\s*(([\\w#$%\\-]+|progress)(\\.[\\w#$%\\-]+)+)\\s*(:)([\\w\\-]+)\\s*",
       "captures": {
         "1": {
           "name": "entity.name.type.abl"
@@ -3467,7 +3467,7 @@
     },
     "run-unquoted": {
       "comment": "(External) Program names are files, so need to support unicode.",
-      "match": "(?i)\\s*(run)\\s+(?!value)\\s*([\\w\\-$@/\\\\]{1,253}(\\.[\\w@$\\-]{1,2})?)",
+      "match": "(?i)\\s*(run)\\s+(?!value)\\s*([\\w\\-$\\@\\/\\\\]{1,253}(\\.[\\w@$\\-]{1,2})?)",
       "captures": {
         "1": {
           "name": "keyword.other.abl"
@@ -3480,7 +3480,7 @@
     "include-file": {
       "name": "meta.include.abl",
       "comment": "https://docs.progress.com/bundle/abl-reference/page/Include-file-reference.html. Filesystem names can be unicode",
-      "begin": "({)\\s*([\\\\'\\\"]?([[:alpha:]$_][\\w/\\-\\\\\\$]+)(\\.[[:alpha:]]+[\\\\'\\\"]?)?)",
+      "begin": "({)\\s*([\\\\'\\\"]?([\\w$][\\w/\\-\\\\$]+)(\\.[\\w]+[\\\\'\\\"]?)?)",
       "beginCaptures": {
         "1": {
           "name": "punctuation.section.abl"
@@ -3501,7 +3501,7 @@
           "include": "#argument-reference"
         },
         {
-          "match": "(?<=\\s)(&[a-zA-Z0-9][a-zA-Z0-9_\\-#$%#$\\-%.]+)\\s*(=)?",
+          "match": "(?<=\\s)(&[a-zA-Z0-9][a-zA-Z0-9_\\-#$%#$\\-%\\.]+)\\s*(=)?",
           "name": "meta.include.argument.abl",
           "comment": "This is intended to catch '&arg' and '&arg=' ",
           "captures": {
@@ -3517,7 +3517,7 @@
           "include": "#string"
         },
         {
-          "match": "([a-zA-Z0-9][a-zA-Z0-9_\\-#$%#$\\-%.\\:]+)\\b",
+          "match": "([a-zA-Z0-9][a-zA-Z0-9_\\-#$%#$\\-%\\.:]+)\\b",
           "comment": "non-string argument values",
           "captures": {
             "1": {
@@ -3545,7 +3545,7 @@
     },
     "argument-reference": {
       "comment": "https://docs.progress.com/bundle/abl-reference/page/Argument-reference.html",
-      "match": "\\s*((\\{\\s*&[.a-zA-Z0-9_\\-#$%/-]+\\})|(\\{\\s*\\d+\\})|(\\{\\s*\\*\\}))\\s*",
+      "match": "\\s*((\\{\\s*&[\\.a-zA-Z0-9_\\-#$%\\\/]+\\})|(\\{\\s*\\d+\\})|(\\{\\s*\\*\\}))\\s*",
       "captures": {
         "1": {
           "name": "support.other.argument.abl"
@@ -3677,7 +3677,7 @@
       "name": "constant.language.abl"
     },
     "constant": {
-      "match": "(?i)(?<=^|\\s|\\()(true|false|yes|no|\\?)(?!a-zA-Z0-9_\\-#$%|-)",
+      "match": "(?i)(?<=^|\\s|\\()(true|false|yes|no|\\?)(?![a-zA-Z0-9_\\-#$%])",
       "name": "constant.language.abl"
     },
     "punctuation-colon": {
@@ -3691,7 +3691,7 @@
           "include": "#punctuation-comma"
         },
         {
-          "match": "(\\:)",
+          "match": "(:)",
           "captures": {
             "1": {
               "name": "punctuation.separator.colon.abl"
@@ -3764,7 +3764,7 @@
       "patterns": [
         {
           "comment": " NEW\\s+( <buffer> )",
-          "match": "(?i)\\s*(new)\\s+(\\()\\s*([a-zA-Z_\\-#$%]+(\\.[a-zA-Z_\\-#$%]+)?)\\s*(\\))",
+          "match": "(?i)\\s*(new)\\s+(\\()\\s*([a-zA-Z_][a-zA-Z0-9_\\-#$%]*(\\.[a-zA-Z][a-zA-Z0-9_\\-#$%]*)?)\\s*(\\))",
           "captures": {
             "1": {
               "name": "support.function.abl"
@@ -3782,7 +3782,7 @@
         },
         {
           "comment": " NEW <buffer>. The position of the negative lookahead (?!...) is very important",
-          "match": "(?i)\\s*((new)\\s+(?!.*\\()([a-zA-Z_\\-#$%.]+))",
+          "match": "(?i)\\s*((new)\\s+(?!.*\\()([a-zA-Z_][a-zA-Z0-9_\\-#$%.]*))",
           "captures": {
             "2": {
               "name": "support.function.abl"

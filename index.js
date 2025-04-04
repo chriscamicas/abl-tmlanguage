@@ -258,7 +258,7 @@ lineReaderKeywords.on('close', () => {
       result['keywords-' + String.fromCharCode(97 + zz).toUpperCase()] =
       {
         comment: "The keyword must not have a trailing variable character (one of #$-_%&)",
-        match: "(?i)\\b(" + keywordBlocks[zz].sort(reverseSort).join('|') + ")\\b(?![\\#\\$\\-\\_\\%\\&])",
+        match: "(?i)\\b(" + keywordBlocks[zz].sort(reverseSort).join('|') + ")\\b(?![#$\\-_%&])",
         captures: {
           1: {
             name: "keyword.other.abl"
@@ -277,7 +277,7 @@ lineReaderKeywords.on('close', () => {
 
       result['handle-attributes-' + String.fromCharCode(97 + zz).toUpperCase()] =
       {
-        match: "(?i)(:)(" + attributeBlocks[zz].sort(reverseSort).join('|') + ")\\b(?![\\#\\$\\-\\_\\%\\&])",
+        match: "(?i)(:)(" + attributeBlocks[zz].sort(reverseSort).join('|') + ")\\b(?![#$\\-_%&])",
         captures: {
           1: {
             name: "punctuation.separator.colon.abl"
