@@ -61,7 +61,7 @@
     },
     "translation-attribute": {
       "comment": "The attribute must have one of L, R, T, or C and/or a U and/or one integer value. For example, R1 as the attribute value for Label.",
-      "match": "(?i)(:[L|R|T|C|U]\\d*)\\b",
+      "match": "(:[LlRrTtCcUu]\\d*)\\b",
       "captures": {
         "1": {
           "name": "support.other.abl"
@@ -1542,7 +1542,7 @@
       ]
     },
     "opsys-device-name": {
-      "match": "(([[:alnum:]_\\w\\/\\-\\\\$:]+)(\\.[[:alnum:]\\w+\\-$]+)*)",
+      "match": "([_\\w\\/\\-\\\\$:\\.]+)(?<!\\.)",
       "comment": "For this regex to work, a device name may have periods in its name, but cannot end in one. File names support unicode",
       "captures": {
         "1": {
@@ -3480,7 +3480,7 @@
     "include-file": {
       "name": "meta.include.abl",
       "comment": "https://docs.progress.com/bundle/abl-reference/page/Include-file-reference.html. Filesystem names can be unicode",
-      "begin": "({)\\s*([\\\\'\\\"]?([\\w$][\\w/\\-\\\\$]+)(\\.[\\w]+[\\\\'\\\"]?)?)",
+      "begin": "({)\\s*(['\"]?([\\\\/\\w$\\-]+)(\\.[\\w]+['\"]?)?)",
       "beginCaptures": {
         "1": {
           "name": "punctuation.section.abl"
