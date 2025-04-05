@@ -257,7 +257,7 @@
       }
     },
     "as-type": {
-      "begin": "(?i)\\s*(as)\\s*(class)?",
+      "begin": "\\s*([Aa][Ss])\\s*([Cc][Ll][Aa][Ss]{2})?",
       "beginCaptures": {
         "1": {
           "name": "keyword.other.abl"
@@ -801,7 +801,7 @@
     "define-class": {
       "comment": "Type names are files, so support unicode",
       "name": "meta.define.class.abl",
-      "begin": "(?i)\\b(?<![#$\\-_%&])(class)\\b(?![#$\\-_%&])",
+      "begin": "\\b(?<![#$\\-_%&])([Cc][Ll][Aa][Ss]{2})\\b(?![#$\\-_%&])",
       "beginCaptures": {
         "1": {
           "name": "keyword.other.abl"
@@ -1447,7 +1447,7 @@
       ]
     },
     "parameter-as": {
-      "begin": "(?i)\\s*([a-zA-Z0-9_\\-#$%]+)\\s+(as)\\s+",
+      "begin": "\\s*([a-zA-Z0-9_\\-#$%]+)\\s+([Aa][Ss])\\s+",
       "beginCaptures": {
         "1": {
           "name": "variable.parameter.abl"
@@ -1459,7 +1459,7 @@
       "end": "(?=\\s|\\)|\\.|,)",
       "patterns": [
         {
-          "match": "(?i)\\s*(class)\\s*",
+          "match": "\\s*([Cc][Ll][Aa][Ss]{2})\\s*",
           "captures": {
             "1": {
               "name": "keyword.other.abl"
@@ -1562,7 +1562,7 @@
       }
     },
     "variable-as": {
-      "match": "(?i)\\s*([a-zA-Z0-9_\\-#$%\\-]+)\\s+(as)\\s*",
+      "match": "\\s*([a-zA-Z0-9_\\-#$%\\-]+)\\s+([Aa][Ss])\\s*",
       "captures": {
         "1": {
           "name": "variable.other.abl"
@@ -1581,7 +1581,7 @@
       }
     },
     "property-as": {
-      "match": "(?i)\\s*([a-zA-Z0-9_\\-#$%]+)\\s+(as)\\s*",
+      "match": "\\s*([a-zA-Z0-9_\\-#$%]+)\\s+([Aa][Ss])\\s*",
       "captures": {
         "1": {
           "name": "entity.name.function.abl"
@@ -1593,7 +1593,7 @@
     },
     "field-as-object": {
       "comment": "This is to capture 'FIELD x AS Object'. As of OE 12.7 only Progress.Lang.Object is allowed as a type name. If/when this changes, this regex becomes trickier",
-      "match": "(?i)\\s*(progress\\.lang\\.object|object)\\s*",
+      "match": "(?i)\\s*((progress\\.lang\\.)?object)\\s*",
       "captures": {
         "1": {
           "name": "entity.name.type.abl"
@@ -2324,7 +2324,7 @@
       },
       "patterns": [
         {
-          "match": "(?i)\\b(class)\\b",
+          "match": "\\b([Cc][Ll][Aa][Ss]{2})\\b",
           "captures": {
             "1": {
               "name": "keyword.other.abl"
