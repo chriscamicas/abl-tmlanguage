@@ -1,5 +1,5 @@
-// This script create 3 sections: keywords-<A>, handle-attributes-<Z> and abl-functions-<A> . ABL keywords can only be in
-// one of these sections.
+// This script create 3 sections: keywords-<A-Z>, handle-attributes-<A-Z> and abl-functions-<A-Z> . ABL keywords can only be in
+// one of these sections. The "keywords" section contains statements that are not in the attributes or function sections
 // kwlist.txt file can be generated with `prowin -zgenkwlist > abl-keywords.txt`
 //
 // methods.txt can be created by copying the 'Related Links' from https://docs.progress.com/bundle/abl-reference/page/Handle-Attributes-and-Methods-Reference.html//
@@ -27,10 +27,13 @@ let lineReaderKeywords = require('readline').createInterface({
 
 let output = 'grammar.json';
 let result = {};
+// This may holds the keyword names and their regex entries
+let keywordEntries = new Map();
+let minKeywords = new Map();
 let attributeBlocks = [[], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], []];
-let methodBlocks    = [[], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], []];
-let keywordBlocks   = [[], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], []];
-let functionBlocks  = [[], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], []];
+let methodBlocks = [[], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], []];
+let keywordBlocks = [[], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], []];
+let functionBlocks = [[], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], []];
 const re = /(?:\w|-|\()+(?=\s|$)/g
 
 // The doc is not always accurate ...
@@ -44,6 +47,7 @@ alsoStatements.push('available');
 alsoStatements.push('bgcolor');
 alsoStatements.push('centered');
 alsoStatements.push('context-help-id');
+alsoStatements.push('column-label');
 alsoStatements.push('dcolor');
 alsoStatements.push('default');
 alsoStatements.push('delete');
@@ -105,6 +109,9 @@ alsoFunctions.push('substitute');
 alsoFunctions.push('this-object');
 alsoFunctions.push('value');
 
+let alsoKeywords = [];
+alsoKeywords.push('get-collation'); //plural version as key
+
 lineReaderMethods.on('line', line => {
   let results;
   line = line.toLowerCase();
@@ -144,21 +151,14 @@ lineReaderFunctions.on('line', line => {
   if (!line.startsWith("#")) {
 
     let kw = line.split(' ');
-    let kwName = '';
 
     // This is to skip the FUNCTION statement
     if (kw.includes('function') && !kw.includes('statement')) {
-
-      if (kw.includes('preprocessor')) {
-        kwName = kw[0];
-      } else {
-        kwName = kw.slice(0, kw.indexOf('function')).join(' ');
-      }
+      let kwName = kw[0];
 
       // CAPS letter alphabet
       let charIdx = kwName.charCodeAt(0) - 97;
-
-      if (!functionBlocks[charIdx].includes(kwName) && !kwName.includes('...')) {
+      if (!functionBlocks[charIdx].includes(kwName)) {
         functionBlocks[charIdx].push(kwName);
       }
 
@@ -175,9 +175,7 @@ lineReaderFunctions.on('line', line => {
 
         if (keyWord.indexOf('(') !== -1) { continue; }
 
-        if (keyWord.includes('...')) { break; }
-
-        kw2 = keyWord.replace(",", "");
+        let kw2 = keyWord.replace(",", "");
 
         if (charIdx > 0 && functionsNotStatements.includes(kw2)) {
           functionBlocks[charIdx].push(kw2);
@@ -202,53 +200,76 @@ lineReaderKeywords.on('line', line => {
         let kwParts = kw.split('(');
         let fullKw = kwParts[0] + kwParts[1];
 
-        kw = kwParts[0];
-        addToBlock(charIdx, fullKw, kw);
-
-        let kwComplete = kwParts[1];
-        for (const element of kwComplete) {
-          kw += element;
-
-          addToBlock(charIdx, fullKw, kw);
+        // Add shortest version first, then the remainder in length order, eg
+        // (char(?:haracter|haracte|haract|harac|hara)?)?
+        // CHARACTER differs in the keywords from the actual behaviour
+        let kwRegex = '(' + kwParts[0] + '(?:';
+        for (let i = kwParts[1].length; i > 0; i--) {
+          kwRegex += kwParts[1].substring(0, i);
+          if (i > 1) {
+            kwRegex += '|';
+          }
         }
+        kwRegex += ')?)';
+        addToBlock(charIdx, fullKw, kwParts[0], kwRegex);
       } else {
-        addToBlock(charIdx, kw, kw);
+        addToBlock(charIdx, kw, kw, kw);
       }
     }
   }
 });
+// Find an appropriate keyword regex
+function getKwRegex(fullKw) {
+  let kwRegex = keywordEntries.get(fullKw);
 
-function addToBlock(charIdx, fullKw, addKw) {
-
-  if (attributeBlocks[charIdx].includes(fullKw)) {
-    if (!attributeBlocks[charIdx].includes(addKw)) {
-      attributeBlocks[charIdx].push(addKw);
-    }
-  } else if (methodBlocks[charIdx].includes(fullKw)) {
-    if (!methodBlocks[charIdx].includes(addKw)) {
-      methodBlocks[charIdx].push(addKw);
-    }
-  } else if (functionBlocks[charIdx].includes(fullKw)) {
-    if (!functionBlocks[charIdx].includes(addKw)) {
-      functionBlocks[charIdx].push(addKw);
-    }
-  } else {
-    if (!keywordBlocks[charIdx].includes(addKw)) {
-      keywordBlocks[charIdx].push(addKw);
-    }
+  if (kwRegex) {
+    return kwRegex;
   }
 
-  if (alsoFunctions.includes(fullKw)) {
-    if (!functionBlocks[charIdx].includes(addKw)) {
-      functionBlocks[charIdx].push(addKw);
-    }
+  if (minKeywords.has(fullKw)) {
+    return keywordEntries.get(minKeywords.get(fullKw));
   }
 
+  if (alsoKeywords.includes(fullKw)) {
+    return fullKw;
+  }
 }
 
-lineReaderKeywords.on('close', () => {
+// Adds the kewword regex to the relevant block
+function addToBlock(charIdx, fullKw, minKw, kwRegex) {
+  // We will use these to resolve the full keywords later
+  minKeywords.set(minKw, fullKw);
+  keywordEntries.set(fullKw, kwRegex);
 
-  result['keywords'] = { patterns: [] }
+  if (!attributeBlocks[charIdx].includes(fullKw) &&
+      !methodBlocks[charIdx].includes(fullKw) &&
+      !functionBlocks[charIdx].includes(fullKw) &&
+      !keywordBlocks[charIdx].includes(fullKw)) {
+    keywordBlocks[charIdx].push(fullKw);
+  }
+
+  if (alsoFunctions.includes(fullKw) &&
+    !functionBlocks[charIdx].includes(fullKw)) {
+    functionBlocks[charIdx].push(fullKw);
+  }
+}
+
+// Replaces full keywords in an array with the regexes, if any
+function replaceKeywordsWithRegex (kwArray) {
+  let regexBlocks = [];
+
+  for (idx in kwArray) {
+    regexBlocks[idx] = getKwRegex(kwArray[idx]);
+  }
+  return regexBlocks;
+}
+
+lineReaderFunctions.on('close', () => {
+
+  result['keywords'] = {
+    comment: "These scopes contain statements, not all the keywords. Methods, attributes and functions have their own scopes.",
+    patterns: [],
+  }
 
   for (var zz = 0; zz < 26; zz++) {
 
@@ -258,7 +279,7 @@ lineReaderKeywords.on('close', () => {
       result['keywords-' + String.fromCharCode(97 + zz).toUpperCase()] =
       {
         comment: "The keyword must not have a trailing variable character (one of #$-_%&)",
-        match: "(?i)\\b(" + keywordBlocks[zz].sort(reverseSort).join('|') + ")\\b(?![#$\\-_%&])",
+        match: "(?i)\\b(" + replaceKeywordsWithRegex(keywordBlocks[zz]).sort().join('|') + ")\\b(?![#$\\-_%&])",
         captures: {
           1: {
             name: "keyword.other.abl"
@@ -277,7 +298,7 @@ lineReaderKeywords.on('close', () => {
 
       result['handle-attributes-' + String.fromCharCode(97 + zz).toUpperCase()] =
       {
-        match: "(?i)(:)(" + attributeBlocks[zz].sort(reverseSort).join('|') + ")\\b(?![#$\\-_%&])",
+        match: "(?i)(:)(" + replaceKeywordsWithRegex(attributeBlocks[zz]).sort().join('|') + ")\\b(?![#$\\-_%&])",
         captures: {
           1: {
             name: "punctuation.separator.colon.abl"
@@ -298,7 +319,7 @@ lineReaderKeywords.on('close', () => {
 
       result['handle-methods-' + String.fromCharCode(97 + zz).toUpperCase()] =
       {
-        begin: "(?i)(:)(" + methodBlocks[zz].sort(reverseSort).join('|') + ")\\s*(?=\\()",
+        begin: "(?i)(:)(" + replaceKeywordsWithRegex(methodBlocks[zz]).sort().join('|') + ")\\s*(?=\\()",
         beginCaptures: {
           1: {
             name: "punctuation.separator.colon.abl"
@@ -331,7 +352,7 @@ lineReaderKeywords.on('close', () => {
       result['abl-functions-' + String.fromCharCode(97 + zz).toUpperCase()] =
       {
         name: "meta.function-call.abl",
-        begin: "(?i)\\s*(" + functionBlocks[zz].sort(reverseSort).join('|') + ")\\s*(?=\\()",
+        begin: "(?i)\\s*(" + replaceKeywordsWithRegex(functionBlocks[zz]).sort().join('|') + ")\\s*(?=\\()",
         beginCaptures: {
           1: {
             name: "support.function.abl"
@@ -353,19 +374,3 @@ lineReaderKeywords.on('close', () => {
   }
   fs.writeFileSync(output, JSON.stringify(result, undefined, 4));
 })
-
-// Sorts in reverse order - so that the longer versions of the keywords appear earlier in the regex
-function reverseSort(a, b) {
-  const nameA = a.toLowerCase(); // ignore upper and lowercase
-  const nameB = b.toLowerCase(); // ignore upper and lowercase
-
-  if (nameA < nameB) {
-    return 1;
-  }
-  if (nameA > nameB) {
-    return -1;
-  }
-
-  // names are equal
-  return 0;
-}
