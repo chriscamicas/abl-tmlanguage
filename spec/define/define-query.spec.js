@@ -25,7 +25,7 @@ describe('', () => {
   QUERY query
   FOR buffer-name , buffer-name FIELDS  ( field, field )
     EXCEPT ( field, field)
-   CACHE n
+   CACHE 123
    SCROLLING
    RCODE-INFORMATION.`;
   let expectedTokens = [
@@ -40,13 +40,13 @@ describe('', () => {
       { "startIndex": 25, "endIndex": 27, "scopes": ["source.abl", "meta.define.abl"] },  // '  '
       { "startIndex": 27, "endIndex": 36, "scopes": ["source.abl", "meta.define.abl", "keyword.other.abl"] },  // 'PROTECTED'
       { "startIndex": 36, "endIndex": 37, "scopes": ["source.abl", "meta.define.abl"] },  // ' '
-      { "startIndex": 37, "endIndex": 43, "scopes": ["source.abl", "meta.define.abl", "keyword.other.abl"] },  // 'STATIC'
+      { "startIndex": 37, "endIndex": 43, "scopes": ["source.abl", "meta.define.abl", "keyword.other.abl"] }  // 'STATIC'
     ],
     [
       { "startIndex": 0, "endIndex": 2, "scopes": ["source.abl", "meta.define.abl"] },  // '  '
       { "startIndex": 2, "endIndex": 7, "scopes": ["source.abl", "meta.define.abl", "keyword.other.abl"] },  // 'QUERY'
       { "startIndex": 7, "endIndex": 8, "scopes": ["source.abl", "meta.define.abl"] },  // ' '
-      { "startIndex": 8, "endIndex": 13, "scopes": ["source.abl", "meta.define.abl", "variable.other.abl"] },  // 'query'
+      { "startIndex": 8, "endIndex": 13, "scopes": ["source.abl", "meta.define.abl", "variable.other.abl"] }  // 'query'
     ],
     [
       { "startIndex": 0, "endIndex": 2, "scopes": ["source.abl", "meta.define.abl"] },  // '  '
@@ -54,19 +54,20 @@ describe('', () => {
       { "startIndex": 5, "endIndex": 6, "scopes": ["source.abl", "meta.define.abl"] },  // ' '
       { "startIndex": 6, "endIndex": 17, "scopes": ["source.abl", "meta.define.abl", "storage.data.table.abl"] },  // 'buffer-name'
       { "startIndex": 17, "endIndex": 18, "scopes": ["source.abl", "meta.define.abl"] },  // ' '
-      { "startIndex": 18, "endIndex": 20, "scopes": ["source.abl", "meta.define.abl"] },  // ', '
-      { "startIndex": 20, "endIndex": 31, "scopes": ["source.abl", "meta.define.abl", "entity.name.type.abl"] },  // 'buffer-name'
+      { "startIndex": 18, "endIndex": 19, "scopes": ["source.abl", "meta.define.abl", "punctuation.separator.comma.abl"] },  // ','
+      { "startIndex": 19, "endIndex": 20, "scopes": ["source.abl", "meta.define.abl"] },  // ' '
+      { "startIndex": 20, "endIndex": 31, "scopes": ["source.abl", "meta.define.abl", "storage.data.table.abl"] },  // 'buffer-name'
       { "startIndex": 31, "endIndex": 32, "scopes": ["source.abl", "meta.define.abl"] },  // ' '
       { "startIndex": 32, "endIndex": 38, "scopes": ["source.abl", "meta.define.abl", "keyword.other.abl"] },  // 'FIELDS'
       { "startIndex": 38, "endIndex": 40, "scopes": ["source.abl", "meta.define.abl"] },  // '  '
       { "startIndex": 40, "endIndex": 41, "scopes": ["source.abl", "meta.define.abl", "meta.brace.round.js"] },  // '('
       { "startIndex": 41, "endIndex": 42, "scopes": ["source.abl", "meta.define.abl"] },  // ' '
       { "startIndex": 42, "endIndex": 47, "scopes": ["source.abl", "meta.define.abl", "storage.data.table.abl"] },  // 'field'
-      { "startIndex": 47, "endIndex": 48, "scopes": ["source.abl", "meta.define.abl"] },  // ','
+      { "startIndex": 47, "endIndex": 48, "scopes": ["source.abl", "meta.define.abl", "punctuation.separator.comma.abl"] },  // ','
       { "startIndex": 48, "endIndex": 49, "scopes": ["source.abl", "meta.define.abl"] },  // ' '
       { "startIndex": 49, "endIndex": 54, "scopes": ["source.abl", "meta.define.abl", "storage.data.table.abl"] },  // 'field'
       { "startIndex": 54, "endIndex": 55, "scopes": ["source.abl", "meta.define.abl"] },  // ' '
-      { "startIndex": 55, "endIndex": 56, "scopes": ["source.abl", "meta.define.abl", "meta.brace.round.js"] },  // ')'
+      { "startIndex": 55, "endIndex": 56, "scopes": ["source.abl", "meta.define.abl", "meta.brace.round.js"] }  // ')'
     ],
     [
       { "startIndex": 0, "endIndex": 4, "scopes": ["source.abl", "meta.define.abl"] },  // '    '
@@ -75,25 +76,25 @@ describe('', () => {
       { "startIndex": 11, "endIndex": 12, "scopes": ["source.abl", "meta.define.abl", "meta.brace.round.js"] },  // '('
       { "startIndex": 12, "endIndex": 13, "scopes": ["source.abl", "meta.define.abl"] },  // ' '
       { "startIndex": 13, "endIndex": 18, "scopes": ["source.abl", "meta.define.abl", "storage.data.table.abl"] },  // 'field'
-      { "startIndex": 18, "endIndex": 19, "scopes": ["source.abl", "meta.define.abl"] },  // ','
+      { "startIndex": 18, "endIndex": 19, "scopes": ["source.abl", "meta.define.abl", "punctuation.separator.comma.abl"] },  // ','
       { "startIndex": 19, "endIndex": 20, "scopes": ["source.abl", "meta.define.abl"] },  // ' '
       { "startIndex": 20, "endIndex": 25, "scopes": ["source.abl", "meta.define.abl", "storage.data.table.abl"] },  // 'field'
-      { "startIndex": 25, "endIndex": 26, "scopes": ["source.abl", "meta.define.abl", "meta.brace.round.js"] },  // ')'
+      { "startIndex": 25, "endIndex": 26, "scopes": ["source.abl", "meta.define.abl", "meta.brace.round.js"] }  // ')'
     ],
     [
       { "startIndex": 0, "endIndex": 3, "scopes": ["source.abl", "meta.define.abl"] },  // '   '
       { "startIndex": 3, "endIndex": 8, "scopes": ["source.abl", "meta.define.abl", "keyword.other.abl"] },  // 'CACHE'
       { "startIndex": 8, "endIndex": 9, "scopes": ["source.abl", "meta.define.abl"] },  // ' '
-      { "startIndex": 9, "endIndex": 10, "scopes": ["source.abl", "meta.define.abl", "entity.name.type.abl"] },  // 'n'
+      { "startIndex": 9, "endIndex": 12, "scopes": ["source.abl", "meta.define.abl", "constant.numeric.source.abl"] }  // '123'
     ],
     [
       { "startIndex": 0, "endIndex": 3, "scopes": ["source.abl", "meta.define.abl"] },  // '   '
-      { "startIndex": 3, "endIndex": 12, "scopes": ["source.abl", "meta.define.abl", "keyword.other.abl"] },  // 'SCROLLING'
+      { "startIndex": 3, "endIndex": 12, "scopes": ["source.abl", "meta.define.abl", "keyword.other.abl"] }  // 'SCROLLING'
     ],
     [
       { "startIndex": 0, "endIndex": 3, "scopes": ["source.abl", "meta.define.abl"] },  // '   '
-      { "startIndex": 3, "endIndex": 20, "scopes": ["source.abl", "meta.define.abl", "variable.language.abl"] },  // 'RCODE-INFORMATION'
-      { "startIndex": 20, "endIndex": 21, "scopes": ["source.abl", "meta.define.abl", "punctuation.terminator.abl"] },  // '.'
+      { "startIndex": 3, "endIndex": 20, "scopes": ["source.abl", "meta.define.abl", "keyword.other.abl"] },  // 'RCODE-INFORMATION'
+      { "startIndex": 20, "endIndex": 21, "scopes": ["source.abl", "meta.define.abl", "punctuation.terminator.abl"] }  // '.'
     ]
   ];
   shared.itShouldMatchExpectedScopes(statement, expectedTokens);
