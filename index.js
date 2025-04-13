@@ -27,9 +27,6 @@ let lineReaderKeywords = require('readline').createInterface({
 
 let output = 'grammar.json';
 let result = {};
-// This may holds the keyword names and their regex entries
-let keywordEntries = new Map();
-let minKeywords = new Map();
 let attributeBlocks = [[], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], []];
 let methodBlocks = [[], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], []];
 let keywordBlocks = [[], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], []];
@@ -111,6 +108,25 @@ alsoFunctions.push('value');
 
 let alsoKeywords = [];
 alsoKeywords.push('get-collation'); //plural version as key
+
+// This may holds the keyword names and their regex entries
+let keywordEntries = new Map();
+let minKeywords = new Map();
+
+// The documentation does not reflect all abbreviations
+minKeywords.set('log', 'logical');
+keywordEntries.set('logical', '(log(?:ical|ica|ic|i)?)|lo|l|(longch(?:ar|a)?)');
+
+minKeywords.set('&glob', '&global-define');
+keywordEntries.set('&global-define', '(?:&glob(?:al-define|al-defin|al-defi|al-def|al-de|al-d|al-|al|a)?)');
+
+minKeywords.set('&scop', '&scoped-define');
+keywordEntries.set('&scoped-define', '(?:&scop(?:ed-define|ed-defin|ed-defi|ed-def|ed-de|ed-d|ed-|ed|e)?)');
+
+minKeywords.set('glob', 'global');
+keywordEntries.set('global', '(?:glob(?:al|a)?)');
+
+
 
 lineReaderMethods.on('line', line => {
   let results;
@@ -238,8 +254,12 @@ function getKwRegex(fullKw) {
 // Adds the kewword regex to the relevant block
 function addToBlock(charIdx, fullKw, minKw, kwRegex) {
   // We will use these to resolve the full keywords later
-  minKeywords.set(minKw, fullKw);
-  keywordEntries.set(fullKw, kwRegex);
+  if (!minKeywords.has(minKw)) {
+    minKeywords.set(minKw, fullKw);
+  }
+  if  (!keywordEntries.has(fullKw)) {
+    keywordEntries.set(fullKw, kwRegex);
+  }
 
   if (!attributeBlocks[charIdx].includes(fullKw) &&
       !methodBlocks[charIdx].includes(fullKw) &&
