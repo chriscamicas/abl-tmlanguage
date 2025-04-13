@@ -1854,7 +1854,7 @@
 
     },
     "define-query": {
-      "begin": "(?i)\\b(query)\\s+([a-zA-Z_][a-zA-Z0-9_#$\\-%&]*)\\s*",
+      "begin": "(?i)\\b(query)\\s+([a-zA-Z_][a-zA-Z0-9_#$\\-%&]*)\\s*",      
       "beginCaptures": {
         "1": {
           "name": "keyword.other.abl"
@@ -2457,7 +2457,7 @@
     },
     "format-constant": {
       "comment": "DATE/TIME/TZ fields can have an unquoted format if it's something like 99/99/9999",
-      "match": "(?i)\\b((?:form(?:at|a)?))\\s+(9+\\/9+\\/9+)\\b",
+      "match": "(?i)\\b((?:form(?:at|a)?))\\s+(9+/9+/9+)\\b",
       "captures": {
         "1": {
           "name": "keyword.other.abl"
@@ -3185,7 +3185,7 @@
       "name": "comment.preprocessor.analyze-suspend.abl"
     },
     "global-scoped-define": {
-      "begin": "(?i)((?:&scop(?:ed-define|ed-defin|ed-defi|ed-def|ed-de|ed-d|ed-|ed|e)?)|(?:&glob(?:al-define|al-defin|al-defi|al-def|al-de|al-d|al-|al|a)?))\\s*([\\.a-zA-Z0-9_\\-#$%\\\\\/\\-]*)\\s*",
+      "begin": "(?i)((?:&scop(?:ed-define|ed-defin|ed-defi|ed-def|ed-de|ed-d|ed-|ed|e)?)|(?:&glob(?:al-define|al-defin|al-defi|al-def|al-de|al-d|al-|al|a)?))\\s*([\\.a-zA-Z0-9_\\-#$%\\\\/]*)\\s*",
       "beginCaptures": {
         "1": {
           "name": "keyword.other.abl"
@@ -3194,7 +3194,7 @@
           "name": "entity.name.function.preprocessor.abl"
         }
       },
-      "end": "(?=(?://|/\\*))|$",
+      "end": "(?=//|/\\*)|$",
       "name": "meta.preprocessor.define.abl",
       "patterns": [
         {
@@ -3618,7 +3618,7 @@
           }
         },
         {
-          "match": "(?<=\\=)(\\/\\*+)|(\\*+\\/)|(\\/\\/)",
+          "match": "(?<=\\=)(/\\*+)|(\\*+/)|(//)",
           "comment": "Comment start/stop argument values",
           "captures": {
             "0": {
@@ -3835,7 +3835,7 @@
       ]
     },
     "operator-no-space": {
-      "match": "(\\+=|-=|\\\\=|\\*=|<=|<>|>=|=|\\+|\\-|\/|<|>|\\*)",
+      "match": "(\\+=|-=|\\\\=|\\*=|<=|<>|>=|=|\\+|\\-|/|<|>|\\*)",
       "captures": {
         "1": {
           "name": "keyword.operator.source.abl"
