@@ -126,6 +126,8 @@ keywordEntries.set('&scoped-define', '(?:&scop(?:ed-define|ed-defin|ed-defi|ed-d
 minKeywords.set('glob', 'global');
 keywordEntries.set('global', '(?:glob(?:al|a)?)');
 
+minKeywords.set('var', 'variable');
+keywordEntries.set('variable', '(var(?:iable|iabl|iab|ia|i)?)');
 
 
 lineReaderMethods.on('line', line => {
