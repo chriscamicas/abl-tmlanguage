@@ -686,7 +686,7 @@
       }
     },
     "preprocessors": {
-      "match": "(?i)(&window-system|&text-height|&line-number|&batch-mode|&file-name|&undefine|&sequence|&message|defined|&elseif|&scoped|&global|&opsys|&endif|&else|&scop|&then|&glob|&if)|({&[a-zA-Z0-9_\\-#$%\\s\\(\\)]+})|(&[a-zA-Z0-9_\\-#$%]+)",
+      "match": "(?i)(&window-system|&text-height|&line-number|&batch-mode|&file-name|&undefine|&sequence|&message|defined|&elseif|(?:&scop(?:ed-define|ed-defin|ed-defi|ed-def|ed-de|ed-d|ed-|ed|e)?)|(?:&glob(?:al-define|al-defin|al-defi|al-def|al-de|al-d|al-|al|a)?)|&opsys|&endif|&else|&then|&if)|({&[a-zA-Z0-9_\\-#$%\\s\\(\\)]+})|(&[a-zA-Z0-9_\\-#$%]+)",
       "captures": {
         "1": {
           "name": "storage.type.function.abl"
@@ -3185,7 +3185,7 @@
       "name": "comment.preprocessor.analyze-suspend.abl"
     },
     "global-scoped-define": {
-      "begin": "(?i)(&scoped-define|&global-define)\\s*([\\.a-zA-Z0-9_\\-#$%\\\\\/\\-]*)\\s*",
+      "begin": "(?i)((?:&scop(?:ed-define|ed-defin|ed-defi|ed-def|ed-de|ed-d|ed-|ed|e)?)|(?:&glob(?:al-define|al-defin|al-defi|al-def|al-de|al-d|al-|al|a)?))\\s*([\\.a-zA-Z0-9_\\-#$%\\\\\/\\-]*)\\s*",
       "beginCaptures": {
         "1": {
           "name": "keyword.other.abl"
