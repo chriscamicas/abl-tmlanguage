@@ -3831,6 +3831,9 @@
         },
         {
           "include": "#operator-with-space"
+        },
+        {
+          "include": "#operator-with-trailing-space"
         }
       ]
     },
@@ -3843,8 +3846,17 @@
       }
     },
     "operator-with-space": {
-      "match": "(?i)(?<=\\s)(not|contains|begins|matches|eq|le|lt|ge|gt|ne)(?=\\s|\\()",
-      "comment": "Lookahead and -behind for the spaces, so that in particular the NOT is captured properly",
+      "match": "(?i)(?<=\\s)(contains|begins|matches|eq|le|lt|ge|gt|ne)(?=\\s|\\()",
+      "comment": "Lookahead and -behind for the spaces",
+      "captures": {
+        "1": {
+          "name": "keyword.operator.source.abl"
+        }
+      }
+    },
+    "operator-with-trailing-space": {
+      "match": "\\b([Nn][Oo][Tt])(?=\\s|\\()",
+      "comment": "Lookahead only for the spaces, so that in particular the NOT is captured properly",
       "captures": {
         "1": {
           "name": "keyword.operator.source.abl"

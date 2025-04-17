@@ -168,7 +168,6 @@ describe('', () => {
   shared.itShouldMatchExpectedScopes(statement, expectedTokens);
 })
 
-
 describe('', () => {
   let statement = `if this-object:MethodName /* ticket-id */ and
   valid-handlE(hDataset) then
@@ -209,7 +208,6 @@ describe('', () => {
   ];
   shared.itShouldMatchExpectedScopes(statement, expectedTokens);
 })
-
 
 describe('', () => {
   let statement = `    /* Point to a valid window handle. */
@@ -281,3 +279,51 @@ describe('', () => {
   shared.itShouldMatchExpectedScopes(statement, expectedTokens);
 })
 
+describe('', () => {
+  let statement = `IF (NOT PlanWeight AND StockSearchToSearchQtySKU <= StockSearchBrokenUpQtySKU) OR
+( PlanWeight AND StockSearchToSearchWeightNet <= StockSearchBrokenUpWeightNet ) THEN message 123.`;
+  let expectedTokens = [
+    [
+      { "startIndex": 0, "endIndex": 2, "scopes": ["source.abl", "keyword.other.abl"] },  // 'IF'
+      { "startIndex": 2, "endIndex": 3, "scopes": ["source.abl"] },  // ' '
+      { "startIndex": 3, "endIndex": 4, "scopes": ["source.abl", "meta.brace.round.js"] },  // '('
+      { "startIndex": 4, "endIndex": 7, "scopes": ["source.abl", "keyword.operator.source.abl"] },  // 'NOT'
+      { "startIndex": 7, "endIndex": 8, "scopes": ["source.abl"] },  // ' '
+      { "startIndex": 8, "endIndex": 18, "scopes": ["source.abl", "variable.other.abl"] },  // 'PlanWeight'
+      { "startIndex": 18, "endIndex": 19, "scopes": ["source.abl"] },  // ' '
+      { "startIndex": 19, "endIndex": 22, "scopes": ["source.abl", "keyword.other.abl"] },  // 'AND'
+      { "startIndex": 22, "endIndex": 23, "scopes": ["source.abl"] },  // ' '
+      { "startIndex": 23, "endIndex": 48, "scopes": ["source.abl", "variable.other.abl"] },  // 'StockSearchToSearchQtySKU'
+      { "startIndex": 48, "endIndex": 49, "scopes": ["source.abl"] },  // ' '
+      { "startIndex": 49, "endIndex": 51, "scopes": ["source.abl", "keyword.operator.source.abl"] },  // '<='
+      { "startIndex": 51, "endIndex": 52, "scopes": ["source.abl"] },  // ' '
+      { "startIndex": 52, "endIndex": 77, "scopes": ["source.abl", "variable.other.abl"] },  // 'StockSearchBrokenUpQtySKU'
+      { "startIndex": 77, "endIndex": 78, "scopes": ["source.abl", "meta.brace.round.js"] },  // ')'
+      { "startIndex": 78, "endIndex": 79, "scopes": ["source.abl"] },  // ' '
+      { "startIndex": 79, "endIndex": 81, "scopes": ["source.abl", "keyword.other.abl"] }  // 'OR'
+    ],
+    [
+      { "startIndex": 0, "endIndex": 1, "scopes": ["source.abl", "meta.brace.round.js"] },  // '('
+      { "startIndex": 1, "endIndex": 2, "scopes": ["source.abl"] },  // ' '
+      { "startIndex": 2, "endIndex": 12, "scopes": ["source.abl", "variable.other.abl"] },  // 'PlanWeight'
+      { "startIndex": 12, "endIndex": 13, "scopes": ["source.abl"] },  // ' '
+      { "startIndex": 13, "endIndex": 16, "scopes": ["source.abl", "keyword.other.abl"] },  // 'AND'
+      { "startIndex": 16, "endIndex": 17, "scopes": ["source.abl"] },  // ' '
+      { "startIndex": 17, "endIndex": 45, "scopes": ["source.abl", "variable.other.abl"] },  // 'StockSearchToSearchWeightNet'
+      { "startIndex": 45, "endIndex": 46, "scopes": ["source.abl"] },  // ' '
+      { "startIndex": 46, "endIndex": 48, "scopes": ["source.abl", "keyword.operator.source.abl"] },  // '<='
+      { "startIndex": 48, "endIndex": 49, "scopes": ["source.abl"] },  // ' '
+      { "startIndex": 49, "endIndex": 77, "scopes": ["source.abl", "variable.other.abl"] },  // 'StockSearchBrokenUpWeightNet'
+      { "startIndex": 77, "endIndex": 78, "scopes": ["source.abl"] },  // ' '
+      { "startIndex": 78, "endIndex": 79, "scopes": ["source.abl", "meta.brace.round.js"] },  // ')'
+      { "startIndex": 79, "endIndex": 80, "scopes": ["source.abl"] },  // ' '
+      { "startIndex": 80, "endIndex": 84, "scopes": ["source.abl", "keyword.other.abl"] },  // 'THEN'
+      { "startIndex": 84, "endIndex": 85, "scopes": ["source.abl"] },  // ' '
+      { "startIndex": 85, "endIndex": 92, "scopes": ["source.abl", "keyword.other.abl"] },  // 'message'
+      { "startIndex": 92, "endIndex": 93, "scopes": ["source.abl"] },  // ' '
+      { "startIndex": 93, "endIndex": 96, "scopes": ["source.abl", "constant.numeric.source.abl"] },  // '123'
+      { "startIndex": 96, "endIndex": 97, "scopes": ["source.abl", "punctuation.terminator.abl"] }  // '.'
+    ]
+  ];
+  shared.itShouldMatchExpectedScopes(statement, expectedTokens);
+})
