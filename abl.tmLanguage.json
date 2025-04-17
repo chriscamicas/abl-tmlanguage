@@ -3185,7 +3185,7 @@
       "name": "comment.preprocessor.analyze-suspend.abl"
     },
     "global-scoped-define": {
-      "begin": "(?i)((?:&scop(?:ed-define|ed-defin|ed-defi|ed-def|ed-de|ed-d|ed-|ed|e)?)|(?:&glob(?:al-define|al-defin|al-defi|al-def|al-de|al-d|al-|al|a)?))\\s*([\\.a-zA-Z0-9_\\-#$%\\\\\/\\-]*)\\s*",
+      "begin": "(?i)((?:&scop(?:ed-define|ed-defin|ed-defi|ed-def|ed-de|ed-d|ed-|ed|e)?)|(?:&glob(?:al-define|al-defin|al-defi|al-def|al-de|al-d|al-|al|a)?))\\s*([\\.a-zA-Z0-9_\\-#$%\\\\/]*)\\s*",
       "beginCaptures": {
         "1": {
           "name": "keyword.other.abl"
@@ -3572,7 +3572,7 @@
     "include-file": {
       "name": "meta.include.abl",
       "comment": "https://docs.progress.com/bundle/abl-reference/page/Include-file-reference.html. Filesystem names can be unicode",
-      "begin": "({)\\s*(['\"]?([\\\\/\\w$\\-]+)(\\.[\\w]+['\"]?)?)",
+      "begin": "({)\\s*(['\"]?([\\\\\\/\\w$\\-]+)(\\.[\\w]+['\"]?)?)",
       "beginCaptures": {
         "1": {
           "name": "punctuation.section.abl"
@@ -3618,7 +3618,7 @@
           }
         },
         {
-          "match": "(?<=\\=)(\\/\\*+)|(\\*+\\/)|(\\/\\/)",
+          "match": "(?<=\\=)(/\\*+)|(\\*+/)|(//)",
           "comment": "Comment start/stop argument values",
           "captures": {
             "0": {
@@ -3886,7 +3886,7 @@
         },
         {
           "comment": " NEW <buffer>. The position of the negative lookahead (?!...) is very important",
-          "match": "(?i)\\s*((new)\\s+(?!.*\\()([a-zA-Z_][a-zA-Z0-9_\\-#$%.]*))",
+          "match": "(?i)\\s*((new)\\s+(?!.*\\()([a-zA-Z_][a-zA-Z0-9_\\-#$%\\.]*))",
           "captures": {
             "2": {
               "name": "support.function.abl"
