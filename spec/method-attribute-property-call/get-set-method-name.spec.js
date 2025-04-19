@@ -10,7 +10,7 @@ if type-of(pProxyReq, IHttpRequest) then
   let expectedTokens = [
     [
       { "startIndex": 0, "endIndex": 2, "scopes": ["source.abl", "keyword.other.abl"] },  // 'if'
-      { "startIndex": 2, "endIndex": 3, "scopes": ["source.abl"] },  // ' '
+      { "startIndex": 2, "endIndex": 3, "scopes": ["source.abl", "meta.function-call.abl"] },  // ' '
       { "startIndex": 3, "endIndex": 10, "scopes": ["source.abl", "meta.function-call.abl", "support.function.abl"] },  // 'type-of'
       { "startIndex": 10, "endIndex": 11, "scopes": ["source.abl", "meta.function-call.abl", "meta.brace.round.js"] },  // '('
       { "startIndex": 11, "endIndex": 20, "scopes": ["source.abl", "meta.function-call.abl", "variable.other.abl"] },  // 'pProxyReq'
@@ -57,7 +57,7 @@ if type-of(pProxyReq, IHttpRequest) then
     ],
     [
       { "startIndex": 0, "endIndex": 2, "scopes": ["source.abl", "keyword.other.abl"] },  // 'if'
-      { "startIndex": 2, "endIndex": 3, "scopes": ["source.abl"] },  // ' '
+      { "startIndex": 2, "endIndex": 3, "scopes": ["source.abl", "meta.function-call.abl"] },  // ' '
       { "startIndex": 3, "endIndex": 10, "scopes": ["source.abl", "meta.function-call.abl", "support.function.abl"] },  // 'type-of'
       { "startIndex": 10, "endIndex": 11, "scopes": ["source.abl", "meta.function-call.abl", "meta.brace.round.js"] },  // '('
       { "startIndex": 11, "endIndex": 20, "scopes": ["source.abl", "meta.function-call.abl", "variable.other.abl"] },  // 'pProxyReq'

@@ -62,7 +62,7 @@ end finally.`;
     [
       { "startIndex": 0, "endIndex": 2, "scopes": ["source.abl"] },  // '  '
       { "startIndex": 2, "endIndex": 4, "scopes": ["source.abl", "keyword.other.abl"] },  // 'if'
-      { "startIndex": 4, "endIndex": 5, "scopes": ["source.abl"] },  // ' '
+      { "startIndex": 4, "endIndex": 5, "scopes": ["source.abl", "meta.function-call.abl"] },  // ' '
       { "startIndex": 5, "endIndex": 17, "scopes": ["source.abl", "meta.function-call.abl", "support.function.abl"] },  // 'valid-object'
       { "startIndex": 17, "endIndex": 18, "scopes": ["source.abl", "meta.function-call.abl", "meta.function.arguments.abl", "meta.brace.round.js"] },  // '('
       { "startIndex": 18, "endIndex": 23, "scopes": ["source.abl", "meta.function-call.abl", "meta.function.arguments.abl", "variable.other.abl"] },  // 'oMenu'

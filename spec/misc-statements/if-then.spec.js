@@ -149,7 +149,7 @@ describe('', () => {
   let statement = `if string(1) = "1" then .`;
   let expectedTokens = [
     { "startIndex": 0, "endIndex": 2, "scopes": ["source.abl", "keyword.other.abl"] },  // 'if'
-    { "startIndex": 2, "endIndex": 3, "scopes": ["source.abl"] },  // ' '
+    { "startIndex": 2, "endIndex": 3, "scopes": ["source.abl", "meta.function-call.abl"] },  // ' '
     { "startIndex": 3, "endIndex": 9, "scopes": ["source.abl", "meta.function-call.abl", "support.function.abl"] },  // 'string'
     { "startIndex": 9, "endIndex": 10, "scopes": ["source.abl", "meta.function-call.abl", "meta.function.arguments.abl", "meta.brace.round.js"] },  // '('
     { "startIndex": 10, "endIndex": 11, "scopes": ["source.abl", "meta.function-call.abl", "meta.function.arguments.abl", "constant.numeric.source.abl"] },  // '1'
@@ -233,7 +233,7 @@ describe('', () => {
       { "startIndex": 20, "endIndex": 21, "scopes": ["source.abl", "keyword.operator.source.abl"] },  // '='
       { "startIndex": 21, "endIndex": 22, "scopes": ["source.abl"] },  // ' '
       { "startIndex": 22, "endIndex": 24, "scopes": ["source.abl", "keyword.other.abl"] },  // 'IF'
-      { "startIndex": 24, "endIndex": 25, "scopes": ["source.abl"] },  // ' '
+      { "startIndex": 24, "endIndex": 25, "scopes": ["source.abl", "meta.function-call.abl"] },  // ' '
       { "startIndex": 25, "endIndex": 37, "scopes": ["source.abl", "meta.function-call.abl", "support.function.abl"] },  // 'VALID-HANDLE'
       { "startIndex": 37, "endIndex": 38, "scopes": ["source.abl", "meta.function-call.abl", "meta.function.arguments.abl", "meta.brace.round.js"] },  // '('
       { "startIndex": 38, "endIndex": 39, "scopes": ["source.abl", "meta.function-call.abl", "meta.function.arguments.abl"] },  // ' '
@@ -252,7 +252,7 @@ describe('', () => {
       { "startIndex": 22, "endIndex": 26, "scopes": ["source.abl", "keyword.other.abl"] },  // 'ELSE'
       { "startIndex": 26, "endIndex": 27, "scopes": ["source.abl"] },  // ' '
       { "startIndex": 27, "endIndex": 29, "scopes": ["source.abl", "keyword.other.abl"] },  // 'IF'
-      { "startIndex": 29, "endIndex": 30, "scopes": ["source.abl"] },  // ' '
+      { "startIndex": 29, "endIndex": 30, "scopes": ["source.abl", "meta.function-call.abl"] },  // ' '
       { "startIndex": 30, "endIndex": 42, "scopes": ["source.abl", "meta.function-call.abl", "support.function.abl"] },  // 'VALID-HANDLE'
       { "startIndex": 42, "endIndex": 43, "scopes": ["source.abl", "meta.function-call.abl", "meta.function.arguments.abl", "meta.brace.round.js"] },  // '('
       { "startIndex": 43, "endIndex": 44, "scopes": ["source.abl", "meta.function-call.abl", "meta.function.arguments.abl"] },  // ' '
@@ -323,6 +323,40 @@ describe('', () => {
       { "startIndex": 92, "endIndex": 93, "scopes": ["source.abl"] },  // ' '
       { "startIndex": 93, "endIndex": 96, "scopes": ["source.abl", "constant.numeric.source.abl"] },  // '123'
       { "startIndex": 96, "endIndex": 97, "scopes": ["source.abl", "punctuation.terminator.abl"] }  // '.'
+    ]
+  ];
+  shared.itShouldMatchExpectedScopes(statement, expectedTokens);
+})
+
+describe('', () => {
+  let statement = `assign cFormattedString = cFormattedString + cChar
+       iFormattedLength = iFormattedLength + 1.`;
+  let expectedTokens = [
+    [
+      { "startIndex": 0, "endIndex": 6, "scopes": ["source.abl", "keyword.other.abl"] },  // 'assign'
+      { "startIndex": 6, "endIndex": 7, "scopes": ["source.abl"] },  // ' '
+      { "startIndex": 7, "endIndex": 23, "scopes": ["source.abl", "variable.other.abl"] },  // 'cFormattedString'
+      { "startIndex": 23, "endIndex": 24, "scopes": ["source.abl"] },  // ' '
+      { "startIndex": 24, "endIndex": 25, "scopes": ["source.abl", "keyword.operator.source.abl"] },  // '='
+      { "startIndex": 25, "endIndex": 26, "scopes": ["source.abl"] },  // ' '
+      { "startIndex": 26, "endIndex": 42, "scopes": ["source.abl", "variable.other.abl"] },  // 'cFormattedString'
+      { "startIndex": 42, "endIndex": 43, "scopes": ["source.abl"] },  // ' '
+      { "startIndex": 43, "endIndex": 44, "scopes": ["source.abl", "keyword.operator.source.abl"] },  // '+'
+      { "startIndex": 44, "endIndex": 45, "scopes": ["source.abl"] },  // ' '
+      { "startIndex": 45, "endIndex": 50, "scopes": ["source.abl", "variable.other.abl"] }  // 'cChar'
+    ],
+    [
+      { "startIndex": 0, "endIndex": 7, "scopes": ["source.abl"] },  // '       '
+      { "startIndex": 7, "endIndex": 23, "scopes": ["source.abl", "variable.other.abl"] },  // 'iFormattedLength'
+      { "startIndex": 23, "endIndex": 24, "scopes": ["source.abl"] },  // ' '
+      { "startIndex": 24, "endIndex": 25, "scopes": ["source.abl", "keyword.operator.source.abl"] },  // '='
+      { "startIndex": 25, "endIndex": 26, "scopes": ["source.abl"] },  // ' '
+      { "startIndex": 26, "endIndex": 42, "scopes": ["source.abl", "variable.other.abl"] },  // 'iFormattedLength'
+      { "startIndex": 42, "endIndex": 43, "scopes": ["source.abl"] },  // ' '
+      { "startIndex": 43, "endIndex": 44, "scopes": ["source.abl", "keyword.operator.source.abl"] },  // '+'
+      { "startIndex": 44, "endIndex": 45, "scopes": ["source.abl"] },  // ' '
+      { "startIndex": 45, "endIndex": 46, "scopes": ["source.abl", "constant.numeric.source.abl"] },  // '1'
+      { "startIndex": 46, "endIndex": 47, "scopes": ["source.abl", "punctuation.terminator.abl"] }  // '.'
     ]
   ];
   shared.itShouldMatchExpectedScopes(statement, expectedTokens);
