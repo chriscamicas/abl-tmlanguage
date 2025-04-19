@@ -3203,7 +3203,7 @@
       ]
     },
     "if-then": {
-      "begin": "(?i)\\s*(if)\\s*",
+      "begin": "(?i)\\b(if)\\b",
       "beginCaptures": {
         "1": {
           "name": "keyword.other.abl"

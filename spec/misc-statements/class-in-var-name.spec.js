@@ -168,7 +168,7 @@ END.`;
     [
       { "startIndex": 0, "endIndex": 6, "scopes": ["source.abl"] },  // '	     '
       { "startIndex": 6, "endIndex": 8, "scopes": ["source.abl", "keyword.other.abl"] },  // 'IF'
-      { "startIndex": 8, "endIndex": 9, "scopes": ["source.abl"] },  // ' '
+      { "startIndex": 8, "endIndex": 9, "scopes": ["source.abl", "meta.function-call.abl"] },  // ' '
       { "startIndex": 9, "endIndex": 15, "scopes": ["source.abl", "meta.function-call.abl", "support.function.abl"] },  // 'LOOKUP'
       { "startIndex": 15, "endIndex": 16, "scopes": ["source.abl", "meta.function-call.abl", "meta.function.arguments.abl", "meta.brace.round.js"] },  // '('
       { "startIndex": 16, "endIndex": 33, "scopes": ["source.abl", "meta.function-call.abl", "meta.function.arguments.abl", "storage.data.table.abl"] },  // 'hist-trn.h-status'

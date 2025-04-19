@@ -177,7 +177,7 @@ describe('', () => {
     [
       { "startIndex": 0, "endIndex": 2, "scopes": ["source.abl"] },  // '  '
       { "startIndex": 2, "endIndex": 4, "scopes": ["source.abl", "keyword.other.abl"] },  // 'IF'
-      { "startIndex": 4, "endIndex": 5, "scopes": ["source.abl"] },  // ' '
+      { "startIndex": 4, "endIndex": 5, "scopes": ["source.abl", "meta.function-call.abl"] },  // ' '
       { "startIndex": 5, "endIndex": 11, "scopes": ["source.abl", "meta.function-call.abl", "support.function.abl"] },  // 'LOOKUP'
       { "startIndex": 11, "endIndex": 12, "scopes": ["source.abl", "meta.function-call.abl", "meta.function.arguments.abl", "meta.brace.round.js"] },  // '('
       { "startIndex": 12, "endIndex": 17, "scopes": ["source.abl", "meta.function-call.abl", "meta.function.arguments.abl", "meta.function-call.abl", "support.function.abl"] },  // 'SUBST'
