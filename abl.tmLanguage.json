@@ -3769,7 +3769,7 @@
       "name": "constant.language.abl"
     },
     "constant": {
-      "match": "(?i)(?<=^|\\s|\\()(true|false|yes|no|\\?)(?![a-zA-Z0-9_\\-#$%])",
+      "match": "(?i)(?<=^|\\b|\\s|\\()(true|false|yes|no|\\?)(?![a-zA-Z0-9_\\-#$%])",
       "name": "constant.language.abl"
     },
     "punctuation-colon": {
