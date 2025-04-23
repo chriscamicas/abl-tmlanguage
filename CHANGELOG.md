@@ -1,6 +1,6 @@
-1.3.9
-=====
-- ....
+1.3.10
+======
+- Too many changes to be listed here...
 
 1.2.0
 =====
