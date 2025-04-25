@@ -2125,7 +2125,7 @@
           "name": "keyword.other.abl"
         }
       },
-      "end": "(=\\.)",
+      "end": "(?=\\.)",
       "patterns": [
         {
           "include": "#keywords"
