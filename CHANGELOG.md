@@ -1,3 +1,11 @@
+1.3.11
+======
+
+- Fix CREATE ALIAS highlight (#53)
+- Fix IF in variable name (#52)
+- Fix scope of ROWID function args
+- Allow word breaks (eg commas) before constants
+
 1.3.10
 ======
 - Too many changes to be listed here...
