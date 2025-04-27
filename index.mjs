@@ -11,17 +11,19 @@
 // abl-functions.txt can be created by copying the 'Related Links' from https://docs.progress.com/bundle/abl-reference/page/ABL-Syntax-Reference.html
 //
 
-const fs = require('fs');
+import * as fs from 'node:fs';
+import * as readline from 'node:readline';
+import {optimize} from 'oniguruma-parser/optimizer';
 
-let lineReaderMethods = require('readline').createInterface({
+let lineReaderMethods = readline.createInterface({
   input: fs.createReadStream('abl-methods.txt')
 });
 
-let lineReaderFunctions = require('readline').createInterface({
+let lineReaderFunctions = readline.createInterface({
   input: fs.createReadStream('abl-functions.txt')
 });
 
-let lineReaderKeywords = require('readline').createInterface({
+let lineReaderKeywords = readline.createInterface({
   input: fs.createReadStream('abl-keywords.txt')
 });
 
@@ -109,26 +111,21 @@ alsoFunctions.push('value');
 let alsoKeywords = [];
 alsoKeywords.push('get-collation'); //plural version as key
 
+// The documentation does not reflect all abbreviations
+let minKeywords = new Map();
+minKeywords.set('log', 'logical');
+minKeywords.set('&glob', '&global-define');
+minKeywords.set('&scop', '&scoped-define');
+minKeywords.set('glob', 'global');
+minKeywords.set('var', 'variable');
+
 // This may holds the keyword names and their regex entries
 let keywordEntries = new Map();
-let minKeywords = new Map();
-
-// The documentation does not reflect all abbreviations
-minKeywords.set('log', 'logical');
 keywordEntries.set('logical', '(log(?:ical|ica|ic|i)?)|lo|l|(longch(?:ar|a)?)');
-
-minKeywords.set('&glob', '&global-define');
 keywordEntries.set('&global-define', '(?:&glob(?:al-define|al-defin|al-defi|al-def|al-de|al-d|al-|al|a)?)');
-
-minKeywords.set('&scop', '&scoped-define');
 keywordEntries.set('&scoped-define', '(?:&scop(?:ed-define|ed-defin|ed-defi|ed-def|ed-de|ed-d|ed-|ed|e)?)');
-
-minKeywords.set('glob', 'global');
 keywordEntries.set('global', '(?:glob(?:al|a)?)');
-
-minKeywords.set('var', 'variable');
 keywordEntries.set('variable', '(var(?:iable|iabl|iab|ia|i)?)');
-
 
 lineReaderMethods.on('line', line => {
   let results;
@@ -217,18 +214,11 @@ lineReaderKeywords.on('line', line => {
       if (kw.indexOf('(') !== -1) {
         let kwParts = kw.split('(');
         let fullKw = kwParts[0] + kwParts[1];
-
-        // Add shortest version first, then the remainder in length order, eg
-        // (char(?:haracter|haracte|haract|harac|hara)?)?
-        // CHARACTER differs in the keywords from the actual behaviour
-        let kwRegex = '(' + kwParts[0] + '(?:';
+        let kwRegex = '';
         for (let i = kwParts[1].length; i > 0; i--) {
-          kwRegex += kwParts[1].substring(0, i);
-          if (i > 1) {
-            kwRegex += '|';
-          }
+          kwRegex += kwParts[0] + kwParts[1].substring(0, i) + '|';
         }
-        kwRegex += ')?)';
+        kwRegex += kwParts[0];
         addToBlock(charIdx, fullKw, kwParts[0], kwRegex);
       } else {
         addToBlock(charIdx, kw, kw, kw);
@@ -280,10 +270,13 @@ function addToBlock(charIdx, fullKw, minKw, kwRegex) {
 function replaceKeywordsWithRegex (kwArray) {
   let regexBlocks = [];
 
-  for (idx in kwArray) {
+  for (var idx in kwArray) {
     regexBlocks[idx] = getKwRegex(kwArray[idx]);
   }
-  return regexBlocks;
+
+  // remove any empty entries before joining
+  // approach from https://stackoverflow.com/a/19903533/18177
+  return optimize(regexBlocks.filter(val => val).join('|')).pattern;
 }
 
 lineReaderFunctions.on('close', () => {
@@ -301,7 +294,7 @@ lineReaderFunctions.on('close', () => {
       result['keywords-' + String.fromCharCode(97 + zz).toUpperCase()] =
       {
         comment: "The keyword must not have a trailing variable character (one of #$-_%&)",
-        match: "(?i)\\b(" + replaceKeywordsWithRegex(keywordBlocks[zz]).sort().join('|') + ")\\b(?![#$\\-_%&])",
+        match: "(?i)\\b(" + replaceKeywordsWithRegex(keywordBlocks[zz]) + ")\\b(?![#$\\-_%&])",
         captures: {
           1: {
             name: "keyword.other.abl"
@@ -320,7 +313,7 @@ lineReaderFunctions.on('close', () => {
 
       result['handle-attributes-' + String.fromCharCode(97 + zz).toUpperCase()] =
       {
-        match: "(?i)(:)(" + replaceKeywordsWithRegex(attributeBlocks[zz]).sort().join('|') + ")\\b(?![#$\\-_%&])",
+        match: "(?i)(:)(" + replaceKeywordsWithRegex(attributeBlocks[zz]) + ")\\b(?![#$\\-_%&])",
         captures: {
           1: {
             name: "punctuation.separator.colon.abl"
@@ -341,7 +334,7 @@ lineReaderFunctions.on('close', () => {
 
       result['handle-methods-' + String.fromCharCode(97 + zz).toUpperCase()] =
       {
-        begin: "(?i)(:)(" + replaceKeywordsWithRegex(methodBlocks[zz]).sort().join('|') + ")\\s*(?=\\()",
+        begin: "(?i)(:)(" + replaceKeywordsWithRegex(methodBlocks[zz]) + ")\\s*(?=\\()",
         beginCaptures: {
           1: {
             name: "punctuation.separator.colon.abl"
@@ -374,7 +367,7 @@ lineReaderFunctions.on('close', () => {
       result['abl-functions-' + String.fromCharCode(97 + zz).toUpperCase()] =
       {
         name: "meta.function-call.abl",
-        begin: "(?i)\\s*(" + replaceKeywordsWithRegex(functionBlocks[zz]).sort().join('|') + ")\\s*(?=\\()",
+        begin: "(?i)\\s*(" + replaceKeywordsWithRegex(functionBlocks[zz]) + ")\\s*(?=\\()",
         beginCaptures: {
           1: {
             name: "support.function.abl"
