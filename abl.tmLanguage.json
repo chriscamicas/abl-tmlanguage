@@ -1198,6 +1198,9 @@
         },
         {
           "include": "#db-dot-table-dot-field"
+        },
+        {
+          "include": "#comment"
         }
       ]
     },
@@ -1440,7 +1443,7 @@
       }
     },
     "property-get-set-block": {
-      "begin": "(?i)\\s*(?<!:)\\s*(get|set)\\b",
+      "begin": "(?i)\\s*(?<!:)\\s*(get|set)\\b(?![#$\\-_%&])",
       "beginCaptures": {
         "1": {
           "name": "keyword.other.abl"

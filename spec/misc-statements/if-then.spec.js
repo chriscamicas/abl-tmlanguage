@@ -361,3 +361,94 @@ describe('', () => {
   ];
   shared.itShouldMatchExpectedScopes(statement, expectedTokens);
 })
+
+describe('', () => {
+  let statement = `IF (NOT PlanWeight AND StockSearchToSearchQtySKU <= StockSearchBrokenUpQtySKU) OR
+( PlanWeight AND StockSearchToSearchWeightNet <= StockSearchBrokenUpWeightNet ) THEN
+Do:
+  IF ApplicationContext:DebugMessages THEN
+    MESSAGE " LOOP LEAVE --> HU to SKU conversion: enough broken-up".
+
+  ASSIGN oplLeave = TRUE.
+END.`;
+  let expectedTokens = [
+    [
+      { "startIndex": 0, "endIndex": 2, "scopes": ["source.abl", "keyword.other.abl"] },  // 'IF'
+      { "startIndex": 2, "endIndex": 3, "scopes": ["source.abl"] },  // ' '
+      { "startIndex": 3, "endIndex": 4, "scopes": ["source.abl", "meta.brace.round.js"] },  // '('
+      { "startIndex": 4, "endIndex": 7, "scopes": ["source.abl", "keyword.operator.source.abl"] },  // 'NOT'
+      { "startIndex": 7, "endIndex": 8, "scopes": ["source.abl"] },  // ' '
+      { "startIndex": 8, "endIndex": 18, "scopes": ["source.abl", "variable.other.abl"] },  // 'PlanWeight'
+      { "startIndex": 18, "endIndex": 19, "scopes": ["source.abl"] },  // ' '
+      { "startIndex": 19, "endIndex": 22, "scopes": ["source.abl", "keyword.other.abl"] },  // 'AND'
+      { "startIndex": 22, "endIndex": 23, "scopes": ["source.abl"] },  // ' '
+      { "startIndex": 23, "endIndex": 48, "scopes": ["source.abl", "variable.other.abl"] },  // 'StockSearchToSearchQtySKU'
+      { "startIndex": 48, "endIndex": 49, "scopes": ["source.abl"] },  // ' '
+      { "startIndex": 49, "endIndex": 51, "scopes": ["source.abl", "keyword.operator.source.abl"] },  // '<='
+      { "startIndex": 51, "endIndex": 52, "scopes": ["source.abl"] },  // ' '
+      { "startIndex": 52, "endIndex": 77, "scopes": ["source.abl", "variable.other.abl"] },  // 'StockSearchBrokenUpQtySKU'
+      { "startIndex": 77, "endIndex": 78, "scopes": ["source.abl", "meta.brace.round.js"] },  // ')'
+      { "startIndex": 78, "endIndex": 79, "scopes": ["source.abl"] },  // ' '
+      { "startIndex": 79, "endIndex": 81, "scopes": ["source.abl", "keyword.other.abl"] }  // 'OR'
+    ],
+    [
+      { "startIndex": 0, "endIndex": 1, "scopes": ["source.abl", "meta.brace.round.js"] },  // '('
+      { "startIndex": 1, "endIndex": 2, "scopes": ["source.abl"] },  // ' '
+      { "startIndex": 2, "endIndex": 12, "scopes": ["source.abl", "variable.other.abl"] },  // 'PlanWeight'
+      { "startIndex": 12, "endIndex": 13, "scopes": ["source.abl"] },  // ' '
+      { "startIndex": 13, "endIndex": 16, "scopes": ["source.abl", "keyword.other.abl"] },  // 'AND'
+      { "startIndex": 16, "endIndex": 17, "scopes": ["source.abl"] },  // ' '
+      { "startIndex": 17, "endIndex": 45, "scopes": ["source.abl", "variable.other.abl"] },  // 'StockSearchToSearchWeightNet'
+      { "startIndex": 45, "endIndex": 46, "scopes": ["source.abl"] },  // ' '
+      { "startIndex": 46, "endIndex": 48, "scopes": ["source.abl", "keyword.operator.source.abl"] },  // '<='
+      { "startIndex": 48, "endIndex": 49, "scopes": ["source.abl"] },  // ' '
+      { "startIndex": 49, "endIndex": 77, "scopes": ["source.abl", "variable.other.abl"] },  // 'StockSearchBrokenUpWeightNet'
+      { "startIndex": 77, "endIndex": 78, "scopes": ["source.abl"] },  // ' '
+      { "startIndex": 78, "endIndex": 79, "scopes": ["source.abl", "meta.brace.round.js"] },  // ')'
+      { "startIndex": 79, "endIndex": 80, "scopes": ["source.abl"] },  // ' '
+      { "startIndex": 80, "endIndex": 84, "scopes": ["source.abl", "keyword.other.abl"] }  // 'THEN'
+    ],
+    [
+      { "startIndex": 0, "endIndex": 2, "scopes": ["source.abl", "meta.block.abl", "keyword.other.abl"] },  // 'Do'
+      { "startIndex": 2, "endIndex": 3, "scopes": ["source.abl", "punctuation.terminator.abl"] }  // ':'
+    ],
+    [
+      { "startIndex": 0, "endIndex": 2, "scopes": ["source.abl"] },  // '  '
+      { "startIndex": 2, "endIndex": 4, "scopes": ["source.abl", "keyword.other.abl"] },  // 'IF'
+      { "startIndex": 4, "endIndex": 5, "scopes": ["source.abl"] },  // ' '
+      { "startIndex": 5, "endIndex": 23, "scopes": ["source.abl", "variable.other.abl"] },  // 'ApplicationContext'
+      { "startIndex": 23, "endIndex": 24, "scopes": ["source.abl", "punctuation.separator.colon.abl"] },  // ':'
+      { "startIndex": 24, "endIndex": 37, "scopes": ["source.abl", "entity.name.function.abl"] },  // 'DebugMessages'
+      { "startIndex": 37, "endIndex": 38, "scopes": ["source.abl"] },  // ' '
+      { "startIndex": 38, "endIndex": 42, "scopes": ["source.abl", "keyword.other.abl"] }  // 'THEN'
+    ],
+    [
+      { "startIndex": 0, "endIndex": 4, "scopes": ["source.abl"] },  // '    '
+      { "startIndex": 4, "endIndex": 11, "scopes": ["source.abl", "keyword.other.abl"] },  // 'MESSAGE'
+      { "startIndex": 11, "endIndex": 12, "scopes": ["source.abl"] },  // ' '
+      { "startIndex": 12, "endIndex": 13, "scopes": ["source.abl", "string.double.complex.abl", "punctuation.definition.string.begin.abl"] },  // '"'
+      { "startIndex": 13, "endIndex": 67, "scopes": ["source.abl", "string.double.complex.abl"] },  // ' LOOP LEAVE --> HU to SKU conversion: enough broken-up'
+      { "startIndex": 67, "endIndex": 68, "scopes": ["source.abl", "string.double.complex.abl", "punctuation.definition.string.end.abl"] },  // '"'
+      { "startIndex": 68, "endIndex": 69, "scopes": ["source.abl", "punctuation.terminator.abl"] }  // '.'
+    ],
+    [
+      { "startIndex": 0, "endIndex": 1, "scopes": ["source.abl"] }  // ''
+    ],
+    [
+      { "startIndex": 0, "endIndex": 2, "scopes": ["source.abl"] },  // '  '
+      { "startIndex": 2, "endIndex": 8, "scopes": ["source.abl", "keyword.other.abl"] },  // 'ASSIGN'
+      { "startIndex": 8, "endIndex": 9, "scopes": ["source.abl"] },  // ' '
+      { "startIndex": 9, "endIndex": 17, "scopes": ["source.abl", "variable.other.abl"] },  // 'oplLeave'
+      { "startIndex": 17, "endIndex": 18, "scopes": ["source.abl"] },  // ' '
+      { "startIndex": 18, "endIndex": 19, "scopes": ["source.abl", "keyword.operator.source.abl"] },  // '='
+      { "startIndex": 19, "endIndex": 20, "scopes": ["source.abl"] },  // ' '
+      { "startIndex": 20, "endIndex": 24, "scopes": ["source.abl", "constant.language.abl"] },  // 'TRUE'
+      { "startIndex": 24, "endIndex": 25, "scopes": ["source.abl", "punctuation.terminator.abl"] }  // '.'
+    ],
+    [
+      { "startIndex": 0, "endIndex": 3, "scopes": ["source.abl", "keyword.other.abl"] },  // 'END'
+      { "startIndex": 3, "endIndex": 4, "scopes": ["source.abl", "punctuation.terminator.abl"] }  // '.'
+    ]
+  ];
+  shared.itShouldMatchExpectedScopes(statement, expectedTokens);
+})
