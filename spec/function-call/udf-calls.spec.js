@@ -33,7 +33,7 @@ describe('', () => {
     { "startIndex": 1, "endIndex": 49, "scopes": ["source.abl", "string.single.complex.abl"] },  // '    <INPUT TYPE = "HIDDEN" name=DVWebKey value="'
     { "startIndex": 49, "endIndex": 50, "scopes": ["source.abl", "string.single.complex.abl", "punctuation.definition.string.end.abl"] },  // '''
     { "startIndex": 50, "endIndex": 52, "scopes": ["source.abl"] },  // '  '
-    { "startIndex": 52, "endIndex": 61, "scopes": ["source.abl", "entity.name.function.abl"] },  // 'GET-VALUE'
+    { "startIndex": 52, "endIndex": 61, "scopes": ["source.abl", "entity.name.function.abl"] },  // 'SET-VALUE'
     { "startIndex": 61, "endIndex": 62, "scopes": ["source.abl", "meta.function.arguments.abl", "meta.brace.round.js"] },  // '('
     { "startIndex": 62, "endIndex": 63, "scopes": ["source.abl", "meta.function.arguments.abl", "string.double.complex.abl", "punctuation.definition.string.begin.abl"] },  // '"'
     { "startIndex": 63, "endIndex": 71, "scopes": ["source.abl", "meta.function.arguments.abl", "string.double.complex.abl"] },  // 'DVWebKey'
