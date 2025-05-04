@@ -434,6 +434,9 @@
           "include": "#comment"
         },
         {
+          "include": "#while-expression"
+        },
+        {
           "include": "#rowid-function"
         },
         {
@@ -1198,6 +1201,9 @@
         },
         {
           "include": "#db-dot-table-dot-field"
+        },
+        {
+          "include": "#while-expression"
         },
         {
           "include": "#comment"
