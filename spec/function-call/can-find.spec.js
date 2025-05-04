@@ -75,7 +75,7 @@ describe('', () => {
     { "startIndex": 9, "endIndex": 10, "scopes": ["source.abl", "keyword.operator.source.abl"] },  // '='
     { "startIndex": 10, "endIndex": 11, "scopes": ["source.abl"] },  // ' '
     { "startIndex": 11, "endIndex": 12, "scopes": ["source.abl", "meta.function.arguments.abl", "meta.brace.round.js"] },  // '('
-    { "startIndex": 12, "endIndex": 14, "scopes": ["source.abl", "meta.function.arguments.abl", "variable.other.abl"] },  // 'IF'
+    { "startIndex": 12, "endIndex": 14, "scopes": ["source.abl", "meta.function.arguments.abl", "keyword.other.abl"] },  // 'IF'
     { "startIndex": 14, "endIndex": 15, "scopes": ["source.abl", "meta.function.arguments.abl"] },  // ' '
     { "startIndex": 15, "endIndex": 23, "scopes": ["source.abl", "meta.function.arguments.abl", "support.function.abl"] },  // 'CAN-FIND'
     { "startIndex": 23, "endIndex": 24, "scopes": ["source.abl", "meta.function.arguments.abl", "meta.brace.round.js"] },  // '('
