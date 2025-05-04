@@ -434,6 +434,9 @@
           "include": "#comment"
         },
         {
+          "include": "#abl-function-variable-arg"
+        },
+        {
           "include": "#while-expression"
         },
         {
@@ -990,6 +993,32 @@
         },
         {
           "include": "#string"
+        }
+      ]
+    },
+    "abl-function-variable-arg": {
+      "name": "meta.function-call.abl",
+      "begin": "(?i)\\s*(set-size)\\s*(?=\\()",
+      "beginCaptures": {
+        "1": {
+          "name": "support.function.abl"
+        }
+      },
+      "end": "(\\))",
+      "endCaptures": {
+        "1": {
+          "name": "meta.brace.round.js"
+        }
+      },
+      "patterns": [
+        {
+          "include": "#parens"
+        },
+        {
+          "include": "#type-member-call"
+        },
+        {
+          "include": "#variable-name"
         }
       ]
     },
@@ -3358,6 +3387,9 @@
         },
         {
           "include": "#handle-methods"
+        },
+        {
+          "include": "#keywords"
         },
         {
           "include": "#expression"
