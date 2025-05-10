@@ -1457,7 +1457,7 @@
       ]
     },
     "property-get-set-super": {
-      "match": "\\b(get|set)\\s+(super)\\s*(?=\\.)",
+      "match": "(?i)\\b(get|set)\\s+(super)\\s*(?=\\.)",
       "comment": "This is a call to the parent class' property getter or setter",
       "captures": {
         "1": {
@@ -1470,7 +1470,7 @@
     },
     "property-get-set-empty": {
       "comment": "This rule is needed since for 'plain' gets and sets, there's no END",
-      "match": "\\b(get|set)\\s*(?=\\.)",
+      "match": "\\b([Gg][Ee][Tt]|[Ss][Ee][Tt])\\s*(?=\\.)",
       "captures": {
         "1": {
           "name": "keyword.other.abl"
@@ -1478,13 +1478,13 @@
       }
     },
     "property-get-set-block": {
-      "begin": "(?i)\\s*(?<!:)\\s*(get|set)\\b(?![#$\\-_%&])",
+      "begin": "\\s*(?<!:)\\s*([Gg][Ee][Tt]|[Ss][Ee][Tt])\\b(?![#$\\-_%&])",
       "beginCaptures": {
         "1": {
           "name": "keyword.other.abl"
         }
       },
-      "end": "(?i)\\s*(end)\\s*(get|set)?\\s*(?=\\.)\\s*",
+      "end": "\\s*([Ee][Nn][Dd])\\s*([Gg][Ee][Tt]|[Ss][Ee][Tt])?\\s*(?=\\.)\\s*",
       "comment": "The end capture does a lookahead on . so that the 'define' capture can end ",
       "endCaptures": {
         "1": {
@@ -2047,7 +2047,7 @@
         }
       },
       "comment": "This match just gets the definition of the property; the getter and setter are handled separately",
-      "end": "(?i)\\s*(?=get|set)",
+      "end": "\\s*(?=[Gg][Ee][Tt]|[Ss][Ee][Tt])",
       "patterns": [
         {
           "include": "#property-as"
