@@ -1,3 +1,13 @@
+1.3.12
+======
+
+- Ensure GET and SET in property definitions are case-insensitive. Fix for Syntax highlighting (vscode-abl/vscode-abl#307)
+- Support comments in a FOR EACH statement
+- Scope functions named GET-VALUE and SET-VALUE correctly
+- Support WHILE in FOR EACH
+- Allow keywords in parameter arguments
+- Limit scope of SET-SIZE function arguments appropriately
+
 1.3.11
 ======
 
