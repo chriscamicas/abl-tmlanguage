@@ -41,3 +41,35 @@ describe('', () => {
   shared.itShouldMatchExpectedScopes(statement, expectedTokens);
 })
 
+describe('', () => {
+  let statement = `create customer-buf1.`;
+  let expectedTokens = [
+    { "startIndex": 0, "endIndex": 6, "scopes": ["source.abl", "keyword.other.abl"] },  // 'create'
+    { "startIndex": 6, "endIndex": 7, "scopes": ["source.abl"] },  // ' '
+    { "startIndex": 7, "endIndex": 20, "scopes": ["source.abl", "storage.data.table.abl"] },  // 'customer-buf1'
+    { "startIndex": 20, "endIndex": 21, "scopes": ["source.abl", "punctuation.terminator.abl"] }  // '.'
+  ];
+  shared.itShouldMatchExpectedScopes(statement, expectedTokens);
+})
+
+describe('', () => {
+  let statement = `create buf1.`;
+  let expectedTokens = [
+    { "startIndex": 0, "endIndex": 6, "scopes": ["source.abl", "keyword.other.abl"] },  // 'create'
+    { "startIndex": 6, "endIndex": 7, "scopes": ["source.abl"] },  // ' '
+    { "startIndex": 7, "endIndex": 11, "scopes": ["source.abl", "storage.data.table.abl"] },  // 'buf1'
+    { "startIndex": 11, "endIndex": 12, "scopes": ["source.abl", "punctuation.terminator.abl"] }  // '.'
+  ];
+  shared.itShouldMatchExpectedScopes(statement, expectedTokens);
+})
+
+describe('', () => {
+  let statement = `create buf-1.`;
+  let expectedTokens = [
+    { "startIndex": 0, "endIndex": 6, "scopes": ["source.abl", "keyword.other.abl"] },  // 'create'
+    { "startIndex": 6, "endIndex": 7, "scopes": ["source.abl"] },  // ' '
+    { "startIndex": 7, "endIndex": 12, "scopes": ["source.abl", "storage.data.table.abl"] },  // 'buf-1'
+    { "startIndex": 12, "endIndex": 13, "scopes": ["source.abl", "punctuation.terminator.abl"] }  // '.'
+  ];
+  shared.itShouldMatchExpectedScopes(statement, expectedTokens);
+})
