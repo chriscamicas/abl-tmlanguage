@@ -2519,7 +2519,8 @@
       }
     },
     "buffer-for-table": {
-      "match": "(?i)\\s*(?!do|repeat|for)([a-zA-Z_\\-#$%]+)\\s+(for)\\s+((temp-table)\\s+)?([a-zA-Z][a-zA-Z0-9_\\-#$%]*)\\s*",
+      "comment": "1 to 32 characters; can consist of any combination of letters (a-z or A-Z), numbers (0-9), and these special characters: # $ - _ % & Names must begin with a letter.",
+      "match": "(?i)\\s*(?!do|repeat|for)([a-zA-Z][a-zA-Z_0-9\\-#$%]*)\\s+(for)\\s+((temp-table)\\s+)?([a-zA-Z][a-zA-Z0-9_\\-#$%]*)\\s*",
       "captures": {
         "1": {
           "name": "storage.data.table.abl"
