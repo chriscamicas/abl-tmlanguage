@@ -176,3 +176,26 @@ end.`;
   ]
   shared.itShouldMatchExpectedScopes(statement, expectedTokens);
 })
+
+describe('', () => {
+  // The Next in NextOrderprocessError should not be a flow statement
+  let statement = `ASSIGN NextOrderprocessError = UIMessage:canFindFirstUIMessage("SH0057A").`;
+  let expectedTokens = [
+    { "startIndex": 0, "endIndex": 6, "scopes": ["source.abl", "keyword.other.abl"] },  // 'ASSIGN'
+    { "startIndex": 6, "endIndex": 7, "scopes": ["source.abl"] },  // ' '
+    { "startIndex": 7, "endIndex": 28, "scopes": ["source.abl", "variable.other.abl"] },  // 'NextOrderprocessError'
+    { "startIndex": 28, "endIndex": 29, "scopes": ["source.abl"] },  // ' '
+    { "startIndex": 29, "endIndex": 30, "scopes": ["source.abl", "keyword.operator.source.abl"] },  // '='
+    { "startIndex": 30, "endIndex": 31, "scopes": ["source.abl"] },  // ' '
+    { "startIndex": 31, "endIndex": 40, "scopes": ["source.abl", "variable.other.abl"] },  // 'UIMessage'
+    { "startIndex": 40, "endIndex": 41, "scopes": ["source.abl", "punctuation.separator.colon.abl"] },  // ':'
+    { "startIndex": 41, "endIndex": 62, "scopes": ["source.abl", "entity.name.function.abl"] },  // 'canFindFirstUIMessage'
+    { "startIndex": 62, "endIndex": 63, "scopes": ["source.abl", "meta.function.arguments.abl", "meta.brace.round.js"] },  // '('
+    { "startIndex": 63, "endIndex": 64, "scopes": ["source.abl", "meta.function.arguments.abl", "string.double.complex.abl", "punctuation.definition.string.begin.abl"] },  // '"'
+    { "startIndex": 64, "endIndex": 71, "scopes": ["source.abl", "meta.function.arguments.abl", "string.double.complex.abl"] },  // 'SH0057A'
+    { "startIndex": 71, "endIndex": 72, "scopes": ["source.abl", "meta.function.arguments.abl", "string.double.complex.abl", "punctuation.definition.string.end.abl"] },  // '"'
+    { "startIndex": 72, "endIndex": 73, "scopes": ["source.abl", "meta.brace.round.js"] },  // ')'
+    { "startIndex": 73, "endIndex": 74, "scopes": ["source.abl", "punctuation.terminator.abl"] }  // '.'
+  ]
+  shared.itShouldMatchExpectedScopes(statement, expectedTokens);
+})
