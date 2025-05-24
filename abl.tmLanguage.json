@@ -2992,12 +2992,12 @@
     },
     "block-undo-leave-next-retry": {
       "comment": "Covers NEXT, LEAVE, RETRY and UNDO with block labels that are not preceded by UNDO, ",
-      "match": "(?i)\\s*(?<!,)\\s*(leave|next|retry|undo)\\s*(?!on)([a-zA-Z0-9_\\-#$%\\-$]*)?\\s*",
+      "match": "(?i)\\s*(?<!,)\\s*(leave|next|retry|undo)\\b(?!on)(\\s+([a-zA-Z0-9_\\-#$%\\-$]*))?\\s*",
       "captures": {
         "1": {
           "name": "keyword.other.abl"
         },
-        "2": {
+        "3": {
           "name": "entity.name.label.abl"
         }
       }
