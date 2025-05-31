@@ -3461,7 +3461,7 @@
       "name": "variable.other.abl"
     },
     "extent": {
-      "match": "(?i)\\s*(extent)\\s*((0x)?\\h+)?",
+      "match": "(?i)\\s*(extent)\\s*((0x)?\\h+\\b)?",
       "captures": {
         "1": {
           "name": "keyword.other.abl"

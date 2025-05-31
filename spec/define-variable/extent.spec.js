@@ -721,3 +721,58 @@ describe('', () => {
   ];
   shared.itShouldMatchExpectedScopes(statement, expectedTokens);
 })
+
+
+describe('', () => {
+  let statement = `method public character extent 12 BuildQueryStrings(input pFilter as IGetDataRequest).`;
+  let expectedTokens = [
+    { "startIndex": 0, "endIndex": 6, "scopes": ["source.abl", "meta.define.method.abl", "keyword.other.abl"] },  // 'method'
+    { "startIndex": 6, "endIndex": 7, "scopes": ["source.abl", "meta.define.method.abl"] },  // ' '
+    { "startIndex": 7, "endIndex": 13, "scopes": ["source.abl", "meta.define.method.abl", "keyword.other.abl"] },  // 'public'
+    { "startIndex": 13, "endIndex": 14, "scopes": ["source.abl", "meta.define.method.abl"] },  // ' '
+    { "startIndex": 14, "endIndex": 23, "scopes": ["source.abl", "meta.define.method.abl", "storage.type.abl"] },  // 'character'
+    { "startIndex": 23, "endIndex": 24, "scopes": ["source.abl", "meta.define.method.abl"] },  // ' '
+    { "startIndex": 24, "endIndex": 30, "scopes": ["source.abl", "meta.define.method.abl", "keyword.other.abl"] },  // 'extent'
+    { "startIndex": 30, "endIndex": 31, "scopes": ["source.abl", "meta.define.method.abl"] },  // ' '
+    { "startIndex": 31, "endIndex": 33, "scopes": ["source.abl", "meta.define.method.abl", "constant.numeric.source.abl"] },  // '12'
+    { "startIndex": 33, "endIndex": 34, "scopes": ["source.abl", "meta.define.method.abl"] },  // ' '
+    { "startIndex": 34, "endIndex": 51, "scopes": ["source.abl", "meta.define.method.abl", "entity.name.function.abl"] },  // 'BuildQueryStrings'
+    { "startIndex": 51, "endIndex": 52, "scopes": ["source.abl", "meta.define.method.abl", "meta.brace.round.js"] },  // '('
+    { "startIndex": 52, "endIndex": 57, "scopes": ["source.abl", "meta.define.method.abl", "keyword.other.abl"] },  // 'input'
+    { "startIndex": 57, "endIndex": 58, "scopes": ["source.abl", "meta.define.method.abl"] },  // ' '
+    { "startIndex": 58, "endIndex": 65, "scopes": ["source.abl", "meta.define.method.abl", "variable.parameter.abl"] },  // 'pFilter'
+    { "startIndex": 65, "endIndex": 66, "scopes": ["source.abl", "meta.define.method.abl"] },  // ' '
+    { "startIndex": 66, "endIndex": 68, "scopes": ["source.abl", "meta.define.method.abl", "keyword.other.abl"] },  // 'as'
+    { "startIndex": 68, "endIndex": 69, "scopes": ["source.abl", "meta.define.method.abl"] },  // ' '
+    { "startIndex": 69, "endIndex": 84, "scopes": ["source.abl", "meta.define.method.abl", "entity.name.type.abl"] },  // 'IGetDataRequest'
+    { "startIndex": 84, "endIndex": 85, "scopes": ["source.abl", "meta.define.method.abl", "meta.brace.round.js"] },  // ')'
+    { "startIndex": 85, "endIndex": 86, "scopes": ["source.abl", "punctuation.terminator.abl"] }  // '.'
+  ];
+  shared.itShouldMatchExpectedScopes(statement, expectedTokens);
+})
+
+describe('', () => {
+  let statement = `method public character extent BuildQueryStrings(input pFilter as IGetDataRequest).`;
+  let expectedTokens = [
+    { "startIndex": 0, "endIndex": 6, "scopes": ["source.abl", "meta.define.method.abl", "keyword.other.abl"] },  // 'method'
+    { "startIndex": 6, "endIndex": 7, "scopes": ["source.abl", "meta.define.method.abl"] },  // ' '
+    { "startIndex": 7, "endIndex": 13, "scopes": ["source.abl", "meta.define.method.abl", "keyword.other.abl"] },  // 'public'
+    { "startIndex": 13, "endIndex": 14, "scopes": ["source.abl", "meta.define.method.abl"] },  // ' '
+    { "startIndex": 14, "endIndex": 23, "scopes": ["source.abl", "meta.define.method.abl", "storage.type.abl"] },  // 'character'
+    { "startIndex": 23, "endIndex": 24, "scopes": ["source.abl", "meta.define.method.abl"] },  // ' '
+    { "startIndex": 24, "endIndex": 30, "scopes": ["source.abl", "meta.define.method.abl", "keyword.other.abl"] },  // 'extent'
+    { "startIndex": 30, "endIndex": 31, "scopes": ["source.abl", "meta.define.method.abl"] },  // ' '
+    { "startIndex": 31, "endIndex": 48, "scopes": ["source.abl", "meta.define.method.abl", "entity.name.function.abl"] },  // 'BuildQueryStrings'
+    { "startIndex": 48, "endIndex": 49, "scopes": ["source.abl", "meta.define.method.abl", "meta.brace.round.js"] },  // '('
+    { "startIndex": 49, "endIndex": 54, "scopes": ["source.abl", "meta.define.method.abl", "keyword.other.abl"] },  // 'input'
+    { "startIndex": 54, "endIndex": 55, "scopes": ["source.abl", "meta.define.method.abl"] },  // ' '
+    { "startIndex": 55, "endIndex": 62, "scopes": ["source.abl", "meta.define.method.abl", "variable.parameter.abl"] },  // 'pFilter'
+    { "startIndex": 62, "endIndex": 63, "scopes": ["source.abl", "meta.define.method.abl"] },  // ' '
+    { "startIndex": 63, "endIndex": 65, "scopes": ["source.abl", "meta.define.method.abl", "keyword.other.abl"] },  // 'as'
+    { "startIndex": 65, "endIndex": 66, "scopes": ["source.abl", "meta.define.method.abl"] },  // ' '
+    { "startIndex": 66, "endIndex": 81, "scopes": ["source.abl", "meta.define.method.abl", "entity.name.type.abl"] },  // 'IGetDataRequest'
+    { "startIndex": 81, "endIndex": 82, "scopes": ["source.abl", "meta.define.method.abl", "meta.brace.round.js"] },  // ')'
+    { "startIndex": 82, "endIndex": 83, "scopes": ["source.abl", "punctuation.terminator.abl"] }  // '.'
+  ];
+  shared.itShouldMatchExpectedScopes(statement, expectedTokens);
+})
