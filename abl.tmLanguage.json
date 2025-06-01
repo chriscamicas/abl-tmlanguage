@@ -1159,7 +1159,7 @@
       }
     },
     "for-each-join": {
-      "begin": "(?i)(?<=,)\\s*(each|first|last)\\s*",
+      "begin": "(?i)\\b(each|first|last)\\b(?<!\\()",
       "beginCaptures": {
         "1": {
           "name": "keyword.other.abl"
