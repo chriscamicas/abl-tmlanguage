@@ -11,7 +11,7 @@ END PROCEDURE.`;
     [
       { "startIndex": 0, "endIndex": 9, "scopes": ["source.abl", "meta.procedure.abl", "keyword.other.abl"] },  // 'PROCEDURE'
       { "startIndex": 9, "endIndex": 10, "scopes": ["source.abl", "meta.procedure.abl"] },  // ' '
-      { "startIndex": 10, "endIndex": 29, "scopes": ["source.abl", "meta.procedure.abl", "entity.name.function.abl"] },  // 'GetCurrentProcessId'
+      { "startIndex": 10, "endIndex": 29, "scopes": ["source.abl", "meta.procedure.abl", "entity.name.procedure.abl"] },  // 'GetCurrentProcessId'
       { "startIndex": 29, "endIndex": 30, "scopes": ["source.abl", "meta.procedure.abl"] },  // ' '
       { "startIndex": 30, "endIndex": 38, "scopes": ["source.abl", "meta.procedure.abl", "keyword.other.abl"] },  // 'EXTERNAL'
       { "startIndex": 38, "endIndex": 39, "scopes": ["source.abl", "meta.procedure.abl"] },  // ' '

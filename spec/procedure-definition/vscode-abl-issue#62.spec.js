@@ -11,7 +11,7 @@ end procedure.`;
     [
       { "startIndex": 0, "endIndex": 9, "scopes": ["source.abl", "meta.procedure.abl", "keyword.other.abl"] },  // 'PROCEDURE'
       { "startIndex": 9, "endIndex": 10, "scopes": ["source.abl", "meta.procedure.abl"] },  // ' '
-      { "startIndex": 10, "endIndex": 22, "scopes": ["source.abl", "meta.procedure.abl", "entity.name.function.abl"] },  // 'EnumPrinters'
+      { "startIndex": 10, "endIndex": 22, "scopes": ["source.abl", "meta.procedure.abl", "entity.name.procedure.abl"] },  // 'EnumPrinters'
       { "startIndex": 22, "endIndex": 26, "scopes": ["source.abl", "meta.procedure.abl", "support.other.argument.abl"] },  // '{&A}'
       { "startIndex": 26, "endIndex": 27, "scopes": ["source.abl", "meta.procedure.abl"] },  // ' '
       { "startIndex": 27, "endIndex": 35, "scopes": ["source.abl", "meta.procedure.abl", "keyword.other.abl"] },  // 'EXTERNAL'
