@@ -44,7 +44,7 @@
           "comment": "A procedure name may contain a . but cannot end in one, unless the procedure name is in quotes",
           "captures": {
             "1": {
-              "name": "entity.name.function.abl"
+              "name": "entity.name.procedure.abl"
             }
           }
         },
@@ -3598,7 +3598,7 @@
     },
     "run-unquoted": {
       "comment": "(External) Program names are files, so need to support unicode.",
-      "match": "(?i)\\s*(run)\\s+(?!value)\\s*([\\w\\-$\\@\\/\\\\]{1,253}(\\.[\\w@$\\-]{1,2})?)",
+      "match": "(?i)\\s*(run)\\s+(?!value)\\s*([\\w\\-$\\@\\/\\\\\\.]{1,256})(?<!\\.)",
       "captures": {
         "1": {
           "name": "keyword.other.abl"
