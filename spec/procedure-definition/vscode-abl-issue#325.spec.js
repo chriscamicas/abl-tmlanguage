@@ -39,3 +39,26 @@ end procedure.`;
   ];
   shared.itShouldMatchExpectedScopes(statement, expectedTokens);
 })
+
+describe('', () => {
+  let statement = `procedure UsingFoo private:
+end procedure.`;
+
+  let expectedTokens = [
+    [
+      { "startIndex": 0, "endIndex": 9, "scopes": ["source.abl", "meta.procedure.abl", "keyword.other.abl"] },  // 'procedure'
+      { "startIndex": 9, "endIndex": 10, "scopes": ["source.abl", "meta.procedure.abl"] },  // ' '
+      { "startIndex": 10, "endIndex": 18, "scopes": ["source.abl", "meta.procedure.abl", "entity.name.procedure.abl"] },  // 'UsingFoo'
+      { "startIndex": 18, "endIndex": 19, "scopes": ["source.abl", "meta.procedure.abl"] },  // ' '
+      { "startIndex": 19, "endIndex": 26, "scopes": ["source.abl", "meta.procedure.abl", "keyword.other.abl"] },  // 'private'
+      { "startIndex": 26, "endIndex": 27, "scopes": ["source.abl", "punctuation.terminator.abl"] }  // ':'
+    ],
+    [
+      { "startIndex": 0, "endIndex": 3, "scopes": ["source.abl", "keyword.other.abl"] },  // 'end'
+      { "startIndex": 3, "endIndex": 4, "scopes": ["source.abl"] },  // ' '
+      { "startIndex": 4, "endIndex": 13, "scopes": ["source.abl", "keyword.other.abl"] },  // 'procedure'
+      { "startIndex": 13, "endIndex": 14, "scopes": ["source.abl", "punctuation.terminator.abl"] }  // '.'
+    ]
+  ];
+  shared.itShouldMatchExpectedScopes(statement, expectedTokens);
+})
