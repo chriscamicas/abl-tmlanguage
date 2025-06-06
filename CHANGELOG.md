@@ -1,3 +1,11 @@
+1.3.13
+======
+
+- ✨ Fix capture for first table in DEFINE BUFFER and CREATE statements
+- ⚡️ Use oniguruma-parser/optimizer to optimise the keyword regexes
+- 🐛 Abbreviated version of INITIAL (#57)
+- 🐛 Procedures names with `.` or `using` (vscode-abl/vscode-abl#325)
+
 1.3.12
 ======
 
