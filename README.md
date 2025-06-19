@@ -140,5 +140,8 @@ There are also a number of 'meta' scopes that usually cover multiple other scope
 |meta.statements.abl              | All ABL statmements |
 |meta.using.abl                   | A `using` definition |
 
+## Checking scopes
+The standard VS Code install includes a command (available via F1 or SHIFT-CTRL-P) named `Developer: Inspect Editor Tokens and Scopes` . This will pop a tooltip showing the scopes at the cursor location. It contains a group called _textmate scopes_ , which shows the current scope. The topmost scope should be in the table above.
+
 # License
 MIT
