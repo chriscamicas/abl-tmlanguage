@@ -499,3 +499,92 @@ describe('', () => {
   ];
   shared.itShouldMatchExpectedScopes(statement, expectedTokens);
 })
+
+describe('', () => {
+  let statement = `define temp-table item no-undo
+   field id as decimal decimals 0 xml-data-type "integer" xml-node-type "ATTRIBUTE"
+      index idx1 as primary /*unique*/ CustomerCode
+    index idx2 as /*unique*/ CustKey
+    index idx3 as unique ObjectId.`;
+  let expectedTokens = [
+    [
+      { "startIndex": 0, "endIndex": 6, "scopes": ["source.abl", "meta.define.abl", "keyword.other.abl"] },  // 'define'
+      { "startIndex": 6, "endIndex": 7, "scopes": ["source.abl", "meta.define.abl"] },  // ' '
+      { "startIndex": 7, "endIndex": 17, "scopes": ["source.abl", "meta.define.abl", "keyword.other.abl"] },  // 'temp-table'
+      { "startIndex": 17, "endIndex": 18, "scopes": ["source.abl", "meta.define.abl"] },  // ' '
+      { "startIndex": 18, "endIndex": 22, "scopes": ["source.abl", "meta.define.abl", "storage.data.table.abl"] },  // 'item'
+      { "startIndex": 22, "endIndex": 23, "scopes": ["source.abl", "meta.define.abl"] },  // ' '
+      { "startIndex": 23, "endIndex": 30, "scopes": ["source.abl", "meta.define.abl", "keyword.other.abl"] }  // 'no-undo'
+    ],
+    [
+      { "startIndex": 0, "endIndex": 3, "scopes": ["source.abl", "meta.define.abl"] },  // '   '
+      { "startIndex": 3, "endIndex": 8, "scopes": ["source.abl", "meta.define.abl", "keyword.other.abl"] },  // 'field'
+      { "startIndex": 8, "endIndex": 9, "scopes": ["source.abl", "meta.define.abl"] },  // ' '
+      { "startIndex": 9, "endIndex": 11, "scopes": ["source.abl", "meta.define.abl", "storage.data.table.abl"] },  // 'id'
+      { "startIndex": 11, "endIndex": 12, "scopes": ["source.abl", "meta.define.abl"] },  // ' '
+      { "startIndex": 12, "endIndex": 14, "scopes": ["source.abl", "meta.define.abl", "keyword.other.abl"] },  // 'as'
+      { "startIndex": 14, "endIndex": 15, "scopes": ["source.abl", "meta.define.abl"] },  // ' '
+      { "startIndex": 15, "endIndex": 22, "scopes": ["source.abl", "meta.define.abl", "storage.type.abl"] },  // 'decimal'
+      { "startIndex": 22, "endIndex": 23, "scopes": ["source.abl", "meta.define.abl"] },  // ' '
+      { "startIndex": 23, "endIndex": 31, "scopes": ["source.abl", "meta.define.abl", "keyword.other.abl"] },  // 'decimals'
+      { "startIndex": 31, "endIndex": 32, "scopes": ["source.abl", "meta.define.abl"] },  // ' '
+      { "startIndex": 32, "endIndex": 33, "scopes": ["source.abl", "meta.define.abl", "constant.numeric.source.abl"] },  // '0'
+      { "startIndex": 33, "endIndex": 34, "scopes": ["source.abl", "meta.define.abl"] },  // ' '
+      { "startIndex": 34, "endIndex": 47, "scopes": ["source.abl", "meta.define.abl", "keyword.other.abl"] },  // 'xml-data-type'
+      { "startIndex": 47, "endIndex": 48, "scopes": ["source.abl", "meta.define.abl"] },  // ' '
+      { "startIndex": 48, "endIndex": 49, "scopes": ["source.abl", "meta.define.abl", "string.double.complex.abl", "punctuation.definition.string.begin.abl"] },  // '"'
+      { "startIndex": 49, "endIndex": 56, "scopes": ["source.abl", "meta.define.abl", "string.double.complex.abl"] },  // 'integer'
+      { "startIndex": 56, "endIndex": 57, "scopes": ["source.abl", "meta.define.abl", "string.double.complex.abl", "punctuation.definition.string.end.abl"] },  // '"'
+      { "startIndex": 57, "endIndex": 58, "scopes": ["source.abl", "meta.define.abl"] },  // ' '
+      { "startIndex": 58, "endIndex": 71, "scopes": ["source.abl", "meta.define.abl", "keyword.other.abl"] },  // 'xml-node-type'
+      { "startIndex": 71, "endIndex": 72, "scopes": ["source.abl", "meta.define.abl"] },  // ' '
+      { "startIndex": 72, "endIndex": 73, "scopes": ["source.abl", "meta.define.abl", "string.double.complex.abl", "punctuation.definition.string.begin.abl"] },  // '"'
+      { "startIndex": 73, "endIndex": 82, "scopes": ["source.abl", "meta.define.abl", "string.double.complex.abl"] },  // 'ATTRIBUTE'
+      { "startIndex": 82, "endIndex": 83, "scopes": ["source.abl", "meta.define.abl", "string.double.complex.abl", "punctuation.definition.string.end.abl"] }  // '"'
+    ],
+    [
+      { "startIndex": 0, "endIndex": 6, "scopes": ["source.abl", "meta.define.abl"] },  // '      '
+      { "startIndex": 6, "endIndex": 11, "scopes": ["source.abl", "meta.define.abl", "keyword.other.abl"] },  // 'index'
+      { "startIndex": 11, "endIndex": 12, "scopes": ["source.abl", "meta.define.abl"] },  // ' '
+      { "startIndex": 12, "endIndex": 16, "scopes": ["source.abl", "meta.define.abl", "storage.data.table.abl"] },  // 'idx1'
+      { "startIndex": 16, "endIndex": 17, "scopes": ["source.abl", "meta.define.abl"] },  // ' '
+      { "startIndex": 17, "endIndex": 19, "scopes": ["source.abl", "meta.define.abl", "keyword.other.abl"] },  // 'as'
+      { "startIndex": 19, "endIndex": 20, "scopes": ["source.abl", "meta.define.abl"] },  // ' '
+      { "startIndex": 20, "endIndex": 27, "scopes": ["source.abl", "meta.define.abl", "keyword.other.abl"] },  // 'primary'
+      { "startIndex": 27, "endIndex": 28, "scopes": ["source.abl", "meta.define.abl"] },  // ' '
+      { "startIndex": 28, "endIndex": 30, "scopes": ["source.abl", "meta.define.abl", "comment.block.source.abl"] },  // '/*'
+      { "startIndex": 30, "endIndex": 36, "scopes": ["source.abl", "meta.define.abl", "comment.block.source.abl", "comment"] },  // 'unique'
+      { "startIndex": 36, "endIndex": 38, "scopes": ["source.abl", "meta.define.abl", "comment.block.source.abl"] },  // '*/'
+      { "startIndex": 38, "endIndex": 39, "scopes": ["source.abl", "meta.define.abl"] },  // ' '
+      { "startIndex": 39, "endIndex": 51, "scopes": ["source.abl", "meta.define.abl", "storage.data.table.abl"] }  // 'CustomerCode'
+    ],
+    [
+      { "startIndex": 0, "endIndex": 4, "scopes": ["source.abl", "meta.define.abl"] },  // '    '
+      { "startIndex": 4, "endIndex": 9, "scopes": ["source.abl", "meta.define.abl", "keyword.other.abl"] },  // 'index'
+      { "startIndex": 9, "endIndex": 10, "scopes": ["source.abl", "meta.define.abl"] },  // ' '
+      { "startIndex": 10, "endIndex": 14, "scopes": ["source.abl", "meta.define.abl", "storage.data.table.abl"] },  // 'idx2'
+      { "startIndex": 14, "endIndex": 15, "scopes": ["source.abl", "meta.define.abl"] },  // ' '
+      { "startIndex": 15, "endIndex": 17, "scopes": ["source.abl", "meta.define.abl", "keyword.other.abl"] },  // 'as'
+      { "startIndex": 17, "endIndex": 18, "scopes": ["source.abl", "meta.define.abl"] },  // ' '
+      { "startIndex": 18, "endIndex": 20, "scopes": ["source.abl", "meta.define.abl", "comment.block.source.abl"] },  // '/*'
+      { "startIndex": 20, "endIndex": 26, "scopes": ["source.abl", "meta.define.abl", "comment.block.source.abl", "comment"] },  // 'unique'
+      { "startIndex": 26, "endIndex": 28, "scopes": ["source.abl", "meta.define.abl", "comment.block.source.abl"] },  // '*/'
+      { "startIndex": 28, "endIndex": 29, "scopes": ["source.abl", "meta.define.abl"] },  // ' '
+      { "startIndex": 29, "endIndex": 36, "scopes": ["source.abl", "meta.define.abl", "storage.data.table.abl"] }  // 'CustKey'
+    ],
+    [
+      { "startIndex": 0, "endIndex": 4, "scopes": ["source.abl", "meta.define.abl"] },  // '    '
+      { "startIndex": 4, "endIndex": 9, "scopes": ["source.abl", "meta.define.abl", "keyword.other.abl"] },  // 'index'
+      { "startIndex": 9, "endIndex": 10, "scopes": ["source.abl", "meta.define.abl"] },  // ' '
+      { "startIndex": 10, "endIndex": 14, "scopes": ["source.abl", "meta.define.abl", "storage.data.table.abl"] },  // 'idx3'
+      { "startIndex": 14, "endIndex": 15, "scopes": ["source.abl", "meta.define.abl"] },  // ' '
+      { "startIndex": 15, "endIndex": 17, "scopes": ["source.abl", "meta.define.abl", "keyword.other.abl"] },  // 'as'
+      { "startIndex": 17, "endIndex": 18, "scopes": ["source.abl", "meta.define.abl"] },  // ' '
+      { "startIndex": 18, "endIndex": 24, "scopes": ["source.abl", "meta.define.abl", "keyword.other.abl"] },  // 'unique'
+      { "startIndex": 24, "endIndex": 25, "scopes": ["source.abl", "meta.define.abl"] },  // ' '
+      { "startIndex": 25, "endIndex": 33, "scopes": ["source.abl", "meta.define.abl", "storage.data.table.abl"] },  // 'ObjectId'
+      { "startIndex": 33, "endIndex": 34, "scopes": ["source.abl", "meta.define.abl", "punctuation.terminator.abl"] }  // '.'
+    ]
+  ];
+  shared.itShouldMatchExpectedScopes(statement, expectedTokens);
+})

@@ -2280,6 +2280,9 @@
               "name": "storage.data.table.abl"
             }
           }
+        },
+        {
+          "include": "#comment"
         }
       ]
     },
