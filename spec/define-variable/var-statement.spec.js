@@ -373,3 +373,29 @@ describe('', () => {
   ]
   shared.itShouldMatchExpectedScopes(statement, expectedTokens);
 })
+
+describe('', () => {
+  let statement = `var decimal pie = 22/3, piIsh = 3.1415927.`;
+  let expectedTokens = [
+    { "startIndex": 0, "endIndex": 3, "scopes": ["source.abl", "meta.define.abl", "keyword.other.abl"] },  // 'var'
+    { "startIndex": 3, "endIndex": 4, "scopes": ["source.abl", "meta.define.abl"] },  // ' '
+    { "startIndex": 4, "endIndex": 11, "scopes": ["source.abl", "meta.define.abl", "storage.type.abl"] },  // 'decimal'
+    { "startIndex": 11, "endIndex": 12, "scopes": ["source.abl", "meta.define.abl"] },  // ' '
+    { "startIndex": 12, "endIndex": 15, "scopes": ["source.abl", "meta.define.abl", "variable.other.abl"] },  // 'pie'
+    { "startIndex": 15, "endIndex": 16, "scopes": ["source.abl"] },  // ' '
+    { "startIndex": 16, "endIndex": 17, "scopes": ["source.abl", "keyword.operator.source.abl"] },  // '='
+    { "startIndex": 17, "endIndex": 18, "scopes": ["source.abl"] },  // ' '
+    { "startIndex": 18, "endIndex": 20, "scopes": ["source.abl", "constant.numeric.source.abl"] },  // '22'
+    { "startIndex": 20, "endIndex": 21, "scopes": ["source.abl", "keyword.operator.source.abl"] },  // '/'
+    { "startIndex": 21, "endIndex": 22, "scopes": ["source.abl", "constant.numeric.source.abl"] },  // '3'
+    { "startIndex": 22, "endIndex": 23, "scopes": ["source.abl", "punctuation.separator.comma.abl"] },  // ','
+    { "startIndex": 23, "endIndex": 24, "scopes": ["source.abl"] },  // ' '
+    { "startIndex": 24, "endIndex": 29, "scopes": ["source.abl", "variable.other.abl"] },  // 'piIsh'
+    { "startIndex": 29, "endIndex": 30, "scopes": ["source.abl"] },  // ' '
+    { "startIndex": 30, "endIndex": 31, "scopes": ["source.abl", "keyword.operator.source.abl"] },  // '='
+    { "startIndex": 31, "endIndex": 32, "scopes": ["source.abl"] },  // ' '
+    { "startIndex": 32, "endIndex": 41, "scopes": ["source.abl", "constant.numeric.source.abl"] },  // '3.1415927'
+    { "startIndex": 41, "endIndex": 42, "scopes": ["source.abl", "punctuation.terminator.abl"] }  // '.'
+  ]
+  shared.itShouldMatchExpectedScopes(statement, expectedTokens);
+})

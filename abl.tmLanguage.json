@@ -1719,7 +1719,7 @@
           "name": "keyword.other.abl"
         }
       },
-      "end": "(\\.)",
+      "end": "(\\.)(?!\\w)",
       "endCaptures": {
         "1": {
           "name": "punctuation.terminator.abl"
@@ -2433,15 +2433,45 @@
       ]
     },
     "define-frame": {
-      "match": "(?i)\\s*((?:fram(?:e)?))\\s*([a-zA-Z_][a-zA-Z0-9_#$\\-%&]*)",
-      "captures": {
+      "begin": "(?i)\\s*((?:fram(?:e)?))\\s*([a-zA-Z_][a-zA-Z0-9_#$\\-%&]*)",
+      "beginCaptures": {
         "1": {
           "name": "keyword.other.abl"
         },
         "2": {
           "name": "variable.other.abl"
         }
-      }
+      },
+      "end": "(?=[Ww][Ii][Tt][Hh]|\\.(?!\\w))",
+      "patterns": [
+        {
+          "include": "#comment"
+        },
+        {
+          "include": "#string"
+        },
+        {
+          "include": "#numeric"
+        },
+        {
+          "include": "#preprocessors"
+        },
+        {
+          "include": "#abl-functions"
+        },
+        {
+          "include": "#keywords"
+        },
+        {
+          "include": "#db-dot-table-dot-field"
+        },
+        {
+          "include": "#constant"
+        },
+        {
+          "include": "#variable-name"
+        }
+      ]
     },
     "define-variable": {
       "comment": "This rule captures just the variable name and the data type. Based on https://docs.progress.com/bundle/abl-reference/page/DEFINE-VARIABLE-statement.html",
@@ -3360,6 +3390,9 @@
           "include": "#constant"
         },
         {
+          "include": "#timestamp-constant"
+        },
+        {
           "include": "#type-reference"
         },
         {
@@ -3791,7 +3824,7 @@
       "comment": "https://docs.progress.com/bundle/abl-reference/page/Data-types.html"
     },
     "numeric": {
-      "match": "(?<![a-zA-Z0-9_\\-#$%-])(0[xX]\\h+)|(\\-?[0-9]+(\\.[0-9]+)?)",
+      "match": "(?<![a-zA-Z0-9_\\-#$%-])(0[xX]\\h+)|(\\-?\\.?[0-9]+(\\.[0-9]+)?)",
       "name": "constant.numeric.source.abl"
     },
     "abl-system-handles": {
@@ -4237,7 +4270,7 @@
     },
     "keywords-W": {
       "comment": "The keyword must not have a trailing variable character (one of #$-_%&)",
-      "match": "(?i)\\b(w(?:ait|ait-for|arning|eb-context?|eb-conte?|eb-con|eb-notify|hen|here|hile|idget|idget-pool|idth|indow-close|indow-delayed-minimize?|indow-delayed-minimi?|indow-delayed-mini?|indow-maximized?|indow-maximiz?|indow-maxim|indow-minimized?|indow-minimiz?|indow-minim|indow-name|indow-normal|indow-resized|indow-restored|ith|ord-index|ork-table?|ork-tab|orkfile))\\b(?![#$\\-_%&])",
+      "match": "(?i)\\b(w(?:ait|ait-for|arning|eb-context?|eb-conte?|eb-con|eb-notify|hen|here|hile|idget|idget-id|idget-pool|idth|indow-close|indow-delayed-minimize?|indow-delayed-minimi?|indow-delayed-mini?|indow-maximized?|indow-maximiz?|indow-maxim|indow-minimized?|indow-minimiz?|indow-minim|indow-name|indow-normal|indow-resized|indow-restored|ith|ord-index|ork-table?|ork-tab|orkfile))\\b(?![#$\\-_%&])",
       "captures": {
         "1": {
           "name": "keyword.other.abl"
@@ -5471,7 +5504,7 @@
     },
     "abl-functions-S": {
       "name": "meta.function-call.abl",
-      "begin": "(?i)\\s*(s(?:creen-lines|dbname|earch|eek|et-db-client|et-effective-tenant|et-size|etuserid?|etuser|ha1-digest|kip|qrt|sl-server-name|tring|ubstitute?|ubstitu?|ubsti?|ubstring?|ubstri?|uper))\\s*(?=\\()",
+      "begin": "(?i)\\s*(s(?:creen-lines|dbname|earch|eek|et-db-client|et-effective-tenant|et-size|etuserid?|etuser|ha1-digest|kip|pace|qrt|sl-server-name|tring|ubstitute?|ubstitu?|ubsti?|ubstring?|ubstri?|uper))\\s*(?=\\()",
       "beginCaptures": {
         "1": {
           "name": "support.function.abl"
