@@ -2432,7 +2432,7 @@
         }
       ]
     },
-    "define-frame": {
+    "x-define-frame": {
       "match": "(?i)\\s*((?:fram(?:e)?))\\s*([a-zA-Z_][a-zA-Z0-9_#$\\-%&]*)",
       "captures": {
         "1": {
@@ -2442,6 +2442,24 @@
           "name": "variable.other.abl"
         }
       }
+    },
+    "define-frame": {
+      "begin": "(?i)\\s*((?:fram(?:e)?))\\s*([a-zA-Z_][a-zA-Z0-9_#$\\-%&]*)",
+      "beginCaptures": {
+        "1": {
+          "name": "keyword.other.abl"
+        },
+        "2": {
+          "name": "variable.other.abl"
+        }
+      },
+      "end": "(?=(\\.)\\s|$)",
+      "endCaptures": {
+        "1": {
+          "name": "punctuation.terminator.abl"
+        }
+      },
+      "patterns": []
     },
     "define-variable": {
       "comment": "This rule captures just the variable name and the data type. Based on https://docs.progress.com/bundle/abl-reference/page/DEFINE-VARIABLE-statement.html",
@@ -4075,7 +4093,7 @@
     },
     "keywords-E": {
       "comment": "The keyword must not have a trailing variable character (one of #$-_%&)",
-      "match": "(?i)\\b(e(?:rror|xecute|num|vent|mpty|nable|nd|ntry|xport|xtent|vents|xternal|ach|cho|dge|diting|ditor|lse|nd-key|ndkey|q|rror-status?|rror-stat|scape|vent-handler-context|xcept|xclusive|xclusive-lock?|xclusive-lo?|xclusive-web-user?|xclusive-web-us?|xclusive-web-?|xists|xpire|xplicit|xtended|xtract|nd-error|nd-move|nd-resize|nd-box-selection|mpty-selection|nter-menubar|xit|ditor-tab|ditor-backtab|nd-search|nd-row-resize))\\b(?![#$\\-_%&])",
+      "match": "(?i)\\b(e(?:dge-pixels?|dge-pixe?|dge-pi?|rror|xecute|num|vent|mpty|nable|nd|ntry|xport|xtent|vents|xternal|ach|cho|dge|diting|ditor|lse|nd-key|ndkey|q|rror-status?|rror-stat|scape|vent-handler-context|xcept|xclusive|xclusive-lock?|xclusive-lo?|xclusive-web-user?|xclusive-web-us?|xclusive-web-?|xists|xpire|xplicit|xtended|xtract|nd-error|nd-move|nd-resize|nd-box-selection|mpty-selection|nter-menubar|xit|ditor-tab|ditor-backtab|nd-search|nd-row-resize))\\b(?![#$\\-_%&])",
       "captures": {
         "1": {
           "name": "keyword.other.abl"
@@ -4093,7 +4111,7 @@
     },
     "keywords-G": {
       "comment": "The keyword must not have a trailing variable character (one of #$-_%&)",
-      "match": "(?i)\\b(g(?:et|et-key-value?|et-key-val|et-dir|et-file|e|enerate-md5|et-attr-call-type|et-text-height|et-text-width|etbyte|lob(?:al?)?|o-on|rant|rant-archive|rayed|rid-set|rid-unit-height|rid-unit-width|roup|[ot]|oto))\\b(?![#$\\-_%&])",
+      "match": "(?i)\\b(g(?:raphic-edge?|raphic-ed?|et|et-key-value?|et-key-val|et-dir|et-file|e|enerate-md5|et-attr-call-type|et-text-height|et-text-width|etbyte|lob(?:al?)?|o-on|rant|rant-archive|rayed|rid-set|rid-unit-height|rid-unit-width|roup|[ot]|oto))\\b(?![#$\\-_%&])",
       "captures": {
         "1": {
           "name": "keyword.other.abl"
@@ -4102,7 +4120,7 @@
     },
     "keywords-H": {
       "comment": "The keyword must not have a trailing variable character (one of #$-_%&)",
-      "match": "(?i)\\b(h(?:idden|ide|aving|eader|eight|elp-context?|elp-conte?|elp-con|elp-topic|elpfile-name?|elpfile-na?|int|ost-byte-order|ome|oriz-scroll-drag|oriz-home|oriz-end))\\b(?![#$\\-_%&])",
+      "match": "(?i)\\b(h(?:elp|idden|ide|aving|eader|eight|elp-context?|elp-conte?|elp-con|elp-topic|elpfile-name?|elpfile-na?|int|ost-byte-order|ome|oriz-scroll-drag|oriz-home|oriz-end))\\b(?![#$\\-_%&])",
       "captures": {
         "1": {
           "name": "keyword.other.abl"
@@ -4174,7 +4192,7 @@
     },
     "keywords-P": {
       "comment": "The keyword must not have a trailing variable character (one of #$-_%&)",
-      "match": "(?i)\\b(p(?:fcolor?|fcol?|fc|arameter?|aramet?|aram|roperty|rocedure?|rocedu?|roce|age|ause|rocess|rompt-for?|rompt-f|romsgs|ropath|ublish|ut|ut-bits|ut-bytes??|ut-double|ut-float|ut-int64|ut-key-value?|ut-key-val|ut-long|ut-short|ut-string|ut-unsigned-long|ut-unsigned-short|rinter-setup|ackage-private|ackage-protected|age-width?|age-wid|aged|arent-id-field|artial-key|ascal|erformance?|erforman?|erform?|erfo?|ixels|ortrait|recision|reprocess?|reproce?|reselect?|resele?|rev|rinter|rivate|rivileges|rocedure-call-type|rofile-file|rofiler|rompt|rotected|ublic|utbyte|age-up|age-down|ick|ick-both|ick-area|aste|rev-word|rev-frame|age-right|age-left|age-right-text|arent-window-close|rocedure-complete))\\b(?![#$\\-_%&])",
+      "match": "(?i)\\b(p(?:age-bottom?|age-bott?|fcolor?|fcol?|fc|arameter?|aramet?|aram|roperty|rocedure?|rocedu?|roce|age|ause|rocess|rompt-for?|rompt-f|romsgs|ropath|ublish|ut|ut-bits|ut-bytes??|ut-double|ut-float|ut-int64|ut-key-value?|ut-key-val|ut-long|ut-short|ut-string|ut-unsigned-long|ut-unsigned-short|rinter-setup|ackage-private|ackage-protected|age-width?|age-wid|aged|arent-id-field|artial-key|ascal|erformance?|erforman?|erform?|erfo?|ixels|ortrait|recision|reprocess?|reproce?|reselect?|resele?|rev|rinter|rivate|rivileges|rocedure-call-type|rofile-file|rofiler|rompt|rotected|ublic|utbyte|age-up|age-down|ick|ick-both|ick-area|aste|rev-word|rev-frame|age-right|age-left|age-right-text|arent-window-close|rocedure-complete))\\b(?![#$\\-_%&])",
       "captures": {
         "1": {
           "name": "keyword.other.abl"
@@ -4201,7 +4219,7 @@
     },
     "keywords-S": {
       "comment": "The keyword must not have a trailing variable character (one of #$-_%&)",
-      "match": "(?i)\\b(s(?:croll-bars|ensitive|eparators|erialize-hidden|erialize-name|ingle-run|tatus-area|tored-procedure?|tored-procedu?|tored-proce?|ax-attributes|ax-reader|ax-writer|erver|erver-socket|oap-header|oap-header-entryref|ocket|end|tream|ub-menu|creen|uper|ave|croll|eek|et|et-byte-order|et-pointer-value?|et-pointer-val|how-stats?|tatus|top|ubscribe|ubstring?|ubstri?|ystem-dialog|ystem-help|ave-as|ax-complete?|ax-comple|ax-parser-error|ax-running|ax-uninitialized|ax-write-begin|ax-write-complete|ax-write-content|ax-write-element|ax-write-error|ax-write-idle|ax-write-tag|ax-xml|chema|creen-io|crolled-row-position?|crolled-row-positi?|crolled-row-posi?|crolling|earch-self|earch-target|ection|ecurity-policy|elect|elect-on-join|elect-repositioned-row|elected-items|election-list|elf|eparate-connection|erializable|ession|et-attr-call-type|et-cell-focus|et-contents|et-db-logging|et-event-manager-option|et-option|et-state|hare-lock?|hare-lo?|hare-?|hared|hort|ide-label?|ide-lab|ignature|ilent|imple|ingle|ingle-character|ize|ize-chars?|ize-cha?|ize-c|ize-pixels?|ize-pixe?|ize-pi?|kip|kip-group-duplicates|kip-schema-check|lider|mallint|oap-fault|ome|ource|ource-procedure|pace|ql|tart|tart-mem-check|tarting|tatic|tatus-area-msg|tdcall|tomp-detection|tomp-frequency|top-after|top-mem-check|tream-handle|tream-io|tring-xref|ub-average?|ub-avera?|ub-ave|ub-count|ub-maximum?|ub-maxim?|ub-max|ub-menu-help|ub-minimum?|ub-minim?|ub-min|ub-total|um|ummary|uspend|top-display|ettings|croll-left|croll-right|election|election-extend|elect-extend|tart-move|tart-resize|tart-box-selection|tart-extend-box-selection|croll-mode|crollbar-drag|tart-search|croll-notify|tart-row-resize|croll-vertical|croll-horizontal))\\b(?![#$\\-_%&])",
+      "match": "(?i)\\b(s(?:croll-bars|ensitive|eparators|erialize-hidden|erialize-name|ide-labels|ingle-run|tatus-area|tored-procedure?|tored-procedu?|tored-proce?|ax-attributes|ax-reader|ax-writer|erver|erver-socket|oap-header|oap-header-entryref|ocket|end|tream|ub-menu|creen|uper|ave|croll|eek|et|et-byte-order|et-pointer-value?|et-pointer-val|how-stats?|tatus|top|ubscribe|ubstring?|ubstri?|ystem-dialog|ystem-help|ave-as|ax-complete?|ax-comple|ax-parser-error|ax-running|ax-uninitialized|ax-write-begin|ax-write-complete|ax-write-content|ax-write-element|ax-write-error|ax-write-idle|ax-write-tag|ax-xml|chema|creen-io|crolled-row-position?|crolled-row-positi?|crolled-row-posi?|crolling|earch-self|earch-target|ection|ecurity-policy|elect|elect-on-join|elect-repositioned-row|elected-items|election-list|elf|eparate-connection|erializable|ession|et-attr-call-type|et-cell-focus|et-contents|et-db-logging|et-event-manager-option|et-option|et-state|hare-lock?|hare-lo?|hare-?|hared|hort|ide-label?|ide-lab|ignature|ilent|imple|ingle|ingle-character|ize|ize-chars?|ize-cha?|ize-c|ize-pixels?|ize-pixe?|ize-pi?|kip|kip-group-duplicates|kip-schema-check|lider|mallint|oap-fault|ome|ource|ource-procedure|pace|ql|tart|tart-mem-check|tarting|tatic|tatus-area-msg|tdcall|tomp-detection|tomp-frequency|top-after|top-mem-check|tream-handle|tream-io|tring-xref|ub-average?|ub-avera?|ub-ave|ub-count|ub-maximum?|ub-maxim?|ub-max|ub-menu-help|ub-minimum?|ub-minim?|ub-min|ub-total|um|ummary|uspend|top-display|ettings|croll-left|croll-right|election|election-extend|elect-extend|tart-move|tart-resize|tart-box-selection|tart-extend-box-selection|croll-mode|crollbar-drag|tart-search|croll-notify|tart-row-resize|croll-vertical|croll-horizontal))\\b(?![#$\\-_%&])",
       "captures": {
         "1": {
           "name": "keyword.other.abl"
