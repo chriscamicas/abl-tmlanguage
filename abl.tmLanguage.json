@@ -2432,7 +2432,7 @@
         }
       ]
     },
-    "x-define-frame": {
+    "define-frame": {
       "match": "(?i)\\s*((?:fram(?:e)?))\\s*([a-zA-Z_][a-zA-Z0-9_#$\\-%&]*)",
       "captures": {
         "1": {
@@ -2442,24 +2442,6 @@
           "name": "variable.other.abl"
         }
       }
-    },
-    "define-frame": {
-      "begin": "(?i)\\s*((?:fram(?:e)?))\\s*([a-zA-Z_][a-zA-Z0-9_#$\\-%&]*)",
-      "beginCaptures": {
-        "1": {
-          "name": "keyword.other.abl"
-        },
-        "2": {
-          "name": "variable.other.abl"
-        }
-      },
-      "end": "(?=(\\.)\\s|$)",
-      "endCaptures": {
-        "1": {
-          "name": "punctuation.terminator.abl"
-        }
-      },
-      "patterns": []
     },
     "define-variable": {
       "comment": "This rule captures just the variable name and the data type. Based on https://docs.progress.com/bundle/abl-reference/page/DEFINE-VARIABLE-statement.html",
@@ -4057,7 +4039,7 @@
     },
     "keywords-A": {
       "comment": "The keyword must not have a trailing variable character (one of #$-_%&)",
-      "match": "(?i)\\b(a(?:mbiguous?|mbiguo?|mbig|uto-go|vailable?|vailab?|vail|bstract|ccumulate?|ccumula?|ccumu?|cross|ctive-form|ctive-window|dd|dvise|ggregate|lert-box|ll|llow-replication|lter|lternate-key|nd|nsi-only|ny|nywhere|ppend|pplication|pply|rray-message?|rray-messa?|rray-mes?|rray-m|s|s-cursor|scending?|scendi?|scen?|sc|sk-overwrite|ssembly|ssign|t|ttach|ttachment|ttribute-type|udit-control|udit-policy|uthorization|uto-endkey|utomatic|verage?|vera?|ve|vg|ppend-line|bort|ny-key|ny-printable))\\b(?![#$\\-_%&])",
+      "match": "(?i)\\b(a(?:bort|bstract|ccumulate?|ccumula?|ccumu?|cross|ctive-form|ctive-window|dd|dvise|ggregate|lert-box|ll|llow-replication|lter|lternate-key|mbiguous?|mbiguo?|mbig|nd|nsi-only|ny|ny-key|ny-printable|nywhere|ppend|ppend-line|pplication|pply|rray-message?|rray-messa?|rray-mes?|rray-m|s|s-cursor|scending?|scendi?|scen?|sc|sk-overwrite|ssembly|ssign|t|ttach|ttachment|ttribute-type|udit-control|udit-policy|uthorization|uto-endkey|uto-go|utomatic|vailable?|vailab?|vail|verage?|vera?|ve|vg))\\b(?![#$\\-_%&])",
       "captures": {
         "1": {
           "name": "keyword.other.abl"
@@ -4066,7 +4048,7 @@
     },
     "keywords-B": {
       "comment": "The keyword must not have a trailing variable character (one of #$-_%&)",
-      "match": "(?i)\\b(b(?:gcolor?|gcol?|gc|ell|lock-level?|lock-lev|uffer-compare?|uffer-compa?|uffer-copy|rowse|uffer|uttons?|ackwards?|ase-key|ase64|atch|efore-hide?|efore-hi?|egins|etween|ig-endian|inary|ind|ind-where|lob|order-bottom?|order-bott?|order-bo?|order-left?|order-le?|order-right?|order-rig?|order-r|order-top?|order-t|oth|ottom|reak|rowse-column-data-types|rowse-column-formats|rowse-column-labels|rowse-header|tos|uttons?|y|y-pointer|y-reference|y-value|y-variant-pointer?|y-variant-point|yte|ackspace|reak-line|lock|ack-tab|ottom-column))\\b(?![#$\\-_%&])",
+      "match": "(?i)\\b(b(?:ack-tab|ackspace|ackwards?|ase-key|ase64|atch|efore-hide?|efore-hi?|egins|ell|etween|gcolor?|gcol?|gc|ig-endian|inary|ind|ind-where|lob|lock|lock-level?|lock-lev|order-bottom?|order-bott?|order-bo?|order-left?|order-le?|order-right?|order-rig?|order-r|order-top?|order-t|oth|ottom|ottom-column|reak|reak-line|rowse|rowse-column-data-types|rowse-column-formats|rowse-column-labels|rowse-header|tos|uffer|uffer-compare?|uffer-compa?|uffer-copy|uttons?|uttons?|y|y-pointer|y-reference|y-value|y-variant-pointer?|y-variant-point|yte))\\b(?![#$\\-_%&])",
       "captures": {
         "1": {
           "name": "keyword.other.abl"
@@ -4075,7 +4057,7 @@
     },
     "keywords-C": {
       "comment": "The keyword must not have a trailing variable character (one of #$-_%&)",
-      "match": "(?i)\\b(c(?:entered?|enter|olumn-label?|olumn-lab|ontext-help-id|all|ase|atch|hoose|lass|lear|lose|olor|ompile|onnect|onstructor|opy-lob|reate|lient-principal|urrent-language?|urrent-langua?|urrent-lang|urrent-value|ursor?|urs|ache|ache-size|decl|hained|haracter?|haract?|hara?|haracter_length|heck|heck-mem-stomp|lipboard|lob|odebase-locator|ol|ol-of|ollate|olon|olon-aligned?|olon-align|olor-table|olumn-codepage|olumn-label-bgcolor?|olumn-label-bgcol?|olumn-label-bgc|olumn-label-dcolor|olumn-label-fgcolor?|olumn-label-fgcol?|olumn-label-fgc|olumn-label-font|olumn-label-height-chars?|olumn-label-height-cha?|olumn-label-height-c|olumn-label-height-pixels?|olumn-label-height-pixe?|olumn-label-height-pi?|olumn-of|olumns?|om-self|ombo-box|ommand|ompares?|ompiler|omponent-handle|omponent-self|onstrained|ontains|ontents|ontext|ontext-popup?|ontext-pop|ontrol|ontrol-container?|ontrol-contain?|ontrol-conta?|ontrol-frame?|onvert|ount|reate-on-add|reate-test-file|tos|urrent|urrent_date|ursor-up|ursor-down|ursor-left|ursor-right|hoices|ancel-pick|ut|opy|ontainer-event))\\b(?![#$\\-_%&])",
+      "match": "(?i)\\b(c(?:ache|ache-size|all|ancel-pick|ase|atch|decl|entered?|enter|hained|haracter_length|haracter?|haract?|hara?|heck|heck-mem-stomp|hoices|hoose|lass|lear|lient-principal|lipboard|lob|lose|odebase-locator|ol|ol-of|ollate|olon|olon-aligned?|olon-align|olor|olor-table|olumn-codepage|olumn-label-bgcolor?|olumn-label-bgcol?|olumn-label-bgc|olumn-label-dcolor|olumn-label-fgcolor?|olumn-label-fgcol?|olumn-label-fgc|olumn-label-font|olumn-label-height-chars?|olumn-label-height-cha?|olumn-label-height-c|olumn-label-height-pixels?|olumn-label-height-pixe?|olumn-label-height-pi?|olumn-label?|olumn-lab|olumn-of|olumns?|om-self|ombo-box|ommand|ompares?|ompiler??|omponent-handle|omponent-self|onnect|onstrained|onstructor|ontainer-event|ontains|ontents|ontext|ontext-help-id|ontext-popup?|ontext-pop|ontrol|ontrol-container?|ontrol-contain?|ontrol-conta?|ontrol-frame?|onvert|opy|opy-lob|ount|reate|reate-on-add|reate-test-file|tos|urrent|urrent-language?|urrent-langua?|urrent-lang|urrent-value|urrent_date|ursor-down|ursor-left|ursor-right|ursor-up|ursor?|urs|ut))\\b(?![#$\\-_%&])",
       "captures": {
         "1": {
           "name": "keyword.other.abl"
@@ -4084,7 +4066,7 @@
     },
     "keywords-D": {
       "comment": "The keyword must not have a trailing variable character (one of #$-_%&)",
-      "match": "(?i)\\b(d(?:color|efault|elete|elimiter|rop-target|atabase|ataset|ata-source|de|efine?|efi?|estructor|ictionary?|ictiona?|ictio?|ict|isable|isconnect?|isconne?|iscon|isplay?|ispl?|os??|own|ynamic-current-value|ynamic-new|ynamic-property|ata-bind?|ata-bi?|ata-relation?|ata-relati?|ata-rela?|ataset-handle|ebug-list|ebug-set-tenant|ebugger|eclare|efault-extension?|efault-extensi?|efault-exten?|efault-ext?|efault-untranslatable|efault-window|efer-lob-fetch|efine-user-event-manager|elegate|escending?|escendi?|escen?|esc|etach|ialog-box|ialog-help|ir|isabled|istinct|ll-call-type|otnet-clr-loaded|ouble|rop|rop-down|rop-down-list|slog-manager|ump|elete-character|el|os-end|elete-field|elete-column|eselection|eselect|eselection-extend|eselect-extend|ismiss-menu|efault-action|elete-word|elete-end-line|efault-pop-up|de-notify|ata-refresh-line|ata-refresh-page|rop-file-notify))\\b(?![#$\\-_%&])",
+      "match": "(?i)\\b(d(?:ata-bind?|ata-bi?|ata-refresh-line|ata-refresh-page|ata-relation?|ata-relati?|ata-rela?|ata-source|atabase|ataset|ataset-handle|color|de|de-notify|ebug-list|ebug-set-tenant|ebugger|eclare|efault|efault-action|efault-button?|efault-butt?|efault-extension?|efault-extensi?|efault-exten?|efault-ext?|efault-pop-up|efault-untranslatable|efault-window|efer-lob-fetch|efine-user-event-manager|efine?|efi?|el|elegate|elete|elete-character|elete-column|elete-end-line|elete-field|elete-word|elimiter|escending?|escendi?|escen?|esc|eselect|eselect-extend|eselection|eselection-extend|estructor|etach|ialog-box|ialog-help|ictionary?|ictiona?|ictio?|ict|ir|isabled??|isconnect?|isconne?|iscon|ismiss-menu|isplay?|ispl?|istinct|ll-call-type|os??|os-end|otnet-clr-loaded|ouble|own|rop|rop-down|rop-down-list|rop-file-notify|rop-target|slog-manager|ump|ynamic-current-value|ynamic-new|ynamic-property))\\b(?![#$\\-_%&])",
       "captures": {
         "1": {
           "name": "keyword.other.abl"
@@ -4093,7 +4075,7 @@
     },
     "keywords-E": {
       "comment": "The keyword must not have a trailing variable character (one of #$-_%&)",
-      "match": "(?i)\\b(e(?:dge-pixels?|dge-pixe?|dge-pi?|rror|xecute|num|vent|mpty|nable|nd|ntry|xport|xtent|vents|xternal|ach|cho|dge|diting|ditor|lse|nd-key|ndkey|q|rror-status?|rror-stat|scape|vent-handler-context|xcept|xclusive|xclusive-lock?|xclusive-lo?|xclusive-web-user?|xclusive-web-us?|xclusive-web-?|xists|xpire|xplicit|xtended|xtract|nd-error|nd-move|nd-resize|nd-box-selection|mpty-selection|nter-menubar|xit|ditor-tab|ditor-backtab|nd-search|nd-row-resize))\\b(?![#$\\-_%&])",
+      "match": "(?i)\\b(e(?:ach|cho|dge|dge-pixels?|dge-pixe?|dge-pi?|diting|ditor|ditor-backtab|ditor-tab|lse|mpty|mpty-selection|nable|nd|nd-box-selection|nd-error|nd-key|nd-move|nd-resize|nd-row-resize|nd-search|ndkey|nter-menubar|ntry|num|q|rror|rror-status?|rror-stat|scape|vent|vent-handler-context|vents|xcept|xclusive|xclusive-lock?|xclusive-lo?|xclusive-web-user?|xclusive-web-us?|xclusive-web-?|xecute|xists|xit|xpire|xplicit|xport|xtended|xtent|xternal|xtract))\\b(?![#$\\-_%&])",
       "captures": {
         "1": {
           "name": "keyword.other.abl"
@@ -4102,7 +4084,7 @@
     },
     "keywords-F": {
       "comment": "The keyword must not have a trailing variable character (one of #$-_%&)",
-      "match": "(?i)\\b(f(?:gcolor?|gcol?|gc|lat-button|ont|oreign-key-hidden|ormat?|orm|rame?|inally|ind|irst|ix-codepage|or|ormat?|orm|rame-value?|rame-val|unction|rom|alse|alse-leaks|etch|ields?|ile|ile-access-date?|ile-access-da?|ile-access-time?|ile-access-ti?|ile-information?|ile-informati?|ile-informa?|ile-infor?|ilename|ill-in|ilters|inal|ind-case-sensitive|ind-global|ind-next-occurrence|ind-prev-occurrence|ind-select|ind-wrap-around|inder|irehose-cursor|ixed-only|lags|loat|ocus|ont-table|orce-file|orwards?|rom-chars?|rom-cha?|rom-c|rom-current?|rom-curre?|rom-cur|rom-pixels?|rom-pixe?|rom-pi?|romnoreorder|ull-height|unction-call-type|ocus-in|ind-next|ind-previous))\\b(?![#$\\-_%&])",
+      "match": "(?i)\\b(f(?:alse|alse-leaks|etch|gcolor?|gcol?|gc|ields?|ile|ile-access-date?|ile-access-da?|ile-access-time?|ile-access-ti?|ile-information?|ile-informati?|ile-informa?|ile-infor?|ilename|ill-in|ilters|inal|inally|ind|ind-case-sensitive|ind-global|ind-next|ind-next-occurrence|ind-prev-occurrence|ind-previous|ind-select|ind-wrap-around|inder|irehose-cursor|irst|ix-codepage|ixed-only|lags|lat-button|loat|ocus|ocus-in|ont|ont-table|or|orce-file|oreign-key-hidden|ormat?|orm|ormat?|orm|orwards?|rame-value?|rame-val|rame?|rom|rom-chars?|rom-cha?|rom-c|rom-current?|rom-curre?|rom-cur|rom-pixels?|rom-pixe?|rom-pi?|romnoreorder|ull-height|unction|unction-call-type))\\b(?![#$\\-_%&])",
       "captures": {
         "1": {
           "name": "keyword.other.abl"
@@ -4111,7 +4093,7 @@
     },
     "keywords-G": {
       "comment": "The keyword must not have a trailing variable character (one of #$-_%&)",
-      "match": "(?i)\\b(g(?:raphic-edge?|raphic-ed?|et|et-key-value?|et-key-val|et-dir|et-file|e|enerate-md5|et-attr-call-type|et-text-height|et-text-width|etbyte|lob(?:al?)?|o-on|rant|rant-archive|rayed|rid-set|rid-unit-height|rid-unit-width|roup|[ot]|oto))\\b(?![#$\\-_%&])",
+      "match": "(?i)\\b(g(?:lob(?:al?)?|e|enerate-md5|et|et-attr-call-type|et-dir|et-file|et-key-value?|et-key-val|et-text-height|et-text-width|etbyte|o|o-on|oto|rant|rant-archive|raphic-edge?|raphic-ed?|rayed|rid-set|rid-unit-height|rid-unit-width|roup|t))\\b(?![#$\\-_%&])",
       "captures": {
         "1": {
           "name": "keyword.other.abl"
@@ -4120,7 +4102,7 @@
     },
     "keywords-H": {
       "comment": "The keyword must not have a trailing variable character (one of #$-_%&)",
-      "match": "(?i)\\b(h(?:elp|idden|ide|aving|eader|eight|elp-context?|elp-conte?|elp-con|elp-topic|elpfile-name?|elpfile-na?|int|ost-byte-order|ome|oriz-scroll-drag|oriz-home|oriz-end))\\b(?![#$\\-_%&])",
+      "match": "(?i)\\b(h(?:aving|eader|eight|elp|elp-context?|elp-conte?|elp-con|elp-topic|elpfile-name?|elpfile-na?|idden|ide|int|ome|oriz-end|oriz-home|oriz-scroll-drag|ost-byte-order))\\b(?![#$\\-_%&])",
       "captures": {
         "1": {
           "name": "keyword.other.abl"
@@ -4129,7 +4111,7 @@
     },
     "keywords-I": {
       "comment": "The keyword must not have a trailing variable character (one of #$-_%&)",
-      "match": "(?i)\\b(i(?:mage-down|mage-insensitive|mage-up|nitial|nitiate|mage|mport|nput|nput-output?|nput-outp?|nput-ou?|nsert|nterface|f|mage-size|mage-size-chars?|mage-size-cha?|mage-size-c|mage-size-pixels?|mage-size-pixe?|mage-size-pi?|mplements|n|ndex-hint|ndexed-reposition|ndicator|nformation?|nformati?|nforma?|nfor?|nherit-color-mode|nherits|nit|nitial-dir|nitial-filter|nner|nto|s|tem|nsert-mode|nsert-field|nsert-field-data|nsert-field-label|nsert-column|teration-changed))\\b(?![#$\\-_%&])",
+      "match": "(?i)\\b(i(?:f|mage|mage-down|mage-insensitive|mage-size|mage-size-chars?|mage-size-cha?|mage-size-c|mage-size-pixels?|mage-size-pixe?|mage-size-pi?|mage-up|mplements|mport|n|ndex-hint|ndexed-reposition|ndicator|nformation?|nformati?|nforma?|nfor?|nherit-color-mode|nherits|nit|nitial|nitial-dir|nitial-filter|nitiate|nner|nput|nput-output?|nput-outp?|nput-ou?|nsert|nsert-column|nsert-field|nsert-field-data|nsert-field-label|nsert-mode|nterface|nto|s|tem|teration-changed))\\b(?![#$\\-_%&])",
       "captures": {
         "1": {
           "name": "keyword.other.abl"
@@ -4156,7 +4138,7 @@
     },
     "keywords-L": {
       "comment": "The keyword must not have a trailing variable character (one of #$-_%&)",
-      "match": "(?i)\\b(l(?:abel|ocked|eave|ength|oad|oad-picture|abel-pfcolor?|abel-pfcol?|abel-pfc|andscape|ast-event?|ast-key|e|eading|eak-detection|eft|eft-aligned?|eft-align|ike|ike-sequential|isting?|isti|ittle-endian|oad-from|oad-result-into|ob-dir|og-id|og-manager|ong|ongchar?|ongch|ookahead|ower|t|eft-end|ine-up|ine-down|ine-right|ine-left))\\b(?![#$\\-_%&])",
+      "match": "(?i)\\b(l(?:abel|abel-pfcolor?|abel-pfcol?|abel-pfc|andscape|ast-event?|ast-key|e|eading|eak-detection|eave|eft|eft-aligned?|eft-align|eft-end|ength|ike|ike-sequential|ine-down|ine-left|ine-right|ine-up|isting?|isti|ittle-endian|oad|oad-from|oad-picture|oad-result-into|ob-dir|ocked|og-id|og-manager|ong|ongchar?|ongch|ookahead|ower|t))\\b(?![#$\\-_%&])",
       "captures": {
         "1": {
           "name": "keyword.other.abl"
@@ -4165,7 +4147,7 @@
     },
     "keywords-M": {
       "comment": "The keyword must not have a trailing variable character (one of #$-_%&)",
-      "match": "(?i)\\b(m(?:ax-button|essage-area|ouse-pointer?|ouse-point?|ouse-poi?|ouse-p|enu|essage|ethod|achine-class|ap|argin-extra|argin-height|argin-height-chars?|argin-height-cha?|argin-height-c|argin-height-pixels?|argin-height-pixe?|argin-height-pi?|argin-width|argin-width-chars?|argin-width-cha?|argin-width-c|argin-width-pixels?|argin-width-pixe?|argin-width-pi?|atches|ax|ax-height|ax-rows|ax-size|ax-width|aximize|d5-value|emptr|enu-item|enubar|essage-area-msg|essage-line|in-height|in-schema-marshall?|in-size|in-width|od|odulo|ouse|pe|ultiple-key|ust-exist|ove|ain-menu|enu-drop))\\b(?![#$\\-_%&])",
+      "match": "(?i)\\b(m(?:achine-class|ain-menu|ap|argin-extra|argin-height|argin-height-chars?|argin-height-cha?|argin-height-c|argin-height-pixels?|argin-height-pixe?|argin-height-pi?|argin-width|argin-width-chars?|argin-width-cha?|argin-width-c|argin-width-pixels?|argin-width-pixe?|argin-width-pi?|atches|ax|ax-button|ax-height|ax-rows|ax-size|ax-width|aximize|d5-value|emptr|enu|enu-drop|enu-item|enubar|essage|essage-area|essage-area-msg|essage-line|ethod|in-height|in-schema-marshall?|in-size|in-width|od|odulo|ouse|ouse-pointer?|ouse-point?|ouse-poi?|ouse-p|ove|pe|ultiple-key|ust-exist))\\b(?![#$\\-_%&])",
       "captures": {
         "1": {
           "name": "keyword.other.abl"
@@ -4174,7 +4156,7 @@
     },
     "keywords-N": {
       "comment": "The keyword must not have a trailing variable character (one of #$-_%&)",
-      "match": "(?i)\\b(n(?:amespace-prefix|amespace-uri|ested|o-focus|ew|ext|ext-prompt|ative|e|ew-instance|o|o-apply|o-array-message?|o-array-messa?|o-array-mes?|o-array-m|o-assign|o-attr|o-attr-list?|o-attr-li?|o-attr-space?|o-attr-spa?|o-attr-s|o-auto-trim?|o-auto-validate|o-bind-where|o-box|o-column-scrolling?|o-column-scrolli?|o-column-scrol?|o-column-scr?|o-console|o-convert|o-convert-3d-colors?|o-convert-3d-colo?|o-convert-3d-co?|o-convert-3d-?|o-debug|o-drag|o-echo|o-error|o-fill?|o-fi?|o-firehose-cursor|o-help|o-hide|o-index-hint|o-inherit-bgcolor?|o-inherit-bgcol?|o-inherit-bgc|o-inherit-fgcolor?|o-inherit-fgcol?|o-inherit-fgc|o-join-by-sqldb|o-keycache-join|o-labels?|o-lobs|o-lock|o-lookahead|o-map|o-message?|o-messa?|o-mes|o-pause|o-prefetch?|o-prefet?|o-query-order-added?|o-query-order-add?|o-query-order-a?|o-query-order?|o-query-ord?|o-query-o|o-query-unique-added?|o-query-unique-add?|o-query-unique-a?|o-query-unique?|o-query-uniq?|o-query-un?|o-return-value?|o-return-val|o-row-markers|o-schema-marshall?|o-scrollbar-vertical?|o-scrollbar-vertic?|o-scrollbar-vert?|o-scrollbar-ve?|o-scrolling|o-separate-connection|o-separators|o-tab-stop?|o-tab-st?|o-tab-?|o-underline?|o-underli?|o-under?|o-undo??|o-wait|o-word-wrap|ode-type|on-serializable|one|ot-active|ull|um-copies|um-selected|umeric|ew-line|ext-frame|ext-word|ext-error))\\b(?![#$\\-_%&])",
+      "match": "(?i)\\b(n(?:amespace-prefix|amespace-uri|ative|e|ested|ew|ew-instance|ew-line|ext|ext-error|ext-frame|ext-prompt|ext-word|o|o-apply|o-array-message?|o-array-messa?|o-array-mes?|o-array-m|o-assign|o-attr|o-attr-list?|o-attr-li?|o-attr-space?|o-attr-spa?|o-attr-s|o-auto-trim?|o-auto-validate|o-bind-where|o-box|o-column-scrolling?|o-column-scrolli?|o-column-scrol?|o-column-scr?|o-console|o-convert|o-convert-3d-colors?|o-convert-3d-colo?|o-convert-3d-co?|o-convert-3d-?|o-debug|o-drag|o-echo|o-error|o-fill?|o-fi?|o-firehose-cursor|o-focus|o-help|o-hide|o-index-hint|o-inherit-bgcolor?|o-inherit-bgcol?|o-inherit-bgc|o-inherit-fgcolor?|o-inherit-fgcol?|o-inherit-fgc|o-join-by-sqldb|o-keycache-join|o-labels?|o-lobs|o-lock|o-lookahead|o-map|o-message?|o-messa?|o-mes|o-pause|o-prefetch?|o-prefet?|o-query-order-added?|o-query-order-add?|o-query-order-a?|o-query-order?|o-query-ord?|o-query-o|o-query-unique-added?|o-query-unique-add?|o-query-unique-a?|o-query-unique?|o-query-uniq?|o-query-un?|o-return-value?|o-return-val|o-row-markers|o-schema-marshall?|o-scrollbar-vertical?|o-scrollbar-vertic?|o-scrollbar-vert?|o-scrollbar-ve?|o-scrolling|o-separate-connection|o-separators|o-tab-stop?|o-tab-st?|o-tab-?|o-underline?|o-underli?|o-under?|o-undo??|o-wait|o-word-wrap|ode-type|on-serializable|one|ot-active|ull|um-copies|um-selected|umeric))\\b(?![#$\\-_%&])",
       "captures": {
         "1": {
           "name": "keyword.other.abl"
@@ -4183,7 +4165,7 @@
     },
     "keywords-O": {
       "comment": "The keyword must not have a trailing variable character (one of #$-_%&)",
-      "match": "(?i)\\b(o(?:n|bject|pen|s-append|s-command|s-copy|s-create-dir|s-delete|s-rename|utput|verlay|ctet_length|ff??|k|k-cancel|ld|le-invoke-locale?|le-invoke-loca|le-names-locale?|le-names-loca|ption|ptions-file|r|rdered-join|rientation|s-dir|s2|s400|therwise|uter|uter-join|verride|pen-line-above|ff-home|ff-end|ut-of-data))\\b(?![#$\\-_%&])",
+      "match": "(?i)\\b(o(?:bject|ctet_length|ff??|ff-end|ff-home|k|k-cancel|ld|le-invoke-locale?|le-invoke-loca|le-names-locale?|le-names-loca|n|pen|pen-line-above|ption|ptions-file|r|rdered-join|rientation|s-append|s-command|s-copy|s-create-dir|s-delete|s-dir|s-rename|s2|s400|therwise|ut-of-data|uter|uter-join|utput|verlay|verride))\\b(?![#$\\-_%&])",
       "captures": {
         "1": {
           "name": "keyword.other.abl"
@@ -4192,7 +4174,7 @@
     },
     "keywords-P": {
       "comment": "The keyword must not have a trailing variable character (one of #$-_%&)",
-      "match": "(?i)\\b(p(?:age-bottom?|age-bott?|fcolor?|fcol?|fc|arameter?|aramet?|aram|roperty|rocedure?|rocedu?|roce|age|ause|rocess|rompt-for?|rompt-f|romsgs|ropath|ublish|ut|ut-bits|ut-bytes??|ut-double|ut-float|ut-int64|ut-key-value?|ut-key-val|ut-long|ut-short|ut-string|ut-unsigned-long|ut-unsigned-short|rinter-setup|ackage-private|ackage-protected|age-width?|age-wid|aged|arent-id-field|artial-key|ascal|erformance?|erforman?|erform?|erfo?|ixels|ortrait|recision|reprocess?|reproce?|reselect?|resele?|rev|rinter|rivate|rivileges|rocedure-call-type|rofile-file|rofiler|rompt|rotected|ublic|utbyte|age-up|age-down|ick|ick-both|ick-area|aste|rev-word|rev-frame|age-right|age-left|age-right-text|arent-window-close|rocedure-complete))\\b(?![#$\\-_%&])",
+      "match": "(?i)\\b(p(?:ackage-private|ackage-protected|age|age-bottom?|age-bott?|age-down|age-left|age-right|age-right-text|age-up|age-width?|age-wid|aged|arameter?|aramet?|aram|arent-id-field|arent-window-close|artial-key|ascal|aste|ause|erformance?|erforman?|erform?|erfo?|fcolor?|fcol?|fc|ick|ick-area|ick-both|ixels|ortrait|recision|reprocess?|reproce?|reselect?|resele?|rev|rev-frame|rev-word|rinter|rinter-setup|rivate|rivileges|rocedure-call-type|rocedure-complete|rocedure?|rocedu?|roce|rocess|rofile-file|rofiler|rompt|rompt-for?|rompt-f|romsgs|ropath|roperty|rotected|ublic|ublish|ut|ut-bits|ut-bytes??|ut-double|ut-float|ut-int64|ut-key-value?|ut-key-val|ut-long|ut-short|ut-string|ut-unsigned-long|ut-unsigned-short|utbyte))\\b(?![#$\\-_%&])",
       "captures": {
         "1": {
           "name": "keyword.other.abl"
@@ -4201,7 +4183,7 @@
     },
     "keywords-Q": {
       "comment": "The keyword must not have a trailing variable character (one of #$-_%&)",
-      "match": "(?i)\\b(qu(?:ery|it|ery-tuning|estion))\\b(?![#$\\-_%&])",
+      "match": "(?i)\\b(qu(?:ery|ery-tuning|estion|it))\\b(?![#$\\-_%&])",
       "captures": {
         "1": {
           "name": "keyword.other.abl"
@@ -4210,7 +4192,7 @@
     },
     "keywords-R": {
       "comment": "The keyword must not have a trailing variable character (one of #$-_%&)",
-      "match": "(?i)\\b(r(?:ecursive|esize|eturn-value?|eturn-val|ow|equest|ectangle?|ectang?|ecta?|aw|aw-transfer|eadkey|elease|epeat|eposition|eturn|outine-level|un|adio-set|code-information?|code-informati?|code-informa?|code-infor?|ead-available|ead-exact-num|eal|eference-only|einstate|eplication-create|eplication-delete|eplication-write|eposition-backwards?|eposition-backwar?|eposition-backw?|eposition-forwards?|eposition-forwar?|eposition-forw|eposition-parent-relation?|eposition-parent-relati?|eposition-parent-rela?|esult|etain|etry-cancel|eturn-to-start-dir?|eturns|everse-from|evert|evoke|ight|ight-aligned?|ight-align|ow-created|ow-deleted|ow-height|ow-modified|ow-of|ow-unmodified|ule|ule-row|ule-y|un-procedure?|un-procedu?|un-proce?|ecall|esume-display|ight-end|eports|ow-display|ow-entry|ow-leave|ead-response))\\b(?![#$\\-_%&])",
+      "match": "(?i)\\b(r(?:adio-set|aw|aw-transfer|code-information?|code-informati?|code-informa?|code-infor?|ead-available|ead-exact-num|ead-response|eadkey|eal|ecall|ectangle?|ectang?|ecta?|ecursive|eference-only|einstate|elease|epeat|eplication-create|eplication-delete|eplication-write|eports|eposition|eposition-backwards?|eposition-backwar?|eposition-backw?|eposition-forwards?|eposition-forwar?|eposition-forw|eposition-parent-relation?|eposition-parent-relati?|eposition-parent-rela?|equest|esize|esult|esume-display|etain|etry-cancel|eturn|eturn-to-start-dir?|eturn-value?|eturn-val|eturns|everse-from|evert|evoke|ight|ight-aligned?|ight-align|ight-end|outine-level|ow|ow-created|ow-deleted|ow-display|ow-entry|ow-height|ow-leave|ow-modified|ow-of|ow-unmodified|ule|ule-row|ule-y|un|un-procedure?|un-procedu?|un-proce?))\\b(?![#$\\-_%&])",
       "captures": {
         "1": {
           "name": "keyword.other.abl"
@@ -4219,7 +4201,7 @@
     },
     "keywords-S": {
       "comment": "The keyword must not have a trailing variable character (one of #$-_%&)",
-      "match": "(?i)\\b(s(?:croll-bars|ensitive|eparators|erialize-hidden|erialize-name|ide-labels|ingle-run|tatus-area|tored-procedure?|tored-procedu?|tored-proce?|ax-attributes|ax-reader|ax-writer|erver|erver-socket|oap-header|oap-header-entryref|ocket|end|tream|ub-menu|creen|uper|ave|croll|eek|et|et-byte-order|et-pointer-value?|et-pointer-val|how-stats?|tatus|top|ubscribe|ubstring?|ubstri?|ystem-dialog|ystem-help|ave-as|ax-complete?|ax-comple|ax-parser-error|ax-running|ax-uninitialized|ax-write-begin|ax-write-complete|ax-write-content|ax-write-element|ax-write-error|ax-write-idle|ax-write-tag|ax-xml|chema|creen-io|crolled-row-position?|crolled-row-positi?|crolled-row-posi?|crolling|earch-self|earch-target|ection|ecurity-policy|elect|elect-on-join|elect-repositioned-row|elected-items|election-list|elf|eparate-connection|erializable|ession|et-attr-call-type|et-cell-focus|et-contents|et-db-logging|et-event-manager-option|et-option|et-state|hare-lock?|hare-lo?|hare-?|hared|hort|ide-label?|ide-lab|ignature|ilent|imple|ingle|ingle-character|ize|ize-chars?|ize-cha?|ize-c|ize-pixels?|ize-pixe?|ize-pi?|kip|kip-group-duplicates|kip-schema-check|lider|mallint|oap-fault|ome|ource|ource-procedure|pace|ql|tart|tart-mem-check|tarting|tatic|tatus-area-msg|tdcall|tomp-detection|tomp-frequency|top-after|top-mem-check|tream-handle|tream-io|tring-xref|ub-average?|ub-avera?|ub-ave|ub-count|ub-maximum?|ub-maxim?|ub-max|ub-menu-help|ub-minimum?|ub-minim?|ub-min|ub-total|um|ummary|uspend|top-display|ettings|croll-left|croll-right|election|election-extend|elect-extend|tart-move|tart-resize|tart-box-selection|tart-extend-box-selection|croll-mode|crollbar-drag|tart-search|croll-notify|tart-row-resize|croll-vertical|croll-horizontal))\\b(?![#$\\-_%&])",
+      "match": "(?i)\\b(s(?:ave|ave-as|ax-attributes|ax-complete?|ax-comple|ax-parser-error|ax-reader|ax-running|ax-uninitialized|ax-write-begin|ax-write-complete|ax-write-content|ax-write-element|ax-write-error|ax-write-idle|ax-write-tag|ax-writer|ax-xml|chema|creen|creen-io|croll|croll-bars|croll-horizontal|croll-left|croll-mode|croll-notify|croll-right|croll-vertical|crollable|crollbar-drag|crolled-row-position?|crolled-row-positi?|crolled-row-posi?|crolling|earch-self|earch-target|ection|ecurity-policy|eek|elect|elect-extend|elect-on-join|elect-repositioned-row|elected-items|election|election-extend|election-list|elf|end|ensitive|eparate-connection|eparators|erializable|erialize-hidden|erialize-name|erver|erver-socket|ession|et|et-attr-call-type|et-byte-order|et-cell-focus|et-contents|et-db-logging|et-event-manager-option|et-option|et-pointer-value?|et-pointer-val|et-state|ettings|hare-lock?|hare-lo?|hare-?|hared|hort|how-in-taskbar?|how-in-taskb?|how-stats?|ide-labels?|ide-labe?|ignature|ilent|imple|ingle|ingle-character|ingle-run|ize|ize-chars?|ize-cha?|ize-c|ize-pixels?|ize-pixe?|ize-pi?|kip|kip-group-duplicates|kip-schema-check|lider|mallint|oap-fault|oap-header|oap-header-entryref|ocket|ome|ource|ource-procedure|pace|ql|tart|tart-box-selection|tart-extend-box-selection|tart-mem-check|tart-move|tart-resize|tart-row-resize|tart-search|tarting|tatic|tatus|tatus-area|tatus-area-msg|tdcall|tomp-detection|tomp-frequency|top|top-after|top-display|top-mem-check|tored-procedure?|tored-procedu?|tored-proce?|tream|tream-handle|tream-io|tring-xref|ub-average?|ub-avera?|ub-ave|ub-count|ub-maximum?|ub-maxim?|ub-max|ub-menu|ub-menu-help|ub-minimum?|ub-minim?|ub-min|ub-total|ubscribe|ubstring?|ubstri?|um|ummary|uper|uspend|ystem-dialog|ystem-help))\\b(?![#$\\-_%&])",
       "captures": {
         "1": {
           "name": "keyword.other.abl"
@@ -4228,7 +4210,7 @@
     },
     "keywords-T": {
       "comment": "The keyword must not have a trailing variable character (one of #$-_%&)",
-      "match": "(?i)\\b(t(?:hree-d|itle|ooltip|ransaction?|ransacti?|hrow|emp-table|erminate|riggers|hrough|o|erminal|his-object|ransaction-mode|rigger|able-scan|arget|arget-procedure|enant|enant-where|erm|ext|ext-cursor|ext-seg-growth?|ext-seg-grow?|ext-seg-gr?|ext-seg-?|hen|his-procedure|hru|op|opic|otal|railing|rans|rue|tcodepage|ab|op-column))\\b(?![#$\\-_%&])",
+      "match": "(?i)\\b(t(?:ab|able-scan|arget|arget-procedure|emp-table|enant|enant-where|erm|erminal|erminate|ext|ext-cursor|ext-seg-growth?|ext-seg-grow?|ext-seg-gr?|ext-seg-?|hen|his-object|his-procedure|hree-d|hrough|hrow|hru|itle|o|ooltip|op|op-column|opic|otal|railing|rans|ransaction-mode|ransaction?|ransacti?|riggers??|rue|tcodepage))\\b(?![#$\\-_%&])",
       "captures": {
         "1": {
           "name": "keyword.other.abl"
@@ -4237,7 +4219,7 @@
     },
     "keywords-U": {
       "comment": "The keyword must not have a trailing variable character (one of #$-_%&)",
-      "match": "(?i)\\b(u(?:ndo|nderline?|nderli?|nix|nload|nsubscribe|p|pdate|se|sing|nbuffered?|nbuffer?|nbuff|nformatted?|nformatt?|nforma?|nion|nique|nless-hidden|nsigned-byte|nsigned-int64|nsigned-integer|nsigned-long|nsigned-short|pper|se-dict-exps?|se-dict-ex?|se-dict-?|se-dic|se-filename|se-index|se-revvideo|se-text|se-underline|se-widget-pool|ser|tc-offset|nix-end))\\b(?![#$\\-_%&])",
+      "match": "(?i)\\b(u(?:nbuffered?|nbuffer?|nbuff|nderline?|nderli?|ndo|nformatted?|nformatt?|nforma?|nion|nique|nix|nix-end|nless-hidden|nload|nsigned-byte|nsigned-int64|nsigned-integer|nsigned-long|nsigned-short|nsubscribe|p|pdate|pper|se|se-dict-exps?|se-dict-ex?|se-dict-?|se-dic|se-filename|se-index|se-revvideo|se-text|se-underline|se-widget-pool|ser|sing|tc-offset))\\b(?![#$\\-_%&])",
       "captures": {
         "1": {
           "name": "keyword.other.abl"
@@ -4246,7 +4228,7 @@
     },
     "keywords-V": {
       "comment": "The keyword must not have a trailing variable character (one of #$-_%&)",
-      "match": "(?i)\\b(view-as|(var(?:i(?:able?|ab?|))?)|validate|var|view|v6frame|values|verbose?|verbo?|vertical?|vertic?|vert|virtual-height|virtual-width|vms|void|value-changed)\\b(?![#$\\-_%&])",
+      "match": "(?i)\\b((var(?:i(?:able?|ab?|))?)|v6frame|validate|value-changed|values|var|verbose?|verbo?|vertical?|vertic?|vert|view|view-as|virtual-height|virtual-width|vms|void)\\b(?![#$\\-_%&])",
       "captures": {
         "1": {
           "name": "keyword.other.abl"
@@ -4255,7 +4237,7 @@
     },
     "keywords-W": {
       "comment": "The keyword must not have a trailing variable character (one of #$-_%&)",
-      "match": "(?i)\\b(w(?:arning|idget|idget-pool|ork-table?|ork-tab|orkfile|ait-for|ait|eb-context?|eb-conte?|eb-con|hen|here|hile|idth|indow-delayed-minimize?|indow-delayed-minimi?|indow-delayed-mini?|indow-maximized?|indow-maximiz?|indow-maxim|indow-minimized?|indow-minimiz?|indow-minim|indow-name|indow-normal|ith|ord-index|indow-close|indow-restored|indow-resized|eb-notify))\\b(?![#$\\-_%&])",
+      "match": "(?i)\\b(w(?:ait|ait-for|arning|eb-context?|eb-conte?|eb-con|eb-notify|hen|here|hile|idget|idget-pool|idth|indow-close|indow-delayed-minimize?|indow-delayed-minimi?|indow-delayed-mini?|indow-maximized?|indow-maximiz?|indow-maxim|indow-minimized?|indow-minimiz?|indow-minim|indow-name|indow-normal|indow-resized|indow-restored|ith|ord-index|ork-table?|ork-tab|orkfile))\\b(?![#$\\-_%&])",
       "captures": {
         "1": {
           "name": "keyword.other.abl"
@@ -4264,7 +4246,7 @@
     },
     "keywords-X": {
       "comment": "The keyword must not have a trailing variable character (one of #$-_%&)",
-      "match": "(?i)\\b(x(?:ml-data-type|ml-node-name|ml-node-type|-document|-noderef|-of|code|or|ref|ref-xml))\\b(?![#$\\-_%&])",
+      "match": "(?i)\\b(x(?:-document|-noderef|-of|code|ml-data-type|ml-node-name|ml-node-type|or|ref|ref-xml))\\b(?![#$\\-_%&])",
       "captures": {
         "1": {
           "name": "keyword.other.abl"
@@ -4357,7 +4339,7 @@
       ]
     },
     "handle-attributes-A": {
-      "match": "(?i)(:)(a(?:ccelerator|ctive|ctor|dm-data|fter-buffer|fter-rowid|fter-table|llow-column-searching|llow-prev-deserialization|lways-on-top|mbiguous?|mbiguo?|mbig|ppl-alert-boxes?|ppl-alert-box?|ppl-alert-b?|ppl-alert|ppl-context-id|ppserver-info|ppserver-password|ppserver-userid|synchronous|sync-request-count|sync-request-handle|ttached-pairlist|ttribute-names|ttr-space?|ttr-spa?|ttr-s?|ttr|udit-event-context|uto-completion?|uto-completi?|uto-comple?|uto-comp|uto-delete|uto-delete-xml|uto-end-key|uto-go|uto-indent?|uto-inde?|uto-resize|uto-return?|uto-retu?|uto-synchronize|uto-validate?|uto-valida?|uto-vali?|uto-zap?|uto-z|vailable?|vailab?|vail|vailable-formats))\\b(?![#$\\-_%&])",
+      "match": "(?i)(:)(a(?:ccelerator|ctive|ctor|dm-data|fter-buffer|fter-rowid|fter-table|llow-column-searching|llow-prev-deserialization|lways-on-top|mbiguous?|mbiguo?|mbig|ppl-alert-boxes?|ppl-alert-box?|ppl-alert-b?|ppl-alert|ppl-context-id|ppserver-info|ppserver-password|ppserver-userid|sync-request-count|sync-request-handle|synchronous|ttached-pairlist|ttr-space?|ttr-spa?|ttr-s?|ttr|ttribute-names|udit-event-context|uto-completion?|uto-completi?|uto-comple?|uto-comp|uto-delete|uto-delete-xml|uto-end-key|uto-go|uto-indent?|uto-inde?|uto-resize|uto-return?|uto-retu?|uto-synchronize|uto-validate?|uto-valida?|uto-vali?|uto-zap?|uto-z|vailable-formats|vailable?|vailab?|vail))\\b(?![#$\\-_%&])",
       "captures": {
         "1": {
           "name": "punctuation.separator.colon.abl"
@@ -4379,7 +4361,7 @@
       }
     },
     "handle-attributes-C": {
-      "match": "(?i)(:)(c(?:ache|all-name|all-type|ancel-button|ancelled|an-create?|an-crea|an-delete?|an-dele|an-do-domain-support|an-read|an-write?|areful-paint|ase-sensitive?|ase-sensiti?|ase-sensi?|ase-sen|entered?|enter|harset|hecked|hild-buffer|hild-num|lass-type|lient-connection-id|lient-tty|lient-type|lient-workstation|ode|odepage|olumns?|olumn-bgcolor?|olumn-bgcol?|olumn-bgc|olumn-dcolor|olumn-fgcolor?|olumn-fgcol?|olumn-fgc|olumn-font|olumn-label?|olumn-lab|olumn-movable|olumn-pfcolor?|olumn-pfcol?|olumn-pfc|olumn-read-only|olumn-resizable|olumn-scrolling?|olumn-scrolli?|olumn-scrol?|olumn-scr?|om-handle|omplete|onfig-name|ontext-help|ontext-help-file|ontext-help-id|ontrol-box|onvert-3d-colors?|onvert-3d-colo?|onvert-3d-co?|onvert-3d-?|overage|pcase|pcoll|pinternal?|pintern?|pinte?|plog|pprint|prcodein|prcodeout|pstream|pterm|rc-value?|rc-val|urrent-changed|urrent-column|urrent-environment?|urrent-environme?|urrent-environ?|urrent-envir?|urrent-env|urrent-iteration|urrent-request-info|urrent-response-info|urrent-result-row|urrent-row-modified|urrent-window|ursor-char|ursor-line|ursor-offset))\\b(?![#$\\-_%&])",
+      "match": "(?i)(:)(c(?:ache|all-name|all-type|an-create?|an-crea|an-delete?|an-dele|an-do-domain-support|an-read|an-write?|ancel-button|ancelled|areful-paint|ase-sensitive?|ase-sensiti?|ase-sensi?|ase-sen|entered?|enter|harset|hecked|hild-buffer|hild-num|lass-type|lient-connection-id|lient-tty|lient-type|lient-workstation|ode|odepage|olumn-bgcolor?|olumn-bgcol?|olumn-bgc|olumn-dcolor|olumn-fgcolor?|olumn-fgcol?|olumn-fgc|olumn-font|olumn-label?|olumn-lab|olumn-movable|olumn-pfcolor?|olumn-pfcol?|olumn-pfc|olumn-read-only|olumn-resizable|olumn-scrolling?|olumn-scrolli?|olumn-scrol?|olumn-scr?|olumns?|om-handle|omplete|onfig-name|ontext-help|ontext-help-file|ontext-help-id|ontrol-box|onvert-3d-colors?|onvert-3d-colo?|onvert-3d-co?|onvert-3d-?|overage|pcase|pcoll|pinternal?|pintern?|pinte?|plog|pprint|prcodein|prcodeout|pstream|pterm|rc-value?|rc-val|urrent-changed|urrent-column|urrent-environment?|urrent-environme?|urrent-environ?|urrent-envir?|urrent-env|urrent-iteration|urrent-request-info|urrent-response-info|urrent-result-row|urrent-row-modified|urrent-window|ursor-char|ursor-line|ursor-offset))\\b(?![#$\\-_%&])",
       "captures": {
         "1": {
           "name": "punctuation.separator.colon.abl"
@@ -4412,7 +4394,7 @@
       }
     },
     "handle-attributes-F": {
-      "match": "(?i)(:)(f(?:gcolor?|gcol?|gc|ile-create-date?|ile-create-da?|ile-create-time?|ile-create-ti?|ile-mod-date?|ile-mod-da?|ile-mod-time?|ile-mod-ti?|ile-name|ile-offset?|ile-offs?|ile-size|ile-type|illed|ill-mode|ill-where-string|irst-async-request?|irst-async-reque?|irst-async-req?|irst-async-r?|irst-async|irst-buffer|irst-child|irst-column|irst-dataset|irst-data-source|irst-form|irst-object|irst-procedure?|irst-procedu?|irst-proce?|irst-query|irst-server?|irst-serv|irst-server-socket|irst-socket|irst-tab-item?|irst-tab-it?|it-last-column|lat-button|ocused-row|ocused-row-selected|ont|oreground?|oregrou?|oregr?|ore|oreign-key-hidden|orm-input|orm-long-input|ormat?|orm|ormatted?|orward-only|ragment?|rame?|rame-col|rame-name|rame-row|rame-spacing?|rame-spaci?|rame-spa|rame-x|rame-y|requency|ull-height-chars?|ull-height-cha?|ull-height-c|ull-height-pixels?|ull-height-pixe?|ull-height-pi?|ull-pathname?|ull-pathna?|ull-width-chars?|ull-width-cha?|ull-width-c?|ull-width|ull-width-pixels?|ull-width-pixe?|ull-width-pi?|unction))\\b(?![#$\\-_%&])",
+      "match": "(?i)(:)(f(?:gcolor?|gcol?|gc|ile-create-date?|ile-create-da?|ile-create-time?|ile-create-ti?|ile-mod-date?|ile-mod-da?|ile-mod-time?|ile-mod-ti?|ile-name|ile-offset?|ile-offs?|ile-size|ile-type|ill-mode|ill-where-string|illed|irst-async-request?|irst-async-reque?|irst-async-req?|irst-async-r?|irst-async|irst-buffer|irst-child|irst-column|irst-data-source|irst-dataset|irst-form|irst-object|irst-procedure?|irst-procedu?|irst-proce?|irst-query|irst-server-socket|irst-server?|irst-serv|irst-socket|irst-tab-item?|irst-tab-it?|it-last-column|lat-button|ocused-row|ocused-row-selected|ont|oreground?|oregrou?|oregr?|ore|oreign-key-hidden|orm-input|orm-long-input|ormatted?|ormat?|orm|orward-only|ragment?|rame-col|rame-name|rame-row|rame-spacing?|rame-spaci?|rame-spa|rame-x|rame-y|rame?|requency|ull-height-chars?|ull-height-cha?|ull-height-c|ull-height-pixels?|ull-height-pixe?|ull-height-pi?|ull-pathname?|ull-pathna?|ull-width-chars?|ull-width-cha?|ull-width-c?|ull-width|ull-width-pixels?|ull-width-pixe?|ull-width-pi?|unction))\\b(?![#$\\-_%&])",
       "captures": {
         "1": {
           "name": "punctuation.separator.colon.abl"
@@ -4445,7 +4427,7 @@
       }
     },
     "handle-attributes-I": {
-      "match": "(?i)(:)(i(?:cfparameter?|cfparamet?|cfparam|con|gnore-current-modified?|gnore-current-modifi?|gnore-current-modi?|mage|mage-down|mage-insensitive|mage-up|mmediate-display|ndex|ndex-information?|ndex-informati?|ndex-informa?|ndex-infor?|n-handle|nherit-bgcolor?|nherit-bgcol?|nherit-bgc|nherit-fgcolor?|nherit-fgcol?|nherit-fgc|nitial|nner-chars|nner-lines|nput-value|nstantiating-procedure|nternal-entries|s-class?|s-json|s-multi-tenant|s-open|s-parameter-set|s-partitioned?|s-xml|tems-per-row))\\b(?![#$\\-_%&])",
+      "match": "(?i)(:)(i(?:cfparameter?|cfparamet?|cfparam|con|gnore-current-modified?|gnore-current-modifi?|gnore-current-modi?|mage|mage-down|mage-insensitive|mage-up|mmediate-display|n-handle|ndex|ndex-information?|ndex-informati?|ndex-informa?|ndex-infor?|nherit-bgcolor?|nherit-bgcol?|nherit-bgc|nherit-fgcolor?|nherit-fgcol?|nherit-fgc|nitial|nner-chars|nner-lines|nput-value|nstantiating-procedure|nternal-entries|s-class?|s-json|s-multi-tenant|s-open|s-parameter-set|s-partitioned?|s-xml|tems-per-row))\\b(?![#$\\-_%&])",
       "captures": {
         "1": {
           "name": "punctuation.separator.colon.abl"
@@ -4467,7 +4449,7 @@
       }
     },
     "handle-attributes-L": {
-      "match": "(?i)(:)(l(?:abel|abel-bgcolor?|abel-bgcol?|abel-bgc|abel-dcolor?|abel-dcol?|abel-dc|abel-fgcolor?|abel-fgcol?|abel-fgc|abel-font|abels|abels-have-colons|anguages?|arge|arge-to-small|ast-async-request?|ast-async-reque?|ast-async-req?|ast-async-r?|ast-async|ast-batch|ast-child|ast-form|ast-object|ast-procedure?|ast-procedu?|ast-proce|ast-server?|ast-serv|ast-server-socket|ast-socket|ast-tab-item?|ast-tab-it?|ength|ibrary|ibrary-calling-convention|ine|ist-item-pairs|ist-items|istings|iteral-question|ocal-host|ocal-name|ocal-port|ocal-version-info|ocator-column-number|ocator-line-number|ocator-public-id|ocator-system-id|ocator-type|ocked|og-entry-types|og-threshold|ogfile-name|ogging-level|ogin-expiration-timestamp|ogin-host|ogin-state))\\b(?![#$\\-_%&])",
+      "match": "(?i)(:)(l(?:abel|abel-bgcolor?|abel-bgcol?|abel-bgc|abel-dcolor?|abel-dcol?|abel-dc|abel-fgcolor?|abel-fgcol?|abel-fgc|abel-font|abels|abels-have-colons|anguages?|arge|arge-to-small|ast-async-request?|ast-async-reque?|ast-async-req?|ast-async-r?|ast-async|ast-batch|ast-child|ast-form|ast-object|ast-procedure?|ast-procedu?|ast-proce|ast-server-socket|ast-server?|ast-serv|ast-socket|ast-tab-item?|ast-tab-it?|ength|ibrary|ibrary-calling-convention|ine|ist-item-pairs|ist-items|istings|iteral-question|ocal-host|ocal-name|ocal-port|ocal-version-info|ocator-column-number|ocator-line-number|ocator-public-id|ocator-system-id|ocator-type|ocked|og-entry-types|og-threshold|ogfile-name|ogging-level|ogin-expiration-timestamp|ogin-host|ogin-state))\\b(?![#$\\-_%&])",
       "captures": {
         "1": {
           "name": "punctuation.separator.colon.abl"
@@ -4478,7 +4460,7 @@
       }
     },
     "handle-attributes-M": {
-      "match": "(?i)(:)(m(?:andatory|anual-highlight|ax-button|ax-chars|ax-data-guess|ax-height-chars?|ax-height-cha?|ax-height-c|ax-height-pixels?|ax-height-pixe?|ax-height-pi?|aximum-level|ax-value?|ax-val|ax-width-chars?|ax-width-cha?|ax-width-c|ax-width-pixels?|ax-width-pixe?|ax-width-pi?|enu-bar|enu-key?|enu-k|enu-mouse?|enu-mou?|enu-m|erge-by-field|essage-area|essage-area-font|in-button|in-column-width-chars?|in-column-width-cha?|in-column-width-c|in-column-width-pixels?|in-column-width-pixe?|in-column-width-pi?|in-height-chars?|in-height-cha?|in-height-c|in-height-pixels?|in-height-pixe?|in-height-pi?|in-schema-marshall?|in-value?|in-val|in-width-chars?|in-width-cha?|in-width-c|in-width-pixels?|in-width-pixe?|in-width-pi?|odified|ouse-pointer?|ouse-point?|ouse-poi?|ouse-p|ovable|ulti-compile|ultiple|ultitasking-interval|ust-understand))\\b(?![#$\\-_%&])",
+      "match": "(?i)(:)(m(?:andatory|anual-highlight|ax-button|ax-chars|ax-data-guess|ax-height-chars?|ax-height-cha?|ax-height-c|ax-height-pixels?|ax-height-pixe?|ax-height-pi?|ax-value?|ax-val|ax-width-chars?|ax-width-cha?|ax-width-c|ax-width-pixels?|ax-width-pixe?|ax-width-pi?|aximum-level|enu-bar|enu-key?|enu-k|enu-mouse?|enu-mou?|enu-m|erge-by-field|essage-area|essage-area-font|in-button|in-column-width-chars?|in-column-width-cha?|in-column-width-c|in-column-width-pixels?|in-column-width-pixe?|in-column-width-pi?|in-height-chars?|in-height-cha?|in-height-c|in-height-pixels?|in-height-pixe?|in-height-pi?|in-schema-marshall?|in-value?|in-val|in-width-chars?|in-width-cha?|in-width-c|in-width-pixels?|in-width-pixe?|in-width-pi?|odified|ouse-pointer?|ouse-point?|ouse-poi?|ouse-p|ovable|ulti-compile|ultiple|ultitasking-interval|ust-understand))\\b(?![#$\\-_%&])",
       "captures": {
         "1": {
           "name": "punctuation.separator.colon.abl"
@@ -4489,7 +4471,7 @@
       }
     },
     "handle-attributes-N": {
-      "match": "(?i)(:)(n(?:ame|amespace-prefix|amespace-uri|eeds-appserver-prompt|eeds-prompt|ested|ew|ew-row|ext-column?|ext-colu?|ext-rowid|ext-sibling|ext-tab-item?|o-current-value|o-empty-space|o-focus|onamespace-schema-location|o-schema-marshall?|o-validate?|o-valida?|o-vali?|ode-value|um-buffers|um-buttons?|um-butto?|um-but|um-child-relations|um-children|um-columns?|um-colum?|um-col|um-dropped-files|um-entries|um-fields|um-formats|um-header-entries|um-items|um-iterations|um-lines|um-locked-columns?|um-locked-colum?|um-locked-col|um-log-files|um-messages|um-parameters|um-references|um-relations|um-replaced?|um-replac?|um-repl|um-results|um-selected-rows|um-selected-widgets|um-source-buffers|um-tabs|um-to-retain|um-top-buffers|um-visible-columns?|um-visible-colum?|um-visible-col|umeric-decimal-point?|umeric-decimal-poi?|umeric-decimal-p?|umeric-decimal?|umeric-decim?|umeric-dec|umeric-format?|umeric-form?|umeric-fo?|umeric-separator?|umeric-separat?|umeric-separ?|umeric-sep))\\b(?![#$\\-_%&])",
+      "match": "(?i)(:)(n(?:ame|amespace-prefix|amespace-uri|eeds-appserver-prompt|eeds-prompt|ested|ew|ew-row|ext-column?|ext-colu?|ext-rowid|ext-sibling|ext-tab-item?|o-current-value|o-empty-space|o-focus|o-schema-marshall?|o-validate?|o-valida?|o-vali?|ode-value|onamespace-schema-location|um-buffers|um-buttons?|um-butto?|um-but|um-child-relations|um-children|um-columns?|um-colum?|um-col|um-dropped-files|um-entries|um-fields|um-formats|um-header-entries|um-items|um-iterations|um-lines|um-locked-columns?|um-locked-colum?|um-locked-col|um-log-files|um-messages|um-parameters|um-references|um-relations|um-replaced?|um-replac?|um-repl|um-results|um-selected-rows|um-selected-widgets|um-source-buffers|um-tabs|um-to-retain|um-top-buffers|um-visible-columns?|um-visible-colum?|um-visible-col|umeric-decimal-point?|umeric-decimal-poi?|umeric-decimal-p?|umeric-decimal?|umeric-decim?|umeric-dec|umeric-format?|umeric-form?|umeric-fo?|umeric-separator?|umeric-separat?|umeric-separ?|umeric-sep))\\b(?![#$\\-_%&])",
       "captures": {
         "1": {
           "name": "punctuation.separator.colon.abl"
@@ -4511,7 +4493,7 @@
       }
     },
     "handle-attributes-P": {
-      "match": "(?i)(:)(p(?:age-bottom?|age-bott?|age-top|arameter?|aramet?|aram|arent|arent-buffer|arent-fields-after|arent-fields-before|arent-id-relation|arent-relation?|arent-relati?|arent-rela?|arse-status|assword-field|athname|be-hash-algorithm?|be-hash-algorit?|be-hash-algor?|be-hash-alg|be-key-rounds|ersistent?|ersiste?|ersistent-cache-disabled|ersistent-procedure|fcolor?|fcol?|fc|ixels-per-column?|ixels-per-colu?|ixels-per-row|opup-menu?|opup-me?|opup-only?|opup-on?|osition|refer-dataset|repared|repare-string|rev-column?|rev-colu?|rev-sibling|rev-tab-item?|rev-tab-it?|rimary|rimary-passphrase|rinter-control-handle|rinter-hdc|rinter-name|rinter-port|rivate-data?|rivate-da?|rocedure-name|rocedure-type|rofiling|rogress-source?|rogress-sour?|rogress-so?|roxy|roxy-password|roxy-userid|ublic-id|ublished-events))\\b(?![#$\\-_%&])",
+      "match": "(?i)(:)(p(?:age-bottom?|age-bott?|age-top|arameter?|aramet?|aram|arent|arent-buffer|arent-fields-after|arent-fields-before|arent-id-relation|arent-relation?|arent-relati?|arent-rela?|arse-status|assword-field|athname|be-hash-algorithm?|be-hash-algorit?|be-hash-algor?|be-hash-alg|be-key-rounds|ersistent-cache-disabled|ersistent-procedure|ersistent?|ersiste?|fcolor?|fcol?|fc|ixels-per-column?|ixels-per-colu?|ixels-per-row|opup-menu?|opup-me?|opup-only?|opup-on?|osition|refer-dataset|repare-string|repared|rev-column?|rev-colu?|rev-sibling|rev-tab-item?|rev-tab-it?|rimary|rimary-passphrase|rinter-control-handle|rinter-hdc|rinter-name|rinter-port|rivate-data?|rivate-da?|rocedure-name|rocedure-type|rofiling|rogress-source?|rogress-sour?|rogress-so?|roxy|roxy-password|roxy-userid|ublic-id|ublished-events))\\b(?![#$\\-_%&])",
       "captures": {
         "1": {
           "name": "punctuation.separator.colon.abl"
@@ -4533,7 +4515,7 @@
       }
     },
     "handle-attributes-R": {
-      "match": "(?i)(:)(r(?:adio-buttons|ead-only|ecid|ecord-length?|ecord-leng?|ecursive|efreshable|ejected|elation-fields?|elation-fiel?|elation-fi|elations-active|emote|emote-host|emote-port|eposition|equest-info|esizable?|esizab?|esize|esponse-info|estart-row|estart-rowid|etain-shape?|etain-sha?|etain-s|eturn-inserted?|eturn-insert?|eturn-inse?|eturn-value?|eturn-val|eturn-value-data-type|eturn-value-dll-type|oles??|ounded|ow|ow-height-chars?|ow-height-cha?|ow-height-c|ow-height-pixels?|ow-height-pixe?|ow-height-pi?|ow-state|owid|ow-markers?|ow-marke?|ow-mar?|ow-resizable))\\b(?![#$\\-_%&])",
+      "match": "(?i)(:)(r(?:adio-buttons|ead-only|ecid|ecord-length?|ecord-leng?|ecursive|efreshable|ejected|elation-fields?|elation-fiel?|elation-fi|elations-active|emote|emote-host|emote-port|eposition|equest-info|esizable?|esizab?|esize|esponse-info|estart-row|estart-rowid|etain-shape?|etain-sha?|etain-s|eturn-inserted?|eturn-insert?|eturn-inse?|eturn-value-data-type|eturn-value-dll-type|eturn-value?|eturn-val|oles??|ounded|ow|ow-height-chars?|ow-height-cha?|ow-height-c|ow-height-pixels?|ow-height-pixe?|ow-height-pi?|ow-markers?|ow-marke?|ow-mar?|ow-resizable|ow-state|owid))\\b(?![#$\\-_%&])",
       "captures": {
         "1": {
           "name": "punctuation.separator.colon.abl"
@@ -4544,7 +4526,7 @@
       }
     },
     "handle-attributes-S": {
-      "match": "(?i)(:)(s(?:ave-where-string|chema-change|chema-location|chema-marshal|chema-path|creen-lines|creen-value?|creen-val|croll-bars|crollable|crollbar-horizontal?|crollbar-horizont?|crollbar-horizo?|crollbar-hori?|crollbar-ho?|crollbar-vertical?|crollbar-vertic?|crollbar-vert?|crollbar-ve?|eal-timestamp|electable|elected|election-end|election-start|election-text|ensitive|eparators|eparator-fgcolor?|eparator-fgcol?|eparator-fgc|erialize-hidden|erialize-name|erver|erver-connection-bound?|erver-connection-bou?|erver-connection-bound-request?|erver-connection-bound-reque?|erver-connection-bound-req?|erver-connection-context?|erver-connection-conte?|erver-connection-con?|erver-connection-id|erver-operating-mode|ession-end|ession-id|how-in-taskbar?|how-in-taskb?|ide-label-handle?|ide-label-hand?|ide-label-ha?|ide-labels|ignature-value|ingle-run|ingleton|kip-deleted-record?|kip-deleted-reco?|mall-icon|mall-title|oap-fault-actor|oap-fault-code|oap-fault-detail|oap-fault-misunderstood-header|oap-fault-node|oap-fault-role|oap-fault-string|oap-fault-subcode|oap-version|ort|ort-ascending|ort-number|sl-server-name|tandalone|tartup-parameters|tate-detail|tatistics|tatus-area|tatus-area-font|top|top-object|topped?|tream|tretch-to-fit|trict|trict-entity-resolution|ubtype|uper-procedures?|uper-procedur?|uper-proced?|uper-proc|uppress-namespace-processing|uppress-warnings?|uppress-warnin?|uppress-warn?|uppress-wa?|uppress-warnings-list|ymmetric-encryption-aad|ymmetric-encryption-algorithm|ymmetric-encryption-iv|ymmetric-encryption-key|ymmetric-support|ystem-alert-boxes?|ystem-alert-box?|ystem-alert-b?|ystem-alert|ystem-id))\\b(?![#$\\-_%&])",
+      "match": "(?i)(:)(s(?:ave-where-string|chema-change|chema-location|chema-marshal|chema-path|creen-lines|creen-value?|creen-val|croll-bars|crollable|crollbar-horizontal?|crollbar-horizont?|crollbar-horizo?|crollbar-hori?|crollbar-ho?|crollbar-vertical?|crollbar-vertic?|crollbar-vert?|crollbar-ve?|eal-timestamp|electable|elected|election-end|election-start|election-text|ensitive|eparator-fgcolor?|eparator-fgcol?|eparator-fgc|eparators|erialize-hidden|erialize-name|erver|erver-connection-bound-request?|erver-connection-bound-reque?|erver-connection-bound-req?|erver-connection-bound?|erver-connection-bou?|erver-connection-context?|erver-connection-conte?|erver-connection-con?|erver-connection-id|erver-operating-mode|ession-end|ession-id|how-in-taskbar?|how-in-taskb?|ide-label-handle?|ide-label-hand?|ide-label-ha?|ide-labels|ignature-value|ingle-run|ingleton|kip-deleted-record?|kip-deleted-reco?|mall-icon|mall-title|oap-fault-actor|oap-fault-code|oap-fault-detail|oap-fault-misunderstood-header|oap-fault-node|oap-fault-role|oap-fault-string|oap-fault-subcode|oap-version|ort|ort-ascending|ort-number|sl-server-name|tandalone|tartup-parameters|tate-detail|tatistics|tatus-area|tatus-area-font|top|top-object|topped?|tream|tretch-to-fit|trict|trict-entity-resolution|ubtype|uper-procedures?|uper-procedur?|uper-proced?|uper-proc|uppress-namespace-processing|uppress-warnings-list|uppress-warnings?|uppress-warnin?|uppress-warn?|uppress-wa?|ymmetric-encryption-aad|ymmetric-encryption-algorithm|ymmetric-encryption-iv|ymmetric-encryption-key|ymmetric-support|ystem-alert-boxes?|ystem-alert-box?|ystem-alert-b?|ystem-alert|ystem-id))\\b(?![#$\\-_%&])",
       "captures": {
         "1": {
           "name": "punctuation.separator.colon.abl"
@@ -4555,7 +4537,7 @@
       }
     },
     "handle-attributes-T": {
-      "match": "(?i)(:)(t(?:ab-position|ab-stop|able|able-crc-list|able-handle|able-list|able-number?|able-numb?|emp-directory?|emp-directo?|emp-direc?|emp-dir|ext-selected|hread-safe|hree-d|ic-marks|ime-source|imezone|itle|itle-bgcolor?|itle-bgcol?|itle-bgc|itle-dcolor?|itle-dcol?|itle-dc|itle-fgcolor?|itle-fgcol?|itle-fgc|itle-font?|itle-fo|oggle-box|ooltips??|op-nav-query|op-only|race-filter|racing|racking-changes|ransaction?|ransacti?|ransparent?|ranspare?|rans-init-procedure?|rans-init-procedu?|rans-init-proce?|ype))\\b(?![#$\\-_%&])",
+      "match": "(?i)(:)(t(?:ab-position|ab-stop|able|able-crc-list|able-handle|able-list|able-number?|able-numb?|emp-directory?|emp-directo?|emp-direc?|emp-dir|ext-selected|hread-safe|hree-d|ic-marks|ime-source|imezone|itle|itle-bgcolor?|itle-bgcol?|itle-bgc|itle-dcolor?|itle-dcol?|itle-dc|itle-fgcolor?|itle-fgcol?|itle-fgc|itle-font?|itle-fo|oggle-box|ooltips??|op-nav-query|op-only|race-filter|racing|racking-changes|rans-init-procedure?|rans-init-procedu?|rans-init-proce?|ransaction?|ransacti?|ransparent?|ranspare?|ype))\\b(?![#$\\-_%&])",
       "captures": {
         "1": {
           "name": "punctuation.separator.colon.abl"
@@ -4811,7 +4793,7 @@
       ]
     },
     "handle-methods-G": {
-      "begin": "(?i)(:)(get-(?:attribute|attribute-node|binary-data|blue-value?|blue-val?|blue-v?|blue|browse-column?|browse-colu?|buffer-handle|bytes-available|callback-proc-context|callback-proc-name|cgi-list|cgi-value|cgi-long-value|changes|child|child-relation?|child-relati?|child-rela?|client|column|config-value|current?|curre?|dataset-buffer|document-element|dropped-file|dynamic|error-column|error-row|file-name|file-offset?|first?|green-value?|green-val?|green-v?|green|header-entry?|index-by-namespace-name|index-by-qname|iteration|last|localname-by-index|message|message-type|next|node|number|parent|prev|property|printers|qname-by-index|red-value?|red-val?|red-v?|red|relation?|relati?|rela?|repositioned-row|rgb-value?|rgb-val?|rgb-v?|rgb|row|safe-user|selected-widget?|selected-widg?|selected-wi?|selected-?|serialized|signature|socket-option|source-buffer|tab-item|text-height-chars?|text-height-cha?|text-height-c|text-height-pixels?|text-height-pixe?|text-height-pi?|text-width-chars?|text-width-cha?|text-width-c|text-width-pixels?|text-width-pixe?|text-width-pi?|top-buffer|type-by-index|type-by-namespace-name|type-by-qname|uri-by-index|value-by-index|value-by-namespace-name|value-by-qname|wait-state?|wait-sta?|wait-s?|wait))\\s*(?=\\()",
+      "begin": "(?i)(:)(get-(?:attribute|attribute-node|binary-data|blue-value?|blue-val?|blue-v?|blue|browse-column?|browse-colu?|buffer-handle|bytes-available|callback-proc-context|callback-proc-name|cgi-list|cgi-long-value|cgi-value|changes|child|child-relation?|child-relati?|child-rela?|client|column|config-value|current?|curre?|dataset-buffer|document-element|dropped-file|dynamic|error-column|error-row|file-name|file-offset?|first?|green-value?|green-val?|green-v?|green|header-entry?|index-by-namespace-name|index-by-qname|iteration|last|localname-by-index|message|message-type|next|node|number|parent|prev|printers|property|qname-by-index|red-value?|red-val?|red-v?|red|relation?|relati?|rela?|repositioned-row|rgb-value?|rgb-val?|rgb-v?|rgb|row|safe-user|selected-widget?|selected-widg?|selected-wi?|selected-?|serialized|signature|socket-option|source-buffer|tab-item|text-height-chars?|text-height-cha?|text-height-c|text-height-pixels?|text-height-pixe?|text-height-pi?|text-width-chars?|text-width-cha?|text-width-c|text-width-pixels?|text-width-pixe?|text-width-pi?|top-buffer|type-by-index|type-by-namespace-name|type-by-qname|uri-by-index|value-by-index|value-by-namespace-name|value-by-qname|wait-state?|wait-sta?|wait-s?|wait))\\s*(?=\\()",
       "beginCaptures": {
         "1": {
           "name": "punctuation.separator.colon.abl"
@@ -5209,7 +5191,7 @@
     },
     "abl-functions-D": {
       "name": "meta.function-call.abl",
-      "begin": "(?i)\\s*(d(?:ataservers|ata-source-modified|ate|atetime|atetime-tz|ay|bcodepage|bcollation|bname|bparam|b-remote-host|brestrictions?|brestrictio?|brestrict?|brestri?|brest|btaskid|btype|bversion?|bversi?|ecimal?|ecim?|ec|ecrypt|efined|ynamic-cast|ynamic-current-value|ynamic-enum|ynamic-function?|ynamic-functi?|ynamic-func|ynamic-invoke|ynamic-next-value|ynamic-property))\\s*(?=\\()",
+      "begin": "(?i)\\s*(d(?:ata-source-modified|ataservers|ate|atetime|atetime-tz|ay|b-remote-host|bcodepage|bcollation|bname|bparam|brestrictions?|brestrictio?|brestrict?|brestri?|brest|btaskid|btype|bversion?|bversi?|ecimal?|ecim?|ec|ecrypt|efined|ynamic-cast|ynamic-current-value|ynamic-enum|ynamic-function?|ynamic-functi?|ynamic-func|ynamic-invoke|ynamic-next-value|ynamic-property))\\s*(?=\\()",
       "beginCaptures": {
         "1": {
           "name": "support.function.abl"
@@ -5349,7 +5331,7 @@
     },
     "abl-functions-L": {
       "name": "meta.function-call.abl",
-      "begin": "(?i)\\s*(last|lastkey|last-of|lc|ldbname|left-trim|length|library|line-counter?|line-count|list-events|list-query-attrs|list-set-attrs|list-widgets|locked|log|(log(?:i(?:cal?|c?))?)|lo?|(longch(?:ar?)?)|lookup|lower)\\s*(?=\\()",
+      "begin": "(?i)\\s*((log(?:i(?:cal?|c?))?)|lo?|(longch(?:ar?)?)|last|last-of|lastkey|lc|ldbname|left-trim|length|library|line-counter?|line-count|list-events|list-query-attrs|list-set-attrs|list-widgets|locked|log|lookup|lower)\\s*(?=\\()",
       "beginCaptures": {
         "1": {
           "name": "support.function.abl"
@@ -5409,7 +5391,7 @@
     },
     "abl-functions-O": {
       "name": "meta.function-call.abl",
-      "begin": "(?i)\\s*(o(?:psys|s-drives?|s-error|s-getenv|s-dir))\\s*(?=\\()",
+      "begin": "(?i)\\s*(o(?:psys|s-dir|s-drives?|s-error|s-getenv))\\s*(?=\\()",
       "beginCaptures": {
         "1": {
           "name": "support.function.abl"
@@ -5469,7 +5451,7 @@
     },
     "abl-functions-R": {
       "name": "meta.function-call.abl",
-      "begin": "(?i)\\s*(r(?:elation-fields?|elation-fiel?|elation-fi|-index|andom|aw|ecid|ecord-length?|ecord-leng?|ejected|eplace|etry|eturn-value?|eturn-val|gb-value?|gb-val?|gb-v|ight-trim|ound|ow-state|owid|eturn))\\s*(?=\\()",
+      "begin": "(?i)\\s*(r(?:-index|andom|aw|ecid|ecord-length?|ecord-leng?|ejected|elation-fields?|elation-fiel?|elation-fi|eplace|etry|eturn|eturn-value?|eturn-val|gb-value?|gb-val?|gb-v|ight-trim|ound|ow-state|owid))\\s*(?=\\()",
       "beginCaptures": {
         "1": {
           "name": "support.function.abl"
@@ -5489,7 +5471,7 @@
     },
     "abl-functions-S": {
       "name": "meta.function-call.abl",
-      "begin": "(?i)\\s*(s(?:creen-lines|dbname|earch|eek|et-db-client|et-effective-tenant|et-size|etuserid?|etuser|ha1-digest|qrt|sl-server-name|tring|ubstitute?|ubstitu?|ubsti?|ubstring?|ubstri?|uper|kip))\\s*(?=\\()",
+      "begin": "(?i)\\s*(s(?:creen-lines|dbname|earch|eek|et-db-client|et-effective-tenant|et-size|etuserid?|etuser|ha1-digest|kip|qrt|sl-server-name|tring|ubstitute?|ubstitu?|ubsti?|ubstring?|ubstri?|uper))\\s*(?=\\()",
       "beginCaptures": {
         "1": {
           "name": "support.function.abl"
@@ -5509,7 +5491,7 @@
     },
     "abl-functions-T": {
       "name": "meta.function-call.abl",
-      "begin": "(?i)\\s*(t(?:enant-id|enant-name|enant-name-to-id|erminal|ime|imezone|oday|o-rowid|ransaction?|ransacti?|rim|runcate?|runca?|ype-of|his-object))\\s*(?=\\()",
+      "begin": "(?i)\\s*(t(?:enant-id|enant-name|enant-name-to-id|erminal|his-object|ime|imezone|o-rowid|oday|ransaction?|ransacti?|rim|runcate?|runca?|ype-of))\\s*(?=\\()",
       "beginCaptures": {
         "1": {
           "name": "support.function.abl"
@@ -5549,7 +5531,7 @@
     },
     "abl-functions-V": {
       "name": "meta.function-call.abl",
-      "begin": "(?i)\\s*(val(?:ue|id-event|id-handle|id-object))\\s*(?=\\()",
+      "begin": "(?i)\\s*(val(?:id-event|id-handle|id-object|ue))\\s*(?=\\()",
       "beginCaptures": {
         "1": {
           "name": "support.function.abl"

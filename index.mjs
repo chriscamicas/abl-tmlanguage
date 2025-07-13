@@ -48,6 +48,7 @@ alsoStatements.push('centered');
 alsoStatements.push('column-label');
 alsoStatements.push('context-help-id');
 alsoStatements.push('dcolor');
+alsoStatements.push('default-button');
 alsoStatements.push('default');
 alsoStatements.push('delete');
 alsoStatements.push('delimiter');
@@ -83,10 +84,12 @@ alsoStatements.push('resize');
 alsoStatements.push('return-value');
 alsoStatements.push('row');
 alsoStatements.push('scroll-bars');
+alsoStatements.push('scrollable');
 alsoStatements.push('sensitive');
 alsoStatements.push('separators');
 alsoStatements.push('serialize-hidden');
 alsoStatements.push('serialize-name');
+alsoStatements.push('show-in-taskbar');
 alsoStatements.push('side-labels');
 alsoStatements.push('single-run');
 alsoStatements.push('status-area');
@@ -248,7 +251,7 @@ function getKwRegex(fullKw) {
   }
 }
 
-// Adds the kewword regex to the relevant block
+// Adds the keyword regex to the relevant block
 function addToBlock(charIdx, fullKw, minKw, kwRegex) {
   // We will use these to resolve the full keywords later
   if (!minKeywords.has(minKw)) {
@@ -281,7 +284,7 @@ function replaceKeywordsWithRegex (kwArray) {
 
   // remove any empty entries before joining
   // approach from https://stackoverflow.com/a/19903533/18177
-  return optimize(regexBlocks.filter(val => val).join('|')).pattern;
+  return optimize(regexBlocks.sort().filter(val => val).join('|')).pattern;
 }
 
 lineReaderFunctions.on('close', () => {
