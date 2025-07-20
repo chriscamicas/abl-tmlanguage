@@ -97,9 +97,11 @@ alsoStatements.push('three-d');
 alsoStatements.push('title');
 alsoStatements.push('tooltip');
 alsoStatements.push('transaction');
+alsoStatements.push('value');
 alsoStatements.push('view-as');
 alsoStatements.push('warning');
 alsoStatements.push('widget-id');
+alsoStatements.push('write');
 alsoStatements.push('xml-data-type');
 alsoStatements.push('xml-node-name');
 alsoStatements.push('xml-node-type');
@@ -131,11 +133,11 @@ minKeywords.set('var', 'variable');
 
 // This may holds the keyword names and their regex entries
 let keywordEntries = new Map();
-keywordEntries.set('logical', '(log(?:ical|ica|ic|i)?)|lo|l|(longch(?:ar|a)?)');
-keywordEntries.set('&global-define', '(?:&glob(?:al-define|al-defin|al-defi|al-def|al-de|al-d|al-|al|a)?)');
-keywordEntries.set('&scoped-define', '(?:&scop(?:ed-define|ed-defin|ed-defi|ed-def|ed-de|ed-d|ed-|ed|e)?)');
-keywordEntries.set('global', '(?:glob(?:al|a)?)');
-keywordEntries.set('variable', '(var(?:iable|iabl|iab|ia|i)?)');
+keywordEntries.set('logical', 'logical|logica|logic|logi|log|lo');
+keywordEntries.set('&global-define', '&global-define|&global-defin|&global-defi|&global-def|&global-de|&global-d|&global-|&global|&globa|&glob)');
+keywordEntries.set('&scoped-define', '&scoped-define|&scoped-defin|&scoped-defi|&scoped-def|&scoped-de|&scoped-d|&scoped-|&scoped|&scope|&scop');
+keywordEntries.set('global', 'global|globa|glob');
+keywordEntries.set('variable', 'variable|variabl|variab|varia|vari|var');
 
 lineReaderMethods.on('line', line => {
   let results;
@@ -284,9 +286,11 @@ function replaceKeywordsWithRegex (kwArray) {
     regexBlocks[idx] = getKwRegex(kwArray[idx]);
   }
 
+  let cleanBlocks = regexBlocks.sort().filter(val => val).join('|');
+
   // remove any empty entries before joining
   // approach from https://stackoverflow.com/a/19903533/18177
-  return optimize(regexBlocks.sort().filter(val => val).join('|')).pattern;
+  return optimize(cleanBlocks).pattern;
 }
 
 lineReaderFunctions.on('close', () => {

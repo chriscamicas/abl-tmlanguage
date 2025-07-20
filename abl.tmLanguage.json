@@ -12,6 +12,49 @@
     }
   ],
   "repository": {
+    "trigger-procedure": {
+      "begin": "(?i)\\b(trigger)\\s+(proce(?:dure|dur|du|d)?)\\b",
+      "beginCaptures": {
+        "1": {
+          "name": "keyword.other.abl"
+        },
+        "2": {
+          "name": "keyword.other.abl"
+        }
+      },
+      "end": "(?=:|\\.)",
+      "endCaptures": {
+        "1": {
+          "name": "punctuation.terminator.abl"
+        }
+      },
+      "patterns": [
+        {
+          "include": "#comment"
+        },
+        {
+          "include": "#preprocessors"
+        },
+        {
+          "include": "#primitive-type"
+        },
+        {
+          "include": "#variable-as"
+        },
+        {
+          "include": "#variable-like"
+        },
+        {
+          "include": "#keywords"
+        },
+        {
+          "include": "#db-dot-table"
+        },
+        {
+          "include": "#string"
+        }
+      ]
+    },
     "procedure-definition": {
       "name": "meta.procedure.abl",
       "comment": "Look ahead to the procedure name, quoted or not. It will be resolved in the patterns. 'Names must begin with a letter.' from https://docs.progress.com/bundle/openedge-abl-manage-applications/page/Name-limits.html",
@@ -432,6 +475,9 @@
       "patterns": [
         {
           "include": "#comment"
+        },
+        {
+          "include": "#trigger-procedure"
         },
         {
           "include": "#abl-function-variable-arg"
@@ -1093,8 +1139,8 @@
       }
     },
     "db-dot-table": {
-      "match": "(?i)\\b([a-zA-Z_][a-zA-Z0-9#$\\-_%&]*(\\.[a-zA-Z_][a-zA-Z0-9#$\\-_%&]*)?)\\b",
-      "comment": "Looks for format of 'table', with an optional preceding 'db.'. This pattern may conflict with type names",
+      "match": "(?i)\\b([a-zA-Z_][a-zA-Z0-9#$\\-_%&]*(\\.[a-zA-Z_][a-zA-Z0-9#$\\-_%&]*)?)(?=[^a-zA-Z0-9#$\\-_%&])",
+      "comment": "Looks for format of 'table', with an optional preceding 'db.'. This pattern may conflict with type names. The last option must not be a word boundary since that includes dashes",
       "captures": {
         "1": {
           "name": "storage.data.table.abl"
@@ -1622,7 +1668,7 @@
       }
     },
     "variable-as": {
-      "match": "\\s*([a-zA-Z0-9_\\-#$%\\-]+)\\s+([Aa][Ss])\\s*",
+      "match": "\\s*([a-zA-Z0-9_\\-#$%\\-]+)\\s+([Aa][Ss])\\b",
       "captures": {
         "1": {
           "name": "variable.other.abl"
@@ -2168,10 +2214,10 @@
       "end": "(?=\\.)",
       "patterns": [
         {
-          "include": "#keywords"
+          "include": "#abl-functions"
         },
         {
-          "include": "#abl-functions"
+          "include": "#keywords"
         },
         {
           "match": "\\b([a-zA-Z0-9][a-zA-Z0-9_\\-]*)\\b",
@@ -4126,7 +4172,7 @@
     },
     "keywords-G": {
       "comment": "The keyword must not have a trailing variable character (one of #$-_%&)",
-      "match": "(?i)\\b(g(?:lob(?:al?)?|e|enerate-md5|et|et-attr-call-type|et-dir|et-file|et-key-value?|et-key-val|et-text-height|et-text-width|etbyte|o|o-on|oto|rant|rant-archive|raphic-edge?|raphic-ed?|rayed|rid-set|rid-unit-height|rid-unit-width|roup|t))\\b(?![#$\\-_%&])",
+      "match": "(?i)\\b(g(?:e|enerate-md5|et|et-attr-call-type|et-dir|et-file|et-key-value?|et-key-val|et-text-height|et-text-width|etbyte|lobal?|lob|o|o-on|oto|rant|rant-archive|raphic-edge?|raphic-ed?|rayed|rid-set|rid-unit-height|rid-unit-width|roup|t))\\b(?![#$\\-_%&])",
       "captures": {
         "1": {
           "name": "keyword.other.abl"
@@ -4261,7 +4307,7 @@
     },
     "keywords-V": {
       "comment": "The keyword must not have a trailing variable character (one of #$-_%&)",
-      "match": "(?i)\\b((var(?:i(?:able?|ab?|))?)|v6frame|validate|value-changed|values|var|verbose?|verbo?|vertical?|vertic?|vert|view|view-as|virtual-height|virtual-width|vms|void)\\b(?![#$\\-_%&])",
+      "match": "(?i)\\b(v(?:6frame|alidate|alue|alue-changed|alues|ar|ariable?|ariab?|ari?|erbose?|erbo?|ertical?|ertic?|ert|iew|iew-as|irtual-height|irtual-width|ms|oid))\\b(?![#$\\-_%&])",
       "captures": {
         "1": {
           "name": "keyword.other.abl"
@@ -4270,7 +4316,7 @@
     },
     "keywords-W": {
       "comment": "The keyword must not have a trailing variable character (one of #$-_%&)",
-      "match": "(?i)\\b(w(?:ait|ait-for|arning|eb-context?|eb-conte?|eb-con|eb-notify|hen|here|hile|idget|idget-id|idget-pool|idth|indow-close|indow-delayed-minimize?|indow-delayed-minimi?|indow-delayed-mini?|indow-maximized?|indow-maximiz?|indow-maxim|indow-minimized?|indow-minimiz?|indow-minim|indow-name|indow-normal|indow-resized|indow-restored|ith|ord-index|ork-table?|ork-tab|orkfile))\\b(?![#$\\-_%&])",
+      "match": "(?i)\\b(w(?:ait|ait-for|arning|eb-context?|eb-conte?|eb-con|eb-notify|hen|here|hile|idget|idget-id|idget-pool|idth|indow-close|indow-delayed-minimize?|indow-delayed-minimi?|indow-delayed-mini?|indow-maximized?|indow-maximiz?|indow-maxim|indow-minimized?|indow-minimiz?|indow-minim|indow-name|indow-normal|indow-resized|indow-restored|ith|ord-index|ork-table?|ork-tab|orkfile|rite))\\b(?![#$\\-_%&])",
       "captures": {
         "1": {
           "name": "keyword.other.abl"
@@ -5364,7 +5410,7 @@
     },
     "abl-functions-L": {
       "name": "meta.function-call.abl",
-      "begin": "(?i)\\s*((log(?:i(?:cal?|c?))?)|lo?|(longch(?:ar?)?)|last|last-of|lastkey|lc|ldbname|left-trim|length|library|line-counter?|line-count|list-events|list-query-attrs|list-set-attrs|list-widgets|locked|log|lookup|lower)\\s*(?=\\()",
+      "begin": "(?i)\\s*(l(?:ast|ast-of|astkey|c|dbname|eft-trim|ength|ibrary|ine-counter?|ine-count|ist-events|ist-query-attrs|ist-set-attrs|ist-widgets|ocked|og|ogical?|ogic?|og?|ookup|ower))\\s*(?=\\()",
       "beginCaptures": {
         "1": {
           "name": "support.function.abl"
