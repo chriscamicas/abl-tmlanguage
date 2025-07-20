@@ -135,3 +135,99 @@ describe('', () => {
   ];
   shared.itShouldMatchExpectedScopes(statement, expectedTokens);
 })
+
+describe('', () => {
+  let statement = `if new ({&file}) or {&file}.name <> old-{&file}.name then.`;
+  let expectedTokens = [
+    { "startIndex": 0, "endIndex": 2, "scopes": ["source.abl", "keyword.other.abl"] },  // 'if'
+    { "startIndex": 2, "endIndex": 3, "scopes": ["source.abl", "meta.function-call.abl"] },  // ' '
+    { "startIndex": 3, "endIndex": 6, "scopes": ["source.abl", "meta.function-call.abl", "support.function.abl"] },  // 'new'
+    { "startIndex": 6, "endIndex": 7, "scopes": ["source.abl", "meta.function-call.abl"] },  // ' '
+    { "startIndex": 7, "endIndex": 8, "scopes": ["source.abl", "meta.function-call.abl", "meta.function.arguments.abl", "meta.brace.round.js"] },  // '('
+    { "startIndex": 8, "endIndex": 15, "scopes": ["source.abl", "meta.function-call.abl", "meta.function.arguments.abl", "storage.type.function.abl"] },  // '{&file}'
+    { "startIndex": 15, "endIndex": 16, "scopes": ["source.abl", "meta.function-call.abl", "meta.brace.round.js"] },  // ')'
+    { "startIndex": 16, "endIndex": 17, "scopes": ["source.abl"] },  // ' '
+    { "startIndex": 17, "endIndex": 19, "scopes": ["source.abl", "keyword.other.abl"] },  // 'or'
+    { "startIndex": 19, "endIndex": 20, "scopes": ["source.abl"] },  // ' '
+    { "startIndex": 20, "endIndex": 27, "scopes": ["source.abl", "storage.type.function.abl"] },  // '{&file}'
+    { "startIndex": 27, "endIndex": 28, "scopes": ["source.abl", "punctuation.terminator.abl"] },  // '.'
+    { "startIndex": 28, "endIndex": 33, "scopes": ["source.abl"] },  // 'name '
+    { "startIndex": 33, "endIndex": 35, "scopes": ["source.abl", "keyword.operator.source.abl"] },  // '<>'
+    { "startIndex": 35, "endIndex": 39, "scopes": ["source.abl"] },  // ' old'
+    { "startIndex": 39, "endIndex": 40, "scopes": ["source.abl", "keyword.operator.source.abl"] },  // '-'
+    { "startIndex": 40, "endIndex": 47, "scopes": ["source.abl", "storage.type.function.abl"] },  // '{&file}'
+    { "startIndex": 47, "endIndex": 48, "scopes": ["source.abl", "punctuation.terminator.abl"] },  // '.'
+    { "startIndex": 48, "endIndex": 53, "scopes": ["source.abl"] },  // 'name '
+    { "startIndex": 53, "endIndex": 57, "scopes": ["source.abl", "keyword.other.abl"] },  // 'then'
+    { "startIndex": 57, "endIndex": 58, "scopes": ["source.abl", "punctuation.terminator.abl"] }  // '.'
+  ];
+  shared.itShouldMatchExpectedScopes(statement, expectedTokens);
+})
+
+describe('', () => {
+  let statement = `if new {&file} or {&file}.name <> old-{&file}.name then.`;
+  let expectedTokens = [
+    { "startIndex": 0, "endIndex": 2, "scopes": ["source.abl", "keyword.other.abl"] },  // 'if'
+    { "startIndex": 2, "endIndex": 3, "scopes": ["source.abl"] },  // ' '
+    { "startIndex": 3, "endIndex": 6, "scopes": ["source.abl", "support.function.abl"] },  // 'new'
+    { "startIndex": 6, "endIndex": 7, "scopes": ["source.abl"] },  // ' '
+    { "startIndex": 7, "endIndex": 14, "scopes": ["source.abl", "storage.data.table.abl"] },  // '{&file}'
+    { "startIndex": 14, "endIndex": 15, "scopes": ["source.abl"] },  // ' '
+    { "startIndex": 15, "endIndex": 17, "scopes": ["source.abl", "keyword.other.abl"] },  // 'or'
+    { "startIndex": 17, "endIndex": 18, "scopes": ["source.abl"] },  // ' '
+    { "startIndex": 18, "endIndex": 25, "scopes": ["source.abl", "storage.type.function.abl"] },  // '{&file}'
+    { "startIndex": 25, "endIndex": 26, "scopes": ["source.abl", "punctuation.terminator.abl"] },  // '.'
+    { "startIndex": 26, "endIndex": 31, "scopes": ["source.abl"] },  // 'name '
+    { "startIndex": 31, "endIndex": 33, "scopes": ["source.abl", "keyword.operator.source.abl"] },  // '<>'
+    { "startIndex": 33, "endIndex": 37, "scopes": ["source.abl"] },  // ' old'
+    { "startIndex": 37, "endIndex": 38, "scopes": ["source.abl", "keyword.operator.source.abl"] },  // '-'
+    { "startIndex": 38, "endIndex": 45, "scopes": ["source.abl", "storage.type.function.abl"] },  // '{&file}'
+    { "startIndex": 45, "endIndex": 46, "scopes": ["source.abl", "punctuation.terminator.abl"] },  // '.'
+    { "startIndex": 46, "endIndex": 51, "scopes": ["source.abl"] },  // 'name '
+    { "startIndex": 51, "endIndex": 55, "scopes": ["source.abl", "keyword.other.abl"] },  // 'then'
+    { "startIndex": 55, "endIndex": 56, "scopes": ["source.abl", "punctuation.terminator.abl"] }  // '.'
+  ];
+  shared.itShouldMatchExpectedScopes(statement, expectedTokens);
+})
+
+describe('', () => {
+  let statement = `if new buf-{&file} or buf-{&file}.name <> old-{&file}.name then.`;
+  let expectedTokens = [
+    { "startIndex": 0, "endIndex": 2, "scopes": ["source.abl", "keyword.other.abl"] },  // 'if'
+    { "startIndex": 2, "endIndex": 3, "scopes": ["source.abl"] },  // ' '
+    { "startIndex": 3, "endIndex": 6, "scopes": ["source.abl", "support.function.abl"] },  // 'new'
+    { "startIndex": 6, "endIndex": 7, "scopes": ["source.abl"] },  // ' '
+    { "startIndex": 7, "endIndex": 18, "scopes": ["source.abl", "storage.data.table.abl"] },  // 'buf-{&file}'
+    { "startIndex": 18, "endIndex": 19, "scopes": ["source.abl"] },  // ' '
+    { "startIndex": 19, "endIndex": 21, "scopes": ["source.abl", "keyword.other.abl"] },  // 'or'
+    { "startIndex": 21, "endIndex": 25, "scopes": ["source.abl"] },  // ' buf'
+    { "startIndex": 25, "endIndex": 26, "scopes": ["source.abl", "keyword.operator.source.abl"] },  // '-'
+    { "startIndex": 26, "endIndex": 33, "scopes": ["source.abl", "storage.type.function.abl"] },  // '{&file}'
+    { "startIndex": 33, "endIndex": 34, "scopes": ["source.abl", "punctuation.terminator.abl"] },  // '.'
+    { "startIndex": 34, "endIndex": 39, "scopes": ["source.abl"] },  // 'name '
+    { "startIndex": 39, "endIndex": 41, "scopes": ["source.abl", "keyword.operator.source.abl"] },  // '<>'
+    { "startIndex": 41, "endIndex": 45, "scopes": ["source.abl"] },  // ' old'
+    { "startIndex": 45, "endIndex": 46, "scopes": ["source.abl", "keyword.operator.source.abl"] },  // '-'
+    { "startIndex": 46, "endIndex": 53, "scopes": ["source.abl", "storage.type.function.abl"] },  // '{&file}'
+    { "startIndex": 53, "endIndex": 54, "scopes": ["source.abl", "punctuation.terminator.abl"] },  // '.'
+    { "startIndex": 54, "endIndex": 59, "scopes": ["source.abl"] },  // 'name '
+    { "startIndex": 59, "endIndex": 63, "scopes": ["source.abl", "keyword.other.abl"] },  // 'then'
+    { "startIndex": 63, "endIndex": 64, "scopes": ["source.abl", "punctuation.terminator.abl"] }  // '.'
+  ];
+  shared.itShouldMatchExpectedScopes(statement, expectedTokens);
+})
+
+describe('', () => {
+  let statement = `if new buf-{&file}-update then.`;
+  let expectedTokens = [
+    { "startIndex": 0, "endIndex": 2, "scopes": ["source.abl", "keyword.other.abl"] },  // 'if'
+    { "startIndex": 2, "endIndex": 3, "scopes": ["source.abl"] },  // ' '
+    { "startIndex": 3, "endIndex": 6, "scopes": ["source.abl", "support.function.abl"] },  // 'new'
+    { "startIndex": 6, "endIndex": 7, "scopes": ["source.abl"] },  // ' '
+    { "startIndex": 7, "endIndex": 25, "scopes": ["source.abl", "storage.data.table.abl"] },  // 'buf-{&file}-update'
+    { "startIndex": 25, "endIndex": 26, "scopes": ["source.abl"] },  // ' '
+    { "startIndex": 26, "endIndex": 30, "scopes": ["source.abl", "keyword.other.abl"] },  // 'then'
+    { "startIndex": 30, "endIndex": 31, "scopes": ["source.abl", "punctuation.terminator.abl"] }  // '.'
+  ];
+  shared.itShouldMatchExpectedScopes(statement, expectedTokens);
+})
