@@ -477,6 +477,9 @@
           "include": "#comment"
         },
         {
+          "include": "#buffer-copy"
+        },
+        {
           "include": "#trigger-procedure"
         },
         {
@@ -4033,6 +4036,159 @@
               "name": "storage.data.table.abl"
             }
           }
+        }
+      ]
+    },
+    "assign-statment": {
+      "patterns": [
+        {
+          "include": "#abl-functions"
+        },
+        {
+          "include": "#language-functions"
+        },
+        {
+          "include": "#string"
+        },
+        {
+          "include": "#expression"
+        },
+        {
+          "include": "#argument-reference"
+        },
+        {
+          "include": "#preprocessors"
+        },
+        {
+          "include": "#attribute-access"
+        },
+        {
+          "include": "#buffer-name"
+        },
+        {
+          "include": "#can-find"
+        },
+        {
+          "include": "#abl-system-handles"
+        },
+        {
+          "include": "#db-dot-table-dot-field"
+        },
+        {
+          "include": "#extent"
+        },
+        {
+          "include": "#function-arguments"
+        },
+        {
+          "include": "#get-class"
+        },
+        {
+          "include": "#handle-attributes"
+        },
+        {
+          "include": "#handle-methods"
+        },
+        {
+          "include": "#if-then"
+        },
+        {
+          "include": "#operator"
+        },
+        {
+          "include": "#type-member-call"
+        },
+        {
+          "include": "#include-file"
+        },
+        {
+          "include": "#new-record"
+        },
+        {
+          "include": "#new-class"
+        },
+        {
+          "include": "#record-buffer-functions"
+        },
+        {
+          "include": "#rowid-function"
+        },
+        {
+          "include": "#type-names"
+        }
+      ]
+    },
+    "buffer-copy": {
+      "begin": "(?i)\\b(buffer-copy)\\s+([a-zA-Z_][a-zA-Z0-9_\\-#$%]+(\\.[a-zA-Z][a-zA-Z0-9_\\-#$%]*)?)",
+      "beginCaptures": {
+        "1": {
+          "name": "keyword.other.abl"
+        },
+        "2": {
+          "name": "storage.data.table.abl"
+        }
+      },
+      "end": "(?=\\.)",
+      "patterns": [
+        {
+          "match": "\\b([Tt][Oo])\\s+([a-zA-Z_][a-zA-Z0-9_\\-#$%]+(\\.[a-zA-Z][a-zA-Z0-9_\\-#$%]*)?)",
+          "captures": {
+            "1": {
+              "name": "keyword.other.abl"
+            },
+            "2": {
+              "name": "storage.data.table.abl"
+            }
+          }
+        },
+        {
+          "include": "#using-except"
+        },
+        {
+          "include": "#comment"
+        },
+        {
+          "include": "#preprocessors"
+        },
+        {
+          "match": "(?i)\\b(assign|no-lobs|no-error)\\b",
+          "captures": {
+            "1": {
+              "name": "keyword.other.abl"
+            }
+          }
+        },
+        {
+          "include": "#db-dot-table-dot-field"
+        },
+        {
+          "include": "#assign-statment"
+        },
+        {
+          "include": "#keywords"
+        },
+        {
+          "include": "#expression"
+        }
+      ]
+    },
+    "using-except": {
+      "begin": "(?i)\\b(using|except)\\b",
+      "beginCaptures": {
+        "1": {
+          "name": "keyword.other.abl"
+        }
+      },
+      "end": "(?i)\\s*(?=to|using|except)\\b",
+      "patterns": [
+        {
+          "include": "#field-name"
+        },
+        {
+          "include": "#comment"
+        },
+        {
+          "include": "#preprocessors"
         }
       ]
     },
