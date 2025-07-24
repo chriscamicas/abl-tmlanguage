@@ -222,3 +222,17 @@ describe('', () => {
   shared.itShouldMatchExpectedScopes(statement, expectedTokens);
 })
 
+describe('UNC path, FQDN, and multiple dots in the filename', () => {
+  // see: https://github.com/vscode-abl/vscode-abl/issues/362
+  let statement = `{\\\\fileserver.corp.company.com\\shared\\data\\config.backup.2024.07.29.i &DEBUG=TRUE}`;
+  let expectedTokens = [
+    { "startIndex": 0, "endIndex": 1, "scopes": ["source.abl", "meta.include.abl", "punctuation.section.abl"] },  // '{'
+    { "startIndex": 1, "endIndex": 69, "scopes": ["source.abl", "meta.include.abl", "entity.name.include.abl"] },  // '\\fileserver.corp.company.com\shared\data\config.backup.2024.07.29.i'
+    { "startIndex": 69, "endIndex": 70, "scopes": ["source.abl", "meta.include.abl"] },  // ' '
+    { "startIndex": 70, "endIndex": 76, "scopes": ["source.abl", "meta.include.abl", "meta.include.argument.abl", "support.other.argument.abl"] },  // '&DEBUG'
+    { "startIndex": 76, "endIndex": 77, "scopes": ["source.abl", "meta.include.abl", "meta.include.argument.abl", "keyword.operator.source.abl"] },  // '='
+    { "startIndex": 77, "endIndex": 81, "scopes": ["source.abl", "meta.include.abl", "support.other.argument.abl"] },  // 'TRUE'
+    { "startIndex": 81, "endIndex": 82, "scopes": ["source.abl", "meta.include.abl", "punctuation.section.abl"] }  // '}'
+  ];
+  shared.itShouldMatchExpectedScopes(statement, expectedTokens);
+});
