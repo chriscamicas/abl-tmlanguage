@@ -54,11 +54,11 @@ describe('', () => {
   let expectedTokens = [
     { "startIndex": 0, "endIndex": 3, "scopes": ["source.abl"] },  // '   '
     { "startIndex": 3, "endIndex": 6, "scopes": ["source.abl", "keyword.other.abl"] },  // 'run'
-    { "startIndex": 6, "endIndex": 7, "scopes": ["source.abl", "meta.function-call.abl"] },  // ' '
+    { "startIndex": 6, "endIndex": 7, "scopes": ["source.abl"] },  // ' '
     { "startIndex": 7, "endIndex": 12, "scopes": ["source.abl", "meta.function-call.abl", "support.function.abl"] },  // 'value'
     { "startIndex": 12, "endIndex": 13, "scopes": ["source.abl", "meta.function-call.abl", "meta.function.arguments.abl", "meta.brace.round.js"] },  // '('
     { "startIndex": 13, "endIndex": 22, "scopes": ["source.abl", "meta.function-call.abl", "meta.function.arguments.abl", "variable.other.abl"] },  // 'cPriogram'
-    { "startIndex": 22, "endIndex": 23, "scopes": ["source.abl", "meta.function-call.abl", "meta.brace.round.js"] },  // ')'ss
+    { "startIndex": 22, "endIndex": 23, "scopes": ["source.abl", "meta.function-call.abl", "meta.brace.round.js"] },  // ')'
     { "startIndex": 23, "endIndex": 24, "scopes": ["source.abl", "punctuation.terminator.abl"] }  // '.'
   ];
   shared.itShouldMatchExpectedScopes(statement, expectedTokens);
@@ -98,7 +98,9 @@ describe('', () => {
     { "startIndex": 0, "endIndex": 3, "scopes": ["source.abl"] },  // '   '
     { "startIndex": 3, "endIndex": 6, "scopes": ["source.abl", "keyword.other.abl"] },  // 'run'
     { "startIndex": 6, "endIndex": 7, "scopes": ["source.abl"] },  // ' '
-    { "startIndex": 7, "endIndex": 20, "scopes": ["source.abl", "entity.name.procedure.abl"] },  // '"a/program.p"'
+    { "startIndex": 7, "endIndex": 8, "scopes": ["source.abl", "string.double.complex.abl", "punctuation.definition.string.begin.abl"] },  // '"'
+    { "startIndex": 8, "endIndex": 19, "scopes": ["source.abl", "string.double.complex.abl"] },  // 'a/program.p'
+    { "startIndex": 19, "endIndex": 20, "scopes": ["source.abl", "string.double.complex.abl", "punctuation.definition.string.end.abl"] },  // '"'
     { "startIndex": 20, "endIndex": 21, "scopes": ["source.abl", "punctuation.terminator.abl"] }  // '.'
   ];
   shared.itShouldMatchExpectedScopes(statement, expectedTokens);
@@ -195,7 +197,9 @@ describe('', () => {
   let expectedTokens = [
     { "startIndex": 0, "endIndex": 3, "scopes": ["source.abl", "keyword.other.abl"] },  // 'run'
     { "startIndex": 3, "endIndex": 4, "scopes": ["source.abl"] },  // ' '
-    { "startIndex": 4, "endIndex": 38, "scopes": ["source.abl", "entity.name.procedure.abl"] },  // '"$SYSSYS/P/TestServerSockAppSrv.p"'
+    { "startIndex": 4, "endIndex": 5, "scopes": ["source.abl", "string.double.complex.abl", "punctuation.definition.string.begin.abl"] },  // '"'
+    { "startIndex": 5, "endIndex": 37, "scopes": ["source.abl", "string.double.complex.abl"] },  // '$SYSSYS/P/TestServerSockAppSrv.p'
+    { "startIndex": 37, "endIndex": 38, "scopes": ["source.abl", "string.double.complex.abl", "punctuation.definition.string.end.abl"] },  // '"'
     { "startIndex": 38, "endIndex": 39, "scopes": ["source.abl", "meta.function.arguments.abl", "meta.brace.round.js"] },  // '('
     { "startIndex": 39, "endIndex": 44, "scopes": ["source.abl", "meta.function.arguments.abl", "constant.numeric.source.abl"] },  // '31000'
     { "startIndex": 44, "endIndex": 45, "scopes": ["source.abl", "meta.brace.round.js"] },  // ')'
@@ -210,7 +214,9 @@ describe('', () => {
   let expectedTokens = [
     { "startIndex": 0, "endIndex": 3, "scopes": ["source.abl", "keyword.other.abl"] },  // 'run'
     { "startIndex": 3, "endIndex": 4, "scopes": ["source.abl"] },  // ' '
-    { "startIndex": 4, "endIndex": 38, "scopes": ["source.abl", "entity.name.procedure.abl"] },  // ''$SYSSYS/P/TestServerSockAppSrv.p''
+    { "startIndex": 4, "endIndex": 5, "scopes": ["source.abl", "string.single.complex.abl", "punctuation.definition.string.begin.abl"] },  // '''
+    { "startIndex": 5, "endIndex": 37, "scopes": ["source.abl", "string.single.complex.abl"] },  // '$SYSSYS/P/TestServerSockAppSrv.p'
+    { "startIndex": 37, "endIndex": 38, "scopes": ["source.abl", "string.single.complex.abl", "punctuation.definition.string.end.abl"] },  // '''
     { "startIndex": 38, "endIndex": 39, "scopes": ["source.abl"] },  // ' '
     { "startIndex": 39, "endIndex": 40, "scopes": ["source.abl", "meta.function.arguments.abl", "meta.brace.round.js"] },  // '('
     { "startIndex": 40, "endIndex": 45, "scopes": ["source.abl", "meta.function.arguments.abl", "constant.numeric.source.abl"] },  // '31000'
@@ -225,7 +231,7 @@ describe('', () => {
 
   let expectedTokens = [
     { "startIndex": 0, "endIndex": 3, "scopes": ["source.abl", "keyword.other.abl"] },  // 'run'
-    { "startIndex": 3, "endIndex": 4, "scopes": ["source.abl", "meta.function-call.abl"] },  // ' '
+    { "startIndex": 3, "endIndex": 4, "scopes": ["source.abl"] },  // ' '
     { "startIndex": 4, "endIndex": 9, "scopes": ["source.abl", "meta.function-call.abl", "support.function.abl"] },  // 'value'
     { "startIndex": 9, "endIndex": 10, "scopes": ["source.abl", "meta.function-call.abl", "meta.function.arguments.abl", "meta.brace.round.js"] },  // '('
     { "startIndex": 10, "endIndex": 16, "scopes": ["source.abl", "meta.function-call.abl", "meta.function.arguments.abl", "variable.other.abl"] },  // 'SYSSYS'
@@ -282,6 +288,40 @@ describe('', () => {
     { "startIndex": 3, "endIndex": 4, "scopes": ["source.abl"] },  // ' '
     { "startIndex": 4, "endIndex": 14, "scopes": ["source.abl", "entity.name.procedure.abl"] },  // 'foo/blah.r'
     { "startIndex": 14, "endIndex": 15, "scopes": ["source.abl", "punctuation.terminator.abl"] }  // '.'
+  ];
+  shared.itShouldMatchExpectedScopes(statement, expectedTokens);
+})
+
+describe('', () => {
+  let statement = `RUN {&rhdr}brslsag3.p{&rtrl} .`;
+
+  let expectedTokens = [
+    { "startIndex": 0, "endIndex": 3, "scopes": ["source.abl", "keyword.other.abl"] },  // 'RUN'
+    { "startIndex": 3, "endIndex": 4, "scopes": ["source.abl"] },  // ' '
+    { "startIndex": 4, "endIndex": 11, "scopes": ["source.abl", "support.other.argument.abl"] },  // '{&rhdr}'
+    { "startIndex": 11, "endIndex": 21, "scopes": ["source.abl", "entity.name.procedure.abl"] },  // 'brslsag3.p'
+    { "startIndex": 21, "endIndex": 28, "scopes": ["source.abl", "support.other.argument.abl"] },  // '{&rtrl}'
+    { "startIndex": 28, "endIndex": 29, "scopes": ["source.abl"] },  // ' '
+    { "startIndex": 29, "endIndex": 30, "scopes": ["source.abl", "punctuation.terminator.abl"] }  // '.'
+  ];
+  shared.itShouldMatchExpectedScopes(statement, expectedTokens);
+})
+
+describe('', () => {
+  let statement = `RUN /*debug remove / path */ {&rhdr}brslsag3.p{&rtrl} .`;
+
+  let expectedTokens = [
+    { "startIndex": 0, "endIndex": 3, "scopes": ["source.abl", "keyword.other.abl"] },  // 'RUN'
+    { "startIndex": 3, "endIndex": 4, "scopes": ["source.abl"] },  // ' '
+    { "startIndex": 4, "endIndex": 6, "scopes": ["source.abl", "comment.block.source.abl"] },  // '/*'
+    { "startIndex": 6, "endIndex": 26, "scopes": ["source.abl", "comment.block.source.abl", "comment"] },  // 'debug remove / path '
+    { "startIndex": 26, "endIndex": 28, "scopes": ["source.abl", "comment.block.source.abl"] },  // '*/'
+    { "startIndex": 28, "endIndex": 29, "scopes": ["source.abl"] },  // ' '
+    { "startIndex": 29, "endIndex": 36, "scopes": ["source.abl", "support.other.argument.abl"] },  // '{&rhdr}'
+    { "startIndex": 36, "endIndex": 46, "scopes": ["source.abl", "entity.name.procedure.abl"] },  // 'brslsag3.p'
+    { "startIndex": 46, "endIndex": 53, "scopes": ["source.abl", "support.other.argument.abl"] },  // '{&rtrl}'
+    { "startIndex": 53, "endIndex": 54, "scopes": ["source.abl"] },  // ' '
+    { "startIndex": 54, "endIndex": 55, "scopes": ["source.abl", "punctuation.terminator.abl"] }  // '.'
   ];
   shared.itShouldMatchExpectedScopes(statement, expectedTokens);
 })
