@@ -3661,34 +3661,33 @@
       "name": "variable.parameter.abl"
     },
     "run-statement": {
+      "begin": "\\b([Rr][Uu][Nn])\\b",
+      "beginCaptures": {
+        "1": {
+          "name": "keyword.other.abl"
+        }
+      },
+      "end": "(?i)(?=\\.|value|set|persistent|single-run|singleton|on|no-error|in|asynchronous|\\()",
       "patterns": [
         {
-          "include": "#run-unquoted"
+          "include": "#string"
         },
         {
-          "include": "#run-quoted"
+          "include": "#argument-reference"
+        },
+        {
+          "include": "#comment"
+        },
+        {
+          "include": "#procedure-name"
         }
       ]
     },
-    "run-quoted": {
-      "match": "(?i)\\s*(run)\\s+(?!value)\\s*(['\"].*['\"])",
-      "captures": {
-        "1": {
-          "name": "keyword.other.abl"
-        },
-        "2": {
-          "name": "entity.name.procedure.abl"
-        }
-      }
-    },
-    "run-unquoted": {
+    "procedure-name": {
       "comment": "(External) Program names are files, so need to support unicode.",
-      "match": "(?i)\\s*(run)\\s+(?!value)\\s*([\\w\\-$\\@\\/\\\\\\.]{1,256})(?<!\\.)",
+      "match": "([\\w\\-\\$\\@\\/\\\\\\.]{1,256})(?=\\b|\\.$)",
       "captures": {
         "1": {
-          "name": "keyword.other.abl"
-        },
-        "2": {
           "name": "entity.name.procedure.abl"
         }
       }
