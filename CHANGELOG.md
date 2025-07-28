@@ -1,3 +1,13 @@
+1.3.14
+======
+
+- ✨ Improve DEFINE FRAME scoping
+- ✨ Do not end DEFINE statements on decimal point
+- ✨ Support comments in index definition
+- ✨ Scope of RUN procedure names
+- 🐛 Improve scopes for NEW record statement (vscode-abl/vscode-abl#361)
+- 🐛 Fix TRIGGER PROCEDURE highlighting (vscode-abl/vscode-abl#361)
+
 1.3.13
 ======
 
