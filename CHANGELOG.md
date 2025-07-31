@@ -1,3 +1,8 @@
+1.3.15
+======
+
+- 🐛 Fix include paths with more than one \. (vscode-abl/vscode-abl#362)
+
 1.3.14
 ======
 
