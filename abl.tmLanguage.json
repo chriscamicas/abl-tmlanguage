@@ -1952,7 +1952,7 @@
           "name": "variable.other.abl"
         }
       },
-      "end": "(?i)\\b(?=\\.)\\b",
+      "end": "(?i)(?=\\.\\s*)",
       "patterns": [
         {
           "match": "(?i)\\b(for|scrolling|(rcode-info(?:rmation|rmatio|rmati|rmat|rma|rm|r)?))\\b",
