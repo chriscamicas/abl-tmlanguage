@@ -99,3 +99,46 @@ describe('', () => {
   ];
   shared.itShouldMatchExpectedScopes(statement, expectedTokens);
 })
+
+describe('', () => {
+  // Note space before .
+  let statement = `DEFINE QUERY qQuery FOR SmartAttributeValue, SmartAttribute .`;
+  let expectedTokens = [
+    { "startIndex": 0, "endIndex": 6, "scopes": ["source.abl", "meta.define.abl", "keyword.other.abl"] },  // 'DEFINE'
+    { "startIndex": 6, "endIndex": 7, "scopes": ["source.abl", "meta.define.abl"] },  // ' '
+    { "startIndex": 7, "endIndex": 12, "scopes": ["source.abl", "meta.define.abl", "keyword.other.abl"] },  // 'QUERY'
+    { "startIndex": 12, "endIndex": 13, "scopes": ["source.abl", "meta.define.abl"] },  // ' '
+    { "startIndex": 13, "endIndex": 19, "scopes": ["source.abl", "meta.define.abl", "variable.other.abl"] },  // 'qQuery'
+    { "startIndex": 19, "endIndex": 20, "scopes": ["source.abl", "meta.define.abl"] },  // ' '
+    { "startIndex": 20, "endIndex": 23, "scopes": ["source.abl", "meta.define.abl", "keyword.other.abl"] },  // 'FOR'
+    { "startIndex": 23, "endIndex": 24, "scopes": ["source.abl", "meta.define.abl"] },  // ' '
+    { "startIndex": 24, "endIndex": 43, "scopes": ["source.abl", "meta.define.abl", "storage.data.table.abl"] },  // 'SmartAttributeValue'
+    { "startIndex": 43, "endIndex": 44, "scopes": ["source.abl", "meta.define.abl", "punctuation.separator.comma.abl"] },  // ','
+    { "startIndex": 44, "endIndex": 45, "scopes": ["source.abl", "meta.define.abl"] },  // ' '
+    { "startIndex": 45, "endIndex": 59, "scopes": ["source.abl", "meta.define.abl", "storage.data.table.abl"] },  // 'SmartAttribute'
+    { "startIndex": 59, "endIndex": 60, "scopes": ["source.abl", "meta.define.abl"] },  // ' '
+    { "startIndex": 60, "endIndex": 61, "scopes": ["source.abl", "meta.define.abl", "punctuation.terminator.abl"] }  // '.'
+  ];
+  shared.itShouldMatchExpectedScopes(statement, expectedTokens);
+})
+
+describe('', () => {
+  // Note NO space before .
+  let statement = `DEFINE QUERY qQuery FOR SmartAttributeValue, SmartAttribute.`;
+  let expectedTokens = [
+    { "startIndex": 0, "endIndex": 6, "scopes": ["source.abl", "meta.define.abl", "keyword.other.abl"] },  // 'DEFINE'
+    { "startIndex": 6, "endIndex": 7, "scopes": ["source.abl", "meta.define.abl"] },  // ' '
+    { "startIndex": 7, "endIndex": 12, "scopes": ["source.abl", "meta.define.abl", "keyword.other.abl"] },  // 'QUERY'
+    { "startIndex": 12, "endIndex": 13, "scopes": ["source.abl", "meta.define.abl"] },  // ' '
+    { "startIndex": 13, "endIndex": 19, "scopes": ["source.abl", "meta.define.abl", "variable.other.abl"] },  // 'qQuery'
+    { "startIndex": 19, "endIndex": 20, "scopes": ["source.abl", "meta.define.abl"] },  // ' '
+    { "startIndex": 20, "endIndex": 23, "scopes": ["source.abl", "meta.define.abl", "keyword.other.abl"] },  // 'FOR'
+    { "startIndex": 23, "endIndex": 24, "scopes": ["source.abl", "meta.define.abl"] },  // ' '
+    { "startIndex": 24, "endIndex": 43, "scopes": ["source.abl", "meta.define.abl", "storage.data.table.abl"] },  // 'SmartAttributeValue'
+    { "startIndex": 43, "endIndex": 44, "scopes": ["source.abl", "meta.define.abl", "punctuation.separator.comma.abl"] },  // ','
+    { "startIndex": 44, "endIndex": 45, "scopes": ["source.abl", "meta.define.abl"] },  // ' '
+    { "startIndex": 45, "endIndex": 59, "scopes": ["source.abl", "meta.define.abl", "storage.data.table.abl"] },  // 'SmartAttribute'
+    { "startIndex": 59, "endIndex": 60, "scopes": ["source.abl", "meta.define.abl", "punctuation.terminator.abl"] }  // '.'
+  ];
+  shared.itShouldMatchExpectedScopes(statement, expectedTokens);
+})
