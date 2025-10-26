@@ -197,7 +197,7 @@ end.`;
       { "startIndex": 8, "endIndex": 9, "scopes": ["source.abl", "meta.block.abl", "constant.numeric.source.abl"] },  // '1'
       { "startIndex": 9, "endIndex": 10, "scopes": ["source.abl", "meta.block.abl"] },  // ' '
       { "startIndex": 10, "endIndex": 12, "scopes": ["source.abl", "meta.block.abl", "keyword.other.abl"] },  // 'to'
-      { "startIndex": 12, "endIndex": 13, "scopes": ["source.abl", "meta.block.abl"] },  // ' '
+      { "startIndex": 12, "endIndex": 13, "scopes": ["source.abl", "meta.block.abl", "meta.function-call.abl"] },  // ' '
       { "startIndex": 13, "endIndex": 24, "scopes": ["source.abl", "meta.block.abl", "meta.function-call.abl", "support.function.abl"] },  // 'num-entries'
       { "startIndex": 24, "endIndex": 25, "scopes": ["source.abl", "meta.block.abl", "meta.function-call.abl", "meta.function.arguments.abl", "meta.brace.round.js"] },  // '('
       { "startIndex": 25, "endIndex": 30, "scopes": ["source.abl", "meta.block.abl", "meta.function-call.abl", "meta.function.arguments.abl", "variable.other.abl"] },  // 'vList'
