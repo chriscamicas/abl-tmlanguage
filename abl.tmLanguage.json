@@ -519,6 +519,9 @@
           "include": "#event-un-subscribe"
         },
         {
+          "include": "#dataset-name"
+        },
+        {
           "include": "#buffer-name"
         },
         {
@@ -2131,6 +2134,17 @@
           "include": "#type-names"
         }
       ]
+    },
+    "dataset-name": {
+      "match": "(?i)\\s*(dataset)\\s+([a-zA-Z][a-zA-Z0-9_\\-]*)",
+      "captures": {
+        "1": {
+          "name": "keyword.other.abl"
+        },
+        "2": {
+          "name": "storage.data.dataset.abl"
+        }
+      }
     },
     "buffer-name": {
       "match": "(?i)\\b(buffer)\\s+([a-zA-Z][a-zA-Z0-9_\\-#$%]*(\\.[a-zA-Z][a-zA-Z0-9_\\-#$%]*)?)",
