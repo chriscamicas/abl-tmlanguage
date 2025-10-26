@@ -31,7 +31,7 @@ END.`;
       { "startIndex": 10, "endIndex": 11, "scopes": ["source.abl", "meta.block.abl", "constant.numeric.source.abl"] },  // '1'
       { "startIndex": 11, "endIndex": 12, "scopes": ["source.abl", "meta.block.abl"] },  // ' '
       { "startIndex": 12, "endIndex": 14, "scopes": ["source.abl", "meta.block.abl", "keyword.other.abl"] },  // 'to'
-      { "startIndex": 14, "endIndex": 15, "scopes": ["source.abl", "meta.block.abl"] },  // ' '
+      { "startIndex": 14, "endIndex": 15, "scopes": ["source.abl", "meta.block.abl", "meta.function-call.abl"] },  // ' '
       { "startIndex": 15, "endIndex": 26, "scopes": ["source.abl", "meta.block.abl", "meta.function-call.abl", "support.function.abl"] },  // 'NUM-ENTRIES'
       { "startIndex": 26, "endIndex": 27, "scopes": ["source.abl", "meta.block.abl", "meta.function-call.abl", "meta.function.arguments.abl", "meta.brace.round.js"] },  // '('
       { "startIndex": 27, "endIndex": 42, "scopes": ["source.abl", "meta.block.abl", "meta.function-call.abl", "meta.function.arguments.abl", "variable.other.abl"] },  // 'mc-g-list-class'
