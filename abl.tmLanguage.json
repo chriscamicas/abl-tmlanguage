@@ -2826,53 +2826,20 @@
       "name": "meta.block.abl",
       "patterns": [
         {
-          "include": "#comment"
+          "match": "(?i)\\b((transact(?:ion|io|i)?)|stop-after|and|or)\\b",
+          "name": "keyword.other.abl"
         },
         {
-          "include": "#for-record"
-        },
-        {
-          "include": "#operator"
-        },
-        {
-          "include": "#from-to-by"
+          "include": "#logical-expression"
         },
         {
           "include": "#while-expression"
         },
         {
-          "match": "(?i)\\b((transact(?:ion|io|i)?)|stop-after)\\b",
-          "name": "keyword.other.abl"
-        },
-        {
-          "include": "#numeric"
-        },
-        {
-          "include": "#type-member-call"
-        },
-        {
-          "include": "#language-functions"
-        },
-        {
-          "include": "#abl-functions"
-        },
-        {
-          "include": "#punctuation-comma"
-        },
-        {
-          "include": "#punctuation-colon"
+          "include": "#for-record"
         },
         {
           "include": "#branch-options"
-        },
-        {
-          "include": "#keywords"
-        },
-        {
-          "include": "#expression"
-        },
-        {
-          "include": "#preprocessors"
         }
       ]
     },
@@ -3280,20 +3247,10 @@
       "end": "(?i)(?=(transact(?:ion|io|i)?)|on|:|with)",
       "patterns": [
         {
-          "comment": "The comment scopes are included in the statements pattern, but the operator trumps these",
-          "include": "#comment"
-        },
-        {
-          "include": "#operator"
-        },
-        {
-          "include": "#property-call"
+          "include": "#logical-expression"
         },
         {
           "include": "#branch-options"
-        },
-        {
-          "include": "#expression"
         }
       ]
     },
@@ -3320,7 +3277,7 @@
         }
       ]
     },
-    "if-then": {
+    "X-if-then": {
       "begin": "(?i)\\b(if)\\b",
       "beginCaptures": {
         "1": {
@@ -3343,10 +3300,7 @@
           "include": "#function-arguments"
         },
         {
-          "include": "#property-call"
-        },
-        {
-          "include": "#static-object-property-call"
+          "include": "#type-member-call"
         },
         {
           "include": "#db-dot-table-dot-field"
@@ -3374,6 +3328,71 @@
         }
       ],
       "end": "(?i)\\b(?=then)\\b"
+    },
+    "if-then": {
+      "begin": "(?i)\\b(if)\\b",
+      "beginCaptures": {
+        "1": {
+          "name": "keyword.other.abl"
+        }
+      },
+      "patterns": [
+        {
+          "include": "#logical-expression"
+        }
+      ],
+      "end": "(?i)\\b(?=then)\\b"
+    },
+    "logical-expression": {
+      "patterns": [
+        {
+          "match": "\\b([Aa][Nn][Dd]|[Oo][Rr])\\b",
+          "captures": {
+            "1": {
+              "name": "keyword.other.abl"
+            }
+          }
+        },
+        {
+          "include": "#parens"
+        },
+        {
+          "include": "#function-arguments"
+        },
+        {
+          "include": "#type-member-call"
+        },
+        {
+          "include": "#db-dot-table-dot-field"
+        },
+        {
+          "include": "#comment"
+        },
+        {
+          "include": "#operator"
+        },
+        {
+          "include": "#code-block"
+        },
+        {
+          "include": "#handle-attributes"
+        },
+        {
+          "include": "#preprocessors"
+        },
+        {
+          "include": "#language-functions"
+        },
+        {
+          "include": "#abl-functions"
+        },
+        {
+          "include": "#abl-system-handles"
+        },
+        {
+          "include": "#keywords"
+        }
+      ]
     },
     "function-arguments": {
       "name": "meta.function.arguments.abl",

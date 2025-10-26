@@ -43,7 +43,7 @@ module.exports = {
           let lines = statement.split(/\n/g);
           let nbLines = lines.length;
           if (nbLines === 1) {
-            //singleline                        
+            //singleline
             tokenResult = grammar.tokenizeLine(statement);
 
             // More human-readable output
@@ -52,15 +52,13 @@ module.exports = {
               const token = tokenResult.tokens[j];
 
               // More human-readable output
-              // console.log(` - token from ${token.startIndex} to ${token.endIndex} ` +
-              //     `(${statement.substring(token.startIndex, token.endIndex)}) ` +
-              //     `with scopes ${token.scopes.join(', ')}`
-              // );
-
               // Formatted as input-values
               var O = token.scopes.map((e) => ('"' + e + '",')).join(' ').replace(/,\s*$/, "");
-              console.log(`{ "startIndex": ${token.startIndex}, "endIndex": ${token.endIndex}, "scopes": [${O}] },  // '${statement.substring(token.startIndex, token.endIndex)}'`,);
-
+              if (j < tokenResult.tokens.length - 1 ) {
+                console.log(`{ "startIndex": ${token.startIndex}, "endIndex": ${token.endIndex}, "scopes": [${O}] },  // '${statement.substring(token.startIndex, token.endIndex)}'`,);
+              } else {
+                console.log(`{ "startIndex": ${token.startIndex}, "endIndex": ${token.endIndex}, "scopes": [${O}] }  // '${statement.substring(token.startIndex, token.endIndex)}'`,);
+              }
             }
           } else {
             //multiline, we stack the tokens in an array
@@ -70,6 +68,7 @@ module.exports = {
             };
             lines.forEach(line => {
               let r = grammar.tokenizeLine(line, ruleStack);
+
               ruleStack = r.ruleStack;
               tokenResult.tokens.push(r.tokens);
 
@@ -87,12 +86,14 @@ module.exports = {
 
                 // Formatted as input-values
                 var O = token.scopes.map((e) => ('"' + e + '",')).join(' ').replace(/,\s*$/, "");
-                console.log(`{ "startIndex": ${token.startIndex}, "endIndex": ${token.endIndex}, "scopes": [${O}] },  // '${line.substring(token.startIndex, token.endIndex)}'`,);
-
+                if (j < r.tokens.length - 1 ) {
+                  console.log(`{ "startIndex": ${token.startIndex}, "endIndex": ${token.endIndex}, "scopes": [${O}] },  // '${line.substring(token.startIndex, token.endIndex)}'`,);
+                } else {
+                  console.log(`{ "startIndex": ${token.startIndex}, "endIndex": ${token.endIndex}, "scopes": [${O}] }  // '${line.substring(token.startIndex, token.endIndex)}'`,);
+                }
               }
               // Formatted as input-values
               console.log(`],`);
-
             });
           }
           assert.deepEqual(tokenResult.tokens, expectedTokens, JSON.stringify(tokenResult.tokens));
