@@ -3173,7 +3173,7 @@
           "name": "punctuation.separator.comma.abl"
         }
       },
-      "end": "(?=\\.|:)",
+      "end": "(?=[\\.:](?![a-zA-Z0-9_\\-#$%]))",
       "patterns": [
         {
           "include": "#string"
@@ -3203,6 +3203,12 @@
         },
         {
           "include": "#function-arguments"
+        },
+        {
+          "include": "#function-arguments-no-parens"
+        },
+        {
+          "include": "#parens"
         },
         {
           "include": "#expression"

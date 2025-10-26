@@ -869,7 +869,7 @@ describe('', () => {
       { "startIndex": 71, "endIndex": 95, "scopes": ["source.abl", "meta.function.arguments.abl", "variable.other.abl"] },  // 'ClassNameNotEntertedEnum'
       { "startIndex": 95, "endIndex": 96, "scopes": ["source.abl", "meta.function.arguments.abl", "punctuation.separator.colon.abl"] },  // ':'
       { "startIndex": 96, "endIndex": 110, "scopes": ["source.abl", "meta.function.arguments.abl", "entity.name.function.abl"] },  // 'BusinessEntity'
-      { "startIndex": 110, "endIndex": 111, "scopes": ["source.abl"] },  // ')'
+      { "startIndex": 110, "endIndex": 111, "scopes": ["source.abl", "meta.brace.round.js"] },  // ')'
       { "startIndex": 111, "endIndex": 112, "scopes": ["source.abl", "punctuation.terminator.abl"] }  // '.'
     ]
   ];
