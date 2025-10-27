@@ -1,3 +1,11 @@
+1.3.16
+======
+
+- 🐛 Addresses syntax highlighting - DO..WHILE loops with long conditions (vscode-abl/vscode-abl#401)
+- ✨ Improve closing scope on DEFINE QUERY statement
+- ✨ Improve termination of UNDO statement
+- ✨ Dataset scoping improvements
+
 1.3.15
 ======
 
