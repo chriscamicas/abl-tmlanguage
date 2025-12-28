@@ -209,7 +209,10 @@ ELSE {&WINDOW-NAME} = CURRENT-WINDOW.`;
     [
       { "startIndex": 0, "endIndex": 4, "scopes": ["source.abl", "keyword.other.abl"] },  // 'ELSE'
       { "startIndex": 4, "endIndex": 5, "scopes": ["source.abl"] },  // ' '
-      { "startIndex": 5, "endIndex": 19, "scopes": ["source.abl", "storage.type.function.abl"] },  // '{&WINDOW-NAME}'
+      { "startIndex": 5, "endIndex": 6, "scopes": ["source.abl", "meta.preprocessor.abl", "punctuation.section.abl"] },  // '{'
+      { "startIndex": 6, "endIndex": 7, "scopes": ["source.abl", "meta.preprocessor.abl", "punctuation.definition.preprocessor.abl"] },  // '&'
+      { "startIndex": 7, "endIndex": 18, "scopes": ["source.abl", "meta.preprocessor.abl", "entity.name.function.preprocessor.abl"] },  // 'WINDOW-NAME'
+      { "startIndex": 18, "endIndex": 19, "scopes": ["source.abl", "meta.preprocessor.abl", "punctuation.section.abl"] },  // '}'
       { "startIndex": 19, "endIndex": 20, "scopes": ["source.abl"] },  // ' '
       { "startIndex": 20, "endIndex": 21, "scopes": ["source.abl", "keyword.operator.source.abl"] },  // '='
       { "startIndex": 21, "endIndex": 22, "scopes": ["source.abl"] },  // ' '

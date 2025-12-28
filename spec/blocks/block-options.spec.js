@@ -10,7 +10,10 @@ describe('', () => {
     { "startIndex": 7, "endIndex": 8, "scopes": ["source.abl", "meta.block.abl"] },  // ' '
     { "startIndex": 8, "endIndex": 13, "scopes": ["source.abl", "meta.block.abl", "keyword.other.abl"] },  // 'frame'
     { "startIndex": 13, "endIndex": 14, "scopes": ["source.abl", "meta.block.abl"] },  // ' '
-    { "startIndex": 14, "endIndex": 27, "scopes": ["source.abl", "meta.block.abl", "storage.type.function.abl"] },  // '{&FRAME-NAME}'
+    { "startIndex": 14, "endIndex": 15, "scopes": ["source.abl", "meta.block.abl", "meta.preprocessor.abl", "punctuation.section.abl"] },  // '{'
+    { "startIndex": 15, "endIndex": 16, "scopes": ["source.abl", "meta.block.abl", "meta.preprocessor.abl", "punctuation.definition.preprocessor.abl"] },  // '&'
+    { "startIndex": 16, "endIndex": 26, "scopes": ["source.abl", "meta.block.abl", "meta.preprocessor.abl", "entity.name.function.preprocessor.abl"] },  // 'FRAME-NAME'
+    { "startIndex": 26, "endIndex": 27, "scopes": ["source.abl", "meta.block.abl", "meta.preprocessor.abl", "punctuation.section.abl"] },  // '}'
     { "startIndex": 27, "endIndex": 28, "scopes": ["source.abl", "punctuation.terminator.abl"] }  // ':'
   ]
   shared.itShouldMatchExpectedScopes(statement, expectedTokens);

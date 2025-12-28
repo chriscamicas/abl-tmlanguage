@@ -6,7 +6,10 @@ describe('', () => {
 assign attrValue = BuildAttributeValue(string(attribNames[attribLoop]), annoData).`;
   let expectedTokens = [
     [
-      { "startIndex": 0, "endIndex": 38, "scopes": ["source.abl", "storage.type.function.abl"] }  // '{&_proparse_ prolint-nowarn(overflow)}'
+      { "startIndex": 0, "endIndex": 1, "scopes": ["source.abl", "meta.preprocessor.abl", "punctuation.section.abl"] },  // '{'
+      { "startIndex": 1, "endIndex": 2, "scopes": ["source.abl", "meta.preprocessor.abl", "punctuation.definition.preprocessor.abl"] },  // '&'
+      { "startIndex": 2, "endIndex": 37, "scopes": ["source.abl", "meta.preprocessor.abl", "entity.name.function.preprocessor.abl"] },  // '_proparse_ prolint-nowarn(overflow)'
+      { "startIndex": 37, "endIndex": 38, "scopes": ["source.abl", "meta.preprocessor.abl", "punctuation.section.abl"] }  // '}'
     ],
     [
       { "startIndex": 0, "endIndex": 6, "scopes": ["source.abl", "keyword.other.abl"] },  // 'assign'
@@ -51,7 +54,10 @@ describe('', () => {
     { "startIndex": 36, "endIndex": 37, "scopes": ["source.abl", "meta.define.abl"] },  // ' '
     { "startIndex": 37, "endIndex": 41, "scopes": ["source.abl", "meta.define.abl", "keyword.other.abl"] },  // 'init'
     { "startIndex": 41, "endIndex": 42, "scopes": ["source.abl", "meta.define.abl"] },  // ' '
-    { "startIndex": 42, "endIndex": 55, "scopes": ["source.abl", "meta.define.abl", "storage.type.function.abl"] },  // '{&DEBUG-WAIT}'
+    { "startIndex": 42, "endIndex": 43, "scopes": ["source.abl", "meta.define.abl", "meta.preprocessor.abl", "punctuation.section.abl"] },  // '{'
+    { "startIndex": 43, "endIndex": 44, "scopes": ["source.abl", "meta.define.abl", "meta.preprocessor.abl", "punctuation.definition.preprocessor.abl"] },  // '&'
+    { "startIndex": 44, "endIndex": 54, "scopes": ["source.abl", "meta.define.abl", "meta.preprocessor.abl", "entity.name.function.preprocessor.abl"] },  // 'DEBUG-WAIT'
+    { "startIndex": 54, "endIndex": 55, "scopes": ["source.abl", "meta.define.abl", "meta.preprocessor.abl", "punctuation.section.abl"] },  // '}'
     { "startIndex": 55, "endIndex": 56, "scopes": ["source.abl", "meta.define.abl", "punctuation.terminator.abl"] }  // '.'
   ];
   shared.itShouldMatchExpectedScopes(statement, expectedTokens);
@@ -60,7 +66,10 @@ describe('', () => {
 describe('', () => {
   let statement = `{&WINDOW-SYSTEM}`;
   let expectedTokens = [
-    { "startIndex": 0, "endIndex": 16, "scopes": ["source.abl", "storage.type.function.abl"] }  // '{&WINDOW-SYSTEM}'
+    { "startIndex": 0, "endIndex": 1, "scopes": ["source.abl", "meta.preprocessor.abl", "punctuation.section.abl"] },  // '{'
+    { "startIndex": 1, "endIndex": 2, "scopes": ["source.abl", "meta.preprocessor.abl", "punctuation.definition.preprocessor.abl"] },  // '&'
+    { "startIndex": 2, "endIndex": 15, "scopes": ["source.abl", "meta.preprocessor.abl", "variable.language.preprocessor.abl"] },  // 'WINDOW-SYSTEM'
+    { "startIndex": 15, "endIndex": 16, "scopes": ["source.abl", "meta.preprocessor.abl", "punctuation.section.abl"] }  // '}'
   ];
   shared.itShouldMatchExpectedScopes(statement, expectedTokens);
 })
