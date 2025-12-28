@@ -68,7 +68,7 @@ describe('', () => {
   let expectedTokens = [
     { "startIndex": 0, "endIndex": 1, "scopes": ["source.abl", "meta.preprocessor.abl", "punctuation.section.abl"] },  // '{'
     { "startIndex": 1, "endIndex": 2, "scopes": ["source.abl", "meta.preprocessor.abl", "punctuation.definition.preprocessor.abl"] },  // '&'
-    { "startIndex": 2, "endIndex": 15, "scopes": ["source.abl", "meta.preprocessor.abl", "variable.language.preprocessor.abl"] },  // 'WINDOW-SYSTEM'
+    { "startIndex": 2, "endIndex": 15, "scopes": ["source.abl", "meta.preprocessor.abl", "entity.name.function.preprocessor.abl"] },  // 'WINDOW-SYSTEM'
     { "startIndex": 15, "endIndex": 16, "scopes": ["source.abl", "meta.preprocessor.abl", "punctuation.section.abl"] }  // '}'
   ];
   shared.itShouldMatchExpectedScopes(statement, expectedTokens);

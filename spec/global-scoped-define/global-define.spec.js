@@ -24,7 +24,7 @@ SOMETHING value`;
     [
       { "startIndex": 0, "endIndex": 1, "scopes": ["source.abl", "meta.preprocessor.abl", "punctuation.definition.preprocessor.abl"] },  // '&'
       { "startIndex": 1, "endIndex": 14, "scopes": ["source.abl", "meta.preprocessor.abl", "keyword.control.directive.define.abl"] },  // 'global-define'
-      { "startIndex": 14, "endIndex": 16, "scopes": ["source.abl", "meta.preprocessor.abl"] }  // '~'
+      { "startIndex": 14, "endIndex": 15, "scopes": ["source.abl", "meta.preprocessor.abl", "constant.character.escape.abl"] }  // '~'
     ],
     [
       { "startIndex": 0, "endIndex": 9, "scopes": ["source.abl", "meta.preprocessor.abl", "entity.name.function.preprocessor.abl"] },  // 'SOMETHING'
