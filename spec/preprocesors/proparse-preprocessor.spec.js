@@ -73,3 +73,18 @@ describe('', () => {
   ];
   shared.itShouldMatchExpectedScopes(statement, expectedTokens);
 })
+
+describe('Spaces before closing curly brace', () => {
+  let statement = `message {&WINDOW-SYSTEM  }.`;
+  let expectedTokens = [
+    { "startIndex": 0, "endIndex": 7, "scopes": ["source.abl", "keyword.other.abl"] },  // 'message'
+    { "startIndex": 7, "endIndex": 8, "scopes": ["source.abl"] },  // ' '
+    { "startIndex": 8, "endIndex": 9, "scopes": ["source.abl", "meta.preprocessor.abl", "punctuation.section.abl"] },  // '{'
+    { "startIndex": 9, "endIndex": 10, "scopes": ["source.abl", "meta.preprocessor.abl", "punctuation.definition.preprocessor.abl"] },  // '&'
+    { "startIndex": 10, "endIndex": 23, "scopes": ["source.abl", "meta.preprocessor.abl", "entity.name.function.preprocessor.abl"] },  // 'WINDOW-SYSTEM'
+    { "startIndex": 23, "endIndex": 25, "scopes": ["source.abl", "meta.preprocessor.abl"] },  // '  '
+    { "startIndex": 25, "endIndex": 26, "scopes": ["source.abl", "meta.preprocessor.abl", "punctuation.section.abl"] },  // '}'
+    { "startIndex": 26, "endIndex": 27, "scopes": ["source.abl", "punctuation.terminator.abl"] }  // '.'
+  ];
+  shared.itShouldMatchExpectedScopes(statement, expectedTokens);
+})

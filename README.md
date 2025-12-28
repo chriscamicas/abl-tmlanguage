@@ -119,6 +119,7 @@ The ABL-specific scopes produced by the ABL grammar listed in the table below. T
 There are also a number of 'meta' scopes that usually cover multiple other scopes.
 | Scope Name | Used for/by |
 | ------------- | ------------- |
+|meta.argument.abl                | Unnamed arguments like `{1}` |
 |meta.array.literal.abl           | Literal values in an array |
 |meta.block.abl                   | A block statement like `do`, `repeat` and ` finally |
 |meta.brace.round.js              | `(` and `)`  |
@@ -128,7 +129,7 @@ There are also a number of 'meta' scopes that usually cover multiple other scope
 |meta.define.enum.abl             | An enum definition, from the `enum` keyword to its closing `:`  |
 |meta.define.function.abl         | A user-defined function definition, from the `function` keyword to its closing `:`  |
 |meta.define.interface.abl        | An interface definition, from the `interface` keyword to its closing `:`  |
-|meta.define.method.abl           | A method, constructor or destructor definition, from the `method`keyword to the ending `:` or `.` Includes parameter definions, if any.  |
+|meta.define.method.abl           | A method, constructor or destructor definition, from the `method`keyword to the ending `:` or `.` Includes parameter definitions, if any.  |
 |meta.define.parameter.abl        | An individual parameter definition  |
 |meta.define.stream.abl           | A stream definition  |
 |meta.define-type.implements.abl  | The type names that a type implements and/or inherits  |
@@ -138,7 +139,7 @@ There are also a number of 'meta' scopes that usually cover multiple other scope
 |meta.generic.abl                 | Generic type names  |
 |meta.include.abl                 | Include file references, from `{` to `}`  |
 |meta.include.argument.abl        | Include argument references like `&arg` and `&arg=` |
-|meta.preprocessor.define.abl     | Preprocessor definitions for `&global-define` and `&scoped-define`  |
+|meta.preprocessor.abl            | Preprocessor definitions, functions and usage |
 |meta.procedure.abl               | An internal procedure definition, from the `procedure` keyword to its closing `:` or `.`  |
 |meta.statements.abl              | All ABL statmements |
 |meta.using.abl                   | A `using` definition |

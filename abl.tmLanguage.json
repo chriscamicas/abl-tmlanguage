@@ -95,6 +95,9 @@
           "include": "#argument-reference"
         },
         {
+          "include": "#preprocessor-reference"
+        },
+        {
           "include": "#numeric"
         },
         {
@@ -483,6 +486,9 @@
           "include": "#preprocessors"
         },
         {
+          "include": "#argument-reference"
+        },
+        {
           "include": "#trigger-procedure"
         },
         {
@@ -766,29 +772,14 @@
               "name": "storage.type.function.abl"
             }
           }
-        },
-        {
-
         }
       ]
     },
-    "preprocessors": {
+    "preprocessor-reference": {
       "patterns": [
         {
-          "include": "#analyze-suspend-resume"
-        },
-        {
-          "include": "#global-scoped-define"
-        },
-        {
-          "include": "#preprocessor-directives"
-        },
-        {
-          "include": "#preprocessor-functions"
-        },
-        {
           "comment": "https://docs.progress.com/bundle/abl-reference/page/Preprocessor-name-reference.html#Preprocessor-name-reference",
-          "match": "(?i)(({?)(&)(window-system|line-number|batch-mode|file-name|sequence|opsys|process-architecture)(}?))",
+          "match": "(?i)\\s*(({)(&)(window-system|line-number|batch-mode|file-name|sequence|opsys|process-architecture)\\s*(}))",
           "captures": {
             "1": {
               "name": "meta.preprocessor.abl"
@@ -808,7 +799,7 @@
           }
         },
         {
-          "match": "(({?)(&)([a-zA-Z0-9_\\-#$%\\s\\(\\)]+)(}?))",
+          "match": "\\s*(({)(&)([a-zA-Z0-9_\\-#$%\\s\\(\\)]+)\\s*(}))",
           "captures": {
             "1": {
               "name": "meta.preprocessor.abl"
@@ -825,7 +816,26 @@
             "5": {
               "name": "punctuation.section.abl"
             }
+          }
         }
+      ]
+    },
+    "preprocessors": {
+      "patterns": [
+        {
+          "include": "#analyze-suspend-resume"
+        },
+        {
+          "include": "#global-scoped-define"
+        },
+        {
+          "include": "#preprocessor-directives"
+        },
+        {
+          "include": "#preprocessor-functions"
+        },
+        {
+          "include": "#preprocessor-reference"
         }
       ]
     },
@@ -3382,7 +3392,7 @@
       "name": "comment.preprocessor.analyze-suspend.abl"
     },
     "global-scoped-define": {
-      "patterns":[
+      "patterns": [
         {
           "begin": "(?i)^\\s*((&)(scop(?:ed-define|ed-defin|ed-defi|ed-def|ed-de|ed-d|ed-|ed|e)?))\\s*",
           "name": "meta.preprocessor.abl",
@@ -3856,6 +3866,9 @@
           "include": "#string"
         },
         {
+          "include": "#preprocessor-reference"
+        },
+        {
           "include": "#argument-reference"
         },
         {
@@ -3896,6 +3909,9 @@
       },
       "patterns": [
         {
+          "include": "#preprocessor-reference"
+        },
+        {
           "include": "#argument-reference"
         },
         {
@@ -3933,6 +3949,9 @@
           }
         },
         {
+          "include": "#preprocessor-reference"
+        },
+        {
           "comment": "Argument references can be passed into includes as arguments",
           "include": "#argument-reference"
         },
@@ -3942,11 +3961,20 @@
       ]
     },
     "argument-reference": {
-      "comment": "https://docs.progress.com/bundle/abl-reference/page/Argument-reference.html",
-      "match": "\\s*((\\{\\s*&[\\.a-zA-Z0-9_\\-#$%\\\/]+\\})|(\\{\\s*\\d+\\})|(\\{\\s*\\*\\}))\\s*",
+      "comment": "ONly unnamed arguments are captured here. Names arguments are treated as preprocessors, since its impossible to tell them apart https://docs.progress.com/bundle/abl-reference/page/Argument-reference.html",
+      "match": "\\s*(({)([0-9]+|\\*\\s*)(}))\\s*",
       "captures": {
         "1": {
+          "name": "meta.argument.abl"
+        },
+        "2": {
+          "name": "punctuation.section.abl"
+        },
+        "3": {
           "name": "support.other.argument.abl"
+        },
+        "4": {
+          "name": "punctuation.section.abl"
         }
       }
     },
