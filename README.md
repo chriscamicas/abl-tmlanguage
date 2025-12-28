@@ -69,14 +69,14 @@ The ABL-specific scopes produced by the ABL grammar listed in the table below. T
 | Scope Name | Used for/by |
 | ------------- | ------------- |
 |comment.block.source.abl                         | Everything between `/*` and `*/` |
-|comment.line.double-slash.abl                    | Everything in a `//` comment, incl slashes |
+|comment.line.double-slash.abl                    | Everything in a `//` comment, incl. slashes |
 |comment.preprocessor.analyze-suspend.abl         | `&analyze-suspend`, `&analyze-resume` |
 |constant.character.escape.abl                    |  `~` and the next char, or `~` at the end of a line |
 |constant.language.abl                            | `today`, `now`, `true`, `false`, `yes`, `no`, `?` (unknown value) |
 |constant.language.source.abl                     | `99/99/9999` (or similar) when used as a format clause |
 |constant.numeric.source.abl                      | 0x00-0xFF, 0-9, scientific notation |
 |entity.name.function.abl                         | Method call, property call, method name, property name, handle attributes, handle methods, event names |
-|entity.name.function.preprocessor.abl            | Preprocessor names |
+|entity.name.function.preprocessor.abl            | Preprocessor names, including built-ins like `opsys` and `process-architecture` |
 |entity.name.include.abl                          | Include file names |
 |entity.name.label.abl                            | Block label names |
 |entity.name.package.abl                          | Package names for `using` |

@@ -787,7 +787,8 @@
           "include": "#preprocessor-functions"
         },
         {
-          "match": "(?i)(({?)(&)(window-system|text-height|line-number|batch-mode|file-name|sequence|opsys)(}?))",
+          "comment": "https://docs.progress.com/bundle/abl-reference/page/Preprocessor-name-reference.html#Preprocessor-name-reference",
+          "match": "(?i)(({?)(&)(window-system|line-number|batch-mode|file-name|sequence|opsys|process-architecture)(}?))",
           "captures": {
             "1": {
               "name": "meta.preprocessor.abl"
@@ -799,7 +800,7 @@
               "name": "punctuation.definition.preprocessor.abl"
             },
             "4": {
-              "name": "variable.language.preprocessor.abl"
+              "name": "entity.name.function.preprocessor.abl"
             },
             "5": {
               "name": "punctuation.section.abl"
@@ -3430,7 +3431,7 @@
           },
           "patterns": [
             {
-              "include": "#escape-char"
+              "include": "#escape-endline"
             }
           ]
         },
@@ -4045,7 +4046,7 @@
       "comment": "https://docs.progress.com/bundle/abl-reference/page/Data-types.html"
     },
     "primitive-type": {
-      "match": "(?i)(?<=^|\\s)(blob|ch(?:aracter?|aract?|ara?|a?)|c|clob|com-handle|da(?:|te|tetime|tetime-tz)|de(?:cimal?|cim?|c?)|handle|int64|(int(?:eger|ege|eg|e)?)|in|i|(log(?:ical|ica|ic|i)?)|lo|l|(longch(?:ar|a)?)|memptr|raw|recid|rowid|widget-handle)(?![=a-zA-Z0-9_\\-#$%\\-])",
+      "match": "(?i)(?<=^|\\s)(blob|(ch(?:aracter|aracte|aract|arac|ara|ar|a)?)|c|clob|com-handle|(da(?:tetime-tz|tetime|te|t)?)|(de(?:cimal|cima|cim|ci|c)?)|handle|int64|(int(?:eger|ege|eg|e)?)|in|i|(log(?:ical|ica|ic|i)?)|lo|l|(longch(?:ar|a)?)|memptr|raw|recid|rowid|widget-handle)(?![=a-zA-Z0-9_\\-#$%\\-])",
       "captures": {
         "1": {
           "name": "storage.type.abl"
