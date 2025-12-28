@@ -480,6 +480,9 @@
           "include": "#buffer-copy"
         },
         {
+          "include": "#preprocessors"
+        },
+        {
           "include": "#trigger-procedure"
         },
         {
@@ -638,12 +641,6 @@
           "include": "#operator"
         },
         {
-          "include": "#analyze-suspend-resume"
-        },
-        {
-          "include": "#global-scoped-define"
-        },
-        {
           "include": "#label-variable"
         },
         {
@@ -656,7 +653,7 @@
           "include": "#format-constant"
         },
         {
-          "include": "#preprocessors"
+          "include": "#escape-endline"
         },
         {
           "include": "#dll-type"
@@ -746,16 +743,90 @@
         }
       }
     },
-    "preprocessors": {
-      "match": "(?i)(&window-system|&text-height|&line-number|&batch-mode|&file-name|&undefine|&sequence|&message|defined|&elseif|(?:&scop(?:ed-define|ed-defin|ed-defi|ed-def|ed-de|ed-d|ed-|ed|e)?)|(?:&glob(?:al-define|al-defin|al-defi|al-def|al-de|al-d|al-|al|a)?)|&opsys|&endif|&else|&then|&if)|({&[a-zA-Z0-9_\\-#$%\\s\\(\\)]+})|(&[a-zA-Z0-9_\\-#$%]+)",
-      "captures": {
-        "1": {
-          "name": "storage.type.function.abl"
+    "preprocessor-directives": {
+      "patterns": [
+        {
+          "match": "(?i)((&)(elseif|endif|else|then|if))\\s*",
+          "captures": {
+            "2": {
+              "name": "punctuation.definition.preprocessor.abl"
+            },
+            "3": {
+              "name": "keyword.control.directive.conditional.abl"
+            }
+          }
         },
-        "2": {
-          "name": "storage.type.function.abl"
+        {
+          "match": "(?i)((&)(message))\\s*",
+          "captures": {
+            "2": {
+              "name": "punctuation.definition.preprocessor.abl"
+            },
+            "3": {
+              "name": "storage.type.function.abl"
+            }
+          }
+        },
+        {
+
         }
-      }
+      ]
+    },
+    "preprocessors": {
+      "patterns": [
+        {
+          "include": "#analyze-suspend-resume"
+        },
+        {
+          "include": "#global-scoped-define"
+        },
+        {
+          "include": "#preprocessor-directives"
+        },
+        {
+          "include": "#preprocessor-functions"
+        },
+        {
+          "match": "(?i)(({?)(&)(window-system|text-height|line-number|batch-mode|file-name|sequence|opsys)(}?))",
+          "captures": {
+            "1": {
+              "name": "meta.preprocessor.abl"
+            },
+            "2": {
+              "name": "punctuation.section.abl"
+            },
+            "3": {
+              "name": "punctuation.definition.preprocessor.abl"
+            },
+            "4": {
+              "name": "variable.language.preprocessor.abl"
+            },
+            "5": {
+              "name": "punctuation.section.abl"
+            }
+          }
+        },
+        {
+          "match": "(({?)(&)([a-zA-Z0-9_\\-#$%\\s\\(\\)]+)(}?))",
+          "captures": {
+            "1": {
+              "name": "meta.preprocessor.abl"
+            },
+            "2": {
+              "name": "punctuation.section.abl"
+            },
+            "3": {
+              "name": "punctuation.definition.preprocessor.abl"
+            },
+            "4": {
+              "name": "entity.name.function.preprocessor.abl"
+            },
+            "5": {
+              "name": "punctuation.section.abl"
+            }
+        }
+        }
+      ]
     },
     "type-names": {
       "patterns": [
@@ -3124,6 +3195,14 @@
       "match": "~.",
       "name": "constant.character.escape.abl"
     },
+    "escape-endline": {
+      "match": "(~)\\s*$",
+      "captures": {
+        "1": {
+          "name": "constant.character.escape.abl"
+        }
+      }
+    },
     "branch-return-value-double": {
       "comment": "RETURN \"return-value\"",
       "begin": "(?i)\\s*(return)(\\s+(error))?\\s+(\")",
@@ -3302,77 +3381,119 @@
       "name": "comment.preprocessor.analyze-suspend.abl"
     },
     "global-scoped-define": {
-      "begin": "(?i)((?:&scop(?:ed-define|ed-defin|ed-defi|ed-def|ed-de|ed-d|ed-|ed|e)?)|(?:&glob(?:al-define|al-defin|al-defi|al-def|al-de|al-d|al-|al|a)?))\\s*([\\.a-zA-Z0-9_\\-#$%\\\\/]*)\\s*",
-      "beginCaptures": {
-        "1": {
-          "name": "keyword.other.abl"
-        },
-        "2": {
-          "name": "entity.name.function.preprocessor.abl"
-        }
-      },
-      "end": "(?=//|/\\*)|$",
-      "name": "meta.preprocessor.define.abl",
-      "patterns": [
+      "patterns":[
         {
-          "include": "#string"
+          "begin": "(?i)^\\s*((&)(scop(?:ed-define|ed-defin|ed-defi|ed-def|ed-de|ed-d|ed-|ed|e)?))\\s*",
+          "name": "meta.preprocessor.abl",
+          "beginCaptures": {
+            "2": {
+              "name": "punctuation.definition.preprocessor.abl"
+            },
+            "3": {
+              "name": "keyword.control.directive.define.abl"
+            },
+            "4": {
+              "name": "entity.name.function.preprocessor.abl"
+            }
+          },
+          "end": "([\\.a-zA-Z0-9_\\-#$%\\/]+)\\s*",
+          "endCaptures": {
+            "1": {
+              "name": "entity.name.function.preprocessor.abl"
+            }
+          },
+          "patterns": [
+            {
+              "include": "#escape-endline"
+            }
+          ]
+        },
+        {
+          "begin": "(?i)^\\s*((&)(glob(?:al-define|al-defin|al-defi|al-def|al-de|al-d|al-|al|a)?))\\s*",
+          "name": "meta.preprocessor.abl",
+          "beginCaptures": {
+            "2": {
+              "name": "punctuation.definition.preprocessor.abl"
+            },
+            "3": {
+              "name": "keyword.control.directive.define.abl"
+            },
+            "4": {
+              "name": "entity.name.function.preprocessor.abl"
+            }
+          },
+          "end": "([\\.a-zA-Z0-9_\\-#$%\\/]+)\\s*",
+          "endCaptures": {
+            "1": {
+              "name": "entity.name.function.preprocessor.abl"
+            }
+          },
+          "patterns": [
+            {
+              "include": "#escape-char"
+            }
+          ]
+        },
+        {
+          "begin": "(?i)((&)(undef(?:ine|in|i)?))\\s*([\\.a-zA-Z0-9_\\-#$%\\/]*)\\s*",
+          "name": "meta.preprocessor.abl",
+          "beginCaptures": {
+            "2": {
+              "name": "punctuation.definition.preprocessor.abl"
+            },
+            "3": {
+              "name": "keyword.control.directive.define.abl"
+            },
+            "4": {
+              "name": "entity.name.function.preprocessor.abl"
+            }
+          },
+          "end": "([\\.a-zA-Z0-9_\\-#$%\\/]+)\\s*",
+          "endCaptures": {
+            "1": {
+              "name": "entity.name.function.preprocessor.abl"
+            }
+          },
+          "patterns": [
+            {
+              "include": "#escape-char"
+            }
+          ]
         }
       ]
     },
-    "X-if-then": {
-      "begin": "(?i)\\b(if)\\b",
+    "preprocessor-functions": {
+      "begin": "\\s*([Dd][Ee][Ff][Ii][Nn][Ee][Dd])\\b",
       "beginCaptures": {
         "1": {
-          "name": "keyword.other.abl"
+          "name": "storage.type.function.abl"
         }
       },
       "patterns": [
         {
-          "match": "(?i)\\b(and|or)\\b",
-          "captures": {
-            "1": {
-              "name": "keyword.other.abl"
-            }
-          }
-        },
-        {
           "include": "#parens"
-        },
-        {
-          "include": "#function-arguments"
-        },
-        {
-          "include": "#type-member-call"
-        },
-        {
-          "include": "#db-dot-table-dot-field"
         },
         {
           "include": "#comment"
         },
         {
-          "include": "#operator"
-        },
-        {
-          "include": "#code-block"
-        },
-        {
-          "include": "#handle-attributes"
-        },
-        {
-          "include": "#preprocessors"
-        },
-        {
-          "include": "#abl-system-handles"
-        },
-        {
-          "include": "#keywords"
+          "match": "([a-zA-Z0-9_\\-#$%]+)",
+          "captures": {
+            "1": {
+              "name": "entity.name.function.preprocessor.abl"
+            }
+          }
         }
       ],
-      "end": "(?i)\\b(?=then)\\b"
+      "end": "(\\))",
+      "endCaptures": {
+        "1": {
+          "name": "meta.brace.round.js"
+        }
+      }
     },
     "if-then": {
-      "begin": "(?i)\\b(if)\\b",
+      "begin": "\\b([Ii][Ff])\\b",
       "beginCaptures": {
         "1": {
           "name": "keyword.other.abl"
@@ -3383,7 +3504,7 @@
           "include": "#logical-expression"
         }
       ],
-      "end": "(?i)\\b(?=then)\\b"
+      "end": "\\b(?=[Tt][Hh][Ee][Nn])\\b"
     },
     "logical-expression": {
       "patterns": [
@@ -3924,7 +4045,7 @@
       "comment": "https://docs.progress.com/bundle/abl-reference/page/Data-types.html"
     },
     "primitive-type": {
-      "match": "(?i)(?<=^|\\s)(blob|(char(?:acter|acte|act|ac|a)?)|cha|ch|c|clob|com-handle|date|da|datetime|datetime-tz|(dec(?:imal|ima|im|i)?)|de|handle|int64|(int(?:eger|ege|eg|e)?)|in|i|(log(?:ical|ica|ic|i)?)|lo|l|(longch(?:ar|a)?)|memptr|raw|recid|rowid|widget-handle)(?![=a-zA-Z0-9_\\-#$%\\-])",
+      "match": "(?i)(?<=^|\\s)(blob|ch(?:aracter?|aract?|ara?|a?)|c|clob|com-handle|da(?:|te|tetime|tetime-tz)|de(?:cimal?|cim?|c?)|handle|int64|(int(?:eger|ege|eg|e)?)|in|i|(log(?:ical|ica|ic|i)?)|lo|l|(longch(?:ar|a)?)|memptr|raw|recid|rowid|widget-handle)(?![=a-zA-Z0-9_\\-#$%\\-])",
       "captures": {
         "1": {
           "name": "storage.type.abl"

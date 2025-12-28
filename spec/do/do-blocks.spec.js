@@ -108,7 +108,8 @@ end.`;
     [
       { "startIndex": 0, "endIndex": 2, "scopes": ["source.abl", "meta.block.abl", "keyword.other.abl"] },  // 'do'
       { "startIndex": 2, "endIndex": 3, "scopes": ["source.abl", "meta.block.abl"] },  // ' '
-      { "startIndex": 3, "endIndex": 6, "scopes": ["source.abl", "meta.block.abl", "storage.type.function.abl"] },  // '&if'
+      { "startIndex": 3, "endIndex": 4, "scopes": ["source.abl", "meta.block.abl", "punctuation.definition.preprocessor.abl"] },  // '&'
+      { "startIndex": 4, "endIndex": 6, "scopes": ["source.abl", "meta.block.abl", "keyword.control.directive.conditional.abl"] },  // 'if'
       { "startIndex": 6, "endIndex": 7, "scopes": ["source.abl", "meta.block.abl"] },  // ' '
       { "startIndex": 7, "endIndex": 8, "scopes": ["source.abl", "meta.block.abl", "string.double.complex.abl", "punctuation.definition.string.begin.abl"] },  // '"'
       { "startIndex": 8, "endIndex": 21, "scopes": ["source.abl", "meta.block.abl", "string.double.complex.abl"] },  // '{&CATCH-STOP}'
@@ -119,7 +120,8 @@ end.`;
       { "startIndex": 26, "endIndex": 27, "scopes": ["source.abl", "meta.block.abl", "string.double.complex.abl", "punctuation.definition.string.begin.abl"] },  // '"'
       { "startIndex": 27, "endIndex": 28, "scopes": ["source.abl", "meta.block.abl", "string.double.complex.abl", "punctuation.definition.string.end.abl"] },  // '"'
       { "startIndex": 28, "endIndex": 29, "scopes": ["source.abl", "meta.block.abl"] },  // ' '
-      { "startIndex": 29, "endIndex": 34, "scopes": ["source.abl", "meta.block.abl", "storage.type.function.abl"] },  // '&then'
+      { "startIndex": 29, "endIndex": 30, "scopes": ["source.abl", "meta.block.abl", "punctuation.definition.preprocessor.abl"] },  // '&'
+      { "startIndex": 30, "endIndex": 34, "scopes": ["source.abl", "meta.block.abl", "keyword.control.directive.conditional.abl"] },  // 'then'
       { "startIndex": 34, "endIndex": 35, "scopes": ["source.abl", "meta.block.abl"] },  // ' '
       { "startIndex": 35, "endIndex": 37, "scopes": ["source.abl", "meta.block.abl", "keyword.other.abl"] },  // 'on'
       { "startIndex": 37, "endIndex": 38, "scopes": ["source.abl", "meta.block.abl"] },  // ' '
@@ -147,7 +149,10 @@ end.`;
       { "startIndex": 70, "endIndex": 72, "scopes": ["source.abl", "meta.block.abl", "meta.function.arguments.abl", "meta.function-call.abl", "meta.function.arguments.abl", "string.double.complex.abl", "constant.character.escape.abl"] },  // '~n'
       { "startIndex": 72, "endIndex": 80, "scopes": ["source.abl", "meta.block.abl", "meta.function.arguments.abl", "meta.function-call.abl", "meta.function.arguments.abl", "string.double.complex.abl"] },  // 'Comp: &1'
       { "startIndex": 80, "endIndex": 81, "scopes": ["source.abl", "meta.block.abl", "meta.function.arguments.abl", "meta.function-call.abl", "meta.function.arguments.abl", "string.double.complex.abl", "punctuation.definition.string.end.abl"] },  // '"'
-      { "startIndex": 81, "endIndex": 88, "scopes": ["source.abl", "meta.block.abl", "meta.function.arguments.abl", "meta.function-call.abl", "meta.function.arguments.abl", "storage.type.function.abl"] },  // '{&TRAN}'
+      { "startIndex": 81, "endIndex": 82, "scopes": ["source.abl", "meta.block.abl", "meta.function.arguments.abl", "meta.function-call.abl", "meta.function.arguments.abl", "meta.preprocessor.abl", "punctuation.section.abl"] },  // '{'
+      { "startIndex": 82, "endIndex": 83, "scopes": ["source.abl", "meta.block.abl", "meta.function.arguments.abl", "meta.function-call.abl", "meta.function.arguments.abl", "meta.preprocessor.abl", "punctuation.definition.preprocessor.abl"] },  // '&'
+      { "startIndex": 83, "endIndex": 87, "scopes": ["source.abl", "meta.block.abl", "meta.function.arguments.abl", "meta.function-call.abl", "meta.function.arguments.abl", "meta.preprocessor.abl", "entity.name.function.preprocessor.abl"] },  // 'TRAN'
+      { "startIndex": 87, "endIndex": 88, "scopes": ["source.abl", "meta.block.abl", "meta.function.arguments.abl", "meta.function-call.abl", "meta.function.arguments.abl", "meta.preprocessor.abl", "punctuation.section.abl"] },  // '}'
       { "startIndex": 88, "endIndex": 89, "scopes": ["source.abl", "meta.block.abl", "meta.function.arguments.abl", "meta.function-call.abl", "meta.function.arguments.abl", "punctuation.separator.comma.abl"] }  // ','
     ],
     [
@@ -161,7 +166,8 @@ end.`;
       { "startIndex": 4, "endIndex": 5, "scopes": ["source.abl", "meta.block.abl", "meta.function.arguments.abl", "constant.numeric.source.abl"] },  // '0'
       { "startIndex": 5, "endIndex": 6, "scopes": ["source.abl", "meta.block.abl", "meta.brace.round.js"] },  // ')'
       { "startIndex": 6, "endIndex": 7, "scopes": ["source.abl", "meta.block.abl"] },  // ' '
-      { "startIndex": 7, "endIndex": 13, "scopes": ["source.abl", "meta.block.abl", "storage.type.function.abl"] },  // '&endif'
+      { "startIndex": 7, "endIndex": 8, "scopes": ["source.abl", "meta.block.abl", "punctuation.definition.preprocessor.abl"] },  // '&'
+      { "startIndex": 8, "endIndex": 13, "scopes": ["source.abl", "meta.block.abl", "keyword.control.directive.conditional.abl"] },  // 'endif'
       { "startIndex": 13, "endIndex": 14, "scopes": ["source.abl", "meta.block.abl"] },  // ' '
       { "startIndex": 14, "endIndex": 15, "scopes": ["source.abl", "punctuation.terminator.abl"] }  // ':'
     ],

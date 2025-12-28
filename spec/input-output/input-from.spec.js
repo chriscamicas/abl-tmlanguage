@@ -493,7 +493,10 @@ describe('', () => {
     { "startIndex": 28, "endIndex": 29, "scopes": ["source.abl"] },  // ' '
     { "startIndex": 29, "endIndex": 36, "scopes": ["source.abl", "keyword.other.abl"] },  // 'NO-ECHO'
     { "startIndex": 36, "endIndex": 37, "scopes": ["source.abl"] },  // ' '
-    { "startIndex": 37, "endIndex": 46, "scopes": ["source.abl", "storage.type.function.abl"] },  // '{&NO-MAP}'
+    { "startIndex": 37, "endIndex": 38, "scopes": ["source.abl", "meta.preprocessor.abl", "punctuation.section.abl"] },  // '{'
+    { "startIndex": 38, "endIndex": 39, "scopes": ["source.abl", "meta.preprocessor.abl", "punctuation.definition.preprocessor.abl"] },  // '&'
+    { "startIndex": 39, "endIndex": 45, "scopes": ["source.abl", "meta.preprocessor.abl", "entity.name.function.preprocessor.abl"] },  // 'NO-MAP'
+    { "startIndex": 45, "endIndex": 46, "scopes": ["source.abl", "meta.preprocessor.abl", "punctuation.section.abl"] },  // '}'
     { "startIndex": 46, "endIndex": 47, "scopes": ["source.abl", "punctuation.terminator.abl"] }  // '.'
   ];
 

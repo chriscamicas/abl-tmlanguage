@@ -58,25 +58,25 @@ This project uses the [vscode-textmate](https://www.npmjs.com/package/vscode-tex
 ## Keywords
 Part of this grammar is generated from a keyword list file. See [index.js] for information on how to generate that file, as well as the others required for the generation.
 
-When `npm run build` is executed, a file called grammer.json is created, which contains properties for `keywords` (all the keywords), `abl-functions` and `handle-attributes` (attributes and method calls on ABL handles). The contents of this file should be copied into the `abl.tmLanguage.json` file, replacing the existing contents.
+When `npm run build` is executed, a file called grammar.json is created, which contains properties for `keywords` (all the keywords), `abl-functions` and `handle-attributes` (attributes and method calls on ABL handles). The contents of this file should be copied into the `abl.tmLanguage.json` file, replacing the existing contents.
 
 
 
 # Scopes
 
-The ABL-specific scopes produced by the ABL grammer listed in the table below. The scope names are largely based on the naming conventions at https://macromates.com/manual/en/language_grammars#language_rules and https://www.sublimetext.com/docs/scope_naming.html .
+The ABL-specific scopes produced by the ABL grammar listed in the table below. The scope names are largely based on the naming conventions at https://macromates.com/manual/en/language_grammars#language_rules and https://www.sublimetext.com/docs/scope_naming.html .
 
 | Scope Name | Used for/by |
 | ------------- | ------------- |
 |comment.block.source.abl                         | Everything between `/*` and `*/` |
 |comment.line.double-slash.abl                    | Everything in a `//` comment, incl slashes |
 |comment.preprocessor.analyze-suspend.abl         | `&analyze-suspend`, `&analyze-resume` |
-|constant.character.escape.abl                    |  `~` and the next char |
+|constant.character.escape.abl                    |  `~` and the next char, or `~` at the end of a line |
 |constant.language.abl                            | `today`, `now`, `true`, `false`, `yes`, `no`, `?` (unknown value) |
 |constant.language.source.abl                     | `99/99/9999` (or similar) when used as a format clause |
-|constant.numeric.source.abl                      | 0x00-0xFF, 0-9 |
+|constant.numeric.source.abl                      | 0x00-0xFF, 0-9, scientific notation |
 |entity.name.function.abl                         | Method call, property call, method name, property name, handle attributes, handle methods, event names |
-|entity.name.function.preprocessor.abl            | `&scoped-define`, `&global-define` |
+|entity.name.function.preprocessor.abl            | Preprocessor names |
 |entity.name.include.abl                          | Include file names |
 |entity.name.label.abl                            | Block label names |
 |entity.name.package.abl                          | Package names for `using` |
@@ -85,12 +85,15 @@ The ABL-specific scopes produced by the ABL grammer listed in the table below. T
 |entity.name.type.abl                             | Class/interface/enum names |
 |entity.name.type.generic.abl                     | Generic type names |
 |entity.other.attribute-name.abl                  | Annotation attribute names |
+|keyword.control.directive.conditional.abl        | `&if` , `&else`, `&elsif` `&end` |
+|keyword.control.directive.define.abl             | `&scoped-define`, `&global-define`, `&undefine` |
 |keyword.operator.source.abl                      | `contains`, `begins`, `matches`, `eq`, `le`, `lt`, `ge`, `gt`, `ne`, `<=`, `<>`, `>=`, `=`, `+`, `-`, `/`, `<`, `>`, `*`, `+=`, `-=`, `/=`, `*=` |
 |keyword.other.abl                                | Any ABL keyword (incl those covered by other scopes like `support.function.abl` and `entity.name.function.abl`) |
 |punctuation.definition.bracket.square.begin.abl  |  `[` used for array arguments |
 |punctuation.definition.bracket.square.end.abl    |  `]` used for array arguments |
 |punctuation.definition.generic.begin.abl         |  `<` used for generic type arguments |
 |punctuation.definition.generic.end.abl           |  `>` used for generic type arguments |
+|punctuation.definition.preprocessor.abl          | Leading `&` of referenced preprocessor and directives |
 |punctuation.definition.string.begin.abl          | Start of a quoted string |
 |punctuation.definition.string.end.abl            | End of a quoted string |
 |punctuation.section.abl                          | `{` and `}` |
@@ -103,7 +106,7 @@ The ABL-specific scopes produced by the ABL grammer listed in the table below. T
 |storage.data.table.abl                           | (Temp-)Table names, field names, index names |
 |storage.other.opsys-device.abl                   | Files and other operating system devices |
 |storage.type.abl                                 | Primitive datatypes |
-|storage.type.function.abl                        | ABL preprocessors, `defined` keyword |
+|storage.type.function.abl                        |  `defined` keyword and preprocessor directives like `&message` |
 |string.double.complex.abl                        | String in `"` quotes |
 |string.single.complex.abl                        | String in `'` quotes |
 |support.function.abl                             | `opsys`, `proversion`, ABL functions (eg `base64-encode`) |

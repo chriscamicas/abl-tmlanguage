@@ -62,3 +62,27 @@ end procedure.`;
   ];
   shared.itShouldMatchExpectedScopes(statement, expectedTokens);
 })
+
+describe('', () => {
+  // This test must have leading spaces
+  let statement = `    procedure UsingFoo private:
+end procedure.`;
+
+  let expectedTokens = [
+    [
+      { "startIndex": 0, "endIndex": 4, "scopes": ["source.abl", "meta.procedure.abl"] },  // '    '
+      { "startIndex": 4, "endIndex": 13, "scopes": ["source.abl", "meta.procedure.abl", "keyword.other.abl"] },  // 'procedure'
+      { "startIndex": 13, "endIndex": 14, "scopes": ["source.abl", "meta.procedure.abl"] },  // ' '
+      { "startIndex": 14, "endIndex": 22, "scopes": ["source.abl", "meta.procedure.abl", "entity.name.procedure.abl"] },  // 'UsingFoo'
+      { "startIndex": 22, "endIndex": 23, "scopes": ["source.abl", "meta.procedure.abl"] },  // ' '
+      { "startIndex": 23, "endIndex": 30, "scopes": ["source.abl", "meta.procedure.abl", "keyword.other.abl"] },  // 'private'
+      { "startIndex": 30, "endIndex": 31, "scopes": ["source.abl", "punctuation.terminator.abl"] }  // ':'
+    ],
+    [
+      { "startIndex": 0, "endIndex": 3, "scopes": ["source.abl", "keyword.other.abl"] },  // 'end'
+      { "startIndex": 3, "endIndex": 4, "scopes": ["source.abl"] },  // ' '
+      { "startIndex": 4, "endIndex": 13, "scopes": ["source.abl", "keyword.other.abl"] },  // 'procedure'
+      { "startIndex": 13, "endIndex": 14, "scopes": ["source.abl", "punctuation.terminator.abl"] }  // '.'
+    ]];
+  shared.itShouldMatchExpectedScopes(statement, expectedTokens);
+})
