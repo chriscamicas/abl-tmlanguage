@@ -71,7 +71,7 @@ The ABL-specific scopes produced by the ABL grammar listed in the table below. T
 |comment.block.source.abl                         | Everything between `/*` and `*/` |
 |comment.line.double-slash.abl                    | Everything in a `//` comment, incl. slashes |
 |comment.preprocessor.analyze-suspend.abl         | `&analyze-suspend`, `&analyze-resume` |
-|constant.character.escape.abl                    |  `~` and the next char, or `~` at the end of a line |
+|constant.character.escape.abl                    |  `~` and the next char |
 |constant.language.abl                            | `today`, `now`, `true`, `false`, `yes`, `no`, `?` (unknown value) |
 |constant.language.source.abl                     | `99/99/9999` (or similar) when used as a format clause |
 |constant.numeric.source.abl                      | 0x00-0xFF, 0-9, scientific notation |
@@ -98,6 +98,7 @@ The ABL-specific scopes produced by the ABL grammar listed in the table below. T
 |punctuation.definition.string.end.abl            | End of a quoted string |
 |punctuation.section.abl                          | `{` and `}` |
 |punctuation.separator.comma.abl                  | `,` |
+|punctuation.separator.continuation               |  `~` at the end of a line (preprocessor) |
 |punctuation.separator.period.abl                 | `.` |
 |punctuation.separator.colon.abl                  | `:` |
 |punctuation.terminator.abl                       | `.` and `:` |

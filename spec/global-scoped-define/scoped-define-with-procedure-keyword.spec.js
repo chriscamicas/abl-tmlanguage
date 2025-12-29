@@ -55,12 +55,12 @@ Procedure`;
       { "startIndex": 0, "endIndex": 1, "scopes": ["source.abl", "meta.preprocessor.abl", "punctuation.definition.preprocessor.abl"] },  // '&'
       { "startIndex": 1, "endIndex": 14, "scopes": ["source.abl", "meta.preprocessor.abl", "keyword.control.directive.define.abl"] },  // 'Scoped-define'
       { "startIndex": 14, "endIndex": 15, "scopes": ["source.abl", "meta.preprocessor.abl"] },  // ' '
-      { "startIndex": 15, "endIndex": 16, "scopes": ["source.abl", "meta.preprocessor.abl", "constant.character.escape.abl"] }  // '~'
+      { "startIndex": 15, "endIndex": 16, "scopes": ["source.abl", "meta.preprocessor.abl", "punctuation.separator.continuation"] }  // '~'
     ],
     [
       { "startIndex": 0, "endIndex": 14, "scopes": ["source.abl", "meta.preprocessor.abl", "entity.name.function.preprocessor.abl"] },  // 'PROCEDURE-TYPE'
       { "startIndex": 14, "endIndex": 16, "scopes": ["source.abl", "meta.preprocessor.abl"] },  // '  '
-      { "startIndex": 16, "endIndex": 17, "scopes": ["source.abl", "constant.character.escape.abl"] }  // '~'
+      { "startIndex": 16, "endIndex": 17, "scopes": ["source.abl", "punctuation.separator.continuation"] }  // '~'
     ],
     [
       { "startIndex": 0, "endIndex": 9, "scopes": ["source.abl", "keyword.other.abl"] }  // 'Procedure'
