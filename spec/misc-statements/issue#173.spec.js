@@ -22,9 +22,9 @@ describe('', () => {
       { "startIndex": 0, "endIndex": 2, "scopes": ["source.abl"] },  // '  '
       { "startIndex": 2, "endIndex": 9, "scopes": ["source.abl", "keyword.other.abl"] },  // 'message'
       { "startIndex": 9, "endIndex": 10, "scopes": ["source.abl"] },  // ' '
-      { "startIndex": 10, "endIndex": 11, "scopes": ["source.abl", "string.double.complex.abl", "punctuation.definition.string.begin.abl"] },  // '"'
-      { "startIndex": 11, "endIndex": 14, "scopes": ["source.abl", "string.double.complex.abl"] },  // 'Yes'
-      { "startIndex": 14, "endIndex": 15, "scopes": ["source.abl", "string.double.complex.abl", "punctuation.definition.string.end.abl"] },  // '"'
+      { "startIndex": 10, "endIndex": 11, "scopes": ["source.abl", "string.quoted.double.abl", "punctuation.definition.string.begin.abl"] },  // '"'
+      { "startIndex": 11, "endIndex": 14, "scopes": ["source.abl", "string.quoted.double.abl"] },  // 'Yes'
+      { "startIndex": 14, "endIndex": 15, "scopes": ["source.abl", "string.quoted.double.abl", "punctuation.definition.string.end.abl"] },  // '"'
       { "startIndex": 15, "endIndex": 16, "scopes": ["source.abl"] },  // ' '
       { "startIndex": 16, "endIndex": 23, "scopes": ["source.abl", "keyword.other.abl"] },  // 'view-as'
       { "startIndex": 23, "endIndex": 24, "scopes": ["source.abl"] },  // ' '
@@ -97,4 +97,3 @@ assign
   ];
   shared.itShouldMatchExpectedScopes(statement, expectedTokens);
 })
-

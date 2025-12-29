@@ -34,10 +34,10 @@ ELSE {&WINDOW-NAME} = CURRENT-WINDOW.`;
       { "startIndex": 23, "endIndex": 24, "scopes": ["source.abl"] },  // ' '
       { "startIndex": 24, "endIndex": 25, "scopes": ["source.abl", "keyword.operator.source.abl"] },  // '='
       { "startIndex": 25, "endIndex": 26, "scopes": ["source.abl"] },  // ' '
-      { "startIndex": 26, "endIndex": 27, "scopes": ["source.abl", "string.double.complex.abl", "punctuation.definition.string.begin.abl"] },  // '"'
-      { "startIndex": 27, "endIndex": 30, "scopes": ["source.abl", "string.double.complex.abl"] },  // 'GUI'
-      { "startIndex": 30, "endIndex": 31, "scopes": ["source.abl", "string.double.complex.abl", "punctuation.definition.string.end.abl"] },  // '"'
-      { "startIndex": 31, "endIndex": 33, "scopes": ["source.abl", "string.double.complex.abl", "support.other.abl"] },  // ':U'
+      { "startIndex": 26, "endIndex": 27, "scopes": ["source.abl", "string.quoted.double.abl", "punctuation.definition.string.begin.abl"] },  // '"'
+      { "startIndex": 27, "endIndex": 30, "scopes": ["source.abl", "string.quoted.double.abl"] },  // 'GUI'
+      { "startIndex": 30, "endIndex": 31, "scopes": ["source.abl", "string.quoted.double.abl", "punctuation.definition.string.end.abl"] },  // '"'
+      { "startIndex": 31, "endIndex": 33, "scopes": ["source.abl", "string.quoted.double.abl", "support.other.abl"] },  // ':U'
       { "startIndex": 33, "endIndex": 34, "scopes": ["source.abl"] },  // ' '
       { "startIndex": 34, "endIndex": 38, "scopes": ["source.abl", "keyword.other.abl"] }  // 'THEN'
     ],
@@ -65,9 +65,9 @@ ELSE {&WINDOW-NAME} = CURRENT-WINDOW.`;
       { "startIndex": 13, "endIndex": 27, "scopes": ["source.abl"] },  // '              '
       { "startIndex": 27, "endIndex": 28, "scopes": ["source.abl", "keyword.operator.source.abl"] },  // '='
       { "startIndex": 28, "endIndex": 29, "scopes": ["source.abl"] },  // ' '
-      { "startIndex": 29, "endIndex": 30, "scopes": ["source.abl", "string.double.complex.abl", "punctuation.definition.string.begin.abl"] },  // '"'
-      { "startIndex": 30, "endIndex": 56, "scopes": ["source.abl", "string.double.complex.abl"] },  // 'A/R Customer Statement for'
-      { "startIndex": 56, "endIndex": 57, "scopes": ["source.abl", "string.double.complex.abl", "punctuation.definition.string.end.abl"] }  // '"'
+      { "startIndex": 29, "endIndex": 30, "scopes": ["source.abl", "string.quoted.double.abl", "punctuation.definition.string.begin.abl"] },  // '"'
+      { "startIndex": 30, "endIndex": 56, "scopes": ["source.abl", "string.quoted.double.abl"] },  // 'A/R Customer Statement for'
+      { "startIndex": 56, "endIndex": 57, "scopes": ["source.abl", "string.quoted.double.abl", "punctuation.definition.string.end.abl"] }  // '"'
     ],
     [
       { "startIndex": 0, "endIndex": 8, "scopes": ["source.abl"] },  // '        '

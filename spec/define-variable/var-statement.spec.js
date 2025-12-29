@@ -225,9 +225,9 @@ describe('', () => {
     { "startIndex": 64, "endIndex": 66, "scopes": ["source.abl", "meta.function-call.abl", "meta.function.arguments.abl", "constant.numeric.source.abl"] },  // '12'
     { "startIndex": 66, "endIndex": 67, "scopes": ["source.abl", "meta.function-call.abl", "meta.function.arguments.abl", "punctuation.separator.comma.abl"] },  // ','
     { "startIndex": 67, "endIndex": 68, "scopes": ["source.abl", "meta.function-call.abl", "meta.function.arguments.abl"] },  // ' '
-    { "startIndex": 68, "endIndex": 69, "scopes": ["source.abl", "meta.function-call.abl", "meta.function.arguments.abl", "string.single.complex.abl", "punctuation.definition.string.begin.abl"] },  // '''
-    { "startIndex": 69, "endIndex": 81, "scopes": ["source.abl", "meta.function-call.abl", "meta.function.arguments.abl", "string.single.complex.abl"] },  // 'milliseconds'
-    { "startIndex": 81, "endIndex": 82, "scopes": ["source.abl", "meta.function-call.abl", "meta.function.arguments.abl", "string.single.complex.abl", "punctuation.definition.string.end.abl"] },  // '''
+    { "startIndex": 68, "endIndex": 69, "scopes": ["source.abl", "meta.function-call.abl", "meta.function.arguments.abl", "string.quoted.single.abl", "punctuation.definition.string.begin.abl"] },  // '''
+    { "startIndex": 69, "endIndex": 81, "scopes": ["source.abl", "meta.function-call.abl", "meta.function.arguments.abl", "string.quoted.single.abl"] },  // 'milliseconds'
+    { "startIndex": 81, "endIndex": 82, "scopes": ["source.abl", "meta.function-call.abl", "meta.function.arguments.abl", "string.quoted.single.abl", "punctuation.definition.string.end.abl"] },  // '''
     { "startIndex": 82, "endIndex": 83, "scopes": ["source.abl", "meta.function-call.abl", "meta.brace.round.js"] },  // ')'
     { "startIndex": 83, "endIndex": 84, "scopes": ["source.abl", "punctuation.terminator.abl"] }  // '.'
   ]

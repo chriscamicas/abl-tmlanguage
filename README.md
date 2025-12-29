@@ -107,11 +107,11 @@ The ABL-specific scopes produced by the ABL grammar listed in the table below. T
 |storage.other.opsys-device.abl                   | Files and other operating system devices |
 |storage.type.abl                                 | Primitive datatypes |
 |storage.type.function.abl                        |  `defined` keyword and preprocessor directives like `&message` |
-|string.double.complex.abl                        | String in `"` quotes |
-|string.single.complex.abl                        | String in `'` quotes |
+|string.quoted.double.abl                         | String in `"` quotes |
+|string.quoted.single.abl                         | String in `'` quotes |
 |support.function.abl                             | `opsys`, `proversion`, ABL functions (eg `base64-encode`) |
 |support.other.abl                                | Translation attributes `:L`, `:R`, `:T`, `:C`, `:U` |
-|support.other.argument.abl                       | `&<name\|number>` arguments in includes, preprocessor values |
+|support.other.argument.abl                       | `&<name\|number>` arguments in includes |
 |variable.language.abl                            | ABL system handles (eg `session` or `this-object`) |
 |variable.other.abl                               | Variable names |
 |variable.parameter.abl                           | Parameter names in method, function, procedure definition |
@@ -141,7 +141,7 @@ There are also a number of 'meta' scopes that usually cover multiple other scope
 |meta.include.argument.abl        | Include argument references like `&arg` and `&arg=` |
 |meta.preprocessor.abl            | Preprocessor definitions, functions and usage |
 |meta.procedure.abl               | An internal procedure definition, from the `procedure` keyword to its closing `:` or `.`  |
-|meta.statements.abl              | All ABL statmements |
+|meta.statements.abl              | All ABL statements |
 |meta.using.abl                   | A `using` definition |
 
 ## Checking scopes

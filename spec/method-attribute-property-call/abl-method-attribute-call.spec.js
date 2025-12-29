@@ -19,10 +19,10 @@ SessionManager:ContextDataset:WRITE-XML ( "longchar":U,
       { "startIndex": 39, "endIndex": 40, "scopes": ["source.abl"] },  // ' '
       { "startIndex": 40, "endIndex": 41, "scopes": ["source.abl", "meta.function.arguments.abl", "meta.brace.round.js"] },  // '('
       { "startIndex": 41, "endIndex": 42, "scopes": ["source.abl", "meta.function.arguments.abl"] },  // ' '
-      { "startIndex": 42, "endIndex": 43, "scopes": ["source.abl", "meta.function.arguments.abl", "string.double.complex.abl", "punctuation.definition.string.begin.abl"] },  // '"'
-      { "startIndex": 43, "endIndex": 51, "scopes": ["source.abl", "meta.function.arguments.abl", "string.double.complex.abl"] },  // 'longchar'
-      { "startIndex": 51, "endIndex": 52, "scopes": ["source.abl", "meta.function.arguments.abl", "string.double.complex.abl", "punctuation.definition.string.end.abl"] },  // '"'
-      { "startIndex": 52, "endIndex": 54, "scopes": ["source.abl", "meta.function.arguments.abl", "string.double.complex.abl", "support.other.abl"] },  // ':U'
+      { "startIndex": 42, "endIndex": 43, "scopes": ["source.abl", "meta.function.arguments.abl", "string.quoted.double.abl", "punctuation.definition.string.begin.abl"] },  // '"'
+      { "startIndex": 43, "endIndex": 51, "scopes": ["source.abl", "meta.function.arguments.abl", "string.quoted.double.abl"] },  // 'longchar'
+      { "startIndex": 51, "endIndex": 52, "scopes": ["source.abl", "meta.function.arguments.abl", "string.quoted.double.abl", "punctuation.definition.string.end.abl"] },  // '"'
+      { "startIndex": 52, "endIndex": 54, "scopes": ["source.abl", "meta.function.arguments.abl", "string.quoted.double.abl", "support.other.abl"] },  // ':U'
       { "startIndex": 54, "endIndex": 55, "scopes": ["source.abl", "meta.function.arguments.abl", "punctuation.separator.comma.abl"] }  // ','
     ],
     [
@@ -32,10 +32,10 @@ SessionManager:ContextDataset:WRITE-XML ( "longchar":U,
     ],
     [
       { "startIndex": 0, "endIndex": 42, "scopes": ["source.abl", "meta.function.arguments.abl"] },  // '                                          '
-      { "startIndex": 42, "endIndex": 43, "scopes": ["source.abl", "meta.function.arguments.abl", "string.double.complex.abl", "punctuation.definition.string.begin.abl"] },  // '"'
-      { "startIndex": 43, "endIndex": 48, "scopes": ["source.abl", "meta.function.arguments.abl", "string.double.complex.abl"] },  // 'EMPTY'
-      { "startIndex": 48, "endIndex": 49, "scopes": ["source.abl", "meta.function.arguments.abl", "string.double.complex.abl", "punctuation.definition.string.end.abl"] },  // '"'
-      { "startIndex": 49, "endIndex": 51, "scopes": ["source.abl", "meta.function.arguments.abl", "string.double.complex.abl", "support.other.abl"] },  // ':U'
+      { "startIndex": 42, "endIndex": 43, "scopes": ["source.abl", "meta.function.arguments.abl", "string.quoted.double.abl", "punctuation.definition.string.begin.abl"] },  // '"'
+      { "startIndex": 43, "endIndex": 48, "scopes": ["source.abl", "meta.function.arguments.abl", "string.quoted.double.abl"] },  // 'EMPTY'
+      { "startIndex": 48, "endIndex": 49, "scopes": ["source.abl", "meta.function.arguments.abl", "string.quoted.double.abl", "punctuation.definition.string.end.abl"] },  // '"'
+      { "startIndex": 49, "endIndex": 51, "scopes": ["source.abl", "meta.function.arguments.abl", "string.quoted.double.abl", "support.other.abl"] },  // ':U'
       { "startIndex": 51, "endIndex": 52, "scopes": ["source.abl", "meta.function.arguments.abl", "punctuation.separator.comma.abl"] },  // ','
       { "startIndex": 52, "endIndex": 53, "scopes": ["source.abl", "meta.function.arguments.abl"] },  // ' '
       { "startIndex": 53, "endIndex": 54, "scopes": ["source.abl", "meta.function.arguments.abl", "constant.language.abl"] },  // '?'
@@ -67,10 +67,10 @@ SessionManager:ContextDataset:READ-XML ( "longchar":U,
       { "startIndex": 38, "endIndex": 39, "scopes": ["source.abl"] },  // ' '
       { "startIndex": 39, "endIndex": 40, "scopes": ["source.abl", "meta.function.arguments.abl", "meta.brace.round.js"] },  // '('
       { "startIndex": 40, "endIndex": 41, "scopes": ["source.abl", "meta.function.arguments.abl"] },  // ' '
-      { "startIndex": 41, "endIndex": 42, "scopes": ["source.abl", "meta.function.arguments.abl", "string.double.complex.abl", "punctuation.definition.string.begin.abl"] },  // '"'
-      { "startIndex": 42, "endIndex": 50, "scopes": ["source.abl", "meta.function.arguments.abl", "string.double.complex.abl"] },  // 'longchar'
-      { "startIndex": 50, "endIndex": 51, "scopes": ["source.abl", "meta.function.arguments.abl", "string.double.complex.abl", "punctuation.definition.string.end.abl"] },  // '"'
-      { "startIndex": 51, "endIndex": 53, "scopes": ["source.abl", "meta.function.arguments.abl", "string.double.complex.abl", "support.other.abl"] },  // ':U'
+      { "startIndex": 41, "endIndex": 42, "scopes": ["source.abl", "meta.function.arguments.abl", "string.quoted.double.abl", "punctuation.definition.string.begin.abl"] },  // '"'
+      { "startIndex": 42, "endIndex": 50, "scopes": ["source.abl", "meta.function.arguments.abl", "string.quoted.double.abl"] },  // 'longchar'
+      { "startIndex": 50, "endIndex": 51, "scopes": ["source.abl", "meta.function.arguments.abl", "string.quoted.double.abl", "punctuation.definition.string.end.abl"] },  // '"'
+      { "startIndex": 51, "endIndex": 53, "scopes": ["source.abl", "meta.function.arguments.abl", "string.quoted.double.abl", "support.other.abl"] },  // ':U'
       { "startIndex": 53, "endIndex": 54, "scopes": ["source.abl", "meta.function.arguments.abl", "punctuation.separator.comma.abl"] }  // ','
     ],
     [
@@ -80,10 +80,10 @@ SessionManager:ContextDataset:READ-XML ( "longchar":U,
     ],
     [
       { "startIndex": 0, "endIndex": 42, "scopes": ["source.abl", "meta.function.arguments.abl"] },  // '                                          '
-      { "startIndex": 42, "endIndex": 43, "scopes": ["source.abl", "meta.function.arguments.abl", "string.double.complex.abl", "punctuation.definition.string.begin.abl"] },  // '"'
-      { "startIndex": 43, "endIndex": 48, "scopes": ["source.abl", "meta.function.arguments.abl", "string.double.complex.abl"] },  // 'EMPTY'
-      { "startIndex": 48, "endIndex": 49, "scopes": ["source.abl", "meta.function.arguments.abl", "string.double.complex.abl", "punctuation.definition.string.end.abl"] },  // '"'
-      { "startIndex": 49, "endIndex": 51, "scopes": ["source.abl", "meta.function.arguments.abl", "string.double.complex.abl", "support.other.abl"] },  // ':U'
+      { "startIndex": 42, "endIndex": 43, "scopes": ["source.abl", "meta.function.arguments.abl", "string.quoted.double.abl", "punctuation.definition.string.begin.abl"] },  // '"'
+      { "startIndex": 43, "endIndex": 48, "scopes": ["source.abl", "meta.function.arguments.abl", "string.quoted.double.abl"] },  // 'EMPTY'
+      { "startIndex": 48, "endIndex": 49, "scopes": ["source.abl", "meta.function.arguments.abl", "string.quoted.double.abl", "punctuation.definition.string.end.abl"] },  // '"'
+      { "startIndex": 49, "endIndex": 51, "scopes": ["source.abl", "meta.function.arguments.abl", "string.quoted.double.abl", "support.other.abl"] },  // ':U'
       { "startIndex": 51, "endIndex": 52, "scopes": ["source.abl", "meta.function.arguments.abl", "punctuation.separator.comma.abl"] },  // ','
       { "startIndex": 52, "endIndex": 53, "scopes": ["source.abl", "meta.function.arguments.abl"] },  // ' '
       { "startIndex": 53, "endIndex": 54, "scopes": ["source.abl", "meta.function.arguments.abl", "constant.language.abl"] },  // '?'
@@ -96,4 +96,3 @@ SessionManager:ContextDataset:READ-XML ( "longchar":U,
   ];
   shared.itShouldMatchExpectedScopes(statement, expectedTokens);
 })
-

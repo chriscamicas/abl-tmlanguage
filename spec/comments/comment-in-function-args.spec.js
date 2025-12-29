@@ -18,8 +18,8 @@ describe('', () => {
     { "startIndex": 24, "endIndex": 34, "scopes": ["source.abl", "meta.function.arguments.abl", "variable.other.abl"] },  // 'metricPath'
     { "startIndex": 34, "endIndex": 35, "scopes": ["source.abl", "meta.function.arguments.abl", "punctuation.separator.comma.abl"] },  // ','
     { "startIndex": 35, "endIndex": 36, "scopes": ["source.abl", "meta.function.arguments.abl"] },  // ' '
-    { "startIndex": 36, "endIndex": 37, "scopes": ["source.abl", "meta.function.arguments.abl", "string.double.complex.abl", "punctuation.definition.string.begin.abl"] },  // '"'
-    { "startIndex": 37, "endIndex": 38, "scopes": ["source.abl", "meta.function.arguments.abl", "string.double.complex.abl", "punctuation.definition.string.end.abl"] },  // '"'
+    { "startIndex": 36, "endIndex": 37, "scopes": ["source.abl", "meta.function.arguments.abl", "string.quoted.double.abl", "punctuation.definition.string.begin.abl"] },  // '"'
+    { "startIndex": 37, "endIndex": 38, "scopes": ["source.abl", "meta.function.arguments.abl", "string.quoted.double.abl", "punctuation.definition.string.end.abl"] },  // '"'
     { "startIndex": 38, "endIndex": 39, "scopes": ["source.abl", "meta.function.arguments.abl"] },  // ' '
     { "startIndex": 39, "endIndex": 41, "scopes": ["source.abl", "meta.function.arguments.abl", "comment.block.source.abl"] },  // '/*'
     { "startIndex": 41, "endIndex": 47, "scopes": ["source.abl", "meta.function.arguments.abl", "comment.block.source.abl", "comment"] },  // ' cred '
@@ -61,8 +61,8 @@ describe('', () => {
     { "startIndex": 24, "endIndex": 34, "scopes": ["source.abl", "meta.function.arguments.abl", "variable.other.abl"] },  // 'metricPath'
     { "startIndex": 34, "endIndex": 35, "scopes": ["source.abl", "meta.function.arguments.abl", "punctuation.separator.comma.abl"] },  // ','
     { "startIndex": 35, "endIndex": 36, "scopes": ["source.abl", "meta.function.arguments.abl"] },  // ' '
-    { "startIndex": 36, "endIndex": 37, "scopes": ["source.abl", "meta.function.arguments.abl", "string.double.complex.abl", "punctuation.definition.string.begin.abl"] },  // '"'
-    { "startIndex": 37, "endIndex": 38, "scopes": ["source.abl", "meta.function.arguments.abl", "string.double.complex.abl", "punctuation.definition.string.end.abl"] },  // '"'
+    { "startIndex": 36, "endIndex": 37, "scopes": ["source.abl", "meta.function.arguments.abl", "string.quoted.double.abl", "punctuation.definition.string.begin.abl"] },  // '"'
+    { "startIndex": 37, "endIndex": 38, "scopes": ["source.abl", "meta.function.arguments.abl", "string.quoted.double.abl", "punctuation.definition.string.end.abl"] },  // '"'
     { "startIndex": 38, "endIndex": 39, "scopes": ["source.abl", "meta.function.arguments.abl"] },  // ' '
     { "startIndex": 39, "endIndex": 41, "scopes": ["source.abl", "meta.function.arguments.abl", "comment.block.source.abl"] },  // '/*'
     { "startIndex": 41, "endIndex": 47, "scopes": ["source.abl", "meta.function.arguments.abl", "comment.block.source.abl", "comment"] },  // ' cred '
@@ -86,4 +86,3 @@ describe('', () => {
   ];
   shared.itShouldMatchExpectedScopes(statement, expectedTokens);
 })
-

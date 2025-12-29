@@ -19,9 +19,9 @@ end procedure.`;
       { "startIndex": 26, "endIndex": 27, "scopes": ["source.abl", "meta.procedure.abl"] },  // ' '
       { "startIndex": 27, "endIndex": 35, "scopes": ["source.abl", "meta.procedure.abl", "keyword.other.abl"] },  // 'EXTERNAL'
       { "startIndex": 35, "endIndex": 36, "scopes": ["source.abl", "meta.procedure.abl"] },  // ' '
-      { "startIndex": 36, "endIndex": 37, "scopes": ["source.abl", "meta.procedure.abl", "string.double.complex.abl", "punctuation.definition.string.begin.abl"] },  // '"'
-      { "startIndex": 37, "endIndex": 49, "scopes": ["source.abl", "meta.procedure.abl", "string.double.complex.abl"] },  // 'winspool.drv'
-      { "startIndex": 49, "endIndex": 50, "scopes": ["source.abl", "meta.procedure.abl", "string.double.complex.abl", "punctuation.definition.string.end.abl"] },  // '"'
+      { "startIndex": 36, "endIndex": 37, "scopes": ["source.abl", "meta.procedure.abl", "string.quoted.double.abl", "punctuation.definition.string.begin.abl"] },  // '"'
+      { "startIndex": 37, "endIndex": 49, "scopes": ["source.abl", "meta.procedure.abl", "string.quoted.double.abl"] },  // 'winspool.drv'
+      { "startIndex": 49, "endIndex": 50, "scopes": ["source.abl", "meta.procedure.abl", "string.quoted.double.abl", "punctuation.definition.string.end.abl"] },  // '"'
       { "startIndex": 50, "endIndex": 51, "scopes": ["source.abl", "punctuation.terminator.abl"] }  // ':'
     ],
     [

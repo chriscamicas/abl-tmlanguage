@@ -10,15 +10,15 @@ describe('', () => {
       { "startIndex": 6, "endIndex": 7, "scopes": ["source.abl"] },  // ' '
       { "startIndex": 7, "endIndex": 16, "scopes": ["source.abl", "keyword.other.abl"] },  // 'delimiter'
       { "startIndex": 16, "endIndex": 17, "scopes": ["source.abl"] },  // ' '
-      { "startIndex": 17, "endIndex": 18, "scopes": ["source.abl", "string.double.complex.abl", "punctuation.definition.string.begin.abl"] },  // '"'
-      { "startIndex": 18, "endIndex": 19, "scopes": ["source.abl", "string.double.complex.abl"] },  // ','
-      { "startIndex": 19, "endIndex": 20, "scopes": ["source.abl", "string.double.complex.abl", "punctuation.definition.string.end.abl"] }  // '"'
+      { "startIndex": 17, "endIndex": 18, "scopes": ["source.abl", "string.quoted.double.abl", "punctuation.definition.string.begin.abl"] },  // '"'
+      { "startIndex": 18, "endIndex": 19, "scopes": ["source.abl", "string.quoted.double.abl"] },  // ','
+      { "startIndex": 19, "endIndex": 20, "scopes": ["source.abl", "string.quoted.double.abl", "punctuation.definition.string.end.abl"] }  // '"'
     ],
     [
       { "startIndex": 0, "endIndex": 2, "scopes": ["source.abl"] },  // '  '
-      { "startIndex": 2, "endIndex": 3, "scopes": ["source.abl", "string.double.complex.abl", "punctuation.definition.string.begin.abl"] },  // '"'
-      { "startIndex": 3, "endIndex": 7, "scopes": ["source.abl", "string.double.complex.abl"] },  // 'blah'
-      { "startIndex": 7, "endIndex": 8, "scopes": ["source.abl", "string.double.complex.abl", "punctuation.definition.string.end.abl"] },  // '"'
+      { "startIndex": 2, "endIndex": 3, "scopes": ["source.abl", "string.quoted.double.abl", "punctuation.definition.string.begin.abl"] },  // '"'
+      { "startIndex": 3, "endIndex": 7, "scopes": ["source.abl", "string.quoted.double.abl"] },  // 'blah'
+      { "startIndex": 7, "endIndex": 8, "scopes": ["source.abl", "string.quoted.double.abl", "punctuation.definition.string.end.abl"] },  // '"'
       { "startIndex": 8, "endIndex": 9, "scopes": ["source.abl", "punctuation.terminator.abl"] }  // '.'
     ]
   ];

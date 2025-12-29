@@ -32,11 +32,10 @@ describe('', () => {
     { "startIndex": 7, "endIndex": 8, "scopes": ["source.abl"] },  // ' '
     { "startIndex": 8, "endIndex": 16, "scopes": ["source.abl", "keyword.other.abl"] },  // 'external'
     { "startIndex": 16, "endIndex": 17, "scopes": ["source.abl"] },  // ' '
-    { "startIndex": 17, "endIndex": 18, "scopes": ["source.abl", "string.double.complex.abl", "punctuation.definition.string.begin.abl"] },  // '"'
-    { "startIndex": 18, "endIndex": 24, "scopes": ["source.abl", "string.double.complex.abl"] },  // 'dll.so'
-    { "startIndex": 24, "endIndex": 25, "scopes": ["source.abl", "string.double.complex.abl", "punctuation.definition.string.end.abl"] },  // '"'
+    { "startIndex": 17, "endIndex": 18, "scopes": ["source.abl", "string.quoted.double.abl", "punctuation.definition.string.begin.abl"] },  // '"'
+    { "startIndex": 18, "endIndex": 24, "scopes": ["source.abl", "string.quoted.double.abl"] },  // 'dll.so'
+    { "startIndex": 24, "endIndex": 25, "scopes": ["source.abl", "string.quoted.double.abl", "punctuation.definition.string.end.abl"] },  // '"'
     { "startIndex": 25, "endIndex": 26, "scopes": ["source.abl", "punctuation.terminator.abl"] }  // '.'
   ];
   shared.itShouldMatchExpectedScopes(statement, expectedTokens);
 })
-

@@ -124,9 +124,9 @@ describe('', () => {
     { "startIndex": 10, "endIndex": 11, "scopes": ["source.abl"] },  // ' '
     { "startIndex": 11, "endIndex": 14, "scopes": ["source.abl", "keyword.other.abl"] },  // 'NEW'
     { "startIndex": 14, "endIndex": 15, "scopes": ["source.abl"] },  // ' '
-    { "startIndex": 15, "endIndex": 16, "scopes": ["source.abl", "string.double.complex.abl", "punctuation.definition.string.begin.abl"] },  // '"'
-    { "startIndex": 16, "endIndex": 27, "scopes": ["source.abl", "string.double.complex.abl"] },  // 'foo.bar.baz'
-    { "startIndex": 27, "endIndex": 28, "scopes": ["source.abl", "string.double.complex.abl", "punctuation.definition.string.end.abl"] },  // '"'
+    { "startIndex": 15, "endIndex": 16, "scopes": ["source.abl", "string.quoted.double.abl", "punctuation.definition.string.begin.abl"] },  // '"'
+    { "startIndex": 16, "endIndex": 27, "scopes": ["source.abl", "string.quoted.double.abl"] },  // 'foo.bar.baz'
+    { "startIndex": 27, "endIndex": 28, "scopes": ["source.abl", "string.quoted.double.abl", "punctuation.definition.string.end.abl"] },  // '"'
     { "startIndex": 28, "endIndex": 29, "scopes": ["source.abl"] },  // ' '
     { "startIndex": 29, "endIndex": 30, "scopes": ["source.abl", "meta.function.arguments.abl", "meta.brace.round.js"] },  // '('
     { "startIndex": 30, "endIndex": 34, "scopes": ["source.abl", "meta.function.arguments.abl", "constant.language.abl"] },  // 'true'
@@ -770,9 +770,9 @@ describe('', () => {
     { "startIndex": 7, "endIndex": 8, "scopes": ["source.abl", "meta.function-call.abl", "variable.other.abl"] },  // 'q'
     { "startIndex": 8, "endIndex": 9, "scopes": ["source.abl", "meta.function-call.abl", "punctuation.separator.comma.abl"] },  // ','
     { "startIndex": 9, "endIndex": 10, "scopes": ["source.abl", "meta.function-call.abl"] },  // ' '
-    { "startIndex": 10, "endIndex": 11, "scopes": ["source.abl", "meta.function-call.abl", "string.double.complex.abl", "punctuation.definition.string.begin.abl"] },  // '"'
-    { "startIndex": 11, "endIndex": 22, "scopes": ["source.abl", "meta.function-call.abl", "string.double.complex.abl"] },  // 'foo.bar.baz'
-    { "startIndex": 22, "endIndex": 23, "scopes": ["source.abl", "meta.function-call.abl", "string.double.complex.abl", "punctuation.definition.string.end.abl"] },  // '"'
+    { "startIndex": 10, "endIndex": 11, "scopes": ["source.abl", "meta.function-call.abl", "string.quoted.double.abl", "punctuation.definition.string.begin.abl"] },  // '"'
+    { "startIndex": 11, "endIndex": 22, "scopes": ["source.abl", "meta.function-call.abl", "string.quoted.double.abl"] },  // 'foo.bar.baz'
+    { "startIndex": 22, "endIndex": 23, "scopes": ["source.abl", "meta.function-call.abl", "string.quoted.double.abl", "punctuation.definition.string.end.abl"] },  // '"'
     { "startIndex": 23, "endIndex": 24, "scopes": ["source.abl", "meta.function-call.abl"] },  // ' '
     { "startIndex": 24, "endIndex": 25, "scopes": ["source.abl", "meta.function-call.abl", "meta.brace.round.js"] },  // ')'
     { "startIndex": 25, "endIndex": 27, "scopes": ["source.abl"] }  // ' '
@@ -793,10 +793,10 @@ describe('', () => {
       { "startIndex": 29, "endIndex": 30, "scopes": ["source.abl", "punctuation.separator.colon.abl"] },  // ':'
       { "startIndex": 30, "endIndex": 38, "scopes": ["source.abl", "entity.name.function.abl"] },  // 'READ-XML'
       { "startIndex": 38, "endIndex": 39, "scopes": ["source.abl", "meta.function.arguments.abl", "meta.brace.round.js"] },  // '('
-      { "startIndex": 39, "endIndex": 40, "scopes": ["source.abl", "meta.function.arguments.abl", "string.double.complex.abl", "punctuation.definition.string.begin.abl"] },  // '"'
-      { "startIndex": 40, "endIndex": 48, "scopes": ["source.abl", "meta.function.arguments.abl", "string.double.complex.abl"] },  // 'longchar'
-      { "startIndex": 48, "endIndex": 49, "scopes": ["source.abl", "meta.function.arguments.abl", "string.double.complex.abl", "punctuation.definition.string.end.abl"] },  // '"'
-      { "startIndex": 49, "endIndex": 51, "scopes": ["source.abl", "meta.function.arguments.abl", "string.double.complex.abl", "support.other.abl"] },  // ':U'
+      { "startIndex": 39, "endIndex": 40, "scopes": ["source.abl", "meta.function.arguments.abl", "string.quoted.double.abl", "punctuation.definition.string.begin.abl"] },  // '"'
+      { "startIndex": 40, "endIndex": 48, "scopes": ["source.abl", "meta.function.arguments.abl", "string.quoted.double.abl"] },  // 'longchar'
+      { "startIndex": 48, "endIndex": 49, "scopes": ["source.abl", "meta.function.arguments.abl", "string.quoted.double.abl", "punctuation.definition.string.end.abl"] },  // '"'
+      { "startIndex": 49, "endIndex": 51, "scopes": ["source.abl", "meta.function.arguments.abl", "string.quoted.double.abl", "support.other.abl"] },  // ':U'
       { "startIndex": 51, "endIndex": 52, "scopes": ["source.abl", "meta.function.arguments.abl", "punctuation.separator.comma.abl"] }  // ','
     ],
     [
@@ -806,10 +806,10 @@ describe('', () => {
     ],
     [
       { "startIndex": 0, "endIndex": 2, "scopes": ["source.abl", "meta.function.arguments.abl"] },  // '  '
-      { "startIndex": 2, "endIndex": 3, "scopes": ["source.abl", "meta.function.arguments.abl", "string.double.complex.abl", "punctuation.definition.string.begin.abl"] },  // '"'
-      { "startIndex": 3, "endIndex": 8, "scopes": ["source.abl", "meta.function.arguments.abl", "string.double.complex.abl"] },  // 'EMPTY'
-      { "startIndex": 8, "endIndex": 9, "scopes": ["source.abl", "meta.function.arguments.abl", "string.double.complex.abl", "punctuation.definition.string.end.abl"] },  // '"'
-      { "startIndex": 9, "endIndex": 11, "scopes": ["source.abl", "meta.function.arguments.abl", "string.double.complex.abl", "support.other.abl"] },  // ':U'
+      { "startIndex": 2, "endIndex": 3, "scopes": ["source.abl", "meta.function.arguments.abl", "string.quoted.double.abl", "punctuation.definition.string.begin.abl"] },  // '"'
+      { "startIndex": 3, "endIndex": 8, "scopes": ["source.abl", "meta.function.arguments.abl", "string.quoted.double.abl"] },  // 'EMPTY'
+      { "startIndex": 8, "endIndex": 9, "scopes": ["source.abl", "meta.function.arguments.abl", "string.quoted.double.abl", "punctuation.definition.string.end.abl"] },  // '"'
+      { "startIndex": 9, "endIndex": 11, "scopes": ["source.abl", "meta.function.arguments.abl", "string.quoted.double.abl", "support.other.abl"] },  // ':U'
       { "startIndex": 11, "endIndex": 12, "scopes": ["source.abl", "meta.function.arguments.abl", "punctuation.separator.comma.abl"] },  // ','
       { "startIndex": 12, "endIndex": 13, "scopes": ["source.abl", "meta.function.arguments.abl"] },  // ' '
       { "startIndex": 13, "endIndex": 14, "scopes": ["source.abl", "meta.function.arguments.abl", "constant.language.abl"] },  // '?'
@@ -857,9 +857,9 @@ describe('', () => {
       { "startIndex": 19, "endIndex": 20, "scopes": ["source.abl"] },  // ' '
       { "startIndex": 20, "endIndex": 49, "scopes": ["source.abl", "entity.name.type.abl"] },  // 'ClassNameNotEntertedException'
       { "startIndex": 49, "endIndex": 50, "scopes": ["source.abl", "meta.function.arguments.abl", "meta.brace.round.js"] },  // '('
-      { "startIndex": 50, "endIndex": 51, "scopes": ["source.abl", "meta.function.arguments.abl", "string.double.complex.abl", "punctuation.definition.string.begin.abl"] },  // '"'
-      { "startIndex": 51, "endIndex": 57, "scopes": ["source.abl", "meta.function.arguments.abl", "string.double.complex.abl"] },  // 'unable'
-      { "startIndex": 57, "endIndex": 58, "scopes": ["source.abl", "meta.function.arguments.abl", "string.double.complex.abl", "punctuation.definition.string.end.abl"] },  // '"'
+      { "startIndex": 50, "endIndex": 51, "scopes": ["source.abl", "meta.function.arguments.abl", "string.quoted.double.abl", "punctuation.definition.string.begin.abl"] },  // '"'
+      { "startIndex": 51, "endIndex": 57, "scopes": ["source.abl", "meta.function.arguments.abl", "string.quoted.double.abl"] },  // 'unable'
+      { "startIndex": 57, "endIndex": 58, "scopes": ["source.abl", "meta.function.arguments.abl", "string.quoted.double.abl", "punctuation.definition.string.end.abl"] },  // '"'
       { "startIndex": 58, "endIndex": 59, "scopes": ["source.abl", "meta.function.arguments.abl", "meta.preprocessor.abl", "punctuation.section.abl"] },  // '{'
       { "startIndex": 59, "endIndex": 60, "scopes": ["source.abl", "meta.function.arguments.abl", "meta.preprocessor.abl", "punctuation.definition.preprocessor.abl"] },  // '&'
       { "startIndex": 60, "endIndex": 64, "scopes": ["source.abl", "meta.function.arguments.abl", "meta.preprocessor.abl", "entity.name.function.preprocessor.abl"] },  // 'TRAN'
@@ -878,4 +878,3 @@ describe('', () => {
   ];
   shared.itShouldMatchExpectedScopes(statement, expectedTokens);
 })
-
