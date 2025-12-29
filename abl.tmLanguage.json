@@ -3210,7 +3210,7 @@
       "match": "(~)\\s*$",
       "captures": {
         "1": {
-          "name": "constant.character.escape.abl"
+          "name": "punctuation.separator.continuation"
         }
       }
     },
