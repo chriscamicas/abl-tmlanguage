@@ -29,10 +29,10 @@ describe('', () => {
       { "startIndex": 32, "endIndex": 33, "scopes": ["source.abl"] },  // ' '
       { "startIndex": 33, "endIndex": 34, "scopes": ["source.abl", "keyword.operator.source.abl"] },  // '='
       { "startIndex": 34, "endIndex": 35, "scopes": ["source.abl"] },  // ' '
-      { "startIndex": 35, "endIndex": 36, "scopes": ["source.abl", "string.double.complex.abl", "punctuation.definition.string.begin.abl"] },  // '"'
-      { "startIndex": 36, "endIndex": 52, "scopes": ["source.abl", "string.double.complex.abl"] },  // 'application/json'
-      { "startIndex": 52, "endIndex": 53, "scopes": ["source.abl", "string.double.complex.abl", "punctuation.definition.string.end.abl"] },  // '"'
-      { "startIndex": 53, "endIndex": 55, "scopes": ["source.abl", "string.double.complex.abl", "support.other.abl"] }  // ':u'
+      { "startIndex": 35, "endIndex": 36, "scopes": ["source.abl", "string.quoted.double.abl", "punctuation.definition.string.begin.abl"] },  // '"'
+      { "startIndex": 36, "endIndex": 52, "scopes": ["source.abl", "string.quoted.double.abl"] },  // 'application/json'
+      { "startIndex": 52, "endIndex": 53, "scopes": ["source.abl", "string.quoted.double.abl", "punctuation.definition.string.end.abl"] },  // '"'
+      { "startIndex": 53, "endIndex": 55, "scopes": ["source.abl", "string.quoted.double.abl", "support.other.abl"] }  // ':u'
     ],
     [
       { "startIndex": 0, "endIndex": 12, "scopes": ["source.abl"] },  // '            '

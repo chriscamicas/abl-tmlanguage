@@ -15,9 +15,9 @@ END PROCEDURE.`;
       { "startIndex": 29, "endIndex": 30, "scopes": ["source.abl", "meta.procedure.abl"] },  // ' '
       { "startIndex": 30, "endIndex": 38, "scopes": ["source.abl", "meta.procedure.abl", "keyword.other.abl"] },  // 'EXTERNAL'
       { "startIndex": 38, "endIndex": 39, "scopes": ["source.abl", "meta.procedure.abl"] },  // ' '
-      { "startIndex": 39, "endIndex": 40, "scopes": ["source.abl", "meta.procedure.abl", "string.double.complex.abl", "punctuation.definition.string.begin.abl"] },  // '"'
-      { "startIndex": 40, "endIndex": 52, "scopes": ["source.abl", "meta.procedure.abl", "string.double.complex.abl"] },  // 'KERNEL32.DLL'
-      { "startIndex": 52, "endIndex": 53, "scopes": ["source.abl", "meta.procedure.abl", "string.double.complex.abl", "punctuation.definition.string.end.abl"] },  // '"'
+      { "startIndex": 39, "endIndex": 40, "scopes": ["source.abl", "meta.procedure.abl", "string.quoted.double.abl", "punctuation.definition.string.begin.abl"] },  // '"'
+      { "startIndex": 40, "endIndex": 52, "scopes": ["source.abl", "meta.procedure.abl", "string.quoted.double.abl"] },  // 'KERNEL32.DLL'
+      { "startIndex": 52, "endIndex": 53, "scopes": ["source.abl", "meta.procedure.abl", "string.quoted.double.abl", "punctuation.definition.string.end.abl"] },  // '"'
       { "startIndex": 53, "endIndex": 54, "scopes": ["source.abl", "punctuation.terminator.abl"] }  // ':'
     ],
     [

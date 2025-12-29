@@ -3189,7 +3189,7 @@
           "name": "punctuation.definition.string.begin.abl"
         }
       },
-      "name": "string.single.complex.abl",
+      "name": "string.quoted.single.abl",
       "end": "(')",
       "endCaptures": {
         "1": {
@@ -4034,7 +4034,7 @@
           "name": "support.other.abl"
         }
       },
-      "name": "string.single.complex.abl",
+      "name": "string.quoted.single.abl",
       "patterns": [
         {
           "include": "#escape-char"
@@ -4057,7 +4057,7 @@
           "name": "support.other.abl"
         }
       },
-      "name": "string.double.complex.abl",
+      "name": "string.quoted.double.abl",
       "patterns": [
         {
           "include": "#escape-char"

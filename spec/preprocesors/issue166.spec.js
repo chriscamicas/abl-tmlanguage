@@ -9,9 +9,9 @@ describe('', () => {
     { "startIndex": 14, "endIndex": 15, "scopes": ["source.abl", "meta.preprocessor.abl"] },  // ' '
     { "startIndex": 15, "endIndex": 27, "scopes": ["source.abl", "meta.preprocessor.abl", "entity.name.function.preprocessor.abl"] },  // 'MY-TABLE-NEW'
     { "startIndex": 27, "endIndex": 28, "scopes": ["source.abl", "meta.preprocessor.abl"] },  // ' '
-    { "startIndex": 28, "endIndex": 29, "scopes": ["source.abl", "string.double.complex.abl", "punctuation.definition.string.begin.abl"] },  // '"'
-    { "startIndex": 29, "endIndex": 34, "scopes": ["source.abl", "string.double.complex.abl"] },  // 'table'
-    { "startIndex": 34, "endIndex": 35, "scopes": ["source.abl", "string.double.complex.abl", "punctuation.definition.string.end.abl"] }  // '"'
+    { "startIndex": 28, "endIndex": 29, "scopes": ["source.abl", "string.quoted.double.abl", "punctuation.definition.string.begin.abl"] },  // '"'
+    { "startIndex": 29, "endIndex": 34, "scopes": ["source.abl", "string.quoted.double.abl"] },  // 'table'
+    { "startIndex": 34, "endIndex": 35, "scopes": ["source.abl", "string.quoted.double.abl", "punctuation.definition.string.end.abl"] }  // '"'
   ];
   shared.itShouldMatchExpectedScopes(statement, expectedTokens);
 })
@@ -24,9 +24,9 @@ describe('', () => {
     { "startIndex": 14, "endIndex": 15, "scopes": ["source.abl", "meta.preprocessor.abl"] },  // ' '
     { "startIndex": 15, "endIndex": 25, "scopes": ["source.abl", "meta.preprocessor.abl", "entity.name.function.preprocessor.abl"] },  // 'TEST-NEW-2'
     { "startIndex": 25, "endIndex": 26, "scopes": ["source.abl", "meta.preprocessor.abl"] },  // ' '
-    { "startIndex": 26, "endIndex": 27, "scopes": ["source.abl", "string.double.complex.abl", "punctuation.definition.string.begin.abl"] },  // '"'
-    { "startIndex": 27, "endIndex": 28, "scopes": ["source.abl", "string.double.complex.abl"] },  // 'b'
-    { "startIndex": 28, "endIndex": 29, "scopes": ["source.abl", "string.double.complex.abl", "punctuation.definition.string.end.abl"] }  // '"'
+    { "startIndex": 26, "endIndex": 27, "scopes": ["source.abl", "string.quoted.double.abl", "punctuation.definition.string.begin.abl"] },  // '"'
+    { "startIndex": 27, "endIndex": 28, "scopes": ["source.abl", "string.quoted.double.abl"] },  // 'b'
+    { "startIndex": 28, "endIndex": 29, "scopes": ["source.abl", "string.quoted.double.abl", "punctuation.definition.string.end.abl"] }  // '"'
   ];
   shared.itShouldMatchExpectedScopes(statement, expectedTokens);
 })
@@ -72,9 +72,9 @@ end.`;
       { "startIndex": 18, "endIndex": 19, "scopes": ["source.abl"] },  // ' '
       { "startIndex": 19, "endIndex": 21, "scopes": ["source.abl", "keyword.operator.source.abl"] },  // 'eq'
       { "startIndex": 21, "endIndex": 22, "scopes": ["source.abl"] },  // ' '
-      { "startIndex": 22, "endIndex": 23, "scopes": ["source.abl", "string.double.complex.abl", "punctuation.definition.string.begin.abl"] },  // '"'
-      { "startIndex": 23, "endIndex": 28, "scopes": ["source.abl", "string.double.complex.abl"] },  // 'table'
-      { "startIndex": 28, "endIndex": 29, "scopes": ["source.abl", "string.double.complex.abl", "punctuation.definition.string.end.abl"] },  // '"'
+      { "startIndex": 22, "endIndex": 23, "scopes": ["source.abl", "string.quoted.double.abl", "punctuation.definition.string.begin.abl"] },  // '"'
+      { "startIndex": 23, "endIndex": 28, "scopes": ["source.abl", "string.quoted.double.abl"] },  // 'table'
+      { "startIndex": 28, "endIndex": 29, "scopes": ["source.abl", "string.quoted.double.abl", "punctuation.definition.string.end.abl"] },  // '"'
       { "startIndex": 29, "endIndex": 30, "scopes": ["source.abl"] },  // ' '
       { "startIndex": 30, "endIndex": 34, "scopes": ["source.abl", "keyword.other.abl"] }  // 'then'
     ],

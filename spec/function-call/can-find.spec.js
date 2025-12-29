@@ -117,10 +117,10 @@ describe('', () => {
     { "startIndex": 45, "endIndex": 58, "scopes": ["source.abl", "meta.function-call.abl", "meta.function.arguments.abl", "storage.data.table.abl"] },  // 'DICTDB._Field'
     { "startIndex": 58, "endIndex": 59, "scopes": ["source.abl", "meta.function-call.abl", "meta.brace.round.js"] },  // ')'
     { "startIndex": 59, "endIndex": 60, "scopes": ["source.abl", "punctuation.separator.comma.abl"] },  // ','
-    { "startIndex": 60, "endIndex": 61, "scopes": ["source.abl", "string.double.complex.abl", "punctuation.definition.string.begin.abl"] },  // '"'
-    { "startIndex": 61, "endIndex": 64, "scopes": ["source.abl", "string.double.complex.abl"] },  // 'y/n'
-    { "startIndex": 64, "endIndex": 65, "scopes": ["source.abl", "string.double.complex.abl", "punctuation.definition.string.end.abl"] },  // '"'
-    { "startIndex": 65, "endIndex": 67, "scopes": ["source.abl", "string.double.complex.abl", "support.other.abl"] },  // ':u'
+    { "startIndex": 60, "endIndex": 61, "scopes": ["source.abl", "string.quoted.double.abl", "punctuation.definition.string.begin.abl"] },  // '"'
+    { "startIndex": 61, "endIndex": 64, "scopes": ["source.abl", "string.quoted.double.abl"] },  // 'y/n'
+    { "startIndex": 64, "endIndex": 65, "scopes": ["source.abl", "string.quoted.double.abl", "punctuation.definition.string.end.abl"] },  // '"'
+    { "startIndex": 65, "endIndex": 67, "scopes": ["source.abl", "string.quoted.double.abl", "support.other.abl"] },  // ':u'
     { "startIndex": 67, "endIndex": 68, "scopes": ["source.abl", "meta.brace.round.js"] }  // ')'
   ];
   shared.itShouldMatchExpectedScopes(statement, expectedTokens);
@@ -156,9 +156,9 @@ describe('', () => {
     { "startIndex": 11, "endIndex": 12, "scopes": ["source.abl", "meta.brace.round.js"] },  // '('
     { "startIndex": 12, "endIndex": 22, "scopes": ["source.abl", "storage.data.table.abl"] },  // 'department'
     { "startIndex": 22, "endIndex": 23, "scopes": ["source.abl"] },  // ' '
-    { "startIndex": 23, "endIndex": 24, "scopes": ["source.abl", "string.double.complex.abl", "punctuation.definition.string.begin.abl"] },  // '"'
-    { "startIndex": 24, "endIndex": 27, "scopes": ["source.abl", "string.double.complex.abl"] },  // '100'
-    { "startIndex": 27, "endIndex": 28, "scopes": ["source.abl", "string.double.complex.abl", "punctuation.definition.string.end.abl"] },  // '"'
+    { "startIndex": 23, "endIndex": 24, "scopes": ["source.abl", "string.quoted.double.abl", "punctuation.definition.string.begin.abl"] },  // '"'
+    { "startIndex": 24, "endIndex": 27, "scopes": ["source.abl", "string.quoted.double.abl"] },  // '100'
+    { "startIndex": 27, "endIndex": 28, "scopes": ["source.abl", "string.quoted.double.abl", "punctuation.definition.string.end.abl"] },  // '"'
     { "startIndex": 28, "endIndex": 29, "scopes": ["source.abl", "meta.brace.round.js"] },  // ')'
     { "startIndex": 29, "endIndex": 30, "scopes": ["source.abl"] },  // ' '
     { "startIndex": 30, "endIndex": 34, "scopes": ["source.abl", "storage.data.table.abl"] },  // 'then'
@@ -182,9 +182,9 @@ describe('', () => {
     { "startIndex": 49, "endIndex": 50, "scopes": ["source.abl"] },  // ' '
     { "startIndex": 50, "endIndex": 52, "scopes": ["source.abl", "keyword.operator.source.abl"] },  // 'eq'
     { "startIndex": 52, "endIndex": 53, "scopes": ["source.abl"] },  // ' '
-    { "startIndex": 53, "endIndex": 54, "scopes": ["source.abl", "string.double.complex.abl", "punctuation.definition.string.begin.abl"] },  // '"'
-    { "startIndex": 54, "endIndex": 57, "scopes": ["source.abl", "string.double.complex.abl"] },  // '100'
-    { "startIndex": 57, "endIndex": 58, "scopes": ["source.abl", "string.double.complex.abl", "punctuation.definition.string.end.abl"] },  // '"'
+    { "startIndex": 53, "endIndex": 54, "scopes": ["source.abl", "string.quoted.double.abl", "punctuation.definition.string.begin.abl"] },  // '"'
+    { "startIndex": 54, "endIndex": 57, "scopes": ["source.abl", "string.quoted.double.abl"] },  // '100'
+    { "startIndex": 57, "endIndex": 58, "scopes": ["source.abl", "string.quoted.double.abl", "punctuation.definition.string.end.abl"] },  // '"'
     { "startIndex": 58, "endIndex": 59, "scopes": ["source.abl"] },  // ' '
     { "startIndex": 59, "endIndex": 68, "scopes": ["source.abl", "keyword.other.abl"] },  // 'use-index'
     { "startIndex": 68, "endIndex": 69, "scopes": ["source.abl"] },  // ' '
@@ -237,4 +237,3 @@ then.`;
   ];
   shared.itShouldMatchExpectedScopes(statement, expectedTokens);
 })
-

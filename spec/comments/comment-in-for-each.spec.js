@@ -60,8 +60,8 @@ describe('', () => {
       { "startIndex": 22, "endIndex": 23, "scopes": ["source.abl"] },  // ' '
       { "startIndex": 23, "endIndex": 24, "scopes": ["source.abl", "keyword.operator.source.abl"] },  // '='
       { "startIndex": 24, "endIndex": 25, "scopes": ["source.abl"] },  // ' '
-      { "startIndex": 25, "endIndex": 26, "scopes": ["source.abl", "string.double.complex.abl", "punctuation.definition.string.begin.abl"] },  // '"'
-      { "startIndex": 26, "endIndex": 27, "scopes": ["source.abl", "string.double.complex.abl", "punctuation.definition.string.end.abl"] },  // '"'
+      { "startIndex": 25, "endIndex": 26, "scopes": ["source.abl", "string.quoted.double.abl", "punctuation.definition.string.begin.abl"] },  // '"'
+      { "startIndex": 26, "endIndex": 27, "scopes": ["source.abl", "string.quoted.double.abl", "punctuation.definition.string.end.abl"] },  // '"'
       { "startIndex": 27, "endIndex": 28, "scopes": ["source.abl"] },  // ' '
       { "startIndex": 28, "endIndex": 31, "scopes": ["source.abl", "keyword.other.abl"] }  // 'AND'
     ],
@@ -71,9 +71,9 @@ describe('', () => {
       { "startIndex": 21, "endIndex": 22, "scopes": ["source.abl"] },  // ' '
       { "startIndex": 22, "endIndex": 23, "scopes": ["source.abl", "keyword.operator.source.abl"] },  // '='
       { "startIndex": 23, "endIndex": 24, "scopes": ["source.abl"] },  // ' '
-      { "startIndex": 24, "endIndex": 25, "scopes": ["source.abl", "string.double.complex.abl", "punctuation.definition.string.begin.abl"] },  // '"'
-      { "startIndex": 25, "endIndex": 33, "scopes": ["source.abl", "string.double.complex.abl"] },  // 'GrDirect'
-      { "startIndex": 33, "endIndex": 34, "scopes": ["source.abl", "string.double.complex.abl", "punctuation.definition.string.end.abl"] }  // '"'
+      { "startIndex": 24, "endIndex": 25, "scopes": ["source.abl", "string.quoted.double.abl", "punctuation.definition.string.begin.abl"] },  // '"'
+      { "startIndex": 25, "endIndex": 33, "scopes": ["source.abl", "string.quoted.double.abl"] },  // 'GrDirect'
+      { "startIndex": 33, "endIndex": 34, "scopes": ["source.abl", "string.quoted.double.abl", "punctuation.definition.string.end.abl"] }  // '"'
     ],
     [
       { "startIndex": 0, "endIndex": 4, "scopes": ["source.abl"] },  // '    '

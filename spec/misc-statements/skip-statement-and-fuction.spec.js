@@ -14,9 +14,9 @@ describe('', () => {
     ],
     [
       { "startIndex": 0, "endIndex": 4, "scopes": ["source.abl"] },  // '    '
-      { "startIndex": 4, "endIndex": 5, "scopes": ["source.abl", "string.double.complex.abl", "punctuation.definition.string.begin.abl"] },  // '"'
-      { "startIndex": 5, "endIndex": 9, "scopes": ["source.abl", "string.double.complex.abl"] },  // 'fasa'
-      { "startIndex": 9, "endIndex": 10, "scopes": ["source.abl", "string.double.complex.abl", "punctuation.definition.string.end.abl"] }  // '"'
+      { "startIndex": 4, "endIndex": 5, "scopes": ["source.abl", "string.quoted.double.abl", "punctuation.definition.string.begin.abl"] },  // '"'
+      { "startIndex": 5, "endIndex": 9, "scopes": ["source.abl", "string.quoted.double.abl"] },  // 'fasa'
+      { "startIndex": 9, "endIndex": 10, "scopes": ["source.abl", "string.quoted.double.abl", "punctuation.definition.string.end.abl"] }  // '"'
     ],
     [
       { "startIndex": 0, "endIndex": 4, "scopes": ["source.abl"] },  // '    '
@@ -33,4 +33,3 @@ describe('', () => {
   ];
   shared.itShouldMatchExpectedScopes(statement, expectedTokens);
 })
-
