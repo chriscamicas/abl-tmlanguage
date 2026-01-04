@@ -1,7 +1,12 @@
+1.3.18
+======
+
+- ✨ Refactoring of preprocessor and string scopes (#65)
+
 1.3.17
 ======
 
-- ✨ Scientific notation (#445)
+- ✨ Scientific notation (#64)
 
 1.3.16
 ======
