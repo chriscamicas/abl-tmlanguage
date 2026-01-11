@@ -126,3 +126,35 @@ describe('', () => {
   ];
   shared.itShouldMatchExpectedScopes(statement, expectedTokens);
 })
+
+describe('', () => {
+  let statement = `using foo.bar.*  /*from propath*/.`;
+
+  let expectedTokens = [
+    { "startIndex": 0, "endIndex": 5, "scopes": ["source.abl", "meta.using.abl", "keyword.other.abl"] },  // 'using'
+    { "startIndex": 5, "endIndex": 6, "scopes": ["source.abl", "meta.using.abl"] },  // ' '
+    { "startIndex": 6, "endIndex": 13, "scopes": ["source.abl", "meta.using.abl", "entity.name.package.abl"] },  // 'foo.bar'
+    { "startIndex": 13, "endIndex": 17, "scopes": ["source.abl", "meta.using.abl"] },  // '.*  '
+    { "startIndex": 17, "endIndex": 19, "scopes": ["source.abl", "meta.using.abl", "comment.block.source.abl"] },  // '/*'
+    { "startIndex": 19, "endIndex": 31, "scopes": ["source.abl", "meta.using.abl", "comment.block.source.abl", "comment"] },  // 'from propath'
+    { "startIndex": 31, "endIndex": 33, "scopes": ["source.abl", "meta.using.abl", "comment.block.source.abl"] },  // '*/'
+    { "startIndex": 33, "endIndex": 34, "scopes": ["source.abl", "meta.using.abl", "punctuation.terminator.abl"] }  // '.'
+  ];
+  shared.itShouldMatchExpectedScopes(statement, expectedTokens);
+})
+
+describe('', () => {
+  let statement = `using foo.bar.baz  /*from propath*/.`;
+
+  let expectedTokens = [
+    { "startIndex": 0, "endIndex": 5, "scopes": ["source.abl", "meta.using.abl", "keyword.other.abl"] },  // 'using'
+    { "startIndex": 5, "endIndex": 6, "scopes": ["source.abl", "meta.using.abl"] },  // ' '
+    { "startIndex": 6, "endIndex": 17, "scopes": ["source.abl", "meta.using.abl", "entity.name.type.abl"] },  // 'foo.bar.baz'
+    { "startIndex": 17, "endIndex": 19, "scopes": ["source.abl", "meta.using.abl"] },  // '  '
+    { "startIndex": 19, "endIndex": 21, "scopes": ["source.abl", "meta.using.abl", "comment.block.source.abl"] },  // '/*'
+    { "startIndex": 21, "endIndex": 33, "scopes": ["source.abl", "meta.using.abl", "comment.block.source.abl", "comment"] },  // 'from propath'
+    { "startIndex": 33, "endIndex": 35, "scopes": ["source.abl", "meta.using.abl", "comment.block.source.abl"] },  // '*/'
+    { "startIndex": 35, "endIndex": 36, "scopes": ["source.abl", "meta.using.abl", "punctuation.terminator.abl"] }  // '.'
+  ];
+  shared.itShouldMatchExpectedScopes(statement, expectedTokens);
+})
