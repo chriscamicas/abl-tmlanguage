@@ -524,3 +524,32 @@ describe('', () => {
   ];
   shared.itShouldMatchExpectedScopes(statement, expectedTokens);
 })
+
+describe('', () => {
+  let statement = `class Company.Plugins.ServerPlugin
+    inherits FinalAbstractPlugin
+    implements AbstractServerPlugin :`;
+
+  let expectedTokens = [
+    [
+      { "startIndex": 0, "endIndex": 5, "scopes": ["source.abl", "meta.define.class.abl", "keyword.other.abl"] },  // 'class'
+      { "startIndex": 5, "endIndex": 6, "scopes": ["source.abl", "meta.define.class.abl"] },  // ' '
+      { "startIndex": 6, "endIndex": 34, "scopes": ["source.abl", "meta.define.class.abl", "entity.name.type.abl"] }  // 'Company.Plugins.ServerPlugin'
+    ],
+    [
+      { "startIndex": 0, "endIndex": 4, "scopes": ["source.abl", "meta.define.class.abl"] },  // '    '
+      { "startIndex": 4, "endIndex": 12, "scopes": ["source.abl", "meta.define.class.abl", "keyword.other.abl"] },  // 'inherits'
+      { "startIndex": 12, "endIndex": 13, "scopes": ["source.abl", "meta.define.class.abl"] },  // ' '
+      { "startIndex": 13, "endIndex": 32, "scopes": ["source.abl", "meta.define.class.abl", "entity.name.type.abl"] }  // 'FinalAbstractPlugin'
+    ],
+    [
+      { "startIndex": 0, "endIndex": 4, "scopes": ["source.abl", "meta.define.class.abl"] },  // '    '
+      { "startIndex": 4, "endIndex": 14, "scopes": ["source.abl", "meta.define.class.abl", "keyword.other.abl"] },  // 'implements'
+      { "startIndex": 14, "endIndex": 15, "scopes": ["source.abl", "meta.define.class.abl"] },  // ' '
+      { "startIndex": 15, "endIndex": 35, "scopes": ["source.abl", "meta.define.class.abl", "entity.name.type.abl"] },  // 'AbstractServerPlugin'
+      { "startIndex": 35, "endIndex": 36, "scopes": ["source.abl", "meta.define.class.abl"] },  // ' '
+      { "startIndex": 36, "endIndex": 37, "scopes": ["source.abl", "meta.define.class.abl", "punctuation.terminator.abl"] }  // ':'
+    ]
+  ];
+  shared.itShouldMatchExpectedScopes(statement, expectedTokens);
+})
