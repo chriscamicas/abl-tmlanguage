@@ -141,7 +141,7 @@ describe('', () => {
 })
 
 describe('', () => {
-  let statement = `CLASS foo.bar.baz serializable inherits parent.class implements one.interface,anotehr.iface abstract use-widget-pool:`;
+  let statement = `CLASS foo.bar.baz serializable inherits parent.class implements one.interface,another.iface abstract use-widget-pool:`;
 
   let expectedTokens = [
     { "startIndex": 0, "endIndex": 5, "scopes": ["source.abl", "meta.define.class.abl", "keyword.other.abl"] },  // 'CLASS'
@@ -158,7 +158,7 @@ describe('', () => {
     { "startIndex": 63, "endIndex": 64, "scopes": ["source.abl", "meta.define.class.abl"] },  // ' '
     { "startIndex": 64, "endIndex": 77, "scopes": ["source.abl", "meta.define.class.abl", "entity.name.type.abl"] },  // 'one.interface'
     { "startIndex": 77, "endIndex": 78, "scopes": ["source.abl", "meta.define.class.abl", "punctuation.separator.comma.abl"] },  // ','
-    { "startIndex": 78, "endIndex": 91, "scopes": ["source.abl", "meta.define.class.abl", "entity.name.type.abl"] },  // 'anotehr.iface'
+    { "startIndex": 78, "endIndex": 91, "scopes": ["source.abl", "meta.define.class.abl", "entity.name.type.abl"] },  // 'another.iface'
     { "startIndex": 91, "endIndex": 92, "scopes": ["source.abl", "meta.define.class.abl"] },  // ' '
     { "startIndex": 92, "endIndex": 100, "scopes": ["source.abl", "meta.define.class.abl", "keyword.other.abl"] },  // 'abstract'
     { "startIndex": 100, "endIndex": 101, "scopes": ["source.abl", "meta.define.class.abl"] },  // ' '
@@ -462,6 +462,64 @@ describe('', () => {
       { "startIndex": 0, "endIndex": 2, "scopes": ["source.abl", "meta.define.class.abl"] },  // '  '
       { "startIndex": 2, "endIndex": 14, "scopes": ["source.abl", "meta.define.class.abl", "keyword.other.abl"] },  // 'serializable'
       { "startIndex": 14, "endIndex": 15, "scopes": ["source.abl", "meta.define.class.abl", "punctuation.terminator.abl"] }  // ':'
+    ]
+  ];
+  shared.itShouldMatchExpectedScopes(statement, expectedTokens);
+})
+
+describe('', () => {
+  let statement = `class Company.Plugins.ServerPlugin
+    inherits AbstractPlugin
+    implements IServerPlugin :`;
+
+  let expectedTokens = [
+    [
+      { "startIndex": 0, "endIndex": 5, "scopes": ["source.abl", "meta.define.class.abl", "keyword.other.abl"] },  // 'class'
+      { "startIndex": 5, "endIndex": 6, "scopes": ["source.abl", "meta.define.class.abl"] },  // ' '
+      { "startIndex": 6, "endIndex": 34, "scopes": ["source.abl", "meta.define.class.abl", "entity.name.type.abl"] }  // 'Company.Plugins.ServerPlugin'
+    ],
+    [
+      { "startIndex": 0, "endIndex": 4, "scopes": ["source.abl", "meta.define.class.abl"] },  // '    '
+      { "startIndex": 4, "endIndex": 12, "scopes": ["source.abl", "meta.define.class.abl", "keyword.other.abl"] },  // 'inherits'
+      { "startIndex": 12, "endIndex": 13, "scopes": ["source.abl", "meta.define.class.abl"] },  // ' '
+      { "startIndex": 13, "endIndex": 27, "scopes": ["source.abl", "meta.define.class.abl", "entity.name.type.abl"] }  // 'AbstractPlugin'
+    ],
+    [
+      { "startIndex": 0, "endIndex": 4, "scopes": ["source.abl", "meta.define.class.abl"] },  // '    '
+      { "startIndex": 4, "endIndex": 14, "scopes": ["source.abl", "meta.define.class.abl", "keyword.other.abl"] },  // 'implements'
+      { "startIndex": 14, "endIndex": 15, "scopes": ["source.abl", "meta.define.class.abl"] },  // ' '
+      { "startIndex": 15, "endIndex": 28, "scopes": ["source.abl", "meta.define.class.abl", "entity.name.type.abl"] },  // 'IServerPlugin'
+      { "startIndex": 28, "endIndex": 29, "scopes": ["source.abl", "meta.define.class.abl"] },  // ' '
+      { "startIndex": 29, "endIndex": 30, "scopes": ["source.abl", "meta.define.class.abl", "punctuation.terminator.abl"] }  // ':'
+    ]
+  ];
+  shared.itShouldMatchExpectedScopes(statement, expectedTokens);
+})
+
+describe('', () => {
+  let statement = `class Company.Plugins.ServerPlugin
+    inherits FinalAbstractPlugin
+    implements IServerPlugin :`;
+
+  let expectedTokens = [
+    [
+      { "startIndex": 0, "endIndex": 5, "scopes": ["source.abl", "meta.define.class.abl", "keyword.other.abl"] },  // 'class'
+      { "startIndex": 5, "endIndex": 6, "scopes": ["source.abl", "meta.define.class.abl"] },  // ' '
+      { "startIndex": 6, "endIndex": 34, "scopes": ["source.abl", "meta.define.class.abl", "entity.name.type.abl"] }  // 'Company.Plugins.ServerPlugin'
+    ],
+    [
+      { "startIndex": 0, "endIndex": 4, "scopes": ["source.abl", "meta.define.class.abl"] },  // '    '
+      { "startIndex": 4, "endIndex": 12, "scopes": ["source.abl", "meta.define.class.abl", "keyword.other.abl"] },  // 'inherits'
+      { "startIndex": 12, "endIndex": 13, "scopes": ["source.abl", "meta.define.class.abl"] },  // ' '
+      { "startIndex": 13, "endIndex": 32, "scopes": ["source.abl", "meta.define.class.abl", "entity.name.type.abl"] }  // 'FinalAbstractPlugin'
+    ],
+    [
+      { "startIndex": 0, "endIndex": 4, "scopes": ["source.abl", "meta.define.class.abl"] },  // '    '
+      { "startIndex": 4, "endIndex": 14, "scopes": ["source.abl", "meta.define.class.abl", "keyword.other.abl"] },  // 'implements'
+      { "startIndex": 14, "endIndex": 15, "scopes": ["source.abl", "meta.define.class.abl"] },  // ' '
+      { "startIndex": 15, "endIndex": 28, "scopes": ["source.abl", "meta.define.class.abl", "entity.name.type.abl"] },  // 'IServerPlugin'
+      { "startIndex": 28, "endIndex": 29, "scopes": ["source.abl", "meta.define.class.abl"] },  // ' '
+      { "startIndex": 29, "endIndex": 30, "scopes": ["source.abl", "meta.define.class.abl", "punctuation.terminator.abl"] }  // ':'
     ]
   ];
   shared.itShouldMatchExpectedScopes(statement, expectedTokens);

@@ -870,7 +870,7 @@
     },
     "using": {
       "name": "meta.using.abl",
-      "begin": "(?i)\\s*(using)\\s*",
+      "begin": "\\s*([Uu][Ss][Ii][Nn][Gg])\\s*",
       "beginCaptures": {
         "1": {
           "name": "keyword.other.abl"
@@ -893,7 +893,7 @@
           }
         },
         {
-          "match": "(?i)\\s*(from|propath|assembly)\\s*",
+          "match": "\\s*([Ff][Rr][Oo][Mm]|[Pp][Rr][Oo][Pp][Aa][Tt][Hh]|[Aa][Ss][Ss][Ee][Mm][Bb][Ll][Yy])\\s*",
           "captures": {
             "1": {
               "name": "keyword.other.abl"
@@ -902,6 +902,9 @@
         },
         {
           "include": "#type-name"
+        },
+        {
+          "include": "#comment"
         }
       ]
     },
@@ -974,7 +977,7 @@
       },
       "patterns": [
         {
-          "match": "(?i)\\s*(serializable|abstract|final|use-widget-pool|inherits|implements)\\s*",
+          "match": "(?i)\\b(serializable|abstract|final|use-widget-pool|inherits|implements)\\b",
           "captures": {
             "1": {
               "name": "keyword.other.abl"
