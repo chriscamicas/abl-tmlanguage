@@ -108,3 +108,48 @@ describe('', () => {
   ];
   shared.itShouldMatchExpectedScopes(statement, expectedTokens);
 })
+
+describe('', () => {
+  let statement = `create buffer vBufferHandle for table vTableName no-error.
+
+    create buffer vBufferHandle for table vTableName no-error.`;
+  let expectedTokens = [
+    [
+      { "startIndex": 0, "endIndex": 6, "scopes": ["source.abl", "keyword.other.abl"] },  // 'create'
+      { "startIndex": 6, "endIndex": 7, "scopes": ["source.abl"] },  // ' '
+      { "startIndex": 7, "endIndex": 13, "scopes": ["source.abl", "keyword.other.abl"] },  // 'buffer'
+      { "startIndex": 13, "endIndex": 14, "scopes": ["source.abl"] },  // ' '
+      { "startIndex": 14, "endIndex": 27, "scopes": ["source.abl", "variable.other.abl"] },  // 'vBufferHandle'
+      { "startIndex": 27, "endIndex": 28, "scopes": ["source.abl"] },  // ' '
+      { "startIndex": 28, "endIndex": 31, "scopes": ["source.abl", "keyword.other.abl"] },  // 'for'
+      { "startIndex": 31, "endIndex": 32, "scopes": ["source.abl"] },  // ' '
+      { "startIndex": 32, "endIndex": 37, "scopes": ["source.abl", "keyword.other.abl"] },  // 'table'
+      { "startIndex": 37, "endIndex": 38, "scopes": ["source.abl"] },  // ' '
+      { "startIndex": 38, "endIndex": 48, "scopes": ["source.abl", "variable.other.abl"] },  // 'vTableName'
+      { "startIndex": 48, "endIndex": 49, "scopes": ["source.abl"] },  // ' '
+      { "startIndex": 49, "endIndex": 57, "scopes": ["source.abl", "keyword.other.abl"] },  // 'no-error'
+      { "startIndex": 57, "endIndex": 58, "scopes": ["source.abl", "punctuation.terminator.abl"] }  // '.'
+    ],
+    [
+      { "startIndex": 0, "endIndex": 1, "scopes": ["source.abl"] }  // ''
+    ],
+    [
+      { "startIndex": 0, "endIndex": 4, "scopes": ["source.abl"] },  // '    '
+      { "startIndex": 4, "endIndex": 10, "scopes": ["source.abl", "keyword.other.abl"] },  // 'create'
+      { "startIndex": 10, "endIndex": 11, "scopes": ["source.abl"] },  // ' '
+      { "startIndex": 11, "endIndex": 17, "scopes": ["source.abl", "keyword.other.abl"] },  // 'buffer'
+      { "startIndex": 17, "endIndex": 18, "scopes": ["source.abl"] },  // ' '
+      { "startIndex": 18, "endIndex": 31, "scopes": ["source.abl", "variable.other.abl"] },  // 'vBufferHandle'
+      { "startIndex": 31, "endIndex": 32, "scopes": ["source.abl"] },  // ' '
+      { "startIndex": 32, "endIndex": 35, "scopes": ["source.abl", "keyword.other.abl"] },  // 'for'
+      { "startIndex": 35, "endIndex": 36, "scopes": ["source.abl"] },  // ' '
+      { "startIndex": 36, "endIndex": 41, "scopes": ["source.abl", "keyword.other.abl"] },  // 'table'
+      { "startIndex": 41, "endIndex": 42, "scopes": ["source.abl"] },  // ' '
+      { "startIndex": 42, "endIndex": 52, "scopes": ["source.abl", "variable.other.abl"] },  // 'vTableName'
+      { "startIndex": 52, "endIndex": 53, "scopes": ["source.abl"] },  // ' '
+      { "startIndex": 53, "endIndex": 61, "scopes": ["source.abl", "keyword.other.abl"] },  // 'no-error'
+      { "startIndex": 61, "endIndex": 62, "scopes": ["source.abl", "punctuation.terminator.abl"] }  // '.'
+    ]
+  ];
+  shared.itShouldMatchExpectedScopes(statement, expectedTokens);
+})
