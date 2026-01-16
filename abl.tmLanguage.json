@@ -2348,7 +2348,7 @@
     },
     "create-buffer": {
       "comment": "https://docs.progress.com/bundle/abl-reference/page/CREATE-BUFFER-statement.html",
-      "begin": "(?i)(create)\\s+(buffer)\\b",
+      "begin": "\\s*([Cc][Rr][Ee][Aa][Tt][Ee])\\s+([Bb][Uu][Ff][Ff][Ee][Rr])\\b",
       "beginCaptures": {
         "1": {
           "name": "keyword.other.abl"
@@ -2357,7 +2357,7 @@
           "name": "keyword.other.abl"
         }
       },
-      "end": "(?i)(\\b((buffer-n(?:ame|am|a)?)|in)\\b)|(?=\\.)",
+      "end": "(?i)(((buffer-n(?:ame|am|a)?)|in)\\b)|(?=\\.)",
       "endCaptures": {
         "1": {
           "name": "keyword.other.abl"
@@ -2365,7 +2365,7 @@
       },
       "patterns": [
         {
-          "match": "(?i)\\s*(for|table)\\s*",
+          "match": "(?i)\\s*(for|table|no-error)\\s*",
           "captures": {
             "1": {
               "name": "keyword.other.abl"
@@ -2385,13 +2385,13 @@
           "include": "#expression"
         },
         {
-          "include": "#keywords"
-        },
-        {
           "include": "#string"
         },
         {
           "include": "#comment"
+        },
+        {
+          "include": "#preprocessor-reference"
         },
         {
           "include": "#handle-attributes"
