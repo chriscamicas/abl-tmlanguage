@@ -8,6 +8,10 @@ on:
     branches:
       - main
 
+permissions:
+  id-token: write  # Required for OIDC
+  contents: read
+
 jobs:
   build-and-test:
     runs-on: ubuntu-latest
@@ -20,6 +24,7 @@ jobs:
         uses: actions/setup-node@v6
         with:
           node-version: '24.x'
+          registry-url: 'https://registry.npmjs.org'
 
       - name: Running tests
         run: |
