@@ -402,3 +402,36 @@ describe('', () => {
   ]
   shared.itShouldMatchExpectedScopes(statement, expectedTokens);
 })
+
+describe('', () => {
+  let statement = `var  datetime[] dtz1 = [now, today, ?, today, now].`
+  let expectedTokens = [
+    { "startIndex": 0, "endIndex": 3, "scopes": ["source.abl", "meta.define.abl", "keyword.other.abl"] },  // 'var'
+    { "startIndex": 3, "endIndex": 5, "scopes": ["source.abl", "meta.define.abl"] },  // '  '
+    { "startIndex": 5, "endIndex": 13, "scopes": ["source.abl", "meta.define.abl", "storage.type.abl"] },  // 'datetime'
+    { "startIndex": 13, "endIndex": 14, "scopes": ["source.abl", "meta.define.abl", "meta.array.literal.abl", "punctuation.definition.bracket.square.begin.abl"] },  // '['
+    { "startIndex": 14, "endIndex": 15, "scopes": ["source.abl", "meta.define.abl", "meta.array.literal.abl", "punctuation.definition.bracket.square.end.abl"] },  // ']'
+    { "startIndex": 15, "endIndex": 16, "scopes": ["source.abl", "meta.define.abl"] },  // ' '
+    { "startIndex": 16, "endIndex": 20, "scopes": ["source.abl", "meta.define.abl", "variable.other.abl"] },  // 'dtz1'
+    { "startIndex": 20, "endIndex": 21, "scopes": ["source.abl"] },  // ' '
+    { "startIndex": 21, "endIndex": 22, "scopes": ["source.abl", "keyword.operator.source.abl"] },  // '='
+    { "startIndex": 22, "endIndex": 23, "scopes": ["source.abl"] },  // ' '
+    { "startIndex": 23, "endIndex": 24, "scopes": ["source.abl", "meta.array.literal.abl", "punctuation.definition.bracket.square.begin.abl"] },  // '['
+    { "startIndex": 24, "endIndex": 27, "scopes": ["source.abl", "meta.array.literal.abl", "constant.language.abl"] },  // 'now'
+    { "startIndex": 27, "endIndex": 28, "scopes": ["source.abl", "meta.array.literal.abl", "punctuation.separator.comma.abl"] },  // ','
+    { "startIndex": 28, "endIndex": 29, "scopes": ["source.abl", "meta.array.literal.abl"] },  // ' '
+    { "startIndex": 29, "endIndex": 34, "scopes": ["source.abl", "meta.array.literal.abl", "constant.language.abl"] },  // 'today'
+    { "startIndex": 34, "endIndex": 35, "scopes": ["source.abl", "meta.array.literal.abl", "punctuation.separator.comma.abl"] },  // ','
+    { "startIndex": 35, "endIndex": 36, "scopes": ["source.abl", "meta.array.literal.abl"] },  // ' '
+    { "startIndex": 36, "endIndex": 37, "scopes": ["source.abl", "meta.array.literal.abl", "constant.language.abl"] },  // '?'
+    { "startIndex": 37, "endIndex": 38, "scopes": ["source.abl", "meta.array.literal.abl", "punctuation.separator.comma.abl"] },  // ','
+    { "startIndex": 38, "endIndex": 39, "scopes": ["source.abl", "meta.array.literal.abl"] },  // ' '
+    { "startIndex": 39, "endIndex": 44, "scopes": ["source.abl", "meta.array.literal.abl", "constant.language.abl"] },  // 'today'
+    { "startIndex": 44, "endIndex": 45, "scopes": ["source.abl", "meta.array.literal.abl", "punctuation.separator.comma.abl"] },  // ','
+    { "startIndex": 45, "endIndex": 46, "scopes": ["source.abl", "meta.array.literal.abl"] },  // ' '
+    { "startIndex": 46, "endIndex": 49, "scopes": ["source.abl", "meta.array.literal.abl", "constant.language.abl"] },  // 'now'
+    { "startIndex": 49, "endIndex": 50, "scopes": ["source.abl", "meta.array.literal.abl", "punctuation.definition.bracket.square.end.abl"] },  // ']'
+    { "startIndex": 50, "endIndex": 51, "scopes": ["source.abl", "punctuation.terminator.abl"] }  // '.'
+  ]
+  shared.itShouldMatchExpectedScopes(statement, expectedTokens);
+})

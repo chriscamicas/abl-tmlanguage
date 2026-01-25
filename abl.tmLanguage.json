@@ -1337,7 +1337,7 @@
       ]
     },
     "for-each-table": {
-      "begin": "(?i)(?<=\\s+|^)(for|(presel(?:ect|ec|e)?))[\\s+|$]",
+      "begin": "(?i)(?<=\\s|\\b|^)(for|(presel(?:ect|ec|e)?))[\\s+|$]",
       "beginCaptures": {
         "1": {
           "name": "keyword.other.abl"
@@ -4104,7 +4104,7 @@
       }
     },
     "timestamp-constant": {
-      "match": "(?i)(?<=^|\\s*)(today|now)(?!a-zA-Z0-9_\\-#$%|-)",
+      "match": "(?i)(?<=^|\\s|\\b)(today|now)(?!a-zA-Z0-9_\\-#$%|-)",
       "comment": "These are constants that can be used in initial values. This excludes MTIME and ETIME",
       "name": "constant.language.abl"
     },
