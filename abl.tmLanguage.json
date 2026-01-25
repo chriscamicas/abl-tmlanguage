@@ -3674,6 +3674,9 @@
           "include": "#comment"
         },
         {
+          "include": "#operator"
+        },
+        {
           "include": "#array-literal"
         },
         {
