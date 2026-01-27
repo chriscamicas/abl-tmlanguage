@@ -1,3 +1,15 @@
+1.3.20
+======
+
+- 🐛 Fix lookbehinds
+- ✨ Add operator scopes to function arguments
+
+1.3.19
+======
+
+- ✨ Support comments in USING statements; improve class definition
+- ✨ Improve scoping for CREATE BUFFER statement
+
 1.3.18
 ======
 
