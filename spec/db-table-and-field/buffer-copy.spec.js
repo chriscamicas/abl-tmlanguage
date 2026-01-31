@@ -150,8 +150,9 @@ describe('', () => {
     { "startIndex": 28, "endIndex": 29, "scopes": ["source.abl", "meta.preprocessor.abl", "punctuation.definition.preprocessor.abl"] },  // '&'
     { "startIndex": 29, "endIndex": 33, "scopes": ["source.abl", "meta.preprocessor.abl", "entity.name.function.preprocessor.abl"] },  // 'file'
     { "startIndex": 33, "endIndex": 34, "scopes": ["source.abl", "meta.preprocessor.abl", "punctuation.section.abl"] },  // '}'
-    { "startIndex": 34, "endIndex": 35, "scopes": ["source.abl", "keyword.operator.source.abl"] },  // '-'
-    { "startIndex": 35, "endIndex": 45, "scopes": ["source.abl"] },  // 'archive   '
+    { "startIndex": 34, "endIndex": 35, "scopes": ["source.abl"] },  // '-'
+    { "startIndex": 35, "endIndex": 42, "scopes": ["source.abl", "storage.data.table.abl"] },  // 'archive'
+    { "startIndex": 42, "endIndex": 45, "scopes": ["source.abl"] },  // '   '
     { "startIndex": 45, "endIndex": 46, "scopes": ["source.abl", "punctuation.terminator.abl"] }  // '.'
   ];
   shared.itShouldMatchExpectedScopes(statement, expectedTokens);
