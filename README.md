@@ -87,7 +87,7 @@ The ABL-specific scopes produced by the ABL grammar listed in the table below. T
 |entity.other.attribute-name.abl                  | Annotation attribute names |
 |keyword.control.directive.conditional.abl        | `&if` , `&else`, `&elsif` `&end` |
 |keyword.control.directive.define.abl             | `&scoped-define`, `&global-define`, `&undefine` |
-|keyword.operator.source.abl                      | `contains`, `begins`, `matches`, `eq`, `le`, `lt`, `ge`, `gt`, `ne`, `<=`, `<>`, `>=`, `=`, `+`, `-`, `/`, `<`, `>`, `*`, `+=`, `-=`, `/=`, `*=` |
+|keyword.operator.source.abl                      | `contains`, `begins`, `matches`, `eq`, `le`, `lt`, `ge`, `gt`, `ne`, `<=`, `<>`, `>=`, `=`, `+`, `-`, `/`, `<`, `>`, `*`, `+=`, `-=`, `/=`, `*=`, `?:` |
 |keyword.other.abl                                | Any ABL keyword (incl those covered by other scopes like `support.function.abl` and `entity.name.function.abl`) |
 |punctuation.definition.bracket.square.begin.abl  |  `[` used for array arguments |
 |punctuation.definition.bracket.square.end.abl    |  `]` used for array arguments |

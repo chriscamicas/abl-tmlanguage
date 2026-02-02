@@ -1439,7 +1439,7 @@
     },
     "type-argument-function": {
       "name": "meta.function-call.abl",
-      "begin": "(?i)\\s*(cast|type-of)\\s*(?=\\()",
+      "begin": "\\s*([Cc][Aa][Ss][Tt]|[Tt][Yy][Pp][Ee]-[Oo][Ff])\\s*(?=\\()",
       "beginCaptures": {
         "1": {
           "name": "support.function.abl"
@@ -3002,15 +3002,18 @@
       ]
     },
     "event-un-subscribe": {
-      "begin": "(?i)(:)(unsubscribe|subscribe)\\s*(\\()",
+      "begin": "(?i)((\\?:)|(:))(unsubscribe|subscribe)\\s*(\\()",
       "beginCaptures": {
-        "1": {
-          "name": "punctuation.separator.colon.abl"
-        },
         "2": {
-          "name": "entity.name.function.abl"
+          "name": "keyword.operator.source.abl"
         },
         "3": {
+          "name": "punctuation.separator.colon.abl"
+        },
+        "4": {
+          "name": "entity.name.function.abl"
+        },
+        "5": {
           "name": "meta.brace.round.js"
         }
       },
@@ -3632,6 +3635,15 @@
           "include": "#function-arguments"
         },
         {
+          "include": "#comment"
+        },
+        {
+          "include": "#operator"
+        },
+        {
+          "include": "#array-literal"
+        },
+        {
           "include": "#constant"
         },
         {
@@ -3671,15 +3683,6 @@
           "include": "#expression"
         },
         {
-          "include": "#comment"
-        },
-        {
-          "include": "#operator"
-        },
-        {
-          "include": "#array-literal"
-        },
-        {
           "include": "#punctuation-comma"
         },
         {
@@ -3689,7 +3692,7 @@
     },
     "static-object-property-call": {
       "comment": "This rule only captures dotted type name and not single class names. Type names are files, so support unicode.",
-      "match": "(?i)\\s*(([\\w#$%\\-]+|progress)(\\.[\\w#$%\\-]+)+)\\s*(:)([\\w\\-]+)\\s*",
+      "match": "(?i)\\s*(([\\w#$%\\-]+|progress)(\\.[\\w#$%\\-]+)+)\\s*((\\?:)|(:))([\\w\\-]+)\\s*",
       "captures": {
         "1": {
           "name": "entity.name.type.abl"
@@ -3697,7 +3700,7 @@
         "4": {
           "name": "punctuation.separator.colon.abl"
         },
-        "5": {
+        "7": {
           "name": "entity.name.function.abl"
         }
       }
@@ -3711,12 +3714,15 @@
       }
     },
     "property-call": {
-      "match": "(:)([a-zA-Z_][a-zA-Z0-9_#$\\-%&]*)\\b",
+      "match": "((\\?:)|(:))([a-zA-Z_][a-zA-Z0-9_#$\\-%&]*)\\b",
       "captures": {
-        "1": {
+        "2": {
+          "name": "keyword.operator.source.abl"
+        },
+        "3": {
           "name": "punctuation.separator.colon.abl"
         },
-        "2": {
+        "4": {
           "name": "entity.name.function.abl"
         }
       }
@@ -3736,7 +3742,7 @@
     },
     "variable-name": {
       "comment": "1 to 128 characters; can consist of any combination of letters (a-z or A-Z), numbers (0-9), and these special characters: #$-_%& Names must begin with a letter (from https://docs.progress.com/bundle/openedge-abl-manage-applications/page/Name-limits.html)",
-      "match": "(?<=^|\\s|\\[|\\(|,)([a-zA-Z_][a-zA-Z0-9_#$\\-%&]*)(?=\\.\\s|\\.$|,|:|\\s|\\)|\\]|\\[|$)",
+      "match": "(?<=^|\\s|\\[|\\(|,)([a-zA-Z_][a-zA-Z0-9_#$\\-%&]*)(?=\\.\\s|\\.$|,|:|\\?:|\\s|\\)|\\]|\\[|$)",
       "name": "variable.other.abl"
     },
     "extent": {
@@ -4109,7 +4115,7 @@
       "name": "constant.language.abl"
     },
     "constant": {
-      "match": "(?i)(?<=^|\\b|\\s|\\()(true|false|yes|no|\\?)(?![a-zA-Z0-9_\\-#$%])",
+      "match": "(?i)(?<=^|\\b|\\s|\\()(true|false|yes|no|\\?)(?![a-zA-Z0-9_\\-#$%:])",
       "name": "constant.language.abl"
     },
     "punctuation-colon": {
@@ -4178,7 +4184,7 @@
       ]
     },
     "operator-no-space": {
-      "match": "(\\+=|-=|\\\\=|\\*=|<=|<>|>=|=|\\+|-|/|<|>|\\*)",
+      "match": "(\\+=|-=|\\\\=|\\*=|<=|<>|>=|=|<|>)",
       "captures": {
         "1": {
           "name": "keyword.operator.source.abl"
@@ -4186,7 +4192,7 @@
       }
     },
     "operator-with-space": {
-      "match": "(?i)(?<=\\s)(contains|begins|matches|eq|le|lt|ge|gt|ne)(?=\\s|\\()",
+      "match": "(?i)(?<=\\s)(contains|begins|matches|eq|le|lt|ge|gt|ne|\\+|-|\\*|/)(?=\\s|\\()",
       "comment": "Lookahead and -behind for the spaces",
       "captures": {
         "1": {
@@ -4335,31 +4341,14 @@
       ]
     },
     "buffer-copy": {
-      "begin": "(?i)\\b(buffer-copy)\\s+([a-zA-Z_][a-zA-Z0-9_\\-#$%]+(\\.[a-zA-Z][a-zA-Z0-9_\\-#$%]*)?)",
+      "begin": "(?i)\\s*(buffer-copy)\\s*(?!\\()",
       "beginCaptures": {
         "1": {
           "name": "keyword.other.abl"
-        },
-        "2": {
-          "name": "storage.data.table.abl"
         }
       },
-      "end": "(?=\\.)",
+      "end": "(?=\\s*[Aa][Ss][Ss][Ii][Gg][Nn]|\\.)",
       "patterns": [
-        {
-          "match": "\\b([Tt][Oo])\\s+([a-zA-Z_][a-zA-Z0-9_\\-#$%]+(\\.[a-zA-Z][a-zA-Z0-9_\\-#$%]*)?)",
-          "captures": {
-            "1": {
-              "name": "keyword.other.abl"
-            },
-            "2": {
-              "name": "storage.data.table.abl"
-            }
-          }
-        },
-        {
-          "include": "#using-except"
-        },
         {
           "include": "#comment"
         },
@@ -4367,7 +4356,7 @@
           "include": "#preprocessors"
         },
         {
-          "match": "(?i)\\b(assign|no-lobs|no-error)\\b",
+          "match": "(?i)\\s*(using|except|to|no-lobs|no-error)\\s*",
           "captures": {
             "1": {
               "name": "keyword.other.abl"
@@ -4378,13 +4367,10 @@
           "include": "#db-dot-table-dot-field"
         },
         {
-          "include": "#assign-statment"
+          "include": "#db-dot-table"
         },
         {
-          "include": "#keywords"
-        },
-        {
-          "include": "#expression"
+          "include": "#field-name"
         }
       ]
     },
