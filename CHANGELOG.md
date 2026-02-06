@@ -1,3 +1,7 @@
+1.3.21
+======
+- ✨ Safe navigation operator
+
 1.3.20
 ======
 
