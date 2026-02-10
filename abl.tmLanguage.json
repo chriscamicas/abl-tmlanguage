@@ -3902,9 +3902,8 @@
     },
     "include-file": {
       "name": "meta.include.abl",
-      "comment": "https://docs.progress.com/bundle/abl-reference/page/Include-file-reference.html. Filesystem names can be unicode",
-      "X-begin": "({)\\s*(['\"]?([\\\\\\/\\w$\\-\\.]+)(\\.\\w+['\"]?)?)",
-      "begin": "({)\\s*((['\"]?)([\\\\\/\\w$\\-\\.]+(['\"]?))?)",
+      "comment": "https://docs.progress.com/bundle/abl-reference/page/Include-file-reference.html. Filesystem names can be unicode",      
+      "begin": "({)\\s*(?!&)(([\"]?)([\\\\\/\\w$\\-\\.]+([\"]?))?)",
       "beginCaptures": {
         "1": {
           "name": "punctuation.section.abl"
@@ -3912,6 +3911,12 @@
         "2": {
           "name": "entity.name.include.abl",
           "comment": "The include name may be quoted"
+        },
+        "3": {
+          "name": "punctuation.definition.string.begin.abl"
+        },
+        "5": {
+          "name": "punctuation.definition.string.end.abl"
         }
       },
       "end": "\\s*(['\"]?\\s*})\\s*",
