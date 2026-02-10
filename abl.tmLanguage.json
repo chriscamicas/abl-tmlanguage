@@ -1800,16 +1800,16 @@
     "annotation": {
       "patterns": [
         {
-          "include": "#annotation-simple"
+          "include": "#annotation-attributes"
         },
         {
-          "include": "#annotation-attributes"
+          "include": "#annotation-simple"
         }
       ]
     },
     "annotation-simple": {
       "name": "meta.declaration.annotation.abl",
-      "match": "(^|\\s*)(\\@[a-zA-Z_][a-zA-Z0-9_#$\\-%&]*)\\s*(?=\\.)",
+      "match": "(^|\\s*)(\\@[a-zA-Z_][a-zA-Z0-9_#$\\-%&\\.]+)\\s*(?=\\.)",
       "captures": {
         "2": {
           "name": "entity.name.tag.abl"
@@ -1818,7 +1818,7 @@
     },
     "annotation-attributes": {
       "name": "meta.declaration.annotation.abl",
-      "begin": "(^|\\s+)(\\@[a-zA-Z_][a-zA-Z0-9_#$\\-%&]*)\\s*(?=\\()",
+      "begin": "(^|\\s+)(\\@[a-zA-Z_][a-zA-Z0-9_#$\\-%&\\.]*)\\s*(?=\\()",
       "beginCaptures": {
         "2": {
           "name": "entity.name.tag.abl"
