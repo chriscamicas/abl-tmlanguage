@@ -3939,7 +3939,7 @@
           "name": "punctuation.definition.string.end.abl"
         }
       },
-      "end": "\\s*(\\s*})\\s*",
+      "end": "\\s*(['\"]?\\s*})\\s*",
       "endCaptures": {
         "1": {
           "name": "punctuation.section.abl"
