@@ -1,3 +1,9 @@
+1.3.22
+======
+
+- ✨ Annotations with dotted names
+- ✨ Include file names (UNC path, FQDN, multiple dots, ...)
+
 1.3.21
 ======
 - ✨ Safe navigation operator
