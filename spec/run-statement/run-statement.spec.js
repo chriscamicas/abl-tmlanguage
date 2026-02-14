@@ -643,7 +643,6 @@ describe('', () => {
   shared.itShouldMatchExpectedScopes(statement, expectedTokens);
 })
 
-
 describe('', () => {
   let statement = `run Foo.Bar in vProcedureHandle(input "goodbye").`;
 
