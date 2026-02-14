@@ -41,6 +41,7 @@ const re = /(?:\w|-|\()+(?=\s|$)/g
 // appropriate scopes
 let alsoStatements = [];
 alsoStatements.push('ambiguous');
+alsoStatements.push('asynchronous');
 alsoStatements.push('auto-go');
 alsoStatements.push('available');
 alsoStatements.push('bgcolor');
@@ -54,6 +55,7 @@ alsoStatements.push('delete');
 alsoStatements.push('delimiter');
 alsoStatements.push('drop-target');
 alsoStatements.push('edge-pixels');
+alsoStatements.push('event-handler');
 alsoStatements.push('fgcolor');
 alsoStatements.push('first');
 alsoStatements.push('flat-button');
