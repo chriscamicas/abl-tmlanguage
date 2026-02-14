@@ -56,7 +56,6 @@ alsoStatements.push('delimiter');
 alsoStatements.push('drop-target');
 alsoStatements.push('edge-pixels');
 alsoStatements.push('event-handler');
-alsoStatements.push('event-procedure');
 alsoStatements.push('fgcolor');
 alsoStatements.push('first');
 alsoStatements.push('flat-button');
