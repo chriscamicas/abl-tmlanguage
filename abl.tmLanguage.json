@@ -480,6 +480,9 @@
           "include": "#comment"
         },
         {
+          "include": "#run-options"
+        },
+        {
           "include": "#buffer-copy"
         },
         {
@@ -2903,7 +2906,7 @@
     },
     "end-block": {
       "comment": "Certain blocks have the option of END <block name>",
-      "match": "(?i)\\s*(end)\\s+(CASE|CATCH|CLASS|CONSTRUCTOR|DESTRUCTOR|ENUM|FINALLY|FUNCTION|GET|INTERFACE|METHOD|PROCEDURE|SET|TRIGGERS)\\s*",
+      "match": "(?i)\\s*(end)\\s+(case|catch|class|constructor|destructor|enum|finally|function|get|interface|method|procedure|set|triggers)\\s*",
       "captures": {
         "1": {
           "name": "keyword.other.abl"
@@ -3686,6 +3689,9 @@
           "include": "#punctuation-comma"
         },
         {
+          "include": "#argument-reference"
+        },
+        {
           "include": "#preprocessors"
         }
       ]
@@ -3888,6 +3894,21 @@
         },
         {
           "include": "#procedure-name"
+        }
+      ]
+    },
+    "run-options": {
+      "patterns": [
+        {
+          "match": "\\b(([Ss][Ee][Tt])|([Ii][Nn]))\\s+([a-zA-Z_][a-zA-Z0-9_#$\\-%&]*)\\b",
+          "captures": {
+            "1": {
+              "name": "keyword.other.abl"
+            },
+            "4": {
+              "name": "variable.other.abl"
+            }
+          }
         }
       ]
     },
@@ -4481,7 +4502,7 @@
     },
     "keywords-A": {
       "comment": "The keyword must not have a trailing variable character (one of #$-_%&)",
-      "match": "(?i)\\b(a(?:bort|bstract|ccumulate?|ccumula?|ccumu?|cross|ctive-form|ctive-window|dd|dvise|ggregate|lert-box|ll|llow-replication|lter|lternate-key|mbiguous?|mbiguo?|mbig|nd|nsi-only|ny|ny-key|ny-printable|nywhere|ppend|ppend-line|pplication|pply|rray-message?|rray-messa?|rray-mes?|rray-m|s|s-cursor|scending?|scendi?|scen?|sc|sk-overwrite|ssembly|ssign|t|ttach|ttachment|ttribute-type|udit-control|udit-policy|uthorization|uto-endkey|uto-go|utomatic|vailable?|vailab?|vail|verage?|vera?|ve|vg))\\b(?![#$\\-_%&])",
+      "match": "(?i)\\b(a(?:bort|bstract|ccumulate?|ccumula?|ccumu?|cross|ctive-form|ctive-window|dd|dvise|ggregate|lert-box|ll|llow-replication|lter|lternate-key|mbiguous?|mbiguo?|mbig|nd|nsi-only|ny|ny-key|ny-printable|nywhere|ppend|ppend-line|pplication|pply|rray-message?|rray-messa?|rray-mes?|rray-m|s|s-cursor|scending?|scendi?|scen?|sc|sk-overwrite|ssembly|ssign|synchronous|t|ttach|ttachment|ttribute-type|udit-control|udit-policy|uthorization|uto-endkey|uto-go|utomatic|vailable?|vailab?|vail|verage?|vera?|ve|vg))\\b(?![#$\\-_%&])",
       "captures": {
         "1": {
           "name": "keyword.other.abl"
@@ -4517,7 +4538,7 @@
     },
     "keywords-E": {
       "comment": "The keyword must not have a trailing variable character (one of #$-_%&)",
-      "match": "(?i)\\b(e(?:ach|cho|dge|dge-pixels?|dge-pixe?|dge-pi?|diting|ditor|ditor-backtab|ditor-tab|lse|mpty|mpty-selection|nable|nd|nd-box-selection|nd-error|nd-key|nd-move|nd-resize|nd-row-resize|nd-search|ndkey|nter-menubar|ntry|num|q|rror|rror-status?|rror-stat|scape|vent|vent-handler-context|vents|xcept|xclusive|xclusive-lock?|xclusive-lo?|xclusive-web-user?|xclusive-web-us?|xclusive-web-?|xecute|xists|xit|xpire|xplicit|xport|xtended|xtent|xternal|xtract))\\b(?![#$\\-_%&])",
+      "match": "(?i)\\b(e(?:ach|cho|dge|dge-pixels?|dge-pixe?|dge-pi?|diting|ditor|ditor-backtab|ditor-tab|lse|mpty|mpty-selection|nable|nd|nd-box-selection|nd-error|nd-key|nd-move|nd-resize|nd-row-resize|nd-search|ndkey|nter-menubar|ntry|num|q|rror|rror-status?|rror-stat|scape|vent|vent-handler|vent-handler-context|vents|xcept|xclusive|xclusive-lock?|xclusive-lo?|xclusive-web-user?|xclusive-web-us?|xclusive-web-?|xecute|xists|xit|xpire|xplicit|xport|xtended|xtent|xternal|xtract))\\b(?![#$\\-_%&])",
       "captures": {
         "1": {
           "name": "keyword.other.abl"
