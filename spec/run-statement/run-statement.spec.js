@@ -337,3 +337,308 @@ describe('', () => {
   ];
   shared.itShouldMatchExpectedScopes(statement, expectedTokens);
 })
+
+describe('', () => {
+  let statement = `RUN VALUE(THIS-OBJECT:ServiceInterfacePath + "/proSIinvokeTaskAsync2.p":U)
+        ON hAppServer
+        ASYNCHRONOUS
+        (INPUT pcTaskName,
+          INPUT pcMethodName,
+          {1},
+          lcDataset1,
+          lcDataset2,
+          lcDataset3,
+          lcDataset4,
+          lcDataset5,
+          lcParameter,
+          lcContext) .`;
+
+  let expectedTokens = [
+    [
+      { "startIndex": 0, "endIndex": 3, "scopes": ["source.abl", "keyword.other.abl"] },  // 'RUN'
+      { "startIndex": 3, "endIndex": 4, "scopes": ["source.abl"] },  // ' '
+      { "startIndex": 4, "endIndex": 9, "scopes": ["source.abl", "meta.function-call.abl", "support.function.abl"] },  // 'VALUE'
+      { "startIndex": 9, "endIndex": 10, "scopes": ["source.abl", "meta.function-call.abl", "meta.function.arguments.abl", "meta.brace.round.js"] },  // '('
+      { "startIndex": 10, "endIndex": 21, "scopes": ["source.abl", "meta.function-call.abl", "meta.function.arguments.abl", "variable.language.abl"] },  // 'THIS-OBJECT'
+      { "startIndex": 21, "endIndex": 22, "scopes": ["source.abl", "meta.function-call.abl", "meta.function.arguments.abl", "punctuation.separator.colon.abl"] },  // ':'
+      { "startIndex": 22, "endIndex": 42, "scopes": ["source.abl", "meta.function-call.abl", "meta.function.arguments.abl", "entity.name.function.abl"] },  // 'ServiceInterfacePath'
+      { "startIndex": 42, "endIndex": 43, "scopes": ["source.abl", "meta.function-call.abl", "meta.function.arguments.abl"] },  // ' '
+      { "startIndex": 43, "endIndex": 44, "scopes": ["source.abl", "meta.function-call.abl", "meta.function.arguments.abl", "keyword.operator.source.abl"] },  // '+'
+      { "startIndex": 44, "endIndex": 45, "scopes": ["source.abl", "meta.function-call.abl", "meta.function.arguments.abl"] },  // ' '
+      { "startIndex": 45, "endIndex": 46, "scopes": ["source.abl", "meta.function-call.abl", "meta.function.arguments.abl", "string.quoted.double.abl", "punctuation.definition.string.begin.abl"] },  // '"'
+      { "startIndex": 46, "endIndex": 70, "scopes": ["source.abl", "meta.function-call.abl", "meta.function.arguments.abl", "string.quoted.double.abl"] },  // '/proSIinvokeTaskAsync2.p'
+      { "startIndex": 70, "endIndex": 71, "scopes": ["source.abl", "meta.function-call.abl", "meta.function.arguments.abl", "string.quoted.double.abl", "punctuation.definition.string.end.abl"] },  // '"'
+      { "startIndex": 71, "endIndex": 73, "scopes": ["source.abl", "meta.function-call.abl", "meta.function.arguments.abl", "string.quoted.double.abl", "support.other.abl"] },  // ':U'
+      { "startIndex": 73, "endIndex": 74, "scopes": ["source.abl", "meta.function-call.abl", "meta.brace.round.js"] }  // ')'
+    ],
+    [
+      { "startIndex": 0, "endIndex": 8, "scopes": ["source.abl"] },  // '        '
+      { "startIndex": 8, "endIndex": 10, "scopes": ["source.abl", "keyword.other.abl"] },  // 'ON'
+      { "startIndex": 10, "endIndex": 11, "scopes": ["source.abl"] },  // ' '
+      { "startIndex": 11, "endIndex": 21, "scopes": ["source.abl", "variable.other.abl"] }  // 'hAppServer'
+    ],
+    [
+      { "startIndex": 0, "endIndex": 8, "scopes": ["source.abl"] },  // '        '
+      { "startIndex": 8, "endIndex": 20, "scopes": ["source.abl", "keyword.other.abl"] }  // 'ASYNCHRONOUS'
+    ],
+    [
+      { "startIndex": 0, "endIndex": 8, "scopes": ["source.abl"] },  // '        '
+      { "startIndex": 8, "endIndex": 9, "scopes": ["source.abl", "meta.function.arguments.abl", "meta.brace.round.js"] },  // '('
+      { "startIndex": 9, "endIndex": 14, "scopes": ["source.abl", "meta.function.arguments.abl", "keyword.other.abl"] },  // 'INPUT'
+      { "startIndex": 14, "endIndex": 15, "scopes": ["source.abl", "meta.function.arguments.abl"] },  // ' '
+      { "startIndex": 15, "endIndex": 25, "scopes": ["source.abl", "meta.function.arguments.abl", "variable.other.abl"] },  // 'pcTaskName'
+      { "startIndex": 25, "endIndex": 26, "scopes": ["source.abl", "meta.function.arguments.abl", "punctuation.separator.comma.abl"] }  // ','
+    ],
+    [
+      { "startIndex": 0, "endIndex": 10, "scopes": ["source.abl", "meta.function.arguments.abl"] },  // '          '
+      { "startIndex": 10, "endIndex": 15, "scopes": ["source.abl", "meta.function.arguments.abl", "keyword.other.abl"] },  // 'INPUT'
+      { "startIndex": 15, "endIndex": 16, "scopes": ["source.abl", "meta.function.arguments.abl"] },  // ' '
+      { "startIndex": 16, "endIndex": 28, "scopes": ["source.abl", "meta.function.arguments.abl", "variable.other.abl"] },  // 'pcMethodName'
+      { "startIndex": 28, "endIndex": 29, "scopes": ["source.abl", "meta.function.arguments.abl", "punctuation.separator.comma.abl"] }  // ','
+    ],
+    [
+      { "startIndex": 0, "endIndex": 10, "scopes": ["source.abl", "meta.function.arguments.abl"] },  // '          '
+      { "startIndex": 10, "endIndex": 11, "scopes": ["source.abl", "meta.function.arguments.abl", "meta.argument.abl", "punctuation.section.abl"] },  // '{'
+      { "startIndex": 11, "endIndex": 12, "scopes": ["source.abl", "meta.function.arguments.abl", "meta.argument.abl", "support.other.argument.abl"] },  // '1'
+      { "startIndex": 12, "endIndex": 13, "scopes": ["source.abl", "meta.function.arguments.abl", "meta.argument.abl", "punctuation.section.abl"] },  // '}'
+      { "startIndex": 13, "endIndex": 14, "scopes": ["source.abl", "meta.function.arguments.abl", "punctuation.separator.comma.abl"] }  // ','
+    ],
+    [
+      { "startIndex": 0, "endIndex": 10, "scopes": ["source.abl", "meta.function.arguments.abl"] },  // '          '
+      { "startIndex": 10, "endIndex": 20, "scopes": ["source.abl", "meta.function.arguments.abl", "variable.other.abl"] },  // 'lcDataset1'
+      { "startIndex": 20, "endIndex": 21, "scopes": ["source.abl", "meta.function.arguments.abl", "punctuation.separator.comma.abl"] }  // ','
+    ],
+    [
+      { "startIndex": 0, "endIndex": 10, "scopes": ["source.abl", "meta.function.arguments.abl"] },  // '          '
+      { "startIndex": 10, "endIndex": 20, "scopes": ["source.abl", "meta.function.arguments.abl", "variable.other.abl"] },  // 'lcDataset2'
+      { "startIndex": 20, "endIndex": 21, "scopes": ["source.abl", "meta.function.arguments.abl", "punctuation.separator.comma.abl"] }  // ','
+    ],
+    [
+      { "startIndex": 0, "endIndex": 10, "scopes": ["source.abl", "meta.function.arguments.abl"] },  // '          '
+      { "startIndex": 10, "endIndex": 20, "scopes": ["source.abl", "meta.function.arguments.abl", "variable.other.abl"] },  // 'lcDataset3'
+      { "startIndex": 20, "endIndex": 21, "scopes": ["source.abl", "meta.function.arguments.abl", "punctuation.separator.comma.abl"] }  // ','
+    ],
+    [
+      { "startIndex": 0, "endIndex": 10, "scopes": ["source.abl", "meta.function.arguments.abl"] },  // '          '
+      { "startIndex": 10, "endIndex": 20, "scopes": ["source.abl", "meta.function.arguments.abl", "variable.other.abl"] },  // 'lcDataset4'
+      { "startIndex": 20, "endIndex": 21, "scopes": ["source.abl", "meta.function.arguments.abl", "punctuation.separator.comma.abl"] }  // ','
+    ],
+    [
+      { "startIndex": 0, "endIndex": 10, "scopes": ["source.abl", "meta.function.arguments.abl"] },  // '          '
+      { "startIndex": 10, "endIndex": 20, "scopes": ["source.abl", "meta.function.arguments.abl", "variable.other.abl"] },  // 'lcDataset5'
+      { "startIndex": 20, "endIndex": 21, "scopes": ["source.abl", "meta.function.arguments.abl", "punctuation.separator.comma.abl"] }  // ','
+    ],
+    [
+      { "startIndex": 0, "endIndex": 10, "scopes": ["source.abl", "meta.function.arguments.abl"] },  // '          '
+      { "startIndex": 10, "endIndex": 21, "scopes": ["source.abl", "meta.function.arguments.abl", "variable.other.abl"] },  // 'lcParameter'
+      { "startIndex": 21, "endIndex": 22, "scopes": ["source.abl", "meta.function.arguments.abl", "punctuation.separator.comma.abl"] }  // ','
+    ],
+    [
+      { "startIndex": 0, "endIndex": 10, "scopes": ["source.abl", "meta.function.arguments.abl"] },  // '          '
+      { "startIndex": 10, "endIndex": 19, "scopes": ["source.abl", "meta.function.arguments.abl", "variable.other.abl"] },  // 'lcContext'
+      { "startIndex": 19, "endIndex": 20, "scopes": ["source.abl", "meta.brace.round.js"] },  // ')'
+      { "startIndex": 20, "endIndex": 21, "scopes": ["source.abl"] },  // ' '
+      { "startIndex": 21, "endIndex": 22, "scopes": ["source.abl", "punctuation.terminator.abl"] }  // '.'
+    ]
+  ];
+  shared.itShouldMatchExpectedScopes(statement, expectedTokens);
+})
+
+describe('', () => {
+  let statement = `run Bar in vProcedureHandle(input "hello World").`;
+
+  let expectedTokens = [
+    { "startIndex": 0, "endIndex": 3, "scopes": ["source.abl", "keyword.other.abl"] },  // 'run'
+    { "startIndex": 3, "endIndex": 4, "scopes": ["source.abl"] },  // ' '
+    { "startIndex": 4, "endIndex": 7, "scopes": ["source.abl", "entity.name.procedure.abl"] },  // 'Bar'
+    { "startIndex": 7, "endIndex": 8, "scopes": ["source.abl"] },  // ' '
+    { "startIndex": 8, "endIndex": 10, "scopes": ["source.abl", "keyword.other.abl"] },  // 'in'
+    { "startIndex": 10, "endIndex": 11, "scopes": ["source.abl"] },  // ' '
+    { "startIndex": 11, "endIndex": 27, "scopes": ["source.abl", "variable.other.abl"] },  // 'vProcedureHandle'
+    { "startIndex": 27, "endIndex": 28, "scopes": ["source.abl", "meta.function.arguments.abl", "meta.brace.round.js"] },  // '('
+    { "startIndex": 28, "endIndex": 33, "scopes": ["source.abl", "meta.function.arguments.abl", "keyword.other.abl"] },  // 'input'
+    { "startIndex": 33, "endIndex": 34, "scopes": ["source.abl", "meta.function.arguments.abl"] },  // ' '
+    { "startIndex": 34, "endIndex": 35, "scopes": ["source.abl", "meta.function.arguments.abl", "string.quoted.double.abl", "punctuation.definition.string.begin.abl"] },  // '"'
+    { "startIndex": 35, "endIndex": 46, "scopes": ["source.abl", "meta.function.arguments.abl", "string.quoted.double.abl"] },  // 'hello World'
+    { "startIndex": 46, "endIndex": 47, "scopes": ["source.abl", "meta.function.arguments.abl", "string.quoted.double.abl", "punctuation.definition.string.end.abl"] },  // '"'
+    { "startIndex": 47, "endIndex": 48, "scopes": ["source.abl", "meta.brace.round.js"] },  // ')'
+    { "startIndex": 48, "endIndex": 49, "scopes": ["source.abl", "punctuation.terminator.abl"] }  // '.'
+  ];
+  shared.itShouldMatchExpectedScopes(statement, expectedTokens);
+})
+
+describe('', () => {
+  let statement = `RUN test.p
+    ON hServer
+    ASYNCHRONOUS
+    EVENT-HANDLER "test"
+    EVENT-HANDLER-CONTEXT o .`;
+
+  let expectedTokens = [
+    [
+      { "startIndex": 0, "endIndex": 3, "scopes": ["source.abl", "keyword.other.abl"] },  // 'RUN'
+      { "startIndex": 3, "endIndex": 4, "scopes": ["source.abl"] },  // ' '
+      { "startIndex": 4, "endIndex": 10, "scopes": ["source.abl", "entity.name.procedure.abl"] }  // 'test.p'
+    ],
+    [
+      { "startIndex": 0, "endIndex": 4, "scopes": ["source.abl"] },  // '    '
+      { "startIndex": 4, "endIndex": 6, "scopes": ["source.abl", "keyword.other.abl"] },  // 'ON'
+      { "startIndex": 6, "endIndex": 7, "scopes": ["source.abl"] },  // ' '
+      { "startIndex": 7, "endIndex": 14, "scopes": ["source.abl", "variable.other.abl"] }  // 'hServer'
+    ],
+    [
+      { "startIndex": 0, "endIndex": 4, "scopes": ["source.abl"] },  // '    '
+      { "startIndex": 4, "endIndex": 16, "scopes": ["source.abl", "keyword.other.abl"] }  // 'ASYNCHRONOUS'
+    ],
+    [
+      { "startIndex": 0, "endIndex": 4, "scopes": ["source.abl"] },  // '    '
+      { "startIndex": 4, "endIndex": 17, "scopes": ["source.abl", "keyword.other.abl"] },  // 'EVENT-HANDLER'
+      { "startIndex": 17, "endIndex": 18, "scopes": ["source.abl"] },  // ' '
+      { "startIndex": 18, "endIndex": 19, "scopes": ["source.abl", "string.quoted.double.abl", "punctuation.definition.string.begin.abl"] },  // '"'
+      { "startIndex": 19, "endIndex": 23, "scopes": ["source.abl", "string.quoted.double.abl"] },  // 'test'
+      { "startIndex": 23, "endIndex": 24, "scopes": ["source.abl", "string.quoted.double.abl", "punctuation.definition.string.end.abl"] }  // '"'
+    ],
+    [
+      { "startIndex": 0, "endIndex": 4, "scopes": ["source.abl"] },  // '    '
+      { "startIndex": 4, "endIndex": 25, "scopes": ["source.abl", "keyword.other.abl"] },  // 'EVENT-HANDLER-CONTEXT'
+      { "startIndex": 25, "endIndex": 26, "scopes": ["source.abl"] },  // ' '
+      { "startIndex": 26, "endIndex": 27, "scopes": ["source.abl", "variable.other.abl"] },  // 'o'
+      { "startIndex": 27, "endIndex": 28, "scopes": ["source.abl"] },  // ' '
+      { "startIndex": 28, "endIndex": 29, "scopes": ["source.abl", "punctuation.terminator.abl"] }  // '.'
+    ]
+  ];
+  shared.itShouldMatchExpectedScopes(statement, expectedTokens);
+})
+
+describe('', () => {
+  let statement = `RUN test.p
+    ON SERVER hServer
+    ASYNCHRONOUS
+    EVENT-HANDLER "test"
+    EVENT-HANDLER-CONTEXT o .`;
+
+  let expectedTokens = [
+    [
+      { "startIndex": 0, "endIndex": 3, "scopes": ["source.abl", "keyword.other.abl"] },  // 'RUN'
+      { "startIndex": 3, "endIndex": 4, "scopes": ["source.abl"] },  // ' '
+      { "startIndex": 4, "endIndex": 10, "scopes": ["source.abl", "entity.name.procedure.abl"] }  // 'test.p'
+    ],
+    [
+      { "startIndex": 0, "endIndex": 4, "scopes": ["source.abl"] },  // '    '
+      { "startIndex": 4, "endIndex": 6, "scopes": ["source.abl", "keyword.other.abl"] },  // 'ON'
+      { "startIndex": 6, "endIndex": 7, "scopes": ["source.abl"] },  // ' '
+      { "startIndex": 7, "endIndex": 13, "scopes": ["source.abl", "keyword.other.abl"] },  // 'SERVER'
+      { "startIndex": 13, "endIndex": 14, "scopes": ["source.abl"] },  // ' '
+      { "startIndex": 14, "endIndex": 21, "scopes": ["source.abl", "variable.other.abl"] }  // 'hServer'
+    ],
+    [
+      { "startIndex": 0, "endIndex": 4, "scopes": ["source.abl"] },  // '    '
+      { "startIndex": 4, "endIndex": 16, "scopes": ["source.abl", "keyword.other.abl"] }  // 'ASYNCHRONOUS'
+    ],
+    [
+      { "startIndex": 0, "endIndex": 4, "scopes": ["source.abl"] },  // '    '
+      { "startIndex": 4, "endIndex": 17, "scopes": ["source.abl", "keyword.other.abl"] },  // 'EVENT-HANDLER'
+      { "startIndex": 17, "endIndex": 18, "scopes": ["source.abl"] },  // ' '
+      { "startIndex": 18, "endIndex": 19, "scopes": ["source.abl", "string.quoted.double.abl", "punctuation.definition.string.begin.abl"] },  // '"'
+      { "startIndex": 19, "endIndex": 23, "scopes": ["source.abl", "string.quoted.double.abl"] },  // 'test'
+      { "startIndex": 23, "endIndex": 24, "scopes": ["source.abl", "string.quoted.double.abl", "punctuation.definition.string.end.abl"] }  // '"'
+    ],
+    [
+      { "startIndex": 0, "endIndex": 4, "scopes": ["source.abl"] },  // '    '
+      { "startIndex": 4, "endIndex": 25, "scopes": ["source.abl", "keyword.other.abl"] },  // 'EVENT-HANDLER-CONTEXT'
+      { "startIndex": 25, "endIndex": 26, "scopes": ["source.abl"] },  // ' '
+      { "startIndex": 26, "endIndex": 27, "scopes": ["source.abl", "variable.other.abl"] },  // 'o'
+      { "startIndex": 27, "endIndex": 28, "scopes": ["source.abl"] },  // ' '
+      { "startIndex": 28, "endIndex": 29, "scopes": ["source.abl", "punctuation.terminator.abl"] }  // '.'
+    ]
+  ];
+  shared.itShouldMatchExpectedScopes(statement, expectedTokens);
+})
+
+describe('', () => {
+  let statement = `RUN test.p
+    ON SESSION
+    ASYNCHRONOUS
+    EVENT-HANDLER "test"
+    EVENT-HANDLER-CONTEXT o .`;
+
+  let expectedTokens = [
+    [
+      { "startIndex": 0, "endIndex": 3, "scopes": ["source.abl", "keyword.other.abl"] },  // 'RUN'
+      { "startIndex": 3, "endIndex": 4, "scopes": ["source.abl"] },  // ' '
+      { "startIndex": 4, "endIndex": 10, "scopes": ["source.abl", "entity.name.procedure.abl"] }  // 'test.p'
+    ],
+    [
+      { "startIndex": 0, "endIndex": 4, "scopes": ["source.abl"] },  // '    '
+      { "startIndex": 4, "endIndex": 6, "scopes": ["source.abl", "keyword.other.abl"] },  // 'ON'
+      { "startIndex": 6, "endIndex": 7, "scopes": ["source.abl"] },  // ' '
+      { "startIndex": 7, "endIndex": 14, "scopes": ["source.abl", "variable.language.abl"] }  // 'SESSION'
+    ],
+    [
+      { "startIndex": 0, "endIndex": 4, "scopes": ["source.abl"] },  // '    '
+      { "startIndex": 4, "endIndex": 16, "scopes": ["source.abl", "keyword.other.abl"] }  // 'ASYNCHRONOUS'
+    ],
+    [
+      { "startIndex": 0, "endIndex": 4, "scopes": ["source.abl"] },  // '    '
+      { "startIndex": 4, "endIndex": 17, "scopes": ["source.abl", "keyword.other.abl"] },  // 'EVENT-HANDLER'
+      { "startIndex": 17, "endIndex": 18, "scopes": ["source.abl"] },  // ' '
+      { "startIndex": 18, "endIndex": 19, "scopes": ["source.abl", "string.quoted.double.abl", "punctuation.definition.string.begin.abl"] },  // '"'
+      { "startIndex": 19, "endIndex": 23, "scopes": ["source.abl", "string.quoted.double.abl"] },  // 'test'
+      { "startIndex": 23, "endIndex": 24, "scopes": ["source.abl", "string.quoted.double.abl", "punctuation.definition.string.end.abl"] }  // '"'
+    ],
+    [
+      { "startIndex": 0, "endIndex": 4, "scopes": ["source.abl"] },  // '    '
+      { "startIndex": 4, "endIndex": 25, "scopes": ["source.abl", "keyword.other.abl"] },  // 'EVENT-HANDLER-CONTEXT'
+      { "startIndex": 25, "endIndex": 26, "scopes": ["source.abl"] },  // ' '
+      { "startIndex": 26, "endIndex": 27, "scopes": ["source.abl", "variable.other.abl"] },  // 'o'
+      { "startIndex": 27, "endIndex": 28, "scopes": ["source.abl"] },  // ' '
+      { "startIndex": 28, "endIndex": 29, "scopes": ["source.abl", "punctuation.terminator.abl"] }  // '.'
+    ]
+  ];
+  shared.itShouldMatchExpectedScopes(statement, expectedTokens);
+})
+
+describe('', () => {
+  let statement = `RUN test.p
+    ON SESSION:HANDLE
+    ASYNCHRONOUS
+    EVENT-HANDLER "test"
+    EVENT-HANDLER-CONTEXT o .`;
+
+  let expectedTokens = [
+    [
+      { "startIndex": 0, "endIndex": 3, "scopes": ["source.abl", "keyword.other.abl"] },  // 'RUN'
+      { "startIndex": 3, "endIndex": 4, "scopes": ["source.abl"] },  // ' '
+      { "startIndex": 4, "endIndex": 10, "scopes": ["source.abl", "entity.name.procedure.abl"] }  // 'test.p'
+    ],
+    [
+      { "startIndex": 0, "endIndex": 4, "scopes": ["source.abl"] },  // '    '
+      { "startIndex": 4, "endIndex": 6, "scopes": ["source.abl", "keyword.other.abl"] },  // 'ON'
+      { "startIndex": 6, "endIndex": 7, "scopes": ["source.abl"] },  // ' '
+      { "startIndex": 7, "endIndex": 14, "scopes": ["source.abl", "variable.language.abl"] },  // 'SESSION'
+      { "startIndex": 14, "endIndex": 15, "scopes": ["source.abl", "punctuation.separator.colon.abl"] },  // ':'
+      { "startIndex": 15, "endIndex": 21, "scopes": ["source.abl", "entity.name.function.abl"] }  // 'HANDLE'
+    ],
+    [
+      { "startIndex": 0, "endIndex": 4, "scopes": ["source.abl"] },  // '    '
+      { "startIndex": 4, "endIndex": 16, "scopes": ["source.abl", "keyword.other.abl"] }  // 'ASYNCHRONOUS'
+    ],
+    [
+      { "startIndex": 0, "endIndex": 4, "scopes": ["source.abl"] },  // '    '
+      { "startIndex": 4, "endIndex": 17, "scopes": ["source.abl", "keyword.other.abl"] },  // 'EVENT-HANDLER'
+      { "startIndex": 17, "endIndex": 18, "scopes": ["source.abl"] },  // ' '
+      { "startIndex": 18, "endIndex": 19, "scopes": ["source.abl", "string.quoted.double.abl", "punctuation.definition.string.begin.abl"] },  // '"'
+      { "startIndex": 19, "endIndex": 23, "scopes": ["source.abl", "string.quoted.double.abl"] },  // 'test'
+      { "startIndex": 23, "endIndex": 24, "scopes": ["source.abl", "string.quoted.double.abl", "punctuation.definition.string.end.abl"] }  // '"'
+    ],
+    [
+      { "startIndex": 0, "endIndex": 4, "scopes": ["source.abl"] },  // '    '
+      { "startIndex": 4, "endIndex": 25, "scopes": ["source.abl", "keyword.other.abl"] },  // 'EVENT-HANDLER-CONTEXT'
+      { "startIndex": 25, "endIndex": 26, "scopes": ["source.abl"] },  // ' '
+      { "startIndex": 26, "endIndex": 27, "scopes": ["source.abl", "variable.other.abl"] },  // 'o'
+      { "startIndex": 27, "endIndex": 28, "scopes": ["source.abl"] },  // ' '
+      { "startIndex": 28, "endIndex": 29, "scopes": ["source.abl", "punctuation.terminator.abl"] }  // '.'
+    ]
+  ];
+  shared.itShouldMatchExpectedScopes(statement, expectedTokens);
+})
