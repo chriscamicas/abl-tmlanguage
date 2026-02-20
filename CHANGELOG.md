@@ -1,3 +1,8 @@
+1.3.23
+======
+
+- ✨ Improve scoping for RUN statements (PR #71, issue vscode-abl/vscode-abl#479)
+
 1.3.22
 ======
 
