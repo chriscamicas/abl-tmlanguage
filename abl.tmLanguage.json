@@ -1618,7 +1618,7 @@
       }
     },
     "property-get-set-block": {
-      "begin": "\\s*(?<!:)\\s*([Gg][Ee][Tt]|[Ss][Ee][Tt])\\b(?![#$\\-_%&])",
+      "begin": "\\s*(?<!:)\\s*([Gg][Ee][Tt]|[Ss][Ee][Tt])\\b(?![#$\\-_%&])(?=\\()",
       "beginCaptures": {
         "1": {
           "name": "keyword.other.abl"
@@ -3878,7 +3878,7 @@
           "name": "keyword.other.abl"
         }
       },
-      "end": "(?i)(?=\\.|value|set|persistent|single-run|singleton|on|no-error|in|asynchronous|\\()",
+      "end": "(?i)(?=\\.|value|set|persistent|single-run|singleton|on|no-error|in|asynchronous|event-procedure|\\()",
       "patterns": [
         {
           "include": "#string"
@@ -4538,7 +4538,7 @@
     },
     "keywords-E": {
       "comment": "The keyword must not have a trailing variable character (one of #$-_%&)",
-      "match": "(?i)\\b(e(?:ach|cho|dge|dge-pixels?|dge-pixe?|dge-pi?|diting|ditor|ditor-backtab|ditor-tab|lse|mpty|mpty-selection|nable|nd|nd-box-selection|nd-error|nd-key|nd-move|nd-resize|nd-row-resize|nd-search|ndkey|nter-menubar|ntry|num|q|rror|rror-status?|rror-stat|scape|vent|vent-handler|vent-handler-context|vents|xcept|xclusive|xclusive-lock?|xclusive-lo?|xclusive-web-user?|xclusive-web-us?|xclusive-web-?|xecute|xists|xit|xpire|xplicit|xport|xtended|xtent|xternal|xtract))\\b(?![#$\\-_%&])",
+      "match": "(?i)\\b(e(?:ach|cho|dge|dge-pixels?|dge-pixe?|dge-pi?|diting|ditor|ditor-backtab|ditor-tab|lse|mpty|mpty-selection|nable|nd|nd-box-selection|nd-error|nd-key|nd-move|nd-resize|nd-row-resize|nd-search|ndkey|nter-menubar|ntry|num|q|rror|rror-status?|rror-stat|scape|vent|vent-handler|vent-handler-context|vent-procedure|vents|xcept|xclusive|xclusive-lock?|xclusive-lo?|xclusive-web-user?|xclusive-web-us?|xclusive-web-?|xecute|xists|xit|xpire|xplicit|xport|xtended|xtent|xternal|xtract))\\b(?![#$\\-_%&])",
       "captures": {
         "1": {
           "name": "keyword.other.abl"
@@ -4637,7 +4637,7 @@
     },
     "keywords-P": {
       "comment": "The keyword must not have a trailing variable character (one of #$-_%&)",
-      "match": "(?i)\\b(p(?:ackage-private|ackage-protected|age|age-bottom?|age-bott?|age-down|age-left|age-right|age-right-text|age-up|age-width?|age-wid|aged|arameter?|aramet?|aram|arent-id-field|arent-window-close|artial-key|ascal|aste|ause|erformance?|erforman?|erform?|erfo?|fcolor?|fcol?|fc|ick|ick-area|ick-both|ixels|ortrait|recision|reprocess?|reproce?|reselect?|resele?|rev|rev-frame|rev-word|rinter|rinter-setup|rivate|rivileges|rocedure-call-type|rocedure-complete|rocedure?|rocedu?|roce|rocess|rofile-file|rofiler|rompt|rompt-for?|rompt-f|romsgs|ropath|roperty|rotected|ublic|ublish|ut|ut-bits|ut-bytes??|ut-double|ut-float|ut-int64|ut-key-value?|ut-key-val|ut-long|ut-short|ut-string|ut-unsigned-long|ut-unsigned-short|utbyte))\\b(?![#$\\-_%&])",
+      "match": "(?i)\\b(p(?:ackage-private|ackage-protected|age|age-bottom?|age-bott?|age-down|age-left|age-right|age-right-text|age-up|age-width?|age-wid|aged|arameter?|aramet?|aram|arent-id-field|arent-window-close|artial-key|ascal|aste|ause|erformance?|erforman?|erform?|erfo?|ersistent?|ersiste?|fcolor?|fcol?|fc|ick|ick-area|ick-both|ixels|ortrait|recision|reprocess?|reproce?|reselect?|resele?|rev|rev-frame|rev-word|rinter|rinter-setup|rivate|rivileges|rocedure-call-type|rocedure-complete|rocedure?|rocedu?|roce|rocess|rofile-file|rofiler|rompt|rompt-for?|rompt-f|romsgs|ropath|roperty|rotected|ublic|ublish|ut|ut-bits|ut-bytes??|ut-double|ut-float|ut-int64|ut-key-value?|ut-key-val|ut-long|ut-short|ut-string|ut-unsigned-long|ut-unsigned-short|utbyte))\\b(?![#$\\-_%&])",
       "captures": {
         "1": {
           "name": "keyword.other.abl"
@@ -4664,7 +4664,7 @@
     },
     "keywords-S": {
       "comment": "The keyword must not have a trailing variable character (one of #$-_%&)",
-      "match": "(?i)\\b(s(?:ave|ave-as|ax-attributes|ax-complete?|ax-comple|ax-parser-error|ax-reader|ax-running|ax-uninitialized|ax-write-begin|ax-write-complete|ax-write-content|ax-write-element|ax-write-error|ax-write-idle|ax-write-tag|ax-writer|ax-xml|chema|creen|creen-io|croll|croll-bars|croll-horizontal|croll-left|croll-mode|croll-notify|croll-right|croll-vertical|crollable|crollbar-drag|crolled-row-position?|crolled-row-positi?|crolled-row-posi?|crolling|earch-self|earch-target|ection|ecurity-policy|eek|elect|elect-extend|elect-on-join|elect-repositioned-row|elected-items|election|election-extend|election-list|elf|end|ensitive|eparate-connection|eparators|erializable|erialize-hidden|erialize-name|erver|erver-socket|ession|et|et-attr-call-type|et-byte-order|et-cell-focus|et-contents|et-db-logging|et-event-manager-option|et-option|et-pointer-value?|et-pointer-val|et-state|ettings|hare-lock?|hare-lo?|hare-?|hared|hort|how-in-taskbar?|how-in-taskb?|how-stats?|ide-labels?|ide-labe?|ignature|ilent|imple|ingle|ingle-character|ingle-run|ize|ize-chars?|ize-cha?|ize-c|ize-pixels?|ize-pixe?|ize-pi?|kip|kip-group-duplicates|kip-schema-check|lider|mallint|oap-fault|oap-header|oap-header-entryref|ocket|ome|ource|ource-procedure|pace|ql|tart|tart-box-selection|tart-extend-box-selection|tart-mem-check|tart-move|tart-resize|tart-row-resize|tart-search|tarting|tatic|tatus|tatus-area|tatus-area-msg|tdcall|tomp-detection|tomp-frequency|top|top-after|top-display|top-mem-check|tored-procedure?|tored-procedu?|tored-proce?|tream|tream-handle|tream-io|tring-xref|ub-average?|ub-avera?|ub-ave|ub-count|ub-maximum?|ub-maxim?|ub-max|ub-menu|ub-menu-help|ub-minimum?|ub-minim?|ub-min|ub-total|ubscribe|ubstring?|ubstri?|um|ummary|uper|uspend|ystem-dialog|ystem-help))\\b(?![#$\\-_%&])",
+      "match": "(?i)\\b(s(?:ave|ave-as|ax-attributes|ax-complete?|ax-comple|ax-parser-error|ax-reader|ax-running|ax-uninitialized|ax-write-begin|ax-write-complete|ax-write-content|ax-write-element|ax-write-error|ax-write-idle|ax-write-tag|ax-writer|ax-xml|chema|creen|creen-io|croll|croll-bars|croll-horizontal|croll-left|croll-mode|croll-notify|croll-right|croll-vertical|crollable|crollbar-drag|crolled-row-position?|crolled-row-positi?|crolled-row-posi?|crolling|earch-self|earch-target|ection|ecurity-policy|eek|elect|elect-extend|elect-on-join|elect-repositioned-row|elected-items|election|election-extend|election-list|elf|end|ensitive|eparate-connection|eparators|erializable|erialize-hidden|erialize-name|erver|erver-socket|ession|et|et-attr-call-type|et-byte-order|et-cell-focus|et-contents|et-db-logging|et-event-manager-option|et-option|et-pointer-value?|et-pointer-val|et-state|ettings|hare-lock?|hare-lo?|hare-?|hared|hort|how-in-taskbar?|how-in-taskb?|how-stats?|ide-labels?|ide-labe?|ignature|ilent|imple|ingle|ingle-character|ingle-run|ingleton|ize|ize-chars?|ize-cha?|ize-c|ize-pixels?|ize-pixe?|ize-pi?|kip|kip-group-duplicates|kip-schema-check|lider|mallint|oap-fault|oap-header|oap-header-entryref|ocket|ome|ource|ource-procedure|pace|ql|tart|tart-box-selection|tart-extend-box-selection|tart-mem-check|tart-move|tart-resize|tart-row-resize|tart-search|tarting|tatic|tatus|tatus-area|tatus-area-msg|tdcall|tomp-detection|tomp-frequency|top|top-after|top-display|top-mem-check|tored-procedure?|tored-procedu?|tored-proce?|tream|tream-handle|tream-io|tring-xref|ub-average?|ub-avera?|ub-ave|ub-count|ub-maximum?|ub-maxim?|ub-max|ub-menu|ub-menu-help|ub-minimum?|ub-minim?|ub-min|ub-total|ubscribe|ubstring?|ubstri?|um|ummary|uper|uspend|ystem-dialog|ystem-help))\\b(?![#$\\-_%&])",
       "captures": {
         "1": {
           "name": "keyword.other.abl"
