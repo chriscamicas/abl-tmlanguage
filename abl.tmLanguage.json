@@ -4538,7 +4538,7 @@
     },
     "keywords-E": {
       "comment": "The keyword must not have a trailing variable character (one of #$-_%&)",
-      "match": "(?i)\\b(e(?:ach|cho|dge|dge-pixels?|dge-pixe?|dge-pi?|diting|ditor|ditor-backtab|ditor-tab|lse|mpty|mpty-selection|nable|nd|nd-box-selection|nd-error|nd-key|nd-move|nd-resize|nd-row-resize|nd-search|ndkey|nter-menubar|ntry|num|q|rror|rror-status?|rror-stat|scape|vent|vent-handler|vent-handler-context|vents|xcept|xclusive|xclusive-lock?|xclusive-lo?|xclusive-web-user?|xclusive-web-us?|xclusive-web-?|xecute|xists|xit|xpire|xplicit|xport|xtended|xtent|xternal|xtract))\\b(?![#$\\-_%&])",
+      "match": "(?i)\\b(e(?:ach|cho|dge|dge-pixels?|dge-pixe?|dge-pi?|diting|ditor|ditor-backtab|ditor-tab|lse|mpty|mpty-selection|nable|nd|nd-box-selection|nd-error|nd-key|nd-move|nd-resize|nd-row-resize|nd-search|ndkey|nter-menubar|ntry|num|q|rror|rror-status?|rror-stat|scape|vent|vent-handler|vent-handler-context|vent-procedure|vents|xcept|xclusive|xclusive-lock?|xclusive-lo?|xclusive-web-user?|xclusive-web-us?|xclusive-web-?|xecute|xists|xit|xpire|xplicit|xport|xtended|xtent|xternal|xtract))\\b(?![#$\\-_%&])",
       "captures": {
         "1": {
           "name": "keyword.other.abl"
