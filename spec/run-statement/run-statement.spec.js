@@ -642,3 +642,27 @@ describe('', () => {
   ];
   shared.itShouldMatchExpectedScopes(statement, expectedTokens);
 })
+
+
+describe('', () => {
+  let statement = `run Foo.Bar in vProcedureHandle(input "goodbye").`;
+
+  let expectedTokens = [
+    { "startIndex": 0, "endIndex": 3, "scopes": ["source.abl", "keyword.other.abl"] },  // 'run'
+    { "startIndex": 3, "endIndex": 4, "scopes": ["source.abl"] },  // ' '
+    { "startIndex": 4, "endIndex": 11, "scopes": ["source.abl", "entity.name.procedure.abl"] },  // 'Foo.Bar'
+    { "startIndex": 11, "endIndex": 12, "scopes": ["source.abl"] },  // ' '
+    { "startIndex": 12, "endIndex": 14, "scopes": ["source.abl", "keyword.other.abl"] },  // 'in'
+    { "startIndex": 14, "endIndex": 15, "scopes": ["source.abl"] },  // ' '
+    { "startIndex": 15, "endIndex": 31, "scopes": ["source.abl", "variable.other.abl"] },  // 'vProcedureHandle'
+    { "startIndex": 31, "endIndex": 32, "scopes": ["source.abl", "meta.function.arguments.abl", "meta.brace.round.js"] },  // '('
+    { "startIndex": 32, "endIndex": 37, "scopes": ["source.abl", "meta.function.arguments.abl", "keyword.other.abl"] },  // 'input'
+    { "startIndex": 37, "endIndex": 38, "scopes": ["source.abl", "meta.function.arguments.abl"] },  // ' '
+    { "startIndex": 38, "endIndex": 39, "scopes": ["source.abl", "meta.function.arguments.abl", "string.quoted.double.abl", "punctuation.definition.string.begin.abl"] },  // '"'
+    { "startIndex": 39, "endIndex": 46, "scopes": ["source.abl", "meta.function.arguments.abl", "string.quoted.double.abl"] },  // 'goodbye'
+    { "startIndex": 46, "endIndex": 47, "scopes": ["source.abl", "meta.function.arguments.abl", "string.quoted.double.abl", "punctuation.definition.string.end.abl"] },  // '"'
+    { "startIndex": 47, "endIndex": 48, "scopes": ["source.abl", "meta.brace.round.js"] },  // ')'
+    { "startIndex": 48, "endIndex": 49, "scopes": ["source.abl", "punctuation.terminator.abl"] }  // '.'
+  ];
+  shared.itShouldMatchExpectedScopes(statement, expectedTokens);
+})
