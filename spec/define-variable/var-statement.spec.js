@@ -437,3 +437,31 @@ describe('', () => {
   ]
   shared.itShouldMatchExpectedScopes(statement, expectedTokens);
 })
+
+describe('', () => {
+  let statement = `var      ClassMyClass cmc.`
+  let expectedTokens = [
+    { "startIndex": 0, "endIndex": 3, "scopes": ["source.abl", "meta.define.abl", "keyword.other.abl"] },  // 'var'
+    { "startIndex": 3, "endIndex": 9, "scopes": ["source.abl", "meta.define.abl"] },  // '      '
+    { "startIndex": 9, "endIndex": 21, "scopes": ["source.abl", "meta.define.abl", "entity.name.type.abl"] },  // 'ClassMyClass'
+    { "startIndex": 21, "endIndex": 22, "scopes": ["source.abl", "meta.define.abl"] },  // ' '
+    { "startIndex": 22, "endIndex": 25, "scopes": ["source.abl", "meta.define.abl", "variable.other.abl"] },  // 'cmc'
+    { "startIndex": 25, "endIndex": 26, "scopes": ["source.abl", "punctuation.terminator.abl"] }  // '.'
+  ]
+  shared.itShouldMatchExpectedScopes(statement, expectedTokens);
+})
+
+describe('', () => {
+  let statement = `var     class   ClassMyClass cmc.`
+  let expectedTokens = [
+    { "startIndex": 0, "endIndex": 3, "scopes": ["source.abl", "meta.define.abl", "keyword.other.abl"] },  // 'var'
+    { "startIndex": 3, "endIndex": 8, "scopes": ["source.abl", "meta.define.abl"] },  // '     '
+    { "startIndex": 8, "endIndex": 13, "scopes": ["source.abl", "meta.define.abl", "keyword.other.abl"] },  // 'class'
+    { "startIndex": 13, "endIndex": 16, "scopes": ["source.abl", "meta.define.abl"] },  // '   '
+    { "startIndex": 16, "endIndex": 28, "scopes": ["source.abl", "meta.define.abl", "entity.name.type.abl"] },  // 'ClassMyClass'
+    { "startIndex": 28, "endIndex": 29, "scopes": ["source.abl", "meta.define.abl"] },  // ' '
+    { "startIndex": 29, "endIndex": 32, "scopes": ["source.abl", "meta.define.abl", "variable.other.abl"] },  // 'cmc'
+    { "startIndex": 32, "endIndex": 33, "scopes": ["source.abl", "punctuation.terminator.abl"] }  // '.'
+  ]
+  shared.itShouldMatchExpectedScopes(statement, expectedTokens);
+})

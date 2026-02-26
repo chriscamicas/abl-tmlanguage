@@ -2834,7 +2834,7 @@
         },
         {
           "comment": "This capture must use spaces and not word boundaries because the 'end' is on a space. This also captures class names that are ABL primitive type names, for example OpenEdge.Core.Memptr in its short form",
-          "match": "(?i)\\s*(class)\\s*(blob|character|char|clob|com-handle|date|datetime|datetime-tz|decimal|handle|int64|integer|int|logical|longchar|memptr|raw|recid|rowid|widget-handle)?",
+          "match": "(?i)\\s*(class)\\s+(blob|character|char|clob|com-handle|date|datetime|datetime-tz|decimal|handle|int64|integer|int|logical|longchar|memptr|raw|recid|rowid|widget-handle)?",
           "captures": {
             "1": {
               "name": "keyword.other.abl"
