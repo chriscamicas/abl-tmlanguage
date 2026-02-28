@@ -1,3 +1,8 @@
+1.3.25
+======
+
+- 🐛 Fix scope for VAR CLASS <primitive> to not capture VAR ClassSomething (PR #73, issue vscode-abl/vscode-abl#488)
+
 1.3.24
 ======
 
