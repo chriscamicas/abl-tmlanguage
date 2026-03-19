@@ -58,7 +58,7 @@
     "procedure-definition": {
       "name": "meta.procedure.abl",
       "comment": "Look ahead to the procedure name, quoted or not. It will be resolved in the patterns. 'Names must begin with a letter.' from https://docs.progress.com/bundle/openedge-abl-manage-applications/page/Name-limits.html",
-      "begin": "(?i)\\s*(proce(?:dure|dur|du|d)?)\\s+(?=[a-zA-Z_])",
+      "begin": "(?i)^\\s*(proce(?:dure|dur|du|d)?)\\s+(?=[a-zA-Z_])",
       "beginCaptures": {
         "1": {
           "name": "keyword.other.abl"
