@@ -1,3 +1,8 @@
+1.3.26
+======
+
+- 🐛 Fix scoping for DELETE PROCEDURE statements (PR #74, issue vscode-abl/vscode-abl#507)
+
 1.3.25
 ======
 
