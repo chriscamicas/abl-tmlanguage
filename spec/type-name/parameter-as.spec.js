@@ -927,3 +927,52 @@ describe('', () => {
   ];
   shared.itShouldMatchExpectedScopes(statement, expectedTokens);
 })
+
+describe('', () => {
+  let statement = `method public character GetStaticQueryNames (pcTempTableName as character,
+     pcIndexName as character,
+     output poParameterType as ClassName ):`;
+
+  let expectedTokens = [
+    [
+      { "startIndex": 0, "endIndex": 6, "scopes": ["source.abl", "meta.define.method.abl", "keyword.other.abl"] },  // 'method'
+      { "startIndex": 6, "endIndex": 7, "scopes": ["source.abl", "meta.define.method.abl"] },  // ' '
+      { "startIndex": 7, "endIndex": 13, "scopes": ["source.abl", "meta.define.method.abl", "keyword.other.abl"] },  // 'public'
+      { "startIndex": 13, "endIndex": 14, "scopes": ["source.abl", "meta.define.method.abl"] },  // ' '
+      { "startIndex": 14, "endIndex": 23, "scopes": ["source.abl", "meta.define.method.abl", "storage.type.abl"] },  // 'character'
+      { "startIndex": 23, "endIndex": 24, "scopes": ["source.abl", "meta.define.method.abl"] },  // ' '
+      { "startIndex": 24, "endIndex": 43, "scopes": ["source.abl", "meta.define.method.abl", "entity.name.function.abl"] },  // 'GetStaticQueryNames'
+      { "startIndex": 43, "endIndex": 44, "scopes": ["source.abl", "meta.define.method.abl"] },  // ' '
+      { "startIndex": 44, "endIndex": 45, "scopes": ["source.abl", "meta.define.method.abl", "meta.brace.round.js"] },  // '('
+      { "startIndex": 45, "endIndex": 60, "scopes": ["source.abl", "meta.define.method.abl", "variable.parameter.abl"] },  // 'pcTempTableName'
+      { "startIndex": 60, "endIndex": 61, "scopes": ["source.abl", "meta.define.method.abl"] },  // ' '
+      { "startIndex": 61, "endIndex": 63, "scopes": ["source.abl", "meta.define.method.abl", "keyword.other.abl"] },  // 'as'
+      { "startIndex": 63, "endIndex": 64, "scopes": ["source.abl", "meta.define.method.abl"] },  // ' '
+      { "startIndex": 64, "endIndex": 73, "scopes": ["source.abl", "meta.define.method.abl", "storage.type.abl"] },  // 'character'
+      { "startIndex": 73, "endIndex": 74, "scopes": ["source.abl", "meta.define.method.abl", "punctuation.separator.comma.abl"] }  // ','
+    ],
+    [
+      { "startIndex": 0, "endIndex": 5, "scopes": ["source.abl", "meta.define.method.abl"] },  // '     '
+      { "startIndex": 5, "endIndex": 16, "scopes": ["source.abl", "meta.define.method.abl", "variable.parameter.abl"] },  // 'pcIndexName'
+      { "startIndex": 16, "endIndex": 17, "scopes": ["source.abl", "meta.define.method.abl"] },  // ' '
+      { "startIndex": 17, "endIndex": 19, "scopes": ["source.abl", "meta.define.method.abl", "keyword.other.abl"] },  // 'as'
+      { "startIndex": 19, "endIndex": 20, "scopes": ["source.abl", "meta.define.method.abl"] },  // ' '
+      { "startIndex": 20, "endIndex": 29, "scopes": ["source.abl", "meta.define.method.abl", "storage.type.abl"] },  // 'character'
+      { "startIndex": 29, "endIndex": 30, "scopes": ["source.abl", "meta.define.method.abl", "punctuation.separator.comma.abl"] }  // ','
+    ],
+    [
+      { "startIndex": 0, "endIndex": 5, "scopes": ["source.abl", "meta.define.method.abl"] },  // '     '
+      { "startIndex": 5, "endIndex": 11, "scopes": ["source.abl", "meta.define.method.abl", "keyword.other.abl"] },  // 'output'
+      { "startIndex": 11, "endIndex": 12, "scopes": ["source.abl", "meta.define.method.abl"] },  // ' '
+      { "startIndex": 12, "endIndex": 27, "scopes": ["source.abl", "meta.define.method.abl", "variable.parameter.abl"] },  // 'poParameterType'
+      { "startIndex": 27, "endIndex": 28, "scopes": ["source.abl", "meta.define.method.abl"] },  // ' '
+      { "startIndex": 28, "endIndex": 30, "scopes": ["source.abl", "meta.define.method.abl", "keyword.other.abl"] },  // 'as'
+      { "startIndex": 30, "endIndex": 31, "scopes": ["source.abl", "meta.define.method.abl"] },  // ' '
+      { "startIndex": 31, "endIndex": 40, "scopes": ["source.abl", "meta.define.method.abl", "entity.name.type.abl"] },  // 'ClassName'
+      { "startIndex": 40, "endIndex": 41, "scopes": ["source.abl", "meta.define.method.abl"] },  // ' '
+      { "startIndex": 41, "endIndex": 42, "scopes": ["source.abl", "meta.define.method.abl", "meta.brace.round.js"] },  // ')'
+      { "startIndex": 42, "endIndex": 43, "scopes": ["source.abl", "punctuation.terminator.abl"] }  // ':'
+    ]
+  ];
+  shared.itShouldMatchExpectedScopes(statement, expectedTokens);
+})
