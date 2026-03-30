@@ -1,3 +1,8 @@
+1.3.27
+======
+
+- 🐛 Fix scoping of parameter definition with 'class' in the type name (PR #75)
+
 1.3.26
 ======
 
