@@ -9,13 +9,13 @@ describe('', () => {
   let expectedTokens = [
     [
       { "startIndex": 0, "endIndex": 2, "scopes": ["source.abl", "keyword.other.abl"] },  // 'if'
-      { "startIndex": 2, "endIndex": 3, "scopes": ["source.abl", "meta.function-call.abl"] },  // ' '
-      { "startIndex": 3, "endIndex": 15, "scopes": ["source.abl", "meta.function-call.abl", "support.function.abl"] },  // 'valid-object'
-      { "startIndex": 15, "endIndex": 16, "scopes": ["source.abl", "meta.function-call.abl", "meta.function.arguments.abl", "meta.brace.round.js"] },  // '('
-      { "startIndex": 16, "endIndex": 26, "scopes": ["source.abl", "meta.function-call.abl", "meta.function.arguments.abl", "variable.other.abl"] },  // 'oEventArgs'
-      { "startIndex": 26, "endIndex": 27, "scopes": ["source.abl", "meta.function-call.abl", "meta.function.arguments.abl", "punctuation.separator.colon.abl"] },  // ':'
-      { "startIndex": 27, "endIndex": 39, "scopes": ["source.abl", "meta.function-call.abl", "meta.function.arguments.abl", "entity.name.function.abl"] },  // 'ResponseBody'
-      { "startIndex": 39, "endIndex": 40, "scopes": ["source.abl", "meta.function-call.abl", "meta.brace.round.js"] },  // ')'
+      { "startIndex": 2, "endIndex": 3, "scopes": ["source.abl"] },  // ' '
+      { "startIndex": 3, "endIndex": 15, "scopes": ["source.abl", "support.function.abl"] },  // 'valid-object'
+      { "startIndex": 15, "endIndex": 16, "scopes": ["source.abl", "meta.function.arguments.abl", "meta.brace.round.js"] },  // '('
+      { "startIndex": 16, "endIndex": 26, "scopes": ["source.abl", "meta.function.arguments.abl", "variable.other.abl"] },  // 'oEventArgs'
+      { "startIndex": 26, "endIndex": 27, "scopes": ["source.abl", "meta.function.arguments.abl", "punctuation.separator.colon.abl"] },  // ':'
+      { "startIndex": 27, "endIndex": 39, "scopes": ["source.abl", "meta.function.arguments.abl", "entity.name.function.abl"] },  // 'ResponseBody'
+      { "startIndex": 39, "endIndex": 40, "scopes": ["source.abl", "meta.brace.round.js"] },  // ')'
       { "startIndex": 40, "endIndex": 41, "scopes": ["source.abl"] },  // ' '
       { "startIndex": 41, "endIndex": 45, "scopes": ["source.abl", "keyword.other.abl"] }  // 'then'
     ],

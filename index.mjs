@@ -13,7 +13,7 @@
 
 import * as fs from 'node:fs';
 import * as readline from 'node:readline';
-import {optimize} from 'oniguruma-parser/optimizer';
+import { optimize } from 'oniguruma-parser/optimizer';
 
 let lineReaderMethods = readline.createInterface({
   input: fs.createReadStream('abl-methods.txt')
@@ -125,6 +125,67 @@ alsoFunctions.push('substitute');
 alsoFunctions.push('this-object');
 alsoFunctions.push('value');
 
+let noParameterFunctions = [];
+noParameterFunctions.push('accum');
+noParameterFunctions.push('ambiguous');
+noParameterFunctions.push('available');
+noParameterFunctions.push('current-changed');
+noParameterFunctions.push('current-language');
+noParameterFunctions.push('dataservers');
+noParameterFunctions.push('dbname');
+noParameterFunctions.push('entered');
+noParameterFunctions.push('etime');
+noParameterFunctions.push('frame-col');
+noParameterFunctions.push('frame-db');
+noParameterFunctions.push('frame-down');
+noParameterFunctions.push('frame-field');
+noParameterFunctions.push('frame-file');
+noParameterFunctions.push('frame-index');
+noParameterFunctions.push('frame-line');
+noParameterFunctions.push('frame-name');
+noParameterFunctions.push('frame-row');
+noParameterFunctions.push('frame-value');
+noParameterFunctions.push('gateways');
+noParameterFunctions.push('generate-pbe-salt');
+noParameterFunctions.push('generate-random-key');
+noParameterFunctions.push('generate-uuid');
+noParameterFunctions.push('get-codepages');
+noParameterFunctions.push('go-pending');
+noParameterFunctions.push('guid');
+noParameterFunctions.push('input');
+noParameterFunctions.push('is-attr-space');
+noParameterFunctions.push('lastkey');
+noParameterFunctions.push('line-counter');
+noParameterFunctions.push('locked');
+noParameterFunctions.push('message-lines');
+noParameterFunctions.push('not entered');
+noParameterFunctions.push('now');
+noParameterFunctions.push('num-aliases');
+noParameterFunctions.push('num-dbs');
+noParameterFunctions.push('opsys');
+noParameterFunctions.push('os-drives');
+noParameterFunctions.push('os-error');
+noParameterFunctions.push('page-number');
+noParameterFunctions.push('page-size');
+noParameterFunctions.push('proc-handle');
+noParameterFunctions.push('proc-status');
+noParameterFunctions.push('process-architecture');
+noParameterFunctions.push('progress');
+noParameterFunctions.push('promsgs');
+noParameterFunctions.push('propath');
+noParameterFunctions.push('proversion');
+noParameterFunctions.push('retry');
+noParameterFunctions.push('return');
+noParameterFunctions.push('return-value');
+noParameterFunctions.push('screen-lines');
+noParameterFunctions.push('skip');
+noParameterFunctions.push('super');
+noParameterFunctions.push('terminal');
+noParameterFunctions.push('time');
+noParameterFunctions.push('today');
+noParameterFunctions.push('transaction');
+noParameterFunctions.push('userid');
+
 let alsoKeywords = [];
 alsoKeywords.push('get-collation'); //plural version as key
 
@@ -136,7 +197,7 @@ minKeywords.set('&scop', '&scoped-define');
 minKeywords.set('glob', 'global');
 minKeywords.set('var', 'variable');
 
-// This may holds the keyword names and their regex entries
+// This holds the keyword names and their regex entries
 let keywordEntries = new Map();
 keywordEntries.set('logical', 'logical|logica|logic|logi|log|lo');
 keywordEntries.set('&global-define', '&global-define|&global-defin|&global-defi|&global-def|&global-de|&global-d|&global-|&global|&globa|&glob)');
@@ -180,6 +241,13 @@ lineReaderFunctions.on('line', line => {
   let results;
   line = line.toLowerCase();
 
+  // NOT ENTERED function is captured
+  // as NOT , which is an operator and not
+  // a function
+  if (line.startsWith("not entered")) {
+    return;
+  }
+
   if (!line.startsWith("#")) {
 
     let kw = line.split(' ');
@@ -188,8 +256,10 @@ lineReaderFunctions.on('line', line => {
     if (kw.includes('function') && !kw.includes('statement')) {
       let kwName = kw[0];
 
+
       // CAPS letter alphabet
       let charIdx = kwName.charCodeAt(0) - 97;
+
       if (!functionBlocks[charIdx].includes(kwName)) {
         functionBlocks[charIdx].push(kwName);
       }
@@ -266,14 +336,14 @@ function addToBlock(charIdx, fullKw, minKw, kwRegex) {
   if (!minKeywords.has(minKw)) {
     minKeywords.set(minKw, fullKw);
   }
-  if  (!keywordEntries.has(fullKw)) {
+  if (!keywordEntries.has(fullKw)) {
     keywordEntries.set(fullKw, kwRegex);
   }
 
   if (!attributeBlocks[charIdx].includes(fullKw) &&
-      !methodBlocks[charIdx].includes(fullKw) &&
-      !functionBlocks[charIdx].includes(fullKw) &&
-      !keywordBlocks[charIdx].includes(fullKw)) {
+    !methodBlocks[charIdx].includes(fullKw) &&
+    !functionBlocks[charIdx].includes(fullKw) &&
+    !keywordBlocks[charIdx].includes(fullKw)) {
     keywordBlocks[charIdx].push(fullKw);
   }
 
@@ -284,7 +354,7 @@ function addToBlock(charIdx, fullKw, minKw, kwRegex) {
 }
 
 // Replaces full keywords in an array with the regexes, if any
-function replaceKeywordsWithRegex (kwArray) {
+function replaceKeywordsWithRegex(kwArray) {
   let regexBlocks = [];
 
   for (var idx in kwArray) {
@@ -378,6 +448,14 @@ lineReaderFunctions.on('close', () => {
   }
 
   result['abl-functions'] = { patterns: [] }
+
+  // turn noParameterFunctions into an alphabetically-sorted array
+  let noParameterFunctionBlocks = [[], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], []];
+  for (var zz = 0; zz < noParameterFunctions.length; zz++) {
+    let charIdx = noParameterFunctions[zz].charCodeAt(0) - 97;
+    noParameterFunctionBlocks[charIdx].push(noParameterFunctions[zz]);
+  }
+
   for (var zz = 0; zz < 26; zz++) {
 
     if (functionBlocks[zz].length > 0) {
@@ -385,12 +463,11 @@ lineReaderFunctions.on('close', () => {
 
       result['abl-functions-' + String.fromCharCode(97 + zz).toUpperCase()] =
       {
-        name: "meta.function-call.abl",
         begin: "(?i)\\s*(" + replaceKeywordsWithRegex(functionBlocks[zz]) + ")\\s*(?=\\()",
         beginCaptures: {
-          1: {
-            name: "support.function.abl"
-          }
+              1: {
+                name: "support.function.abl"
+              }
         },
         end: "(\\))",
         endCaptures: {
@@ -406,5 +483,26 @@ lineReaderFunctions.on('close', () => {
       }
     }
   }
+
+  //Add functions without parens
+  let npfb = [];
+  for (var zz = 0; zz < 26; zz++) {
+    if (noParameterFunctionBlocks[zz].length > 0) {
+      npfb.push({
+        match: "(?i)\\b(" + replaceKeywordsWithRegex(noParameterFunctionBlocks[zz]) + ")(?!(\\.\\w+))(?=\\)|\\s|,|]|:|\\.)",
+        captures: {
+          1: {
+            name: "support.function.abl"
+          }
+        }
+      });
+
+    }
+  }
+
+  result['abl-functions'].patterns.push({
+    comment: "ABL functions that can be called without parentheses. Some functions have optional arguments, some are never called with parens",
+    patterns: npfb});
+
   fs.writeFileSync(output, JSON.stringify(result, undefined, 4));
 })

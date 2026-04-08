@@ -20,14 +20,14 @@ describe('', () => {
     ],
     [
       { "startIndex": 0, "endIndex": 4, "scopes": ["source.abl"] },  // '    '
-      { "startIndex": 4, "endIndex": 8, "scopes": ["source.abl", "keyword.other.abl"] }  // 'skip'
+      { "startIndex": 4, "endIndex": 8, "scopes": ["source.abl", "support.function.abl"] }  // 'skip'
     ],
     [
-      { "startIndex": 0, "endIndex": 4, "scopes": ["source.abl", "meta.function-call.abl"] },  // '    '
-      { "startIndex": 4, "endIndex": 8, "scopes": ["source.abl", "meta.function-call.abl", "support.function.abl"] },  // 'skip'
-      { "startIndex": 8, "endIndex": 9, "scopes": ["source.abl", "meta.function-call.abl", "meta.function.arguments.abl", "meta.brace.round.js"] },  // '('
-      { "startIndex": 9, "endIndex": 10, "scopes": ["source.abl", "meta.function-call.abl", "meta.function.arguments.abl", "constant.numeric.source.abl"] },  // '3'
-      { "startIndex": 10, "endIndex": 11, "scopes": ["source.abl", "meta.function-call.abl", "meta.brace.round.js"] },  // ')'
+      { "startIndex": 0, "endIndex": 4, "scopes": ["source.abl"] },  // '    '
+      { "startIndex": 4, "endIndex": 8, "scopes": ["source.abl", "support.function.abl"] },  // 'skip'
+      { "startIndex": 8, "endIndex": 9, "scopes": ["source.abl", "meta.function.arguments.abl", "meta.brace.round.js"] },  // '('
+      { "startIndex": 9, "endIndex": 10, "scopes": ["source.abl", "meta.function.arguments.abl", "constant.numeric.source.abl"] },  // '3'
+      { "startIndex": 10, "endIndex": 11, "scopes": ["source.abl", "meta.brace.round.js"] },  // ')'
       { "startIndex": 11, "endIndex": 12, "scopes": ["source.abl", "punctuation.terminator.abl"] }  // '.'
     ]
   ];

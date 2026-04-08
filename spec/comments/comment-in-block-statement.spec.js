@@ -81,7 +81,7 @@ describe('', () => {
       { "startIndex": 63, "endIndex": 64, "scopes": ["source.abl", "meta.block.abl"] },  // ' '
       { "startIndex": 64, "endIndex": 69, "scopes": ["source.abl", "meta.block.abl", "keyword.other.abl"] },  // 'ERROR'
       { "startIndex": 69, "endIndex": 70, "scopes": ["source.abl", "meta.block.abl"] },  // ' '
-      { "startIndex": 70, "endIndex": 73, "scopes": ["source.abl", "meta.block.abl", "keyword.other.abl"] },  // 'NEW'
+      { "startIndex": 70, "endIndex": 73, "scopes": ["source.abl", "meta.block.abl", "support.function.abl"] },  // 'NEW'
       { "startIndex": 73, "endIndex": 74, "scopes": ["source.abl", "meta.block.abl"] },  // ' '
       { "startIndex": 74, "endIndex": 96, "scopes": ["source.abl", "meta.block.abl", "entity.name.type.abl"] },  // 'StopConditionException'
       { "startIndex": 96, "endIndex": 97, "scopes": ["source.abl", "meta.block.abl", "meta.function.arguments.abl", "meta.brace.round.js"] },  // '('

@@ -52,7 +52,7 @@ describe('', () => {
       { "startIndex": 144, "endIndex": 145, "scopes": ["source.abl"] },  // ' '
       { "startIndex": 145, "endIndex": 146, "scopes": ["source.abl", "keyword.operator.source.abl"] },  // '<'
       { "startIndex": 146, "endIndex": 147, "scopes": ["source.abl"] },  // ' '
-      { "startIndex": 147, "endIndex": 152, "scopes": ["source.abl", "constant.language.abl"] },  // 'today'
+      { "startIndex": 147, "endIndex": 152, "scopes": ["source.abl", "support.function.abl"] },  // 'today'
       { "startIndex": 152, "endIndex": 153, "scopes": ["source.abl", "punctuation.terminator.abl"] }  // ':'
     ],
     [
@@ -112,7 +112,7 @@ describe('', () => {
       { "startIndex": 102, "endIndex": 103, "scopes": ["source.abl"] },  // ' '
       { "startIndex": 103, "endIndex": 104, "scopes": ["source.abl", "keyword.operator.source.abl"] },  // '<'
       { "startIndex": 104, "endIndex": 105, "scopes": ["source.abl"] },  // ' '
-      { "startIndex": 105, "endIndex": 110, "scopes": ["source.abl", "constant.language.abl"] },  // 'today'
+      { "startIndex": 105, "endIndex": 110, "scopes": ["source.abl", "support.function.abl"] },  // 'today'
       { "startIndex": 110, "endIndex": 111, "scopes": ["source.abl", "punctuation.terminator.abl"] }  // ':'
     ],
     [
@@ -314,7 +314,7 @@ describe('', () => {
     { "startIndex": 135, "endIndex": 136, "scopes": ["source.abl"] },  // ' '
     { "startIndex": 136, "endIndex": 137, "scopes": ["source.abl", "keyword.operator.source.abl"] },  // '<'
     { "startIndex": 137, "endIndex": 138, "scopes": ["source.abl"] },  // ' '
-    { "startIndex": 138, "endIndex": 143, "scopes": ["source.abl", "constant.language.abl"] },  // 'today'
+    { "startIndex": 138, "endIndex": 143, "scopes": ["source.abl", "support.function.abl"] },  // 'today'
     { "startIndex": 143, "endIndex": 144, "scopes": ["source.abl", "punctuation.terminator.abl"] }  // ':'
   ];
   shared.itShouldMatchExpectedScopes(statement, expectedTokens);
@@ -418,7 +418,7 @@ first order of customer no-lock where order.orderdate < today:`;
       { "startIndex": 53, "endIndex": 54, "scopes": ["source.abl"] },  // ' '
       { "startIndex": 54, "endIndex": 55, "scopes": ["source.abl", "keyword.operator.source.abl"] },  // '<'
       { "startIndex": 55, "endIndex": 56, "scopes": ["source.abl"] },  // ' '
-      { "startIndex": 56, "endIndex": 61, "scopes": ["source.abl", "constant.language.abl"] },  // 'today'
+      { "startIndex": 56, "endIndex": 61, "scopes": ["source.abl", "support.function.abl"] },  // 'today'
       { "startIndex": 61, "endIndex": 62, "scopes": ["source.abl", "punctuation.terminator.abl"] }  // ':'
     ]
   ];
@@ -524,7 +524,7 @@ describe('', () => {
     { "startIndex": 8, "endIndex": 9, "scopes": ["source.abl"] },  // ' '
     { "startIndex": 9, "endIndex": 22, "scopes": ["source.abl", "storage.data.table.abl"] },  // 'ttTaskMethods'
     { "startIndex": 22, "endIndex": 23, "scopes": ["source.abl"] },  // ' '
-    { "startIndex": 23, "endIndex": 34, "scopes": ["source.abl", "keyword.other.abl"] },  // 'transACTION'
+    { "startIndex": 23, "endIndex": 34, "scopes": ["source.abl", "variable.language.abl"] },  // 'transACTION'
     { "startIndex": 34, "endIndex": 35, "scopes": ["source.abl", "punctuation.terminator.abl"] }  // ':'
   ];
   shared.itShouldMatchExpectedScopes(statement, expectedTokens);
@@ -558,7 +558,7 @@ describe('', () => {
     ],
     [
       { "startIndex": 0, "endIndex": 2, "scopes": ["source.abl"] },  // '  '
-      { "startIndex": 2, "endIndex": 13, "scopes": ["source.abl", "keyword.other.abl"] },  // 'TRANSACTION'
+      { "startIndex": 2, "endIndex": 13, "scopes": ["source.abl", "variable.language.abl"] },  // 'TRANSACTION'
       { "startIndex": 13, "endIndex": 14, "scopes": ["source.abl", "punctuation.terminator.abl"] }  // ':'
     ]
   ];

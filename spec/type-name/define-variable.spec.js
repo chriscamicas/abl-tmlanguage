@@ -170,7 +170,7 @@ describe('', () => {
       { "startIndex": 69, "endIndex": 70, "scopes": ["source.abl", "meta.define.abl"] },  // ' '
       { "startIndex": 70, "endIndex": 77, "scopes": ["source.abl", "meta.define.abl", "keyword.other.abl"] },  // 'initial'
       { "startIndex": 77, "endIndex": 78, "scopes": ["source.abl", "meta.define.abl"] },  // ' '
-      { "startIndex": 78, "endIndex": 81, "scopes": ["source.abl", "meta.define.abl", "constant.language.abl"] },  // 'now'
+      { "startIndex": 78, "endIndex": 81, "scopes": ["source.abl", "meta.define.abl", "support.function.abl"] },  // 'now'
       { "startIndex": 81, "endIndex": 82, "scopes": ["source.abl", "meta.define.abl"] },  // ' '
       { "startIndex": 82, "endIndex": 89, "scopes": ["source.abl", "meta.define.abl", "keyword.other.abl"] }  // 'no-undo'
     ],

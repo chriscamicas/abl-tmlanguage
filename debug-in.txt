@@ -1,0 +1,15 @@
+do vIndex = vBufferHandle::Minimum to vBufferHandle::Maximum:
+
+end. /* do vIndex = vBufferHandle::Minimum to vBufferHandle::Maximum: */
+
+// syntax highlighting is correct here
+if num-entries(vBufferHandle::ControlList) gt 1 then
+    .
+
+do vIndex = 1 to num-entries(vBufferHandle::ControlList):
+
+end. /* */
+
+message hBuff::CustNum .
+assign c =  hDset::Customer .
+ttVal.field =  hDSet::Customer::CustNum.

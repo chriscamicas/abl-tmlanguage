@@ -86,7 +86,7 @@ if type-of(pProxyReq, IHttpRequest) then
       { "startIndex": 52, "endIndex": 53, "scopes": ["source.abl", "punctuation.separator.colon.abl"] },  // ':'
       { "startIndex": 53, "endIndex": 56, "scopes": ["source.abl", "entity.name.function.abl"] },  // 'Set'
       { "startIndex": 56, "endIndex": 57, "scopes": ["source.abl", "meta.function.arguments.abl", "meta.brace.round.js"] },  // '('
-      { "startIndex": 57, "endIndex": 60, "scopes": ["source.abl", "meta.function.arguments.abl", "constant.language.abl"] },  // 'now'
+      { "startIndex": 57, "endIndex": 60, "scopes": ["source.abl", "meta.function.arguments.abl", "support.function.abl"] },  // 'now'
       { "startIndex": 60, "endIndex": 61, "scopes": ["source.abl", "meta.brace.round.js"] },  // ')'
       { "startIndex": 61, "endIndex": 62, "scopes": ["source.abl", "punctuation.terminator.abl"] }  // '.'
     ]
@@ -138,4 +138,3 @@ describe('', () => {
   ];
   shared.itShouldMatchExpectedScopes(statement, expectedTokens);
 })
-

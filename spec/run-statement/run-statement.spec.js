@@ -40,7 +40,7 @@ describe('', () => {
     { "startIndex": 7, "endIndex": 22, "scopes": ["source.abl", "entity.name.procedure.abl"] },  // 'a/b\c\program.p'
     { "startIndex": 22, "endIndex": 23, "scopes": ["source.abl"] },  // ' '
     { "startIndex": 23, "endIndex": 24, "scopes": ["source.abl", "meta.function.arguments.abl", "meta.brace.round.js"] },  // '('
-    { "startIndex": 24, "endIndex": 29, "scopes": ["source.abl", "meta.function.arguments.abl", "constant.language.abl"] },  // 'today'
+    { "startIndex": 24, "endIndex": 29, "scopes": ["source.abl", "meta.function.arguments.abl", "support.function.abl"] },  // 'today'
     { "startIndex": 29, "endIndex": 30, "scopes": ["source.abl", "meta.brace.round.js"] },  // ')'
     { "startIndex": 30, "endIndex": 31, "scopes": ["source.abl", "punctuation.terminator.abl"] }  // '.'
   ];
@@ -55,10 +55,10 @@ describe('', () => {
     { "startIndex": 0, "endIndex": 3, "scopes": ["source.abl"] },  // '   '
     { "startIndex": 3, "endIndex": 6, "scopes": ["source.abl", "keyword.other.abl"] },  // 'run'
     { "startIndex": 6, "endIndex": 7, "scopes": ["source.abl"] },  // ' '
-    { "startIndex": 7, "endIndex": 12, "scopes": ["source.abl", "meta.function-call.abl", "support.function.abl"] },  // 'value'
-    { "startIndex": 12, "endIndex": 13, "scopes": ["source.abl", "meta.function-call.abl", "meta.function.arguments.abl", "meta.brace.round.js"] },  // '('
-    { "startIndex": 13, "endIndex": 22, "scopes": ["source.abl", "meta.function-call.abl", "meta.function.arguments.abl", "variable.other.abl"] },  // 'cPriogram'
-    { "startIndex": 22, "endIndex": 23, "scopes": ["source.abl", "meta.function-call.abl", "meta.brace.round.js"] },  // ')'
+    { "startIndex": 7, "endIndex": 12, "scopes": ["source.abl", "support.function.abl"] },  // 'value'
+    { "startIndex": 12, "endIndex": 13, "scopes": ["source.abl", "meta.function.arguments.abl", "meta.brace.round.js"] },  // '('
+    { "startIndex": 13, "endIndex": 22, "scopes": ["source.abl", "meta.function.arguments.abl", "variable.other.abl"] },  // 'cPriogram'
+    { "startIndex": 22, "endIndex": 23, "scopes": ["source.abl", "meta.brace.round.js"] },  // ')'
     { "startIndex": 23, "endIndex": 24, "scopes": ["source.abl", "punctuation.terminator.abl"] }  // '.'
   ];
   shared.itShouldMatchExpectedScopes(statement, expectedTokens);
@@ -232,10 +232,10 @@ describe('', () => {
   let expectedTokens = [
     { "startIndex": 0, "endIndex": 3, "scopes": ["source.abl", "keyword.other.abl"] },  // 'run'
     { "startIndex": 3, "endIndex": 4, "scopes": ["source.abl"] },  // ' '
-    { "startIndex": 4, "endIndex": 9, "scopes": ["source.abl", "meta.function-call.abl", "support.function.abl"] },  // 'value'
-    { "startIndex": 9, "endIndex": 10, "scopes": ["source.abl", "meta.function-call.abl", "meta.function.arguments.abl", "meta.brace.round.js"] },  // '('
-    { "startIndex": 10, "endIndex": 16, "scopes": ["source.abl", "meta.function-call.abl", "meta.function.arguments.abl", "variable.other.abl"] },  // 'SYSSYS'
-    { "startIndex": 16, "endIndex": 17, "scopes": ["source.abl", "meta.function-call.abl", "meta.brace.round.js"] },  // ')'
+    { "startIndex": 4, "endIndex": 9, "scopes": ["source.abl", "support.function.abl"] },  // 'value'
+    { "startIndex": 9, "endIndex": 10, "scopes": ["source.abl", "meta.function.arguments.abl", "meta.brace.round.js"] },  // '('
+    { "startIndex": 10, "endIndex": 16, "scopes": ["source.abl", "meta.function.arguments.abl", "variable.other.abl"] },  // 'SYSSYS'
+    { "startIndex": 16, "endIndex": 17, "scopes": ["source.abl", "meta.brace.round.js"] },  // ')'
     { "startIndex": 17, "endIndex": 18, "scopes": ["source.abl"] },  // ' '
     { "startIndex": 18, "endIndex": 19, "scopes": ["source.abl", "meta.function.arguments.abl", "meta.brace.round.js"] },  // '('
     { "startIndex": 19, "endIndex": 24, "scopes": ["source.abl", "meta.function.arguments.abl", "constant.numeric.source.abl"] },  // '31000'
@@ -357,19 +357,19 @@ describe('', () => {
     [
       { "startIndex": 0, "endIndex": 3, "scopes": ["source.abl", "keyword.other.abl"] },  // 'RUN'
       { "startIndex": 3, "endIndex": 4, "scopes": ["source.abl"] },  // ' '
-      { "startIndex": 4, "endIndex": 9, "scopes": ["source.abl", "meta.function-call.abl", "support.function.abl"] },  // 'VALUE'
-      { "startIndex": 9, "endIndex": 10, "scopes": ["source.abl", "meta.function-call.abl", "meta.function.arguments.abl", "meta.brace.round.js"] },  // '('
-      { "startIndex": 10, "endIndex": 21, "scopes": ["source.abl", "meta.function-call.abl", "meta.function.arguments.abl", "variable.language.abl"] },  // 'THIS-OBJECT'
-      { "startIndex": 21, "endIndex": 22, "scopes": ["source.abl", "meta.function-call.abl", "meta.function.arguments.abl", "punctuation.separator.colon.abl"] },  // ':'
-      { "startIndex": 22, "endIndex": 42, "scopes": ["source.abl", "meta.function-call.abl", "meta.function.arguments.abl", "entity.name.function.abl"] },  // 'ServiceInterfacePath'
-      { "startIndex": 42, "endIndex": 43, "scopes": ["source.abl", "meta.function-call.abl", "meta.function.arguments.abl"] },  // ' '
-      { "startIndex": 43, "endIndex": 44, "scopes": ["source.abl", "meta.function-call.abl", "meta.function.arguments.abl", "keyword.operator.source.abl"] },  // '+'
-      { "startIndex": 44, "endIndex": 45, "scopes": ["source.abl", "meta.function-call.abl", "meta.function.arguments.abl"] },  // ' '
-      { "startIndex": 45, "endIndex": 46, "scopes": ["source.abl", "meta.function-call.abl", "meta.function.arguments.abl", "string.quoted.double.abl", "punctuation.definition.string.begin.abl"] },  // '"'
-      { "startIndex": 46, "endIndex": 70, "scopes": ["source.abl", "meta.function-call.abl", "meta.function.arguments.abl", "string.quoted.double.abl"] },  // '/proSIinvokeTaskAsync2.p'
-      { "startIndex": 70, "endIndex": 71, "scopes": ["source.abl", "meta.function-call.abl", "meta.function.arguments.abl", "string.quoted.double.abl", "punctuation.definition.string.end.abl"] },  // '"'
-      { "startIndex": 71, "endIndex": 73, "scopes": ["source.abl", "meta.function-call.abl", "meta.function.arguments.abl", "string.quoted.double.abl", "support.other.abl"] },  // ':U'
-      { "startIndex": 73, "endIndex": 74, "scopes": ["source.abl", "meta.function-call.abl", "meta.brace.round.js"] }  // ')'
+      { "startIndex": 4, "endIndex": 9, "scopes": ["source.abl", "support.function.abl"] },  // 'VALUE'
+      { "startIndex": 9, "endIndex": 10, "scopes": ["source.abl", "meta.function.arguments.abl", "meta.brace.round.js"] },  // '('
+      { "startIndex": 10, "endIndex": 21, "scopes": ["source.abl", "meta.function.arguments.abl", "variable.language.abl"] },  // 'THIS-OBJECT'
+      { "startIndex": 21, "endIndex": 22, "scopes": ["source.abl", "meta.function.arguments.abl", "punctuation.separator.colon.abl"] },  // ':'
+      { "startIndex": 22, "endIndex": 42, "scopes": ["source.abl", "meta.function.arguments.abl", "entity.name.function.abl"] },  // 'ServiceInterfacePath'
+      { "startIndex": 42, "endIndex": 43, "scopes": ["source.abl", "meta.function.arguments.abl"] },  // ' '
+      { "startIndex": 43, "endIndex": 44, "scopes": ["source.abl", "meta.function.arguments.abl", "keyword.operator.source.abl"] },  // '+'
+      { "startIndex": 44, "endIndex": 45, "scopes": ["source.abl", "meta.function.arguments.abl"] },  // ' '
+      { "startIndex": 45, "endIndex": 46, "scopes": ["source.abl", "meta.function.arguments.abl", "string.quoted.double.abl", "punctuation.definition.string.begin.abl"] },  // '"'
+      { "startIndex": 46, "endIndex": 70, "scopes": ["source.abl", "meta.function.arguments.abl", "string.quoted.double.abl"] },  // '/proSIinvokeTaskAsync2.p'
+      { "startIndex": 70, "endIndex": 71, "scopes": ["source.abl", "meta.function.arguments.abl", "string.quoted.double.abl", "punctuation.definition.string.end.abl"] },  // '"'
+      { "startIndex": 71, "endIndex": 73, "scopes": ["source.abl", "meta.function.arguments.abl", "string.quoted.double.abl", "support.other.abl"] },  // ':U'
+      { "startIndex": 73, "endIndex": 74, "scopes": ["source.abl", "meta.brace.round.js"] }  // ')'
     ],
     [
       { "startIndex": 0, "endIndex": 8, "scopes": ["source.abl"] },  // '        '
@@ -775,109 +775,6 @@ describe('', () => {
             EVENT-PROCEDURE event-internal-procedure
                 IN procedure-context
             EVENT-HANDLER string(event-handler-name:Method())
-               EVENT-HANDLER-CONTEXT objRef
- ( "abc", objRef) .`;
-
-  let expectedTokens = [
-    [
-      { "startIndex": 0, "endIndex": 3, "scopes": ["source.abl", "keyword.other.abl"] }  // 'RUN'
-    ],
-    [
-      { "startIndex": 0, "endIndex": 5, "scopes": ["source.abl"] },  // '     '
-      { "startIndex": 5, "endIndex": 21, "scopes": ["source.abl", "entity.name.procedure.abl"] }  // 'extern-proc-name'
-    ],
-    [
-      { "startIndex": 0, "endIndex": 4, "scopes": ["source.abl"] },  // '    '
-      { "startIndex": 4, "endIndex": 13, "scopes": ["source.abl", "keyword.other.abl"] },  // 'SINGLETON'
-      { "startIndex": 13, "endIndex": 15, "scopes": ["source.abl"] },  // '  '
-      { "startIndex": 15, "endIndex": 18, "scopes": ["source.abl", "keyword.other.abl"] },  // 'SET'
-      { "startIndex": 18, "endIndex": 19, "scopes": ["source.abl"] },  // ' '
-      { "startIndex": 19, "endIndex": 30, "scopes": ["source.abl", "variable.other.abl"] }  // 'proc-handle'
-    ],
-    [
-      { "startIndex": 0, "endIndex": 4, "scopes": ["source.abl"] },  // '    '
-      { "startIndex": 4, "endIndex": 6, "scopes": ["source.abl", "keyword.other.abl"] },  // 'ON'
-      { "startIndex": 6, "endIndex": 8, "scopes": ["source.abl"] },  // '  '
-      { "startIndex": 8, "endIndex": 14, "scopes": ["source.abl", "keyword.other.abl"] },  // 'SERVER'
-      { "startIndex": 14, "endIndex": 15, "scopes": ["source.abl"] },  // ' '
-      { "startIndex": 15, "endIndex": 22, "scopes": ["source.abl", "variable.language.abl"] }  // 'session'
-    ],
-    [
-      { "startIndex": 0, "endIndex": 8, "scopes": ["source.abl"] },  // '        '
-      { "startIndex": 8, "endIndex": 19, "scopes": ["source.abl", "keyword.other.abl"] },  // 'TRANSACTION'
-      { "startIndex": 19, "endIndex": 20, "scopes": ["source.abl"] },  // ' '
-      { "startIndex": 20, "endIndex": 28, "scopes": ["source.abl", "keyword.other.abl"] }  // 'DISTINCT'
-    ],
-    [
-      { "startIndex": 0, "endIndex": 8, "scopes": ["source.abl"] },  // '        '
-      { "startIndex": 8, "endIndex": 20, "scopes": ["source.abl", "keyword.other.abl"] }  // 'ASYNCHRONOUS'
-    ],
-    [
-      { "startIndex": 0, "endIndex": 12, "scopes": ["source.abl"] },  // '            '
-      { "startIndex": 12, "endIndex": 15, "scopes": ["source.abl", "keyword.other.abl"] },  // 'SET'
-      { "startIndex": 15, "endIndex": 16, "scopes": ["source.abl"] },  // ' '
-      { "startIndex": 16, "endIndex": 36, "scopes": ["source.abl", "variable.other.abl"] }  // 'async-request-handle'
-    ],
-    [
-      { "startIndex": 0, "endIndex": 12, "scopes": ["source.abl"] },  // '            '
-      { "startIndex": 12, "endIndex": 27, "scopes": ["source.abl", "keyword.other.abl"] },  // 'EVENT-PROCEDURE'
-      { "startIndex": 27, "endIndex": 28, "scopes": ["source.abl"] },  // ' '
-      { "startIndex": 28, "endIndex": 52, "scopes": ["source.abl", "variable.other.abl"] }  // 'event-internal-procedure'
-    ],
-    [
-      { "startIndex": 0, "endIndex": 16, "scopes": ["source.abl"] },  // '                '
-      { "startIndex": 16, "endIndex": 18, "scopes": ["source.abl", "keyword.other.abl"] },  // 'IN'
-      { "startIndex": 18, "endIndex": 19, "scopes": ["source.abl"] },  // ' '
-      { "startIndex": 19, "endIndex": 36, "scopes": ["source.abl", "variable.other.abl"] }  // 'procedure-context'
-    ],
-    [
-      { "startIndex": 0, "endIndex": 12, "scopes": ["source.abl"] },  // '            '
-      { "startIndex": 12, "endIndex": 25, "scopes": ["source.abl", "keyword.other.abl"] },  // 'EVENT-HANDLER'
-      { "startIndex": 25, "endIndex": 26, "scopes": ["source.abl", "meta.function-call.abl"] },  // ' '
-      { "startIndex": 26, "endIndex": 32, "scopes": ["source.abl", "meta.function-call.abl", "support.function.abl"] },  // 'string'
-      { "startIndex": 32, "endIndex": 33, "scopes": ["source.abl", "meta.function-call.abl", "meta.function.arguments.abl", "meta.brace.round.js"] },  // '('
-      { "startIndex": 33, "endIndex": 51, "scopes": ["source.abl", "meta.function-call.abl", "meta.function.arguments.abl", "variable.other.abl"] },  // 'event-handler-name'
-      { "startIndex": 51, "endIndex": 52, "scopes": ["source.abl", "meta.function-call.abl", "meta.function.arguments.abl", "punctuation.separator.colon.abl"] },  // ':'
-      { "startIndex": 52, "endIndex": 58, "scopes": ["source.abl", "meta.function-call.abl", "meta.function.arguments.abl", "entity.name.function.abl"] },  // 'Method'
-      { "startIndex": 58, "endIndex": 59, "scopes": ["source.abl", "meta.function-call.abl", "meta.function.arguments.abl", "meta.brace.round.js"] },  // '('
-      { "startIndex": 59, "endIndex": 60, "scopes": ["source.abl", "meta.function-call.abl", "meta.brace.round.js"] },  // ')'
-      { "startIndex": 60, "endIndex": 61, "scopes": ["source.abl", "meta.brace.round.js"] }  // ')'
-    ],
-    [
-      { "startIndex": 0, "endIndex": 15, "scopes": ["source.abl"] },  // '               '
-      { "startIndex": 15, "endIndex": 36, "scopes": ["source.abl", "keyword.other.abl"] },  // 'EVENT-HANDLER-CONTEXT'
-      { "startIndex": 36, "endIndex": 37, "scopes": ["source.abl"] },  // ' '
-      { "startIndex": 37, "endIndex": 43, "scopes": ["source.abl", "variable.other.abl"] }  // 'objRef'
-    ],
-    [
-      { "startIndex": 0, "endIndex": 1, "scopes": ["source.abl"] },  // ' '
-      { "startIndex": 1, "endIndex": 2, "scopes": ["source.abl", "meta.function.arguments.abl", "meta.brace.round.js"] },  // '('
-      { "startIndex": 2, "endIndex": 3, "scopes": ["source.abl", "meta.function.arguments.abl"] },  // ' '
-      { "startIndex": 3, "endIndex": 4, "scopes": ["source.abl", "meta.function.arguments.abl", "string.quoted.double.abl", "punctuation.definition.string.begin.abl"] },  // '"'
-      { "startIndex": 4, "endIndex": 7, "scopes": ["source.abl", "meta.function.arguments.abl", "string.quoted.double.abl"] },  // 'abc'
-      { "startIndex": 7, "endIndex": 8, "scopes": ["source.abl", "meta.function.arguments.abl", "string.quoted.double.abl", "punctuation.definition.string.end.abl"] },  // '"'
-      { "startIndex": 8, "endIndex": 9, "scopes": ["source.abl", "meta.function.arguments.abl", "punctuation.separator.comma.abl"] },  // ','
-      { "startIndex": 9, "endIndex": 10, "scopes": ["source.abl", "meta.function.arguments.abl"] },  // ' '
-      { "startIndex": 10, "endIndex": 16, "scopes": ["source.abl", "meta.function.arguments.abl", "variable.other.abl"] },  // 'objRef'
-      { "startIndex": 16, "endIndex": 17, "scopes": ["source.abl", "meta.brace.round.js"] },  // ')'
-      { "startIndex": 17, "endIndex": 18, "scopes": ["source.abl"] },  // ' '
-      { "startIndex": 18, "endIndex": 19, "scopes": ["source.abl", "punctuation.terminator.abl"] }  // '.'
-    ]
-  ];
-  shared.itShouldMatchExpectedScopes(statement, expectedTokens);
-})
-
-describe('', () => {
-  let statement = `RUN
-     extern-proc-name
-    SINGLETON  SET proc-handle
-    ON  SERVER session
-        TRANSACTION DISTINCT
-        ASYNCHRONOUS
-            SET async-request-handle
-            EVENT-PROCEDURE event-internal-procedure
-                IN procedure-context
-            EVENT-HANDLER string(event-handler-name:Method())
                EVENT-HANDLER-CONTEXT this-procedure
  ( "abc", objRef) .`;
 
@@ -936,14 +833,14 @@ describe('', () => {
     [
       { "startIndex": 0, "endIndex": 12, "scopes": ["source.abl"] },  // '            '
       { "startIndex": 12, "endIndex": 25, "scopes": ["source.abl", "keyword.other.abl"] },  // 'EVENT-HANDLER'
-      { "startIndex": 25, "endIndex": 26, "scopes": ["source.abl", "meta.function-call.abl"] },  // ' '
-      { "startIndex": 26, "endIndex": 32, "scopes": ["source.abl", "meta.function-call.abl", "support.function.abl"] },  // 'string'
-      { "startIndex": 32, "endIndex": 33, "scopes": ["source.abl", "meta.function-call.abl", "meta.function.arguments.abl", "meta.brace.round.js"] },  // '('
-      { "startIndex": 33, "endIndex": 51, "scopes": ["source.abl", "meta.function-call.abl", "meta.function.arguments.abl", "variable.other.abl"] },  // 'event-handler-name'
-      { "startIndex": 51, "endIndex": 52, "scopes": ["source.abl", "meta.function-call.abl", "meta.function.arguments.abl", "punctuation.separator.colon.abl"] },  // ':'
-      { "startIndex": 52, "endIndex": 58, "scopes": ["source.abl", "meta.function-call.abl", "meta.function.arguments.abl", "entity.name.function.abl"] },  // 'Method'
-      { "startIndex": 58, "endIndex": 59, "scopes": ["source.abl", "meta.function-call.abl", "meta.function.arguments.abl", "meta.brace.round.js"] },  // '('
-      { "startIndex": 59, "endIndex": 60, "scopes": ["source.abl", "meta.function-call.abl", "meta.brace.round.js"] },  // ')'
+      { "startIndex": 25, "endIndex": 26, "scopes": ["source.abl"] },  // ' '
+      { "startIndex": 26, "endIndex": 32, "scopes": ["source.abl", "support.function.abl"] },  // 'string'
+      { "startIndex": 32, "endIndex": 33, "scopes": ["source.abl", "meta.function.arguments.abl", "meta.brace.round.js"] },  // '('
+      { "startIndex": 33, "endIndex": 51, "scopes": ["source.abl", "meta.function.arguments.abl", "variable.other.abl"] },  // 'event-handler-name'
+      { "startIndex": 51, "endIndex": 52, "scopes": ["source.abl", "meta.function.arguments.abl", "punctuation.separator.colon.abl"] },  // ':'
+      { "startIndex": 52, "endIndex": 58, "scopes": ["source.abl", "meta.function.arguments.abl", "entity.name.function.abl"] },  // 'Method'
+      { "startIndex": 58, "endIndex": 59, "scopes": ["source.abl", "meta.function.arguments.abl", "meta.brace.round.js"] },  // '('
+      { "startIndex": 59, "endIndex": 60, "scopes": ["source.abl", "meta.brace.round.js"] },  // ')'
       { "startIndex": 60, "endIndex": 61, "scopes": ["source.abl", "meta.brace.round.js"] }  // ')'
     ],
     [

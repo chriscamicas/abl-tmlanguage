@@ -114,15 +114,6 @@
         }
       }
     },
-    "language-functions": {
-      "match": "(?i)\\b(opsys|(provers(?:ion|io|i)?)|guid|generate-uuid)\\b",
-      "comment": "These are functions that do not require parens when called.",
-      "captures": {
-        "1": {
-          "name": "support.function.abl"
-        }
-      }
-    },
     "function-definition": {
       "name": "meta.define.function.abl",
       "begin": "(?i)\\b(function)\\s+([a-zA-Z0-9_][a-zA-Z0-9_#$\\-%&]+)\\b",
@@ -415,6 +406,9 @@
           "include": "#property-call"
         },
         {
+          "include": "#abl-system-handles"
+        },
+        {
           "include": "#abl-functions"
         },
         {
@@ -425,9 +419,6 @@
         },
         {
           "include": "#constant"
-        },
-        {
-          "include": "#abl-system-handles"
         },
         {
           "include": "#keywords"
@@ -549,6 +540,9 @@
           "include": "#undo-statement"
         },
         {
+          "include": "#transaction-distinct"
+        },
+        {
           "include": "#block-statement"
         },
         {
@@ -576,9 +570,6 @@
           "include": "#string"
         },
         {
-          "include": "#translation-attribute"
-        },
-        {
           "include": "#break-group"
         },
         {
@@ -595,6 +586,24 @@
         },
         {
           "include": "#get-query"
+        },
+        {
+          "include": "#for-each-table"
+        },
+        {
+          "include": "#for-each-join"
+        },
+        {
+          "include": "#record-buffer-functions"
+        },
+        {
+          "include": "#type-reference"
+        },
+        {
+          "include": "#branch-options"
+        },
+        {
+          "include": "#abl-system-handles"
         },
         {
           "include": "#abl-functions"
@@ -635,16 +644,7 @@
           "include": "#constant"
         },
         {
-          "include": "#timestamp-constant"
-        },
-        {
           "include": "#break-by"
-        },
-        {
-          "include": "#new-record"
-        },
-        {
-          "include": "#type-reference"
         },
         {
           "include": "#procedure-definition"
@@ -686,12 +686,6 @@
           "include": "#property-accessor"
         },
         {
-          "include": "#for-each-table"
-        },
-        {
-          "include": "#for-each-join"
-        },
-        {
           "include": "#of-phrase"
         },
         {
@@ -700,9 +694,6 @@
         },
         {
           "include": "#code-block"
-        },
-        {
-          "include": "#language-functions"
         },
         {
           "include": "#comment"
@@ -1152,7 +1143,7 @@
       "begin": "(?i)\\b(new)\\b(?!\\-)",
       "beginCaptures": {
         "1": {
-          "name": "keyword.other.abl"
+          "name": "support.function.abl"
         }
       },
       "end": "(?=\\()",
@@ -1436,24 +1427,6 @@
         }
       ]
     },
-    "record-buffer-functions": {
-      "comment": "this capture does not include the NOT function since it is impossible to determine whether this is a new class or a new record.",
-      "match": "(?i)\\b((?:avail(?:able|abl|ab|a)?)|locked|ambiguous)\\s*(\\()?\\s*([a-zA-Z][a-zA-Z0-9_\\-#$%]*(\\.[a-zA-Z][a-zA-Z0-9_\\-#$%]*)?)\\s*(\\))?",
-      "captures": {
-        "1": {
-          "name": "support.function.abl"
-        },
-        "2": {
-          "name": "meta.brace.round.js"
-        },
-        "3": {
-          "name": "storage.data.table.abl"
-        },
-        "5": {
-          "name": "meta.brace.round.js"
-        }
-      }
-    },
     "copy-lob": {
       "comment": "Has its own rule because of the 'FOR length' option, which is parsed as a 'FOR EACH' type statement",
       "begin": "(?i)\\b(copy-lob)\\b",
@@ -1524,6 +1497,9 @@
     "code-block": {
       "patterns": [
         {
+          "include": "#parens"
+        },
+        {
           "include": "#create-statement"
         },
         {
@@ -1546,9 +1522,6 @@
         },
         {
           "include": "#string"
-        },
-        {
-          "include": "#language-functions"
         },
         {
           "include": "#numeric"
@@ -1584,10 +1557,10 @@
           "include": "#type-reference"
         },
         {
-          "include": "#abl-functions"
+          "include": "#abl-system-handles"
         },
         {
-          "include": "#abl-system-handles"
+          "include": "#abl-functions"
         },
         {
           "include": "#handle-methods"
@@ -2019,9 +1992,6 @@
         },
         {
           "include": "#handle-methods"
-        },
-        {
-          "include": "#abl-functions"
         },
         {
           "include": "#function-parameter-definition"
@@ -2983,7 +2953,7 @@
           "include": "#type-member-call"
         },
         {
-          "include": "#language-functions"
+          "include": "#branch-options"
         },
         {
           "include": "#dynamic-buffer-field-access"
@@ -2996,9 +2966,6 @@
         },
         {
           "include": "#punctuation-colon"
-        },
-        {
-          "include": "#branch-options"
         }
       ]
     },
@@ -3389,6 +3356,7 @@
       ]
     },
     "branch-options": {
+      "comment": "This should appear before any of the abl-functions due to 'transaction' and 'error' ",
       "patterns": [
         {
           "include": "#on-error-endkey-stop"
@@ -3578,6 +3546,24 @@
           "include": "#function-arguments"
         },
         {
+          "include": "#abl-system-handles"
+        },
+        {
+          "include": "#new-record"
+        },
+        {
+          "include": "#record-buffer-functions"
+        },
+        {
+          "include": "#can-find"
+        },
+        {
+          "include": "#type-argument-function"
+        },
+        {
+          "include": "#abl-functions"
+        },
+        {
           "include": "#type-member-call"
         },
         {
@@ -3597,15 +3583,6 @@
         },
         {
           "include": "#preprocessors"
-        },
-        {
-          "include": "#language-functions"
-        },
-        {
-          "include": "#abl-functions"
-        },
-        {
-          "include": "#abl-system-handles"
         },
         {
           "include": "#keywords"
@@ -3688,9 +3665,6 @@
           "include": "#constant"
         },
         {
-          "include": "#timestamp-constant"
-        },
-        {
           "include": "#type-reference"
         },
         {
@@ -3698,9 +3672,6 @@
         },
         {
           "include": "#can-find"
-        },
-        {
-          "include": "#language-functions"
         },
         {
           "include": "#abl-functions"
@@ -3919,6 +3890,17 @@
     "parameter-name": {
       "match": "(?<=^|\\s)(a-zA-Z0-9_\\-#$%|-)+(?=\\s)",
       "name": "variable.parameter.abl"
+    },
+    "transaction-distinct": {
+      "match": "(?i)\\b(transaction)\\s+(distinct)\\b",
+      "captures": {
+        "1": {
+          "name": "keyword.other.abl"
+        },
+        "2": {
+          "name": "keyword.other.abl"
+        }
+      }
     },
     "run-statement": {
       "begin": "\\b([Rr][Uu][Nn])\\b",
@@ -4174,7 +4156,7 @@
       "name": "constant.numeric.source.abl"
     },
     "abl-system-handles": {
-      "match": "(?i)\\b(active-window|audit-control|audit-policy|clipboard|codebase-locator|color-table|compiler|current-window|debugger|default-window|dslog-manager|(error-stat(?:us|u)?)|(file-info(?:rmation|rmatio|rmati|rmat|rma|rm|r)?)|font-table|(last-even(?:t)?)|log-manager|profiler|(rcode-info(?:rmation|rmatio|rmati|rmat|rma|rm|r)?)|security-policy|self|session|source-procedure|super|target-procedure|this-object|this-procedure|web-context)\\b(?![#$\\-_%&])",
+      "match": "(?i)\\b(active-window|audit-control|audit-policy|clipboard|codebase-locator|color-table|com-self|compiler|current-window|debugger|default-window|dslog-manager|(error-stat(?:us|u)?)|(file-info(?:rmation|rmatio|rmati|rmat|rma|rm|r)?)|focus|font-table|last-event|log-manager|profiler|(rcode-info(?:rmation|rmatio|rmati|rmat|rma|rm|r)?)|sax-attributes|sax-reader|sax-writer|security-policy|self|session|source-procedure|super|target-procedure|this-object|this-procedure|transaction|web-context)\\b(?![#$\\-_%&\\(])",
       "captures": {
         "1": {
           "name": "variable.language.abl"
@@ -4187,7 +4169,7 @@
     "timestamp-constant": {
       "match": "(?i)(?<=^|\\s|\\b)(today|now)(?!a-zA-Z0-9_\\-#$%|-)",
       "comment": "These are constants that can be used in initial values. This excludes MTIME and ETIME",
-      "name": "constant.language.abl"
+      "name": "support.function.abl"
     },
     "constant": {
       "match": "(?i)(?<=^|\\b|\\s|\\()(true|false|yes|no|\\?)(?![a-zA-Z0-9_\\-#$%:])",
@@ -4306,7 +4288,7 @@
       "patterns": [
         {
           "comment": " NEW\\s+( <buffer> )",
-          "match": "(?i)\\s*(new)\\s+(\\()\\s*([a-zA-Z_][a-zA-Z0-9_\\-#$%]*(\\.[a-zA-Z][a-zA-Z0-9_\\-#$%]*)?)\\s*(\\))",
+          "match": "\\s*([Nn][Ee][Ww])\\s+(\\()\\s*([a-zA-Z_][a-zA-Z0-9_\\-#$%]*(\\.[a-zA-Z][a-zA-Z0-9_\\-#$%]*)?)\\s*(\\))",
           "captures": {
             "1": {
               "name": "support.function.abl"
@@ -4324,7 +4306,42 @@
         },
         {
           "comment": " NEW <buffer>. The position of the negative lookahead (?!...) is very important",
-          "match": "(?i)\\s*((new)\\s+(?!.*\\()([a-zA-Z_{][a-zA-Z0-9_\\-#$%\\.{&}]*))",
+          "match": "\\s*(([Nn][Ee][Ww])\\s+(?!.*\\()([a-zA-Z_{][a-zA-Z0-9_\\-#$%\\.{&}]*))",
+          "captures": {
+            "2": {
+              "name": "support.function.abl"
+            },
+            "3": {
+              "name": "storage.data.table.abl"
+            }
+          }
+        }
+      ]
+    },
+    "record-buffer-functions": {
+      "comment": "This scope MUST be called after before type-reference (especially new-class) to avoid types being captured as tables. NEW, AVAILABLE, AMBIGUOUS, LOCKED are all in this category.",
+      "patterns": [
+        {
+          "comment": " NEW\\s+( <buffer> )",
+          "match": "\\s*([Aa][Vv][Aa][Ii][Ll][Aa][Bb][Ll][Ee]|[Aa][Mm][Bb][Ii][Gg][Uu][Oo][Uu][Ss]|[Ll][Oo][Cc][Kk][Ee][Dd])\\s+(\\()?\\s*([a-zA-Z_][a-zA-Z0-9_\\-#$%]*(\\.[a-zA-Z][a-zA-Z0-9_\\-#$%]+)?)\\s*(\\))?",
+          "captures": {
+            "1": {
+              "name": "support.function.abl"
+            },
+            "2": {
+              "name": "meta.brace.round.js"
+            },
+            "3": {
+              "name": "storage.data.table.abl"
+            },
+            "5": {
+              "name": "meta.brace.round.js"
+            }
+          }
+        },
+        {
+          "comment": " NEW <buffer>. The position of the negative lookahead (?!...) is very important",
+          "match": "\\s*([Aa][Vv][Aa][Ii][Ll][Aa][Bb][Ll][Ee]|[Aa][Mm][Bb][Ii][Gg][Uu][Oo][Uu][Ss]|[Ll][Oo][Cc][Kk][Ee][Dd])\\s+([a-zA-Z_][a-zA-Z0-9_\\-#$%]*(\\.[a-zA-Z][a-zA-Z0-9_\\-#$%]*)?)\\s*(\\))?",
           "captures": {
             "2": {
               "name": "support.function.abl"
@@ -4339,10 +4356,13 @@
     "assign-statment": {
       "patterns": [
         {
-          "include": "#abl-functions"
+          "include": "#record-buffer-functions"
         },
         {
-          "include": "#language-functions"
+          "include": "#new-class"
+        },
+        {
+          "include": "#abl-functions"
         },
         {
           "include": "#string"
@@ -4668,7 +4688,7 @@
     },
     "keywords-N": {
       "comment": "The keyword must not have a trailing variable character (one of #$-_%&)",
-      "match": "(?i)\\b(n(?:amespace-prefix|amespace-uri|ative|e|ested|ew|ew-instance|ew-line|ext|ext-error|ext-frame|ext-prompt|ext-word|o|o-apply|o-array-message?|o-array-messa?|o-array-mes?|o-array-m|o-assign|o-attr|o-attr-list?|o-attr-li?|o-attr-space?|o-attr-spa?|o-attr-s|o-auto-trim?|o-auto-validate|o-bind-where|o-box|o-column-scrolling?|o-column-scrolli?|o-column-scrol?|o-column-scr?|o-console|o-convert|o-convert-3d-colors?|o-convert-3d-colo?|o-convert-3d-co?|o-convert-3d-?|o-debug|o-drag|o-echo|o-error|o-fill?|o-fi?|o-firehose-cursor|o-focus|o-help|o-hide|o-index-hint|o-inherit-bgcolor?|o-inherit-bgcol?|o-inherit-bgc|o-inherit-fgcolor?|o-inherit-fgcol?|o-inherit-fgc|o-join-by-sqldb|o-keycache-join|o-labels?|o-lobs|o-lock|o-lookahead|o-map|o-message?|o-messa?|o-mes|o-pause|o-prefetch?|o-prefet?|o-query-order-added?|o-query-order-add?|o-query-order-a?|o-query-order?|o-query-ord?|o-query-o|o-query-unique-added?|o-query-unique-add?|o-query-unique-a?|o-query-unique?|o-query-uniq?|o-query-un?|o-return-value?|o-return-val|o-row-markers|o-schema-marshall?|o-scrollbar-vertical?|o-scrollbar-vertic?|o-scrollbar-vert?|o-scrollbar-ve?|o-scrolling|o-separate-connection|o-separators|o-tab-stop?|o-tab-st?|o-tab-?|o-underline?|o-underli?|o-under?|o-undo??|o-wait|o-word-wrap|ode-type|on-serializable|one|ot-active|ull|um-copies|um-selected|umeric))\\b(?![#$\\-_%&])",
+      "match": "(?i)\\b(n(?:amespace-prefix|amespace-uri|ative|e|ested|ew|ew-instance|ew-line|ext|ext-error|ext-frame|ext-prompt|ext-word|o|o-apply|o-array-message?|o-array-messa?|o-array-mes?|o-array-m|o-assign|o-attr|o-attr-list?|o-attr-li?|o-attr-space?|o-attr-spa?|o-attr-s|o-auto-trim?|o-auto-validate|o-bind-where|o-box|o-column-scrolling?|o-column-scrolli?|o-column-scrol?|o-column-scr?|o-console|o-convert|o-convert-3d-colors?|o-convert-3d-colo?|o-convert-3d-co?|o-convert-3d-?|o-debug|o-drag|o-echo|o-error|o-fill?|o-fi?|o-firehose-cursor|o-focus|o-help|o-hide|o-index-hint|o-inherit-bgcolor?|o-inherit-bgcol?|o-inherit-bgc|o-inherit-fgcolor?|o-inherit-fgcol?|o-inherit-fgc|o-join-by-sqldb|o-keycache-join|o-labels?|o-lobs|o-lock|o-lookahead|o-map|o-message?|o-messa?|o-mes|o-pause|o-prefetch?|o-prefet?|o-query-order-added?|o-query-order-add?|o-query-order-a?|o-query-order?|o-query-ord?|o-query-o|o-query-unique-added?|o-query-unique-add?|o-query-unique-a?|o-query-unique?|o-query-uniq?|o-query-un?|o-return-value?|o-return-val|o-row-markers|o-schema-marshall?|o-scrollbar-vertical?|o-scrollbar-vertic?|o-scrollbar-vert?|o-scrollbar-ve?|o-scrolling|o-separate-connection|o-separators|o-tab-stop?|o-tab-st?|o-tab-?|o-underline?|o-underli?|o-under?|o-undo??|o-wait|o-word-wrap|ode-type|on-serializable|one|ot|ot-active|ull|um-copies|um-selected|umeric))\\b(?![#$\\-_%&])",
       "captures": {
         "1": {
           "name": "keyword.other.abl"
@@ -5638,11 +5658,143 @@
         },
         {
           "include": "#abl-functions-Y"
+        },
+        {
+          "comment": "ABL functions that can be called without parentheses. Some functions have optional arguments, some are never called with parens",
+          "patterns": [
+            {
+              "match": "(?i)\\b(a(?:ccumulate?|ccumula?|ccumu?|mbiguous?|mbiguo?|mbig|vailable?|vailab?|vail))(?!(\\.\\w+))(?=\\)|\\s|,|]|:|\\.)",
+              "captures": {
+                "1": {
+                  "name": "support.function.abl"
+                }
+              }
+            },
+            {
+              "match": "(?i)\\b(current-(?:changed|language?|langua?|lang))(?!(\\.\\w+))(?=\\)|\\s|,|]|:|\\.)",
+              "captures": {
+                "1": {
+                  "name": "support.function.abl"
+                }
+              }
+            },
+            {
+              "match": "(?i)\\b(d(?:ataservers|bname))(?!(\\.\\w+))(?=\\)|\\s|,|]|:|\\.)",
+              "captures": {
+                "1": {
+                  "name": "support.function.abl"
+                }
+              }
+            },
+            {
+              "match": "(?i)\\b(e(?:ntered|time))(?!(\\.\\w+))(?=\\)|\\s|,|]|:|\\.)",
+              "captures": {
+                "1": {
+                  "name": "support.function.abl"
+                }
+              }
+            },
+            {
+              "match": "(?i)\\b(frame-(?:col|db|down|field|file|index?|line|name|row|value?|val))(?!(\\.\\w+))(?=\\)|\\s|,|]|:|\\.)",
+              "captures": {
+                "1": {
+                  "name": "support.function.abl"
+                }
+              }
+            },
+            {
+              "match": "(?i)\\b(g(?:ateways?|enerate-pbe-salt|enerate-random-key|enerate-uuid|et-codepages?|o-pending?|o-pendi?|uid))(?!(\\.\\w+))(?=\\)|\\s|,|]|:|\\.)",
+              "captures": {
+                "1": {
+                  "name": "support.function.abl"
+                }
+              }
+            },
+            {
+              "match": "(?i)\\b(i(?:nput|s-attr-space?|s-attr-spa?|s-attr-s?|s-attr))(?!(\\.\\w+))(?=\\)|\\s|,|]|:|\\.)",
+              "captures": {
+                "1": {
+                  "name": "support.function.abl"
+                }
+              }
+            },
+            {
+              "match": "(?i)\\b(l(?:astkey|ine-counter?|ine-count|ocked))(?!(\\.\\w+))(?=\\)|\\s|,|]|:|\\.)",
+              "captures": {
+                "1": {
+                  "name": "support.function.abl"
+                }
+              }
+            },
+            {
+              "match": "(?i)\\b(message-lines)(?!(\\.\\w+))(?=\\)|\\s|,|]|:|\\.)",
+              "captures": {
+                "1": {
+                  "name": "support.function.abl"
+                }
+              }
+            },
+            {
+              "match": "(?i)\\b(n(?:ow|um-aliases?|um-alias?|um-ali|um-dbs))(?!(\\.\\w+))(?=\\)|\\s|,|]|:|\\.)",
+              "captures": {
+                "1": {
+                  "name": "support.function.abl"
+                }
+              }
+            },
+            {
+              "match": "(?i)\\b(o(?:psys|s-drives?|s-error))(?!(\\.\\w+))(?=\\)|\\s|,|]|:|\\.)",
+              "captures": {
+                "1": {
+                  "name": "support.function.abl"
+                }
+              }
+            },
+            {
+              "match": "(?i)\\b(p(?:age-number?|age-numb?|age-size|roc-handle?|roc-hand?|roc-ha|roc-status?|roc-stat?|roc-st|rocess-architecture|rogress|romsgs|ropath|roversion?|roversi?))(?!(\\.\\w+))(?=\\)|\\s|,|]|:|\\.)",
+              "captures": {
+                "1": {
+                  "name": "support.function.abl"
+                }
+              }
+            },
+            {
+              "match": "(?i)\\b(ret(?:ry|urn|urn-value?|urn-val))(?!(\\.\\w+))(?=\\)|\\s|,|]|:|\\.)",
+              "captures": {
+                "1": {
+                  "name": "support.function.abl"
+                }
+              }
+            },
+            {
+              "match": "(?i)\\b(s(?:creen-lines|kip|uper))(?!(\\.\\w+))(?=\\)|\\s|,|]|:|\\.)",
+              "captures": {
+                "1": {
+                  "name": "support.function.abl"
+                }
+              }
+            },
+            {
+              "match": "(?i)\\b(t(?:erminal|ime|oday|ransaction?|ransacti?))(?!(\\.\\w+))(?=\\)|\\s|,|]|:|\\.)",
+              "captures": {
+                "1": {
+                  "name": "support.function.abl"
+                }
+              }
+            },
+            {
+              "match": "(?i)\\b(userid)(?!(\\.\\w+))(?=\\)|\\s|,|]|:|\\.)",
+              "captures": {
+                "1": {
+                  "name": "support.function.abl"
+                }
+              }
+            }
+          ]
         }
       ]
     },
     "abl-functions-A": {
-      "name": "meta.function-call.abl",
       "begin": "(?i)\\s*(a(?:bsolute?|bsolu?|bso?|ccumulate?|ccumula?|ccumu?|dd-interval|lias|mbiguous?|mbiguo?|mbig|scending?|scendi?|scen?|sc|udit-enabled|vailable?|vailab?|vail))\\s*(?=\\()",
       "beginCaptures": {
         "1": {
@@ -5662,7 +5814,6 @@
       ]
     },
     "abl-functions-B": {
-      "name": "meta.function-call.abl",
       "begin": "(?i)\\s*(b(?:ase64-decode|ase64-encode|ox|uffer-group-id|uffer-group-name|uffer-partition-id|uffer-tenant-id|uffer-tenant-name))\\s*(?=\\()",
       "beginCaptures": {
         "1": {
@@ -5682,7 +5833,6 @@
       ]
     },
     "abl-functions-C": {
-      "name": "meta.function-call.abl",
       "begin": "(?i)\\s*(c(?:an-do|an-find|an-query|an-set|aps|ast|hr|odepage-convert|ompares?|onnected|ount-of|urrent-changed|urrent-language?|urrent-langua?|urrent-lang|urrent-result-row|urrent-value))\\s*(?=\\()",
       "beginCaptures": {
         "1": {
@@ -5702,7 +5852,6 @@
       ]
     },
     "abl-functions-D": {
-      "name": "meta.function-call.abl",
       "begin": "(?i)\\s*(d(?:ata-source-modified|ataservers|ate|atetime|atetime-tz|ay|b-remote-host|bcodepage|bcollation|bname|bparam|brestrictions?|brestrictio?|brestrict?|brestri?|brest|btaskid|btype|bversion?|bversi?|ecimal?|ecim?|ec|ecrypt|efined|ynamic-cast|ynamic-current-value|ynamic-enum|ynamic-function?|ynamic-functi?|ynamic-func|ynamic-invoke|ynamic-next-value|ynamic-property))\\s*(?=\\()",
       "beginCaptures": {
         "1": {
@@ -5722,7 +5871,6 @@
       ]
     },
     "abl-functions-E": {
-      "name": "meta.function-call.abl",
       "begin": "(?i)\\s*(e(?:ncode|ncrypt|ntered|ntry|rror|time|xp|xtent))\\s*(?=\\()",
       "beginCaptures": {
         "1": {
@@ -5742,7 +5890,6 @@
       ]
     },
     "abl-functions-F": {
-      "name": "meta.function-call.abl",
       "begin": "(?i)\\s*(f(?:ill|irst|irst-of|rame-col|rame-db|rame-down|rame-field|rame-file|rame-index?|rame-line|rame-name|rame-row|rame-value?|rame-val))\\s*(?=\\()",
       "beginCaptures": {
         "1": {
@@ -5762,7 +5909,6 @@
       ]
     },
     "abl-functions-G": {
-      "name": "meta.function-call.abl",
       "begin": "(?i)\\s*(g(?:ateways?|enerate-pbe-key|enerate-pbe-salt|enerate-random-key|enerate-uuid|et-bits|et-byte|et-byte-order|et-bytes|et-class|et-codepages?|et-codepages?|et-collations??|et-collation?|et-collati?|et-colla?|et-db-client|et-double|et-effective-tenant-id|et-effective-tenant-name|et-float|et-int64|et-long|et-pointer-value|et-short|et-size|et-string|et-unsigned-long|et-unsigned-short|o-pending?|o-pendi?|uid))\\s*(?=\\()",
       "beginCaptures": {
         "1": {
@@ -5782,7 +5928,6 @@
       ]
     },
     "abl-functions-H": {
-      "name": "meta.function-call.abl",
       "begin": "(?i)\\s*(h(?:andle|ash-code|ex-decode|ex-encode))\\s*(?=\\()",
       "beginCaptures": {
         "1": {
@@ -5802,7 +5947,6 @@
       ]
     },
     "abl-functions-I": {
-      "name": "meta.function-call.abl",
       "begin": "(?i)\\s*(i(?:ndex|nput|nt64|nteger?|nteg?|nt|nterval|s-attr-space?|s-attr-spa?|s-attr-s?|s-attr|s-codepage-fixed|s-column-codepage|s-db-multi-tenant|s-lead-byte|so-date))\\s*(?=\\()",
       "beginCaptures": {
         "1": {
@@ -5822,7 +5966,6 @@
       ]
     },
     "abl-functions-K": {
-      "name": "meta.function-call.abl",
       "begin": "(?i)\\s*(k(?:blabel|eycode|eyfunction?|eyfuncti?|eyfunc|eylabel|eyword|eyword-all))\\s*(?=\\()",
       "beginCaptures": {
         "1": {
@@ -5842,7 +5985,6 @@
       ]
     },
     "abl-functions-L": {
-      "name": "meta.function-call.abl",
       "begin": "(?i)\\s*(l(?:ast|ast-of|astkey|c|dbname|eft-trim|ength|ibrary|ine-counter?|ine-count|ist-events|ist-query-attrs|ist-set-attrs|ist-widgets|ocked|og|ogical?|ogic?|og?|ookup|ower))\\s*(?=\\()",
       "beginCaptures": {
         "1": {
@@ -5862,7 +6004,6 @@
       ]
     },
     "abl-functions-M": {
-      "name": "meta.function-call.abl",
       "begin": "(?i)\\s*(m(?:aximum|d5-digest|ember|essage-digest|essage-lines|inimum?|inim?|in|onth|time))\\s*(?=\\()",
       "beginCaptures": {
         "1": {
@@ -5882,8 +6023,7 @@
       ]
     },
     "abl-functions-N": {
-      "name": "meta.function-call.abl",
-      "begin": "(?i)\\s*(n(?:ew|ext-value|ormalize|ot|ow|um-aliases?|um-alias?|um-ali|um-dbs|um-entries|um-results))\\s*(?=\\()",
+      "begin": "(?i)\\s*(n(?:ew|ext-value|ormalize|ow|um-aliases?|um-alias?|um-ali|um-dbs|um-entries|um-results))\\s*(?=\\()",
       "beginCaptures": {
         "1": {
           "name": "support.function.abl"
@@ -5902,7 +6042,6 @@
       ]
     },
     "abl-functions-O": {
-      "name": "meta.function-call.abl",
       "begin": "(?i)\\s*(o(?:psys|s-dir|s-drives?|s-error|s-getenv))\\s*(?=\\()",
       "beginCaptures": {
         "1": {
@@ -5922,7 +6061,6 @@
       ]
     },
     "abl-functions-P": {
-      "name": "meta.function-call.abl",
       "begin": "(?i)\\s*(p(?:age-number?|age-numb?|age-size|dbname|roc-handle?|roc-hand?|roc-ha|roc-status?|roc-stat?|roc-st|rocess-architecture|rogram-name|rogress|romsgs|ropath|roversion?|roversi?))\\s*(?=\\()",
       "beginCaptures": {
         "1": {
@@ -5942,7 +6080,6 @@
       ]
     },
     "abl-functions-Q": {
-      "name": "meta.function-call.abl",
       "begin": "(?i)\\s*(qu(?:ery-off-end|oter))\\s*(?=\\()",
       "beginCaptures": {
         "1": {
@@ -5962,7 +6099,6 @@
       ]
     },
     "abl-functions-R": {
-      "name": "meta.function-call.abl",
       "begin": "(?i)\\s*(r(?:-index|andom|aw|ecid|ecord-length?|ecord-leng?|ejected|elation-fields?|elation-fiel?|elation-fi|eplace|etry|eturn|eturn-value?|eturn-val|gb-value?|gb-val?|gb-v|ight-trim|ound|ow-state|owid))\\s*(?=\\()",
       "beginCaptures": {
         "1": {
@@ -5982,7 +6118,6 @@
       ]
     },
     "abl-functions-S": {
-      "name": "meta.function-call.abl",
       "begin": "(?i)\\s*(s(?:creen-lines|dbname|earch|eek|et-db-client|et-effective-tenant|et-size|etuserid?|etuser|ha1-digest|kip|pace|qrt|sl-server-name|tring|ubstitute?|ubstitu?|ubsti?|ubstring?|ubstri?|uper))\\s*(?=\\()",
       "beginCaptures": {
         "1": {
@@ -6002,7 +6137,6 @@
       ]
     },
     "abl-functions-T": {
-      "name": "meta.function-call.abl",
       "begin": "(?i)\\s*(t(?:enant-id|enant-name|enant-name-to-id|erminal|his-object|ime|imezone|o-rowid|oday|ransaction?|ransacti?|rim|runcate?|runca?|ype-of))\\s*(?=\\()",
       "beginCaptures": {
         "1": {
@@ -6022,7 +6156,6 @@
       ]
     },
     "abl-functions-U": {
-      "name": "meta.function-call.abl",
       "begin": "(?i)\\s*(u(?:nbox|serid))\\s*(?=\\()",
       "beginCaptures": {
         "1": {
@@ -6042,7 +6175,6 @@
       ]
     },
     "abl-functions-V": {
-      "name": "meta.function-call.abl",
       "begin": "(?i)\\s*(val(?:id-event|id-handle|id-object|ue))\\s*(?=\\()",
       "beginCaptures": {
         "1": {
@@ -6062,7 +6194,6 @@
       ]
     },
     "abl-functions-W": {
-      "name": "meta.function-call.abl",
       "begin": "(?i)\\s*(w(?:eekday|idget-handle?|idget-hand?|idget-ha?))\\s*(?=\\()",
       "beginCaptures": {
         "1": {
@@ -6082,7 +6213,6 @@
       ]
     },
     "abl-functions-Y": {
-      "name": "meta.function-call.abl",
       "begin": "(?i)\\s*(year)\\s*(?=\\()",
       "beginCaptures": {
         "1": {

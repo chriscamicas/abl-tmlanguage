@@ -1,0 +1,103 @@
+
+/* ************************  Control Triggers  ************************ */
+
+&Scoped-define SELF-NAME C-Win
+&ANALYZE-SUSPEND _UIB-CODE-BLOCK _CONTROL C-Win C-Win
+ON END-ERROR OF C-Win /* ProxyTest */
+OR ENDKEY OF {&WINDOW-NAME} ANYWHERE DO:
+  /* This case occurs when the user presses the "Esc" key.
+     In a persistently run window, just ignore this.  If we did not, the
+     application would exit. */
+  IF THIS-PROCEDURE:PERSISTENT THEN RETURN NO-APPLY.
+END.
+
+/* _UIB-CODE-BLOCK-END */
+&ANALYZE-RESUME
+
+
+&ANALYZE-SUSPEND _UIB-CODE-BLOCK _CONTROL C-Win C-Win
+ON WINDOW-CLOSE OF C-Win /* ProxyTest */
+DO:
+  /* This event will close the window and terminate the procedure.  */
+  APPLY "CLOSE":U TO THIS-PROCEDURE.
+  RETURN NO-APPLY.
+END.
+
+/* _UIB-CODE-BLOCK-END */
+&ANALYZE-RESUME
+
+
+&Scoped-define SELF-NAME BUTTON-1
+&ANALYZE-SUSPEND _UIB-CODE-BLOCK _CONTROL BUTTON-1 C-Win
+ON CHOOSE OF BUTTON-1 IN FRAME DEFAULT-FRAME /* Authorise */
+DO:
+
+  STATUS DEFAULT "Opening default web broswer"  .
+
+  RUN OpenURLinDefaultWebBrowser IN THIS-PROCEDURE.
+
+END.
+
+/* _UIB-CODE-BLOCK-END */
+&ANALYZE-RESUME
+
+
+&Scoped-define SELF-NAME BUTTON-2
+&ANALYZE-SUSPEND _UIB-CODE-BLOCK _CONTROL BUTTON-2 C-Win
+ON CHOOSE OF BUTTON-2 IN FRAME DEFAULT-FRAME /* Request Acess Token */
+DO:
+
+  STATUS DEFAULT "GET Acess Token "  .
+
+  EDITOR-6:SCREEN-VALUE = "".
+  EDITOR-7:SCREEN-VALUE = "".
+
+  RUN REQUESTAcessToken.
+
+   EDITOR-6:INSERT-FILE('request-raw.txt').
+   EDITOR-7:INSERT-FILE('response-data-received.txt').
+
+END.
+
+/* _UIB-CODE-BLOCK-END */
+&ANALYZE-RESUME
+
+
+&Scoped-define SELF-NAME BUTTON-3
+&ANALYZE-SUSPEND _UIB-CODE-BLOCK _CONTROL BUTTON-3 C-Win
+ON CHOOSE OF BUTTON-3 IN FRAME DEFAULT-FRAME /* View Debug Log in Notepad */
+DO:
+
+    DEFINE VARIABLE iReturnResult AS INTEGER     NO-UNDO.
+
+
+   RUN WinExec(INPUT 'notepad.exe mylog.log', INPUT 1, OUTPUT iReturnResult).
+
+END.
+
+/* _UIB-CODE-BLOCK-END */
+&ANALYZE-RESUME
+
+
+&Scoped-define SELF-NAME TOGGLE-1
+&ANALYZE-SUSPEND _UIB-CODE-BLOCK _CONTROL TOGGLE-1 C-Win
+ON VALUE-CHANGED OF TOGGLE-1 IN FRAME DEFAULT-FRAME /* Enable Proxy */
+DO:
+
+        FILL-IN-3:READ-ONLY = (IF SELF:CHECKED THEN FALSE ELSE TRUE).
+
+
+END.
+    /** Adds or overwrites an option for the client library.
+
+        @param  character The name of the option
+        @param  logical The value of the option (can be anything)
+        @return ClientLibraryBuilder This builder object. */
+    method public ClientLibraryBuilder Option (input pcName  as character,
+                                               input plValue as logical):
+
+        Assert:NotNullOrEmpty(pcName, 'Option name').
+        SetOption(pcName, plValue).
+
+        return this-object.
+    end method.

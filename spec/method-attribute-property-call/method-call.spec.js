@@ -125,7 +125,7 @@ end.`;
       { "startIndex": 8, "endIndex": 9, "scopes": ["source.abl"] },  // ' '
       { "startIndex": 9, "endIndex": 14, "scopes": ["source.abl", "storage.data.table.abl"] },  // 'table'
       { "startIndex": 14, "endIndex": 15, "scopes": ["source.abl"] },  // ' '
-      { "startIndex": 15, "endIndex": 26, "scopes": ["source.abl", "keyword.other.abl"] },  // 'transaction'
+      { "startIndex": 15, "endIndex": 26, "scopes": ["source.abl", "variable.language.abl"] },  // 'transaction'
       { "startIndex": 26, "endIndex": 27, "scopes": ["source.abl", "punctuation.terminator.abl"] }  // ':'
     ],
     [

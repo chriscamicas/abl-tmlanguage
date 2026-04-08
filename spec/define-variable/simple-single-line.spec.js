@@ -170,7 +170,7 @@ describe('', () => {
     { "startIndex": 17, "endIndex": 18, "scopes": ["source.abl", "meta.define.abl"] },  // ' '
     { "startIndex": 18, "endIndex": 25, "scopes": ["source.abl", "meta.define.abl", "keyword.other.abl"] },  // 'initial'
     { "startIndex": 25, "endIndex": 26, "scopes": ["source.abl", "meta.define.abl"] },  // ' '
-    { "startIndex": 26, "endIndex": 31, "scopes": ["source.abl", "meta.define.abl", "constant.language.abl"] },  // 'today'
+    { "startIndex": 26, "endIndex": 31, "scopes": ["source.abl", "meta.define.abl", "support.function.abl"] },  // 'today'
     { "startIndex": 31, "endIndex": 32, "scopes": ["source.abl", "meta.define.abl"] },  // ' '
     { "startIndex": 32, "endIndex": 38, "scopes": ["source.abl", "meta.define.abl", "keyword.other.abl"] },  // 'format'
     { "startIndex": 38, "endIndex": 39, "scopes": ["source.abl", "meta.define.abl"] },  // ' '
