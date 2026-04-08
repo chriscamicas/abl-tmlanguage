@@ -111,7 +111,7 @@ The ABL-specific scopes produced by the ABL grammar listed in the table below. T
 |storage.type.function.abl                        |  `defined` keyword and preprocessor directives like `&message` |
 |string.quoted.double.abl                         | String in `"` quotes |
 |string.quoted.single.abl                         | String in `'` quotes |
-|support.function.abl                             | `opsys`, `proversion`, ABL functions (eg `base64-encode`) |
+|support.function.abl                             | `opsys`, `proversion`, ABL functions (eg `base64-encode`). Note that `TRANSACTION` in a `FOR EACH` statement will be scoped this way |
 |support.other.abl                                | Translation attributes `:L`, `:R`, `:T`, `:C`, `:U` |
 |support.other.argument.abl                       | `&<name\|number>` arguments in includes |
 |variable.language.abl                            | ABL system handles (eg `session` or `this-object`) |

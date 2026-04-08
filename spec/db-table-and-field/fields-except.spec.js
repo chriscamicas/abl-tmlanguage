@@ -40,7 +40,7 @@ describe('', () => {
     { "startIndex": 120, "endIndex": 121, "scopes": ["source.abl"] },  // ' '
     { "startIndex": 121, "endIndex": 122, "scopes": ["source.abl", "keyword.operator.source.abl"] },  // '<'
     { "startIndex": 122, "endIndex": 123, "scopes": ["source.abl"] },  // ' '
-    { "startIndex": 123, "endIndex": 128, "scopes": ["source.abl", "constant.language.abl"] },  // 'today'
+    { "startIndex": 123, "endIndex": 128, "scopes": ["source.abl", "support.function.abl"] },  // 'today'
     { "startIndex": 128, "endIndex": 129, "scopes": ["source.abl", "punctuation.terminator.abl"] }  // ':'
   ];
   shared.itShouldMatchExpectedScopes(statement, expectedTokens);
@@ -66,4 +66,3 @@ describe('', () => {
   ];
   shared.itShouldMatchExpectedScopes(statement, expectedTokens);
 })
-

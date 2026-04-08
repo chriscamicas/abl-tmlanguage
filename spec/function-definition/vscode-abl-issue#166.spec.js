@@ -267,7 +267,7 @@ END FUNCTION.`;
     ],
     [
       { "startIndex": 0, "endIndex": 2, "scopes": ["source.abl"] },  // '  '
-      { "startIndex": 2, "endIndex": 8, "scopes": ["source.abl", "keyword.other.abl"] }  // 'RETURN'
+      { "startIndex": 2, "endIndex": 8, "scopes": ["source.abl", "support.function.abl"] }  // 'RETURN'
     ],
     [
       { "startIndex": 0, "endIndex": 16, "scopes": ["source.abl"] },  // '                '

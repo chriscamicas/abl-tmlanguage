@@ -54,7 +54,7 @@ end.`;
       { "startIndex": 14, "endIndex": 15, "scopes": ["source.abl"] },  // ' '
       { "startIndex": 15, "endIndex": 19, "scopes": ["source.abl", "keyword.other.abl"] },  // 'then'
       { "startIndex": 19, "endIndex": 20, "scopes": ["source.abl"] },  // ' '
-      { "startIndex": 20, "endIndex": 26, "scopes": ["source.abl", "keyword.other.abl"] },  // 'return'
+      { "startIndex": 20, "endIndex": 26, "scopes": ["source.abl", "support.function.abl"] },  // 'return'
       { "startIndex": 26, "endIndex": 27, "scopes": ["source.abl", "punctuation.terminator.abl"] }  // '.'
     ],
     [

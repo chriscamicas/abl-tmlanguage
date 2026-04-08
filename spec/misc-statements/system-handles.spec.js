@@ -67,9 +67,9 @@ describe('', () => {
 describe('', () => {
   let statement = `this-object().`;
   let expectedTokens = [
-    { "startIndex": 0, "endIndex": 11, "scopes": ["source.abl", "meta.function-call.abl", "support.function.abl"] },  // 'this-object'
-    { "startIndex": 11, "endIndex": 12, "scopes": ["source.abl", "meta.function-call.abl", "meta.function.arguments.abl", "meta.brace.round.js"] },  // '('
-    { "startIndex": 12, "endIndex": 13, "scopes": ["source.abl", "meta.function-call.abl", "meta.brace.round.js"] },  // ')'
+    { "startIndex": 0, "endIndex": 11, "scopes": ["source.abl", "support.function.abl"] },  // 'this-object'
+    { "startIndex": 11, "endIndex": 12, "scopes": ["source.abl", "meta.function.arguments.abl", "meta.brace.round.js"] },  // '('
+    { "startIndex": 12, "endIndex": 13, "scopes": ["source.abl", "meta.brace.round.js"] },  // ')'
     { "startIndex": 13, "endIndex": 14, "scopes": ["source.abl", "punctuation.terminator.abl"] }  // '.'
   ];
   shared.itShouldMatchExpectedScopes(statement, expectedTokens);
@@ -106,3 +106,17 @@ describe('', () => {
   shared.itShouldMatchExpectedScopes(statement, expectedTokens);
 })
 
+describe('', () => {
+  let statement = `TRANSaction:set-ROLLBACK ( ).`;
+  let expectedTokens = [
+    { "startIndex": 0, "endIndex": 11, "scopes": ["source.abl", "variable.language.abl"] },  // 'TRANSaction'
+    { "startIndex": 11, "endIndex": 12, "scopes": ["source.abl", "punctuation.separator.colon.abl"] },  // ':'
+    { "startIndex": 12, "endIndex": 24, "scopes": ["source.abl", "entity.name.function.abl"] },  // 'set-ROLLBACK'
+    { "startIndex": 24, "endIndex": 25, "scopes": ["source.abl"] },  // ' '
+    { "startIndex": 25, "endIndex": 26, "scopes": ["source.abl", "meta.function.arguments.abl", "meta.brace.round.js"] },  // '('
+    { "startIndex": 26, "endIndex": 27, "scopes": ["source.abl", "meta.function.arguments.abl"] },  // ' '
+    { "startIndex": 27, "endIndex": 28, "scopes": ["source.abl", "meta.brace.round.js"] },  // ')'
+    { "startIndex": 28, "endIndex": 29, "scopes": ["source.abl", "punctuation.terminator.abl"] }  // '.'\
+  ];
+  shared.itShouldMatchExpectedScopes(statement, expectedTokens);
+})
