@@ -594,24 +594,6 @@
           "include": "#get-query"
         },
         {
-          "include": "#for-each-table"
-        },
-        {
-          "include": "#for-each-join"
-        },
-        {
-          "include": "#record-buffer-functions"
-        },
-        {
-          "include": "#type-reference"
-        },
-        {
-          "include": "#branch-options"
-        },
-        {
-          "include": "#abl-system-handles"
-        },
-        {
           "include": "#abl-functions"
         },
         {
