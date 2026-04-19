@@ -3638,6 +3638,9 @@
           "include": "#function-arguments"
         },
         {
+          "include": "#include-file"
+        },
+        {
           "include": "#comment"
         },
         {
