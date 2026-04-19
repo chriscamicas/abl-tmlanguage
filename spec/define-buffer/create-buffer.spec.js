@@ -205,8 +205,8 @@ describe('', () => {
     { "startIndex": 45, "endIndex": 46, "scopes": ["source.abl"] },  // ' '
     { "startIndex": 46, "endIndex": 51, "scopes": ["source.abl", "keyword.other.abl"] },  // 'table'
     { "startIndex": 51, "endIndex": 52, "scopes": ["source.abl"] },  // ' '
-    { "startIndex": 52, "endIndex": 62, "scopes": ["source.abl", "variable.other.abl"] },  // 'vTableName'
-    { "startIndex": 62, "endIndex": 63, "scopes": ["source.abl", "punctuation.terminator.abl"] }  // '.'
+    { "startIndex": 52, "endIndex": 76, "scopes": ["source.abl", "storage.data.table.abl"] },  // 'ttBufferHandle.TableName'
+    { "startIndex": 76, "endIndex": 77, "scopes": ["source.abl", "punctuation.terminator.abl"] }  // '.'
   ];
   shared.itShouldMatchExpectedScopes(statement, expectedTokens);
 })
