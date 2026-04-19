@@ -489,6 +489,9 @@
           "include": "#preprocessors"
         },
         {
+          "include": "#dynamic-buffer-field-access"
+        },
+        {
           "include": "#argument-reference"
         },
         {
@@ -2954,6 +2957,9 @@
           "include": "#language-functions"
         },
         {
+          "include": "#dynamic-buffer-field-access"
+        },
+        {
           "include": "#abl-functions"
         },
         {
@@ -3695,6 +3701,17 @@
           "include": "#preprocessors"
         }
       ]
+    },
+    "dynamic-buffer-field-access" : {
+      "match": "(::)([a-zA-Z_][a-zA-Z0-9#$\\-_%&]*)",
+      "captures": {
+        "1": {
+          "name": "punctuation.accessor.abl"
+        },
+        "2": {
+          "name":"storage.data.table.abl"
+        }
+      }
     },
     "static-object-property-call": {
       "comment": "This rule only captures dotted type name and not single class names. Type names are files, so support unicode.",
