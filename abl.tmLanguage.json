@@ -594,6 +594,9 @@
           "include": "#handle-methods"
         },
         {
+          "include": "#get-query"
+        },
+        {
           "include": "#abl-functions"
         },
         {
@@ -1108,6 +1111,29 @@
               "name": "entity.name.function.abl"
             }
           }
+        }
+      ]
+    },
+    "get-query" :{
+      "begin": "(?i)\\b(get)\\s+(first|next|prev|last|current)\\b",
+      "beginCaptures": {
+        "1": {
+          "name": "keyword.other.abl"
+        },
+        "2": {
+          "name": "keyword.other.abl"
+        }
+      },
+      "end": "(?i)\\s*(?=share-lock|exclusive-lock|no-lock|\\.)",
+      "patterns": [
+        {
+          "include": "#variable-name"
+        },
+        {
+          "include": "#preprocessors"
+        },
+        {
+          "include": "#comment"
         }
       ]
     },
