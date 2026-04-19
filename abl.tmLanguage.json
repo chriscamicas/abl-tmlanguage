@@ -2403,6 +2403,9 @@
           "include": "#handle-attributes"
         },
         {
+          "include": "#db-dot-table-dot-field"
+        },
+        {
           "include": "#variable-name"
         }
       ]
