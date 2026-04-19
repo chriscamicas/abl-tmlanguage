@@ -89,6 +89,7 @@ The ABL-specific scopes produced by the ABL grammar listed in the table below. T
 |keyword.control.directive.define.abl             | `&scoped-define`, `&global-define`, `&undefine` |
 |keyword.operator.source.abl                      | `contains`, `begins`, `matches`, `eq`, `le`, `lt`, `ge`, `gt`, `ne`, `<=`, `<>`, `>=`, `=`, `+`, `-`, `/`, `<`, `>`, `*`, `+=`, `-=`, `/=`, `*=`, `?:` |
 |keyword.other.abl                                | Any ABL keyword (incl those covered by other scopes like `support.function.abl` and `entity.name.function.abl`) |
+|punctuation.accessor.abl                         | `::` used to reference buffer field names or dataset buffer names|
 |punctuation.definition.bracket.square.begin.abl  |  `[` used for array arguments |
 |punctuation.definition.bracket.square.end.abl    |  `]` used for array arguments |
 |punctuation.definition.generic.begin.abl         |  `<` used for generic type arguments |
