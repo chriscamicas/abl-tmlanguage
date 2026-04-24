@@ -1,3 +1,12 @@
+1.3.28
+======
+
+- ✨ Improve scoping for ABL functions that do not always require parentheses (vscode-abl/vscode-abl#520)
+- 🐛 Add scoping for query GET statements (vscode-abl/vscode-abl#522)
+- 🐛 Scope temp-table fields used as CREATE BUFFER targets correctly (vscode-abl/vscode-abl#529)
+- 🐛 Add scoping for include files to function arguments (vscode-abl/vscode-abl#530)
+- 🐛 Add support for double-colon notation (vscode-abl/vscode-abl#532)
+
 1.3.27
 ======
 

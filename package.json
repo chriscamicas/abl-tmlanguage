@@ -1,6 +1,6 @@
 {
   "name": "abl-tmlanguage",
-  "version": "1.3.27",
+  "version": "1.3.28",
   "description": "TextMate grammar for Progress OpenEdge ABL Language",
   "main": "",
   "type": "commonjs",
