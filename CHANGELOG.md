@@ -1,4 +1,4 @@
-1.3.28
+1.3.29
 ======
 
 - ✨ Improve scoping for ABL functions that do not always require parentheses (vscode-abl/vscode-abl#520)
