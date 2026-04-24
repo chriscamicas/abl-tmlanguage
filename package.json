@@ -29,5 +29,8 @@
   },
   "dependencies": {
     "oniguruma-parser": "^0.12.0"
-  }
+  },
+  "files": [
+    "abl.tmLanguage.json"
+  ]
 }
