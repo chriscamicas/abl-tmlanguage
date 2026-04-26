@@ -29,7 +29,7 @@ ELSE {&WINDOW-NAME} = CURRENT-WINDOW.`;
       { "startIndex": 0, "endIndex": 2, "scopes": ["source.abl", "keyword.other.abl"] },  // 'IF'
       { "startIndex": 2, "endIndex": 3, "scopes": ["source.abl"] },  // ' '
       { "startIndex": 3, "endIndex": 10, "scopes": ["source.abl", "variable.language.abl"] },  // 'SESSION'
-      { "startIndex": 10, "endIndex": 11, "scopes": ["source.abl", "punctuation.separator.colon.abl"] },  // ':'
+      { "startIndex": 10, "endIndex": 11, "scopes": ["source.abl", "punctuation.accessor.abl"] },  // ':'
       { "startIndex": 11, "endIndex": 23, "scopes": ["source.abl", "entity.name.function.abl"] },  // 'DISPLAY-TYPE'
       { "startIndex": 23, "endIndex": 24, "scopes": ["source.abl"] },  // ' '
       { "startIndex": 24, "endIndex": 25, "scopes": ["source.abl", "keyword.operator.source.abl"] },  // '='

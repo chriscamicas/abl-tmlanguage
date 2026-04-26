@@ -437,7 +437,7 @@ describe('', () => {
     { "startIndex": 49, "endIndex": 51, "scopes": ["source.abl", "meta.define.function.abl", "keyword.other.abl"] },  // 'IN'
     { "startIndex": 51, "endIndex": 52, "scopes": ["source.abl", "meta.define.function.abl"] },  // ' '
     { "startIndex": 52, "endIndex": 58, "scopes": ["source.abl", "meta.define.function.abl", "variable.other.abl"] },  // 'obJRef'
-    { "startIndex": 58, "endIndex": 59, "scopes": ["source.abl", "meta.define.function.abl", "punctuation.separator.colon.abl"] },  // ':'
+    { "startIndex": 58, "endIndex": 59, "scopes": ["source.abl", "meta.define.function.abl", "punctuation.accessor.abl"] },  // ':'
     { "startIndex": 59, "endIndex": 67, "scopes": ["source.abl", "meta.define.function.abl", "entity.name.function.abl"] },  // 'Property'
     { "startIndex": 67, "endIndex": 69, "scopes": ["source.abl", "meta.define.function.abl"] },  // '  '
     { "startIndex": 69, "endIndex": 70, "scopes": ["source.abl", "meta.define.function.abl", "punctuation.terminator.abl"] }  // '.'

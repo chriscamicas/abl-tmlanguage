@@ -325,7 +325,7 @@ describe('', () => {
     { "startIndex": 27, "endIndex": 28, "scopes": ["source.abl", "keyword.operator.source.abl"] },  // '='
     { "startIndex": 28, "endIndex": 29, "scopes": ["source.abl"] },  // ' '
     { "startIndex": 29, "endIndex": 41, "scopes": ["source.abl", "variable.other.abl"] },  // 'mBackingList'
-    { "startIndex": 41, "endIndex": 42, "scopes": ["source.abl", "punctuation.separator.colon.abl"] },  // ':'
+    { "startIndex": 41, "endIndex": 42, "scopes": ["source.abl", "punctuation.accessor.abl"] },  // ':'
     { "startIndex": 42, "endIndex": 49, "scopes": ["source.abl", "entity.name.function.abl"] },  // 'IndexOf'
     { "startIndex": 49, "endIndex": 50, "scopes": ["source.abl", "meta.function.arguments.abl", "meta.brace.round.js"] },  // '('
     { "startIndex": 50, "endIndex": 55, "scopes": ["source.abl", "meta.function.arguments.abl", "variable.other.abl"] },  // 'pItem'

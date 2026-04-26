@@ -42,7 +42,7 @@ end.`;
       { "startIndex": 3, "endIndex": 13, "scopes": ["source.abl", "meta.block.abl", "keyword.other.abl"] },  // 'stop-after'
       { "startIndex": 13, "endIndex": 14, "scopes": ["source.abl", "meta.block.abl"] },  // ' '
       { "startIndex": 14, "endIndex": 25, "scopes": ["source.abl", "meta.block.abl", "variable.other.abl"] },  // 'poParameter'
-      { "startIndex": 25, "endIndex": 26, "scopes": ["source.abl", "punctuation.separator.colon.abl"] },  // ':'
+      { "startIndex": 25, "endIndex": 26, "scopes": ["source.abl", "punctuation.accessor.abl"] },  // ':'
       { "startIndex": 26, "endIndex": 35, "scopes": ["source.abl", "entity.name.function.abl"] },  // 'StopAfter'
       { "startIndex": 35, "endIndex": 36, "scopes": ["source.abl", "punctuation.terminator.abl"] }  // ':'
     ],
@@ -64,7 +64,7 @@ end.`;
     [
       { "startIndex": 0, "endIndex": 4, "scopes": ["source.abl"] },  // '    '
       { "startIndex": 4, "endIndex": 9, "scopes": ["source.abl", "variable.language.abl"] },  // 'super'
-      { "startIndex": 9, "endIndex": 10, "scopes": ["source.abl", "punctuation.separator.colon.abl"] },  // ':'
+      { "startIndex": 9, "endIndex": 10, "scopes": ["source.abl", "punctuation.accessor.abl"] },  // ':'
       { "startIndex": 10, "endIndex": 12, "scopes": ["source.abl", "entity.name.function.abl"] },  // 'Fn'
       { "startIndex": 12, "endIndex": 13, "scopes": ["source.abl", "meta.function.arguments.abl", "meta.brace.round.js"] },  // '('
       { "startIndex": 13, "endIndex": 14, "scopes": ["source.abl", "meta.brace.round.js"] },  // ')'

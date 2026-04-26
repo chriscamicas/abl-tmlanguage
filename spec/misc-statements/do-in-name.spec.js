@@ -11,7 +11,7 @@ describe('', () => {
     { "startIndex": 14, "endIndex": 15, "scopes": ["source.abl", "keyword.operator.source.abl"] },  // '='
     { "startIndex": 15, "endIndex": 16, "scopes": ["source.abl"] },  // ' '
     { "startIndex": 16, "endIndex": 27, "scopes": ["source.abl", "variable.language.abl"] },  // 'this-object'
-    { "startIndex": 27, "endIndex": 28, "scopes": ["source.abl", "punctuation.separator.colon.abl"] },  // ':'
+    { "startIndex": 27, "endIndex": 28, "scopes": ["source.abl", "punctuation.accessor.abl"] },  // ':'
     { "startIndex": 28, "endIndex": 47, "scopes": ["source.abl", "entity.name.function.abl"] },  // 'DefaultCookieDomain'
     { "startIndex": 47, "endIndex": 48, "scopes": ["source.abl", "punctuation.terminator.abl"] }  // '.'
   ];
@@ -76,7 +76,7 @@ describe('', () => {
       { "startIndex": 19, "endIndex": 20, "scopes": ["source.abl", "keyword.operator.source.abl"] },  // '='
       { "startIndex": 20, "endIndex": 21, "scopes": ["source.abl"] },  // ' '
       { "startIndex": 21, "endIndex": 30, "scopes": ["source.abl", "variable.other.abl"] },  // 'thisWorks'
-      { "startIndex": 30, "endIndex": 31, "scopes": ["source.abl", "punctuation.separator.colon.abl"] },  // ':'
+      { "startIndex": 30, "endIndex": 31, "scopes": ["source.abl", "punctuation.accessor.abl"] },  // ':'
       { "startIndex": 31, "endIndex": 36, "scopes": ["source.abl", "entity.name.function.abl"] },  // 'Today'
       { "startIndex": 36, "endIndex": 37, "scopes": ["source.abl", "meta.function.arguments.abl", "meta.brace.round.js"] },  // '('
       { "startIndex": 37, "endIndex": 38, "scopes": ["source.abl", "meta.brace.round.js"] }  // ')'

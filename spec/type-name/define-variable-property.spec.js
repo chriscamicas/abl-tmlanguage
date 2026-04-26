@@ -182,7 +182,7 @@ describe('', () => {
       { "startIndex": 5, "endIndex": 11, "scopes": ["source.abl", "meta.define.abl", "support.function.abl"] },  // 'return'
       { "startIndex": 11, "endIndex": 12, "scopes": ["source.abl", "meta.define.abl"] },  // ' '
       { "startIndex": 12, "endIndex": 23, "scopes": ["source.abl", "meta.define.abl", "variable.language.abl"] },  // 'this-object'
-      { "startIndex": 23, "endIndex": 24, "scopes": ["source.abl", "meta.define.abl", "punctuation.separator.colon.abl"] },  // ':'
+      { "startIndex": 23, "endIndex": 24, "scopes": ["source.abl", "meta.define.abl", "punctuation.accessor.abl"] },  // ':'
       { "startIndex": 24, "endIndex": 30, "scopes": ["source.abl", "meta.define.abl", "entity.name.function.abl"] },  // 'AThing'
       { "startIndex": 30, "endIndex": 31, "scopes": ["source.abl", "meta.define.abl", "punctuation.terminator.abl"] }  // '.'
     ],

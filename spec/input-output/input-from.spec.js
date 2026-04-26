@@ -364,7 +364,7 @@ describe('', () => {
       { "startIndex": 16, "endIndex": 22, "scopes": ["source.abl", "keyword.other.abl"] },  // 'SOURCE'
       { "startIndex": 22, "endIndex": 23, "scopes": ["source.abl"] },  // ' '
       { "startIndex": 23, "endIndex": 30, "scopes": ["source.abl", "variable.language.abl"] },  // 'SESSION'
-      { "startIndex": 30, "endIndex": 31, "scopes": ["source.abl", "punctuation.separator.colon.abl"] },  // ':'
+      { "startIndex": 30, "endIndex": 31, "scopes": ["source.abl", "punctuation.accessor.abl"] },  // ':'
       { "startIndex": 31, "endIndex": 38, "scopes": ["source.abl", "entity.name.function.abl"] },  // 'CHARSET'
       { "startIndex": 38, "endIndex": 39, "scopes": ["source.abl"] },  // ' '
       { "startIndex": 39, "endIndex": 45, "scopes": ["source.abl", "keyword.other.abl"] },  // 'TARGET'

@@ -72,9 +72,9 @@ The ABL-specific scopes produced by the ABL grammar listed in the table below. T
 |comment.line.double-slash.abl                    | Everything in a `//` comment, incl. slashes |
 |comment.preprocessor.analyze-suspend.abl         | `&analyze-suspend`, `&analyze-resume` |
 |constant.character.escape.abl                    |  `~` and the next char |
-|constant.language.abl                            | `today`, `now`, `true`, `false`, `yes`, `no`, `?` (unknown value) |
+|constant.language.abl                            | `true`, `false`, `yes`, `no`, `?` (unknown value) |
 |constant.language.source.abl                     | `99/99/9999` (or similar) when used as a format clause |
-|constant.numeric.source.abl                      | 0x00-0xFF, 0-9, scientific notation |
+|constant.numeric.source.abl                      | `0x00`-`0xFF`, `0`-`9`, scientific notation |
 |entity.name.function.abl                         | Method call, property call, method name, property name, handle attributes, handle methods, event names |
 |entity.name.function.preprocessor.abl            | Preprocessor names, including built-ins like `opsys` and `process-architecture` |
 |entity.name.include.abl                          | Include file names |
@@ -85,23 +85,22 @@ The ABL-specific scopes produced by the ABL grammar listed in the table below. T
 |entity.name.type.abl                             | Class/interface/enum names |
 |entity.name.type.generic.abl                     | Generic type names |
 |entity.other.attribute-name.abl                  | Annotation attribute names |
-|keyword.control.directive.conditional.abl        | `&if` , `&else`, `&elsif` `&end` |
+|keyword.control.directive.conditional.abl        | `&if` , `&else`, `&elseif`, `&end` |
 |keyword.control.directive.define.abl             | `&scoped-define`, `&global-define`, `&undefine` |
 |keyword.operator.source.abl                      | `contains`, `begins`, `matches`, `eq`, `le`, `lt`, `ge`, `gt`, `ne`, `<=`, `<>`, `>=`, `=`, `+`, `-`, `/`, `<`, `>`, `*`, `+=`, `-=`, `/=`, `*=`, `?:` |
 |keyword.other.abl                                | Any ABL keyword (incl those covered by other scopes like `support.function.abl` and `entity.name.function.abl`) |
-|punctuation.accessor.abl                         | `::` used to reference buffer field names or dataset buffer names|
+|punctuation.accessor.abl                         | `:` when used for method, property and attribute access. `::` when used to reference buffer field names or dataset buffer names|
 |punctuation.definition.bracket.square.begin.abl  |  `[` used for array arguments |
 |punctuation.definition.bracket.square.end.abl    |  `]` used for array arguments |
 |punctuation.definition.generic.begin.abl         |  `<` used for generic type arguments |
 |punctuation.definition.generic.end.abl           |  `>` used for generic type arguments |
 |punctuation.definition.preprocessor.abl          | Leading `&` of referenced preprocessor and directives |
-|punctuation.definition.string.begin.abl          | Start of a quoted string |
-|punctuation.definition.string.end.abl            | End of a quoted string |
+|punctuation.definition.string.begin.abl          | Starting `"` or `'` of a quoted string |
+|punctuation.definition.string.end.abl            | Closing `"` or `'` of a quoted string |
 |punctuation.section.abl                          | `{` and `}` |
 |punctuation.separator.comma.abl                  | `,` |
 |punctuation.separator.continuation               |  `~` at the end of a line (preprocessor) |
 |punctuation.separator.period.abl                 | `.` |
-|punctuation.separator.colon.abl                  | `:` |
 |punctuation.terminator.abl                       | `.` and `:` |
 |storage.data.database.abl                        | Statically-defined database names, e.g.in the `create alias` statement |
 |storage.data.dataset.abl                         | Statically-defined dataset names, data-relation names |
@@ -111,7 +110,7 @@ The ABL-specific scopes produced by the ABL grammar listed in the table below. T
 |storage.type.function.abl                        |  `defined` keyword and preprocessor directives like `&message` |
 |string.quoted.double.abl                         | String in `"` quotes |
 |string.quoted.single.abl                         | String in `'` quotes |
-|support.function.abl                             | `opsys`, `proversion`, ABL functions (eg `base64-encode`). Note that `TRANSACTION` in a `FOR EACH` statement will be scoped this way |
+|support.function.abl                             | `opsys`, `proversion`, ABL functions (eg `base64-encode`). Includes functions like `today` that have no or optional parameters. Note that `transaction` in a `for each` statement will be scoped this way |
 |support.other.abl                                | Translation attributes `:L`, `:R`, `:T`, `:C`, `:U` |
 |support.other.argument.abl                       | `&<name\|number>` arguments in includes |
 |variable.language.abl                            | ABL system handles (eg `session` or `this-object`) |

@@ -27,7 +27,7 @@ describe('', () => {
     [
       { "startIndex": 0, "endIndex": 68, "scopes": ["source.abl"] },  // '                                                                    '
       { "startIndex": 68, "endIndex": 81, "scopes": ["source.abl", "variable.other.abl"] },  // 'TokenResolver'
-      { "startIndex": 81, "endIndex": 82, "scopes": ["source.abl", "punctuation.separator.colon.abl"] },  // ':'
+      { "startIndex": 81, "endIndex": 82, "scopes": ["source.abl", "punctuation.accessor.abl"] },  // ':'
       { "startIndex": 82, "endIndex": 89, "scopes": ["source.abl", "entity.name.function.abl"] },  // 'Resolve'
       { "startIndex": 89, "endIndex": 90, "scopes": ["source.abl", "meta.function.arguments.abl", "meta.brace.round.js"] },  // '('
       { "startIndex": 90, "endIndex": 91, "scopes": ["source.abl", "meta.function.arguments.abl", "string.quoted.double.abl", "punctuation.definition.string.begin.abl"] },  // '"'
@@ -47,7 +47,7 @@ describe('', () => {
     [
       { "startIndex": 0, "endIndex": 68, "scopes": ["source.abl"] },  // '                                                                    '
       { "startIndex": 68, "endIndex": 81, "scopes": ["source.abl", "variable.other.abl"] },  // 'TokenResolver'
-      { "startIndex": 81, "endIndex": 82, "scopes": ["source.abl", "punctuation.separator.colon.abl"] },  // ':'
+      { "startIndex": 81, "endIndex": 82, "scopes": ["source.abl", "punctuation.accessor.abl"] },  // ':'
       { "startIndex": 82, "endIndex": 89, "scopes": ["source.abl", "entity.name.function.abl"] },  // 'Resolve'
       { "startIndex": 89, "endIndex": 90, "scopes": ["source.abl", "meta.function.arguments.abl", "meta.brace.round.js"] },  // '('
       { "startIndex": 90, "endIndex": 91, "scopes": ["source.abl", "meta.function.arguments.abl", "string.quoted.double.abl", "punctuation.definition.string.begin.abl"] },  // '"'

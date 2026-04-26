@@ -188,7 +188,7 @@ describe('', () => {
     { "startIndex": 29, "endIndex": 30, "scopes": ["source.abl", "keyword.operator.source.abl"] },  // '='
     { "startIndex": 30, "endIndex": 31, "scopes": ["source.abl"] },  // ' '
     { "startIndex": 31, "endIndex": 40, "scopes": ["source.abl", "variable.other.abl"] },  // 'UIMessage'
-    { "startIndex": 40, "endIndex": 41, "scopes": ["source.abl", "punctuation.separator.colon.abl"] },  // ':'
+    { "startIndex": 40, "endIndex": 41, "scopes": ["source.abl", "punctuation.accessor.abl"] },  // ':'
     { "startIndex": 41, "endIndex": 62, "scopes": ["source.abl", "entity.name.function.abl"] },  // 'canFindFirstUIMessage'
     { "startIndex": 62, "endIndex": 63, "scopes": ["source.abl", "meta.function.arguments.abl", "meta.brace.round.js"] },  // '('
     { "startIndex": 63, "endIndex": 64, "scopes": ["source.abl", "meta.function.arguments.abl", "string.quoted.double.abl", "punctuation.definition.string.begin.abl"] },  // '"'

@@ -22,7 +22,7 @@ describe('', () => {
     { "startIndex": 8, "endIndex": 9, "scopes": ["source.abl", "keyword.operator.source.abl"] },  // '='
     { "startIndex": 9, "endIndex": 10, "scopes": ["source.abl"] },  // ' '
     { "startIndex": 10, "endIndex": 24, "scopes": ["source.abl", "variable.language.abl"] },  // 'this-procedure'
-    { "startIndex": 24, "endIndex": 25, "scopes": ["source.abl", "punctuation.separator.colon.abl"] },  // ':'
+    { "startIndex": 24, "endIndex": 25, "scopes": ["source.abl", "punctuation.accessor.abl"] },  // ':'
     { "startIndex": 25, "endIndex": 38, "scopes": ["source.abl", "entity.name.function.abl"] },  // 'first-sibling'
     { "startIndex": 38, "endIndex": 39, "scopes": ["source.abl", "punctuation.terminator.abl"] }  // '.'
   ];
@@ -80,7 +80,7 @@ describe('', () => {
   let statement = `objRef:Add(this-object).`;
   let expectedTokens = [
     { "startIndex": 0, "endIndex": 6, "scopes": ["source.abl", "variable.other.abl"] },  // 'objRef'
-    { "startIndex": 6, "endIndex": 7, "scopes": ["source.abl", "punctuation.separator.colon.abl"] },  // ':'
+    { "startIndex": 6, "endIndex": 7, "scopes": ["source.abl", "punctuation.accessor.abl"] },  // ':'
     { "startIndex": 7, "endIndex": 10, "scopes": ["source.abl", "entity.name.function.abl"] },  // 'Add'
     { "startIndex": 10, "endIndex": 11, "scopes": ["source.abl", "meta.function.arguments.abl", "meta.brace.round.js"] },  // '('
     { "startIndex": 11, "endIndex": 22, "scopes": ["source.abl", "meta.function.arguments.abl", "variable.language.abl"] },  // 'this-object'
@@ -94,11 +94,11 @@ describe('', () => {
   let statement = `objRef:Add(file-info:handle).`;
   let expectedTokens = [
     { "startIndex": 0, "endIndex": 6, "scopes": ["source.abl", "variable.other.abl"] },  // 'objRef'
-    { "startIndex": 6, "endIndex": 7, "scopes": ["source.abl", "punctuation.separator.colon.abl"] },  // ':'
+    { "startIndex": 6, "endIndex": 7, "scopes": ["source.abl", "punctuation.accessor.abl"] },  // ':'
     { "startIndex": 7, "endIndex": 10, "scopes": ["source.abl", "entity.name.function.abl"] },  // 'Add'
     { "startIndex": 10, "endIndex": 11, "scopes": ["source.abl", "meta.function.arguments.abl", "meta.brace.round.js"] },  // '('
     { "startIndex": 11, "endIndex": 20, "scopes": ["source.abl", "meta.function.arguments.abl", "variable.language.abl"] },  // 'file-info'
-    { "startIndex": 20, "endIndex": 21, "scopes": ["source.abl", "meta.function.arguments.abl", "punctuation.separator.colon.abl"] },  // ':'
+    { "startIndex": 20, "endIndex": 21, "scopes": ["source.abl", "meta.function.arguments.abl", "punctuation.accessor.abl"] },  // ':'
     { "startIndex": 21, "endIndex": 27, "scopes": ["source.abl", "meta.function.arguments.abl", "entity.name.function.abl"] },  // 'handle'
     { "startIndex": 27, "endIndex": 28, "scopes": ["source.abl", "meta.brace.round.js"] },  // ')'
     { "startIndex": 28, "endIndex": 29, "scopes": ["source.abl", "punctuation.terminator.abl"] }  // '.'
@@ -110,7 +110,7 @@ describe('', () => {
   let statement = `TRANSaction:set-ROLLBACK ( ).`;
   let expectedTokens = [
     { "startIndex": 0, "endIndex": 11, "scopes": ["source.abl", "variable.language.abl"] },  // 'TRANSaction'
-    { "startIndex": 11, "endIndex": 12, "scopes": ["source.abl", "punctuation.separator.colon.abl"] },  // ':'
+    { "startIndex": 11, "endIndex": 12, "scopes": ["source.abl", "punctuation.accessor.abl"] },  // ':'
     { "startIndex": 12, "endIndex": 24, "scopes": ["source.abl", "entity.name.function.abl"] },  // 'set-ROLLBACK'
     { "startIndex": 24, "endIndex": 25, "scopes": ["source.abl"] },  // ' '
     { "startIndex": 25, "endIndex": 26, "scopes": ["source.abl", "meta.function.arguments.abl", "meta.brace.round.js"] },  // '('

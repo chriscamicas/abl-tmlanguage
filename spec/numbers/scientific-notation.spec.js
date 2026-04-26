@@ -195,7 +195,7 @@ describe('', () => {
   let statement = `jsondata:Add("somevalue", 123e+5 ).`;
   let expectedTokens = [
     { "startIndex": 0, "endIndex": 8, "scopes": ["source.abl", "variable.other.abl"] },  // 'jsondata'
-    { "startIndex": 8, "endIndex": 9, "scopes": ["source.abl", "punctuation.separator.colon.abl"] },  // ':'
+    { "startIndex": 8, "endIndex": 9, "scopes": ["source.abl", "punctuation.accessor.abl"] },  // ':'
     { "startIndex": 9, "endIndex": 12, "scopes": ["source.abl", "entity.name.function.abl"] },  // 'Add'
     { "startIndex": 12, "endIndex": 13, "scopes": ["source.abl", "meta.function.arguments.abl", "meta.brace.round.js"] },  // '('
     { "startIndex": 13, "endIndex": 14, "scopes": ["source.abl", "meta.function.arguments.abl", "string.quoted.double.abl", "punctuation.definition.string.begin.abl"] },  // '"'

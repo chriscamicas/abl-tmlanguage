@@ -235,7 +235,7 @@ end.`;
       { "startIndex": 10, "endIndex": 12, "scopes": ["source.abl", "meta.block.abl", "keyword.other.abl"] },  // 'to'
       { "startIndex": 12, "endIndex": 13, "scopes": ["source.abl", "meta.block.abl"] },  // ' '
       { "startIndex": 13, "endIndex": 19, "scopes": ["source.abl", "meta.block.abl", "variable.other.abl"] },  // 'objRef'
-      { "startIndex": 19, "endIndex": 20, "scopes": ["source.abl", "punctuation.separator.colon.abl"] },  // ':'
+      { "startIndex": 19, "endIndex": 20, "scopes": ["source.abl", "punctuation.accessor.abl"] },  // ':'
       { "startIndex": 20, "endIndex": 42, "scopes": ["source.abl", "entity.name.function.abl"] },  // 'MethodCalledNumEntries'
       { "startIndex": 42, "endIndex": 43, "scopes": ["source.abl", "meta.function.arguments.abl", "meta.brace.round.js"] },  // '('
       { "startIndex": 43, "endIndex": 48, "scopes": ["source.abl", "meta.function.arguments.abl", "variable.other.abl"] },  // 'vList'

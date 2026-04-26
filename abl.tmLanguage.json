@@ -1105,7 +1105,7 @@
         }
       ]
     },
-    "get-query" :{
+    "get-query": {
       "begin": "(?i)\\b(get)\\s+(first|next|prev|last|current)\\b",
       "beginCaptures": {
         "1": {
@@ -2717,14 +2717,6 @@
         }
       }
     },
-    "double-colon-field-name": {
-      "match": "\\s*::([a-zA-Z_\\-#$%]+)\\s*",
-      "captures": {
-        "1": {
-          "name": "storage.data.table.abl"
-        }
-      }
-    },
     "for-table": {
       "match": "(?i)\\s*(for)\\s+((temp-table)\\s+)?([a-zA-Z_\\-#$%]+)\\s*",
       "captures": {
@@ -3013,7 +3005,7 @@
           "name": "keyword.operator.source.abl"
         },
         "3": {
-          "name": "punctuation.separator.colon.abl"
+          "name": "punctuation.accessor.abl"
         },
         "4": {
           "name": "entity.name.function.abl"
@@ -3037,7 +3029,7 @@
               "name": "entity.name.type.abl"
             },
             "3": {
-              "name": "punctuation.separator.colon.abl"
+              "name": "punctuation.accessor.abl"
             }
           }
         },
@@ -3052,7 +3044,7 @@
               "name": "punctuation.separator.comma.abl"
             },
             "4": {
-              "name": "punctuation.separator.colon.abl"
+              "name": "punctuation.accessor.abl"
             }
           }
         },
@@ -3705,14 +3697,14 @@
         }
       ]
     },
-    "dynamic-buffer-field-access" : {
+    "dynamic-buffer-field-access": {
       "match": "(::)([a-zA-Z_][a-zA-Z0-9#$\\-_%&]*)",
       "captures": {
         "1": {
           "name": "punctuation.accessor.abl"
         },
         "2": {
-          "name":"storage.data.table.abl"
+          "name": "storage.data.table.abl"
         }
       }
     },
@@ -3724,7 +3716,7 @@
           "name": "entity.name.type.abl"
         },
         "4": {
-          "name": "punctuation.separator.colon.abl"
+          "name": "punctuation.accessor.abl"
         },
         "7": {
           "name": "entity.name.function.abl"
@@ -3746,7 +3738,7 @@
           "name": "keyword.operator.source.abl"
         },
         "3": {
-          "name": "punctuation.separator.colon.abl"
+          "name": "punctuation.accessor.abl"
         },
         "4": {
           "name": "entity.name.function.abl"
@@ -3883,7 +3875,7 @@
           "include": "#variable-name"
         },
         {
-          "include": "#double-colon-field-name"
+          "include": "#dynamic-buffer-field-access"
         }
       ]
     },
@@ -4162,7 +4154,7 @@
           "name": "variable.language.abl"
         },
         "2": {
-          "name": "punctuation.separator.colon.abl"
+          "name": "punctuation.accessor.abl"
         }
       }
     },
@@ -4189,7 +4181,7 @@
           "match": "(:)",
           "captures": {
             "1": {
-              "name": "punctuation.separator.colon.abl"
+              "name": "punctuation.accessor.abl"
             }
           }
         },
@@ -4733,7 +4725,7 @@
     },
     "keywords-S": {
       "comment": "The keyword must not have a trailing variable character (one of #$-_%&)",
-      "match": "(?i)\\b(s(?:ave|ave-as|ax-attributes|ax-complete?|ax-comple|ax-parser-error|ax-reader|ax-running|ax-uninitialized|ax-write-begin|ax-write-complete|ax-write-content|ax-write-element|ax-write-error|ax-write-idle|ax-write-tag|ax-writer|ax-xml|chema|creen|creen-io|croll|croll-bars|croll-horizontal|croll-left|croll-mode|croll-notify|croll-right|croll-vertical|crollable|crollbar-drag|crolled-row-position?|crolled-row-positi?|crolled-row-posi?|crolling|earch-self|earch-target|ection|ecurity-policy|eek|elect|elect-extend|elect-on-join|elect-repositioned-row|elected-items|election|election-extend|election-list|elf|end|ensitive|eparate-connection|eparators|erializable|erialize-hidden|erialize-name|erver|erver-socket|ession|et|et-attr-call-type|et-byte-order|et-cell-focus|et-contents|et-db-logging|et-event-manager-option|et-option|et-pointer-value?|et-pointer-val|et-state|ettings|hare-lock?|hare-lo?|hare-?|hared|hort|how-in-taskbar?|how-in-taskb?|how-stats?|ide-labels?|ide-labe?|ignature|ilent|imple|ingle|ingle-character|ingle-run|ingleton|ize|ize-chars?|ize-cha?|ize-c|ize-pixels?|ize-pixe?|ize-pi?|kip|kip-group-duplicates|kip-schema-check|lider|mallint|oap-fault|oap-header|oap-header-entryref|ocket|ome|ource|ource-procedure|pace|ql|tart|tart-box-selection|tart-extend-box-selection|tart-mem-check|tart-move|tart-resize|tart-row-resize|tart-search|tarting|tatic|tatus|tatus-area|tatus-area-msg|tdcall|tomp-detection|tomp-frequency|top|top-after|top-display|top-mem-check|tored-procedure?|tored-procedu?|tored-proce?|tream|tream-handle|tream-io|tring-xref|ub-average?|ub-avera?|ub-ave|ub-count|ub-maximum?|ub-maxim?|ub-max|ub-menu|ub-menu-help|ub-minimum?|ub-minim?|ub-min|ub-total|ubscribe|ubstring?|ubstri?|um|ummary|uper|uspend|ystem-dialog|ystem-help))\\b(?![#$\\-_%&])",
+      "match": "(?i)\\b(s(?:ave|ave-as|ax-attributes|ax-complete?|ax-comple|ax-parser-error|ax-reader|ax-running|ax-uninitialized|ax-write-begin|ax-write-complete|ax-write-content|ax-write-element|ax-write-error|ax-write-idle|ax-write-tag|ax-writer|ax-xml|chema|creen|creen-io|croll|croll-bars|croll-horizontal|croll-left|croll-mode|croll-notify|croll-right|croll-vertical|crollable|crollbar-drag|crolled-row-position?|crolled-row-positi?|crolled-row-posi?|crolling|earch-self|earch-target|ection|ecurity-policy|eek|elect|elect-extend|elect-on-join|elect-repositioned-row|elected-items|election|election-extend|election-list|elf|end|ensitive|eparate-connection|eparators|erializable|erialize-hidden|erialize-name|erver|erver-socket|ession|et|et-attr-call-type|et-byte-order|et-cell-focus|et-contents|et-db-logging|et-event-manager-option|et-option|et-pointer-value?|et-pointer-val|et-state|ettings|hare-lock?|hare-lo?|hare-?|hared|hort|how-in-taskbar?|how-in-taskb?|how-stats?|ide-labels?|ide-labe?|ignature|ilent|imple|ingle|ingle-character|ingle-run|ingleton|ize|ize-chars?|ize-cha?|ize-c|ize-pixels?|ize-pixe?|ize-pi?|kip-group-duplicates|kip-schema-check|lider|mallint|oap-fault|oap-header|oap-header-entryref|ocket|ome|ource|ource-procedure|pace|ql|tart|tart-box-selection|tart-extend-box-selection|tart-mem-check|tart-move|tart-resize|tart-row-resize|tart-search|tarting|tatic|tatus|tatus-area|tatus-area-msg|tdcall|tomp-detection|tomp-frequency|top|top-after|top-display|top-mem-check|tored-procedure?|tored-procedu?|tored-proce?|tream|tream-handle|tream-io|tring-xref|ub-average?|ub-avera?|ub-ave|ub-count|ub-maximum?|ub-maxim?|ub-max|ub-menu|ub-menu-help|ub-minimum?|ub-minim?|ub-min|ub-total|ubscribe|ubstring?|ubstri?|um|ummary|uper|uspend|ystem-dialog|ystem-help))\\b(?![#$\\-_%&])",
       "captures": {
         "1": {
           "name": "keyword.other.abl"
@@ -4874,7 +4866,7 @@
       "match": "(?i)(:)(a(?:ccelerator|ctive|ctor|dm-data|fter-buffer|fter-rowid|fter-table|llow-column-searching|llow-prev-deserialization|lways-on-top|mbiguous?|mbiguo?|mbig|ppl-alert-boxes?|ppl-alert-box?|ppl-alert-b?|ppl-alert|ppl-context-id|ppserver-info|ppserver-password|ppserver-userid|sync-request-count|sync-request-handle|synchronous|ttached-pairlist|ttr-space?|ttr-spa?|ttr-s?|ttr|ttribute-names|udit-event-context|uto-completion?|uto-completi?|uto-comple?|uto-comp|uto-delete|uto-delete-xml|uto-end-key|uto-go|uto-indent?|uto-inde?|uto-resize|uto-return?|uto-retu?|uto-synchronize|uto-validate?|uto-valida?|uto-vali?|uto-zap?|uto-z|vailable-formats|vailable?|vailab?|vail))\\b(?![#$\\-_%&])",
       "captures": {
         "1": {
-          "name": "punctuation.separator.colon.abl"
+          "name": "punctuation.accessor.abl"
         },
         "2": {
           "name": "entity.name.function.abl"
@@ -4885,7 +4877,7 @@
       "match": "(?i)(:)(b(?:ackground?|ackgrou?|ackgr?|ack|ase-ade|asic-logging|atch-mode|atch-size|efore-buffer|efore-rowid|efore-table|gcolor?|gcol?|gc|lank|lock-iteration-display|order-bottom-chars?|order-bottom-cha?|order-bottom-c|order-bottom-pixels?|order-bottom-pixe?|order-bottom-pi?|order-left-chars?|order-left-cha?|order-left-c|order-left-pixels?|order-left-pixe?|order-left-pi?|order-right-chars?|order-right-cha?|order-right-c|order-right-pixels?|order-right-pixe?|order-right-pi?|order-top-chars?|order-top-cha?|order-top-c|order-top-pixels?|order-top-pixe?|order-top-pi?|ox|ox-selectable?|ox-selectab?|ox-select|uffer-chars|uffer-field|uffer-group-id|uffer-group-name|uffer-handle|uffer-lines|uffer-name?|uffer-na?|uffer-partition-id|uffer-tenant-id|uffer-tenant-name|ytes-read|ytes-written))\\b(?![#$\\-_%&])",
       "captures": {
         "1": {
-          "name": "punctuation.separator.colon.abl"
+          "name": "punctuation.accessor.abl"
         },
         "2": {
           "name": "entity.name.function.abl"
@@ -4896,7 +4888,7 @@
       "match": "(?i)(:)(c(?:ache|all-name|all-type|an-create?|an-crea|an-delete?|an-dele|an-do-domain-support|an-read|an-write?|ancel-button|ancelled|areful-paint|ase-sensitive?|ase-sensiti?|ase-sensi?|ase-sen|entered?|enter|harset|hecked|hild-buffer|hild-num|lass-type|lient-connection-id|lient-tty|lient-type|lient-workstation|ode|odepage|olumn-bgcolor?|olumn-bgcol?|olumn-bgc|olumn-dcolor|olumn-fgcolor?|olumn-fgcol?|olumn-fgc|olumn-font|olumn-label?|olumn-lab|olumn-movable|olumn-pfcolor?|olumn-pfcol?|olumn-pfc|olumn-read-only|olumn-resizable|olumn-scrolling?|olumn-scrolli?|olumn-scrol?|olumn-scr?|olumns?|om-handle|omplete|onfig-name|ontext-help|ontext-help-file|ontext-help-id|ontrol-box|onvert-3d-colors?|onvert-3d-colo?|onvert-3d-co?|onvert-3d-?|overage|pcase|pcoll|pinternal?|pintern?|pinte?|plog|pprint|prcodein|prcodeout|pstream|pterm|rc-value?|rc-val|urrent-changed|urrent-column|urrent-environment?|urrent-environme?|urrent-environ?|urrent-envir?|urrent-env|urrent-iteration|urrent-request-info|urrent-response-info|urrent-result-row|urrent-row-modified|urrent-window|ursor-char|ursor-line|ursor-offset))\\b(?![#$\\-_%&])",
       "captures": {
         "1": {
-          "name": "punctuation.separator.colon.abl"
+          "name": "punctuation.accessor.abl"
         },
         "2": {
           "name": "entity.name.function.abl"
@@ -4907,7 +4899,7 @@
       "match": "(?i)(:)(d(?:ata-entry-return?|ata-entry-retu?|ata-source|ata-source-complete-map|ata-source-modified|ata-source-rowid|ata-type?|ata-ty?|ataset|ate-format?|ate-form?|ate-fo?|b-context|b-list|b-references|bname|color|de-error|de-id?|de-item|de-name|de-topic|eblank|ebug-alert|ecimals|efault|efault-buffer-handle|efault-button?|efault-butt?|efault-commit|efault-string|efault-value|elimiter|escription?|escripti?|irectory|isable-auto-zap|isplay-timezone|isplay-type?|isplay-ty?|omain-description|omain-name|omain-type|own|rag-enabled|rop-target|ynamic))\\b(?![#$\\-_%&])",
       "captures": {
         "1": {
-          "name": "punctuation.separator.colon.abl"
+          "name": "punctuation.accessor.abl"
         },
         "2": {
           "name": "entity.name.function.abl"
@@ -4918,7 +4910,7 @@
       "match": "(?i)(:)(e(?:dge-chars?|dge-cha?|dge-c|dge-pixels?|dge-pixe?|dge-pi?|dit-can-paste|dit-can-undo|mpty|nabled|ncoding|ncryption-salt|nd-user-prompt|ntity-expansion-limit|ntry-types-list|rror|rror-column?|rror-colu?|rror-object|rror-object-detail|rror-row|rror-stack-trace|rror-string|vent-group-id|vent-handler|vent-handler-object|vent-procedure|vent-procedure-context|vent-type?|vent-ty?|xclusive-id|xecution-log|xit-code|xpand|xpandable|xtent))\\b(?![#$\\-_%&])",
       "captures": {
         "1": {
-          "name": "punctuation.separator.colon.abl"
+          "name": "punctuation.accessor.abl"
         },
         "2": {
           "name": "entity.name.function.abl"
@@ -4929,7 +4921,7 @@
       "match": "(?i)(:)(f(?:gcolor?|gcol?|gc|ile-create-date?|ile-create-da?|ile-create-time?|ile-create-ti?|ile-mod-date?|ile-mod-da?|ile-mod-time?|ile-mod-ti?|ile-name|ile-offset?|ile-offs?|ile-size|ile-type|ill-mode|ill-where-string|illed|irst-async-request?|irst-async-reque?|irst-async-req?|irst-async-r?|irst-async|irst-buffer|irst-child|irst-column|irst-data-source|irst-dataset|irst-form|irst-object|irst-procedure?|irst-procedu?|irst-proce?|irst-query|irst-server-socket|irst-server?|irst-serv|irst-socket|irst-tab-item?|irst-tab-it?|it-last-column|lat-button|ocused-row|ocused-row-selected|ont|oreground?|oregrou?|oregr?|ore|oreign-key-hidden|orm-input|orm-long-input|ormatted?|ormat?|orm|orward-only|ragment?|rame-col|rame-name|rame-row|rame-spacing?|rame-spaci?|rame-spa|rame-x|rame-y|rame?|requency|ull-height-chars?|ull-height-cha?|ull-height-c|ull-height-pixels?|ull-height-pixe?|ull-height-pi?|ull-pathname?|ull-pathna?|ull-width-chars?|ull-width-cha?|ull-width-c?|ull-width|ull-width-pixels?|ull-width-pixe?|ull-width-pi?|unction))\\b(?![#$\\-_%&])",
       "captures": {
         "1": {
-          "name": "punctuation.separator.colon.abl"
+          "name": "punctuation.accessor.abl"
         },
         "2": {
           "name": "entity.name.function.abl"
@@ -4940,7 +4932,7 @@
       "match": "(?i)(:)(gr(?:aphic-edge?|aphic-ed?|id-factor-horizontal?|id-factor-horizont?|id-factor-horizo?|id-factor-hori?|id-factor-ho?|id-factor-vertical?|id-factor-vertic?|id-factor-vert?|id-factor-ve?|id-snap|id-unit-height-chars?|id-unit-height-cha?|id-unit-height-c|id-unit-height-pixels?|id-unit-height-pixe?|id-unit-height-pi?|id-unit-width-chars?|id-unit-width-cha?|id-unit-width-c|id-unit-width-pixels?|id-unit-width-pixe?|id-unit-width-pi?|id-visible|oup-box))\\b(?![#$\\-_%&])",
       "captures": {
         "1": {
-          "name": "punctuation.separator.colon.abl"
+          "name": "punctuation.accessor.abl"
         },
         "2": {
           "name": "entity.name.function.abl"
@@ -4951,7 +4943,7 @@
       "match": "(?i)(:)(h(?:andler??|as-lobs|as-records|eight-chars?|eight-cha?|eight-c|eight-pixels?|eight-pixe?|eight-pi?|elp|idden|orizontal?|orizont?|orizo?|ori|tml-charset|tml-end-of-line|tml-end-of-page|tml-frame-begin|tml-frame-end|tml-header-begin|tml-header-end|tml-title-begin|tml-title-end|wnd))\\b(?![#$\\-_%&])",
       "captures": {
         "1": {
-          "name": "punctuation.separator.colon.abl"
+          "name": "punctuation.accessor.abl"
         },
         "2": {
           "name": "entity.name.function.abl"
@@ -4962,7 +4954,7 @@
       "match": "(?i)(:)(i(?:cfparameter?|cfparamet?|cfparam|con|gnore-current-modified?|gnore-current-modifi?|gnore-current-modi?|mage|mage-down|mage-insensitive|mage-up|mmediate-display|n-handle|ndex|ndex-information?|ndex-informati?|ndex-informa?|ndex-infor?|nherit-bgcolor?|nherit-bgcol?|nherit-bgc|nherit-fgcolor?|nherit-fgcol?|nherit-fgc|nitial|nner-chars|nner-lines|nput-value|nstantiating-procedure|nternal-entries|s-class?|s-json|s-multi-tenant|s-open|s-parameter-set|s-partitioned?|s-xml|tems-per-row))\\b(?![#$\\-_%&])",
       "captures": {
         "1": {
-          "name": "punctuation.separator.colon.abl"
+          "name": "punctuation.accessor.abl"
         },
         "2": {
           "name": "entity.name.function.abl"
@@ -4973,7 +4965,7 @@
       "match": "(?i)(:)(ke(?:ep-connection-open|ep-frame-z-order?|ep-frame-z-ord?|ep-frame-z-o?|ep-frame-z|ep-security-cache|ys??))\\b(?![#$\\-_%&])",
       "captures": {
         "1": {
-          "name": "punctuation.separator.colon.abl"
+          "name": "punctuation.accessor.abl"
         },
         "2": {
           "name": "entity.name.function.abl"
@@ -4984,7 +4976,7 @@
       "match": "(?i)(:)(l(?:abel|abel-bgcolor?|abel-bgcol?|abel-bgc|abel-dcolor?|abel-dcol?|abel-dc|abel-fgcolor?|abel-fgcol?|abel-fgc|abel-font|abels|abels-have-colons|anguages?|arge|arge-to-small|ast-async-request?|ast-async-reque?|ast-async-req?|ast-async-r?|ast-async|ast-batch|ast-child|ast-form|ast-object|ast-procedure?|ast-procedu?|ast-proce|ast-server-socket|ast-server?|ast-serv|ast-socket|ast-tab-item?|ast-tab-it?|ength|ibrary|ibrary-calling-convention|ine|ist-item-pairs|ist-items|istings|iteral-question|ocal-host|ocal-name|ocal-port|ocal-version-info|ocator-column-number|ocator-line-number|ocator-public-id|ocator-system-id|ocator-type|ocked|og-entry-types|og-threshold|ogfile-name|ogging-level|ogin-expiration-timestamp|ogin-host|ogin-state))\\b(?![#$\\-_%&])",
       "captures": {
         "1": {
-          "name": "punctuation.separator.colon.abl"
+          "name": "punctuation.accessor.abl"
         },
         "2": {
           "name": "entity.name.function.abl"
@@ -4995,7 +4987,7 @@
       "match": "(?i)(:)(m(?:andatory|anual-highlight|ax-button|ax-chars|ax-data-guess|ax-height-chars?|ax-height-cha?|ax-height-c|ax-height-pixels?|ax-height-pixe?|ax-height-pi?|ax-value?|ax-val|ax-width-chars?|ax-width-cha?|ax-width-c|ax-width-pixels?|ax-width-pixe?|ax-width-pi?|aximum-level|enu-bar|enu-key?|enu-k|enu-mouse?|enu-mou?|enu-m|erge-by-field|essage-area|essage-area-font|in-button|in-column-width-chars?|in-column-width-cha?|in-column-width-c|in-column-width-pixels?|in-column-width-pixe?|in-column-width-pi?|in-height-chars?|in-height-cha?|in-height-c|in-height-pixels?|in-height-pixe?|in-height-pi?|in-schema-marshall?|in-value?|in-val|in-width-chars?|in-width-cha?|in-width-c|in-width-pixels?|in-width-pixe?|in-width-pi?|odified|ouse-pointer?|ouse-point?|ouse-poi?|ouse-p|ovable|ulti-compile|ultiple|ultitasking-interval|ust-understand))\\b(?![#$\\-_%&])",
       "captures": {
         "1": {
-          "name": "punctuation.separator.colon.abl"
+          "name": "punctuation.accessor.abl"
         },
         "2": {
           "name": "entity.name.function.abl"
@@ -5006,7 +4998,7 @@
       "match": "(?i)(:)(n(?:ame|amespace-prefix|amespace-uri|eeds-appserver-prompt|eeds-prompt|ested|ew|ew-row|ext-column?|ext-colu?|ext-rowid|ext-sibling|ext-tab-item?|o-current-value|o-empty-space|o-focus|o-schema-marshall?|o-validate?|o-valida?|o-vali?|ode-value|onamespace-schema-location|um-buffers|um-buttons?|um-butto?|um-but|um-child-relations|um-children|um-columns?|um-colum?|um-col|um-dropped-files|um-entries|um-fields|um-formats|um-header-entries|um-items|um-iterations|um-lines|um-locked-columns?|um-locked-colum?|um-locked-col|um-log-files|um-messages|um-parameters|um-references|um-relations|um-replaced?|um-replac?|um-repl|um-results|um-selected-rows|um-selected-widgets|um-source-buffers|um-tabs|um-to-retain|um-top-buffers|um-visible-columns?|um-visible-colum?|um-visible-col|umeric-decimal-point?|umeric-decimal-poi?|umeric-decimal-p?|umeric-decimal?|umeric-decim?|umeric-dec|umeric-format?|umeric-form?|umeric-fo?|umeric-separator?|umeric-separat?|umeric-separ?|umeric-sep))\\b(?![#$\\-_%&])",
       "captures": {
         "1": {
-          "name": "punctuation.separator.colon.abl"
+          "name": "punctuation.accessor.abl"
         },
         "2": {
           "name": "entity.name.function.abl"
@@ -5017,7 +5009,7 @@
       "match": "(?i)(:)(o(?:n-frame-border?|n-frame-bord?|n-frame-bo?|n-frame-?|ptions|rdinal|rigin-handle|rigin-rowid|verlay|wner|wner-document))\\b(?![#$\\-_%&])",
       "captures": {
         "1": {
-          "name": "punctuation.separator.colon.abl"
+          "name": "punctuation.accessor.abl"
         },
         "2": {
           "name": "entity.name.function.abl"
@@ -5028,7 +5020,7 @@
       "match": "(?i)(:)(p(?:age-bottom?|age-bott?|age-top|arameter?|aramet?|aram|arent|arent-buffer|arent-fields-after|arent-fields-before|arent-id-relation|arent-relation?|arent-relati?|arent-rela?|arse-status|assword-field|athname|be-hash-algorithm?|be-hash-algorit?|be-hash-algor?|be-hash-alg|be-key-rounds|ersistent-cache-disabled|ersistent-procedure|ersistent?|ersiste?|fcolor?|fcol?|fc|ixels-per-column?|ixels-per-colu?|ixels-per-row|opup-menu?|opup-me?|opup-only?|opup-on?|osition|refer-dataset|repare-string|repared|rev-column?|rev-colu?|rev-sibling|rev-tab-item?|rev-tab-it?|rimary|rimary-passphrase|rinter-control-handle|rinter-hdc|rinter-name|rinter-port|rivate-data?|rivate-da?|rocedure-name|rocedure-type|rofiling|rogress-source?|rogress-sour?|rogress-so?|roxy|roxy-password|roxy-userid|ublic-id|ublished-events))\\b(?![#$\\-_%&])",
       "captures": {
         "1": {
-          "name": "punctuation.separator.colon.abl"
+          "name": "punctuation.accessor.abl"
         },
         "2": {
           "name": "entity.name.function.abl"
@@ -5039,7 +5031,7 @@
       "match": "(?i)(:)(qu(?:alified-user-id|ery|ery-off-end|it))\\b(?![#$\\-_%&])",
       "captures": {
         "1": {
-          "name": "punctuation.separator.colon.abl"
+          "name": "punctuation.accessor.abl"
         },
         "2": {
           "name": "entity.name.function.abl"
@@ -5050,7 +5042,7 @@
       "match": "(?i)(:)(r(?:adio-buttons|ead-only|ecid|ecord-length?|ecord-leng?|ecursive|efreshable|ejected|elation-fields?|elation-fiel?|elation-fi|elations-active|emote|emote-host|emote-port|eposition|equest-info|esizable?|esizab?|esize|esponse-info|estart-row|estart-rowid|etain-shape?|etain-sha?|etain-s|eturn-inserted?|eturn-insert?|eturn-inse?|eturn-value-data-type|eturn-value-dll-type|eturn-value?|eturn-val|oles??|ounded|ow|ow-height-chars?|ow-height-cha?|ow-height-c|ow-height-pixels?|ow-height-pixe?|ow-height-pi?|ow-markers?|ow-marke?|ow-mar?|ow-resizable|ow-state|owid))\\b(?![#$\\-_%&])",
       "captures": {
         "1": {
-          "name": "punctuation.separator.colon.abl"
+          "name": "punctuation.accessor.abl"
         },
         "2": {
           "name": "entity.name.function.abl"
@@ -5061,7 +5053,7 @@
       "match": "(?i)(:)(s(?:ave-where-string|chema-change|chema-location|chema-marshal|chema-path|creen-lines|creen-value?|creen-val|croll-bars|crollable|crollbar-horizontal?|crollbar-horizont?|crollbar-horizo?|crollbar-hori?|crollbar-ho?|crollbar-vertical?|crollbar-vertic?|crollbar-vert?|crollbar-ve?|eal-timestamp|electable|elected|election-end|election-start|election-text|ensitive|eparator-fgcolor?|eparator-fgcol?|eparator-fgc|eparators|erialize-hidden|erialize-name|erver|erver-connection-bound-request?|erver-connection-bound-reque?|erver-connection-bound-req?|erver-connection-bound?|erver-connection-bou?|erver-connection-context?|erver-connection-conte?|erver-connection-con?|erver-connection-id|erver-operating-mode|ession-end|ession-id|how-in-taskbar?|how-in-taskb?|ide-label-handle?|ide-label-hand?|ide-label-ha?|ide-labels|ignature-value|ingle-run|ingleton|kip-deleted-record?|kip-deleted-reco?|mall-icon|mall-title|oap-fault-actor|oap-fault-code|oap-fault-detail|oap-fault-misunderstood-header|oap-fault-node|oap-fault-role|oap-fault-string|oap-fault-subcode|oap-version|ort|ort-ascending|ort-number|sl-server-name|tandalone|tartup-parameters|tate-detail|tatistics|tatus-area|tatus-area-font|top|top-object|topped?|tream|tretch-to-fit|trict|trict-entity-resolution|ubtype|uper-procedures?|uper-procedur?|uper-proced?|uper-proc|uppress-namespace-processing|uppress-warnings-list|uppress-warnings?|uppress-warnin?|uppress-warn?|uppress-wa?|ymmetric-encryption-aad|ymmetric-encryption-algorithm|ymmetric-encryption-iv|ymmetric-encryption-key|ymmetric-support|ystem-alert-boxes?|ystem-alert-box?|ystem-alert-b?|ystem-alert|ystem-id))\\b(?![#$\\-_%&])",
       "captures": {
         "1": {
-          "name": "punctuation.separator.colon.abl"
+          "name": "punctuation.accessor.abl"
         },
         "2": {
           "name": "entity.name.function.abl"
@@ -5072,7 +5064,7 @@
       "match": "(?i)(:)(t(?:ab-position|ab-stop|able|able-crc-list|able-handle|able-list|able-number?|able-numb?|emp-directory?|emp-directo?|emp-direc?|emp-dir|ext-selected|hread-safe|hree-d|ic-marks|ime-source|imezone|itle|itle-bgcolor?|itle-bgcol?|itle-bgc|itle-dcolor?|itle-dcol?|itle-dc|itle-fgcolor?|itle-fgcol?|itle-fgc|itle-font?|itle-fo|oggle-box|ooltips??|op-nav-query|op-only|race-filter|racing|racking-changes|rans-init-procedure?|rans-init-procedu?|rans-init-proce?|ransaction?|ransacti?|ransparent?|ranspare?|ype))\\b(?![#$\\-_%&])",
       "captures": {
         "1": {
-          "name": "punctuation.separator.colon.abl"
+          "name": "punctuation.accessor.abl"
         },
         "2": {
           "name": "entity.name.function.abl"
@@ -5083,7 +5075,7 @@
       "match": "(?i)(:)(u(?:ndo|ndo-throw-scope|nique-id|nique-match|rl|rl-password|rl-userid|ser-id))\\b(?![#$\\-_%&])",
       "captures": {
         "1": {
-          "name": "punctuation.separator.colon.abl"
+          "name": "punctuation.accessor.abl"
         },
         "2": {
           "name": "entity.name.function.abl"
@@ -5094,7 +5086,7 @@
       "match": "(?i)(:)(v(?:6display|alidate-expression?|alidate-message|alidate-xml|alidation-enabled|alue|ersion|iew-as|iew-first-column-on-reopen|irtual-height-chars?|irtual-height-cha?|irtual-height-c|irtual-height-pixels?|irtual-height-pixe?|irtual-height-pi?|irtual-width-chars?|irtual-width-cha?|irtual-width-c|irtual-width-pixels?|irtual-width-pixe?|irtual-width-pi?|isible))\\b(?![#$\\-_%&])",
       "captures": {
         "1": {
-          "name": "punctuation.separator.colon.abl"
+          "name": "punctuation.accessor.abl"
         },
         "2": {
           "name": "entity.name.function.abl"
@@ -5105,7 +5097,7 @@
       "match": "(?i)(:)(w(?:arning|c-admin-app|here-string|idget-enter?|idget-ent?|idget-e|idget-id|idget-leave?|idget-lea?|idget-l|idth-chars?|idth-cha?|idth-c|idth-pixels?|idth-pixe?|idth-pi?|indow|indow-state?|indow-sta|indow-system?|indow-syst?|ord-wrap|ork-area-height-pixels?|ork-area-height-pixe?|ork-area-height-pi?|ork-area-width-pixels?|ork-area-width-pixe?|ork-area-width-pi?|ork-area-x|ork-area-y|rite-status))\\b(?![#$\\-_%&])",
       "captures": {
         "1": {
-          "name": "punctuation.separator.colon.abl"
+          "name": "punctuation.accessor.abl"
         },
         "2": {
           "name": "entity.name.function.abl"
@@ -5116,7 +5108,7 @@
       "match": "(?i)(:)(x(?:|-document|code-session-key|ml-data-type|ml-entity-expansion-limit|ml-node-name|ml-node-type|ml-schema-path?|ml-strict-entity-resolution|ml-suppress-namespace-processing))\\b(?![#$\\-_%&])",
       "captures": {
         "1": {
-          "name": "punctuation.separator.colon.abl"
+          "name": "punctuation.accessor.abl"
         },
         "2": {
           "name": "entity.name.function.abl"
@@ -5127,7 +5119,7 @@
       "match": "(?i)(:)(y(?:|ear-offset))\\b(?![#$\\-_%&])",
       "captures": {
         "1": {
-          "name": "punctuation.separator.colon.abl"
+          "name": "punctuation.accessor.abl"
         },
         "2": {
           "name": "entity.name.function.abl"
@@ -5196,7 +5188,7 @@
       "begin": "(?i)(:)(a(?:ccept-changes|ccept-row-changes|dd-buffer|dd-calc-column?|dd-calc-colu?|dd-columns-from|dd-events-procedure?|dd-events-procedu?|dd-events-proce?|dd-fields-from|dd-first|dd-header-entry|dd-index-field|dd-last|dd-like-column?|dd-like-colu?|dd-like-field|dd-like-index|dd-new-field|dd-new-index|dd-parent-id-relation|dd-relation?|dd-relati?|dd-rela?|dd-schema-location|dd-source-buffer|dd-super-procedure?|dd-super-procedu?|dd-super-proce?|ppend-child|pply-callback|ttach-data-source|uthentication-failed))\\s*(?=\\()",
       "beginCaptures": {
         "1": {
-          "name": "punctuation.separator.colon.abl"
+          "name": "punctuation.accessor.abl"
         },
         "2": {
           "name": "support.function.abl"
@@ -5218,7 +5210,7 @@
       "begin": "(?i)(:)(b(?:egin-event-group|uffer-compare?|uffer-compa?|uffer-copy|uffer-create|uffer-delete|uffer-export|uffer-export-fields|uffer-field|uffer-import|uffer-import-fields|uffer-release?|uffer-validate|uffer-value))\\s*(?=\\()",
       "beginCaptures": {
         "1": {
-          "name": "punctuation.separator.colon.abl"
+          "name": "punctuation.accessor.abl"
         },
         "2": {
           "name": "support.function.abl"
@@ -5240,7 +5232,7 @@
       "begin": "(?i)(:)(c(?:ancel-break|ancel-requests|ancel-requests-after|lear|lear-appl-context|lear-log|lear-selection?|lear-selecti?|lear-sort-arrows?|lone-node|lose-log|onnect|onnected|onvert-to-offset?|onvert-to-offs|opy-dataset|opy-sax-attributes|opy-temp-table|reate-like|reate-like-sequential|reate-node|reate-node-namespace|reate-result-list-entry|urrent-query))\\s*(?=\\()",
       "beginCaptures": {
         "1": {
-          "name": "punctuation.separator.colon.abl"
+          "name": "punctuation.accessor.abl"
         },
         "2": {
           "name": "support.function.abl"
@@ -5262,7 +5254,7 @@
       "begin": "(?i)(:)(d(?:ebug?|eclare-namespace|elete|elete-char|elete-current-row|elete-header-entry|elete-line|elete-node|elete-result-list-entry|elete-selected-rows??|eselect-focused-row|eselect-rows|eselect-selected-row|etach-data-source|isable|isable-connections|isable-dump-triggers|isable-load-triggers|isconnect?|isconne?|iscon|isplay-message|ump-logging-now))\\s*(?=\\()",
       "beginCaptures": {
         "1": {
-          "name": "punctuation.separator.colon.abl"
+          "name": "punctuation.accessor.abl"
         },
         "2": {
           "name": "support.function.abl"
@@ -5284,7 +5276,7 @@
       "begin": "(?i)(:)(e(?:dit-clear|dit-copy|dit-cut|dit-paste|dit-undo|mpty-dataset|mpty-temp-table|nable|nable-connections|ncode-domain-access-code|ncrypt-audit-mac-key|nd-document|nd-element|nd-event-group|nd-file-drop|ntry|xport|xport-principal))\\s*(?=\\()",
       "beginCaptures": {
         "1": {
-          "name": "punctuation.separator.colon.abl"
+          "name": "punctuation.accessor.abl"
         },
         "2": {
           "name": "support.function.abl"
@@ -5306,7 +5298,7 @@
       "begin": "(?i)(:)(f(?:etch-selected-row|ill|ind-by-rowid|ind-current|ind-first|ind-last|ind-unique|irst-of))\\s*(?=\\()",
       "beginCaptures": {
         "1": {
-          "name": "punctuation.separator.colon.abl"
+          "name": "punctuation.accessor.abl"
         },
         "2": {
           "name": "support.function.abl"
@@ -5328,7 +5320,7 @@
       "begin": "(?i)(:)(get-(?:attribute|attribute-node|binary-data|blue-value?|blue-val?|blue-v?|blue|browse-column?|browse-colu?|buffer-handle|bytes-available|callback-proc-context|callback-proc-name|cgi-list|cgi-long-value|cgi-value|changes|child|child-relation?|child-relati?|child-rela?|client|column|config-value|current?|curre?|dataset-buffer|document-element|dropped-file|dynamic|error-column|error-row|file-name|file-offset?|first?|green-value?|green-val?|green-v?|green|header-entry?|index-by-namespace-name|index-by-qname|iteration|last|localname-by-index|message|message-type|next|node|number|parent|prev|printers|property|qname-by-index|red-value?|red-val?|red-v?|red|relation?|relati?|rela?|repositioned-row|rgb-value?|rgb-val?|rgb-v?|rgb|row|safe-user|selected-widget?|selected-widg?|selected-wi?|selected-?|serialized|signature|socket-option|source-buffer|tab-item|text-height-chars?|text-height-cha?|text-height-c|text-height-pixels?|text-height-pixe?|text-height-pi?|text-width-chars?|text-width-cha?|text-width-c|text-width-pixels?|text-width-pixe?|text-width-pi?|top-buffer|type-by-index|type-by-namespace-name|type-by-qname|uri-by-index|value-by-index|value-by-namespace-name|value-by-qname|wait-state?|wait-sta?|wait-s?|wait))\\s*(?=\\()",
       "beginCaptures": {
         "1": {
-          "name": "punctuation.separator.colon.abl"
+          "name": "punctuation.accessor.abl"
         },
         "2": {
           "name": "support.function.abl"
@@ -5350,7 +5342,7 @@
       "begin": "(?i)(:)(i(?:mport-node|mport-principal|ncrement-exclusive-id|ndex-information?|ndex-informati?|ndex-informa?|ndex-infor?|nitialize|nitialize-document-type|nitiate|nsert|nsert-attribute|nsert-backtab?|nsert-backt?|nsert-bac?|nsert-b|nsert-before|nsert-file|nsert-row|nsert-string|nsert-tab?|nsert-t|nvoke|s-row-selected|s-selected))\\s*(?=\\()",
       "beginCaptures": {
         "1": {
-          "name": "punctuation.separator.colon.abl"
+          "name": "punctuation.accessor.abl"
         },
         "2": {
           "name": "support.function.abl"
@@ -5372,7 +5364,7 @@
       "begin": "(?i)(:)(l(?:ast-of|ist-property-names|oad|oad-domains|oad-icon|oad-image|oad-image-down|oad-image-insensitive|oad-image-up|oad-mouse-pointer?|oad-mouse-point?|oad-mouse-poi?|oad-mouse-p|oad-small-icon|ock-registration|og-audit-event|ogout|ongchar-to-node-value|ookup))\\s*(?=\\()",
       "beginCaptures": {
         "1": {
-          "name": "punctuation.separator.colon.abl"
+          "name": "punctuation.accessor.abl"
         },
         "2": {
           "name": "support.function.abl"
@@ -5394,7 +5386,7 @@
       "begin": "(?i)(:)(m(?:ark-new|ark-row-state|emptr-to-node-value|erge-changes|erge-row-changes|ove-after-tab-item?|ove-after-tab-it?|ove-after-tab-?|ove-after-ta?|ove-after-?|ove-before-tab-item?|ove-before-tab-it?|ove-before-tab-?|ove-before-ta?|ove-before-?|ove-befor|ove-column?|ove-colu?|ove-to-bottom?|ove-to-bott?|ove-to-bo?|ove-to-eof|ove-to-top?|ove-to-t))\\s*(?=\\()",
       "beginCaptures": {
         "1": {
-          "name": "punctuation.separator.colon.abl"
+          "name": "punctuation.accessor.abl"
         },
         "2": {
           "name": "support.function.abl"
@@ -5416,7 +5408,7 @@
       "begin": "(?i)(:)(no(?:de-value-to-longchar|de-value-to-memptr|rmalize))\\s*(?=\\()",
       "beginCaptures": {
         "1": {
-          "name": "punctuation.separator.colon.abl"
+          "name": "punctuation.accessor.abl"
         },
         "2": {
           "name": "support.function.abl"
@@ -5438,7 +5430,7 @@
       "begin": "(?i)(:)(query-(?:close|open|prepare))\\s*(?=\\()",
       "beginCaptures": {
         "1": {
-          "name": "punctuation.separator.colon.abl"
+          "name": "punctuation.accessor.abl"
         },
         "2": {
           "name": "support.function.abl"
@@ -5460,7 +5452,7 @@
       "begin": "(?i)(:)(r(?:aw-transfer|ead|ead-file|ead-json|ead-xml|ead-xmlschema|efresh|efresh-audit-policy|egister-domain|eject-changes|eject-row-changes|emove-attribute|emove-child|emove-events-procedure?|emove-events-procedu?|emove-events-proce?|emove-super-procedure?|emove-super-procedu?|emove-super-proce?|eplace|eplace-child|eplace-selection-text|eposition-to-row|eposition-to-rowid|eset))\\s*(?=\\()",
       "beginCaptures": {
         "1": {
-          "name": "punctuation.separator.colon.abl"
+          "name": "punctuation.accessor.abl"
         },
         "2": {
           "name": "support.function.abl"
@@ -5482,7 +5474,7 @@
       "begin": "(?i)(:)(s(?:ave|ave-file|ave-row-changes|ax-parse|ax-parse-first|ax-parse-next|croll-to-current-row|croll-to-item?|croll-to-it?|croll-to-selected-row|eal|earch|elect-all|elect-focused-row|elect-next-row|elect-prev-row|elect-row|erialize-row|et-actor|et-appl-context|et-attribute|et-attribute-node|et-blue-value?|et-blue-val?|et-blue-v?|et-blue|et-break|et-buffers|et-callback|et-callback-procedure|et-client|et-commit|et-connect-procedure|et-dynamic|et-green-value?|et-green-val?|et-green-v?|et-green|et-input-source|et-must-understand|et-node|et-numeric-format?|et-numeric-form|et-output-destination|et-parameter|et-property|et-read-response-procedure|et-red-value?|et-red-val?|et-red-v?|et-red|et-repositioned-row|et-rgb-value?|et-rgb-val?|et-rgb-v?|et-rgb|et-role|et-rollback|et-safe-user|et-selection|et-serialized|et-socket-option|et-sort-arrow|et-wait-state?|et-wait-sta?|et-wait-s?|et-wait|tart-document|tart-element|top-parsing|tring-value|ynchronize))\\s*(?=\\()",
       "beginCaptures": {
         "1": {
-          "name": "punctuation.separator.colon.abl"
+          "name": "punctuation.accessor.abl"
         },
         "2": {
           "name": "support.function.abl"
@@ -5504,7 +5496,7 @@
       "begin": "(?i)(:)(te(?:mp-table-prepare?|nant-id|nant-name))\\s*(?=\\()",
       "beginCaptures": {
         "1": {
-          "name": "punctuation.separator.colon.abl"
+          "name": "punctuation.accessor.abl"
         },
         "2": {
           "name": "support.function.abl"
@@ -5526,7 +5518,7 @@
       "begin": "(?i)(:)(u(?:pdate-attribute|rl-decode|rl-encode|ser-data))\\s*(?=\\()",
       "beginCaptures": {
         "1": {
-          "name": "punctuation.separator.colon.abl"
+          "name": "punctuation.accessor.abl"
         },
         "2": {
           "name": "support.function.abl"
@@ -5548,7 +5540,7 @@
       "begin": "(?i)(:)(validate(?:|-domain-access-code|-seal))\\s*(?=\\()",
       "beginCaptures": {
         "1": {
-          "name": "punctuation.separator.colon.abl"
+          "name": "punctuation.accessor.abl"
         },
         "2": {
           "name": "support.function.abl"
@@ -5570,7 +5562,7 @@
       "begin": "(?i)(:)(write(?:|-cdata|-characters|-comment|-data|-data-element|-empty-element|-entity-ref|-external-dtd|-fragment|-json|-message|-processing-instruction|-xml|-xmlschema))\\s*(?=\\()",
       "beginCaptures": {
         "1": {
-          "name": "punctuation.separator.colon.abl"
+          "name": "punctuation.accessor.abl"
         },
         "2": {
           "name": "support.function.abl"

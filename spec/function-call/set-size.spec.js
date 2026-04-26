@@ -23,7 +23,7 @@ describe('', () => {
     { "startIndex": 0, "endIndex": 8, "scopes": ["source.abl", "meta.function-call.abl", "support.function.abl"] },  // 'set-size'
     { "startIndex": 8, "endIndex": 9, "scopes": ["source.abl", "meta.function-call.abl", "meta.brace.round.js"] },  // '('
     { "startIndex": 9, "endIndex": 15, "scopes": ["source.abl", "meta.function-call.abl", "variable.other.abl"] },  // 'objref'
-    { "startIndex": 15, "endIndex": 16, "scopes": ["source.abl", "meta.function-call.abl", "punctuation.separator.colon.abl"] },  // ':'
+    { "startIndex": 15, "endIndex": 16, "scopes": ["source.abl", "meta.function-call.abl", "punctuation.accessor.abl"] },  // ':'
     { "startIndex": 16, "endIndex": 21, "scopes": ["source.abl", "meta.function-call.abl", "entity.name.function.abl"] },  // 'Value'
     { "startIndex": 21, "endIndex": 22, "scopes": ["source.abl", "meta.function-call.abl", "meta.brace.round.js"] },  // ')'
     { "startIndex": 22, "endIndex": 23, "scopes": ["source.abl"] },  // ' '
@@ -42,7 +42,7 @@ describe('', () => {
     { "startIndex": 0, "endIndex": 8, "scopes": ["source.abl", "meta.function-call.abl", "support.function.abl"] },  // 'set-size'
     { "startIndex": 8, "endIndex": 9, "scopes": ["source.abl", "meta.function-call.abl", "meta.brace.round.js"] },  // '('
     { "startIndex": 9, "endIndex": 25, "scopes": ["source.abl", "meta.function-call.abl", "entity.name.type.abl"] },  // 'package.sub.type'
-    { "startIndex": 25, "endIndex": 26, "scopes": ["source.abl", "meta.function-call.abl", "punctuation.separator.colon.abl"] },  // ':'
+    { "startIndex": 25, "endIndex": 26, "scopes": ["source.abl", "meta.function-call.abl", "punctuation.accessor.abl"] },  // ':'
     { "startIndex": 26, "endIndex": 31, "scopes": ["source.abl", "meta.function-call.abl", "entity.name.function.abl"] },  // 'Value'
     { "startIndex": 31, "endIndex": 32, "scopes": ["source.abl", "meta.function-call.abl", "meta.brace.round.js"] },  // ')'
     { "startIndex": 32, "endIndex": 33, "scopes": ["source.abl"] },  // ' '
@@ -53,4 +53,3 @@ describe('', () => {
   ];
   shared.itShouldMatchExpectedScopes(statement, expectedTokens);
 })
-

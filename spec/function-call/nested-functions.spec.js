@@ -54,7 +54,7 @@ describe('', () => {
     [
       { "startIndex": 0, "endIndex": 17, "scopes": ["source.abl", "meta.function.arguments.abl"] },  // '                 '
       { "startIndex": 17, "endIndex": 37, "scopes": ["source.abl", "meta.function.arguments.abl", "entity.name.type.abl"] },  // 'Consultingwerk.Const'
-      { "startIndex": 37, "endIndex": 38, "scopes": ["source.abl", "meta.function.arguments.abl", "punctuation.separator.colon.abl"] },  // ':'
+      { "startIndex": 37, "endIndex": 38, "scopes": ["source.abl", "meta.function.arguments.abl", "punctuation.accessor.abl"] },  // ':'
       { "startIndex": 38, "endIndex": 42, "scopes": ["source.abl", "meta.function.arguments.abl", "entity.name.function.abl"] },  // 'CRLF'
       { "startIndex": 42, "endIndex": 43, "scopes": ["source.abl", "meta.brace.round.js"] },  // ')'
       { "startIndex": 43, "endIndex": 44, "scopes": ["source.abl", "punctuation.terminator.abl"] }  // '.'
@@ -77,7 +77,7 @@ describe('', () => {
       { "startIndex": 18, "endIndex": 19, "scopes": ["source.abl", "keyword.operator.source.abl"] },  // '='
       { "startIndex": 19, "endIndex": 20, "scopes": ["source.abl"] },  // ' '
       { "startIndex": 20, "endIndex": 31, "scopes": ["source.abl", "variable.other.abl"] },  // 'QueryHelper'
-      { "startIndex": 31, "endIndex": 32, "scopes": ["source.abl", "punctuation.separator.colon.abl"] },  // ':'
+      { "startIndex": 31, "endIndex": 32, "scopes": ["source.abl", "punctuation.accessor.abl"] },  // ':'
       { "startIndex": 32, "endIndex": 57, "scopes": ["source.abl", "entity.name.function.abl"] },  // 'InsertExpressionForBuffer'
       { "startIndex": 57, "endIndex": 58, "scopes": ["source.abl", "meta.function.arguments.abl", "meta.brace.round.js"] },  // '('
       { "startIndex": 58, "endIndex": 66, "scopes": ["source.abl", "meta.function.arguments.abl", "variable.other.abl"] },  // 'cDbQuery'

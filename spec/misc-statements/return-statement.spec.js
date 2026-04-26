@@ -45,7 +45,7 @@ describe('', () => {
     { "startIndex": 0, "endIndex": 6, "scopes": ["source.abl", "support.function.abl"] },  // 'RETURN'
     { "startIndex": 6, "endIndex": 7, "scopes": ["source.abl"] },  // ' '
     { "startIndex": 7, "endIndex": 14, "scopes": ["source.abl", "variable.language.abl"] },  // 'session'
-    { "startIndex": 14, "endIndex": 15, "scopes": ["source.abl", "punctuation.separator.colon.abl"] },  // ':'
+    { "startIndex": 14, "endIndex": 15, "scopes": ["source.abl", "punctuation.accessor.abl"] },  // ':'
     { "startIndex": 15, "endIndex": 24, "scopes": ["source.abl", "entity.name.function.abl"] },  // 'exit-code'
     { "startIndex": 24, "endIndex": 25, "scopes": ["source.abl", "punctuation.terminator.abl"] }  // '.'
   ];

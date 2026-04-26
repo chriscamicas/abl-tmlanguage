@@ -21,9 +21,9 @@ end method.`;
     [
       { "startIndex": 0, "endIndex": 2, "scopes": ["source.abl"] },  // '  '
       { "startIndex": 2, "endIndex": 13, "scopes": ["source.abl", "variable.other.abl"] },  // 'oController'
-      { "startIndex": 13, "endIndex": 14, "scopes": ["source.abl", "punctuation.separator.colon.abl"] },  // ':'
+      { "startIndex": 13, "endIndex": 14, "scopes": ["source.abl", "punctuation.accessor.abl"] },  // ':'
       { "startIndex": 14, "endIndex": 26, "scopes": ["source.abl", "entity.name.function.abl"] },  // 'NewEventName'
-      { "startIndex": 26, "endIndex": 27, "scopes": ["source.abl", "punctuation.separator.colon.abl"] },  // ':'
+      { "startIndex": 26, "endIndex": 27, "scopes": ["source.abl", "punctuation.accessor.abl"] },  // ':'
       { "startIndex": 27, "endIndex": 36, "scopes": ["source.abl", "entity.name.function.abl"] },  // 'Subscribe'
       { "startIndex": 36, "endIndex": 37, "scopes": ["source.abl", "meta.brace.round.js"] },  // '('
       { "startIndex": 37, "endIndex": 56, "scopes": ["source.abl", "entity.name.function.abl"] },  // 'NewEventNameHandler'
@@ -44,9 +44,9 @@ describe('', () => {
   let statement = `oController:NewTempTableAdded:Subscribe(hProc ,  ipName).`;
   let expectedTokens = [
     { "startIndex": 0, "endIndex": 11, "scopes": ["source.abl", "variable.other.abl"] },  // 'oController'
-    { "startIndex": 11, "endIndex": 12, "scopes": ["source.abl", "punctuation.separator.colon.abl"] },  // ':'
+    { "startIndex": 11, "endIndex": 12, "scopes": ["source.abl", "punctuation.accessor.abl"] },  // ':'
     { "startIndex": 12, "endIndex": 29, "scopes": ["source.abl", "entity.name.function.abl"] },  // 'NewTempTableAdded'
-    { "startIndex": 29, "endIndex": 30, "scopes": ["source.abl", "punctuation.separator.colon.abl"] },  // ':'
+    { "startIndex": 29, "endIndex": 30, "scopes": ["source.abl", "punctuation.accessor.abl"] },  // ':'
     { "startIndex": 30, "endIndex": 39, "scopes": ["source.abl", "entity.name.function.abl"] },  // 'Subscribe'
     { "startIndex": 39, "endIndex": 40, "scopes": ["source.abl", "meta.brace.round.js"] },  // '('
     { "startIndex": 40, "endIndex": 45, "scopes": ["source.abl", "variable.other.abl"] },  // 'hProc'
@@ -64,9 +64,9 @@ describe('', () => {
   let statement = `oController:NewTempTableAdded:Subscribe(hProc ,  "ipName").`;
   let expectedTokens = [
     { "startIndex": 0, "endIndex": 11, "scopes": ["source.abl", "variable.other.abl"] },  // 'oController'
-    { "startIndex": 11, "endIndex": 12, "scopes": ["source.abl", "punctuation.separator.colon.abl"] },  // ':'
+    { "startIndex": 11, "endIndex": 12, "scopes": ["source.abl", "punctuation.accessor.abl"] },  // ':'
     { "startIndex": 12, "endIndex": 29, "scopes": ["source.abl", "entity.name.function.abl"] },  // 'NewTempTableAdded'
-    { "startIndex": 29, "endIndex": 30, "scopes": ["source.abl", "punctuation.separator.colon.abl"] },  // ':'
+    { "startIndex": 29, "endIndex": 30, "scopes": ["source.abl", "punctuation.accessor.abl"] },  // ':'
     { "startIndex": 30, "endIndex": 39, "scopes": ["source.abl", "entity.name.function.abl"] },  // 'Subscribe'
     { "startIndex": 39, "endIndex": 40, "scopes": ["source.abl", "meta.brace.round.js"] },  // '('
     { "startIndex": 40, "endIndex": 45, "scopes": ["source.abl", "variable.other.abl"] },  // 'hProc'
@@ -86,9 +86,9 @@ describe('', () => {
   let statement = `oController:NewTempTableAdded:Subscribe(NewTempTableAddedHandler).`;
   let expectedTokens = [
     { "startIndex": 0, "endIndex": 11, "scopes": ["source.abl", "variable.other.abl"] },  // 'oController'
-    { "startIndex": 11, "endIndex": 12, "scopes": ["source.abl", "punctuation.separator.colon.abl"] },  // ':'
+    { "startIndex": 11, "endIndex": 12, "scopes": ["source.abl", "punctuation.accessor.abl"] },  // ':'
     { "startIndex": 12, "endIndex": 29, "scopes": ["source.abl", "entity.name.function.abl"] },  // 'NewTempTableAdded'
-    { "startIndex": 29, "endIndex": 30, "scopes": ["source.abl", "punctuation.separator.colon.abl"] },  // ':'
+    { "startIndex": 29, "endIndex": 30, "scopes": ["source.abl", "punctuation.accessor.abl"] },  // ':'
     { "startIndex": 30, "endIndex": 39, "scopes": ["source.abl", "entity.name.function.abl"] },  // 'Subscribe'
     { "startIndex": 39, "endIndex": 40, "scopes": ["source.abl", "meta.brace.round.js"] },  // '('
     { "startIndex": 40, "endIndex": 64, "scopes": ["source.abl", "entity.name.function.abl"] },  // 'NewTempTableAddedHandler'
@@ -102,9 +102,9 @@ describe('', () => {
   let statement = `oController:NewTempTableAdded:Subscribe('NewTempTableAddedHandler':u ).`;
   let expectedTokens = [
     { "startIndex": 0, "endIndex": 11, "scopes": ["source.abl", "variable.other.abl"] },  // 'oController'
-    { "startIndex": 11, "endIndex": 12, "scopes": ["source.abl", "punctuation.separator.colon.abl"] },  // ':'
+    { "startIndex": 11, "endIndex": 12, "scopes": ["source.abl", "punctuation.accessor.abl"] },  // ':'
     { "startIndex": 12, "endIndex": 29, "scopes": ["source.abl", "entity.name.function.abl"] },  // 'NewTempTableAdded'
-    { "startIndex": 29, "endIndex": 30, "scopes": ["source.abl", "punctuation.separator.colon.abl"] },  // ':'
+    { "startIndex": 29, "endIndex": 30, "scopes": ["source.abl", "punctuation.accessor.abl"] },  // ':'
     { "startIndex": 30, "endIndex": 39, "scopes": ["source.abl", "entity.name.function.abl"] },  // 'Subscribe'
     { "startIndex": 39, "endIndex": 40, "scopes": ["source.abl", "meta.brace.round.js"] },  // '('
     { "startIndex": 40, "endIndex": 41, "scopes": ["source.abl", "string.quoted.single.abl", "punctuation.definition.string.begin.abl"] },  // '''
@@ -122,13 +122,13 @@ describe('', () => {
   let statement = `oController:NewTempTableAdded:Subscribe(objRef:NewTempTableAddedHandler).`;
   let expectedTokens = [
     { "startIndex": 0, "endIndex": 11, "scopes": ["source.abl", "variable.other.abl"] },  // 'oController'
-    { "startIndex": 11, "endIndex": 12, "scopes": ["source.abl", "punctuation.separator.colon.abl"] },  // ':'
+    { "startIndex": 11, "endIndex": 12, "scopes": ["source.abl", "punctuation.accessor.abl"] },  // ':'
     { "startIndex": 12, "endIndex": 29, "scopes": ["source.abl", "entity.name.function.abl"] },  // 'NewTempTableAdded'
-    { "startIndex": 29, "endIndex": 30, "scopes": ["source.abl", "punctuation.separator.colon.abl"] },  // ':'
+    { "startIndex": 29, "endIndex": 30, "scopes": ["source.abl", "punctuation.accessor.abl"] },  // ':'
     { "startIndex": 30, "endIndex": 39, "scopes": ["source.abl", "entity.name.function.abl"] },  // 'Subscribe'
     { "startIndex": 39, "endIndex": 40, "scopes": ["source.abl", "meta.brace.round.js"] },  // '('
     { "startIndex": 40, "endIndex": 46, "scopes": ["source.abl", "variable.other.abl"] },  // 'objRef'
-    { "startIndex": 46, "endIndex": 47, "scopes": ["source.abl", "punctuation.separator.colon.abl"] },  // ':'
+    { "startIndex": 46, "endIndex": 47, "scopes": ["source.abl", "punctuation.accessor.abl"] },  // ':'
     { "startIndex": 47, "endIndex": 71, "scopes": ["source.abl", "entity.name.function.abl"] },  // 'NewTempTableAddedHandler'
     { "startIndex": 71, "endIndex": 72, "scopes": ["source.abl", "meta.brace.round.js"] },  // ')'
     { "startIndex": 72, "endIndex": 73, "scopes": ["source.abl", "punctuation.terminator.abl"] }  // '.'
@@ -140,13 +140,13 @@ describe('', () => {
   let statement = `oRef:NewTempTableAdded:Subscribe(Package.Sub.Class:NewTempTableAddedHandler).`;
   let expectedTokens = [
     { "startIndex": 0, "endIndex": 4, "scopes": ["source.abl", "variable.other.abl"] },  // 'oRef'
-    { "startIndex": 4, "endIndex": 5, "scopes": ["source.abl", "punctuation.separator.colon.abl"] },  // ':'
+    { "startIndex": 4, "endIndex": 5, "scopes": ["source.abl", "punctuation.accessor.abl"] },  // ':'
     { "startIndex": 5, "endIndex": 22, "scopes": ["source.abl", "entity.name.function.abl"] },  // 'NewTempTableAdded'
-    { "startIndex": 22, "endIndex": 23, "scopes": ["source.abl", "punctuation.separator.colon.abl"] },  // ':'
+    { "startIndex": 22, "endIndex": 23, "scopes": ["source.abl", "punctuation.accessor.abl"] },  // ':'
     { "startIndex": 23, "endIndex": 32, "scopes": ["source.abl", "entity.name.function.abl"] },  // 'Subscribe'
     { "startIndex": 32, "endIndex": 33, "scopes": ["source.abl", "meta.brace.round.js"] },  // '('
     { "startIndex": 33, "endIndex": 50, "scopes": ["source.abl", "entity.name.type.abl"] },  // 'Package.Sub.Class'
-    { "startIndex": 50, "endIndex": 51, "scopes": ["source.abl", "punctuation.separator.colon.abl"] },  // ':'
+    { "startIndex": 50, "endIndex": 51, "scopes": ["source.abl", "punctuation.accessor.abl"] },  // ':'
     { "startIndex": 51, "endIndex": 75, "scopes": ["source.abl", "entity.name.function.abl"] },  // 'NewTempTableAddedHandler'
     { "startIndex": 75, "endIndex": 76, "scopes": ["source.abl", "meta.brace.round.js"] },  // ')'
     { "startIndex": 76, "endIndex": 77, "scopes": ["source.abl", "punctuation.terminator.abl"] }  // '.'
@@ -174,9 +174,9 @@ end method.`;
     [
       { "startIndex": 0, "endIndex": 2, "scopes": ["source.abl"] },  // '  '
       { "startIndex": 2, "endIndex": 13, "scopes": ["source.abl", "variable.other.abl"] },  // 'oController'
-      { "startIndex": 13, "endIndex": 14, "scopes": ["source.abl", "punctuation.separator.colon.abl"] },  // ':'
+      { "startIndex": 13, "endIndex": 14, "scopes": ["source.abl", "punctuation.accessor.abl"] },  // ':'
       { "startIndex": 14, "endIndex": 26, "scopes": ["source.abl", "entity.name.function.abl"] },  // 'NewEventName'
-      { "startIndex": 26, "endIndex": 27, "scopes": ["source.abl", "punctuation.separator.colon.abl"] },  // ':'
+      { "startIndex": 26, "endIndex": 27, "scopes": ["source.abl", "punctuation.accessor.abl"] },  // ':'
       { "startIndex": 27, "endIndex": 38, "scopes": ["source.abl", "entity.name.function.abl"] },  // 'UnSubscribe'
       { "startIndex": 38, "endIndex": 39, "scopes": ["source.abl", "meta.brace.round.js"] },  // '('
       { "startIndex": 39, "endIndex": 58, "scopes": ["source.abl", "entity.name.function.abl"] },  // 'NewEventNameHandler'
@@ -197,9 +197,9 @@ describe('', () => {
   let statement = `oController:NewTempTableAdded:Unsubscribe(hProc ,  ipName).`;
   let expectedTokens = [
     { "startIndex": 0, "endIndex": 11, "scopes": ["source.abl", "variable.other.abl"] },  // 'oController'
-    { "startIndex": 11, "endIndex": 12, "scopes": ["source.abl", "punctuation.separator.colon.abl"] },  // ':'
+    { "startIndex": 11, "endIndex": 12, "scopes": ["source.abl", "punctuation.accessor.abl"] },  // ':'
     { "startIndex": 12, "endIndex": 29, "scopes": ["source.abl", "entity.name.function.abl"] },  // 'NewTempTableAdded'
-    { "startIndex": 29, "endIndex": 30, "scopes": ["source.abl", "punctuation.separator.colon.abl"] },  // ':'
+    { "startIndex": 29, "endIndex": 30, "scopes": ["source.abl", "punctuation.accessor.abl"] },  // ':'
     { "startIndex": 30, "endIndex": 41, "scopes": ["source.abl", "entity.name.function.abl"] },  // 'Unsubscribe'
     { "startIndex": 41, "endIndex": 42, "scopes": ["source.abl", "meta.brace.round.js"] },  // '('
     { "startIndex": 42, "endIndex": 47, "scopes": ["source.abl", "variable.other.abl"] },  // 'hProc'
@@ -217,9 +217,9 @@ describe('', () => {
   let statement = `oController:NewTempTableAdded:Unsubscribe(hProc ,  "ipName").`;
   let expectedTokens = [
     { "startIndex": 0, "endIndex": 11, "scopes": ["source.abl", "variable.other.abl"] },  // 'oController'
-    { "startIndex": 11, "endIndex": 12, "scopes": ["source.abl", "punctuation.separator.colon.abl"] },  // ':'
+    { "startIndex": 11, "endIndex": 12, "scopes": ["source.abl", "punctuation.accessor.abl"] },  // ':'
     { "startIndex": 12, "endIndex": 29, "scopes": ["source.abl", "entity.name.function.abl"] },  // 'NewTempTableAdded'
-    { "startIndex": 29, "endIndex": 30, "scopes": ["source.abl", "punctuation.separator.colon.abl"] },  // ':'
+    { "startIndex": 29, "endIndex": 30, "scopes": ["source.abl", "punctuation.accessor.abl"] },  // ':'
     { "startIndex": 30, "endIndex": 41, "scopes": ["source.abl", "entity.name.function.abl"] },  // 'Unsubscribe'
     { "startIndex": 41, "endIndex": 42, "scopes": ["source.abl", "meta.brace.round.js"] },  // '('
     { "startIndex": 42, "endIndex": 47, "scopes": ["source.abl", "variable.other.abl"] },  // 'hProc'
@@ -239,9 +239,9 @@ describe('', () => {
   let statement = `oController:NewTempTableAdded:Unsubscribe(NewTempTableAddedHandler).`;
   let expectedTokens = [
     { "startIndex": 0, "endIndex": 11, "scopes": ["source.abl", "variable.other.abl"] },  // 'oController'
-    { "startIndex": 11, "endIndex": 12, "scopes": ["source.abl", "punctuation.separator.colon.abl"] },  // ':'
+    { "startIndex": 11, "endIndex": 12, "scopes": ["source.abl", "punctuation.accessor.abl"] },  // ':'
     { "startIndex": 12, "endIndex": 29, "scopes": ["source.abl", "entity.name.function.abl"] },  // 'NewTempTableAdded'
-    { "startIndex": 29, "endIndex": 30, "scopes": ["source.abl", "punctuation.separator.colon.abl"] },  // ':'
+    { "startIndex": 29, "endIndex": 30, "scopes": ["source.abl", "punctuation.accessor.abl"] },  // ':'
     { "startIndex": 30, "endIndex": 41, "scopes": ["source.abl", "entity.name.function.abl"] },  // 'Unsubscribe'
     { "startIndex": 41, "endIndex": 42, "scopes": ["source.abl", "meta.brace.round.js"] },  // '('
     { "startIndex": 42, "endIndex": 66, "scopes": ["source.abl", "entity.name.function.abl"] },  // 'NewTempTableAddedHandler'
@@ -255,9 +255,9 @@ describe('', () => {
   let statement = `oController:NewTempTableAdded:Unsubscribe('NewTempTableAddedHandler':u ).`;
   let expectedTokens = [
     { "startIndex": 0, "endIndex": 11, "scopes": ["source.abl", "variable.other.abl"] },  // 'oController'
-    { "startIndex": 11, "endIndex": 12, "scopes": ["source.abl", "punctuation.separator.colon.abl"] },  // ':'
+    { "startIndex": 11, "endIndex": 12, "scopes": ["source.abl", "punctuation.accessor.abl"] },  // ':'
     { "startIndex": 12, "endIndex": 29, "scopes": ["source.abl", "entity.name.function.abl"] },  // 'NewTempTableAdded'
-    { "startIndex": 29, "endIndex": 30, "scopes": ["source.abl", "punctuation.separator.colon.abl"] },  // ':'
+    { "startIndex": 29, "endIndex": 30, "scopes": ["source.abl", "punctuation.accessor.abl"] },  // ':'
     { "startIndex": 30, "endIndex": 41, "scopes": ["source.abl", "entity.name.function.abl"] },  // 'Unsubscribe'
     { "startIndex": 41, "endIndex": 42, "scopes": ["source.abl", "meta.brace.round.js"] },  // '('
     { "startIndex": 42, "endIndex": 43, "scopes": ["source.abl", "string.quoted.single.abl", "punctuation.definition.string.begin.abl"] },  // '''
@@ -275,13 +275,13 @@ describe('', () => {
   let statement = `oController:NewTempTableAdded:Unsubscribe(objRef:NewTempTableAddedHandler).`;
   let expectedTokens = [
     { "startIndex": 0, "endIndex": 11, "scopes": ["source.abl", "variable.other.abl"] },  // 'oController'
-    { "startIndex": 11, "endIndex": 12, "scopes": ["source.abl", "punctuation.separator.colon.abl"] },  // ':'
+    { "startIndex": 11, "endIndex": 12, "scopes": ["source.abl", "punctuation.accessor.abl"] },  // ':'
     { "startIndex": 12, "endIndex": 29, "scopes": ["source.abl", "entity.name.function.abl"] },  // 'NewTempTableAdded'
-    { "startIndex": 29, "endIndex": 30, "scopes": ["source.abl", "punctuation.separator.colon.abl"] },  // ':'
+    { "startIndex": 29, "endIndex": 30, "scopes": ["source.abl", "punctuation.accessor.abl"] },  // ':'
     { "startIndex": 30, "endIndex": 41, "scopes": ["source.abl", "entity.name.function.abl"] },  // 'Unsubscribe'
     { "startIndex": 41, "endIndex": 42, "scopes": ["source.abl", "meta.brace.round.js"] },  // '('
     { "startIndex": 42, "endIndex": 48, "scopes": ["source.abl", "variable.other.abl"] },  // 'objRef'
-    { "startIndex": 48, "endIndex": 49, "scopes": ["source.abl", "punctuation.separator.colon.abl"] },  // ':'
+    { "startIndex": 48, "endIndex": 49, "scopes": ["source.abl", "punctuation.accessor.abl"] },  // ':'
     { "startIndex": 49, "endIndex": 73, "scopes": ["source.abl", "entity.name.function.abl"] },  // 'NewTempTableAddedHandler'
     { "startIndex": 73, "endIndex": 74, "scopes": ["source.abl", "meta.brace.round.js"] },  // ')'
     { "startIndex": 74, "endIndex": 75, "scopes": ["source.abl", "punctuation.terminator.abl"] }  // '.'
@@ -293,13 +293,13 @@ describe('', () => {
   let statement = `oRef:NewTempTableAdded:Unsubscribe(Package.Sub.Class:NewTempTableAddedHandler).`;
   let expectedTokens = [
     { "startIndex": 0, "endIndex": 4, "scopes": ["source.abl", "variable.other.abl"] },  // 'oRef'
-    { "startIndex": 4, "endIndex": 5, "scopes": ["source.abl", "punctuation.separator.colon.abl"] },  // ':'
+    { "startIndex": 4, "endIndex": 5, "scopes": ["source.abl", "punctuation.accessor.abl"] },  // ':'
     { "startIndex": 5, "endIndex": 22, "scopes": ["source.abl", "entity.name.function.abl"] },  // 'NewTempTableAdded'
-    { "startIndex": 22, "endIndex": 23, "scopes": ["source.abl", "punctuation.separator.colon.abl"] },  // ':'
+    { "startIndex": 22, "endIndex": 23, "scopes": ["source.abl", "punctuation.accessor.abl"] },  // ':'
     { "startIndex": 23, "endIndex": 34, "scopes": ["source.abl", "entity.name.function.abl"] },  // 'Unsubscribe'
     { "startIndex": 34, "endIndex": 35, "scopes": ["source.abl", "meta.brace.round.js"] },  // '('
     { "startIndex": 35, "endIndex": 52, "scopes": ["source.abl", "entity.name.type.abl"] },  // 'Package.Sub.Class'
-    { "startIndex": 52, "endIndex": 53, "scopes": ["source.abl", "punctuation.separator.colon.abl"] },  // ':'
+    { "startIndex": 52, "endIndex": 53, "scopes": ["source.abl", "punctuation.accessor.abl"] },  // ':'
     { "startIndex": 53, "endIndex": 77, "scopes": ["source.abl", "entity.name.function.abl"] },  // 'NewTempTableAddedHandler'
     { "startIndex": 77, "endIndex": 78, "scopes": ["source.abl", "meta.brace.round.js"] },  // ')'
     { "startIndex": 78, "endIndex": 79, "scopes": ["source.abl", "punctuation.terminator.abl"] }  // '.'

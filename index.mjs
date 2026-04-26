@@ -186,6 +186,13 @@ noParameterFunctions.push('today');
 noParameterFunctions.push('transaction');
 noParameterFunctions.push('userid');
 
+// turn noParameterFunctions into an alphabetically-sorted array
+let noParameterFunctionBlocks = [[], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], []];
+for (var zz = 0; zz < noParameterFunctions.length; zz++) {
+  let charIdx = noParameterFunctions[zz].charCodeAt(0) - 97;
+  noParameterFunctionBlocks[charIdx].push(noParameterFunctions[zz]);
+}
+
 let alsoKeywords = [];
 alsoKeywords.push('get-collation'); //plural version as key
 
@@ -343,7 +350,8 @@ function addToBlock(charIdx, fullKw, minKw, kwRegex) {
   if (!attributeBlocks[charIdx].includes(fullKw) &&
     !methodBlocks[charIdx].includes(fullKw) &&
     !functionBlocks[charIdx].includes(fullKw) &&
-    !keywordBlocks[charIdx].includes(fullKw)) {
+    !keywordBlocks[charIdx].includes(fullKw) &&
+    !noParameterFunctionBlocks[charIdx].includes(fullKw)) {
     keywordBlocks[charIdx].push(fullKw);
   }
 
@@ -405,7 +413,7 @@ lineReaderFunctions.on('close', () => {
         match: "(?i)(:)(" + replaceKeywordsWithRegex(attributeBlocks[zz]) + ")\\b(?![#$\\-_%&])",
         captures: {
           1: {
-            name: "punctuation.separator.colon.abl"
+            name: "punctuation.accessor.abl"
           },
           2: {
             name: "entity.name.function.abl"
@@ -426,7 +434,7 @@ lineReaderFunctions.on('close', () => {
         begin: "(?i)(:)(" + replaceKeywordsWithRegex(methodBlocks[zz]) + ")\\s*(?=\\()",
         beginCaptures: {
           1: {
-            name: "punctuation.separator.colon.abl"
+            name: "punctuation.accessor.abl"
           },
           2: {
             name: "support.function.abl"
@@ -449,13 +457,6 @@ lineReaderFunctions.on('close', () => {
 
   result['abl-functions'] = { patterns: [] }
 
-  // turn noParameterFunctions into an alphabetically-sorted array
-  let noParameterFunctionBlocks = [[], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], []];
-  for (var zz = 0; zz < noParameterFunctions.length; zz++) {
-    let charIdx = noParameterFunctions[zz].charCodeAt(0) - 97;
-    noParameterFunctionBlocks[charIdx].push(noParameterFunctions[zz]);
-  }
-
   for (var zz = 0; zz < 26; zz++) {
 
     if (functionBlocks[zz].length > 0) {
@@ -465,9 +466,9 @@ lineReaderFunctions.on('close', () => {
       {
         begin: "(?i)\\s*(" + replaceKeywordsWithRegex(functionBlocks[zz]) + ")\\s*(?=\\()",
         beginCaptures: {
-              1: {
-                name: "support.function.abl"
-              }
+          1: {
+            name: "support.function.abl"
+          }
         },
         end: "(\\))",
         endCaptures: {
@@ -502,7 +503,8 @@ lineReaderFunctions.on('close', () => {
 
   result['abl-functions'].patterns.push({
     comment: "ABL functions that can be called without parentheses. Some functions have optional arguments, some are never called with parens",
-    patterns: npfb});
+    patterns: npfb
+  });
 
   fs.writeFileSync(output, JSON.stringify(result, undefined, 4));
 })
