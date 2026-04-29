@@ -1,3 +1,9 @@
+1.3.30
+======
+
+- ✨ Change colons used for property/method/attribute calls to punctuation.accessor.abl scopes
+- 🐛 Scope RETURN strings correctly (vscode-abl/vscode-abl#537)
+
 1.3.29
 ======
 
