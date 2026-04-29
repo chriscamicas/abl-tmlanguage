@@ -3213,35 +3213,24 @@
       "match": "(~)\\s*$",
       "captures": {
         "1": {
-          "name": "punctuation.separator.continuation"
+          "name": "punctuation.separator.continuation.abl"
         }
       }
     },
     "branch-return-value-double": {
       "comment": "RETURN \"return-value\"",
-      "begin": "(?i)\\s*(return)(\\s+(error))?\\s+(\")",
-      "beginCaptures": {
+      "match": "(?i)\\s*(return)(\\s+(error))?\\s+(?=\")",
+      "captures": {
         "1": {
-          "name": "keyword.other.abl"
-        },
-        "2": {
           "name": "keyword.other.abl"
         },
         "3": {
+          "name": "keyword.other.abl"
+        },
+        "4": {
           "name": "punctuation.definition.string.begin.abl"
         }
-      },
-      "end": "(\")",
-      "endCaptures": {
-        "1": {
-          "name": "punctuation.definition.string.end.abl"
-        }
-      },
-      "patterns": [
-        {
-          "include": "#escape-char"
-        }
-      ]
+      }
     },
     "branch-return-no-apply": {
       "comment": "RETURN NO-APPLY",

@@ -99,7 +99,7 @@ The ABL-specific scopes produced by the ABL grammar listed in the table below. T
 |punctuation.definition.string.end.abl            | Closing `"` or `'` of a quoted string |
 |punctuation.section.abl                          | `{` and `}` |
 |punctuation.separator.comma.abl                  | `,` |
-|punctuation.separator.continuation               |  `~` at the end of a line (preprocessor) |
+|punctuation.separator.continuation.abl           |  `~` at the end of a line (preprocessor) |
 |punctuation.separator.period.abl                 | `.` |
 |punctuation.terminator.abl                       | `.` and `:` |
 |storage.data.database.abl                        | Statically-defined database names, e.g.in the `create alias` statement |
