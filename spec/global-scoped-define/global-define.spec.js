@@ -21,7 +21,7 @@ SOMETHING value`;
     [
       { "startIndex": 0, "endIndex": 1, "scopes": ["source.abl", "meta.preprocessor.abl", "punctuation.definition.preprocessor.abl"] },  // '&'
       { "startIndex": 1, "endIndex": 14, "scopes": ["source.abl", "meta.preprocessor.abl", "keyword.control.directive.define.abl"] },  // 'global-define'
-      { "startIndex": 14, "endIndex": 15, "scopes": ["source.abl", "meta.preprocessor.abl", "punctuation.separator.continuation"] }  // '~'
+      { "startIndex": 14, "endIndex": 15, "scopes": ["source.abl", "meta.preprocessor.abl", "punctuation.separator.continuation.abl"] }  // '~'
     ],
     [
       { "startIndex": 0, "endIndex": 9, "scopes": ["source.abl", "meta.preprocessor.abl", "entity.name.function.preprocessor.abl"] },  // 'SOMETHING'
@@ -42,19 +42,19 @@ done`;
     [
       { "startIndex": 0, "endIndex": 1, "scopes": ["source.abl", "meta.preprocessor.abl", "punctuation.definition.preprocessor.abl"] },  // '&'
       { "startIndex": 1, "endIndex": 14, "scopes": ["source.abl", "meta.preprocessor.abl", "keyword.control.directive.define.abl"] },  // 'global-define'
-      { "startIndex": 14, "endIndex": 15, "scopes": ["source.abl", "meta.preprocessor.abl", "punctuation.separator.continuation"] }  // '~'
+      { "startIndex": 14, "endIndex": 15, "scopes": ["source.abl", "meta.preprocessor.abl", "punctuation.separator.continuation.abl"] }  // '~'
     ],
     [
       { "startIndex": 0, "endIndex": 9, "scopes": ["source.abl", "meta.preprocessor.abl", "entity.name.function.preprocessor.abl"] },  // 'SOMETHING'
       { "startIndex": 9, "endIndex": 10, "scopes": ["source.abl", "meta.preprocessor.abl"] },  // ' '
       { "startIndex": 10, "endIndex": 15, "scopes": ["source.abl", "keyword.other.abl"] },  // 'value'
-      { "startIndex": 15, "endIndex": 16, "scopes": ["source.abl", "punctuation.separator.continuation"] }  // '~'
+      { "startIndex": 15, "endIndex": 16, "scopes": ["source.abl", "punctuation.separator.continuation.abl"] }  // '~'
     ],
     [
       { "startIndex": 0, "endIndex": 4, "scopes": ["source.abl", "variable.other.abl"] },  // 'more'
       { "startIndex": 4, "endIndex": 5, "scopes": ["source.abl"] },  // ' '
       { "startIndex": 5, "endIndex": 10, "scopes": ["source.abl", "keyword.other.abl"] },  // 'value'
-      { "startIndex": 10, "endIndex": 11, "scopes": ["source.abl", "punctuation.separator.continuation"] }  // '~'
+      { "startIndex": 10, "endIndex": 11, "scopes": ["source.abl", "punctuation.separator.continuation.abl"] }  // '~'
     ],
     [
       { "startIndex": 0, "endIndex": 4, "scopes": ["source.abl", "variable.other.abl"] }  // 'done'

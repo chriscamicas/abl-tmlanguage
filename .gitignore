@@ -4,3 +4,4 @@ grammar.json
 node_modules
 npm-debug.log
 debug-*
+test.txt
