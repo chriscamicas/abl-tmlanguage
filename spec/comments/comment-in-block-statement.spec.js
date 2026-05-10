@@ -16,15 +16,15 @@ describe('', () => {
     ],
     [
       { "startIndex": 0, "endIndex": 8, "scopes": ["source.abl", "meta.block.abl"] },  // '        '
-      { "startIndex": 8, "endIndex": 10, "scopes": ["source.abl", "meta.block.abl", "comment.block.source.abl"] },  // '/*'
-      { "startIndex": 10, "endIndex": 56, "scopes": ["source.abl", "meta.block.abl", "comment.block.source.abl", "comment"] }  // ' Mike Fechner, Consultingwerk Ltd. 01.05.2013'
+      { "startIndex": 8, "endIndex": 10, "scopes": ["source.abl", "meta.block.abl", "comment.block.abl"] },  // '/*'
+      { "startIndex": 10, "endIndex": 56, "scopes": ["source.abl", "meta.block.abl", "comment.block.abl", "comment"] }  // ' Mike Fechner, Consultingwerk Ltd. 01.05.2013'
     ],
     [
-      { "startIndex": 0, "endIndex": 42, "scopes": ["source.abl", "meta.block.abl", "comment.block.source.abl", "comment"] }  // '           Bug SCL-31: STOP-AFTER support'
+      { "startIndex": 0, "endIndex": 42, "scopes": ["source.abl", "meta.block.abl", "comment.block.abl", "comment"] }  // '           Bug SCL-31: STOP-AFTER support'
     ],
     [
-      { "startIndex": 0, "endIndex": 59, "scopes": ["source.abl", "meta.block.abl", "comment.block.source.abl", "comment"] },  // '           Variable stop-after is not supported on OE10.2B '
-      { "startIndex": 59, "endIndex": 61, "scopes": ["source.abl", "meta.block.abl", "comment.block.source.abl"] }  // '*/'
+      { "startIndex": 0, "endIndex": 59, "scopes": ["source.abl", "meta.block.abl", "comment.block.abl", "comment"] },  // '           Variable stop-after is not supported on OE10.2B '
+      { "startIndex": 59, "endIndex": 61, "scopes": ["source.abl", "meta.block.abl", "comment.block.abl"] }  // '*/'
     ],
     [
       { "startIndex": 0, "endIndex": 8, "scopes": ["source.abl", "meta.block.abl"] },  // '        '
@@ -33,7 +33,7 @@ describe('', () => {
       { "startIndex": 11, "endIndex": 12, "scopes": ["source.abl", "meta.block.abl"] },  // ' '
       { "startIndex": 12, "endIndex": 22, "scopes": ["source.abl", "meta.block.abl", "support.function.abl"] },  // 'PROVERSION'
       { "startIndex": 22, "endIndex": 23, "scopes": ["source.abl", "meta.block.abl"] },  // ' '
-      { "startIndex": 23, "endIndex": 25, "scopes": ["source.abl", "meta.block.abl", "keyword.operator.source.abl"] },  // 'NE'
+      { "startIndex": 23, "endIndex": 25, "scopes": ["source.abl", "meta.block.abl", "keyword.operator.abl"] },  // 'NE'
       { "startIndex": 25, "endIndex": 26, "scopes": ["source.abl", "meta.block.abl"] },  // ' '
       { "startIndex": 26, "endIndex": 27, "scopes": ["source.abl", "meta.block.abl", "string.quoted.double.abl", "punctuation.definition.string.begin.abl"] },  // '"'
       { "startIndex": 27, "endIndex": 32, "scopes": ["source.abl", "meta.block.abl", "string.quoted.double.abl"] },  // '10.2B'
@@ -62,7 +62,7 @@ describe('', () => {
       { "startIndex": 16, "endIndex": 29, "scopes": ["source.abl", "meta.block.abl", "string.quoted.double.abl"] },  // '{&CATCH-STOP}'
       { "startIndex": 29, "endIndex": 30, "scopes": ["source.abl", "meta.block.abl", "string.quoted.double.abl", "punctuation.definition.string.end.abl"] },  // '"'
       { "startIndex": 30, "endIndex": 31, "scopes": ["source.abl", "meta.block.abl"] },  // ' '
-      { "startIndex": 31, "endIndex": 33, "scopes": ["source.abl", "meta.block.abl", "keyword.operator.source.abl"] },  // 'EQ'
+      { "startIndex": 31, "endIndex": 33, "scopes": ["source.abl", "meta.block.abl", "keyword.operator.abl"] },  // 'EQ'
       { "startIndex": 33, "endIndex": 34, "scopes": ["source.abl", "meta.block.abl"] },  // ' '
       { "startIndex": 34, "endIndex": 35, "scopes": ["source.abl", "meta.block.abl", "string.quoted.double.abl", "punctuation.definition.string.begin.abl"] },  // '"'
       { "startIndex": 35, "endIndex": 36, "scopes": ["source.abl", "meta.block.abl", "string.quoted.double.abl", "punctuation.definition.string.end.abl"] },  // '"'
@@ -84,8 +84,8 @@ describe('', () => {
       { "startIndex": 70, "endIndex": 73, "scopes": ["source.abl", "meta.block.abl", "support.function.abl"] },  // 'NEW'
       { "startIndex": 73, "endIndex": 74, "scopes": ["source.abl", "meta.block.abl"] },  // ' '
       { "startIndex": 74, "endIndex": 96, "scopes": ["source.abl", "meta.block.abl", "entity.name.type.abl"] },  // 'StopConditionException'
-      { "startIndex": 96, "endIndex": 97, "scopes": ["source.abl", "meta.block.abl", "meta.function.arguments.abl", "meta.brace.round.js"] },  // '('
-      { "startIndex": 97, "endIndex": 98, "scopes": ["source.abl", "meta.block.abl", "meta.brace.round.js"] },  // ')'
+      { "startIndex": 96, "endIndex": 97, "scopes": ["source.abl", "meta.block.abl", "meta.brace.round.abl"] },  // '('
+      { "startIndex": 97, "endIndex": 98, "scopes": ["source.abl", "meta.block.abl", "meta.brace.round.abl"] },  // ')'
       { "startIndex": 98, "endIndex": 99, "scopes": ["source.abl", "meta.block.abl"] },  // ' '
       { "startIndex": 99, "endIndex": 100, "scopes": ["source.abl", "meta.block.abl", "punctuation.definition.preprocessor.abl"] },  // '&'
       { "startIndex": 100, "endIndex": 105, "scopes": ["source.abl", "meta.block.abl", "keyword.control.directive.conditional.abl"] },  // 'ENDIF'
@@ -102,13 +102,13 @@ end.`;
     [
       { "startIndex": 0, "endIndex": 2, "scopes": ["source.abl", "meta.block.abl", "keyword.other.abl"] },  // 'do'
       { "startIndex": 2, "endIndex": 3, "scopes": ["source.abl", "meta.block.abl"] },  // ' '
-      { "startIndex": 3, "endIndex": 5, "scopes": ["source.abl", "meta.block.abl", "comment.block.source.abl"] },  // '/*'
-      { "startIndex": 5, "endIndex": 23, "scopes": ["source.abl", "meta.block.abl", "comment.block.source.abl", "comment"] },  // ' something coming '
-      { "startIndex": 23, "endIndex": 25, "scopes": ["source.abl", "meta.block.abl", "comment.block.source.abl"] },  // '*/'
+      { "startIndex": 3, "endIndex": 5, "scopes": ["source.abl", "meta.block.abl", "comment.block.abl"] },  // '/*'
+      { "startIndex": 5, "endIndex": 23, "scopes": ["source.abl", "meta.block.abl", "comment.block.abl", "comment"] },  // ' something coming '
+      { "startIndex": 23, "endIndex": 25, "scopes": ["source.abl", "meta.block.abl", "comment.block.abl"] },  // '*/'
       { "startIndex": 25, "endIndex": 26, "scopes": ["source.abl", "meta.block.abl"] },  // ' '
       { "startIndex": 26, "endIndex": 36, "scopes": ["source.abl", "meta.block.abl", "keyword.other.abl"] },  // 'stop-after'
       { "startIndex": 36, "endIndex": 37, "scopes": ["source.abl", "meta.block.abl"] },  // ' '
-      { "startIndex": 37, "endIndex": 39, "scopes": ["source.abl", "meta.block.abl", "constant.numeric.source.abl"] },  // '10'
+      { "startIndex": 37, "endIndex": 39, "scopes": ["source.abl", "meta.block.abl", "constant.numeric.abl"] },  // '10'
       { "startIndex": 39, "endIndex": 40, "scopes": ["source.abl", "punctuation.terminator.abl"] }  // ':'
     ],
     [
@@ -131,16 +131,16 @@ end.`;
       { "startIndex": 12, "endIndex": 13, "scopes": ["source.abl", "meta.block.abl"] },  // ' '
       { "startIndex": 13, "endIndex": 14, "scopes": ["source.abl", "meta.block.abl", "variable.other.abl"] },  // 'i'
       { "startIndex": 14, "endIndex": 15, "scopes": ["source.abl", "meta.block.abl"] },  // ' '
-      { "startIndex": 15, "endIndex": 16, "scopes": ["source.abl", "meta.block.abl", "keyword.operator.source.abl"] },  // '<'
+      { "startIndex": 15, "endIndex": 16, "scopes": ["source.abl", "meta.block.abl", "keyword.operator.abl"] },  // '<'
       { "startIndex": 16, "endIndex": 17, "scopes": ["source.abl", "meta.block.abl"] },  // ' '
-      { "startIndex": 17, "endIndex": 19, "scopes": ["source.abl", "meta.block.abl", "constant.numeric.source.abl"] },  // '10'
+      { "startIndex": 17, "endIndex": 19, "scopes": ["source.abl", "meta.block.abl", "constant.numeric.abl"] },  // '10'
       { "startIndex": 19, "endIndex": 20, "scopes": ["source.abl", "meta.block.abl"] },  // ' '
-      { "startIndex": 20, "endIndex": 22, "scopes": ["source.abl", "meta.block.abl", "comment.block.source.abl"] },  // '/*'
-      { "startIndex": 22, "endIndex": 33, "scopes": ["source.abl", "meta.block.abl", "comment.block.source.abl", "comment"] }  // ' only this'
+      { "startIndex": 20, "endIndex": 22, "scopes": ["source.abl", "meta.block.abl", "comment.block.abl"] },  // '/*'
+      { "startIndex": 22, "endIndex": 33, "scopes": ["source.abl", "meta.block.abl", "comment.block.abl", "comment"] }  // ' only this'
     ],
     [
-      { "startIndex": 0, "endIndex": 35, "scopes": ["source.abl", "meta.block.abl", "comment.block.source.abl", "comment"] },  // '                       many digits '
-      { "startIndex": 35, "endIndex": 37, "scopes": ["source.abl", "meta.block.abl", "comment.block.source.abl"] },  // '*/'
+      { "startIndex": 0, "endIndex": 35, "scopes": ["source.abl", "meta.block.abl", "comment.block.abl", "comment"] },  // '                       many digits '
+      { "startIndex": 35, "endIndex": 37, "scopes": ["source.abl", "meta.block.abl", "comment.block.abl"] },  // '*/'
       { "startIndex": 37, "endIndex": 38, "scopes": ["source.abl", "meta.block.abl"] },  // ' '
       { "startIndex": 38, "endIndex": 39, "scopes": ["source.abl", "punctuation.terminator.abl"] }  // ':'
     ],

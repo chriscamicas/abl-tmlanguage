@@ -15,16 +15,16 @@ end constructor.`;
       { "startIndex": 18, "endIndex": 19, "scopes": ["source.abl", "meta.define.method.abl"] },  // ' '
       { "startIndex": 19, "endIndex": 25, "scopes": ["source.abl", "meta.define.method.abl", "entity.name.function.abl"] },  // 'ClassA'
       { "startIndex": 25, "endIndex": 26, "scopes": ["source.abl", "meta.define.method.abl"] },  // ' '
-      { "startIndex": 26, "endIndex": 27, "scopes": ["source.abl", "meta.define.method.abl", "meta.brace.round.js"] },  // '('
-      { "startIndex": 27, "endIndex": 28, "scopes": ["source.abl", "meta.define.method.abl", "meta.brace.round.js"] },  // ')'
+      { "startIndex": 26, "endIndex": 27, "scopes": ["source.abl", "meta.define.method.abl", "meta.brace.round.abl"] },  // '('
+      { "startIndex": 27, "endIndex": 28, "scopes": ["source.abl", "meta.define.method.abl", "meta.brace.round.abl"] },  // ')'
       { "startIndex": 28, "endIndex": 29, "scopes": ["source.abl", "punctuation.terminator.abl"] }  // ':'
     ],
     [
       { "startIndex": 0, "endIndex": 2, "scopes": ["source.abl"] },  // '  '
       { "startIndex": 2, "endIndex": 13, "scopes": ["source.abl", "support.function.abl"] },  // 'this-object'
-      { "startIndex": 13, "endIndex": 14, "scopes": ["source.abl", "meta.function.arguments.abl", "meta.brace.round.js"] },  // '('
-      { "startIndex": 14, "endIndex": 15, "scopes": ["source.abl", "meta.function.arguments.abl", "variable.other.abl"] },  // 'x'
-      { "startIndex": 15, "endIndex": 16, "scopes": ["source.abl", "meta.brace.round.js"] },  // ')'
+      { "startIndex": 13, "endIndex": 14, "scopes": ["source.abl", "meta.brace.round.abl"] },  // '('
+      { "startIndex": 14, "endIndex": 15, "scopes": ["source.abl", "variable.other.abl"] },  // 'x'
+      { "startIndex": 15, "endIndex": 16, "scopes": ["source.abl", "meta.brace.round.abl"] },  // ')'
       { "startIndex": 16, "endIndex": 17, "scopes": ["source.abl", "punctuation.terminator.abl"] }  // '.'
     ],
     [
@@ -51,7 +51,7 @@ end constructor.`;
       { "startIndex": 27, "endIndex": 28, "scopes": ["source.abl", "meta.define.method.abl"] },  // ' '
       { "startIndex": 28, "endIndex": 34, "scopes": ["source.abl", "meta.define.method.abl", "entity.name.function.abl"] },  // 'ClassA'
       { "startIndex": 34, "endIndex": 35, "scopes": ["source.abl", "meta.define.method.abl"] },  // ' '
-      { "startIndex": 35, "endIndex": 36, "scopes": ["source.abl", "meta.define.method.abl", "meta.brace.round.js"] },  // '('
+      { "startIndex": 35, "endIndex": 36, "scopes": ["source.abl", "meta.define.method.abl", "meta.brace.round.abl"] },  // '('
       { "startIndex": 36, "endIndex": 44, "scopes": ["source.abl", "meta.define.method.abl", "variable.parameter.abl"] },  // 'pcString'
       { "startIndex": 44, "endIndex": 45, "scopes": ["source.abl", "meta.define.method.abl"] },  // ' '
       { "startIndex": 45, "endIndex": 47, "scopes": ["source.abl", "meta.define.method.abl", "keyword.other.abl"] },  // 'as'
@@ -66,7 +66,7 @@ end constructor.`;
       { "startIndex": 69, "endIndex": 71, "scopes": ["source.abl", "meta.define.method.abl", "keyword.other.abl"] },  // 'as'
       { "startIndex": 71, "endIndex": 72, "scopes": ["source.abl", "meta.define.method.abl"] },  // ' '
       { "startIndex": 72, "endIndex": 78, "scopes": ["source.abl", "meta.define.method.abl", "entity.name.type.abl"] },  // 'Object'
-      { "startIndex": 78, "endIndex": 79, "scopes": ["source.abl", "meta.define.method.abl", "meta.brace.round.js"] },  // ')'
+      { "startIndex": 78, "endIndex": 79, "scopes": ["source.abl", "meta.define.method.abl", "meta.brace.round.abl"] },  // ')'
       { "startIndex": 79, "endIndex": 80, "scopes": ["source.abl", "punctuation.terminator.abl"] }  // ':'
     ],
     [
@@ -105,7 +105,7 @@ end constructor.`;
       { "startIndex": 12, "endIndex": 19, "scopes": ["source.abl", "meta.define.method.abl", "keyword.other.abl"] },  // 'private'
       { "startIndex": 19, "endIndex": 20, "scopes": ["source.abl", "meta.define.method.abl"] },  // ' '
       { "startIndex": 20, "endIndex": 26, "scopes": ["source.abl", "meta.define.method.abl", "entity.name.function.abl"] },  // 'ClassB'
-      { "startIndex": 26, "endIndex": 27, "scopes": ["source.abl", "meta.define.method.abl", "meta.brace.round.js"] },  // '('
+      { "startIndex": 26, "endIndex": 27, "scopes": ["source.abl", "meta.define.method.abl", "meta.brace.round.abl"] },  // '('
       { "startIndex": 27, "endIndex": 28, "scopes": ["source.abl", "meta.define.method.abl"] },  // ' '
       { "startIndex": 28, "endIndex": 30, "scopes": ["source.abl", "meta.define.method.abl", "variable.parameter.abl"] },  // 'po'
       { "startIndex": 30, "endIndex": 31, "scopes": ["source.abl", "meta.define.method.abl"] },  // ' '
@@ -135,7 +135,7 @@ end constructor.`;
       { "startIndex": 65, "endIndex": 72, "scopes": ["source.abl", "meta.define.method.abl", "keyword.other.abl"] },  // 'dataset'
       { "startIndex": 72, "endIndex": 73, "scopes": ["source.abl", "meta.define.method.abl"] },  // ' '
       { "startIndex": 73, "endIndex": 79, "scopes": ["source.abl", "meta.define.method.abl", "storage.data.dataset.abl"] },  // 'dsData'
-      { "startIndex": 79, "endIndex": 80, "scopes": ["source.abl", "meta.define.method.abl", "meta.brace.round.js"] },  // ')'
+      { "startIndex": 79, "endIndex": 80, "scopes": ["source.abl", "meta.define.method.abl", "meta.brace.round.abl"] },  // ')'
       { "startIndex": 80, "endIndex": 81, "scopes": ["source.abl", "punctuation.terminator.abl"] }  // ':'
     ],
     [

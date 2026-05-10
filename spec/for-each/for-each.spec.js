@@ -19,9 +19,9 @@ while i < 10:`;
       { "startIndex": 5, "endIndex": 6, "scopes": ["source.abl"] },  // ' '
       { "startIndex": 6, "endIndex": 7, "scopes": ["source.abl", "variable.other.abl"] },  // 'i'
       { "startIndex": 7, "endIndex": 8, "scopes": ["source.abl"] },  // ' '
-      { "startIndex": 8, "endIndex": 9, "scopes": ["source.abl", "keyword.operator.source.abl"] },  // '<'
+      { "startIndex": 8, "endIndex": 9, "scopes": ["source.abl", "keyword.operator.abl"] },  // '<'
       { "startIndex": 9, "endIndex": 10, "scopes": ["source.abl"] },  // ' '
-      { "startIndex": 10, "endIndex": 12, "scopes": ["source.abl", "constant.numeric.source.abl"] },  // '10'
+      { "startIndex": 10, "endIndex": 12, "scopes": ["source.abl", "constant.numeric.abl"] },  // '10'
       { "startIndex": 12, "endIndex": 13, "scopes": ["source.abl", "punctuation.terminator.abl"] }  // ':'
     ]
   ];
@@ -50,7 +50,7 @@ describe('', () => {
       { "startIndex": 9, "endIndex": 10, "scopes": ["source.abl"] },  // ' '
       { "startIndex": 10, "endIndex": 35, "scopes": ["source.abl", "storage.data.table.abl"] },  // 'ttPackedColloItem.ColloID'
       { "startIndex": 35, "endIndex": 40, "scopes": ["source.abl"] },  // '     '
-      { "startIndex": 40, "endIndex": 41, "scopes": ["source.abl", "keyword.operator.source.abl"] },  // '='
+      { "startIndex": 40, "endIndex": 41, "scopes": ["source.abl", "keyword.operator.abl"] },  // '='
       { "startIndex": 41, "endIndex": 42, "scopes": ["source.abl"] },  // ' '
       { "startIndex": 42, "endIndex": 63, "scopes": ["source.abl", "storage.data.table.abl"] },  // 'ttPackedCollo.ColloID'
       { "startIndex": 63, "endIndex": 64, "scopes": ["source.abl", "punctuation.separator.comma.abl"] }  // ','
@@ -67,7 +67,7 @@ describe('', () => {
       { "startIndex": 9, "endIndex": 10, "scopes": ["source.abl"] },  // ' '
       { "startIndex": 10, "endIndex": 35, "scopes": ["source.abl", "storage.data.table.abl"] },  // 'ttPickedColloItem.OrderNr'
       { "startIndex": 35, "endIndex": 40, "scopes": ["source.abl"] },  // '     '
-      { "startIndex": 40, "endIndex": 41, "scopes": ["source.abl", "keyword.operator.source.abl"] },  // '='
+      { "startIndex": 40, "endIndex": 41, "scopes": ["source.abl", "keyword.operator.abl"] },  // '='
       { "startIndex": 41, "endIndex": 42, "scopes": ["source.abl"] },  // ' '
       { "startIndex": 42, "endIndex": 67, "scopes": ["source.abl", "storage.data.table.abl"] }  // 'ttPackedColloItem.OrderNr'
     ],
@@ -77,7 +77,7 @@ describe('', () => {
       { "startIndex": 7, "endIndex": 10, "scopes": ["source.abl"] },  // '   '
       { "startIndex": 10, "endIndex": 39, "scopes": ["source.abl", "storage.data.table.abl"] },  // 'ttPickedColloItem.OrderLineNr'
       { "startIndex": 39, "endIndex": 40, "scopes": ["source.abl"] },  // ' '
-      { "startIndex": 40, "endIndex": 41, "scopes": ["source.abl", "keyword.operator.source.abl"] },  // '='
+      { "startIndex": 40, "endIndex": 41, "scopes": ["source.abl", "keyword.operator.abl"] },  // '='
       { "startIndex": 41, "endIndex": 42, "scopes": ["source.abl"] },  // ' '
       { "startIndex": 42, "endIndex": 71, "scopes": ["source.abl", "storage.data.table.abl"] }  // 'ttPackedColloItem.OrderLineNr'
     ],
@@ -87,7 +87,7 @@ describe('', () => {
       { "startIndex": 7, "endIndex": 10, "scopes": ["source.abl"] },  // '   '
       { "startIndex": 10, "endIndex": 35, "scopes": ["source.abl", "storage.data.table.abl"] },  // 'ttPickedColloItem.StockID'
       { "startIndex": 35, "endIndex": 40, "scopes": ["source.abl"] },  // '     '
-      { "startIndex": 40, "endIndex": 41, "scopes": ["source.abl", "keyword.operator.source.abl"] },  // '='
+      { "startIndex": 40, "endIndex": 41, "scopes": ["source.abl", "keyword.operator.abl"] },  // '='
       { "startIndex": 41, "endIndex": 42, "scopes": ["source.abl"] },  // ' '
       { "startIndex": 42, "endIndex": 67, "scopes": ["source.abl", "storage.data.table.abl"] }  // 'ttPackedColloItem.StockID'
     ],
@@ -108,4 +108,3 @@ describe('', () => {
   ];
   shared.itShouldMatchExpectedScopes(statement, expectedTokens);
 })
-

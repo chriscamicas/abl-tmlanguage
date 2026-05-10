@@ -73,7 +73,7 @@ DEFINE TEMP-TABLE inventario
       { "startIndex": 30, "endIndex": 31, "scopes": ["source.abl", "meta.define.abl"] },  // ' '
       { "startIndex": 31, "endIndex": 37, "scopes": ["source.abl", "meta.define.abl", "keyword.other.abl"] },  // 'format'
       { "startIndex": 37, "endIndex": 38, "scopes": ["source.abl", "meta.define.abl"] },  // ' '
-      { "startIndex": 38, "endIndex": 48, "scopes": ["source.abl", "meta.define.abl", "constant.language.source.abl"] }  // '99/99/9999'
+      { "startIndex": 38, "endIndex": 48, "scopes": ["source.abl", "meta.define.abl", "constant.language.abl"] }  // '99/99/9999'
     ],
     [
       { "startIndex": 0, "endIndex": 4, "scopes": ["source.abl", "meta.define.abl"] },  // '    '

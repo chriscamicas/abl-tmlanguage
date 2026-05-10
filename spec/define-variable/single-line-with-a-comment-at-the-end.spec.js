@@ -16,9 +16,9 @@ describe('', () => {
     { "startIndex": 36, "endIndex": 37, "scopes": ["source.abl", "meta.define.abl"] },
     { "startIndex": 37, "endIndex": 44, "scopes": ["source.abl", "meta.define.abl", "keyword.other.abl"] },
     { "startIndex": 44, "endIndex": 45, "scopes": ["source.abl", "meta.define.abl", "punctuation.terminator.abl"] },
-    { "startIndex": 45, "endIndex": 47, "scopes": ["source.abl", "comment.block.source.abl"] },
-    { "startIndex": 47, "endIndex": 56, "scopes": ["source.abl", "comment.block.source.abl", "comment"] },
-    { "startIndex": 56, "endIndex": 58, "scopes": ["source.abl", "comment.block.source.abl"] }
+    { "startIndex": 45, "endIndex": 47, "scopes": ["source.abl", "comment.block.abl"] },
+    { "startIndex": 47, "endIndex": 56, "scopes": ["source.abl", "comment.block.abl", "comment"] },
+    { "startIndex": 56, "endIndex": 58, "scopes": ["source.abl", "comment.block.abl"] }
   ];
   shared.itShouldMatchExpectedScopes(statement, expectedTokens);
 })
@@ -56,7 +56,7 @@ describe('', () => {
     { "startIndex": 36, "endIndex": 37, "scopes": ["source.abl", "meta.define.abl"] },  // ' '
     { "startIndex": 37, "endIndex": 44, "scopes": ["source.abl", "meta.define.abl", "keyword.other.abl"] },  // 'no-undo'
     { "startIndex": 44, "endIndex": 45, "scopes": ["source.abl", "meta.define.abl", "punctuation.terminator.abl"] },  // '.'
-    { "startIndex": 45, "endIndex": 54, "scopes": ["source.abl", "comment.line.double-slash.abl"] }  // '// comment'      
+    { "startIndex": 45, "endIndex": 54, "scopes": ["source.abl", "comment.line.double-slash.abl"] }  // '// comment'
   ];
   shared.itShouldMatchExpectedScopes(statement, expectedTokens);
 })

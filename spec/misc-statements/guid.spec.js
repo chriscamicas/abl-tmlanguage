@@ -6,7 +6,7 @@ describe('', () => {
   let expectedTokens = [
     { "startIndex": 0, "endIndex": 3, "scopes": ["source.abl", "variable.other.abl"] },  // 'abc'
     { "startIndex": 3, "endIndex": 4, "scopes": ["source.abl"] },  // ' '
-    { "startIndex": 4, "endIndex": 5, "scopes": ["source.abl", "keyword.operator.source.abl"] },  // '='
+    { "startIndex": 4, "endIndex": 5, "scopes": ["source.abl", "keyword.operator.abl"] },  // '='
     { "startIndex": 5, "endIndex": 6, "scopes": ["source.abl"] },  // ' '
     { "startIndex": 6, "endIndex": 10, "scopes": ["source.abl", "support.function.abl"] },  // 'guid'
     { "startIndex": 10, "endIndex": 11, "scopes": ["source.abl", "punctuation.terminator.abl"] }  // '.'
@@ -19,12 +19,12 @@ describe('', () => {
   let expectedTokens = [
     { "startIndex": 0, "endIndex": 3, "scopes": ["source.abl", "variable.other.abl"] },  // 'pwr'
     { "startIndex": 3, "endIndex": 4, "scopes": ["source.abl"] },  // ' '
-    { "startIndex": 4, "endIndex": 5, "scopes": ["source.abl", "keyword.operator.source.abl"] },  // '='
+    { "startIndex": 4, "endIndex": 5, "scopes": ["source.abl", "keyword.operator.abl"] },  // '='
     { "startIndex": 5, "endIndex": 6, "scopes": ["source.abl"] },  // ' '
     { "startIndex": 6, "endIndex": 10, "scopes": ["source.abl", "support.function.abl"] },  // 'guid'
-    { "startIndex": 10, "endIndex": 11, "scopes": ["source.abl", "meta.function.arguments.abl", "meta.brace.round.js"] },  // '('
-    { "startIndex": 11, "endIndex": 24, "scopes": ["source.abl", "meta.function.arguments.abl", "support.function.abl"] },  // 'generate-uuid'
-    { "startIndex": 24, "endIndex": 25, "scopes": ["source.abl", "meta.brace.round.js"] },  // ')'
+    { "startIndex": 10, "endIndex": 11, "scopes": ["source.abl", "meta.brace.round.abl"] },  // '('
+    { "startIndex": 11, "endIndex": 24, "scopes": ["source.abl", "support.function.abl"] },  // 'generate-uuid'
+    { "startIndex": 24, "endIndex": 25, "scopes": ["source.abl", "meta.brace.round.abl"] },  // ')'
     { "startIndex": 25, "endIndex": 26, "scopes": ["source.abl", "punctuation.terminator.abl"] }  // '.'
   ];
   shared.itShouldMatchExpectedScopes(statement, expectedTokens);
@@ -76,7 +76,7 @@ ASSIGN
       { "startIndex": 0, "endIndex": 2, "scopes": ["source.abl"] },  // '  '
       { "startIndex": 2, "endIndex": 8, "scopes": ["source.abl", "variable.other.abl"] },  // 'MyUUID'
       { "startIndex": 8, "endIndex": 9, "scopes": ["source.abl"] },  // ' '
-      { "startIndex": 9, "endIndex": 10, "scopes": ["source.abl", "keyword.operator.source.abl"] },  // '='
+      { "startIndex": 9, "endIndex": 10, "scopes": ["source.abl", "keyword.operator.abl"] },  // '='
       { "startIndex": 10, "endIndex": 11, "scopes": ["source.abl"] },  // ' '
       { "startIndex": 11, "endIndex": 24, "scopes": ["source.abl", "support.function.abl"] }  // 'GENERATE-UUID'
     ],
@@ -84,12 +84,12 @@ ASSIGN
       { "startIndex": 0, "endIndex": 2, "scopes": ["source.abl"] },  // '  '
       { "startIndex": 2, "endIndex": 7, "scopes": ["source.abl", "variable.other.abl"] },  // 'vGUID'
       { "startIndex": 7, "endIndex": 9, "scopes": ["source.abl"] },  // '  '
-      { "startIndex": 9, "endIndex": 10, "scopes": ["source.abl", "keyword.operator.source.abl"] },  // '='
+      { "startIndex": 9, "endIndex": 10, "scopes": ["source.abl", "keyword.operator.abl"] },  // '='
       { "startIndex": 10, "endIndex": 11, "scopes": ["source.abl"] },  // ' '
       { "startIndex": 11, "endIndex": 15, "scopes": ["source.abl", "support.function.abl"] },  // 'GUID'
-      { "startIndex": 15, "endIndex": 16, "scopes": ["source.abl", "meta.function.arguments.abl", "meta.brace.round.js"] },  // '('
-      { "startIndex": 16, "endIndex": 22, "scopes": ["source.abl", "meta.function.arguments.abl", "variable.other.abl"] },  // 'MyUUID'
-      { "startIndex": 22, "endIndex": 23, "scopes": ["source.abl", "meta.brace.round.js"] },  // ')'
+      { "startIndex": 15, "endIndex": 16, "scopes": ["source.abl", "meta.brace.round.abl"] },  // '('
+      { "startIndex": 16, "endIndex": 22, "scopes": ["source.abl", "variable.other.abl"] },  // 'MyUUID'
+      { "startIndex": 22, "endIndex": 23, "scopes": ["source.abl", "meta.brace.round.abl"] },  // ')'
       { "startIndex": 23, "endIndex": 24, "scopes": ["source.abl", "punctuation.terminator.abl"] }  // '.'
     ]
   ];

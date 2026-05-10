@@ -39,9 +39,9 @@ end. /* */`;
       { "startIndex": 0, "endIndex": 3, "scopes": ["source.abl", "keyword.other.abl"] },  // 'end'
       { "startIndex": 3, "endIndex": 4, "scopes": ["source.abl", "punctuation.terminator.abl"] },  // '.'
       { "startIndex": 4, "endIndex": 5, "scopes": ["source.abl"] },  // ' '
-      { "startIndex": 5, "endIndex": 7, "scopes": ["source.abl", "comment.block.source.abl"] },  // '/*'
-      { "startIndex": 7, "endIndex": 8, "scopes": ["source.abl", "comment.block.source.abl", "comment"] },  // ' '
-      { "startIndex": 8, "endIndex": 10, "scopes": ["source.abl", "comment.block.source.abl"] }  // '*/'
+      { "startIndex": 5, "endIndex": 7, "scopes": ["source.abl", "comment.block.abl"] },  // '/*'
+      { "startIndex": 7, "endIndex": 8, "scopes": ["source.abl", "comment.block.abl", "comment"] },  // ' '
+      { "startIndex": 8, "endIndex": 10, "scopes": ["source.abl", "comment.block.abl"] }  // '*/'
     ]
   ];
   shared.itShouldMatchExpectedScopes(statement, expectedTokens);
@@ -73,11 +73,10 @@ end. /* */`;
       { "startIndex": 0, "endIndex": 3, "scopes": ["source.abl", "keyword.other.abl"] },  // 'end'
       { "startIndex": 3, "endIndex": 4, "scopes": ["source.abl", "punctuation.terminator.abl"] },  // '.'
       { "startIndex": 4, "endIndex": 5, "scopes": ["source.abl"] },  // ' '
-      { "startIndex": 5, "endIndex": 7, "scopes": ["source.abl", "comment.block.source.abl"] },  // '/*'
-      { "startIndex": 7, "endIndex": 8, "scopes": ["source.abl", "comment.block.source.abl", "comment"] },  // ' '
-      { "startIndex": 8, "endIndex": 10, "scopes": ["source.abl", "comment.block.source.abl"] }  // '*/'
+      { "startIndex": 5, "endIndex": 7, "scopes": ["source.abl", "comment.block.abl"] },  // '/*'
+      { "startIndex": 7, "endIndex": 8, "scopes": ["source.abl", "comment.block.abl", "comment"] },  // ' '
+      { "startIndex": 8, "endIndex": 10, "scopes": ["source.abl", "comment.block.abl"] }  // '*/'
     ]
   ];
   shared.itShouldMatchExpectedScopes(statement, expectedTokens);
 })
-

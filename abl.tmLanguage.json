@@ -245,13 +245,13 @@
               "name": "entity.name.function.abl"
             },
             "2": {
-              "name": "meta.brace.round.js"
+              "name": "meta.brace.round.abl"
             }
           },
           "end": "(\\))",
           "endCaptures": {
             "1": {
-              "name": "meta.brace.round.js"
+              "name": "meta.brace.round.abl"
             }
           },
           "patterns": [
@@ -424,10 +424,7 @@
           "include": "#keywords"
         },
         {
-          "include": "#handle-attributes"
-        },
-        {
-          "include": "#handle-methods"
+          "include": "#handle-attributes-and-methods"
         },
         {
           "include": "#type-names"
@@ -445,17 +442,16 @@
     },
     "function-parameter-definition": {
       "comment": "https://docs.progress.com/bundle/abl-reference/page/Parameter-definition-syntax.html",
-      "name": "meta.function.parameters",
       "begin": "(\\()",
       "beginCaptures": {
         "1": {
-          "name": "meta.brace.round.js"
+          "name": "meta.brace.round.abl"
         }
       },
       "end": "(\\))",
       "endCaptures": {
         "1": {
-          "name": "meta.brace.round.js"
+          "name": "meta.brace.round.abl"
         }
       },
       "patterns": [
@@ -576,13 +572,10 @@
           "include": "#event-un-subscribe"
         },
         {
+          "include": "#handle-attributes-and-methods"
+        },
+        {
           "include": "#property-call"
-        },
-        {
-          "include": "#handle-attributes"
-        },
-        {
-          "include": "#handle-methods"
         },
         {
           "include": "#get-query"
@@ -1136,7 +1129,7 @@
     },
     "parens": {
       "match": "\\(|\\)",
-      "name": "meta.brace.round.js"
+      "name": "meta.brace.round.abl"
     },
     "new-class": {
       "comment": "A dash/minus is not a word boundary, so we need to make sure we don't capture constructs like new-variable",
@@ -1167,7 +1160,7 @@
       "end": "(\\))",
       "endCaptures": {
         "1": {
-          "name": "meta.brace.round.js"
+          "name": "meta.brace.round.abl"
         }
       },
       "patterns": [
@@ -1190,13 +1183,13 @@
           "name": "support.function.abl"
         },
         "2": {
-          "name": "meta.brace.round.js"
+          "name": "meta.brace.round.abl"
         }
       },
       "end": "(\\))",
       "endCaptures": {
         "1": {
-          "name": "meta.brace.round.js"
+          "name": "meta.brace.round.abl"
         }
       },
       "patterns": [
@@ -1226,14 +1219,6 @@
       "comment": "Just a field name",
       "patterns": [
         {
-          "match": "\\s*([a-zA-Z][a-zA-Z0-9_\\-#$%]*(\\.[a-zA-Z][a-zA-Z0-9_\\-#$%]*)?\\s*(\\[\\d+\\]))\\s*",
-          "captures": {
-            "1": {
-              "name": "storage.data.table.abl"
-            }
-          }
-        },
-        {
           "match": "\\s*([a-zA-Z][a-zA-Z0-9_\\-#$%]*(\\.[a-zA-Z][a-zA-Z0-9_\\-#$%]*)?)\\s*",
           "captures": {
             "1": {
@@ -1244,7 +1229,7 @@
       ]
     },
     "db-dot-table-dot-field": {
-      "match": "(?i)(?<=^|\\s|\\(|,)(([a-zA-Z][a-zA-Z0-9#$\\-_%&]*\\.)?([a-zA-Z_][a-zA-Z0-9#$\\-_%&]*\\.)([a-zA-Z_][a-zA-Z0-9#$\\-_%&]*)(\\[\\d+\\])?)",
+      "match": "(?i)(?<=^|\\s|\\(|,)(([a-zA-Z][a-zA-Z0-9#$\\-_%&]*\\.)?([a-zA-Z_][a-zA-Z0-9#$\\-_%&]*\\.)([a-zA-Z_][a-zA-Z0-9#$\\-_%&]*))",
       "comment": "Looks for format of 'table.field', with an optional preceding 'db.'. This pattern may conflict with type names",
       "captures": {
         "1": {
@@ -1268,13 +1253,13 @@
           "name": "keyword.other.abl"
         },
         "2": {
-          "name": "meta.brace.round.js"
+          "name": "meta.brace.round.abl"
         },
         "3": {
           "name": "storage.data.table.abl"
         },
         "4": {
-          "name": "meta.brace.round.js"
+          "name": "meta.brace.round.abl"
         }
       }
     },
@@ -1319,7 +1304,7 @@
       }
     },
     "for-each-join": {
-      "begin": "(?i)\\b(each|first|last)\\b(?<!\\()",
+      "begin": "(?i)\\b(each|first|last)\\s(?<!\\()",
       "beginCaptures": {
         "1": {
           "name": "keyword.other.abl"
@@ -1406,13 +1391,13 @@
           "name": "keyword.other.abl"
         },
         "2": {
-          "name": "meta.brace.round.js"
+          "name": "meta.brace.round.abl"
         }
       },
       "end": "(\\))",
       "endCaptures": {
         "1": {
-          "name": "meta.brace.round.js"
+          "name": "meta.brace.round.abl"
         }
       },
       "patterns": [
@@ -1421,6 +1406,9 @@
         },
         {
           "include": "#field-name"
+        },
+        {
+          "include": "#array-literal"
         },
         {
           "include": "#punctuation-comma"
@@ -1453,7 +1441,7 @@
       "end": "(?<=\\))",
       "endCaptures": {
         "1": {
-          "name": "meta.brace.round.js"
+          "name": "meta.brace.round.abl"
         }
       },
       "patterns": [
@@ -1498,6 +1486,12 @@
       "patterns": [
         {
           "include": "#parens"
+        },
+        {
+          "include": "#array-literal"
+        },
+        {
+          "include": "#type-member-call"
         },
         {
           "include": "#create-statement"
@@ -1563,10 +1557,7 @@
           "include": "#abl-functions"
         },
         {
-          "include": "#handle-methods"
-        },
-        {
-          "include": "#handle-attributes"
+          "include": "#handle-attributes-and-methods"
         },
         {
           "include": "#keywords"
@@ -1620,7 +1611,7 @@
       }
     },
     "property-get-set-block": {
-      "begin": "\\s*(?<!:)\\s*([Gg][Ee][Tt]|[Ss][Ee][Tt])\\b(?![#$\\-_%&])(?=\\()",
+      "begin": "\\s*(?<!:)\\s*([Gg][Ee][Tt]|[Ss][Ee][Tt])\\b(?![#$\\-_%&])(?=\\(|:)",
       "beginCaptures": {
         "1": {
           "name": "keyword.other.abl"
@@ -1988,10 +1979,7 @@
           "include": "#property-call"
         },
         {
-          "include": "#handle-attributes"
-        },
-        {
-          "include": "#handle-methods"
+          "include": "#handle-attributes-and-methods"
         },
         {
           "include": "#function-parameter-definition"
@@ -2028,7 +2016,7 @@
           "name": "keyword.other.abl"
         },
         "3": {
-          "name": "constant.numeric.source.abl"
+          "name": "constant.numeric.abl"
         }
       }
     },
@@ -2396,13 +2384,23 @@
           "include": "#preprocessor-reference"
         },
         {
-          "include": "#handle-attributes"
+          "include": "#handle-attributes-and-methods"
         },
         {
           "include": "#db-dot-table-dot-field"
         },
         {
           "include": "#variable-name"
+        }
+      ]
+    },
+    "handle-attributes-and-methods": {
+      "patterns": [
+        {
+          "include": "#handle-attributes"
+        },
+        {
+          "include": "#handle-methods"
         }
       ]
     },
@@ -2549,13 +2547,13 @@
           "name": "keyword.other.abl"
         },
         "6": {
-          "name": "constant.numeric.source.abl"
+          "name": "constant.numeric.abl"
         },
         "8": {
           "name": "keyword.other.abl"
         },
         "12": {
-          "name": "constant.numeric.source.abl"
+          "name": "constant.numeric.abl"
         }
       }
     },
@@ -2684,7 +2682,7 @@
           "name": "keyword.other.abl"
         },
         "2": {
-          "name": "constant.language.source.abl"
+          "name": "constant.language.abl"
         }
       }
     },
@@ -2739,7 +2737,7 @@
           "name": "support.function.abl"
         },
         "2": {
-          "name": "meta.brace.round.js"
+          "name": "meta.brace.round.abl"
         }
       },
       "end": "(?i)\\b(?=\\)|where|no-lock|(share(?:-lock|-loc|-lo|-l|-)?)|using|(no-prefe(?:tch|tc|t)?)|no-wait)\\s*",
@@ -2813,10 +2811,14 @@
           "name": "keyword.other.abl"
         }
       },
-      "end": "(\\s([a-zA-Z][a-zA-Z0-9_\\-#$%]*))",
+      "end": "(\\s([a-zA-Z][a-zA-Z0-9_\\-#$%]*)|(=))",
+      "comment": "Capture the = in case there's a variable named 'var' which is being assigned",
       "endCaptures": {
         "2": {
           "name": "variable.other.abl"
+        },
+        "3": {
+          "name": "keyword.operator.abl"
         }
       },
       "patterns": [
@@ -2968,7 +2970,7 @@
           "name": "variable.other.abl"
         },
         "2": {
-          "name": "keyword.operator.source.abl"
+          "name": "keyword.operator.abl"
         }
       },
       "end": "(?i)(?=(transact(?:ion|io|i)?)|on|:|with|while)",
@@ -3002,7 +3004,7 @@
       "begin": "(?i)((\\?:)|(:))(unsubscribe|subscribe)\\s*(\\()",
       "beginCaptures": {
         "2": {
-          "name": "keyword.operator.source.abl"
+          "name": "keyword.operator.abl"
         },
         "3": {
           "name": "punctuation.accessor.abl"
@@ -3011,13 +3013,13 @@
           "name": "entity.name.function.abl"
         },
         "5": {
-          "name": "meta.brace.round.js"
+          "name": "meta.brace.round.abl"
         }
       },
       "end": "(\\))",
       "endCaptures": {
         "1": {
-          "name": "meta.brace.round.js"
+          "name": "meta.brace.round.abl"
         }
       },
       "patterns": [
@@ -3098,7 +3100,7 @@
     },
     "for-record": {
       "comment": "this regex just tries to capture a bunch (6) of tables",
-      "match": "(?i)\\s*(for)\\s+([a-zA-Z_\\-#$%]*)\\s*(,)?\\s*([a-zA-Z_\\-#$%]*)?\\s*(,)?\\s*([a-zA-Z_\\-#$%]*)?\\s*(,)?\\s*([a-zA-Z_\\-#$%]*)?\\s*(,)?\\s*([a-zA-Z_\\-#$%]*)?\\s*(,)?\\s*([a-zA-Z_\\-#$%]*)?",
+      "match": "(?i)\\s*(for)\\s+([a-zA-Z_\\-#$%0-9]*)\\s*(,)?\\s*([a-zA-Z_\\-#$%0-9]*)?\\s*(,)?\\s*([a-zA-Z_\\-#$%0-9]*)?\\s*(,)?\\s*([a-zA-Z_\\-#$%0-9]*)?\\s*(,)?\\s*([a-zA-Z_\\-#$%0-9]*)?\\s*(,)?\\s*([a-zA-Z_\\-#$%0-9]*)?",
       "captures": {
         "1": {
           "name": "keyword.other.abl"
@@ -3492,7 +3494,7 @@
       "end": "(\\))",
       "endCaptures": {
         "1": {
-          "name": "meta.brace.round.js"
+          "name": "meta.brace.round.abl"
         }
       }
     },
@@ -3571,18 +3573,17 @@
       ]
     },
     "function-arguments": {
-      "name": "meta.function.arguments.abl",
       "comment": "Captures what's between ( and ) when calling a function, excluding the braces ",
       "begin": "(?=\\()",
       "beginCaptures": {
         "1": {
-          "name": "meta.brace.round.js"
+          "name": "meta.brace.round.abl"
         }
       },
       "end": "(?=\\))",
       "endCaptures": {
         "1": {
-          "name": "meta.brace.round.js"
+          "name": "meta.brace.round.abl"
         }
       },
       "patterns": [
@@ -3595,7 +3596,6 @@
       ]
     },
     "function-arguments-no-parens": {
-      "name": "meta.function.arguments.abl",
       "patterns": [
         {
           "match": "(?i)\\s*((input-o(?:utput|utpu|utp|u)?)|output|input|table-handle|dataset-handle|append|by-value|by-reference|bind)\\b(?![#$\\-_%&])",
@@ -3724,7 +3724,7 @@
       "match": "((\\?:)|(:))([a-zA-Z_][a-zA-Z0-9_#$\\-%&]*)\\b",
       "captures": {
         "2": {
-          "name": "keyword.operator.source.abl"
+          "name": "keyword.operator.abl"
         },
         "3": {
           "name": "punctuation.accessor.abl"
@@ -3759,7 +3759,7 @@
           "name": "keyword.other.abl"
         },
         "2": {
-          "name": "constant.numeric.source.abl"
+          "name": "constant.numeric.abl"
         }
       }
     },
@@ -3770,7 +3770,7 @@
           "name": "keyword.other.abl"
         },
         "2": {
-          "name": "constant.numeric.source.abl"
+          "name": "constant.numeric.abl"
         }
       }
     },
@@ -3781,7 +3781,7 @@
           "name": "keyword.other.abl"
         },
         "2": {
-          "name": "constant.numeric.source.abl"
+          "name": "constant.numeric.abl"
         }
       }
     },
@@ -3973,7 +3973,7 @@
               "name": "support.other.argument.abl"
             },
             "2": {
-              "name": "keyword.operator.source.abl"
+              "name": "keyword.operator.abl"
             }
           }
         },
@@ -4040,18 +4040,17 @@
     },
     "singlelinecomment": {
       "match": "//.*$",
-      "comment": "Was comment.source.abl but should be changed, per https://macromates.com/manual/en/language_grammars",
       "name": "comment.line.double-slash.abl"
     },
     "multilinecomment": {
       "begin": "/\\*",
       "end": "\\*/",
       "contentName": "comment",
-      "name": "comment.block.source.abl",
+      "name": "comment.block.abl",
       "patterns": [
         {
           "include": "#multilinecomment",
-          "name": "comment.block.source.abl"
+          "name": "comment.block.abl"
         }
       ]
     },
@@ -4134,7 +4133,7 @@
     },
     "numeric": {
       "match": "(?<![a-zA-Z0-9_\\-#$%-])(0[xX]\\h+)|([+\\-]?\\.?(0|[1-9][0-9]*)(\\.[0-9]+)?([eE][+\\-]?[0-9]+)?)",
-      "name": "constant.numeric.source.abl"
+      "name": "constant.numeric.abl"
     },
     "abl-system-handles": {
       "match": "(?i)\\b(active-window|audit-control|audit-policy|clipboard|codebase-locator|color-table|com-self|compiler|current-window|debugger|default-window|dslog-manager|(error-stat(?:us|u)?)|(file-info(?:rmation|rmatio|rmati|rmat|rma|rm|r)?)|focus|font-table|last-event|log-manager|profiler|(rcode-info(?:rmation|rmatio|rmati|rmat|rma|rm|r)?)|sax-attributes|sax-reader|sax-writer|security-policy|self|session|source-procedure|super|target-procedure|this-object|this-procedure|transaction|web-context)\\b(?![#$\\-_%&\\(])",
@@ -4225,7 +4224,7 @@
       "match": "(\\+=|-=|\\\\=|\\*=|<=|<>|>=|=|<|>)",
       "captures": {
         "1": {
-          "name": "keyword.operator.source.abl"
+          "name": "keyword.operator.abl"
         }
       }
     },
@@ -4234,7 +4233,7 @@
       "comment": "Lookahead and -behind for the spaces",
       "captures": {
         "1": {
-          "name": "keyword.operator.source.abl"
+          "name": "keyword.operator.abl"
         }
       }
     },
@@ -4243,7 +4242,7 @@
       "comment": "Lookahead only for the spaces, so that in particular the NOT is captured properly",
       "captures": {
         "1": {
-          "name": "keyword.operator.source.abl"
+          "name": "keyword.operator.abl"
         }
       }
     },
@@ -4254,13 +4253,13 @@
           "name": "support.function.abl"
         },
         "2": {
-          "name": "meta.brace.round.js"
+          "name": "meta.brace.round.abl"
         },
         "3": {
           "name": "storage.data.table.abl"
         },
         "5": {
-          "name": "meta.brace.round.js"
+          "name": "meta.brace.round.abl"
         }
       }
     },
@@ -4275,13 +4274,13 @@
               "name": "support.function.abl"
             },
             "2": {
-              "name": "meta.brace.round.js"
+              "name": "meta.brace.round.abl"
             },
             "3": {
               "name": "storage.data.table.abl"
             },
             "5": {
-              "name": "meta.brace.round.js"
+              "name": "meta.brace.round.abl"
             }
           }
         },
@@ -4310,13 +4309,13 @@
               "name": "support.function.abl"
             },
             "2": {
-              "name": "meta.brace.round.js"
+              "name": "meta.brace.round.abl"
             },
             "3": {
               "name": "storage.data.table.abl"
             },
             "5": {
-              "name": "meta.brace.round.js"
+              "name": "meta.brace.round.abl"
             }
           }
         },
@@ -4907,7 +4906,7 @@
       }
     },
     "handle-attributes-F": {
-      "match": "(?i)(:)(f(?:gcolor?|gcol?|gc|ile-create-date?|ile-create-da?|ile-create-time?|ile-create-ti?|ile-mod-date?|ile-mod-da?|ile-mod-time?|ile-mod-ti?|ile-name|ile-offset?|ile-offs?|ile-size|ile-type|ill-mode|ill-where-string|illed|irst-async-request?|irst-async-reque?|irst-async-req?|irst-async-r?|irst-async|irst-buffer|irst-child|irst-column|irst-data-source|irst-dataset|irst-form|irst-object|irst-procedure?|irst-procedu?|irst-proce?|irst-query|irst-server-socket|irst-server?|irst-serv|irst-socket|irst-tab-item?|irst-tab-it?|it-last-column|lat-button|ocused-row|ocused-row-selected|ont|oreground?|oregrou?|oregr?|ore|oreign-key-hidden|orm-input|orm-long-input|ormatted?|ormat?|orm|orward-only|ragment?|rame-col|rame-name|rame-row|rame-spacing?|rame-spaci?|rame-spa|rame-x|rame-y|rame?|requency|ull-height-chars?|ull-height-cha?|ull-height-c|ull-height-pixels?|ull-height-pixe?|ull-height-pi?|ull-pathname?|ull-pathna?|ull-width-chars?|ull-width-cha?|ull-width-c?|ull-width|ull-width-pixels?|ull-width-pixe?|ull-width-pi?|unction))\\b(?![#$\\-_%&])",
+      "match": "(?i)(:)(f(?:gcolor?|gcol?|gc|ile-create-date?|ile-create-da?|ile-create-time?|ile-create-ti?|ile-mod-date?|ile-mod-da?|ile-mod-time?|ile-mod-ti?|ile-name|ile-offset?|ile-offs?|ile-size|ile-type|ill-mode|ill-where-string|illed|ips-mode|irst-async-request?|irst-async-reque?|irst-async-req?|irst-async-r?|irst-async|irst-buffer|irst-child|irst-column|irst-data-source|irst-dataset|irst-form|irst-object|irst-procedure?|irst-procedu?|irst-proce?|irst-query|irst-server-socket|irst-server?|irst-serv|irst-socket|irst-tab-item?|irst-tab-it?|it-last-column|lat-button|ocused-row|ocused-row-selected|ont|oreground?|oregrou?|oregr?|ore|oreign-key-hidden|orm-input|orm-long-input|ormatted?|ormat?|orm|orward-only|ragment?|rame-col|rame-name|rame-row|rame-spacing?|rame-spaci?|rame-spa|rame-x|rame-y|rame?|requency|ull-height-chars?|ull-height-cha?|ull-height-c|ull-height-pixels?|ull-height-pixe?|ull-height-pi?|ull-pathname?|ull-pathna?|ull-width-chars?|ull-width-cha?|ull-width-c?|ull-width|ull-width-pixels?|ull-width-pixe?|ull-width-pi?|unction))\\b(?![#$\\-_%&])",
       "captures": {
         "1": {
           "name": "punctuation.accessor.abl"
@@ -5006,7 +5005,7 @@
       }
     },
     "handle-attributes-P": {
-      "match": "(?i)(:)(p(?:age-bottom?|age-bott?|age-top|arameter?|aramet?|aram|arent|arent-buffer|arent-fields-after|arent-fields-before|arent-id-relation|arent-relation?|arent-relati?|arent-rela?|arse-status|assword-field|athname|be-hash-algorithm?|be-hash-algorit?|be-hash-algor?|be-hash-alg|be-key-rounds|ersistent-cache-disabled|ersistent-procedure|ersistent?|ersiste?|fcolor?|fcol?|fc|ixels-per-column?|ixels-per-colu?|ixels-per-row|opup-menu?|opup-me?|opup-only?|opup-on?|osition|refer-dataset|repare-string|repared|rev-column?|rev-colu?|rev-sibling|rev-tab-item?|rev-tab-it?|rimary|rimary-passphrase|rinter-control-handle|rinter-hdc|rinter-name|rinter-port|rivate-data?|rivate-da?|rocedure-name|rocedure-type|rofiling|rogress-source?|rogress-sour?|rogress-so?|roxy|roxy-password|roxy-userid|ublic-id|ublished-events))\\b(?![#$\\-_%&])",
+      "match": "(?i)(:)(p(?:age-bottom?|age-bott?|age-top|arameter?|aramet?|aram|arent|arent-buffer|arent-fields-after|arent-fields-before|arent-id-relation|arent-relation?|arent-relati?|arent-rela?|arse-status|assword-field|assword-hash-algorithm|assword-hash-rounds|assword-hash-salt|athname|be-algorithm|be-hash-algorithm?|be-hash-algorit?|be-hash-algor?|be-hash-alg|be-key-rounds|ersistent-cache-disabled|ersistent-procedure|ersistent?|ersiste?|fcolor?|fcol?|fc|ixels-per-column?|ixels-per-colu?|ixels-per-row|opup-menu?|opup-me?|opup-only?|opup-on?|osition|refer-dataset|repare-string|repared|rev-column?|rev-colu?|rev-sibling|rev-tab-item?|rev-tab-it?|rimary|rimary-passphrase|rinter-control-handle|rinter-hdc|rinter-name|rinter-port|rivate-data?|rivate-da?|rocedure-name|rocedure-type|rofiling|rogress-source?|rogress-sour?|rogress-so?|roxy|roxy-password|roxy-userid|ublic-id|ublished-events))\\b(?![#$\\-_%&])",
       "captures": {
         "1": {
           "name": "punctuation.accessor.abl"
@@ -5186,7 +5185,7 @@
       "end": "(\\))",
       "endCaptures": {
         "1": {
-          "name": "meta.brace.round.js"
+          "name": "meta.brace.round.abl"
         }
       },
       "patterns": [
@@ -5208,7 +5207,7 @@
       "end": "(\\))",
       "endCaptures": {
         "1": {
-          "name": "meta.brace.round.js"
+          "name": "meta.brace.round.abl"
         }
       },
       "patterns": [
@@ -5230,7 +5229,7 @@
       "end": "(\\))",
       "endCaptures": {
         "1": {
-          "name": "meta.brace.round.js"
+          "name": "meta.brace.round.abl"
         }
       },
       "patterns": [
@@ -5252,7 +5251,7 @@
       "end": "(\\))",
       "endCaptures": {
         "1": {
-          "name": "meta.brace.round.js"
+          "name": "meta.brace.round.abl"
         }
       },
       "patterns": [
@@ -5262,7 +5261,7 @@
       ]
     },
     "handle-methods-E": {
-      "begin": "(?i)(:)(e(?:dit-clear|dit-copy|dit-cut|dit-paste|dit-undo|mpty-dataset|mpty-temp-table|nable|nable-connections|ncode-domain-access-code|ncrypt-audit-mac-key|nd-document|nd-element|nd-event-group|nd-file-drop|ntry|xport|xport-principal))\\s*(?=\\()",
+      "begin": "(?i)(:)(e(?:dit-clear|dit-copy|dit-cut|dit-paste|dit-undo|mpty-dataset|mpty-temp-table|nable|nable-connections|ncode-domain-access-code|ncode-password|ncrypt-audit-mac-key|nd-document|nd-element|nd-event-group|nd-file-drop|ntry|xport|xport-principal))\\s*(?=\\()",
       "beginCaptures": {
         "1": {
           "name": "punctuation.accessor.abl"
@@ -5274,7 +5273,7 @@
       "end": "(\\))",
       "endCaptures": {
         "1": {
-          "name": "meta.brace.round.js"
+          "name": "meta.brace.round.abl"
         }
       },
       "patterns": [
@@ -5296,7 +5295,7 @@
       "end": "(\\))",
       "endCaptures": {
         "1": {
-          "name": "meta.brace.round.js"
+          "name": "meta.brace.round.abl"
         }
       },
       "patterns": [
@@ -5318,7 +5317,7 @@
       "end": "(\\))",
       "endCaptures": {
         "1": {
-          "name": "meta.brace.round.js"
+          "name": "meta.brace.round.abl"
         }
       },
       "patterns": [
@@ -5340,7 +5339,7 @@
       "end": "(\\))",
       "endCaptures": {
         "1": {
-          "name": "meta.brace.round.js"
+          "name": "meta.brace.round.abl"
         }
       },
       "patterns": [
@@ -5362,7 +5361,7 @@
       "end": "(\\))",
       "endCaptures": {
         "1": {
-          "name": "meta.brace.round.js"
+          "name": "meta.brace.round.abl"
         }
       },
       "patterns": [
@@ -5384,7 +5383,7 @@
       "end": "(\\))",
       "endCaptures": {
         "1": {
-          "name": "meta.brace.round.js"
+          "name": "meta.brace.round.abl"
         }
       },
       "patterns": [
@@ -5406,7 +5405,7 @@
       "end": "(\\))",
       "endCaptures": {
         "1": {
-          "name": "meta.brace.round.js"
+          "name": "meta.brace.round.abl"
         }
       },
       "patterns": [
@@ -5428,7 +5427,7 @@
       "end": "(\\))",
       "endCaptures": {
         "1": {
-          "name": "meta.brace.round.js"
+          "name": "meta.brace.round.abl"
         }
       },
       "patterns": [
@@ -5450,7 +5449,7 @@
       "end": "(\\))",
       "endCaptures": {
         "1": {
-          "name": "meta.brace.round.js"
+          "name": "meta.brace.round.abl"
         }
       },
       "patterns": [
@@ -5472,7 +5471,7 @@
       "end": "(\\))",
       "endCaptures": {
         "1": {
-          "name": "meta.brace.round.js"
+          "name": "meta.brace.round.abl"
         }
       },
       "patterns": [
@@ -5494,7 +5493,7 @@
       "end": "(\\))",
       "endCaptures": {
         "1": {
-          "name": "meta.brace.round.js"
+          "name": "meta.brace.round.abl"
         }
       },
       "patterns": [
@@ -5516,7 +5515,7 @@
       "end": "(\\))",
       "endCaptures": {
         "1": {
-          "name": "meta.brace.round.js"
+          "name": "meta.brace.round.abl"
         }
       },
       "patterns": [
@@ -5526,7 +5525,7 @@
       ]
     },
     "handle-methods-V": {
-      "begin": "(?i)(:)(validate(?:|-domain-access-code|-seal))\\s*(?=\\()",
+      "begin": "(?i)(:)(validate(?:|-domain-access-code|-password|-seal))\\s*(?=\\()",
       "beginCaptures": {
         "1": {
           "name": "punctuation.accessor.abl"
@@ -5538,7 +5537,7 @@
       "end": "(\\))",
       "endCaptures": {
         "1": {
-          "name": "meta.brace.round.js"
+          "name": "meta.brace.round.abl"
         }
       },
       "patterns": [
@@ -5560,7 +5559,7 @@
       "end": "(\\))",
       "endCaptures": {
         "1": {
-          "name": "meta.brace.round.js"
+          "name": "meta.brace.round.abl"
         }
       },
       "patterns": [
@@ -5785,7 +5784,7 @@
       "end": "(\\))",
       "endCaptures": {
         "1": {
-          "name": "meta.brace.round.js"
+          "name": "meta.brace.round.abl"
         }
       },
       "patterns": [
@@ -5804,7 +5803,7 @@
       "end": "(\\))",
       "endCaptures": {
         "1": {
-          "name": "meta.brace.round.js"
+          "name": "meta.brace.round.abl"
         }
       },
       "patterns": [
@@ -5823,7 +5822,7 @@
       "end": "(\\))",
       "endCaptures": {
         "1": {
-          "name": "meta.brace.round.js"
+          "name": "meta.brace.round.abl"
         }
       },
       "patterns": [
@@ -5842,7 +5841,7 @@
       "end": "(\\))",
       "endCaptures": {
         "1": {
-          "name": "meta.brace.round.js"
+          "name": "meta.brace.round.abl"
         }
       },
       "patterns": [
@@ -5861,7 +5860,7 @@
       "end": "(\\))",
       "endCaptures": {
         "1": {
-          "name": "meta.brace.round.js"
+          "name": "meta.brace.round.abl"
         }
       },
       "patterns": [
@@ -5880,7 +5879,7 @@
       "end": "(\\))",
       "endCaptures": {
         "1": {
-          "name": "meta.brace.round.js"
+          "name": "meta.brace.round.abl"
         }
       },
       "patterns": [
@@ -5890,7 +5889,7 @@
       ]
     },
     "abl-functions-G": {
-      "begin": "(?i)\\s*(g(?:ateways?|enerate-pbe-key|enerate-pbe-salt|enerate-random-key|enerate-uuid|et-bits|et-byte|et-byte-order|et-bytes|et-class|et-codepages?|et-codepages?|et-collations??|et-collation?|et-collati?|et-colla?|et-db-client|et-double|et-effective-tenant-id|et-effective-tenant-name|et-float|et-int64|et-long|et-pointer-value|et-short|et-size|et-string|et-unsigned-long|et-unsigned-short|o-pending?|o-pendi?|uid))\\s*(?=\\()",
+      "begin": "(?i)\\s*(g(?:ateways?|enerate-password-hash|enerate-pbe-key|enerate-pbe-salt|enerate-random-key|enerate-salt|enerate-uuid|et-bits|et-byte|et-byte-order|et-bytes|et-class|et-codepages?|et-codepages?|et-collations??|et-collation?|et-collati?|et-colla?|et-db-client|et-double|et-effective-tenant-id|et-effective-tenant-name|et-float|et-int64|et-long|et-pointer-value|et-short|et-size|et-string|et-unsigned-long|et-unsigned-short|o-pending?|o-pendi?|uid))\\s*(?=\\()",
       "beginCaptures": {
         "1": {
           "name": "support.function.abl"
@@ -5899,7 +5898,7 @@
       "end": "(\\))",
       "endCaptures": {
         "1": {
-          "name": "meta.brace.round.js"
+          "name": "meta.brace.round.abl"
         }
       },
       "patterns": [
@@ -5918,7 +5917,7 @@
       "end": "(\\))",
       "endCaptures": {
         "1": {
-          "name": "meta.brace.round.js"
+          "name": "meta.brace.round.abl"
         }
       },
       "patterns": [
@@ -5937,7 +5936,7 @@
       "end": "(\\))",
       "endCaptures": {
         "1": {
-          "name": "meta.brace.round.js"
+          "name": "meta.brace.round.abl"
         }
       },
       "patterns": [
@@ -5956,7 +5955,7 @@
       "end": "(\\))",
       "endCaptures": {
         "1": {
-          "name": "meta.brace.round.js"
+          "name": "meta.brace.round.abl"
         }
       },
       "patterns": [
@@ -5975,7 +5974,7 @@
       "end": "(\\))",
       "endCaptures": {
         "1": {
-          "name": "meta.brace.round.js"
+          "name": "meta.brace.round.abl"
         }
       },
       "patterns": [
@@ -5994,7 +5993,7 @@
       "end": "(\\))",
       "endCaptures": {
         "1": {
-          "name": "meta.brace.round.js"
+          "name": "meta.brace.round.abl"
         }
       },
       "patterns": [
@@ -6013,7 +6012,7 @@
       "end": "(\\))",
       "endCaptures": {
         "1": {
-          "name": "meta.brace.round.js"
+          "name": "meta.brace.round.abl"
         }
       },
       "patterns": [
@@ -6032,7 +6031,7 @@
       "end": "(\\))",
       "endCaptures": {
         "1": {
-          "name": "meta.brace.round.js"
+          "name": "meta.brace.round.abl"
         }
       },
       "patterns": [
@@ -6051,7 +6050,7 @@
       "end": "(\\))",
       "endCaptures": {
         "1": {
-          "name": "meta.brace.round.js"
+          "name": "meta.brace.round.abl"
         }
       },
       "patterns": [
@@ -6070,7 +6069,7 @@
       "end": "(\\))",
       "endCaptures": {
         "1": {
-          "name": "meta.brace.round.js"
+          "name": "meta.brace.round.abl"
         }
       },
       "patterns": [
@@ -6089,7 +6088,7 @@
       "end": "(\\))",
       "endCaptures": {
         "1": {
-          "name": "meta.brace.round.js"
+          "name": "meta.brace.round.abl"
         }
       },
       "patterns": [
@@ -6108,7 +6107,7 @@
       "end": "(\\))",
       "endCaptures": {
         "1": {
-          "name": "meta.brace.round.js"
+          "name": "meta.brace.round.abl"
         }
       },
       "patterns": [
@@ -6127,7 +6126,7 @@
       "end": "(\\))",
       "endCaptures": {
         "1": {
-          "name": "meta.brace.round.js"
+          "name": "meta.brace.round.abl"
         }
       },
       "patterns": [
@@ -6146,7 +6145,7 @@
       "end": "(\\))",
       "endCaptures": {
         "1": {
-          "name": "meta.brace.round.js"
+          "name": "meta.brace.round.abl"
         }
       },
       "patterns": [
@@ -6165,7 +6164,7 @@
       "end": "(\\))",
       "endCaptures": {
         "1": {
-          "name": "meta.brace.round.js"
+          "name": "meta.brace.round.abl"
         }
       },
       "patterns": [
@@ -6184,7 +6183,7 @@
       "end": "(\\))",
       "endCaptures": {
         "1": {
-          "name": "meta.brace.round.js"
+          "name": "meta.brace.round.abl"
         }
       },
       "patterns": [
@@ -6203,7 +6202,7 @@
       "end": "(\\))",
       "endCaptures": {
         "1": {
-          "name": "meta.brace.round.js"
+          "name": "meta.brace.round.abl"
         }
       },
       "patterns": [

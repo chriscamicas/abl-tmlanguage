@@ -18,8 +18,8 @@ describe('', () => {
     { "startIndex": 20, "endIndex": 27, "scopes": ["source.abl", "meta.define.abl", "keyword.other.abl"] },
     { "startIndex": 27, "endIndex": 28, "scopes": ["source.abl", "meta.define.abl", "punctuation.terminator.abl"] },
     { "startIndex": 28, "endIndex": 29, "scopes": ["source.abl"] },
-    { "startIndex": 29, "endIndex": 31, "scopes": ["source.abl", "comment.block.source.abl"] },
-    { "startIndex": 31, "endIndex": 40, "scopes": ["source.abl", "comment.block.source.abl", "comment"] },
-    { "startIndex": 40, "endIndex": 42, "scopes": ["source.abl", "comment.block.source.abl"] }];
+    { "startIndex": 29, "endIndex": 31, "scopes": ["source.abl", "comment.block.abl"] },
+    { "startIndex": 31, "endIndex": 40, "scopes": ["source.abl", "comment.block.abl", "comment"] },
+    { "startIndex": 40, "endIndex": 42, "scopes": ["source.abl", "comment.block.abl"] }];
   shared.itShouldMatchExpectedScopes(statement, expectedTokens);
 })

@@ -46,9 +46,9 @@ describe('', () => {
       { "startIndex": 23, "endIndex": 29, "scopes": ["source.abl", "entity.name.function.abl"] },  // 'HANDLE'
       { "startIndex": 29, "endIndex": 30, "scopes": ["source.abl", "punctuation.terminator.abl"] },  // '.'
       { "startIndex": 30, "endIndex": 37, "scopes": ["source.abl"] },  // '       '
-      { "startIndex": 37, "endIndex": 39, "scopes": ["source.abl", "comment.block.source.abl"] },  // '/*'
-      { "startIndex": 39, "endIndex": 72, "scopes": ["source.abl", "comment.block.source.abl", "comment"] },  // ' From static tt's default buffer '
-      { "startIndex": 72, "endIndex": 74, "scopes": ["source.abl", "comment.block.source.abl"] }  // '*/'
+      { "startIndex": 37, "endIndex": 39, "scopes": ["source.abl", "comment.block.abl"] },  // '/*'
+      { "startIndex": 39, "endIndex": 72, "scopes": ["source.abl", "comment.block.abl", "comment"] },  // ' From static tt's default buffer '
+      { "startIndex": 72, "endIndex": 74, "scopes": ["source.abl", "comment.block.abl"] }  // '*/'
     ]
   ];
   shared.itShouldMatchExpectedScopes(statement, expectedTokens);
@@ -70,9 +70,9 @@ describe('', () => {
     { "startIndex": 30, "endIndex": 34, "scopes": ["source.abl", "variable.other.abl"] },  // 'hbuf'
     { "startIndex": 34, "endIndex": 35, "scopes": ["source.abl", "punctuation.terminator.abl"] },  // '.'
     { "startIndex": 35, "endIndex": 37, "scopes": ["source.abl"] },  // '  '
-    { "startIndex": 37, "endIndex": 39, "scopes": ["source.abl", "comment.block.source.abl"] },  // '/*'
-    { "startIndex": 39, "endIndex": 72, "scopes": ["source.abl", "comment.block.source.abl", "comment"] },  // ' From static tt's default buffer '
-    { "startIndex": 72, "endIndex": 74, "scopes": ["source.abl", "comment.block.source.abl"] }  // '*/'
+    { "startIndex": 37, "endIndex": 39, "scopes": ["source.abl", "comment.block.abl"] },  // '/*'
+    { "startIndex": 39, "endIndex": 72, "scopes": ["source.abl", "comment.block.abl", "comment"] },  // ' From static tt's default buffer '
+    { "startIndex": 72, "endIndex": 74, "scopes": ["source.abl", "comment.block.abl"] }  // '*/'
   ];
   shared.itShouldMatchExpectedScopes(statement, expectedTokens);
 })
@@ -101,9 +101,9 @@ describe('', () => {
       { "startIndex": 27, "endIndex": 33, "scopes": ["source.abl", "entity.name.function.abl"] },  // 'HANDLE'
       { "startIndex": 33, "endIndex": 34, "scopes": ["source.abl", "punctuation.terminator.abl"] },  // '.'
       { "startIndex": 34, "endIndex": 37, "scopes": ["source.abl"] },  // '   '
-      { "startIndex": 37, "endIndex": 39, "scopes": ["source.abl", "comment.block.source.abl"] },  // '/*'
-      { "startIndex": 39, "endIndex": 64, "scopes": ["source.abl", "comment.block.source.abl", "comment"] },  // ' From static tt's handle '
-      { "startIndex": 64, "endIndex": 66, "scopes": ["source.abl", "comment.block.source.abl"] }  // '*/'
+      { "startIndex": 37, "endIndex": 39, "scopes": ["source.abl", "comment.block.abl"] },  // '/*'
+      { "startIndex": 39, "endIndex": 64, "scopes": ["source.abl", "comment.block.abl", "comment"] },  // ' From static tt's handle '
+      { "startIndex": 64, "endIndex": 66, "scopes": ["source.abl", "comment.block.abl"] }  // '*/'
     ]
   ];
   shared.itShouldMatchExpectedScopes(statement, expectedTokens);
@@ -207,6 +207,60 @@ describe('', () => {
     { "startIndex": 51, "endIndex": 52, "scopes": ["source.abl"] },  // ' '
     { "startIndex": 52, "endIndex": 76, "scopes": ["source.abl", "storage.data.table.abl"] },  // 'ttBufferHandle.TableName'
     { "startIndex": 76, "endIndex": 77, "scopes": ["source.abl", "punctuation.terminator.abl"] }  // '.'
+  ];
+  shared.itShouldMatchExpectedScopes(statement, expectedTokens);
+})
+
+describe('', () => {
+  let statement = `            CREATE BUFFER hSourceBuffer[i]
+                FOR TABLE hBuffer:DATA-SOURCE:GET-SOURCE-BUFFER (i)
+                BUFFER-NAME hBuffer:DATA-SOURCE:GET-SOURCE-BUFFER (i):NAME .`;
+  let expectedTokens = [
+    [
+      { "startIndex": 0, "endIndex": 12, "scopes": ["source.abl"] },  // '            '
+      { "startIndex": 12, "endIndex": 18, "scopes": ["source.abl", "keyword.other.abl"] },  // 'CREATE'
+      { "startIndex": 18, "endIndex": 19, "scopes": ["source.abl"] },  // ' '
+      { "startIndex": 19, "endIndex": 25, "scopes": ["source.abl", "keyword.other.abl"] },  // 'BUFFER'
+      { "startIndex": 25, "endIndex": 26, "scopes": ["source.abl"] },  // ' '
+      { "startIndex": 26, "endIndex": 39, "scopes": ["source.abl", "variable.other.abl"] },  // 'hSourceBuffer'
+      { "startIndex": 39, "endIndex": 40, "scopes": ["source.abl"] },  // '['
+      { "startIndex": 40, "endIndex": 41, "scopes": ["source.abl", "variable.other.abl"] },  // 'i'
+      { "startIndex": 41, "endIndex": 43, "scopes": ["source.abl"] }  // ']'
+    ],
+    [
+      { "startIndex": 0, "endIndex": 16, "scopes": ["source.abl"] },  // '                '
+      { "startIndex": 16, "endIndex": 19, "scopes": ["source.abl", "keyword.other.abl"] },  // 'FOR'
+      { "startIndex": 19, "endIndex": 20, "scopes": ["source.abl"] },  // ' '
+      { "startIndex": 20, "endIndex": 25, "scopes": ["source.abl", "keyword.other.abl"] },  // 'TABLE'
+      { "startIndex": 25, "endIndex": 26, "scopes": ["source.abl"] },  // ' '
+      { "startIndex": 26, "endIndex": 33, "scopes": ["source.abl", "variable.other.abl"] },  // 'hBuffer'
+      { "startIndex": 33, "endIndex": 34, "scopes": ["source.abl", "punctuation.accessor.abl"] },  // ':'
+      { "startIndex": 34, "endIndex": 45, "scopes": ["source.abl", "entity.name.function.abl"] },  // 'DATA-SOURCE'
+      { "startIndex": 45, "endIndex": 46, "scopes": ["source.abl", "punctuation.accessor.abl"] },  // ':'
+      { "startIndex": 46, "endIndex": 63, "scopes": ["source.abl", "support.function.abl"] },  // 'GET-SOURCE-BUFFER'
+      { "startIndex": 63, "endIndex": 64, "scopes": ["source.abl"] },  // ' '
+      { "startIndex": 64, "endIndex": 65, "scopes": ["source.abl", "meta.brace.round.abl"] },  // '('
+      { "startIndex": 65, "endIndex": 66, "scopes": ["source.abl", "variable.other.abl"] },  // 'i'
+      { "startIndex": 66, "endIndex": 67, "scopes": ["source.abl", "meta.brace.round.abl"] }  // ')'
+    ],
+    [
+      { "startIndex": 0, "endIndex": 16, "scopes": ["source.abl"] },  // '                '
+      { "startIndex": 16, "endIndex": 27, "scopes": ["source.abl", "keyword.other.abl"] },  // 'BUFFER-NAME'
+      { "startIndex": 27, "endIndex": 28, "scopes": ["source.abl"] },  // ' '
+      { "startIndex": 28, "endIndex": 35, "scopes": ["source.abl", "variable.other.abl"] },  // 'hBuffer'
+      { "startIndex": 35, "endIndex": 36, "scopes": ["source.abl", "punctuation.accessor.abl"] },  // ':'
+      { "startIndex": 36, "endIndex": 47, "scopes": ["source.abl", "entity.name.function.abl"] },  // 'DATA-SOURCE'
+      { "startIndex": 47, "endIndex": 48, "scopes": ["source.abl", "punctuation.accessor.abl"] },  // ':'
+      { "startIndex": 48, "endIndex": 65, "scopes": ["source.abl", "support.function.abl"] },  // 'GET-SOURCE-BUFFER'
+      { "startIndex": 65, "endIndex": 66, "scopes": ["source.abl"] },  // ' '
+      { "startIndex": 66, "endIndex": 67, "scopes": ["source.abl", "meta.brace.round.abl"] },  // '('
+      { "startIndex": 67, "endIndex": 68, "scopes": ["source.abl", "variable.other.abl"] },  // 'i'
+      { "startIndex": 68, "endIndex": 69, "scopes": ["source.abl", "meta.brace.round.abl"] },  // ')'
+      { "startIndex": 69, "endIndex": 70, "scopes": ["source.abl", "punctuation.accessor.abl"] },  // ':'
+      { "startIndex": 70, "endIndex": 74, "scopes": ["source.abl", "entity.name.function.abl"] },  // 'NAME'
+      { "startIndex": 74, "endIndex": 75, "scopes": ["source.abl"] },  // ' '
+      { "startIndex": 75, "endIndex": 76, "scopes": ["source.abl", "punctuation.terminator.abl"] }  // '.'
+    ]
   ];
   shared.itShouldMatchExpectedScopes(statement, expectedTokens);
 })

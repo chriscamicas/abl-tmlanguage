@@ -10,7 +10,7 @@ describe('', () => {
     { "startIndex": 1, "endIndex": 14, "scopes": ["source.abl", "meta.include.abl", "entity.name.include.abl"] },  // 'rec/zetin.ooi'
     { "startIndex": 14, "endIndex": 15, "scopes": ["source.abl", "meta.include.abl"] },  // ' '
     { "startIndex": 15, "endIndex": 21, "scopes": ["source.abl", "meta.include.abl", "meta.include.argument.abl", "support.other.argument.abl"] },  // '&where'
-    { "startIndex": 21, "endIndex": 22, "scopes": ["source.abl", "meta.include.abl", "meta.include.argument.abl", "keyword.operator.source.abl"] },  // '='
+    { "startIndex": 21, "endIndex": 22, "scopes": ["source.abl", "meta.include.abl", "meta.include.argument.abl", "keyword.operator.abl"] },  // '='
     { "startIndex": 22, "endIndex": 23, "scopes": ["source.abl", "meta.include.abl", "string.quoted.double.abl", "punctuation.definition.string.begin.abl"] },  // '"'
     { "startIndex": 23, "endIndex": 32, "scopes": ["source.abl", "meta.include.abl", "string.quoted.double.abl"] },  // 'zetin.act'
     { "startIndex": 32, "endIndex": 33, "scopes": ["source.abl", "meta.include.abl", "string.quoted.double.abl", "punctuation.definition.string.end.abl"] },  // '"'
@@ -33,7 +33,7 @@ describe('', () => {
     [
       { "startIndex": 0, "endIndex": 4, "scopes": ["source.abl", "meta.include.abl"] },  // '    '
       { "startIndex": 4, "endIndex": 10, "scopes": ["source.abl", "meta.include.abl", "meta.include.argument.abl", "support.other.argument.abl"] },  // '&where'
-      { "startIndex": 10, "endIndex": 11, "scopes": ["source.abl", "meta.include.abl", "meta.include.argument.abl", "keyword.operator.source.abl"] },  // '='
+      { "startIndex": 10, "endIndex": 11, "scopes": ["source.abl", "meta.include.abl", "meta.include.argument.abl", "keyword.operator.abl"] },  // '='
       { "startIndex": 11, "endIndex": 12, "scopes": ["source.abl", "meta.include.abl", "string.quoted.double.abl", "punctuation.definition.string.begin.abl"] },  // '"'
       { "startIndex": 12, "endIndex": 21, "scopes": ["source.abl", "meta.include.abl", "string.quoted.double.abl"] },  // 'zetin.act'
       { "startIndex": 21, "endIndex": 22, "scopes": ["source.abl", "meta.include.abl", "string.quoted.double.abl", "punctuation.definition.string.end.abl"] }  // '"'
@@ -57,7 +57,7 @@ describe('', () => {
       { "startIndex": 1, "endIndex": 14, "scopes": ["source.abl", "meta.include.abl", "entity.name.include.abl"] },  // 'rec/zetin.ooi'
       { "startIndex": 14, "endIndex": 15, "scopes": ["source.abl", "meta.include.abl"] },  // ' '
       { "startIndex": 15, "endIndex": 21, "scopes": ["source.abl", "meta.include.abl", "meta.include.argument.abl", "support.other.argument.abl"] },  // '&where'
-      { "startIndex": 21, "endIndex": 22, "scopes": ["source.abl", "meta.include.abl", "meta.include.argument.abl", "keyword.operator.source.abl"] },  // '='
+      { "startIndex": 21, "endIndex": 22, "scopes": ["source.abl", "meta.include.abl", "meta.include.argument.abl", "keyword.operator.abl"] },  // '='
       { "startIndex": 22, "endIndex": 23, "scopes": ["source.abl", "meta.include.abl", "string.quoted.double.abl", "punctuation.definition.string.begin.abl"] },  // '"'
       { "startIndex": 23, "endIndex": 33, "scopes": ["source.abl", "meta.include.abl", "string.quoted.double.abl"] }  // 'zetin.act'
     ],
@@ -81,7 +81,7 @@ describe('', () => {
     { "startIndex": 1, "endIndex": 14, "scopes": ["source.abl", "meta.include.abl", "entity.name.include.abl"] },  // 'rec/zetin.ooi'
     { "startIndex": 14, "endIndex": 15, "scopes": ["source.abl", "meta.include.abl"] },  // ' '
     { "startIndex": 15, "endIndex": 21, "scopes": ["source.abl", "meta.include.abl", "meta.include.argument.abl", "support.other.argument.abl"] },  // '&where'
-    { "startIndex": 21, "endIndex": 22, "scopes": ["source.abl", "meta.include.abl", "meta.include.argument.abl", "keyword.operator.source.abl"] },  // '='
+    { "startIndex": 21, "endIndex": 22, "scopes": ["source.abl", "meta.include.abl", "meta.include.argument.abl", "keyword.operator.abl"] },  // '='
     { "startIndex": 22, "endIndex": 23, "scopes": ["source.abl", "meta.include.abl", "string.quoted.double.abl", "punctuation.definition.string.begin.abl"] },  // '"'
     { "startIndex": 23, "endIndex": 32, "scopes": ["source.abl", "meta.include.abl", "string.quoted.double.abl"] },  // 'zetin.act'
     { "startIndex": 32, "endIndex": 33, "scopes": ["source.abl", "meta.include.abl", "string.quoted.double.abl", "punctuation.definition.string.end.abl"] },  // '"'
@@ -89,7 +89,7 @@ describe('', () => {
     { "startIndex": 34, "endIndex": 40, "scopes": ["source.abl", "meta.include.abl", "meta.include.argument.abl", "support.other.argument.abl"] },  // '&MyArg'
     { "startIndex": 40, "endIndex": 41, "scopes": ["source.abl", "meta.include.abl", "meta.include.argument.abl"] },  // ' '
     { "startIndex": 41, "endIndex": 47, "scopes": ["source.abl", "meta.include.abl", "meta.include.argument.abl", "support.other.argument.abl"] },  // '&Thrid'
-    { "startIndex": 47, "endIndex": 48, "scopes": ["source.abl", "meta.include.abl", "meta.include.argument.abl", "keyword.operator.source.abl"] },  // '='
+    { "startIndex": 47, "endIndex": 48, "scopes": ["source.abl", "meta.include.abl", "meta.include.argument.abl", "keyword.operator.abl"] },  // '='
     { "startIndex": 48, "endIndex": 50, "scopes": ["source.abl", "meta.include.abl", "support.other.argument.abl"] },  // '43'
     { "startIndex": 50, "endIndex": 51, "scopes": ["source.abl", "meta.include.abl", "punctuation.section.abl"] }  // '}'
   ];
@@ -109,7 +109,7 @@ describe('', () => {
     [
       { "startIndex": 0, "endIndex": 2, "scopes": ["source.abl", "meta.include.abl"] },  // '  '
       { "startIndex": 2, "endIndex": 8, "scopes": ["source.abl", "meta.include.abl", "meta.include.argument.abl", "support.other.argument.abl"] },  // '&where'
-      { "startIndex": 8, "endIndex": 9, "scopes": ["source.abl", "meta.include.abl", "meta.include.argument.abl", "keyword.operator.source.abl"] },  // '='
+      { "startIndex": 8, "endIndex": 9, "scopes": ["source.abl", "meta.include.abl", "meta.include.argument.abl", "keyword.operator.abl"] },  // '='
       { "startIndex": 9, "endIndex": 10, "scopes": ["source.abl", "meta.include.abl", "string.quoted.double.abl", "punctuation.definition.string.begin.abl"] },  // '"'
       { "startIndex": 10, "endIndex": 19, "scopes": ["source.abl", "meta.include.abl", "string.quoted.double.abl"] },  // 'zetin.act'
       { "startIndex": 19, "endIndex": 20, "scopes": ["source.abl", "meta.include.abl", "string.quoted.double.abl", "punctuation.definition.string.end.abl"] }  // '"'
@@ -119,7 +119,7 @@ describe('', () => {
       { "startIndex": 2, "endIndex": 8, "scopes": ["source.abl", "meta.include.abl", "meta.include.argument.abl", "support.other.argument.abl"] },  // '&MyArg'
       { "startIndex": 8, "endIndex": 9, "scopes": ["source.abl", "meta.include.abl", "meta.include.argument.abl"] },  // ' '
       { "startIndex": 9, "endIndex": 15, "scopes": ["source.abl", "meta.include.abl", "meta.include.argument.abl", "support.other.argument.abl"] },  // '&Thrid'
-      { "startIndex": 15, "endIndex": 16, "scopes": ["source.abl", "meta.include.abl", "meta.include.argument.abl", "keyword.operator.source.abl"] },  // '='
+      { "startIndex": 15, "endIndex": 16, "scopes": ["source.abl", "meta.include.abl", "meta.include.argument.abl", "keyword.operator.abl"] },  // '='
       { "startIndex": 16, "endIndex": 18, "scopes": ["source.abl", "meta.include.abl", "support.other.argument.abl"] },  // '43'
       { "startIndex": 18, "endIndex": 19, "scopes": ["source.abl", "meta.include.abl", "punctuation.section.abl"] }  // '}'
     ]

@@ -138,11 +138,11 @@ describe('', () => {
     ],
     [
       { "startIndex": 0, "endIndex": 8, "scopes": ["source.abl", "meta.define.abl"] },  // '        '
-      { "startIndex": 8, "endIndex": 13, "scopes": ["source.abl", "meta.define.abl", "constant.numeric.source.abl"] },  // '33.22'
+      { "startIndex": 8, "endIndex": 13, "scopes": ["source.abl", "meta.define.abl", "constant.numeric.abl"] },  // '33.22'
       { "startIndex": 13, "endIndex": 14, "scopes": ["source.abl", "meta.define.abl"] },  // ' '
       { "startIndex": 14, "endIndex": 16, "scopes": ["source.abl", "meta.define.abl", "keyword.other.abl"] },  // 'BY'
       { "startIndex": 16, "endIndex": 17, "scopes": ["source.abl", "meta.define.abl"] },  // ' '
-      { "startIndex": 17, "endIndex": 22, "scopes": ["source.abl", "meta.define.abl", "constant.numeric.source.abl"] }  // '44.55'
+      { "startIndex": 17, "endIndex": 22, "scopes": ["source.abl", "meta.define.abl", "constant.numeric.abl"] }  // '44.55'
     ],
     [
       { "startIndex": 0, "endIndex": 1, "scopes": ["source.abl", "meta.define.abl"] }  // ''
@@ -153,19 +153,19 @@ describe('', () => {
       { "startIndex": 9, "endIndex": 10, "scopes": ["source.abl", "meta.define.abl"] },  // ' '
       { "startIndex": 10, "endIndex": 11, "scopes": ["source.abl", "meta.define.abl", "keyword.other.abl"] },  // 'X'
       { "startIndex": 11, "endIndex": 12, "scopes": ["source.abl", "meta.define.abl"] },  // ' '
-      { "startIndex": 12, "endIndex": 14, "scopes": ["source.abl", "meta.define.abl", "constant.numeric.source.abl"] },  // '77'
+      { "startIndex": 12, "endIndex": 14, "scopes": ["source.abl", "meta.define.abl", "constant.numeric.abl"] },  // '77'
       { "startIndex": 14, "endIndex": 15, "scopes": ["source.abl", "meta.define.abl"] },  // ' '
       { "startIndex": 15, "endIndex": 16, "scopes": ["source.abl", "meta.define.abl", "keyword.other.abl"] },  // 'Y'
       { "startIndex": 16, "endIndex": 17, "scopes": ["source.abl", "meta.define.abl"] },  // ' '
-      { "startIndex": 17, "endIndex": 19, "scopes": ["source.abl", "meta.define.abl", "constant.numeric.source.abl"] },  // '77'
+      { "startIndex": 17, "endIndex": 19, "scopes": ["source.abl", "meta.define.abl", "constant.numeric.abl"] },  // '77'
       { "startIndex": 19, "endIndex": 21, "scopes": ["source.abl", "meta.define.abl"] },  // '  '
       { "startIndex": 21, "endIndex": 24, "scopes": ["source.abl", "meta.define.abl", "keyword.other.abl"] },  // 'ROW'
       { "startIndex": 24, "endIndex": 25, "scopes": ["source.abl", "meta.define.abl"] },  // ' '
-      { "startIndex": 25, "endIndex": 26, "scopes": ["source.abl", "meta.define.abl", "constant.numeric.source.abl"] },  // '6'
+      { "startIndex": 25, "endIndex": 26, "scopes": ["source.abl", "meta.define.abl", "constant.numeric.abl"] },  // '6'
       { "startIndex": 26, "endIndex": 27, "scopes": ["source.abl", "meta.define.abl"] },  // ' '
       { "startIndex": 27, "endIndex": 33, "scopes": ["source.abl", "meta.define.abl", "keyword.other.abl"] },  // 'COLUMN'
       { "startIndex": 33, "endIndex": 34, "scopes": ["source.abl", "meta.define.abl"] },  // ' '
-      { "startIndex": 34, "endIndex": 35, "scopes": ["source.abl", "meta.define.abl", "constant.numeric.source.abl"] }  // '9'
+      { "startIndex": 34, "endIndex": 35, "scopes": ["source.abl", "meta.define.abl", "constant.numeric.abl"] }  // '9'
     ],
     [
       { "startIndex": 0, "endIndex": 2, "scopes": ["source.abl", "meta.define.abl"] },  // '  '
@@ -205,11 +205,11 @@ describe('', () => {
       { "startIndex": 18, "endIndex": 20, "scopes": ["source.abl", "meta.define.abl"] },  // '  '
       { "startIndex": 20, "endIndex": 31, "scopes": ["source.abl", "meta.define.abl", "keyword.other.abl"] },  // 'SIZE-PIXELS'
       { "startIndex": 31, "endIndex": 32, "scopes": ["source.abl", "meta.define.abl"] },  // ' '
-      { "startIndex": 32, "endIndex": 34, "scopes": ["source.abl", "meta.define.abl", "constant.numeric.source.abl"] },  // '11'
+      { "startIndex": 32, "endIndex": 34, "scopes": ["source.abl", "meta.define.abl", "constant.numeric.abl"] },  // '11'
       { "startIndex": 34, "endIndex": 35, "scopes": ["source.abl", "meta.define.abl"] },  // ' '
       { "startIndex": 35, "endIndex": 37, "scopes": ["source.abl", "meta.define.abl", "keyword.other.abl"] },  // 'BY'
       { "startIndex": 37, "endIndex": 38, "scopes": ["source.abl", "meta.define.abl"] },  // ' '
-      { "startIndex": 38, "endIndex": 40, "scopes": ["source.abl", "meta.define.abl", "constant.numeric.source.abl"] }  // '22'
+      { "startIndex": 38, "endIndex": 40, "scopes": ["source.abl", "meta.define.abl", "constant.numeric.abl"] }  // '22'
     ],
     [
       { "startIndex": 0, "endIndex": 2, "scopes": ["source.abl", "meta.define.abl"] },  // '  '
