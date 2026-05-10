@@ -60,32 +60,32 @@ describe('', () => {
       { "startIndex": 31, "endIndex": 32, "scopes": ["source.abl", "meta.define.abl"] },  // ' '
       { "startIndex": 32, "endIndex": 38, "scopes": ["source.abl", "meta.define.abl", "keyword.other.abl"] },  // 'FIELDS'
       { "startIndex": 38, "endIndex": 40, "scopes": ["source.abl", "meta.define.abl"] },  // '  '
-      { "startIndex": 40, "endIndex": 41, "scopes": ["source.abl", "meta.define.abl", "meta.brace.round.js"] },  // '('
+      { "startIndex": 40, "endIndex": 41, "scopes": ["source.abl", "meta.define.abl", "meta.brace.round.abl"] },  // '('
       { "startIndex": 41, "endIndex": 42, "scopes": ["source.abl", "meta.define.abl"] },  // ' '
       { "startIndex": 42, "endIndex": 47, "scopes": ["source.abl", "meta.define.abl", "storage.data.table.abl"] },  // 'field'
       { "startIndex": 47, "endIndex": 48, "scopes": ["source.abl", "meta.define.abl", "punctuation.separator.comma.abl"] },  // ','
       { "startIndex": 48, "endIndex": 49, "scopes": ["source.abl", "meta.define.abl"] },  // ' '
       { "startIndex": 49, "endIndex": 54, "scopes": ["source.abl", "meta.define.abl", "storage.data.table.abl"] },  // 'field'
       { "startIndex": 54, "endIndex": 55, "scopes": ["source.abl", "meta.define.abl"] },  // ' '
-      { "startIndex": 55, "endIndex": 56, "scopes": ["source.abl", "meta.define.abl", "meta.brace.round.js"] }  // ')'
+      { "startIndex": 55, "endIndex": 56, "scopes": ["source.abl", "meta.define.abl", "meta.brace.round.abl"] }  // ')'
     ],
     [
       { "startIndex": 0, "endIndex": 4, "scopes": ["source.abl", "meta.define.abl"] },  // '    '
       { "startIndex": 4, "endIndex": 10, "scopes": ["source.abl", "meta.define.abl", "keyword.other.abl"] },  // 'EXCEPT'
       { "startIndex": 10, "endIndex": 11, "scopes": ["source.abl", "meta.define.abl"] },  // ' '
-      { "startIndex": 11, "endIndex": 12, "scopes": ["source.abl", "meta.define.abl", "meta.brace.round.js"] },  // '('
+      { "startIndex": 11, "endIndex": 12, "scopes": ["source.abl", "meta.define.abl", "meta.brace.round.abl"] },  // '('
       { "startIndex": 12, "endIndex": 13, "scopes": ["source.abl", "meta.define.abl"] },  // ' '
       { "startIndex": 13, "endIndex": 18, "scopes": ["source.abl", "meta.define.abl", "storage.data.table.abl"] },  // 'field'
       { "startIndex": 18, "endIndex": 19, "scopes": ["source.abl", "meta.define.abl", "punctuation.separator.comma.abl"] },  // ','
       { "startIndex": 19, "endIndex": 20, "scopes": ["source.abl", "meta.define.abl"] },  // ' '
       { "startIndex": 20, "endIndex": 25, "scopes": ["source.abl", "meta.define.abl", "storage.data.table.abl"] },  // 'field'
-      { "startIndex": 25, "endIndex": 26, "scopes": ["source.abl", "meta.define.abl", "meta.brace.round.js"] }  // ')'
+      { "startIndex": 25, "endIndex": 26, "scopes": ["source.abl", "meta.define.abl", "meta.brace.round.abl"] }  // ')'
     ],
     [
       { "startIndex": 0, "endIndex": 3, "scopes": ["source.abl", "meta.define.abl"] },  // '   '
       { "startIndex": 3, "endIndex": 8, "scopes": ["source.abl", "meta.define.abl", "keyword.other.abl"] },  // 'CACHE'
       { "startIndex": 8, "endIndex": 9, "scopes": ["source.abl", "meta.define.abl"] },  // ' '
-      { "startIndex": 9, "endIndex": 12, "scopes": ["source.abl", "meta.define.abl", "constant.numeric.source.abl"] }  // '123'
+      { "startIndex": 9, "endIndex": 12, "scopes": ["source.abl", "meta.define.abl", "constant.numeric.abl"] }  // '123'
     ],
     [
       { "startIndex": 0, "endIndex": 3, "scopes": ["source.abl", "meta.define.abl"] },  // '   '

@@ -443,7 +443,7 @@ lineReaderFunctions.on('close', () => {
         end: "(\\))",
         endCaptures: {
           1: {
-            name: "meta.brace.round.js"
+            name: "meta.brace.round.abl"
           }
         },
         patterns: [
@@ -473,7 +473,7 @@ lineReaderFunctions.on('close', () => {
         end: "(\\))",
         endCaptures: {
           1: {
-            name: "meta.brace.round.js"
+            name: "meta.brace.round.abl"
           }
         },
         patterns: [

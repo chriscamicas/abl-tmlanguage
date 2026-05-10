@@ -14,9 +14,9 @@ describe('', () => {
     { "startIndex": 18, "endIndex": 19, "scopes": ["source.abl", "meta.include.abl", "string.quoted.double.abl", "punctuation.definition.string.end.abl"] },  // '"'
     { "startIndex": 19, "endIndex": 20, "scopes": ["source.abl", "meta.include.abl", "punctuation.section.abl"] },  // '}'
     { "startIndex": 20, "endIndex": 26, "scopes": ["source.abl", "meta.include.abl"] },  // '      '
-    { "startIndex": 26, "endIndex": 28, "scopes": ["source.abl", "comment.block.source.abl"] },  // '/*'
-    { "startIndex": 28, "endIndex": 37, "scopes": ["source.abl", "comment.block.source.abl", "comment"] },  // ' comment '
-    { "startIndex": 37, "endIndex": 39, "scopes": ["source.abl", "comment.block.source.abl"] }  // '*/'
+    { "startIndex": 26, "endIndex": 28, "scopes": ["source.abl", "comment.block.abl"] },  // '/*'
+    { "startIndex": 28, "endIndex": 37, "scopes": ["source.abl", "comment.block.abl", "comment"] },  // ' comment '
+    { "startIndex": 37, "endIndex": 39, "scopes": ["source.abl", "comment.block.abl"] }  // '*/'
   ];
 
   shared.itShouldMatchExpectedScopes(statement, expectedTokens);
@@ -32,9 +32,9 @@ describe('', () => {
     { "startIndex": 10, "endIndex": 17, "scopes": ["source.abl", "meta.include.abl", "meta.include.argument.abl", "support.other.argument.abl"] },  // '&ExtVar'
     { "startIndex": 17, "endIndex": 18, "scopes": ["source.abl", "meta.include.abl", "punctuation.section.abl"] },  // '}'
     { "startIndex": 18, "endIndex": 25, "scopes": ["source.abl", "meta.include.abl"] },  // '       '
-    { "startIndex": 25, "endIndex": 27, "scopes": ["source.abl", "comment.block.source.abl"] },  // '/*'
-    { "startIndex": 27, "endIndex": 36, "scopes": ["source.abl", "comment.block.source.abl", "comment"] },  // ' comment '
-    { "startIndex": 36, "endIndex": 38, "scopes": ["source.abl", "comment.block.source.abl"] }  // '*/'
+    { "startIndex": 25, "endIndex": 27, "scopes": ["source.abl", "comment.block.abl"] },  // '/*'
+    { "startIndex": 27, "endIndex": 36, "scopes": ["source.abl", "comment.block.abl", "comment"] },  // ' comment '
+    { "startIndex": 36, "endIndex": 38, "scopes": ["source.abl", "comment.block.abl"] }  // '*/'
   ];
   shared.itShouldMatchExpectedScopes(statement, expectedTokens);
 })

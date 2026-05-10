@@ -12,14 +12,14 @@ end.`;
       { "startIndex": 2, "endIndex": 3, "scopes": ["source.abl", "meta.block.abl"] },  // ' '
       { "startIndex": 3, "endIndex": 13, "scopes": ["source.abl", "meta.block.abl", "keyword.other.abl"] },  // 'stop-after'
       { "startIndex": 13, "endIndex": 14, "scopes": ["source.abl", "meta.block.abl"] },  // ' '
-      { "startIndex": 14, "endIndex": 16, "scopes": ["source.abl", "meta.block.abl", "constant.numeric.source.abl"] },  // '12'
+      { "startIndex": 14, "endIndex": 16, "scopes": ["source.abl", "meta.block.abl", "constant.numeric.abl"] },  // '12'
       { "startIndex": 16, "endIndex": 17, "scopes": ["source.abl", "punctuation.terminator.abl"] }  // ':'
     ],
     [
       { "startIndex": 0, "endIndex": 2, "scopes": ["source.abl"] },  // '  '
-      { "startIndex": 2, "endIndex": 4, "scopes": ["source.abl", "comment.block.source.abl"] },  // '/*'
-      { "startIndex": 4, "endIndex": 13, "scopes": ["source.abl", "comment.block.source.abl", "comment"] },  // ' comment '
-      { "startIndex": 13, "endIndex": 15, "scopes": ["source.abl", "comment.block.source.abl"] }  // '*/'
+      { "startIndex": 2, "endIndex": 4, "scopes": ["source.abl", "comment.block.abl"] },  // '/*'
+      { "startIndex": 4, "endIndex": 13, "scopes": ["source.abl", "comment.block.abl", "comment"] },  // ' comment '
+      { "startIndex": 13, "endIndex": 15, "scopes": ["source.abl", "comment.block.abl"] }  // '*/'
     ],
     [
       { "startIndex": 0, "endIndex": 3, "scopes": ["source.abl", "keyword.other.abl"] },  // 'end'
@@ -66,8 +66,8 @@ end.`;
       { "startIndex": 4, "endIndex": 9, "scopes": ["source.abl", "variable.language.abl"] },  // 'super'
       { "startIndex": 9, "endIndex": 10, "scopes": ["source.abl", "punctuation.accessor.abl"] },  // ':'
       { "startIndex": 10, "endIndex": 12, "scopes": ["source.abl", "entity.name.function.abl"] },  // 'Fn'
-      { "startIndex": 12, "endIndex": 13, "scopes": ["source.abl", "meta.function.arguments.abl", "meta.brace.round.js"] },  // '('
-      { "startIndex": 13, "endIndex": 14, "scopes": ["source.abl", "meta.brace.round.js"] },  // ')'
+      { "startIndex": 12, "endIndex": 13, "scopes": ["source.abl", "meta.brace.round.abl"] },  // '('
+      { "startIndex": 13, "endIndex": 14, "scopes": ["source.abl", "meta.brace.round.abl"] },  // ')'
       { "startIndex": 14, "endIndex": 15, "scopes": ["source.abl", "punctuation.terminator.abl"] }  // '.'
     ],
     [

@@ -174,7 +174,7 @@ describe('', () => {
     { "startIndex": 31, "endIndex": 32, "scopes": ["source.abl", "meta.define.abl"] },  // ' '
     { "startIndex": 32, "endIndex": 38, "scopes": ["source.abl", "meta.define.abl", "keyword.other.abl"] },  // 'format'
     { "startIndex": 38, "endIndex": 39, "scopes": ["source.abl", "meta.define.abl"] },  // ' '
-    { "startIndex": 39, "endIndex": 47, "scopes": ["source.abl", "meta.define.abl", "constant.language.source.abl"] },  // '99/99/99'
+    { "startIndex": 39, "endIndex": 47, "scopes": ["source.abl", "meta.define.abl", "constant.language.abl"] },  // '99/99/99'
     { "startIndex": 47, "endIndex": 48, "scopes": ["source.abl", "meta.define.abl", "punctuation.terminator.abl"] }  // '.'
   ];
   shared.itShouldMatchExpectedScopes(statement, expectedTokens);

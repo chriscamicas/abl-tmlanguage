@@ -8,7 +8,7 @@ describe('', () => {
     { "startIndex": 6, "endIndex": 7, "scopes": ["source.abl"] },  // ' '
     { "startIndex": 7, "endIndex": 20, "scopes": ["source.abl", "variable.other.abl"] },  // 'defaultDomain'
     { "startIndex": 20, "endIndex": 21, "scopes": ["source.abl"] },  // ' '
-    { "startIndex": 21, "endIndex": 22, "scopes": ["source.abl", "keyword.operator.source.abl"] },  // '='
+    { "startIndex": 21, "endIndex": 22, "scopes": ["source.abl", "keyword.operator.abl"] },  // '='
     { "startIndex": 22, "endIndex": 23, "scopes": ["source.abl"] },  // ' '
     { "startIndex": 23, "endIndex": 34, "scopes": ["source.abl", "variable.language.abl"] },  // 'this-object'
     { "startIndex": 34, "endIndex": 35, "scopes": ["source.abl", "punctuation.accessor.abl"] },  // ':'

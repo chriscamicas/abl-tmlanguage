@@ -1,4 +1,5 @@
-# Updated 2024-07-30 from 12.8 doc
+# Updated 2026-05-10 from 13.0 doc
+Contents
 ACCELERATOR attribute
 ACCEPT-CHANGES( ) method
 ACCEPT-ROW-CHANGES( ) method
@@ -285,6 +286,7 @@ ENABLED attribute
 ENCODE-DOMAIN-ACCESS-CODE( ) method
 ENCODING attribute
 ENCRYPT-AUDIT-MAC-KEY( ) method
+ENCODE-PASSWORD( ) method
 ENCRYPTION-SALT attribute
 END-DOCUMENT( ) method
 END-ELEMENT( ) method
@@ -334,6 +336,7 @@ FIND-CURRENT( ) method
 FIND-FIRST( ) method
 FIND-LAST( ) method
 FIND-UNIQUE( ) method
+FIPS-MODE attribute
 FIRST-ASYNC-REQUEST attribute
 FIRST-BUFFER attribute
 FIRST-CHILD attribute
@@ -710,7 +713,11 @@ PARENT-ID-RELATION attribute
 PARENT-RELATION attribute
 PARSE-STATUS attribute
 PASSWORD-FIELD attribute
+PASSWORD-HASH-ALGORITHM attribute
+PASSWORD-HASH-ROUNDS attribute
+PASSWORD-HASH-SALT attribute
 PATHNAME attribute
+PBE-ALGORITHM attribute
 PBE-HASH-ALGORITHM attribute
 PBE-KEY-ROUNDS attribute
 PERSISTENT attribute
@@ -993,6 +1000,7 @@ VALIDATE( ) method
 VALIDATE-DOMAIN-ACCESS-CODE( ) method
 VALIDATE-EXPRESSION attribute
 VALIDATE-MESSAGE attribute
+VALIDATE-PASSWORD( ) method
 VALIDATE-SEAL( ) method
 VALIDATE-XML attribute
 VALIDATION-ENABLED attribute

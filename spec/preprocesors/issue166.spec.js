@@ -70,7 +70,7 @@ end.`;
       { "startIndex": 5, "endIndex": 17, "scopes": ["source.abl", "meta.preprocessor.abl", "entity.name.function.preprocessor.abl"] },  // 'MY-TABLE-NEW'
       { "startIndex": 17, "endIndex": 18, "scopes": ["source.abl", "meta.preprocessor.abl", "punctuation.section.abl"] },  // '}'
       { "startIndex": 18, "endIndex": 19, "scopes": ["source.abl"] },  // ' '
-      { "startIndex": 19, "endIndex": 21, "scopes": ["source.abl", "keyword.operator.source.abl"] },  // 'eq'
+      { "startIndex": 19, "endIndex": 21, "scopes": ["source.abl", "keyword.operator.abl"] },  // 'eq'
       { "startIndex": 21, "endIndex": 22, "scopes": ["source.abl"] },  // ' '
       { "startIndex": 22, "endIndex": 23, "scopes": ["source.abl", "string.quoted.double.abl", "punctuation.definition.string.begin.abl"] },  // '"'
       { "startIndex": 23, "endIndex": 28, "scopes": ["source.abl", "string.quoted.double.abl"] },  // 'table'

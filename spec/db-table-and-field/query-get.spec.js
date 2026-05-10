@@ -43,9 +43,9 @@ end.`;
       { "startIndex": 0, "endIndex": 2, "scopes": ["source.abl", "keyword.other.abl"] },  // 'if'
       { "startIndex": 2, "endIndex": 3, "scopes": ["source.abl"] },  // ' '
       { "startIndex": 3, "endIndex": 12, "scopes": ["source.abl", "support.function.abl"] },  // 'available'
-      { "startIndex": 12, "endIndex": 13, "scopes": ["source.abl", "meta.function.arguments.abl", "meta.brace.round.js"] },  // '('
-      { "startIndex": 13, "endIndex": 18, "scopes": ["source.abl", "meta.function.arguments.abl", "variable.other.abl"] },  // 'ttFoo'
-      { "startIndex": 18, "endIndex": 19, "scopes": ["source.abl", "meta.brace.round.js"] },  // ')'
+      { "startIndex": 12, "endIndex": 13, "scopes": ["source.abl", "meta.brace.round.abl"] },  // '('
+      { "startIndex": 13, "endIndex": 18, "scopes": ["source.abl", "variable.other.abl"] },  // 'ttFoo'
+      { "startIndex": 18, "endIndex": 19, "scopes": ["source.abl", "meta.brace.round.abl"] },  // ')'
       { "startIndex": 19, "endIndex": 20, "scopes": ["source.abl"] },  // ' '
       { "startIndex": 20, "endIndex": 24, "scopes": ["source.abl", "keyword.other.abl"] }  // 'then'
     ],
@@ -72,9 +72,9 @@ describe('', () => {
       { "startIndex": 9, "endIndex": 10, "scopes": ["source.abl"] },  // ' '
       { "startIndex": 10, "endIndex": 16, "scopes": ["source.abl", "variable.other.abl"] },  // 'qttFoo'
       { "startIndex": 16, "endIndex": 17, "scopes": ["source.abl"] },  // ' '
-      { "startIndex": 17, "endIndex": 19, "scopes": ["source.abl", "comment.block.source.abl"] },  // '/*'
-      { "startIndex": 19, "endIndex": 44, "scopes": ["source.abl", "comment.block.source.abl", "comment"] },  // ' all foos by bar squared '
-      { "startIndex": 44, "endIndex": 46, "scopes": ["source.abl", "comment.block.source.abl"] }  // '*/'
+      { "startIndex": 17, "endIndex": 19, "scopes": ["source.abl", "comment.block.abl"] },  // '/*'
+      { "startIndex": 19, "endIndex": 44, "scopes": ["source.abl", "comment.block.abl", "comment"] },  // ' all foos by bar squared '
+      { "startIndex": 44, "endIndex": 46, "scopes": ["source.abl", "comment.block.abl"] }  // '*/'
     ],
     [
       { "startIndex": 0, "endIndex": 4, "scopes": ["source.abl"] },  // '    '

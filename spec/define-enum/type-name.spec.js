@@ -66,9 +66,9 @@ end enum.`;
       { "startIndex": 13, "endIndex": 14, "scopes": ["source.abl", "meta.define.abl"] },  // ' '
       { "startIndex": 14, "endIndex": 19, "scopes": ["source.abl", "meta.define.abl", "entity.name.function.abl"] },  // 'First'
       { "startIndex": 19, "endIndex": 20, "scopes": ["source.abl", "meta.define.abl"] },  // ' '
-      { "startIndex": 20, "endIndex": 21, "scopes": ["source.abl", "meta.define.abl", "keyword.operator.source.abl"] },  // '='
+      { "startIndex": 20, "endIndex": 21, "scopes": ["source.abl", "meta.define.abl", "keyword.operator.abl"] },  // '='
       { "startIndex": 21, "endIndex": 22, "scopes": ["source.abl", "meta.define.abl"] },  // ' '
-      { "startIndex": 22, "endIndex": 23, "scopes": ["source.abl", "meta.define.abl", "constant.numeric.source.abl"] }  // '1'
+      { "startIndex": 22, "endIndex": 23, "scopes": ["source.abl", "meta.define.abl", "constant.numeric.abl"] }  // '1'
     ],
     [
       { "startIndex": 0, "endIndex": 14, "scopes": ["source.abl", "meta.define.abl"] },  // '              '
@@ -78,9 +78,9 @@ end enum.`;
       { "startIndex": 0, "endIndex": 14, "scopes": ["source.abl", "meta.define.abl"] },  // '              '
       { "startIndex": 14, "endIndex": 18, "scopes": ["source.abl", "meta.define.abl", "entity.name.function.abl"] },  // 'None'
       { "startIndex": 18, "endIndex": 19, "scopes": ["source.abl", "meta.define.abl"] },  // ' '
-      { "startIndex": 19, "endIndex": 20, "scopes": ["source.abl", "meta.define.abl", "keyword.operator.source.abl"] },  // '='
+      { "startIndex": 19, "endIndex": 20, "scopes": ["source.abl", "meta.define.abl", "keyword.operator.abl"] },  // '='
       { "startIndex": 20, "endIndex": 21, "scopes": ["source.abl", "meta.define.abl"] },  // ' '
-      { "startIndex": 21, "endIndex": 25, "scopes": ["source.abl", "meta.define.abl", "constant.numeric.source.abl"] },  // '0xa2'
+      { "startIndex": 21, "endIndex": 25, "scopes": ["source.abl", "meta.define.abl", "constant.numeric.abl"] },  // '0xa2'
       { "startIndex": 25, "endIndex": 26, "scopes": ["source.abl", "meta.define.abl", "punctuation.terminator.abl"] }  // '.'
     ],
     [
@@ -126,9 +126,9 @@ end enum.`;
       { "startIndex": 0, "endIndex": 14, "scopes": ["source.abl", "meta.define.abl"] },  // '              '
       { "startIndex": 14, "endIndex": 18, "scopes": ["source.abl", "meta.define.abl", "entity.name.function.abl"] },  // 'None'
       { "startIndex": 18, "endIndex": 19, "scopes": ["source.abl", "meta.define.abl"] },  // ' '
-      { "startIndex": 19, "endIndex": 21, "scopes": ["source.abl", "meta.define.abl", "comment.block.source.abl"] },  // '/*'
-      { "startIndex": 21, "endIndex": 29, "scopes": ["source.abl", "meta.define.abl", "comment.block.source.abl", "comment"] },  // 'no value'
-      { "startIndex": 29, "endIndex": 31, "scopes": ["source.abl", "meta.define.abl", "comment.block.source.abl"] },  // '*/'
+      { "startIndex": 19, "endIndex": 21, "scopes": ["source.abl", "meta.define.abl", "comment.block.abl"] },  // '/*'
+      { "startIndex": 21, "endIndex": 29, "scopes": ["source.abl", "meta.define.abl", "comment.block.abl", "comment"] },  // 'no value'
+      { "startIndex": 29, "endIndex": 31, "scopes": ["source.abl", "meta.define.abl", "comment.block.abl"] },  // '*/'
       { "startIndex": 31, "endIndex": 32, "scopes": ["source.abl", "meta.define.abl"] },  // ' '
       { "startIndex": 32, "endIndex": 33, "scopes": ["source.abl", "meta.define.abl", "punctuation.terminator.abl"] }  // '.'
     ],
@@ -176,15 +176,15 @@ end enum.`;
       { "startIndex": 0, "endIndex": 14, "scopes": ["source.abl", "meta.define.abl"] },  // '              '
       { "startIndex": 14, "endIndex": 18, "scopes": ["source.abl", "meta.define.abl", "entity.name.function.abl"] },  // 'None'
       { "startIndex": 18, "endIndex": 19, "scopes": ["source.abl", "meta.define.abl"] },  // ' '
-      { "startIndex": 19, "endIndex": 21, "scopes": ["source.abl", "meta.define.abl", "comment.block.source.abl"] },  // '/*'
-      { "startIndex": 21, "endIndex": 29, "scopes": ["source.abl", "meta.define.abl", "comment.block.source.abl", "comment"] },  // 'no value'
-      { "startIndex": 29, "endIndex": 31, "scopes": ["source.abl", "meta.define.abl", "comment.block.source.abl"] }  // '*/'
+      { "startIndex": 19, "endIndex": 21, "scopes": ["source.abl", "meta.define.abl", "comment.block.abl"] },  // '/*'
+      { "startIndex": 21, "endIndex": 29, "scopes": ["source.abl", "meta.define.abl", "comment.block.abl", "comment"] },  // 'no value'
+      { "startIndex": 29, "endIndex": 31, "scopes": ["source.abl", "meta.define.abl", "comment.block.abl"] }  // '*/'
     ],
     [
       { "startIndex": 0, "endIndex": 14, "scopes": ["source.abl", "meta.define.abl"] },  // '              '
       { "startIndex": 14, "endIndex": 21, "scopes": ["source.abl", "meta.define.abl", "entity.name.function.abl"] },  // 'Default'
       { "startIndex": 21, "endIndex": 22, "scopes": ["source.abl", "meta.define.abl"] },  // ' '
-      { "startIndex": 22, "endIndex": 23, "scopes": ["source.abl", "meta.define.abl", "keyword.operator.source.abl"] },  // '='
+      { "startIndex": 22, "endIndex": 23, "scopes": ["source.abl", "meta.define.abl", "keyword.operator.abl"] },  // '='
       { "startIndex": 23, "endIndex": 24, "scopes": ["source.abl", "meta.define.abl"] },  // ' '
       { "startIndex": 24, "endIndex": 29, "scopes": ["source.abl", "meta.define.abl", "entity.name.function.abl"] },  // 'First'
       { "startIndex": 29, "endIndex": 30, "scopes": ["source.abl", "meta.define.abl", "punctuation.terminator.abl"] }  // '.'

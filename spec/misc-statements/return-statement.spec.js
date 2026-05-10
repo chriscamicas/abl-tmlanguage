@@ -5,9 +5,9 @@ describe('', () => {
   let statement = `return(true).`;
   let expectedTokens = [
     { "startIndex": 0, "endIndex": 6, "scopes": ["source.abl", "support.function.abl"] },  // 'return'
-    { "startIndex": 6, "endIndex": 7, "scopes": ["source.abl", "meta.function.arguments.abl", "meta.brace.round.js"] },  // '('
-    { "startIndex": 7, "endIndex": 11, "scopes": ["source.abl", "meta.function.arguments.abl", "constant.language.abl"] },  // 'true'
-    { "startIndex": 11, "endIndex": 12, "scopes": ["source.abl", "meta.brace.round.js"] },  // ')'
+    { "startIndex": 6, "endIndex": 7, "scopes": ["source.abl", "meta.brace.round.abl"] },  // '('
+    { "startIndex": 7, "endIndex": 11, "scopes": ["source.abl", "constant.language.abl"] },  // 'true'
+    { "startIndex": 11, "endIndex": 12, "scopes": ["source.abl", "meta.brace.round.abl"] },  // ')'
     { "startIndex": 12, "endIndex": 13, "scopes": ["source.abl", "punctuation.terminator.abl"] }  // '.'
   ];
   shared.itShouldMatchExpectedScopes(statement, expectedTokens);
@@ -17,12 +17,12 @@ describe('', () => {
   let statement = `return(string(1)).`;
   let expectedTokens = [
     { "startIndex": 0, "endIndex": 6, "scopes": ["source.abl", "support.function.abl"] },  // 'return'
-    { "startIndex": 6, "endIndex": 7, "scopes": ["source.abl", "meta.function.arguments.abl", "meta.brace.round.js"] },  // '('
-    { "startIndex": 7, "endIndex": 13, "scopes": ["source.abl", "meta.function.arguments.abl", "support.function.abl"] },  // 'string'
-    { "startIndex": 13, "endIndex": 14, "scopes": ["source.abl", "meta.function.arguments.abl", "meta.function.arguments.abl", "meta.brace.round.js"] },  // '('
-    { "startIndex": 14, "endIndex": 15, "scopes": ["source.abl", "meta.function.arguments.abl", "meta.function.arguments.abl", "constant.numeric.source.abl"] },  // '1'
-    { "startIndex": 15, "endIndex": 16, "scopes": ["source.abl", "meta.function.arguments.abl", "meta.brace.round.js"] },  // ')'
-    { "startIndex": 16, "endIndex": 17, "scopes": ["source.abl", "meta.brace.round.js"] },  // ')'
+    { "startIndex": 6, "endIndex": 7, "scopes": ["source.abl", "meta.brace.round.abl"] },  // '('
+    { "startIndex": 7, "endIndex": 13, "scopes": ["source.abl", "support.function.abl"] },  // 'string'
+    { "startIndex": 13, "endIndex": 14, "scopes": ["source.abl", "meta.brace.round.abl"] },  // '('
+    { "startIndex": 14, "endIndex": 15, "scopes": ["source.abl", "constant.numeric.abl"] },  // '1'
+    { "startIndex": 15, "endIndex": 16, "scopes": ["source.abl", "meta.brace.round.abl"] },  // ')'
+    { "startIndex": 16, "endIndex": 17, "scopes": ["source.abl", "meta.brace.round.abl"] },  // ')'
     { "startIndex": 17, "endIndex": 18, "scopes": ["source.abl", "punctuation.terminator.abl"] }  // '.'
   ];
   shared.itShouldMatchExpectedScopes(statement, expectedTokens);
@@ -116,8 +116,8 @@ END.`;
       { "startIndex": 11, "endIndex": 18, "scopes": ["source.abl", "keyword.other.abl"] },  // 'RETURNS'
       { "startIndex": 18, "endIndex": 19, "scopes": ["source.abl"] },  // ' '
       { "startIndex": 19, "endIndex": 28, "scopes": ["source.abl", "entity.name.function.abl"] },  // 'CHARACTER'
-      { "startIndex": 28, "endIndex": 29, "scopes": ["source.abl", "meta.function.arguments.abl", "meta.brace.round.js"] },  // '('
-      { "startIndex": 29, "endIndex": 30, "scopes": ["source.abl", "meta.brace.round.js"] },  // ')'
+      { "startIndex": 28, "endIndex": 29, "scopes": ["source.abl", "meta.brace.round.abl"] },  // '('
+      { "startIndex": 29, "endIndex": 30, "scopes": ["source.abl", "meta.brace.round.abl"] },  // ')'
       { "startIndex": 30, "endIndex": 31, "scopes": ["source.abl", "punctuation.terminator.abl"] }  // ':'
     ],
     [

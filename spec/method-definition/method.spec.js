@@ -16,8 +16,8 @@ end method.`;
       { "startIndex": 14, "endIndex": 18, "scopes": ["source.abl", "meta.define.method.abl", "keyword.other.abl"] },  // 'void'
       { "startIndex": 18, "endIndex": 19, "scopes": ["source.abl", "meta.define.method.abl"] },  // ' '
       { "startIndex": 19, "endIndex": 26, "scopes": ["source.abl", "meta.define.method.abl", "entity.name.function.abl"] },  // 'MethodA'
-      { "startIndex": 26, "endIndex": 27, "scopes": ["source.abl", "meta.define.method.abl", "meta.brace.round.js"] },  // '('
-      { "startIndex": 27, "endIndex": 28, "scopes": ["source.abl", "meta.define.method.abl", "meta.brace.round.js"] },  // ')'
+      { "startIndex": 26, "endIndex": 27, "scopes": ["source.abl", "meta.define.method.abl", "meta.brace.round.abl"] },  // '('
+      { "startIndex": 27, "endIndex": 28, "scopes": ["source.abl", "meta.define.method.abl", "meta.brace.round.abl"] },  // ')'
       { "startIndex": 28, "endIndex": 29, "scopes": ["source.abl", "punctuation.terminator.abl"] }  // ':'
     ],
     [
@@ -54,7 +54,7 @@ end method.`;
       { "startIndex": 14, "endIndex": 23, "scopes": ["source.abl", "meta.define.method.abl", "entity.name.type.abl"] },  // 'JsonArray'
       { "startIndex": 23, "endIndex": 24, "scopes": ["source.abl", "meta.define.method.abl"] },  // ' '
       { "startIndex": 24, "endIndex": 31, "scopes": ["source.abl", "meta.define.method.abl", "entity.name.function.abl"] },  // 'MethodA'
-      { "startIndex": 31, "endIndex": 32, "scopes": ["source.abl", "meta.define.method.abl", "meta.brace.round.js"] },  // '('
+      { "startIndex": 31, "endIndex": 32, "scopes": ["source.abl", "meta.define.method.abl", "meta.brace.round.abl"] },  // '('
       { "startIndex": 32, "endIndex": 40, "scopes": ["source.abl", "meta.define.method.abl", "variable.parameter.abl"] },  // 'pcString'
       { "startIndex": 40, "endIndex": 41, "scopes": ["source.abl", "meta.define.method.abl"] },  // ' '
       { "startIndex": 41, "endIndex": 43, "scopes": ["source.abl", "meta.define.method.abl", "keyword.other.abl"] },  // 'as'
@@ -69,7 +69,7 @@ end method.`;
       { "startIndex": 65, "endIndex": 67, "scopes": ["source.abl", "meta.define.method.abl", "keyword.other.abl"] },  // 'as'
       { "startIndex": 67, "endIndex": 68, "scopes": ["source.abl", "meta.define.method.abl"] },  // ' '
       { "startIndex": 68, "endIndex": 74, "scopes": ["source.abl", "meta.define.method.abl", "entity.name.type.abl"] },  // 'Object'
-      { "startIndex": 74, "endIndex": 75, "scopes": ["source.abl", "meta.define.method.abl", "meta.brace.round.js"] },  // ')'
+      { "startIndex": 74, "endIndex": 75, "scopes": ["source.abl", "meta.define.method.abl", "meta.brace.round.abl"] },  // ')'
       { "startIndex": 75, "endIndex": 76, "scopes": ["source.abl", "punctuation.terminator.abl"] }  // ':'
     ],
     [
@@ -113,10 +113,10 @@ end method.`;
       { "startIndex": 28, "endIndex": 29, "scopes": ["source.abl", "meta.define.method.abl"] },  // ' '
       { "startIndex": 29, "endIndex": 35, "scopes": ["source.abl", "meta.define.method.abl", "keyword.other.abl"] },  // 'extent'
       { "startIndex": 35, "endIndex": 36, "scopes": ["source.abl", "meta.define.method.abl"] },  // ' '
-      { "startIndex": 36, "endIndex": 38, "scopes": ["source.abl", "meta.define.method.abl", "constant.numeric.source.abl"] },  // '12'
+      { "startIndex": 36, "endIndex": 38, "scopes": ["source.abl", "meta.define.method.abl", "constant.numeric.abl"] },  // '12'
       { "startIndex": 38, "endIndex": 39, "scopes": ["source.abl", "meta.define.method.abl"] },  // ' '
       { "startIndex": 39, "endIndex": 46, "scopes": ["source.abl", "meta.define.method.abl", "entity.name.function.abl"] },  // 'MethodQ'
-      { "startIndex": 46, "endIndex": 47, "scopes": ["source.abl", "meta.define.method.abl", "meta.brace.round.js"] },  // '('
+      { "startIndex": 46, "endIndex": 47, "scopes": ["source.abl", "meta.define.method.abl", "meta.brace.round.abl"] },  // '('
       { "startIndex": 47, "endIndex": 48, "scopes": ["source.abl", "meta.define.method.abl"] },  // ' '
       { "startIndex": 48, "endIndex": 50, "scopes": ["source.abl", "meta.define.method.abl", "variable.parameter.abl"] },  // 'po'
       { "startIndex": 50, "endIndex": 51, "scopes": ["source.abl", "meta.define.method.abl"] },  // ' '
@@ -146,7 +146,7 @@ end method.`;
       { "startIndex": 65, "endIndex": 72, "scopes": ["source.abl", "meta.define.method.abl", "keyword.other.abl"] },  // 'dataset'
       { "startIndex": 72, "endIndex": 73, "scopes": ["source.abl", "meta.define.method.abl"] },  // ' '
       { "startIndex": 73, "endIndex": 79, "scopes": ["source.abl", "meta.define.method.abl", "storage.data.dataset.abl"] },  // 'dsData'
-      { "startIndex": 79, "endIndex": 80, "scopes": ["source.abl", "meta.define.method.abl", "meta.brace.round.js"] },  // ')'
+      { "startIndex": 79, "endIndex": 80, "scopes": ["source.abl", "meta.define.method.abl", "meta.brace.round.abl"] },  // ')'
       { "startIndex": 80, "endIndex": 81, "scopes": ["source.abl", "punctuation.terminator.abl"] }  // ':'
     ],
     [
@@ -202,7 +202,7 @@ end method.`;
       { "startIndex": 21, "endIndex": 29, "scopes": ["source.abl", "meta.define.method.abl", "storage.type.abl"] },  // 'longchar'
       { "startIndex": 29, "endIndex": 30, "scopes": ["source.abl", "meta.define.method.abl"] },  // ' '
       { "startIndex": 30, "endIndex": 36, "scopes": ["source.abl", "meta.define.method.abl", "entity.name.function.abl"] },  // 'Encode'
-      { "startIndex": 36, "endIndex": 37, "scopes": ["source.abl", "meta.define.method.abl", "meta.brace.round.js"] },  // '('
+      { "startIndex": 36, "endIndex": 37, "scopes": ["source.abl", "meta.define.method.abl", "meta.brace.round.abl"] },  // '('
       { "startIndex": 37, "endIndex": 42, "scopes": ["source.abl", "meta.define.method.abl", "keyword.other.abl"] },  // 'input'
       { "startIndex": 42, "endIndex": 43, "scopes": ["source.abl", "meta.define.method.abl"] },  // ' '
       { "startIndex": 43, "endIndex": 50, "scopes": ["source.abl", "meta.define.method.abl", "variable.parameter.abl"] },  // 'pString'
@@ -221,7 +221,7 @@ end method.`;
       { "startIndex": 23, "endIndex": 25, "scopes": ["source.abl", "meta.define.method.abl", "keyword.other.abl"] },  // 'as'
       { "startIndex": 25, "endIndex": 26, "scopes": ["source.abl", "meta.define.method.abl"] },  // ' '
       { "startIndex": 26, "endIndex": 35, "scopes": ["source.abl", "meta.define.method.abl", "storage.type.abl"] },  // 'character'
-      { "startIndex": 35, "endIndex": 36, "scopes": ["source.abl", "meta.define.method.abl", "meta.brace.round.js"] },  // ')'
+      { "startIndex": 35, "endIndex": 36, "scopes": ["source.abl", "meta.define.method.abl", "meta.brace.round.abl"] },  // ')'
       { "startIndex": 36, "endIndex": 37, "scopes": ["source.abl", "punctuation.terminator.abl"] }  // ':'
     ],
     [
@@ -293,7 +293,7 @@ end interface.`;
       { "startIndex": 16, "endIndex": 20, "scopes": ["source.abl", "meta.define.method.abl", "keyword.other.abl"] },  // 'void'
       { "startIndex": 20, "endIndex": 21, "scopes": ["source.abl", "meta.define.method.abl"] },  // ' '
       { "startIndex": 21, "endIndex": 23, "scopes": ["source.abl", "meta.define.method.abl", "entity.name.function.abl"] },  // 'M1'
-      { "startIndex": 23, "endIndex": 24, "scopes": ["source.abl", "meta.define.method.abl", "meta.brace.round.js"] },  // '('
+      { "startIndex": 23, "endIndex": 24, "scopes": ["source.abl", "meta.define.method.abl", "meta.brace.round.abl"] },  // '('
       { "startIndex": 24, "endIndex": 30, "scopes": ["source.abl", "meta.define.method.abl", "keyword.other.abl"] },  // 'buffer'
       { "startIndex": 30, "endIndex": 31, "scopes": ["source.abl", "meta.define.method.abl"] },  // ' '
       { "startIndex": 31, "endIndex": 33, "scopes": ["source.abl", "meta.define.method.abl", "storage.data.table.abl"] },  // 'pb'
@@ -301,7 +301,7 @@ end interface.`;
       { "startIndex": 34, "endIndex": 37, "scopes": ["source.abl", "meta.define.method.abl", "keyword.other.abl"] },  // 'for'
       { "startIndex": 37, "endIndex": 38, "scopes": ["source.abl", "meta.define.method.abl"] },  // ' '
       { "startIndex": 38, "endIndex": 40, "scopes": ["source.abl", "meta.define.method.abl", "storage.data.table.abl"] },  // 'tt'
-      { "startIndex": 40, "endIndex": 41, "scopes": ["source.abl", "meta.define.method.abl", "meta.brace.round.js"] },  // ')'
+      { "startIndex": 40, "endIndex": 41, "scopes": ["source.abl", "meta.define.method.abl", "meta.brace.round.abl"] },  // ')'
       { "startIndex": 41, "endIndex": 42, "scopes": ["source.abl", "punctuation.terminator.abl"] }  // '.'
     ],
     [
@@ -336,7 +336,7 @@ METHOD STATIC LOGICAL XlsxVersCsv
       { "startIndex": 22, "endIndex": 33, "scopes": ["source.abl", "meta.define.method.abl", "entity.name.function.abl"] }  // 'XlsxVersCsv'
     ],
     [
-      { "startIndex": 0, "endIndex": 1, "scopes": ["source.abl", "meta.define.method.abl", "meta.brace.round.js"] },  // '('
+      { "startIndex": 0, "endIndex": 1, "scopes": ["source.abl", "meta.define.method.abl", "meta.brace.round.abl"] },  // '('
       { "startIndex": 1, "endIndex": 7, "scopes": ["source.abl", "meta.define.method.abl", "variable.parameter.abl"] },  // 'p-file'
       { "startIndex": 7, "endIndex": 8, "scopes": ["source.abl", "meta.define.method.abl"] },  // ' '
       { "startIndex": 8, "endIndex": 10, "scopes": ["source.abl", "meta.define.method.abl", "keyword.other.abl"] },  // 'AS'
@@ -349,7 +349,7 @@ METHOD STATIC LOGICAL XlsxVersCsv
       { "startIndex": 34, "endIndex": 35, "scopes": ["source.abl", "meta.define.method.abl"] },  // ' '
       { "startIndex": 35, "endIndex": 38, "scopes": ["source.abl", "meta.define.method.abl", "storage.type.abl"] },  // 'INT'
       { "startIndex": 38, "endIndex": 39, "scopes": ["source.abl", "meta.define.method.abl"] },  // ' '
-      { "startIndex": 39, "endIndex": 40, "scopes": ["source.abl", "meta.define.method.abl", "meta.brace.round.js"] },  // ')'
+      { "startIndex": 39, "endIndex": 40, "scopes": ["source.abl", "meta.define.method.abl", "meta.brace.round.abl"] },  // ')'
       { "startIndex": 40, "endIndex": 41, "scopes": ["source.abl", "punctuation.terminator.abl"] }  // ':'
     ]
   ];
@@ -382,7 +382,7 @@ XlsxVersCsv
       { "startIndex": 0, "endIndex": 11, "scopes": ["source.abl", "meta.define.method.abl", "entity.name.function.abl"] }  // 'XlsxVersCsv'
     ],
     [
-      { "startIndex": 0, "endIndex": 1, "scopes": ["source.abl", "meta.define.method.abl", "meta.brace.round.js"] },  // '('
+      { "startIndex": 0, "endIndex": 1, "scopes": ["source.abl", "meta.define.method.abl", "meta.brace.round.abl"] },  // '('
       { "startIndex": 1, "endIndex": 7, "scopes": ["source.abl", "meta.define.method.abl", "variable.parameter.abl"] },  // 'p-file'
       { "startIndex": 7, "endIndex": 8, "scopes": ["source.abl", "meta.define.method.abl"] },  // ' '
       { "startIndex": 8, "endIndex": 10, "scopes": ["source.abl", "meta.define.method.abl", "keyword.other.abl"] },  // 'AS'
@@ -395,7 +395,7 @@ XlsxVersCsv
       { "startIndex": 34, "endIndex": 35, "scopes": ["source.abl", "meta.define.method.abl"] },  // ' '
       { "startIndex": 35, "endIndex": 38, "scopes": ["source.abl", "meta.define.method.abl", "storage.type.abl"] },  // 'INT'
       { "startIndex": 38, "endIndex": 39, "scopes": ["source.abl", "meta.define.method.abl"] },  // ' '
-      { "startIndex": 39, "endIndex": 40, "scopes": ["source.abl", "meta.define.method.abl", "meta.brace.round.js"] },  // ')'
+      { "startIndex": 39, "endIndex": 40, "scopes": ["source.abl", "meta.define.method.abl", "meta.brace.round.abl"] },  // ')'
       { "startIndex": 40, "endIndex": 41, "scopes": ["source.abl", "punctuation.terminator.abl"] }  // ':'
     ]
   ];
@@ -428,7 +428,7 @@ XlsxVersCsv
       { "startIndex": 0, "endIndex": 11, "scopes": ["source.abl", "meta.define.method.abl", "entity.name.function.abl"] },  // 'XlsxVersCsv'
     ],
     [
-      { "startIndex": 0, "endIndex": 1, "scopes": ["source.abl", "meta.define.method.abl", "meta.brace.round.js"] },  // '('
+      { "startIndex": 0, "endIndex": 1, "scopes": ["source.abl", "meta.define.method.abl", "meta.brace.round.abl"] },  // '('
       { "startIndex": 1, "endIndex": 7, "scopes": ["source.abl", "meta.define.method.abl", "variable.parameter.abl"] },  // 'p-file'
       { "startIndex": 7, "endIndex": 8, "scopes": ["source.abl", "meta.define.method.abl"] },  // ' '
       { "startIndex": 8, "endIndex": 10, "scopes": ["source.abl", "meta.define.method.abl", "keyword.other.abl"] },  // 'AS'
@@ -441,7 +441,7 @@ XlsxVersCsv
       { "startIndex": 34, "endIndex": 35, "scopes": ["source.abl", "meta.define.method.abl"] },  // ' '
       { "startIndex": 35, "endIndex": 38, "scopes": ["source.abl", "meta.define.method.abl", "storage.type.abl"] },  // 'INT'
       { "startIndex": 38, "endIndex": 39, "scopes": ["source.abl", "meta.define.method.abl"] },  // ' '
-      { "startIndex": 39, "endIndex": 40, "scopes": ["source.abl", "meta.define.method.abl", "meta.brace.round.js"] },  // ')'
+      { "startIndex": 39, "endIndex": 40, "scopes": ["source.abl", "meta.define.method.abl", "meta.brace.round.abl"] },  // ')'
       { "startIndex": 40, "endIndex": 41, "scopes": ["source.abl", "punctuation.terminator.abl"] }  // ':'
     ]
   ];
@@ -474,7 +474,7 @@ XlsxVersCsv
       { "startIndex": 0, "endIndex": 11, "scopes": ["source.abl", "meta.define.method.abl", "entity.name.function.abl"] }  // 'XlsxVersCsv'
     ],
     [
-      { "startIndex": 0, "endIndex": 1, "scopes": ["source.abl", "meta.define.method.abl", "meta.brace.round.js"] },  // '('
+      { "startIndex": 0, "endIndex": 1, "scopes": ["source.abl", "meta.define.method.abl", "meta.brace.round.abl"] },  // '('
       { "startIndex": 1, "endIndex": 7, "scopes": ["source.abl", "meta.define.method.abl", "variable.parameter.abl"] },  // 'p-file'
       { "startIndex": 7, "endIndex": 8, "scopes": ["source.abl", "meta.define.method.abl"] },  // ' '
       { "startIndex": 8, "endIndex": 10, "scopes": ["source.abl", "meta.define.method.abl", "keyword.other.abl"] },  // 'AS'
@@ -487,7 +487,7 @@ XlsxVersCsv
       { "startIndex": 34, "endIndex": 35, "scopes": ["source.abl", "meta.define.method.abl"] },  // ' '
       { "startIndex": 35, "endIndex": 38, "scopes": ["source.abl", "meta.define.method.abl", "storage.type.abl"] },  // 'INT'
       { "startIndex": 38, "endIndex": 39, "scopes": ["source.abl", "meta.define.method.abl"] },  // ' '
-      { "startIndex": 39, "endIndex": 40, "scopes": ["source.abl", "meta.define.method.abl", "meta.brace.round.js"] },  // ')'
+      { "startIndex": 39, "endIndex": 40, "scopes": ["source.abl", "meta.define.method.abl", "meta.brace.round.abl"] },  // ')'
       { "startIndex": 40, "endIndex": 41, "scopes": ["source.abl", "punctuation.terminator.abl"] }  // ':'
     ]
   ];
@@ -520,7 +520,7 @@ XlsxVersCsv
       { "startIndex": 0, "endIndex": 11, "scopes": ["source.abl", "meta.define.method.abl", "entity.name.function.abl"] }  // 'XlsxVersCsv'
     ],
     [
-      { "startIndex": 0, "endIndex": 1, "scopes": ["source.abl", "meta.define.method.abl", "meta.brace.round.js"] },  // '('
+      { "startIndex": 0, "endIndex": 1, "scopes": ["source.abl", "meta.define.method.abl", "meta.brace.round.abl"] },  // '('
       { "startIndex": 1, "endIndex": 7, "scopes": ["source.abl", "meta.define.method.abl", "variable.parameter.abl"] },  // 'p-file'
       { "startIndex": 7, "endIndex": 8, "scopes": ["source.abl", "meta.define.method.abl"] },  // ' '
       { "startIndex": 8, "endIndex": 10, "scopes": ["source.abl", "meta.define.method.abl", "keyword.other.abl"] },  // 'AS'
@@ -533,7 +533,7 @@ XlsxVersCsv
       { "startIndex": 34, "endIndex": 35, "scopes": ["source.abl", "meta.define.method.abl"] },  // ' '
       { "startIndex": 35, "endIndex": 38, "scopes": ["source.abl", "meta.define.method.abl", "storage.type.abl"] },  // 'INT'
       { "startIndex": 38, "endIndex": 39, "scopes": ["source.abl", "meta.define.method.abl"] },  // ' '
-      { "startIndex": 39, "endIndex": 40, "scopes": ["source.abl", "meta.define.method.abl", "meta.brace.round.js"] },  // ')'
+      { "startIndex": 39, "endIndex": 40, "scopes": ["source.abl", "meta.define.method.abl", "meta.brace.round.abl"] },  // ')'
       { "startIndex": 40, "endIndex": 41, "scopes": ["source.abl", "punctuation.terminator.abl"] }  // ':'
     ]
   ];

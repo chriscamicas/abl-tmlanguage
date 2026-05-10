@@ -68,13 +68,13 @@ The ABL-specific scopes produced by the ABL grammar listed in the table below. T
 
 | Scope Name | Used for/by |
 | ------------- | ------------- |
-|comment.block.source.abl                         | Everything between `/*` and `*/` |
+|comment.block.abl                                | Everything between `/*` and `*/` |
 |comment.line.double-slash.abl                    | Everything in a `//` comment, incl. slashes |
 |comment.preprocessor.analyze-suspend.abl         | `&analyze-suspend`, `&analyze-resume` |
 |constant.character.escape.abl                    |  `~` and the next char |
 |constant.language.abl                            | `true`, `false`, `yes`, `no`, `?` (unknown value) |
-|constant.language.source.abl                     | `99/99/9999` (or similar) when used as a format clause |
-|constant.numeric.source.abl                      | `0x00`-`0xFF`, `0`-`9`, scientific notation |
+|constant.language.abl                            | `99/99/9999` (or similar) when used as a format clause |
+|constant.numeric.abl                             | `0x00`-`0xFF`, `0`-`9`, scientific notation |
 |entity.name.function.abl                         | Method call, property call, method name, property name, handle attributes, handle methods, event names |
 |entity.name.function.preprocessor.abl            | Preprocessor names, including built-ins like `opsys` and `process-architecture` |
 |entity.name.include.abl                          | Include file names |
@@ -87,7 +87,7 @@ The ABL-specific scopes produced by the ABL grammar listed in the table below. T
 |entity.other.attribute-name.abl                  | Annotation attribute names |
 |keyword.control.directive.conditional.abl        | `&if` , `&else`, `&elseif`, `&end` |
 |keyword.control.directive.define.abl             | `&scoped-define`, `&global-define`, `&undefine` |
-|keyword.operator.source.abl                      | `contains`, `begins`, `matches`, `eq`, `le`, `lt`, `ge`, `gt`, `ne`, `<=`, `<>`, `>=`, `=`, `+`, `-`, `/`, `<`, `>`, `*`, `+=`, `-=`, `/=`, `*=`, `?:` |
+|keyword.operator.abl                             | `contains`, `begins`, `matches`, `eq`, `le`, `lt`, `ge`, `gt`, `ne`, `<=`, `<>`, `>=`, `=`, `+`, `-`, `/`, `<`, `>`, `*`, `+=`, `-=`, `/=`, `*=`, `?:` |
 |keyword.other.abl                                | Any ABL keyword (incl those covered by other scopes like `support.function.abl` and `entity.name.function.abl`) |
 |punctuation.accessor.abl                         | `:` when used for method, property and attribute access. `::` when used to reference buffer field names or dataset buffer names|
 |punctuation.definition.bracket.square.begin.abl  |  `[` used for array arguments |
@@ -123,7 +123,7 @@ There are also a number of 'meta' scopes that usually cover multiple other scope
 |meta.argument.abl                | Unnamed arguments like `{1}` |
 |meta.array.literal.abl           | Literal values in an array |
 |meta.block.abl                   | A block statement like `do`, `repeat` and ` finally |
-|meta.brace.round.js              | `(` and `)`  |
+|meta.brace.round.abl             | `(` and `)`  |
 |meta.declaration.annotation.abl  | An annotation from the `@` to the `.`  |
 |meta.define.abl                  | An entire `define` statement  |
 |meta.define.class.abl            | A class definition, from the `class` keyword to its closing `:`  |
@@ -136,7 +136,6 @@ There are also a number of 'meta' scopes that usually cover multiple other scope
 |meta.define-type.implements.abl  | The type names that a type implements and/or inherits  |
 |meta.function.arguments.abl      | Captures what's between ( and ) when calling a function, excluding the braces  |
 |meta.function-call.abl           | The name of an ABL function, including `get-class`, `type-of` and `cast`   |
-|meta.function.parameters         | Parameter definitions  |
 |meta.generic.abl                 | Generic type names  |
 |meta.include.abl                 | Include file references, from `{` to `}`  |
 |meta.include.argument.abl        | Include argument references like `&arg` and `&arg=` |

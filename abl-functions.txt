@@ -1,4 +1,4 @@
-# Updated 2024-07-30 from 12.8 doc
+# Updated 2026-05-10 from 13.0 doc
 : Punctuation
 :: Punctuation
 . Punctuation
@@ -7,6 +7,7 @@
 ; Special character
 ? Special character
 ?: Safe navigation operator
+@ Source-only annotation
 \ Special character
 ~ Special character
 " Special character
@@ -253,9 +254,11 @@ FRAME-VALUE statement
 FUNCTION statement
 GATEWAYS function
 GE or >= operator
+GENERATE-PASSWORD-HASH function
 GENERATE-PBE-KEY function
 GENERATE-PBE-SALT function
 GENERATE-RANDOM-KEY function
+GENERATE-SALT function
 GENERATE-UUID function
 GET statement
 GET-BITS function
