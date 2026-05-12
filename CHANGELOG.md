@@ -1,3 +1,9 @@
+1.4.0
+=====
+
+- ✨ Update keywords to 13.0
+- ✨ Scopes clean-up
+
 1.3.30
 ======
 
