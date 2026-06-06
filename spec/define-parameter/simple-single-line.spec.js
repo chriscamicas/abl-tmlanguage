@@ -204,7 +204,7 @@ describe('', () => {
     { "startIndex": 23, "endIndex": 24, "scopes": ["source.abl", "meta.define.abl"] },  // ' '
     { "startIndex": 24, "endIndex": 36, "scopes": ["source.abl", "meta.define.abl", "keyword.other.abl"] },  // 'table-handle'
     { "startIndex": 36, "endIndex": 37, "scopes": ["source.abl", "meta.define.abl"] },  // ' '
-    { "startIndex": 37, "endIndex": 49, "scopes": ["source.abl", "meta.define.abl", "variable.other.abl"] },  // 'vTableHandle'
+    { "startIndex": 37, "endIndex": 49, "scopes": ["source.abl", "meta.define.abl", "variable.parameter.abl"] },  // 'vTableHandle'
     { "startIndex": 49, "endIndex": 50, "scopes": ["source.abl", "meta.define.abl", "punctuation.terminator.abl"] }  // '.'
   ];
   shared.itShouldMatchExpectedScopes(statement, expectedTokens);
@@ -221,8 +221,46 @@ describe('', () => {
     { "startIndex": 23, "endIndex": 24, "scopes": ["source.abl", "meta.define.abl"] },  // ' '
     { "startIndex": 24, "endIndex": 38, "scopes": ["source.abl", "meta.define.abl", "keyword.other.abl"] },  // 'dataset-handle'
     { "startIndex": 38, "endIndex": 39, "scopes": ["source.abl", "meta.define.abl"] },  // ' '
-    { "startIndex": 39, "endIndex": 53, "scopes": ["source.abl", "meta.define.abl", "variable.other.abl"] },  // 'vDatasetHandle'
+    { "startIndex": 39, "endIndex": 53, "scopes": ["source.abl", "meta.define.abl", "variable.parameter.abl"] },  // 'vDatasetHandle'
     { "startIndex": 53, "endIndex": 54, "scopes": ["source.abl", "meta.define.abl", "punctuation.terminator.abl"] }  // '.'
+  ];
+  shared.itShouldMatchExpectedScopes(statement, expectedTokens);
+})
+
+describe('', () => {
+  let statement = `DEF INPUT PARAMETER ip-prod-key LIKE product.product-key.`;
+  let expectedTokens = [
+    { "startIndex": 0, "endIndex": 3, "scopes": ["source.abl", "meta.define.abl", "keyword.other.abl"] },  // 'DEF'
+    { "startIndex": 3, "endIndex": 4, "scopes": ["source.abl", "meta.define.abl"] },  // ' '
+    { "startIndex": 4, "endIndex": 9, "scopes": ["source.abl", "meta.define.abl", "keyword.other.abl"] },  // 'INPUT'
+    { "startIndex": 9, "endIndex": 10, "scopes": ["source.abl", "meta.define.abl"] },  // ' '
+    { "startIndex": 10, "endIndex": 19, "scopes": ["source.abl", "meta.define.abl", "keyword.other.abl"] },  // 'PARAMETER'
+    { "startIndex": 19, "endIndex": 20, "scopes": ["source.abl", "meta.define.abl"] },  // ' '
+    { "startIndex": 20, "endIndex": 31, "scopes": ["source.abl", "meta.define.abl", "variable.parameter.abl"] },  // 'ip-prod-key'
+    { "startIndex": 31, "endIndex": 32, "scopes": ["source.abl", "meta.define.abl"] },  // ' '
+    { "startIndex": 32, "endIndex": 36, "scopes": ["source.abl", "meta.define.abl", "keyword.other.abl"] },  // 'LIKE'
+    { "startIndex": 36, "endIndex": 37, "scopes": ["source.abl", "meta.define.abl"] },  // ' '
+    { "startIndex": 37, "endIndex": 56, "scopes": ["source.abl", "meta.define.abl", "storage.data.table.abl"] },  // 'product.product-key'
+    { "startIndex": 56, "endIndex": 57, "scopes": ["source.abl", "meta.define.abl", "punctuation.terminator.abl"] }  // '.'
+  ];
+  shared.itShouldMatchExpectedScopes(statement, expectedTokens);
+})
+
+describe('', () => {
+  let statement = `DEF INPUT PARAMETER ip-prod-key AS product.product-key.`;
+  let expectedTokens = [
+    { "startIndex": 0, "endIndex": 3, "scopes": ["source.abl", "meta.define.abl", "keyword.other.abl"] },  // 'DEF'
+    { "startIndex": 3, "endIndex": 4, "scopes": ["source.abl", "meta.define.abl"] },  // ' '
+    { "startIndex": 4, "endIndex": 9, "scopes": ["source.abl", "meta.define.abl", "keyword.other.abl"] },  // 'INPUT'
+    { "startIndex": 9, "endIndex": 10, "scopes": ["source.abl", "meta.define.abl"] },  // ' '
+    { "startIndex": 10, "endIndex": 19, "scopes": ["source.abl", "meta.define.abl", "keyword.other.abl"] },  // 'PARAMETER'
+    { "startIndex": 19, "endIndex": 20, "scopes": ["source.abl", "meta.define.abl"] },  // ' '
+    { "startIndex": 20, "endIndex": 31, "scopes": ["source.abl", "meta.define.abl", "variable.parameter.abl"] },  // 'ip-prod-key'
+    { "startIndex": 31, "endIndex": 32, "scopes": ["source.abl", "meta.define.abl"] },  // ' '
+    { "startIndex": 32, "endIndex": 34, "scopes": ["source.abl", "meta.define.abl", "keyword.other.abl"] },  // 'AS'
+    { "startIndex": 34, "endIndex": 35, "scopes": ["source.abl", "meta.define.abl"] },  // ' '
+    { "startIndex": 35, "endIndex": 54, "scopes": ["source.abl", "meta.define.abl", "entity.name.type.abl"] },  // 'product.product-key'
+    { "startIndex": 54, "endIndex": 55, "scopes": ["source.abl", "meta.define.abl", "punctuation.terminator.abl"] }  // '.'
   ];
   shared.itShouldMatchExpectedScopes(statement, expectedTokens);
 })

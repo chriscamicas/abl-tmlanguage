@@ -264,3 +264,28 @@ describe('', () => {
   ];
   shared.itShouldMatchExpectedScopes(statement, expectedTokens);
 })
+
+describe('', () => {
+  let statement = `create buffer hChildBuffer  for table oBufferFieldName:TableName            buffer-name cBuffer.`;
+  let expectedTokens = [
+    { "startIndex": 0, "endIndex": 6, "scopes": ["source.abl", "keyword.other.abl"] },  // 'create'
+    { "startIndex": 6, "endIndex": 7, "scopes": ["source.abl"] },  // ' '
+    { "startIndex": 7, "endIndex": 13, "scopes": ["source.abl", "keyword.other.abl"] },  // 'buffer'
+    { "startIndex": 13, "endIndex": 14, "scopes": ["source.abl"] },  // ' '
+    { "startIndex": 14, "endIndex": 26, "scopes": ["source.abl", "variable.other.abl"] },  // 'hChildBuffer'
+    { "startIndex": 26, "endIndex": 28, "scopes": ["source.abl"] },  // '  '
+    { "startIndex": 28, "endIndex": 31, "scopes": ["source.abl", "keyword.other.abl"] },  // 'for'
+    { "startIndex": 31, "endIndex": 32, "scopes": ["source.abl"] },  // ' '
+    { "startIndex": 32, "endIndex": 37, "scopes": ["source.abl", "keyword.other.abl"] },  // 'table'
+    { "startIndex": 37, "endIndex": 38, "scopes": ["source.abl"] },  // ' '
+    { "startIndex": 38, "endIndex": 54, "scopes": ["source.abl", "variable.other.abl"] },  // 'oBufferFieldName'
+    { "startIndex": 54, "endIndex": 55, "scopes": ["source.abl", "punctuation.accessor.abl"] },  // ':'
+    { "startIndex": 55, "endIndex": 64, "scopes": ["source.abl", "entity.name.function.abl"] },  // 'TableName'
+    { "startIndex": 64, "endIndex": 76, "scopes": ["source.abl"] },  // '            '
+    { "startIndex": 76, "endIndex": 87, "scopes": ["source.abl", "keyword.other.abl"] },  // 'buffer-name'
+    { "startIndex": 87, "endIndex": 88, "scopes": ["source.abl"] },  // ' '
+    { "startIndex": 88, "endIndex": 95, "scopes": ["source.abl", "variable.other.abl"] },  // 'cBuffer'
+    { "startIndex": 95, "endIndex": 96, "scopes": ["source.abl", "punctuation.terminator.abl"] }  // '.'
+  ];
+  shared.itShouldMatchExpectedScopes(statement, expectedTokens);
+})

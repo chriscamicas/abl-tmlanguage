@@ -452,3 +452,282 @@ describe('', () => {
   ];
   shared.itShouldMatchExpectedScopes(statement, expectedTokens);
 })
+
+describe('', () => {
+  let statement = `DEFINE BROWSE br-cust-order QUERY br-cust-order DISPLAY
+       oe-header-01.order-num LABEL "Order #"
+       oe-header-01.cust-po-number LABEL "Customer PO"
+       oe-header-01.order-total LABEL "Order Total"
+       oe-header-01.order-date LABEL "Order Date"
+/*        oe-header-01.required-date LABEL "Required Date" */
+     /* mtg REQUEST # 281 add day to browser 11/1/2001 */
+     string(string(oe-header-01.required-date) + " " + ENTRY(WEEKDAY(oe-header-01.required-date), daylist)) @ datechr   LABEL "Required Date" FORMAT "x(13)"
+     /* end mtg 11/1/2001 */
+       oe-header-01.order-class LABEL "Order Class"
+       oe-header-01.order-status LABEL "Order Status"
+       oe-header-01.backordered LABEL "Back Ordered" FORMAT "YES/NO"
+       oe-header-01.on-hold LABEL "On Hold" FORMAT "YES/NO"
+       oe-header-01.on-hold-reason LABEL "On Hold Reason"
+       (NOT(oe-header-01.invoiced-complete) AND NOT(oe-header-01.cancelled))
+        LABEL "Open" FORMAT "YES/NO"
+       oe-header-01.invoice-status LABEL "Inv. Status"
+       b_location.location-prefix LABEL "Shipping Loc"  /* <<sms012317 */
+       ENABLE oe-header-01.order-num
+       WITH SEPARATORS SIZE 90 BY 9.81 FONT 14 NO-ROW-MARKERS.`;
+  let expectedTokens = [
+    [
+      { "startIndex": 0, "endIndex": 6, "scopes": ["source.abl", "meta.define.abl", "keyword.other.abl"] },  // 'DEFINE'
+      { "startIndex": 6, "endIndex": 7, "scopes": ["source.abl", "meta.define.abl"] },  // ' '
+      { "startIndex": 7, "endIndex": 13, "scopes": ["source.abl", "meta.define.abl", "keyword.other.abl"] },  // 'BROWSE'
+      { "startIndex": 13, "endIndex": 14, "scopes": ["source.abl", "meta.define.abl"] },  // ' '
+      { "startIndex": 14, "endIndex": 27, "scopes": ["source.abl", "meta.define.abl", "variable.other.abl"] },  // 'br-cust-order'
+      { "startIndex": 27, "endIndex": 28, "scopes": ["source.abl", "meta.define.abl"] },  // ' '
+      { "startIndex": 28, "endIndex": 33, "scopes": ["source.abl", "meta.define.abl", "keyword.other.abl"] },  // 'QUERY'
+      { "startIndex": 33, "endIndex": 34, "scopes": ["source.abl", "meta.define.abl"] },  // ' '
+      { "startIndex": 34, "endIndex": 47, "scopes": ["source.abl", "meta.define.abl", "variable.other.abl"] },  // 'br-cust-order'
+      { "startIndex": 47, "endIndex": 48, "scopes": ["source.abl", "meta.define.abl"] },  // ' '
+      { "startIndex": 48, "endIndex": 55, "scopes": ["source.abl", "meta.define.abl", "keyword.other.abl"] }  // 'DISPLAY'
+    ],
+    [
+      { "startIndex": 0, "endIndex": 7, "scopes": ["source.abl", "meta.define.abl"] },  // '       '
+      { "startIndex": 7, "endIndex": 29, "scopes": ["source.abl", "meta.define.abl", "storage.data.table.abl"] },  // 'oe-header-01.order-num'
+      { "startIndex": 29, "endIndex": 30, "scopes": ["source.abl", "meta.define.abl"] },  // ' '
+      { "startIndex": 30, "endIndex": 35, "scopes": ["source.abl", "meta.define.abl", "keyword.other.abl"] },  // 'LABEL'
+      { "startIndex": 35, "endIndex": 36, "scopes": ["source.abl", "meta.define.abl"] },  // ' '
+      { "startIndex": 36, "endIndex": 37, "scopes": ["source.abl", "meta.define.abl", "string.quoted.double.abl", "punctuation.definition.string.begin.abl"] },  // '"'
+      { "startIndex": 37, "endIndex": 44, "scopes": ["source.abl", "meta.define.abl", "string.quoted.double.abl"] },  // 'Order #'
+      { "startIndex": 44, "endIndex": 45, "scopes": ["source.abl", "meta.define.abl", "string.quoted.double.abl", "punctuation.definition.string.end.abl"] }  // '"'
+    ],
+    [
+      { "startIndex": 0, "endIndex": 7, "scopes": ["source.abl", "meta.define.abl"] },  // '       '
+      { "startIndex": 7, "endIndex": 34, "scopes": ["source.abl", "meta.define.abl", "storage.data.table.abl"] },  // 'oe-header-01.cust-po-number'
+      { "startIndex": 34, "endIndex": 35, "scopes": ["source.abl", "meta.define.abl"] },  // ' '
+      { "startIndex": 35, "endIndex": 40, "scopes": ["source.abl", "meta.define.abl", "keyword.other.abl"] },  // 'LABEL'
+      { "startIndex": 40, "endIndex": 41, "scopes": ["source.abl", "meta.define.abl"] },  // ' '
+      { "startIndex": 41, "endIndex": 42, "scopes": ["source.abl", "meta.define.abl", "string.quoted.double.abl", "punctuation.definition.string.begin.abl"] },  // '"'
+      { "startIndex": 42, "endIndex": 53, "scopes": ["source.abl", "meta.define.abl", "string.quoted.double.abl"] },  // 'Customer PO'
+      { "startIndex": 53, "endIndex": 54, "scopes": ["source.abl", "meta.define.abl", "string.quoted.double.abl", "punctuation.definition.string.end.abl"] }  // '"'
+    ],
+    [
+      { "startIndex": 0, "endIndex": 7, "scopes": ["source.abl", "meta.define.abl"] },  // '       '
+      { "startIndex": 7, "endIndex": 31, "scopes": ["source.abl", "meta.define.abl", "storage.data.table.abl"] },  // 'oe-header-01.order-total'
+      { "startIndex": 31, "endIndex": 32, "scopes": ["source.abl", "meta.define.abl"] },  // ' '
+      { "startIndex": 32, "endIndex": 37, "scopes": ["source.abl", "meta.define.abl", "keyword.other.abl"] },  // 'LABEL'
+      { "startIndex": 37, "endIndex": 38, "scopes": ["source.abl", "meta.define.abl"] },  // ' '
+      { "startIndex": 38, "endIndex": 39, "scopes": ["source.abl", "meta.define.abl", "string.quoted.double.abl", "punctuation.definition.string.begin.abl"] },  // '"'
+      { "startIndex": 39, "endIndex": 50, "scopes": ["source.abl", "meta.define.abl", "string.quoted.double.abl"] },  // 'Order Total'
+      { "startIndex": 50, "endIndex": 51, "scopes": ["source.abl", "meta.define.abl", "string.quoted.double.abl", "punctuation.definition.string.end.abl"] }  // '"'
+    ],
+    [
+      { "startIndex": 0, "endIndex": 7, "scopes": ["source.abl", "meta.define.abl"] },  // '       '
+      { "startIndex": 7, "endIndex": 30, "scopes": ["source.abl", "meta.define.abl", "storage.data.table.abl"] },  // 'oe-header-01.order-date'
+      { "startIndex": 30, "endIndex": 31, "scopes": ["source.abl", "meta.define.abl"] },  // ' '
+      { "startIndex": 31, "endIndex": 36, "scopes": ["source.abl", "meta.define.abl", "keyword.other.abl"] },  // 'LABEL'
+      { "startIndex": 36, "endIndex": 37, "scopes": ["source.abl", "meta.define.abl"] },  // ' '
+      { "startIndex": 37, "endIndex": 38, "scopes": ["source.abl", "meta.define.abl", "string.quoted.double.abl", "punctuation.definition.string.begin.abl"] },  // '"'
+      { "startIndex": 38, "endIndex": 48, "scopes": ["source.abl", "meta.define.abl", "string.quoted.double.abl"] },  // 'Order Date'
+      { "startIndex": 48, "endIndex": 49, "scopes": ["source.abl", "meta.define.abl", "string.quoted.double.abl", "punctuation.definition.string.end.abl"] }  // '"'
+    ],
+    [
+      { "startIndex": 0, "endIndex": 2, "scopes": ["source.abl", "meta.define.abl", "comment.block.abl"] },  // '/*'
+      { "startIndex": 2, "endIndex": 59, "scopes": ["source.abl", "meta.define.abl", "comment.block.abl", "comment"] },  // '        oe-header-01.required-date LABEL "Required Date" '
+      { "startIndex": 59, "endIndex": 61, "scopes": ["source.abl", "meta.define.abl", "comment.block.abl"] }  // '*/'
+    ],
+    [
+      { "startIndex": 0, "endIndex": 5, "scopes": ["source.abl", "meta.define.abl"] },  // '     '
+      { "startIndex": 5, "endIndex": 7, "scopes": ["source.abl", "meta.define.abl", "comment.block.abl"] },  // '/*'
+      { "startIndex": 7, "endIndex": 55, "scopes": ["source.abl", "meta.define.abl", "comment.block.abl", "comment"] },  // ' mtg REQUEST # 281 add day to browser 11/1/2001 '
+      { "startIndex": 55, "endIndex": 57, "scopes": ["source.abl", "meta.define.abl", "comment.block.abl"] }  // '*/'
+    ],
+    [
+      { "startIndex": 0, "endIndex": 5, "scopes": ["source.abl", "meta.define.abl"] },  // '     '
+      { "startIndex": 5, "endIndex": 11, "scopes": ["source.abl", "meta.define.abl", "support.function.abl"] },  // 'string'
+      { "startIndex": 11, "endIndex": 12, "scopes": ["source.abl", "meta.define.abl", "meta.brace.round.abl"] },  // '('
+      { "startIndex": 12, "endIndex": 18, "scopes": ["source.abl", "meta.define.abl", "support.function.abl"] },  // 'string'
+      { "startIndex": 18, "endIndex": 19, "scopes": ["source.abl", "meta.define.abl", "meta.brace.round.abl"] },  // '('
+      { "startIndex": 19, "endIndex": 45, "scopes": ["source.abl", "meta.define.abl", "storage.data.table.abl"] },  // 'oe-header-01.required-date'
+      { "startIndex": 45, "endIndex": 46, "scopes": ["source.abl", "meta.define.abl", "meta.brace.round.abl"] },  // ')'
+      { "startIndex": 46, "endIndex": 47, "scopes": ["source.abl", "meta.define.abl"] },  // ' '
+      { "startIndex": 47, "endIndex": 48, "scopes": ["source.abl", "meta.define.abl", "keyword.operator.abl"] },  // '+'
+      { "startIndex": 48, "endIndex": 49, "scopes": ["source.abl", "meta.define.abl"] },  // ' '
+      { "startIndex": 49, "endIndex": 50, "scopes": ["source.abl", "meta.define.abl", "string.quoted.double.abl", "punctuation.definition.string.begin.abl"] },  // '"'
+      { "startIndex": 50, "endIndex": 51, "scopes": ["source.abl", "meta.define.abl", "string.quoted.double.abl"] },  // ' '
+      { "startIndex": 51, "endIndex": 52, "scopes": ["source.abl", "meta.define.abl", "string.quoted.double.abl", "punctuation.definition.string.end.abl"] },  // '"'
+      { "startIndex": 52, "endIndex": 53, "scopes": ["source.abl", "meta.define.abl"] },  // ' '
+      { "startIndex": 53, "endIndex": 54, "scopes": ["source.abl", "meta.define.abl", "keyword.operator.abl"] },  // '+'
+      { "startIndex": 54, "endIndex": 55, "scopes": ["source.abl", "meta.define.abl"] },  // ' '
+      { "startIndex": 55, "endIndex": 60, "scopes": ["source.abl", "meta.define.abl", "support.function.abl"] },  // 'ENTRY'
+      { "startIndex": 60, "endIndex": 61, "scopes": ["source.abl", "meta.define.abl", "meta.brace.round.abl"] },  // '('
+      { "startIndex": 61, "endIndex": 68, "scopes": ["source.abl", "meta.define.abl", "support.function.abl"] },  // 'WEEKDAY'
+      { "startIndex": 68, "endIndex": 69, "scopes": ["source.abl", "meta.define.abl", "meta.brace.round.abl"] },  // '('
+      { "startIndex": 69, "endIndex": 95, "scopes": ["source.abl", "meta.define.abl", "storage.data.table.abl"] },  // 'oe-header-01.required-date'
+      { "startIndex": 95, "endIndex": 96, "scopes": ["source.abl", "meta.define.abl", "meta.brace.round.abl"] },  // ')'
+      { "startIndex": 96, "endIndex": 97, "scopes": ["source.abl", "meta.define.abl", "punctuation.separator.comma.abl"] },  // ','
+      { "startIndex": 97, "endIndex": 98, "scopes": ["source.abl", "meta.define.abl"] },  // ' '
+      { "startIndex": 98, "endIndex": 105, "scopes": ["source.abl", "meta.define.abl", "variable.other.abl"] },  // 'daylist'
+      { "startIndex": 105, "endIndex": 106, "scopes": ["source.abl", "meta.define.abl", "meta.brace.round.abl"] },  // ')'
+      { "startIndex": 106, "endIndex": 107, "scopes": ["source.abl", "meta.define.abl", "meta.brace.round.abl"] },  // ')'
+      { "startIndex": 107, "endIndex": 110, "scopes": ["source.abl", "meta.define.abl"] },  // ' @ '
+      { "startIndex": 110, "endIndex": 117, "scopes": ["source.abl", "meta.define.abl", "variable.other.abl"] },  // 'datechr'
+      { "startIndex": 117, "endIndex": 120, "scopes": ["source.abl", "meta.define.abl"] },  // '   '
+      { "startIndex": 120, "endIndex": 125, "scopes": ["source.abl", "meta.define.abl", "keyword.other.abl"] },  // 'LABEL'
+      { "startIndex": 125, "endIndex": 126, "scopes": ["source.abl", "meta.define.abl"] },  // ' '
+      { "startIndex": 126, "endIndex": 127, "scopes": ["source.abl", "meta.define.abl", "string.quoted.double.abl", "punctuation.definition.string.begin.abl"] },  // '"'
+      { "startIndex": 127, "endIndex": 140, "scopes": ["source.abl", "meta.define.abl", "string.quoted.double.abl"] },  // 'Required Date'
+      { "startIndex": 140, "endIndex": 141, "scopes": ["source.abl", "meta.define.abl", "string.quoted.double.abl", "punctuation.definition.string.end.abl"] },  // '"'
+      { "startIndex": 141, "endIndex": 142, "scopes": ["source.abl", "meta.define.abl"] },  // ' '
+      { "startIndex": 142, "endIndex": 148, "scopes": ["source.abl", "meta.define.abl", "keyword.other.abl"] },  // 'FORMAT'
+      { "startIndex": 148, "endIndex": 149, "scopes": ["source.abl", "meta.define.abl"] },  // ' '
+      { "startIndex": 149, "endIndex": 150, "scopes": ["source.abl", "meta.define.abl", "string.quoted.double.abl", "punctuation.definition.string.begin.abl"] },  // '"'
+      { "startIndex": 150, "endIndex": 155, "scopes": ["source.abl", "meta.define.abl", "string.quoted.double.abl"] },  // 'x(13)'
+      { "startIndex": 155, "endIndex": 156, "scopes": ["source.abl", "meta.define.abl", "string.quoted.double.abl", "punctuation.definition.string.end.abl"] }  // '"'
+    ],
+    [
+      { "startIndex": 0, "endIndex": 5, "scopes": ["source.abl", "meta.define.abl"] },  // '     '
+      { "startIndex": 5, "endIndex": 7, "scopes": ["source.abl", "meta.define.abl", "comment.block.abl"] },  // '/*'
+      { "startIndex": 7, "endIndex": 26, "scopes": ["source.abl", "meta.define.abl", "comment.block.abl", "comment"] },  // ' end mtg 11/1/2001 '
+      { "startIndex": 26, "endIndex": 28, "scopes": ["source.abl", "meta.define.abl", "comment.block.abl"] }  // '*/'
+    ],
+    [
+      { "startIndex": 0, "endIndex": 7, "scopes": ["source.abl", "meta.define.abl"] },  // '       '
+      { "startIndex": 7, "endIndex": 31, "scopes": ["source.abl", "meta.define.abl", "storage.data.table.abl"] },  // 'oe-header-01.order-class'
+      { "startIndex": 31, "endIndex": 32, "scopes": ["source.abl", "meta.define.abl"] },  // ' '
+      { "startIndex": 32, "endIndex": 37, "scopes": ["source.abl", "meta.define.abl", "keyword.other.abl"] },  // 'LABEL'
+      { "startIndex": 37, "endIndex": 38, "scopes": ["source.abl", "meta.define.abl"] },  // ' '
+      { "startIndex": 38, "endIndex": 39, "scopes": ["source.abl", "meta.define.abl", "string.quoted.double.abl", "punctuation.definition.string.begin.abl"] },  // '"'
+      { "startIndex": 39, "endIndex": 50, "scopes": ["source.abl", "meta.define.abl", "string.quoted.double.abl"] },  // 'Order Class'
+      { "startIndex": 50, "endIndex": 51, "scopes": ["source.abl", "meta.define.abl", "string.quoted.double.abl", "punctuation.definition.string.end.abl"] }  // '"'
+    ],
+    [
+      { "startIndex": 0, "endIndex": 7, "scopes": ["source.abl", "meta.define.abl"] },  // '       '
+      { "startIndex": 7, "endIndex": 32, "scopes": ["source.abl", "meta.define.abl", "storage.data.table.abl"] },  // 'oe-header-01.order-status'
+      { "startIndex": 32, "endIndex": 33, "scopes": ["source.abl", "meta.define.abl"] },  // ' '
+      { "startIndex": 33, "endIndex": 38, "scopes": ["source.abl", "meta.define.abl", "keyword.other.abl"] },  // 'LABEL'
+      { "startIndex": 38, "endIndex": 39, "scopes": ["source.abl", "meta.define.abl"] },  // ' '
+      { "startIndex": 39, "endIndex": 40, "scopes": ["source.abl", "meta.define.abl", "string.quoted.double.abl", "punctuation.definition.string.begin.abl"] },  // '"'
+      { "startIndex": 40, "endIndex": 52, "scopes": ["source.abl", "meta.define.abl", "string.quoted.double.abl"] },  // 'Order Status'
+      { "startIndex": 52, "endIndex": 53, "scopes": ["source.abl", "meta.define.abl", "string.quoted.double.abl", "punctuation.definition.string.end.abl"] }  // '"'
+    ],
+    [
+      { "startIndex": 0, "endIndex": 7, "scopes": ["source.abl", "meta.define.abl"] },  // '       '
+      { "startIndex": 7, "endIndex": 31, "scopes": ["source.abl", "meta.define.abl", "storage.data.table.abl"] },  // 'oe-header-01.backordered'
+      { "startIndex": 31, "endIndex": 32, "scopes": ["source.abl", "meta.define.abl"] },  // ' '
+      { "startIndex": 32, "endIndex": 37, "scopes": ["source.abl", "meta.define.abl", "keyword.other.abl"] },  // 'LABEL'
+      { "startIndex": 37, "endIndex": 38, "scopes": ["source.abl", "meta.define.abl"] },  // ' '
+      { "startIndex": 38, "endIndex": 39, "scopes": ["source.abl", "meta.define.abl", "string.quoted.double.abl", "punctuation.definition.string.begin.abl"] },  // '"'
+      { "startIndex": 39, "endIndex": 51, "scopes": ["source.abl", "meta.define.abl", "string.quoted.double.abl"] },  // 'Back Ordered'
+      { "startIndex": 51, "endIndex": 52, "scopes": ["source.abl", "meta.define.abl", "string.quoted.double.abl", "punctuation.definition.string.end.abl"] },  // '"'
+      { "startIndex": 52, "endIndex": 53, "scopes": ["source.abl", "meta.define.abl"] },  // ' '
+      { "startIndex": 53, "endIndex": 59, "scopes": ["source.abl", "meta.define.abl", "keyword.other.abl"] },  // 'FORMAT'
+      { "startIndex": 59, "endIndex": 60, "scopes": ["source.abl", "meta.define.abl"] },  // ' '
+      { "startIndex": 60, "endIndex": 61, "scopes": ["source.abl", "meta.define.abl", "string.quoted.double.abl", "punctuation.definition.string.begin.abl"] },  // '"'
+      { "startIndex": 61, "endIndex": 67, "scopes": ["source.abl", "meta.define.abl", "string.quoted.double.abl"] },  // 'YES/NO'
+      { "startIndex": 67, "endIndex": 68, "scopes": ["source.abl", "meta.define.abl", "string.quoted.double.abl", "punctuation.definition.string.end.abl"] }  // '"'
+    ],
+    [
+      { "startIndex": 0, "endIndex": 7, "scopes": ["source.abl", "meta.define.abl"] },  // '       '
+      { "startIndex": 7, "endIndex": 27, "scopes": ["source.abl", "meta.define.abl", "storage.data.table.abl"] },  // 'oe-header-01.on-hold'
+      { "startIndex": 27, "endIndex": 28, "scopes": ["source.abl", "meta.define.abl"] },  // ' '
+      { "startIndex": 28, "endIndex": 33, "scopes": ["source.abl", "meta.define.abl", "keyword.other.abl"] },  // 'LABEL'
+      { "startIndex": 33, "endIndex": 34, "scopes": ["source.abl", "meta.define.abl"] },  // ' '
+      { "startIndex": 34, "endIndex": 35, "scopes": ["source.abl", "meta.define.abl", "string.quoted.double.abl", "punctuation.definition.string.begin.abl"] },  // '"'
+      { "startIndex": 35, "endIndex": 42, "scopes": ["source.abl", "meta.define.abl", "string.quoted.double.abl"] },  // 'On Hold'
+      { "startIndex": 42, "endIndex": 43, "scopes": ["source.abl", "meta.define.abl", "string.quoted.double.abl", "punctuation.definition.string.end.abl"] },  // '"'
+      { "startIndex": 43, "endIndex": 44, "scopes": ["source.abl", "meta.define.abl"] },  // ' '
+      { "startIndex": 44, "endIndex": 50, "scopes": ["source.abl", "meta.define.abl", "keyword.other.abl"] },  // 'FORMAT'
+      { "startIndex": 50, "endIndex": 51, "scopes": ["source.abl", "meta.define.abl"] },  // ' '
+      { "startIndex": 51, "endIndex": 52, "scopes": ["source.abl", "meta.define.abl", "string.quoted.double.abl", "punctuation.definition.string.begin.abl"] },  // '"'
+      { "startIndex": 52, "endIndex": 58, "scopes": ["source.abl", "meta.define.abl", "string.quoted.double.abl"] },  // 'YES/NO'
+      { "startIndex": 58, "endIndex": 59, "scopes": ["source.abl", "meta.define.abl", "string.quoted.double.abl", "punctuation.definition.string.end.abl"] }  // '"'
+    ],
+    [
+      { "startIndex": 0, "endIndex": 7, "scopes": ["source.abl", "meta.define.abl"] },  // '       '
+      { "startIndex": 7, "endIndex": 34, "scopes": ["source.abl", "meta.define.abl", "storage.data.table.abl"] },  // 'oe-header-01.on-hold-reason'
+      { "startIndex": 34, "endIndex": 35, "scopes": ["source.abl", "meta.define.abl"] },  // ' '
+      { "startIndex": 35, "endIndex": 40, "scopes": ["source.abl", "meta.define.abl", "keyword.other.abl"] },  // 'LABEL'
+      { "startIndex": 40, "endIndex": 41, "scopes": ["source.abl", "meta.define.abl"] },  // ' '
+      { "startIndex": 41, "endIndex": 42, "scopes": ["source.abl", "meta.define.abl", "string.quoted.double.abl", "punctuation.definition.string.begin.abl"] },  // '"'
+      { "startIndex": 42, "endIndex": 56, "scopes": ["source.abl", "meta.define.abl", "string.quoted.double.abl"] },  // 'On Hold Reason'
+      { "startIndex": 56, "endIndex": 57, "scopes": ["source.abl", "meta.define.abl", "string.quoted.double.abl", "punctuation.definition.string.end.abl"] }  // '"'
+    ],
+    [
+      { "startIndex": 0, "endIndex": 8, "scopes": ["source.abl", "meta.define.abl"] },  // '       ('
+      { "startIndex": 8, "endIndex": 11, "scopes": ["source.abl", "meta.define.abl", "keyword.other.abl"] },  // 'NOT'
+      { "startIndex": 11, "endIndex": 12, "scopes": ["source.abl", "meta.define.abl"] },  // '('
+      { "startIndex": 12, "endIndex": 42, "scopes": ["source.abl", "meta.define.abl", "storage.data.table.abl"] },  // 'oe-header-01.invoiced-complete'
+      { "startIndex": 42, "endIndex": 44, "scopes": ["source.abl", "meta.define.abl"] },  // ') '
+      { "startIndex": 44, "endIndex": 47, "scopes": ["source.abl", "meta.define.abl", "keyword.other.abl"] },  // 'AND'
+      { "startIndex": 47, "endIndex": 48, "scopes": ["source.abl", "meta.define.abl"] },  // ' '
+      { "startIndex": 48, "endIndex": 51, "scopes": ["source.abl", "meta.define.abl", "keyword.other.abl"] },  // 'NOT'
+      { "startIndex": 51, "endIndex": 52, "scopes": ["source.abl", "meta.define.abl"] },  // '('
+      { "startIndex": 52, "endIndex": 74, "scopes": ["source.abl", "meta.define.abl", "storage.data.table.abl"] },  // 'oe-header-01.cancelled'
+      { "startIndex": 74, "endIndex": 77, "scopes": ["source.abl", "meta.define.abl"] }  // '))'
+    ],
+    [
+      { "startIndex": 0, "endIndex": 8, "scopes": ["source.abl", "meta.define.abl"] },  // '        '
+      { "startIndex": 8, "endIndex": 13, "scopes": ["source.abl", "meta.define.abl", "keyword.other.abl"] },  // 'LABEL'
+      { "startIndex": 13, "endIndex": 14, "scopes": ["source.abl", "meta.define.abl"] },  // ' '
+      { "startIndex": 14, "endIndex": 15, "scopes": ["source.abl", "meta.define.abl", "string.quoted.double.abl", "punctuation.definition.string.begin.abl"] },  // '"'
+      { "startIndex": 15, "endIndex": 19, "scopes": ["source.abl", "meta.define.abl", "string.quoted.double.abl"] },  // 'Open'
+      { "startIndex": 19, "endIndex": 20, "scopes": ["source.abl", "meta.define.abl", "string.quoted.double.abl", "punctuation.definition.string.end.abl"] },  // '"'
+      { "startIndex": 20, "endIndex": 21, "scopes": ["source.abl", "meta.define.abl"] },  // ' '
+      { "startIndex": 21, "endIndex": 27, "scopes": ["source.abl", "meta.define.abl", "keyword.other.abl"] },  // 'FORMAT'
+      { "startIndex": 27, "endIndex": 28, "scopes": ["source.abl", "meta.define.abl"] },  // ' '
+      { "startIndex": 28, "endIndex": 29, "scopes": ["source.abl", "meta.define.abl", "string.quoted.double.abl", "punctuation.definition.string.begin.abl"] },  // '"'
+      { "startIndex": 29, "endIndex": 35, "scopes": ["source.abl", "meta.define.abl", "string.quoted.double.abl"] },  // 'YES/NO'
+      { "startIndex": 35, "endIndex": 36, "scopes": ["source.abl", "meta.define.abl", "string.quoted.double.abl", "punctuation.definition.string.end.abl"] }  // '"'
+    ],
+    [
+      { "startIndex": 0, "endIndex": 7, "scopes": ["source.abl", "meta.define.abl"] },  // '       '
+      { "startIndex": 7, "endIndex": 34, "scopes": ["source.abl", "meta.define.abl", "storage.data.table.abl"] },  // 'oe-header-01.invoice-status'
+      { "startIndex": 34, "endIndex": 35, "scopes": ["source.abl", "meta.define.abl"] },  // ' '
+      { "startIndex": 35, "endIndex": 40, "scopes": ["source.abl", "meta.define.abl", "keyword.other.abl"] },  // 'LABEL'
+      { "startIndex": 40, "endIndex": 41, "scopes": ["source.abl", "meta.define.abl"] },  // ' '
+      { "startIndex": 41, "endIndex": 42, "scopes": ["source.abl", "meta.define.abl", "string.quoted.double.abl", "punctuation.definition.string.begin.abl"] },  // '"'
+      { "startIndex": 42, "endIndex": 53, "scopes": ["source.abl", "meta.define.abl", "string.quoted.double.abl"] },  // 'Inv. Status'
+      { "startIndex": 53, "endIndex": 54, "scopes": ["source.abl", "meta.define.abl", "string.quoted.double.abl", "punctuation.definition.string.end.abl"] }  // '"'
+    ],
+    [
+      { "startIndex": 0, "endIndex": 7, "scopes": ["source.abl", "meta.define.abl"] },  // '       '
+      { "startIndex": 7, "endIndex": 33, "scopes": ["source.abl", "meta.define.abl", "storage.data.table.abl"] },  // 'b_location.location-prefix'
+      { "startIndex": 33, "endIndex": 34, "scopes": ["source.abl", "meta.define.abl"] },  // ' '
+      { "startIndex": 34, "endIndex": 39, "scopes": ["source.abl", "meta.define.abl", "keyword.other.abl"] },  // 'LABEL'
+      { "startIndex": 39, "endIndex": 40, "scopes": ["source.abl", "meta.define.abl"] },  // ' '
+      { "startIndex": 40, "endIndex": 41, "scopes": ["source.abl", "meta.define.abl", "string.quoted.double.abl", "punctuation.definition.string.begin.abl"] },  // '"'
+      { "startIndex": 41, "endIndex": 53, "scopes": ["source.abl", "meta.define.abl", "string.quoted.double.abl"] },  // 'Shipping Loc'
+      { "startIndex": 53, "endIndex": 54, "scopes": ["source.abl", "meta.define.abl", "string.quoted.double.abl", "punctuation.definition.string.end.abl"] },  // '"'
+      { "startIndex": 54, "endIndex": 56, "scopes": ["source.abl", "meta.define.abl"] },  // '  '
+      { "startIndex": 56, "endIndex": 58, "scopes": ["source.abl", "meta.define.abl", "comment.block.abl"] },  // '/*'
+      { "startIndex": 58, "endIndex": 71, "scopes": ["source.abl", "meta.define.abl", "comment.block.abl", "comment"] },  // ' <<sms012317 '
+      { "startIndex": 71, "endIndex": 73, "scopes": ["source.abl", "meta.define.abl", "comment.block.abl"] }  // '*/'
+    ],
+    [
+      { "startIndex": 0, "endIndex": 7, "scopes": ["source.abl", "meta.define.abl"] },  // '       '
+      { "startIndex": 7, "endIndex": 13, "scopes": ["source.abl", "meta.define.abl", "keyword.other.abl"] },  // 'ENABLE'
+      { "startIndex": 13, "endIndex": 14, "scopes": ["source.abl", "meta.define.abl"] },  // ' '
+      { "startIndex": 14, "endIndex": 36, "scopes": ["source.abl", "meta.define.abl", "storage.data.table.abl"] }  // 'oe-header-01.order-num'
+    ],
+    [
+      { "startIndex": 0, "endIndex": 7, "scopes": ["source.abl", "meta.define.abl"] },  // '       '
+      { "startIndex": 7, "endIndex": 11, "scopes": ["source.abl", "meta.define.abl", "keyword.other.abl"] },  // 'WITH'
+      { "startIndex": 11, "endIndex": 12, "scopes": ["source.abl", "meta.define.abl"] },  // ' '
+      { "startIndex": 12, "endIndex": 22, "scopes": ["source.abl", "meta.define.abl", "keyword.other.abl"] },  // 'SEPARATORS'
+      { "startIndex": 22, "endIndex": 23, "scopes": ["source.abl", "meta.define.abl"] },  // ' '
+      { "startIndex": 23, "endIndex": 27, "scopes": ["source.abl", "meta.define.abl", "keyword.other.abl"] },  // 'SIZE'
+      { "startIndex": 27, "endIndex": 28, "scopes": ["source.abl", "meta.define.abl"] },  // ' '
+      { "startIndex": 28, "endIndex": 30, "scopes": ["source.abl", "meta.define.abl", "constant.numeric.abl"] },  // '90'
+      { "startIndex": 30, "endIndex": 31, "scopes": ["source.abl", "meta.define.abl"] },  // ' '
+      { "startIndex": 31, "endIndex": 33, "scopes": ["source.abl", "meta.define.abl", "keyword.other.abl"] },  // 'BY'
+      { "startIndex": 33, "endIndex": 34, "scopes": ["source.abl", "meta.define.abl"] },  // ' '
+      { "startIndex": 34, "endIndex": 38, "scopes": ["source.abl", "meta.define.abl", "constant.numeric.abl"] },  // '9.81'
+      { "startIndex": 38, "endIndex": 39, "scopes": ["source.abl", "meta.define.abl"] },  // ' '
+      { "startIndex": 39, "endIndex": 43, "scopes": ["source.abl", "meta.define.abl", "keyword.other.abl"] },  // 'FONT'
+      { "startIndex": 43, "endIndex": 44, "scopes": ["source.abl", "meta.define.abl"] },  // ' '
+      { "startIndex": 44, "endIndex": 46, "scopes": ["source.abl", "meta.define.abl", "constant.numeric.abl"] },  // '14'
+      { "startIndex": 46, "endIndex": 47, "scopes": ["source.abl", "meta.define.abl"] },  // ' '
+      { "startIndex": 47, "endIndex": 61, "scopes": ["source.abl", "meta.define.abl", "keyword.other.abl"] },  // 'NO-ROW-MARKERS'
+      { "startIndex": 61, "endIndex": 62, "scopes": ["source.abl", "meta.define.abl", "punctuation.terminator.abl"] }  // '.'
+    ]
+  ];
+  shared.itShouldMatchExpectedScopes(statement, expectedTokens);
+})

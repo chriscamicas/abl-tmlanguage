@@ -83,7 +83,7 @@ describe('', () => {
       { "startIndex": 0, "endIndex": 6, "scopes": ["source.abl"] },  // '      '
       { "startIndex": 6, "endIndex": 11, "scopes": ["source.abl", "keyword.other.abl"] },  // 'catch'
       { "startIndex": 11, "endIndex": 12, "scopes": ["source.abl"] },  // ' '
-      { "startIndex": 12, "endIndex": 19, "scopes": ["source.abl", "variable.parameter.abl"] },  // 'sockErr'
+      { "startIndex": 12, "endIndex": 19, "scopes": ["source.abl", "variable.other.abl"] },  // 'sockErr'
       { "startIndex": 19, "endIndex": 20, "scopes": ["source.abl"] },  // ' '
       { "startIndex": 20, "endIndex": 22, "scopes": ["source.abl", "keyword.other.abl"] },  // 'as'
       { "startIndex": 22, "endIndex": 23, "scopes": ["source.abl"] },  // ' '

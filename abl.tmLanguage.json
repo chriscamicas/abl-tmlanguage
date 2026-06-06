@@ -261,9 +261,6 @@
           ]
         },
         {
-          "include": "#parameter-as"
-        },
-        {
           "include": "#string",
           "comment": "For the return type"
         },
@@ -309,25 +306,86 @@
         }
       }
     },
+    "like-field": {
+      "match": "\\s*([Ll][Ii][Kk][Ee])\\s+(([a-zA-Z][a-zA-Z0-9#$\\-_%&]*\\.)?([a-zA-Z_][a-zA-Z0-9#$\\-_%&]*\\.)([a-zA-Z_][a-zA-Z0-9#$\\-_%&]*))",
+      "captures": {
+        "1": {
+          "name": "keyword.other.abl"
+        },
+        "2":{
+          "name": "storage.data.table.abl"
+        }
+      }
+    },
     "as-type": {
-      "begin": "\\s*([Aa][Ss])\\s*([Cc][Ll][Aa][Ss]{2})?",
+      "begin": "\\s*([Aa][Ss])(\\s+([Cc][Ll][Aa][Ss]{2})\\s)?\\s*",
       "beginCaptures": {
         "1": {
           "name": "keyword.other.abl"
         },
-        "2": {
+        "3": {
           "name": "keyword.other.abl"
         }
       },
-      "end": "\\s*(\\.|\\,|\\s*)",
+      "end": "(?=\\.|\\,|\\)|\\s)",
       "patterns": [
         {
           "include": "#primitive-type"
         },
         {
+          "include": "#dll-type"
+        },
+        {
           "include": "#type-names"
+        },
+        {
+          "comment": "To capture .NET generic type names that need to be quoted in certain OE versions",
+          "include": "#string"
+        },
+        {
+          "include": "#comment"
         }
       ]
+    },
+    "parameter-table-dataset-handle": {
+        "match": "(?i)\\s*(dataset-handle|table-handle)\\s+([a-zA-Z][a-zA-Z0-9_\\-]*)",
+        "captures": {
+          "1": {
+            "name": "keyword.other.abl"
+          },
+          "2": {
+            "name": "variable.parameter.abl"
+          }
+        }
+    },
+    "parameter-table": {
+        "match": "(?i)\\s*(table)\\s+((for)\\s+)?([a-zA-Z][a-zA-Z_\\-#$%]*(\\.[a-zA-Z][a-zA-Z_\\-#$%]*)?)\\b",
+        "captures": {
+          "1": {
+            "name": "keyword.other.abl"
+          },
+          "3": {
+            "name": "keyword.other.abl"
+          },
+          "4": {
+            "name": "storage.data.table.abl"
+          }
+        }
+    },
+    "parameter-dataset": {
+        "match": "(?i)\\s*(dataset)\\s+((for)\\s+)?([a-zA-Z_\\-#$%]+(\\.[a-zA-Z_\\-#$%]+)?)\\s*",
+        "x-match": "(?i)\\s*(dataset)\\s+((for)\\s+)?([a-zA-Z][a-zA-Z0-9_\\-]*)\\s*",
+        "captures": {
+            "1": {
+              "name": "keyword.other.abl"
+            },
+            "3": {
+              "name": "keyword.other.abl"
+            },
+            "4": {
+              "name": "storage.data.dataset.abl"
+            }
+        }
     },
     "parameter-definition": {
       "name": "meta.define.parameter.abl",
@@ -342,101 +400,41 @@
           }
         },
         {
-          "match": "(?i)\\s*(dataset-handle|table-handle)\\s+([a-zA-Z][a-zA-Z0-9_\\-]*)",
-          "captures": {
-            "1": {
-              "name": "keyword.other.abl"
-            },
-            "2": {
-              "name": "variable.parameter.abl"
-            }
-          }
+          "include": "#parameter-table-dataset-handle"
         },
         {
-          "match": "(?i)\\s*(dataset)\\s+([a-zA-Z][a-zA-Z0-9_\\-]*)\\s*",
-          "captures": {
-            "1": {
-              "name": "keyword.other.abl"
-            },
-            "2": {
-              "name": "storage.data.dataset.abl"
-            }
-          }
+          "include": "#parameter-dataset"
         },
         {
-          "match": "(?i)\\s*(table)\\s+([a-zA-Z][a-zA-Z0-9_\\-]*)\\s*",
-          "captures": {
-            "1": {
-              "name": "keyword.other.abl"
-            },
-            "2": {
-              "name": "storage.data.table.abl"
-            }
-          }
+          "include": "#parameter-table"
         },
         {
-          "include": "#parameter-as"
+          "include": "#as-type"
         },
         {
-          "match": "(?i)\\s*((char(?:acter|acte|act|ac|a)?)|com-handle|date|datetime-tz|datetime|(dec(?:imal|ima|im|i)?)|handle|int64|(int(?:eger|ege|eg|e)?)|(log(?:ical|ica|ic|i)?)|(longch(?:ar|a)?)|memptr|raw|recid|rowid|(widget-h(?:andle|andl|and|an|a)?))(?![=a-zA-Z0-9_\\-])\\s*(,*)",
-          "captures": {
-            "1": {
-              "name": "storage.type.abl"
-            },
-            "2": {
-              "name": "punctuation.separator.comma.abl"
-            }
-          }
-        },
-        {
-          "match": "\\s*(,)\\s*",
-          "captures": {
-            "1": {
-              "name": "punctuation.separator.comma.abl"
-            }
-          }
-        },
-        {
-          "include": "#buffer-for-table"
+          "include": "#like-field"
         },
         {
           "include": "#extent"
         },
         {
-          "include": "#property-call"
-        },
-        {
-          "include": "#abl-system-handles"
-        },
-        {
-          "include": "#abl-functions"
-        },
-        {
-          "include": "#array-literal"
-        },
-        {
-          "include": "#decimals"
-        },
-        {
-          "include": "#constant"
-        },
-        {
-          "include": "#keywords"
-        },
-        {
-          "include": "#handle-attributes-and-methods"
-        },
-        {
-          "include": "#type-names"
+          "include": "#buffer-for-table"
         },
         {
           "include": "#string"
         },
         {
+          "comment": "To capture .NET generic type names that need to be quoted in certain OE versions",
           "include": "#comment"
         },
         {
           "include": "#preprocessors"
+        },
+        {
+          "include": "#parameter-name"
+        },
+        {
+          "include": "#punctuation-comma"
         }
       ]
     },
@@ -537,6 +535,9 @@
         },
         {
           "include": "#transaction-distinct"
+        },
+        {
+          "include": "#catch-block"
         },
         {
           "include": "#block-statement"
@@ -747,6 +748,9 @@
         {
           "match": "(?i)((&)(elseif|endif|else|then|if))\\s*",
           "captures": {
+            "1": {
+              "name": "meta.preprocessor.abl"
+            },
             "2": {
               "name": "punctuation.definition.preprocessor.abl"
             },
@@ -758,6 +762,9 @@
         {
           "match": "(?i)((&)(message))\\s*",
           "captures": {
+            "1": {
+              "name": "meta.preprocessor.abl"
+            },
             "2": {
               "name": "punctuation.definition.preprocessor.abl"
             },
@@ -1319,6 +1326,9 @@
           "include": "#fields-except-list"
         },
         {
+          "include": "#comment"
+        },
+        {
           "include": "#of-phrase"
         },
         {
@@ -1639,49 +1649,6 @@
         }
       ]
     },
-    "parameter-as": {
-      "begin": "\\s*([a-zA-Z0-9_\\-#$%]+)\\s+([Aa][Ss])\\s+",
-      "beginCaptures": {
-        "1": {
-          "name": "variable.parameter.abl"
-        },
-        "2": {
-          "name": "keyword.other.abl"
-        }
-      },
-      "end": "(?=\\s|\\)|\\.|,)",
-      "patterns": [
-        {
-          "match": "\\b([Cc][Ll][Aa][Ss]{2})\\b",
-          "captures": {
-            "1": {
-              "name": "keyword.other.abl"
-            }
-          }
-        },
-        {
-          "include": "#primitive-type"
-        },
-        {
-          "include": "#dll-type"
-        },
-        {
-          "include": "#type-names"
-        },
-        {
-          "include": "#parens"
-        },
-        {
-          "include": "#string"
-        },
-        {
-          "include": "#punctuation-period"
-        },
-        {
-          "include": "#punctuation-comma"
-        }
-      ]
-    },
     "input-output-from-to": {
       "begin": "(?i)\\b(input|output)\\s+((stream|stream-handle)\\s+([a-zA-Z_][a-zA-Z0-9_#$\\-%&]*)\\s+)?(from|to)",
       "beginCaptures": {
@@ -1913,9 +1880,6 @@
           "include": "#define-field"
         },
         {
-          "include": "#parameter-as"
-        },
-        {
           "include": "#define-stream"
         },
         {
@@ -2095,6 +2059,12 @@
           "include": "#comment"
         },
         {
+          "include":"#preprocessors"
+        },
+        {
+          "include": "#abl-functions"
+        },
+        {
           "include": "#db-dot-table-dot-field"
         },
         {
@@ -2112,56 +2082,26 @@
           "name": "keyword.other.abl"
         }
       },
-      "end": "(?i)(?=\\.)|\\b(?=(bgc(?:olor|olo|ol|o)?)|(column-lab(?:el|e)?)|context-help-id|dcolor|decimals|drop-target|extent|font|(fgc(?:olor|olo|ol|o)?)|(form(?:at|a)?)|initial|label|(mouse-p(?:ointer|ointe|oint|oin|oi|o)?)|no-undo|not|(case-sen(?:sitive|sitiv|siti|sit|si|s)?)|(pfc(?:olor|olo|ol|o)?)|view-as|triggers)\\b",
+      "end": "(?i)(?=\\.)|\\s(?=decimals|extent|(form(?:at|a)?)|initial|label|no-undo|not|(case-sen(?:sitive|sitiv|siti|sit|si|s)?)|(column-lab(?:el|e)?)|append|bind|by-value)\\b",
       "comment": "The end capture does a lookahead on . so that the 'define' capture can end ",
       "patterns": [
         {
-          "match": "(?i)\\b(table)\\s+(for)\\s+([a-zA-Z][a-zA-Z_\\-#$%]*(\\.[a-zA-Z][a-zA-Z_\\-#$%]*)?)\\b",
-          "captures": {
-            "1": {
-              "name": "keyword.other.abl"
-            },
-            "2": {
-              "name": "keyword.other.abl"
-            },
-            "3": {
-              "name": "storage.data.table.abl"
-            }
-          }
+          "include": "#parameter-table"
         },
         {
-          "match": "(?i)\\b(table-handle|dataset-handle)\\s+([a-zA-Z_][a-zA-Z0-9_#$\\-%&]*)\\b",
-          "captures": {
-            "1": {
-              "name": "keyword.other.abl"
-            },
-            "2": {
-              "name": "variable.other.abl"
-            }
-          }
+          "include": "#parameter-table-dataset-handle"
         },
         {
-          "match": "(?i)\\b(dataset)\\s+(for)\\s+([a-zA-Z_\\-#$%]+(\\.[a-zA-Z_\\-#$%]+)?)\\b",
-          "captures": {
-            "1": {
-              "name": "keyword.other.abl"
-            },
-            "2": {
-              "name": "keyword.other.abl"
-            },
-            "3": {
-              "name": "storage.data.dataset.abl"
-            }
-          }
+          "include": "#parameter-dataset"
         },
         {
-          "include": "#parameter-as"
+          "include": "#as-type"
         },
         {
-          "include": "#keywords"
+          "include": "#like-field"
         },
         {
-          "include": "#expression"
+          "include": "#parameter-name"
         }
       ]
     },
@@ -2355,7 +2295,7 @@
       },
       "patterns": [
         {
-          "match": "(?i)\\s*(for|table|no-error)\\s*",
+          "match": "(?i)\\s*(for|table|no-error)\\b",
           "captures": {
             "1": {
               "name": "keyword.other.abl"
@@ -2364,6 +2304,12 @@
         },
         {
           "include": "#define-table"
+        },
+        {
+          "include": "#handle-attributes-and-methods"
+        },
+        {
+          "include": "#type-member-call"
         },
         {
           "include": "#buffer-name"
@@ -2963,6 +2909,29 @@
         }
       ]
     },
+    "catch-block": {
+      "begin": "\\s*([Cc][Aa][Tt][Cc][Hh])\\s+",
+      "beginCaptures": {
+        "1": {
+          "name": "keyword.other.abl"
+        }
+      },
+      "end": "(?=:)",
+      "patterns": [
+          {
+            "include": "#as-type"
+          },
+          {
+            "include": "#variable-name"
+          },
+          {
+            "include": "#comment"
+          },
+          {
+            "include": "#preprocessors"
+          }
+      ]
+    },
     "from-to-by": {
       "begin": "\\s*([a-zA-Z0-9_\\-#$%$\\-_%&]+)\\s+(=)\\s*",
       "beginCaptures": {
@@ -3389,9 +3358,12 @@
     "global-scoped-define": {
       "patterns": [
         {
-          "begin": "(?i)^\\s*((&)(scop(?:ed-define|ed-defin|ed-defi|ed-def|ed-de|ed-d|ed-|ed|e)?))\\s*",
+          "begin": "(?i)\\s*((&)(scop(?:ed-define|ed-defin|ed-defi|ed-def|ed-de|ed-d|ed-|ed|e)?))\\s*",
           "name": "meta.preprocessor.abl",
           "beginCaptures": {
+            "1": {
+              "name": "meta.preprocessor.abl"
+            },
             "2": {
               "name": "punctuation.definition.preprocessor.abl"
             },
@@ -3415,7 +3387,7 @@
           ]
         },
         {
-          "begin": "(?i)^\\s*((&)(glob(?:al-define|al-defin|al-defi|al-def|al-de|al-d|al-|al|a)?))\\s*",
+          "begin": "(?i)\\s*((&)(glob(?:al-define|al-defin|al-defi|al-def|al-de|al-d|al-|al|a)?))\\s*",
           "name": "meta.preprocessor.abl",
           "beginCaptures": {
             "2": {
@@ -3532,6 +3504,9 @@
           "include": "#abl-system-handles"
         },
         {
+          "include": "#dynamic-buffer-field-access"
+        },
+        {
           "include": "#new-record"
         },
         {
@@ -3547,6 +3522,12 @@
           "include": "#abl-functions"
         },
         {
+          "include": "#handle-methods"
+        },
+        {
+          "include": "#handle-attributes"
+        },
+        {
           "include": "#type-member-call"
         },
         {
@@ -3560,9 +3541,6 @@
         },
         {
           "include": "#code-block"
-        },
-        {
-          "include": "#handle-attributes"
         },
         {
           "include": "#preprocessors"
@@ -3656,6 +3634,9 @@
         },
         {
           "include": "#abl-functions"
+        },
+        {
+          "include": "#handle-attributes-and-methods"
         },
         {
           "include": "#type-member-call"
@@ -3869,8 +3850,12 @@
       ]
     },
     "parameter-name": {
-      "match": "(?<=^|\\s)(a-zA-Z0-9_\\-#$%|-)+(?=\\s)",
-      "name": "variable.parameter.abl"
+        "match": "\\s*([a-zA-Z0-9_\\-#$%]+)\\s*",
+        "captures": {
+          "1": {
+            "name": "variable.parameter.abl"
+          }
+        }
     },
     "transaction-distinct": {
       "match": "(?i)\\b(transaction)\\s+(distinct)\\b",

@@ -539,3 +539,54 @@ XlsxVersCsv
   ];
   shared.itShouldMatchExpectedScopes(statement, expectedTokens);
 })
+
+describe('', () => {
+  let statement = `// method name and parameters are the correct scopes
+METHOD LOGICAL XlsxVersCsv
+(p-file AS CHARACTER,p-sheetnum AS INT, ipY like db.table.field, ipX like table.field ):`;
+
+  let expectedTokens = [
+    [
+      { "startIndex": 0, "endIndex": 52, "scopes": ["source.abl", "comment.line.double-slash.abl"] }  // '// method name and parameters are the correct scopes'
+    ],
+    [
+      { "startIndex": 0, "endIndex": 6, "scopes": ["source.abl", "meta.define.method.abl", "keyword.other.abl"] },  // 'METHOD'
+      { "startIndex": 6, "endIndex": 7, "scopes": ["source.abl", "meta.define.method.abl"] },  // ' '
+      { "startIndex": 7, "endIndex": 14, "scopes": ["source.abl", "meta.define.method.abl", "storage.type.abl"] },  // 'LOGICAL'
+      { "startIndex": 14, "endIndex": 15, "scopes": ["source.abl", "meta.define.method.abl"] },  // ' '
+      { "startIndex": 15, "endIndex": 26, "scopes": ["source.abl", "meta.define.method.abl", "entity.name.function.abl"] }  // 'XlsxVersCsv'
+    ],
+    [
+      { "startIndex": 0, "endIndex": 1, "scopes": ["source.abl", "meta.define.method.abl", "meta.brace.round.abl"] },  // '('
+      { "startIndex": 1, "endIndex": 7, "scopes": ["source.abl", "meta.define.method.abl", "variable.parameter.abl"] },  // 'p-file'
+      { "startIndex": 7, "endIndex": 8, "scopes": ["source.abl", "meta.define.method.abl"] },  // ' '
+      { "startIndex": 8, "endIndex": 10, "scopes": ["source.abl", "meta.define.method.abl", "keyword.other.abl"] },  // 'AS'
+      { "startIndex": 10, "endIndex": 11, "scopes": ["source.abl", "meta.define.method.abl"] },  // ' '
+      { "startIndex": 11, "endIndex": 20, "scopes": ["source.abl", "meta.define.method.abl", "storage.type.abl"] },  // 'CHARACTER'
+      { "startIndex": 20, "endIndex": 21, "scopes": ["source.abl", "meta.define.method.abl", "punctuation.separator.comma.abl"] },  // ','
+      { "startIndex": 21, "endIndex": 31, "scopes": ["source.abl", "meta.define.method.abl", "variable.parameter.abl"] },  // 'p-sheetnum'
+      { "startIndex": 31, "endIndex": 32, "scopes": ["source.abl", "meta.define.method.abl"] },  // ' '
+      { "startIndex": 32, "endIndex": 34, "scopes": ["source.abl", "meta.define.method.abl", "keyword.other.abl"] },  // 'AS'
+      { "startIndex": 34, "endIndex": 35, "scopes": ["source.abl", "meta.define.method.abl"] },  // ' '
+      { "startIndex": 35, "endIndex": 38, "scopes": ["source.abl", "meta.define.method.abl", "storage.type.abl"] },  // 'INT'
+      { "startIndex": 38, "endIndex": 39, "scopes": ["source.abl", "meta.define.method.abl", "punctuation.separator.comma.abl"] },  // ','
+      { "startIndex": 39, "endIndex": 40, "scopes": ["source.abl", "meta.define.method.abl"] },  // ' '
+      { "startIndex": 40, "endIndex": 43, "scopes": ["source.abl", "meta.define.method.abl", "variable.parameter.abl"] },  // 'ipY'
+      { "startIndex": 43, "endIndex": 44, "scopes": ["source.abl", "meta.define.method.abl"] },  // ' '
+      { "startIndex": 44, "endIndex": 48, "scopes": ["source.abl", "meta.define.method.abl", "keyword.other.abl"] },  // 'like'
+      { "startIndex": 48, "endIndex": 49, "scopes": ["source.abl", "meta.define.method.abl"] },  // ' '
+      { "startIndex": 49, "endIndex": 63, "scopes": ["source.abl", "meta.define.method.abl", "storage.data.table.abl"] },  // 'db.table.field'
+      { "startIndex": 63, "endIndex": 64, "scopes": ["source.abl", "meta.define.method.abl", "punctuation.separator.comma.abl"] },  // ','
+      { "startIndex": 64, "endIndex": 65, "scopes": ["source.abl", "meta.define.method.abl"] },  // ' '
+      { "startIndex": 65, "endIndex": 68, "scopes": ["source.abl", "meta.define.method.abl", "variable.parameter.abl"] },  // 'ipX'
+      { "startIndex": 68, "endIndex": 69, "scopes": ["source.abl", "meta.define.method.abl"] },  // ' '
+      { "startIndex": 69, "endIndex": 73, "scopes": ["source.abl", "meta.define.method.abl", "keyword.other.abl"] },  // 'like'
+      { "startIndex": 73, "endIndex": 74, "scopes": ["source.abl", "meta.define.method.abl"] },  // ' '
+      { "startIndex": 74, "endIndex": 85, "scopes": ["source.abl", "meta.define.method.abl", "storage.data.table.abl"] },  // 'table.field'
+      { "startIndex": 85, "endIndex": 86, "scopes": ["source.abl", "meta.define.method.abl"] },  // ' '
+      { "startIndex": 86, "endIndex": 87, "scopes": ["source.abl", "meta.define.method.abl", "meta.brace.round.abl"] },  // ')'
+      { "startIndex": 87, "endIndex": 88, "scopes": ["source.abl", "punctuation.terminator.abl"] }  // ':'
+    ]
+  ];
+  shared.itShouldMatchExpectedScopes(statement, expectedTokens);
+})

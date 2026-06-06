@@ -108,3 +108,107 @@ describe('', () => {
   ];
   shared.itShouldMatchExpectedScopes(statement, expectedTokens);
 })
+
+describe('', () => {
+  let statement = `for FIRST web-cart /*FIELDS (web-key bom-key kit-seq-num SYSTEM-ID)*/ WHERE
+                     web-cart.system-id = user-ctl.system-id[14] AND
+                     web-cart.web-key = DECIMAL(ip-web-key)
+                     NO-LOCK,
+               FIRST web-track /*FIELDS (user-id ship-via cust-seq-num cust-po-number web-status order-num SYSTEM-ID
+                                       card-number)*/ WHERE
+                     web-track.system-id = user-ctl.system-id[{&web-track-sys-id}] AND
+                     web-track.web-key = DECIMAL(web-cart.web-key)
+                     NO-LOCK:`;
+  let expectedTokens = [
+    [
+      { "startIndex": 0, "endIndex": 3, "scopes": ["source.abl", "keyword.other.abl"] },  // 'for'
+      { "startIndex": 3, "endIndex": 4, "scopes": ["source.abl"] },  // ' '
+      { "startIndex": 4, "endIndex": 9, "scopes": ["source.abl", "keyword.other.abl"] },  // 'FIRST'
+      { "startIndex": 9, "endIndex": 10, "scopes": ["source.abl"] },  // ' '
+      { "startIndex": 10, "endIndex": 18, "scopes": ["source.abl", "storage.data.table.abl"] },  // 'web-cart'
+      { "startIndex": 18, "endIndex": 19, "scopes": ["source.abl"] },  // ' '
+      { "startIndex": 19, "endIndex": 21, "scopes": ["source.abl", "comment.block.abl"] },  // '/*'
+      { "startIndex": 21, "endIndex": 67, "scopes": ["source.abl", "comment.block.abl", "comment"] },  // 'FIELDS (web-key bom-key kit-seq-num SYSTEM-ID)'
+      { "startIndex": 67, "endIndex": 69, "scopes": ["source.abl", "comment.block.abl"] },  // '*/'
+      { "startIndex": 69, "endIndex": 70, "scopes": ["source.abl"] },  // ' '
+      { "startIndex": 70, "endIndex": 75, "scopes": ["source.abl", "keyword.other.abl"] }  // 'WHERE'
+    ],
+    [
+      { "startIndex": 0, "endIndex": 21, "scopes": ["source.abl"] },  // '                     '
+      { "startIndex": 21, "endIndex": 39, "scopes": ["source.abl", "storage.data.table.abl"] },  // 'web-cart.system-id'
+      { "startIndex": 39, "endIndex": 40, "scopes": ["source.abl"] },  // ' '
+      { "startIndex": 40, "endIndex": 41, "scopes": ["source.abl", "keyword.operator.abl"] },  // '='
+      { "startIndex": 41, "endIndex": 42, "scopes": ["source.abl"] },  // ' '
+      { "startIndex": 42, "endIndex": 60, "scopes": ["source.abl", "storage.data.table.abl"] },  // 'user-ctl.system-id'
+      { "startIndex": 60, "endIndex": 61, "scopes": ["source.abl", "meta.array.literal.abl", "punctuation.definition.bracket.square.begin.abl"] },  // '['
+      { "startIndex": 61, "endIndex": 63, "scopes": ["source.abl", "meta.array.literal.abl", "constant.numeric.abl"] },  // '14'
+      { "startIndex": 63, "endIndex": 64, "scopes": ["source.abl", "meta.array.literal.abl", "punctuation.definition.bracket.square.end.abl"] },  // ']'
+      { "startIndex": 64, "endIndex": 65, "scopes": ["source.abl"] },  // ' '
+      { "startIndex": 65, "endIndex": 68, "scopes": ["source.abl", "keyword.other.abl"] }  // 'AND'
+    ],
+    [
+      { "startIndex": 0, "endIndex": 21, "scopes": ["source.abl"] },  // '                     '
+      { "startIndex": 21, "endIndex": 37, "scopes": ["source.abl", "storage.data.table.abl"] },  // 'web-cart.web-key'
+      { "startIndex": 37, "endIndex": 38, "scopes": ["source.abl"] },  // ' '
+      { "startIndex": 38, "endIndex": 39, "scopes": ["source.abl", "keyword.operator.abl"] },  // '='
+      { "startIndex": 39, "endIndex": 40, "scopes": ["source.abl"] },  // ' '
+      { "startIndex": 40, "endIndex": 47, "scopes": ["source.abl", "support.function.abl"] },  // 'DECIMAL'
+      { "startIndex": 47, "endIndex": 48, "scopes": ["source.abl", "meta.brace.round.abl"] },  // '('
+      { "startIndex": 48, "endIndex": 58, "scopes": ["source.abl", "variable.other.abl"] },  // 'ip-web-key'
+      { "startIndex": 58, "endIndex": 59, "scopes": ["source.abl", "meta.brace.round.abl"] }  // ')'
+    ],
+    [
+      { "startIndex": 0, "endIndex": 21, "scopes": ["source.abl"] },  // '                     '
+      { "startIndex": 21, "endIndex": 28, "scopes": ["source.abl", "keyword.other.abl"] },  // 'NO-LOCK'
+      { "startIndex": 28, "endIndex": 29, "scopes": ["source.abl", "punctuation.separator.comma.abl"] }  // ','
+    ],
+    [
+      { "startIndex": 0, "endIndex": 15, "scopes": ["source.abl"] },  // '               '
+      { "startIndex": 15, "endIndex": 20, "scopes": ["source.abl", "keyword.other.abl"] },  // 'FIRST'
+      { "startIndex": 20, "endIndex": 21, "scopes": ["source.abl"] },  // ' '
+      { "startIndex": 21, "endIndex": 30, "scopes": ["source.abl", "storage.data.table.abl"] },  // 'web-track'
+      { "startIndex": 30, "endIndex": 31, "scopes": ["source.abl"] },  // ' '
+      { "startIndex": 31, "endIndex": 33, "scopes": ["source.abl", "comment.block.abl"] },  // '/*'
+      { "startIndex": 33, "endIndex": 117, "scopes": ["source.abl", "comment.block.abl", "comment"] }  // 'FIELDS (user-id ship-via cust-seq-num cust-po-number web-status order-num SYSTEM-ID'
+    ],
+    [
+      { "startIndex": 0, "endIndex": 51, "scopes": ["source.abl", "comment.block.abl", "comment"] },  // '                                       card-number)'
+      { "startIndex": 51, "endIndex": 53, "scopes": ["source.abl", "comment.block.abl"] },  // '*/'
+      { "startIndex": 53, "endIndex": 54, "scopes": ["source.abl"] },  // ' '
+      { "startIndex": 54, "endIndex": 59, "scopes": ["source.abl", "keyword.other.abl"] }  // 'WHERE'
+    ],
+    [
+      { "startIndex": 0, "endIndex": 21, "scopes": ["source.abl"] },  // '                     '
+      { "startIndex": 21, "endIndex": 40, "scopes": ["source.abl", "storage.data.table.abl"] },  // 'web-track.system-id'
+      { "startIndex": 40, "endIndex": 41, "scopes": ["source.abl"] },  // ' '
+      { "startIndex": 41, "endIndex": 42, "scopes": ["source.abl", "keyword.operator.abl"] },  // '='
+      { "startIndex": 42, "endIndex": 43, "scopes": ["source.abl"] },  // ' '
+      { "startIndex": 43, "endIndex": 61, "scopes": ["source.abl", "storage.data.table.abl"] },  // 'user-ctl.system-id'
+      { "startIndex": 61, "endIndex": 62, "scopes": ["source.abl", "meta.array.literal.abl", "punctuation.definition.bracket.square.begin.abl"] },  // '['
+      { "startIndex": 62, "endIndex": 63, "scopes": ["source.abl", "meta.array.literal.abl", "meta.preprocessor.abl", "punctuation.section.abl"] },  // '{'
+      { "startIndex": 63, "endIndex": 64, "scopes": ["source.abl", "meta.array.literal.abl", "meta.preprocessor.abl", "punctuation.definition.preprocessor.abl"] },  // '&'
+      { "startIndex": 64, "endIndex": 80, "scopes": ["source.abl", "meta.array.literal.abl", "meta.preprocessor.abl", "entity.name.function.preprocessor.abl"] },  // 'web-track-sys-id'
+      { "startIndex": 80, "endIndex": 81, "scopes": ["source.abl", "meta.array.literal.abl", "meta.preprocessor.abl", "punctuation.section.abl"] },  // '}'
+      { "startIndex": 81, "endIndex": 82, "scopes": ["source.abl", "meta.array.literal.abl", "punctuation.definition.bracket.square.end.abl"] },  // ']'
+      { "startIndex": 82, "endIndex": 83, "scopes": ["source.abl"] },  // ' '
+      { "startIndex": 83, "endIndex": 86, "scopes": ["source.abl", "keyword.other.abl"] }  // 'AND'
+    ],
+    [
+      { "startIndex": 0, "endIndex": 21, "scopes": ["source.abl"] },  // '                     '
+      { "startIndex": 21, "endIndex": 38, "scopes": ["source.abl", "storage.data.table.abl"] },  // 'web-track.web-key'
+      { "startIndex": 38, "endIndex": 39, "scopes": ["source.abl"] },  // ' '
+      { "startIndex": 39, "endIndex": 40, "scopes": ["source.abl", "keyword.operator.abl"] },  // '='
+      { "startIndex": 40, "endIndex": 41, "scopes": ["source.abl"] },  // ' '
+      { "startIndex": 41, "endIndex": 48, "scopes": ["source.abl", "support.function.abl"] },  // 'DECIMAL'
+      { "startIndex": 48, "endIndex": 49, "scopes": ["source.abl", "meta.brace.round.abl"] },  // '('
+      { "startIndex": 49, "endIndex": 65, "scopes": ["source.abl", "storage.data.table.abl"] },  // 'web-cart.web-key'
+      { "startIndex": 65, "endIndex": 66, "scopes": ["source.abl", "meta.brace.round.abl"] }  // ')'
+    ],
+    [
+      { "startIndex": 0, "endIndex": 21, "scopes": ["source.abl"] },  // '                     '
+      { "startIndex": 21, "endIndex": 28, "scopes": ["source.abl", "keyword.other.abl"] },  // 'NO-LOCK'
+      { "startIndex": 28, "endIndex": 29, "scopes": ["source.abl", "punctuation.terminator.abl"] }  // ':'
+    ]
+  ];
+  shared.itShouldMatchExpectedScopes(statement, expectedTokens);
+})

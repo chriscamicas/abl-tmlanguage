@@ -152,3 +152,135 @@ ttVal.field =  hDSet::Customer::CustNum.`;
   ];
   shared.itShouldMatchExpectedScopes(statement, expectedTokens);
 })
+
+describe('', () => {
+  let statement = `if smartBusinessEntityAdapter1:QueryHandle:get-buffer-handle (1):AVAILABLE then do:
+    if smartBusinessEntityAdapter1:QueryHandle:get-buffer-handle (1)::BusinessEntityPackage > "":U then
+        assign cEntityName = substitute ("&1.&2":U,
+                                          smartBusinessEntityAdapter1:QueryHandle:get-buffer-handle (1)::BusinessEntityPackage,
+                                          smartBusinessEntityAdapter1:QueryHandle:get-buffer-handle (1)::BusinessEntityName) .
+    else
+        assign cEntityName = smartBusinessEntityAdapter1:QueryHandle:get-buffer-handle (1)::BusinessEntityName .`;
+  let expectedTokens = [
+    [
+      { "startIndex": 0, "endIndex": 2, "scopes": ["source.abl", "keyword.other.abl"] },  // 'if'
+      { "startIndex": 2, "endIndex": 3, "scopes": ["source.abl"] },  // ' '
+      { "startIndex": 3, "endIndex": 30, "scopes": ["source.abl", "variable.other.abl"] },  // 'smartBusinessEntityAdapter1'
+      { "startIndex": 30, "endIndex": 31, "scopes": ["source.abl", "punctuation.accessor.abl"] },  // ':'
+      { "startIndex": 31, "endIndex": 42, "scopes": ["source.abl", "entity.name.function.abl"] },  // 'QueryHandle'
+      { "startIndex": 42, "endIndex": 43, "scopes": ["source.abl", "punctuation.accessor.abl"] },  // ':'
+      { "startIndex": 43, "endIndex": 60, "scopes": ["source.abl", "support.function.abl"] },  // 'get-buffer-handle'
+      { "startIndex": 60, "endIndex": 61, "scopes": ["source.abl"] },  // ' '
+      { "startIndex": 61, "endIndex": 62, "scopes": ["source.abl", "meta.brace.round.abl"] },  // '('
+      { "startIndex": 62, "endIndex": 63, "scopes": ["source.abl", "constant.numeric.abl"] },  // '1'
+      { "startIndex": 63, "endIndex": 64, "scopes": ["source.abl", "meta.brace.round.abl"] },  // ')'
+      { "startIndex": 64, "endIndex": 65, "scopes": ["source.abl", "punctuation.accessor.abl"] },  // ':'
+      { "startIndex": 65, "endIndex": 74, "scopes": ["source.abl", "entity.name.function.abl"] },  // 'AVAILABLE'
+      { "startIndex": 74, "endIndex": 75, "scopes": ["source.abl"] },  // ' '
+      { "startIndex": 75, "endIndex": 79, "scopes": ["source.abl", "keyword.other.abl"] },  // 'then'
+      { "startIndex": 79, "endIndex": 80, "scopes": ["source.abl", "meta.block.abl"] },  // ' '
+      { "startIndex": 80, "endIndex": 82, "scopes": ["source.abl", "meta.block.abl", "keyword.other.abl"] },  // 'do'
+      { "startIndex": 82, "endIndex": 83, "scopes": ["source.abl", "punctuation.terminator.abl"] }  // ':'
+    ],
+    [
+      { "startIndex": 0, "endIndex": 4, "scopes": ["source.abl"] },  // '    '
+      { "startIndex": 4, "endIndex": 6, "scopes": ["source.abl", "keyword.other.abl"] },  // 'if'
+      { "startIndex": 6, "endIndex": 7, "scopes": ["source.abl"] },  // ' '
+      { "startIndex": 7, "endIndex": 34, "scopes": ["source.abl", "variable.other.abl"] },  // 'smartBusinessEntityAdapter1'
+      { "startIndex": 34, "endIndex": 35, "scopes": ["source.abl", "punctuation.accessor.abl"] },  // ':'
+      { "startIndex": 35, "endIndex": 46, "scopes": ["source.abl", "entity.name.function.abl"] },  // 'QueryHandle'
+      { "startIndex": 46, "endIndex": 47, "scopes": ["source.abl", "punctuation.accessor.abl"] },  // ':'
+      { "startIndex": 47, "endIndex": 64, "scopes": ["source.abl", "support.function.abl"] },  // 'get-buffer-handle'
+      { "startIndex": 64, "endIndex": 65, "scopes": ["source.abl"] },  // ' '
+      { "startIndex": 65, "endIndex": 66, "scopes": ["source.abl", "meta.brace.round.abl"] },  // '('
+      { "startIndex": 66, "endIndex": 67, "scopes": ["source.abl", "constant.numeric.abl"] },  // '1'
+      { "startIndex": 67, "endIndex": 68, "scopes": ["source.abl", "meta.brace.round.abl"] },  // ')'
+      { "startIndex": 68, "endIndex": 70, "scopes": ["source.abl", "punctuation.accessor.abl"] },  // '::'
+      { "startIndex": 70, "endIndex": 91, "scopes": ["source.abl", "storage.data.table.abl"] },  // 'BusinessEntityPackage'
+      { "startIndex": 91, "endIndex": 92, "scopes": ["source.abl"] },  // ' '
+      { "startIndex": 92, "endIndex": 93, "scopes": ["source.abl", "keyword.operator.abl"] },  // '>'
+      { "startIndex": 93, "endIndex": 94, "scopes": ["source.abl"] },  // ' '
+      { "startIndex": 94, "endIndex": 95, "scopes": ["source.abl", "string.quoted.double.abl", "punctuation.definition.string.begin.abl"] },  // '"'
+      { "startIndex": 95, "endIndex": 96, "scopes": ["source.abl", "string.quoted.double.abl", "punctuation.definition.string.end.abl"] },  // '"'
+      { "startIndex": 96, "endIndex": 98, "scopes": ["source.abl", "string.quoted.double.abl", "support.other.abl"] },  // ':U'
+      { "startIndex": 98, "endIndex": 99, "scopes": ["source.abl"] },  // ' '
+      { "startIndex": 99, "endIndex": 103, "scopes": ["source.abl", "keyword.other.abl"] }  // 'then'
+    ],
+    [
+      { "startIndex": 0, "endIndex": 8, "scopes": ["source.abl"] },  // '        '
+      { "startIndex": 8, "endIndex": 14, "scopes": ["source.abl", "keyword.other.abl"] },  // 'assign'
+      { "startIndex": 14, "endIndex": 15, "scopes": ["source.abl"] },  // ' '
+      { "startIndex": 15, "endIndex": 26, "scopes": ["source.abl", "variable.other.abl"] },  // 'cEntityName'
+      { "startIndex": 26, "endIndex": 27, "scopes": ["source.abl"] },  // ' '
+      { "startIndex": 27, "endIndex": 28, "scopes": ["source.abl", "keyword.operator.abl"] },  // '='
+      { "startIndex": 28, "endIndex": 29, "scopes": ["source.abl"] },  // ' '
+      { "startIndex": 29, "endIndex": 39, "scopes": ["source.abl", "support.function.abl"] },  // 'substitute'
+      { "startIndex": 39, "endIndex": 40, "scopes": ["source.abl"] },  // ' '
+      { "startIndex": 40, "endIndex": 41, "scopes": ["source.abl", "meta.brace.round.abl"] },  // '('
+      { "startIndex": 41, "endIndex": 42, "scopes": ["source.abl", "string.quoted.double.abl", "punctuation.definition.string.begin.abl"] },  // '"'
+      { "startIndex": 42, "endIndex": 47, "scopes": ["source.abl", "string.quoted.double.abl"] },  // '&1.&2'
+      { "startIndex": 47, "endIndex": 48, "scopes": ["source.abl", "string.quoted.double.abl", "punctuation.definition.string.end.abl"] },  // '"'
+      { "startIndex": 48, "endIndex": 50, "scopes": ["source.abl", "string.quoted.double.abl", "support.other.abl"] },  // ':U'
+      { "startIndex": 50, "endIndex": 51, "scopes": ["source.abl", "punctuation.separator.comma.abl"] }  // ','
+    ],
+    [
+      { "startIndex": 0, "endIndex": 42, "scopes": ["source.abl"] },  // '                                          '
+      { "startIndex": 42, "endIndex": 69, "scopes": ["source.abl", "variable.other.abl"] },  // 'smartBusinessEntityAdapter1'
+      { "startIndex": 69, "endIndex": 70, "scopes": ["source.abl", "punctuation.accessor.abl"] },  // ':'
+      { "startIndex": 70, "endIndex": 81, "scopes": ["source.abl", "entity.name.function.abl"] },  // 'QueryHandle'
+      { "startIndex": 81, "endIndex": 82, "scopes": ["source.abl", "punctuation.accessor.abl"] },  // ':'
+      { "startIndex": 82, "endIndex": 99, "scopes": ["source.abl", "support.function.abl"] },  // 'get-buffer-handle'
+      { "startIndex": 99, "endIndex": 100, "scopes": ["source.abl"] },  // ' '
+      { "startIndex": 100, "endIndex": 101, "scopes": ["source.abl", "meta.brace.round.abl"] },  // '('
+      { "startIndex": 101, "endIndex": 102, "scopes": ["source.abl", "constant.numeric.abl"] },  // '1'
+      { "startIndex": 102, "endIndex": 103, "scopes": ["source.abl", "meta.brace.round.abl"] },  // ')'
+      { "startIndex": 103, "endIndex": 105, "scopes": ["source.abl", "punctuation.accessor.abl"] },  // '::'
+      { "startIndex": 105, "endIndex": 126, "scopes": ["source.abl", "storage.data.table.abl"] },  // 'BusinessEntityPackage'
+      { "startIndex": 126, "endIndex": 127, "scopes": ["source.abl", "punctuation.separator.comma.abl"] }  // ','
+    ],
+    [
+      { "startIndex": 0, "endIndex": 42, "scopes": ["source.abl"] },  // '                                          '
+      { "startIndex": 42, "endIndex": 69, "scopes": ["source.abl", "variable.other.abl"] },  // 'smartBusinessEntityAdapter1'
+      { "startIndex": 69, "endIndex": 70, "scopes": ["source.abl", "punctuation.accessor.abl"] },  // ':'
+      { "startIndex": 70, "endIndex": 81, "scopes": ["source.abl", "entity.name.function.abl"] },  // 'QueryHandle'
+      { "startIndex": 81, "endIndex": 82, "scopes": ["source.abl", "punctuation.accessor.abl"] },  // ':'
+      { "startIndex": 82, "endIndex": 99, "scopes": ["source.abl", "support.function.abl"] },  // 'get-buffer-handle'
+      { "startIndex": 99, "endIndex": 100, "scopes": ["source.abl"] },  // ' '
+      { "startIndex": 100, "endIndex": 101, "scopes": ["source.abl", "meta.brace.round.abl"] },  // '('
+      { "startIndex": 101, "endIndex": 102, "scopes": ["source.abl", "constant.numeric.abl"] },  // '1'
+      { "startIndex": 102, "endIndex": 103, "scopes": ["source.abl", "meta.brace.round.abl"] },  // ')'
+      { "startIndex": 103, "endIndex": 105, "scopes": ["source.abl", "punctuation.accessor.abl"] },  // '::'
+      { "startIndex": 105, "endIndex": 123, "scopes": ["source.abl", "storage.data.table.abl"] },  // 'BusinessEntityName'
+      { "startIndex": 123, "endIndex": 124, "scopes": ["source.abl", "meta.brace.round.abl"] },  // ')'
+      { "startIndex": 124, "endIndex": 125, "scopes": ["source.abl"] },  // ' '
+      { "startIndex": 125, "endIndex": 126, "scopes": ["source.abl", "punctuation.terminator.abl"] }  // '.'
+    ],
+    [
+      { "startIndex": 0, "endIndex": 4, "scopes": ["source.abl"] },  // '    '
+      { "startIndex": 4, "endIndex": 8, "scopes": ["source.abl", "keyword.other.abl"] }  // 'else'
+    ],
+    [
+      { "startIndex": 0, "endIndex": 8, "scopes": ["source.abl"] },  // '        '
+      { "startIndex": 8, "endIndex": 14, "scopes": ["source.abl", "keyword.other.abl"] },  // 'assign'
+      { "startIndex": 14, "endIndex": 15, "scopes": ["source.abl"] },  // ' '
+      { "startIndex": 15, "endIndex": 26, "scopes": ["source.abl", "variable.other.abl"] },  // 'cEntityName'
+      { "startIndex": 26, "endIndex": 27, "scopes": ["source.abl"] },  // ' '
+      { "startIndex": 27, "endIndex": 28, "scopes": ["source.abl", "keyword.operator.abl"] },  // '='
+      { "startIndex": 28, "endIndex": 29, "scopes": ["source.abl"] },  // ' '
+      { "startIndex": 29, "endIndex": 56, "scopes": ["source.abl", "variable.other.abl"] },  // 'smartBusinessEntityAdapter1'
+      { "startIndex": 56, "endIndex": 57, "scopes": ["source.abl", "punctuation.accessor.abl"] },  // ':'
+      { "startIndex": 57, "endIndex": 68, "scopes": ["source.abl", "entity.name.function.abl"] },  // 'QueryHandle'
+      { "startIndex": 68, "endIndex": 69, "scopes": ["source.abl", "punctuation.accessor.abl"] },  // ':'
+      { "startIndex": 69, "endIndex": 86, "scopes": ["source.abl", "support.function.abl"] },  // 'get-buffer-handle'
+      { "startIndex": 86, "endIndex": 87, "scopes": ["source.abl"] },  // ' '
+      { "startIndex": 87, "endIndex": 88, "scopes": ["source.abl", "meta.brace.round.abl"] },  // '('
+      { "startIndex": 88, "endIndex": 89, "scopes": ["source.abl", "constant.numeric.abl"] },  // '1'
+      { "startIndex": 89, "endIndex": 90, "scopes": ["source.abl", "meta.brace.round.abl"] },  // ')'
+      { "startIndex": 90, "endIndex": 92, "scopes": ["source.abl", "punctuation.accessor.abl"] },  // '::'
+      { "startIndex": 92, "endIndex": 110, "scopes": ["source.abl", "storage.data.table.abl"] },  // 'BusinessEntityName'
+      { "startIndex": 110, "endIndex": 111, "scopes": ["source.abl"] },  // ' '
+      { "startIndex": 111, "endIndex": 112, "scopes": ["source.abl", "punctuation.terminator.abl"] }  // '.'
+    ]
+  ];
+  shared.itShouldMatchExpectedScopes(statement, expectedTokens);
+})
