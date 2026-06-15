@@ -1,3 +1,9 @@
+1.4.1
+=====
+
+- ✨ Support LIKE in parameter definitions
+- ✨ Improve ABL methods in parameters
+
 1.4.0
 =====
 
