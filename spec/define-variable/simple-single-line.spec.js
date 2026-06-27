@@ -179,3 +179,22 @@ describe('', () => {
   ];
   shared.itShouldMatchExpectedScopes(statement, expectedTokens);
 })
+
+describe('', () => {
+  let statement = `DEF VAR not-soft-qty     AS DEC NO-UNDO.`;
+  let expectedTokens = [
+    { "startIndex": 0, "endIndex": 3, "scopes": ["source.abl", "meta.define.abl", "keyword.other.abl"] },  // 'DEF'
+    { "startIndex": 3, "endIndex": 4, "scopes": ["source.abl", "meta.define.abl"] },  // ' '
+    { "startIndex": 4, "endIndex": 7, "scopes": ["source.abl", "meta.define.abl", "keyword.other.abl"] },  // 'VAR'
+    { "startIndex": 7, "endIndex": 8, "scopes": ["source.abl", "meta.define.abl"] },  // ' '
+    { "startIndex": 8, "endIndex": 20, "scopes": ["source.abl", "meta.define.abl", "variable.other.abl"] },  // 'not-soft-qty'
+    { "startIndex": 20, "endIndex": 25, "scopes": ["source.abl", "meta.define.abl"] },  // '     '
+    { "startIndex": 25, "endIndex": 27, "scopes": ["source.abl", "meta.define.abl", "keyword.other.abl"] },  // 'AS'
+    { "startIndex": 27, "endIndex": 28, "scopes": ["source.abl", "meta.define.abl"] },  // ' '
+    { "startIndex": 28, "endIndex": 31, "scopes": ["source.abl", "meta.define.abl", "storage.type.abl"] },  // 'DEC'
+    { "startIndex": 31, "endIndex": 32, "scopes": ["source.abl", "meta.define.abl"] },  // ' '
+    { "startIndex": 32, "endIndex": 39, "scopes": ["source.abl", "meta.define.abl", "keyword.other.abl"] },  // 'NO-UNDO'
+    { "startIndex": 39, "endIndex": 40, "scopes": ["source.abl", "meta.define.abl", "punctuation.terminator.abl"] }  // '.'
+  ];
+  shared.itShouldMatchExpectedScopes(statement, expectedTokens);
+})

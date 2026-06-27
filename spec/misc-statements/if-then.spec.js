@@ -88,7 +88,7 @@ describe('', () => {
       { "startIndex": 20, "endIndex": 22, "scopes": ["source.abl", "keyword.other.abl"] },  // 'as'
       { "startIndex": 22, "endIndex": 23, "scopes": ["source.abl"] },  // ' '
       { "startIndex": 23, "endIndex": 42, "scopes": ["source.abl", "entity.name.type.abl"] },  // 'Progress.Lang.Error'
-      { "startIndex": 42, "endIndex": 43, "scopes": ["source.abl"] }  // ':'
+      { "startIndex": 42, "endIndex": 43, "scopes": ["source.abl", "punctuation.terminator.abl"] }  // ':'
     ],
     [
       { "startIndex": 0, "endIndex": 10, "scopes": ["source.abl"] },  // '          '

@@ -212,3 +212,48 @@ describe('', () => {
   ];
   shared.itShouldMatchExpectedScopes(statement, expectedTokens);
 })
+
+describe('', () => {
+  let statement = `for each customer exclusive:`;
+  let expectedTokens = [
+    { "startIndex": 0, "endIndex": 3, "scopes": ["source.abl", "keyword.other.abl"] },  // 'for'
+    { "startIndex": 3, "endIndex": 4, "scopes": ["source.abl"] },  // ' '
+    { "startIndex": 4, "endIndex": 8, "scopes": ["source.abl", "keyword.other.abl"] },  // 'each'
+    { "startIndex": 8, "endIndex": 9, "scopes": ["source.abl"] },  // ' '
+    { "startIndex": 9, "endIndex": 17, "scopes": ["source.abl", "storage.data.table.abl"] },  // 'customer'
+    { "startIndex": 17, "endIndex": 18, "scopes": ["source.abl"] },  // ' '
+    { "startIndex": 18, "endIndex": 27, "scopes": ["source.abl", "keyword.other.abl"] },  // 'exclusive'
+    { "startIndex": 27, "endIndex": 28, "scopes": ["source.abl", "punctuation.terminator.abl"] }  // ':'
+  ];
+  shared.itShouldMatchExpectedScopes(statement, expectedTokens);
+})
+
+describe('', () => {
+  let statement = `for each customer share:`;
+  let expectedTokens = [
+    { "startIndex": 0, "endIndex": 3, "scopes": ["source.abl", "keyword.other.abl"] },  // 'for'
+    { "startIndex": 3, "endIndex": 4, "scopes": ["source.abl"] },  // ' '
+    { "startIndex": 4, "endIndex": 8, "scopes": ["source.abl", "keyword.other.abl"] },  // 'each'
+    { "startIndex": 8, "endIndex": 9, "scopes": ["source.abl"] },  // ' '
+    { "startIndex": 9, "endIndex": 17, "scopes": ["source.abl", "storage.data.table.abl"] },  // 'customer'
+    { "startIndex": 17, "endIndex": 18, "scopes": ["source.abl"] },  // ' '
+    { "startIndex": 18, "endIndex": 23, "scopes": ["source.abl", "keyword.other.abl"] },  // 'share'
+    { "startIndex": 23, "endIndex": 24, "scopes": ["source.abl", "punctuation.terminator.abl"] }  // ':'
+  ];
+  shared.itShouldMatchExpectedScopes(statement, expectedTokens);
+})
+
+describe('', () => {
+  let statement = `for each customer exclusive-lo:`;
+  let expectedTokens = [
+    { "startIndex": 0, "endIndex": 3, "scopes": ["source.abl", "keyword.other.abl"] },  // 'for'
+    { "startIndex": 3, "endIndex": 4, "scopes": ["source.abl"] },  // ' '
+    { "startIndex": 4, "endIndex": 8, "scopes": ["source.abl", "keyword.other.abl"] },  // 'each'
+    { "startIndex": 8, "endIndex": 9, "scopes": ["source.abl"] },  // ' '
+    { "startIndex": 9, "endIndex": 17, "scopes": ["source.abl", "storage.data.table.abl"] },  // 'customer'
+    { "startIndex": 17, "endIndex": 18, "scopes": ["source.abl"] },  // ' '
+    { "startIndex": 18, "endIndex": 30, "scopes": ["source.abl", "keyword.other.abl"] },  // 'exclusive-lo'
+    { "startIndex": 30, "endIndex": 31, "scopes": ["source.abl", "punctuation.terminator.abl"] }  // ':'
+  ];
+  shared.itShouldMatchExpectedScopes(statement, expectedTokens);
+})
