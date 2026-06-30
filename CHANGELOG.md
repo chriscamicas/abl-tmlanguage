@@ -1,3 +1,8 @@
+1.4.2
+=====
+
+- ✨ Improve scoping for INPUT statements, AS <type>, variable definition, *-LOCK (#89)
+
 1.4.1
 =====
 
