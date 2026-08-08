@@ -2118,7 +2118,7 @@
           "name": "keyword.other.abl"
         }
       },
-      "end": "(?i)(?=\\.)|\\s(?=decimals|extent|(form(?:at|a)?)|initial|label|no-undo|not|(case-sen(?:sitive|sitiv|siti|sit|si|s)?)|(column-lab(?:el|e)?)|append|bind|by-value)\\b",
+      "end": "(?i)(?=\\.)|(?=\\s+(decimals|extent|(form(?:at|a)?)|initial|label|no-undo|not|(case-sen(?:sitive|sitiv|siti|sit|si|s)?)|(column-lab(?:el|e)?)|append|bind|by-value))\\b",
       "comment": "The end capture does a lookahead on . so that the 'define' capture can end ",
       "patterns": [
         {
