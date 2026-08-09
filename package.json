@@ -1,12 +1,12 @@
 {
   "name": "abl-tmlanguage",
-  "version": "1.4.2",
+  "version": "1.4.3",
   "description": "TextMate grammar for Progress OpenEdge ABL Language",
   "main": "",
   "type": "commonjs",
   "repository": {
     "type": "git",
-    "url": "git@github.com:chriscamicas/abl-tmlanguage.git"
+    "url": "git+ssh://git@github.com/chriscamicas/abl-tmlanguage.git"
   },
   "author": "Christophe Camicas",
   "license": "MIT",

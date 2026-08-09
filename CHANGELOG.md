@@ -1,3 +1,8 @@
+1.4.3
+=====
+
+- 🐛 Improve scope closing for define parameter statement (vscode-abl/vscode-abl#582)
+
 1.4.2
 =====
 
