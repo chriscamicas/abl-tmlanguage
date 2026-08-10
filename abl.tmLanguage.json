@@ -3962,7 +3962,7 @@
     "include-file": {
       "name": "meta.include.abl",
       "comment": "https://docs.progress.com/bundle/abl-reference/page/Include-file-reference.html. Filesystem names can be unicode",
-      "begin": "({)\\s*(?!&)(([\"]?)([\\\\\/\\w$\\-\\.]+)([\"]?))",
+      "begin": "({)\\s*(?!&)((\")([^\"]*)(\")|([\\\\\/\\w$\\-\\.]+))",
       "beginCaptures": {
         "1": {
           "name": "punctuation.section.abl"
@@ -3975,6 +3975,9 @@
         },
         "5": {
           "name": "punctuation.definition.string.end.abl"
+        },
+        "6": {
+          "name": "entity.name.include.abl"
         }
       },
       "end": "\\s*(\\s*})\\s*",
