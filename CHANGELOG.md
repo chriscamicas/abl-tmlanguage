@@ -1,3 +1,8 @@
+1.4.4
+=====
+
+- ✨ Allow spaces in include files (#91)
+
 1.4.3
 =====
 
