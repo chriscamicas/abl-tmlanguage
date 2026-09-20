@@ -90,8 +90,8 @@ The ABL-specific scopes produced by the ABL grammar listed in the table below. T
 |keyword.operator.abl                             | `contains`, `begins`, `matches`, `eq`, `le`, `lt`, `ge`, `gt`, `ne`, `<=`, `<>`, `>=`, `=`, `+`, `-`, `/`, `<`, `>`, `*`, `+=`, `-=`, `/=`, `*=`, `?:` |
 |keyword.other.abl                                | Any ABL keyword (incl those covered by other scopes like `support.function.abl` and `entity.name.function.abl`) |
 |punctuation.accessor.abl                         | `:` when used for method, property and attribute access. `::` when used to reference buffer field names or dataset buffer names|
-|punctuation.definition.bracket.square.begin.abl  |  `[` used for array arguments |
-|punctuation.definition.bracket.square.end.abl    |  `]` used for array arguments |
+|punctuation.definition.bracket.square.begin.abl  |  `[` used for array arguments and strongly-typed annotations |
+|punctuation.definition.bracket.square.end.abl    |  `]` used for array arguments and strongly-typed annotations |
 |punctuation.definition.generic.begin.abl         |  `<` used for generic type arguments |
 |punctuation.definition.generic.end.abl           |  `>` used for generic type arguments |
 |punctuation.definition.preprocessor.abl          | Leading `&` of referenced preprocessor and directives |

@@ -954,6 +954,9 @@
         },
         {
           "include": "#define-enum-type"
+        },
+        {
+          "include": "#define-annotation"
         }
       ]
     },
@@ -1063,6 +1066,33 @@
         },
         {
           "include": "#punctuation-comma"
+        }
+      ]
+    },
+    "define-annotation": {
+      "comment": "Type names are files, so support unicode",
+      "name": "meta.define.interface.abl",
+      "begin": "(?i)\\b(annotation)\\s+([\\w#$%]+[\\w#$%\\.]*(\\s*<\\s*[\\w#$%\\.]+\\s*\\>)?)",
+      "beginCaptures": {
+        "1": {
+          "name": "keyword.other.abl"
+        },
+        "2": {
+          "name": "entity.name.type.abl"
+        }
+      },
+      "end": "\\s*(:)",
+      "endCaptures": {
+        "1": {
+          "name": "punctuation.terminator.abl"
+        }
+      },
+      "patterns": [
+        {
+          "include": "#comment"
+        },
+        {
+          "include": "#preprocessor-reference"
         }
       ]
     },
@@ -1803,6 +1833,9 @@
         },
         {
           "include": "#annotation-simple"
+        },
+        {
+          "include": "#annotation-strong-type"
         }
       ]
     },
@@ -1826,6 +1859,13 @@
       "end": "(?=\\.)",
       "patterns": [
         {
+          "include": "#annotation-key-values"
+        }
+      ]
+    },
+    "annotation-key-values": {
+      "patterns": [
+        {
           "include": "#parens"
         },
         {
@@ -1844,6 +1884,29 @@
         },
         {
           "include": "#punctuation-comma"
+        }
+      ]
+    },
+    "annotation-strong-type": {
+      "comment": "[annot]",
+      "begin": "(^|\\s+)((\\[)([a-zA-Z_][a-zA-Z0-9_#$\\-%&\\.]*))\\s*(?=\\(|\\])",
+      "beginCaptures": {
+        "3":{
+          "name": "punctuation.definition.bracket.square.begin.abl"
+        },
+        "4": {
+          "name": "entity.name.tag.abl"
+        }
+      },
+      "end": "(\\])",
+      "endCaptures": {
+        "1": {
+          "name": "punctuation.definition.bracket.square.end.abl"
+        }
+      },
+      "patterns": [
+        {
+          "include": "#annotation-key-values"
         }
       ]
     },
@@ -2149,7 +2212,7 @@
         }
       },
       "comment": "This match just gets the definition of the property; the getter and setter are handled separately",
-      "end": "\\s*(?=[Gg][Ee][Tt]|[Ss][Ee][Tt])",
+      "end": "\\s*(?=[Gg][Ee][Tt]|[Ss][Ee][Tt]|\\.|[Nn][Oo]-[Uu][Nn][Dd][Oo])",
       "patterns": [
         {
           "include": "#property-as"
@@ -2183,6 +2246,9 @@
         },
         {
           "include": "#type-names"
+        },
+        {
+          "include": "#preprocessor-reference"
         }
       ]
     },
@@ -2884,7 +2950,7 @@
     },
     "end-block": {
       "comment": "Certain blocks have the option of END <block name>",
-      "match": "(?i)\\s*(end)\\s+(case|catch|class|constructor|destructor|enum|finally|function|get|interface|method|procedure|set|triggers)\\s*",
+      "match": "(?i)\\s*(end)\\s+(annotation|case|catch|class|constructor|destructor|enum|finally|function|get|interface|method|procedure|set|triggers)\\s*",
       "captures": {
         "1": {
           "name": "keyword.other.abl"
