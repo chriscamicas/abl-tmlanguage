@@ -1,6 +1,11 @@
 1.4.4
 =====
 
+- ✨ Support strongly-typed annotations
+
+1.4.4
+=====
+
 - ✨ Allow spaces in include files (#91)
 
 1.4.3
