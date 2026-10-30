@@ -452,3 +452,47 @@ END.`;
   ];
   shared.itShouldMatchExpectedScopes(statement, expectedTokens);
 })
+
+describe('', () => {
+  let statement = `IF lCountTotal
+THEN FOR EACH tt-order NO-LOCK:
+  dTotal = dTotal + tt-order.amount.
+END.`;
+  let expectedTokens = [
+    [
+      { "startIndex": 0, "endIndex": 2, "scopes": ["source.abl", "keyword.other.abl"] },  // 'IF'
+      { "startIndex": 2, "endIndex": 3, "scopes": ["source.abl"] },  // ' '
+      { "startIndex": 3, "endIndex": 14, "scopes": ["source.abl", "variable.other.abl"] }  // 'lCountTotal'
+    ],
+    [
+      { "startIndex": 0, "endIndex": 4, "scopes": ["source.abl", "keyword.other.abl"] },  // 'THEN'
+      { "startIndex": 4, "endIndex": 5, "scopes": ["source.abl"] },  // ' '
+      { "startIndex": 5, "endIndex": 8, "scopes": ["source.abl", "keyword.other.abl"] },  // 'FOR'
+      { "startIndex": 8, "endIndex": 9, "scopes": ["source.abl"] },  // ' '
+      { "startIndex": 9, "endIndex": 13, "scopes": ["source.abl", "keyword.other.abl"] },  // 'EACH'
+      { "startIndex": 13, "endIndex": 14, "scopes": ["source.abl"] },  // ' '
+      { "startIndex": 14, "endIndex": 22, "scopes": ["source.abl", "storage.data.table.abl"] },  // 'tt-order'
+      { "startIndex": 22, "endIndex": 23, "scopes": ["source.abl"] },  // ' '
+      { "startIndex": 23, "endIndex": 30, "scopes": ["source.abl", "keyword.other.abl"] },  // 'NO-LOCK'
+      { "startIndex": 30, "endIndex": 31, "scopes": ["source.abl", "punctuation.terminator.abl"] }  // ':'
+    ],
+    [
+      { "startIndex": 0, "endIndex": 2, "scopes": ["source.abl"] },  // '  '
+      { "startIndex": 2, "endIndex": 8, "scopes": ["source.abl", "variable.other.abl"] },  // 'dTotal'
+      { "startIndex": 8, "endIndex": 9, "scopes": ["source.abl"] },  // ' '
+      { "startIndex": 9, "endIndex": 10, "scopes": ["source.abl", "keyword.operator.abl"] },  // '='
+      { "startIndex": 10, "endIndex": 11, "scopes": ["source.abl"] },  // ' '
+      { "startIndex": 11, "endIndex": 17, "scopes": ["source.abl", "variable.other.abl"] },  // 'dTotal'
+      { "startIndex": 17, "endIndex": 18, "scopes": ["source.abl"] },  // ' '
+      { "startIndex": 18, "endIndex": 19, "scopes": ["source.abl", "keyword.operator.abl"] },  // '+'
+      { "startIndex": 19, "endIndex": 20, "scopes": ["source.abl"] },  // ' '
+      { "startIndex": 20, "endIndex": 35, "scopes": ["source.abl", "storage.data.table.abl"] },  // 'tt-order.amount'
+      { "startIndex": 35, "endIndex": 36, "scopes": ["source.abl", "punctuation.terminator.abl"] }  // '.'
+    ],
+    [
+      { "startIndex": 0, "endIndex": 3, "scopes": ["source.abl", "keyword.other.abl"] },  // 'END'
+      { "startIndex": 3, "endIndex": 4, "scopes": ["source.abl", "punctuation.terminator.abl"] }  // '.'
+    ]
+  ];
+  shared.itShouldMatchExpectedScopes(statement, expectedTokens);
+})

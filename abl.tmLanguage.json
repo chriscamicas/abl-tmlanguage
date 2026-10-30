@@ -12,6 +12,17 @@
     }
   ],
   "repository": {
+    "delete-record": {
+      "match": "(?i)\\s*(delete)\\s+(?!procedure|object|alias|widget|widget-pool)([a-zA-Z_][a-zA-Z0-9#$\\-_%&]*(\\.[a-zA-Z_][a-zA-Z0-9#$\\-_%&]*)?)(?=[^a-zA-Z0-9#$\\-_%&])\\b",
+      "captures": {
+        "1": {
+          "name": "keyword.other.abl"
+        },
+        "2": {
+          "name": "storage.data.table.abl"
+        }
+      }
+    },
     "trigger-procedure": {
       "begin": "(?i)\\b(trigger)\\s+(proce(?:dure|dur|du|d)?)\\b",
       "beginCaptures": {
@@ -324,7 +335,7 @@
             "match": "\\s*([Ii][Nn][Pp][Uu][Tt])\\s+([Cc][Ll][Ee][Aa][Rr])\\b",
             "captures": {
               "1": {
-                "name": "keyword.other.ablt"
+                "name": "keyword.other.abl"
               },
               "2": {
                 "name": "keyword.other.abl"
@@ -494,6 +505,9 @@
     "statements": {
       "name": "meta.statements.abl",
       "patterns": [
+        {
+          "include": "#delete-record"
+        },
         {
           "include": "#input-statements"
         },
@@ -702,12 +716,6 @@
         },
         {
           "include": "#dll-type"
-        },
-        {
-          "include": "#parameter-as"
-        },
-        {
-          "include": "#buffer-for-table"
         },
         {
           "include": "#primitive-type"
