@@ -1,4 +1,9 @@
-1.4.4
+1.4.6
+=====
+
+- 🐛 Fix DELETE \<record> and fix THEN FOR highlighting (#93)
+
+1.4.5
 =====
 
 - ✨ Support strongly-typed annotations
@@ -16,7 +21,7 @@
 1.4.2
 =====
 
-- ✨ Improve scoping for INPUT statements, AS <type>, variable definition, *-LOCK (#89)
+- ✨ Improve scoping for INPUT statements, AS \<type>, variable definition, *-LOCK (#89)
 
 1.4.1
 =====
@@ -58,7 +63,7 @@
 1.3.25
 ======
 
-- 🐛 Fix scope for VAR CLASS <primitive> to not capture VAR ClassSomething (PR #73, issue vscode-abl/vscode-abl#488)
+- 🐛 Fix scope for VAR CLASS \<primitive> to not capture VAR ClassSomething (PR #73, issue vscode-abl/vscode-abl#488)
 
 1.3.24
 ======
